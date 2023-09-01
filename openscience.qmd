@@ -1,0 +1,3 @@
+# Open Science {#sec-open-science .unnumbered}
+
+Our goal in this part of the book is to

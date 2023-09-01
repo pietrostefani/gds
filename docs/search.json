@@ -33,5 +33,75 @@
     "title": "References",
     "section": "",
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "openscience.html",
+    "href": "openscience.html",
+    "title": "Open Science",
+    "section": "",
+    "text": "Our goal in this part of the book is to"
+  },
+  {
+    "objectID": "overview.html#aims",
+    "href": "overview.html#aims",
+    "title": "Overview",
+    "section": "Aims",
+    "text": "Aims\nThis module aims to:"
+  },
+  {
+    "objectID": "overview.html#learning-outcomes",
+    "href": "overview.html#learning-outcomes",
+    "title": "Overview",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nBy the end of the module, students should be able to:\nFor All\n\nDemonstrate advanced GIS/GDS concepts and be able to use the tools programmatically to import, manipulate and analyse data in different formats.\nUnderstand the motivation and inner workings of the main methodological approaches of GDS, both analytical and visual.\nEvaluate the suitability of a specific technique, what it can offer and how it can help answer questions of interest.\nApply a number of spatial analysis techniques and how to interpret the results, in the process of turning data into information.\nWhen faced with a new data-set, work independently using GIS/GDS tools programmatically.\n\nOnly for MSc-level students (6) Demonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations."
+  },
+  {
+    "objectID": "overview.html#feedback",
+    "href": "overview.html#feedback",
+    "title": "Overview",
+    "section": "Feedback",
+    "text": "Feedback\nFILL IN"
+  },
+  {
+    "objectID": "overview.html#computational-environment",
+    "href": "overview.html#computational-environment",
+    "title": "Overview",
+    "section": "Computational Environment",
+    "text": "Computational Environment\nADD SOMETHING ABOUR R or Python\nEDIT the below\nThis course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists everything you will require, but keep in mind that different blocks do not always require everything all the time.\nTo reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our R installation guide.\n\nSoftware\nEDIT\nTo run the analysis and reproduce the code, you need the following software:\n\nQGIS- the stable version (3.22 LTR at the time of writing) is OK, any more recent version will also work.\nR-4.2.2\nRStudio 2022.12.0-353\nQuarto 1.2.280\nthe list of libraries in the next section\n\nTo install and update:\n\nQGIS, download the appropriate version from QGIS.org\nR, download the appropriate version from The Comprehensive R Archive Network (CRAN)\nRStudio, download the appropriate version from Posit\nQuarto, download the appropriate version from the Quarto website\n\nTo check your version of:\n\nR and libraries run sessionInfo()\nRStudio click help on the menu bar and then About\nQuarto check the version file in the quarto folder on your computer.\n\n\n\nR List of libraries\nThe list of libraries used in this book is provided below:\n\n\nPython set-up\n\n\nOnline accounts"
+  },
+  {
+    "objectID": "assess.html#assignment-i",
+    "href": "assess.html#assignment-i",
+    "title": "Assessments",
+    "section": "Assignment I",
+    "text": "Assignment I\n\nDesign, data and assemblage.\n\n\nSubmit"
+  },
+  {
+    "objectID": "assess.html#assignment-ii",
+    "href": "assess.html#assignment-ii",
+    "title": "Assessments",
+    "section": "Assignment II",
+    "text": "Assignment II\n\nTitle:\nType:\nDue date:\nXX% of the final mark\nChance to be reassessed\nElectronic submission only\n\n\nSubmit\n\n\nHow is this assignment useful?"
+  },
+  {
+    "objectID": "assess.html#marking-criteria",
+    "href": "assess.html#marking-criteria",
+    "title": "Assessments",
+    "section": "Marking Criteria",
+    "text": "Marking Criteria\nThis course follows the standard marking criteria (the general ones and those relating to GIS assignments in particular) set by the School of Environmental Sciences. Please make sure to check the student handbook and familiarise with them. In addition to these generic criteria, the following specific criteria will be used in cases where computer code is part of the work being assessed:\n\n0-15: the code does not run and there is no documentation to follow it.\n16-39: the code does not run, or runs but it does not produce the expected outcome. There is some documentation explaining its logic.\n40-49: the code runs and produces the expected output. There is some documentation explaining its logic.\n50-59: the code runs and produces the expected output. There is extensive documentation explaining its logic.\n60-69: the code runs and produces the expected output. There is extensive documentation, properly formatted, explaining its logic.\n70-79: all as above, plus the code design includes clear evidence of skills presented in advanced sections of the course (e.g. custom methods, list comprehensions, etc.).\n80-100: all as above, plus the code contains novel contributions that extend/improve the functionality the student was provided with (e.g. algorithm optimizations, novel methods to perform the task, etc.)."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Insert Course Structure"
+  },
+  {
+    "objectID": "concepts_openscience.html",
+    "href": "concepts_openscience.html",
+    "title": "Concepts",
+    "section": "",
+    "text": "bla bla bla"
   }
 ]

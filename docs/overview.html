@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr.&nbsp;Elisabetta Pietrostefani &amp; Dr.&nbsp;Carmen Cabrera-Arnau">
-<meta name="dcterms.date" content="2023-09-01">
 
-<title>Geographic Data Science in R and Python</title>
+<title>Geographic Data Science in R and Python - Overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./assess.html" rel="next">
+<link href="./syllabus.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,8 +62,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python">
-<meta name="twitter:description" content="This is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr.&nbsp;Elisabetta Pietrostefani and Dr.">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - Overview">
+<meta name="twitter:description" content="This module aims to:">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -75,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Geographic Data Science in R and Python</h1>
+      <h1 class="quarto-secondary-nav-title">Overview</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -133,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overview.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="./overview.html" class="sidebar-item-text sidebar-link active">Overview</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -149,11 +148,6 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./concepts_openscience.html" class="sidebar-item-text sidebar-link">Concepts</a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./openscienceR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">OpenScience in R</span></a>
@@ -180,38 +174,32 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
+  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims">Aims</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback">Feedback</a></li>
+  <li><a href="#computational-environment" id="toc-computational-environment" class="nav-link" data-scroll-target="#computational-environment">Computational Environment</a>
   <ul class="collapse">
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#r-list-of-libraries" id="toc-r-list-of-libraries" class="nav-link" data-scroll-target="#r-list-of-libraries">R List of libraries</a></li>
+  <li><a href="#python-set-up" id="toc-python-set-up" class="nav-link" data-scroll-target="#python-set-up">Python set-up</a></li>
+  <li><a href="#online-accounts" id="toc-online-accounts" class="nav-link" data-scroll-target="#online-accounts">Online accounts</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/index.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/overview.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Geographic Data Science in R and Python</h1>
+<h1 class="title d-none d-lg-block">Overview</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dr.&nbsp;Elisabetta Pietrostefani &amp; Dr.&nbsp;Carmen Cabrera-Arnau </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 1, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -219,18 +207,67 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome</h1>
-<p>This is the website for the “Geographic Data Science” module <strong>ENVS363/563</strong> at the University of Liverpool. This is course designed and delivered by Dr.&nbsp;Elisabetta Pietrostefani and Dr.&nbsp;Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. The module has two main aims. First, … Second, …</p>
-<p>The website is <strong>free to use</strong> and is licensed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 International</a>. A compilation of this web course is hosted as a GitHub repository that you can access:</p>
-<section id="contact" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact">Contact</h2>
-<blockquote class="blockquote">
-<p>Elisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Carmen Cabrera-Arnau - darribas [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.</p>
-</blockquote>
+<section id="aims" class="level2">
+<h2 class="anchored" data-anchor-id="aims">Aims</h2>
+<p>This module aims to:</p>
+</section>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
+<p>By the end of the module, students should be able to:</p>
+<p><strong>For All</strong></p>
+<ol type="1">
+<li><p>Demonstrate advanced GIS/GDS concepts and be able to use the tools programmatically to import, manipulate and analyse data in different formats.</p></li>
+<li><p>Understand the motivation and inner workings of the main methodological approaches of GDS, both analytical and visual.</p></li>
+<li><p>Evaluate the suitability of a specific technique, what it can offer and how it can help answer questions of interest.</p></li>
+<li><p>Apply a number of spatial analysis techniques and how to interpret the results, in the process of turning data into information.</p></li>
+<li><p>When faced with a new data-set, work independently using GIS/GDS tools programmatically.</p></li>
+</ol>
+<p><strong>Only for MSc-level students</strong> (6) Demonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations.</p>
+</section>
+<section id="feedback" class="level2">
+<h2 class="anchored" data-anchor-id="feedback">Feedback</h2>
+<p>FILL IN</p>
+</section>
+<section id="computational-environment" class="level2">
+<h2 class="anchored" data-anchor-id="computational-environment">Computational Environment</h2>
+<p>ADD SOMETHING ABOUR R or Python</p>
+<p>EDIT the below</p>
+<p>This course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists <em>everything</em> you will require, but keep in mind that different blocks do not always require everything all the time.</p>
+<p>To reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our <a href="https://gdsl-ul.github.io/r_install/">R installation guide</a>.</p>
+<section id="software" class="level3">
+<h3 class="anchored" data-anchor-id="software">Software</h3>
+<p>EDIT</p>
+<p>To run the analysis and reproduce the code, you need the following software:</p>
+<ul>
+<li>QGIS- the stable version (3.22 LTR at the time of writing) is OK, any more recent version will also work.</li>
+<li>R-4.2.2</li>
+<li>RStudio 2022.12.0-353</li>
+<li>Quarto 1.2.280</li>
+<li>the list of libraries in the next section</li>
+</ul>
+<p>To install and update:</p>
+<ul>
+<li>QGIS, download the appropriate version from <a href="https://www.qgis.org/en/site/forusers/download.html">QGIS.org</a></li>
+<li>R, download the appropriate version from <a href="https://cran.r-project.org">The Comprehensive R Archive Network (CRAN)</a></li>
+<li>RStudio, download the appropriate version from <a href="https://posit.co/download/rstudio-desktop/">Posit</a></li>
+<li>Quarto, download the appropriate version from <a href="https://quarto.org/docs/get-started/">the Quarto website</a></li>
+</ul>
+<p>To check your version of:</p>
+<ul>
+<li>R and libraries run <code>sessionInfo()</code></li>
+<li>RStudio click <code>help</code> on the menu bar and then <code>About</code></li>
+<li>Quarto check the <code>version</code> file in the quarto folder on your computer.</li>
+</ul>
+</section>
+<section id="r-list-of-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="r-list-of-libraries">R List of libraries</h3>
+<p>The list of libraries used in this book is provided below:</p>
+</section>
+<section id="python-set-up" class="level3">
+<h3 class="anchored" data-anchor-id="python-set-up">Python set-up</h3>
+</section>
+<section id="online-accounts" class="level3">
+<h3 class="anchored" data-anchor-id="online-accounts">Online accounts</h3>
 
 
 </section>
@@ -372,10 +409,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./syllabus.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./assess.html" class="pagination-link">
+        <span class="nav-page-text">Assessments</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
