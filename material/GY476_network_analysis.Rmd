@@ -1,0 +1,469 @@
+---
+title: "GY476_network_analysis"
+author: "Elisabetta Pietrostefani & Louise Bernard"
+date: "Updated 22/11/2022"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+---
+
+# **Introduction** 
+
+In this tutorial, we are going to learn about Network Analysis.
+
+When it comes to analyzing networks spatially - transport is a great example
+The effort of moving (overcoming distance) is central to the 'first law' of geography, defined by Waldo Tobler in 1970 as follows (Miller 2004):
+
+_Everything is related to everything else, but near things are more related than distant things_
+
+## Install all relevant packages
+
+* `sfnetworks`: Tidy Geospatial Networks in R
+* `igraph` : is a library and R package for network analysis.
+* `jsonlite`: This package JSON parser/generator optimized for the web. Its main strength is implementing a bidirectional mapping between JSON data and the most common R data types. This package is ideal for interacting with web APIs or building pipelines where data structures seamlessly flow in and out of R using JSON.
+* `stplanr`: Tools for transport planning with an emphasis on spatial transport data and non-motorized modes. 
+
+Other useful R packages:
+* The `tidygraph` and `ggraph` represent an attempt to [bring network analysis into the tidyverse workflow](http://www.data-imaginist.com/2017/Introducing-tidygraph/). 
+Makes it possible to use many of the `dplyr` functions to manipulate network data. [`ggraph`](https://cran.r-project.org/web/packages/ggraph/index.html) gives a way to plot network graphs using the conventions and power of `ggplot2`. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if(!require("sf")) install.packages("sf")
+if(!require("tidygraph")) install.packages("tidygraph")
+if(!require("igraph")) install.packages("igraph")
+if(!require("ggraph")) install.packages("ggraph")
+if(!require("osmdata")) install.packages("osmdata")
+if(!require("ggplot2")) install.packages("ggplot2")
+devtools::install_github("luukvdmeer/sfnetworks", force=TRUE)
+if(!require("mapview")) install.packages("mapview")
+if(!require("dplyr")) install.packages("dplyr")
+if(!require("tmap")) install.packages("tmap")
+if(!require("jsonlite")) install.packages("jsonlite")
+if(!require("data.table")) install.packages("data.table")
+if(!require("classInt")) install.packages("classInt")
+if(!require("httr")) install.packages("httr")
+if(!require("tidyverse")) install.packages("tidyverse")
+if(!require("stplanr")) install.packages("stplanr")
+```
+
+# Sfnetworks : creating network graphs
+
+From an sf object with linestring geometries
+```{r roxel}
+library(sfnetworks)
+roxel
+
+net = as_sfnetwork(roxel)
+plot(net)
+```
+
+## Extraction
+
+Neither all sf functions nor all tidyverse verbs can be directly applied to a sfnetwork as described above. That is because there is a clear limitation in the relational data structure that requires rows to maintain their identity. Hence, a verb like dplyr::summarise() has no clear application for a network. For sf functions, this means also that the valid spatial network structure should be maintained. That is, functions that summarise geometries of an sf object, or (may) change their type, shape or position, are not supported directly. These are for example most of the geometric unary operations.
+
+These functions cannot be directly applied to a sfnetwork, but no need to panic! The active element of the network can at any time be extracted with sf::st_as_sf() (or tibble::as_tibble()). This allows you to continue a specific part of your analysis outside of the network structure, using a regular sf object. Afterwards you could join inferred information back into the network. See the vignette about spatial joins for more details.
+
+```{r nodes and edges}
+net %>%
+  activate("nodes") %>%
+  st_as_sf()
+
+st_as_sf(net, "edges")
+```
+
+If you have ggplot2 installed, you can also use ggplot2::autoplot() to directly create a simple ggplot of the network.
+
+```{r autoplot}
+autoplot(net) + ggtitle("Road network of Münster Roxel")
+```
+
+# Routing with sfnetworks
+
+Calculating shortest paths between pairs of nodes is a core task in network analysis. The sfnetworks package offers wrappers around the path calculation functions of igraph, making it easier to use them when working with spatial data and tidyverse packages. With sfnetworks you can easily perform:
+
+* Calculating shortest paths
+* Retrieving an OD cost matrix
+* Closest facility analysis
+* Route optimization
+* Isochrones and isodistances
+
+Refer back to the ppt slides and https://luukvdmeer.github.io/sfnetworks/articles/sfn04_routing.html.
+
+## Calculating shortest paths
+The function st_network_paths() is a wrapper around the igraph function igraph::shortest_paths(). There are two main differences:
+
+* Besides node indices and node names, st_network_paths() gives the additional option to provide any (set of) geospatial point(s) as from and to location(s) of the shortest paths, either as sf or sfc object. Provided points that do not equal any node in the network will be snapped to their nearest node before calculating the paths.
+* To allow smooth integration with the tidyverse, the output of st_network_paths() is a tibble, with one row per returned path. The column node_paths contains the ordered list of node indices in the path, and the column edge_paths contains the ordered list of edge indices in the path.
+* Just as igraph::shortest_paths(), the st_network_paths() function is meant for one-to-one and one-to-many routing. Hence, it is only possible to provide a single from location, while the to locations can be more than one.
+
+Lets start with the most basic example of providing node indices as from and to locations. Remember that a node index in a sfnetwork refers to the position of the node in the nodes table of the network (i.e. its row number). There is also the possibility to use character encoded node names instead of numeric node indices. This requires the nodes table to have a column name with a unique name for each node.
+
+We will use geographic edge lengths as the edge weights to be used for shortest paths calculation. In weighted networks, igraph::shortest_paths() applies the **Dijkstra algorithm** to find the shortest paths. In the case of unweighted networks, it uses breadth-first search instead.
+
+```{r shortest path, message=FALSE}
+net = as_sfnetwork(roxel, directed = FALSE) %>%
+  st_transform(3035) %>% # CRS
+  activate("edges") %>% # Activation of edges
+  mutate(weight = edge_length())
+
+paths = st_network_paths(net, from = 495, to = c(458, 121), weights = "weight")
+paths
+
+paths %>%
+  slice(1) %>%
+  pull(node_paths) %>%
+  unlist()
+
+paths %>%
+  slice(1) %>%
+  pull(edge_paths) %>%
+  unlist()
+
+plot_path = function(node_path) {
+  net %>%
+    activate("nodes") %>%
+    slice(node_path) %>%
+    plot(cex = 1.5, lwd = 1.5, add = TRUE)
+}
+
+colors = sf.colors(3, categorical = TRUE)
+
+plot(net, col = "grey")
+paths %>%
+  pull(node_paths) %>%
+  walk(plot_path)
+net %>%
+  activate("nodes") %>%
+  st_as_sf() %>%
+  slice(c(495, 121, 458)) %>%
+  plot(col = colors, pch = 8, cex = 2, lwd = 2, add = TRUE)
+```
+
+Next we will create some geospatial points that do not intersect with any node in the network. Providing them to st_network_paths() will first find the nearest node to each of them, and then calculate the shortest paths accordingly.
+
+```{r no intersect}
+p1 = st_geometry(net, "nodes")[495] + st_sfc(st_point(c(50, -50)))
+st_crs(p1) = st_crs(net)
+p2 = st_geometry(net, "nodes")[458]
+p3 = st_geometry(net, "nodes")[121] + st_sfc(st_point(c(-10, 100)))
+st_crs(p3) = st_crs(net)
+
+paths = st_network_paths(net, from = p1, to = c(p2, p3), weights = "weight")
+
+plot(net, col = "grey")
+paths %>%
+  pull(node_paths) %>%
+  walk(plot_path)
+plot(c(p1, p2, p3), col = colors, pch = 8, cex = 2, lwd = 2, add = TRUE)
+```
+
+# Application with Open Street Map
+
+## Getting OSM data
+Let's apply what we've learned to location of choice building on our OSM work.
+The example below uses New York City
+
+This can get you started
+``` {r extent nyc}
+nyc <- opq(bbox = c(-74.034787,40.681424,-73.940382,40.772330)) 
+#This is a specific extent of NYC, you can chose another if you want, or try with all new york city
+```
+
+``` {r lines}
+street <- nyc %>%
+   add_osm_feature(key = "highway", 
+                   value = c("primary","secondary", "tertiary")) %>%
+   osmdata_sf() ## think through what lines you want to pull
+
+street
+
+not_all_na <- function(x) any(!is.na(x))
+
+# inspect the lines
+osm_lines <- street$osm_lines %>%
+  select(where(not_all_na))
+
+str(osm_lines)
+
+``` 
+
+```{r}
+library(sfnetworks)
+# Unfortunately, due to the cropping operations, we need to slightly tweak the
+# output before proceeding with the next steps.
+osm_lines <- st_cast(osm_lines, "LINESTRING")
+
+# Let's plot it!
+par(mar = rep(0, 4))
+plot(st_geometry(osm_lines), reset = FALSE, col = grey(0.8))
+
+#An interactive visualisation can be derived as follows:
+mapview(st_geometry(osm_lines))
+```
+
+## Building the sfnetwork data structure 
+
+Now we can finally convert the input segments into a sfnetwork object. For simplicity, we will consider an undirected network (which may also be a reasonable assumption for a walking mode of transport).
+
+```{r network}
+sfn_nyc <- as_sfnetwork(osm_lines, directed = FALSE)
+# Print the output
+sfn_nyc
+```
+
+Some comments: 
+ 
+1) The first line reports the number of nodes and edges;
+2) The second line displays the CRS (Coordinate Reference System);
+3) The third line briefly describe the sfnetwork object;
+4) The following text shows the active geometry object, while the last block
+is related to the inactive geometry. The two tables are stored as sf objects.
+
+In fact, a sfnetwork is a multitable object in which the core network elements 
+(i.e. nodes and edges) are embedded as sf objects. However, thanks to the neat
+structure of tidygraph, there is no need to first extract one of those
+elements before you are able to apply your favourite sf predicates or
+tidyverse verbs. Instead, there is always one element at a time labelled as
+active. This active element is the target of the data manipulation. The active
+element can be changed with the activate() verb, i.e. by calling
+activate("nodes") or activate("edges").
+
+The sfnetwork objects have an ad-hoc plot method
+``` {r plot}
+par(mar = rep(0, 4))
+plot(sfn_nyc, reset = FALSE, pch = ".", cex = 2, col = grey(0.85))
+```
+
+To make things easier for the time being, let's zoom into an area close to DownTown NYC.
+
+## Extraction 
+First, we want to extract the nodes and edges geometry from the active geometry table: 
+```{r extract nyc}
+nodes <- sfn_nyc %>% activate("nodes") %>% st_geometry() 
+# or, equivalently, nodes <- sfn_firenze %N>% st_geometry()
+
+edges <- sfn_nyc %E>% activate("edges") %>% st_geometry() 
+# or, equivalently, sfn_firenze %E>% st_geometry()
+
+# and then we can plot them as usual
+par(mar = rep(2.5, 4))
+plot(nodes, axes = TRUE, xlim = c(-74.009391, -73.978320), ylim = c(40.722223, 40.743589), pch = 20)
+plot(edges, add = TRUE, xlim = c(-74.009391, -73.978320), ylim = c(40.722223, 40.743589))
+
+# A similar operation could also be implemented using coordinate query functions
+# and tidygraph verbs:
+sfn_nyc %N>% 
+  filter(
+    node_X() > -74.009391 & node_X() < -73.978320 & 
+    node_Y() > 40.722223 & node_Y() < 40.743589
+  ) %>% 
+  plot(axes = TRUE)
+```
+
+**Task 1** Continue this exercise and carry out one of the routing exercises (for example: calculating shortest paths, retrieving an OD cost matrix, closest facility analysis, route optimization, isochrones and isodistancesusing) using sfnetworks.
+This will help: https://github.com/sfnetworks/foss4g-workshop/blob/main/scripts/demo.R as it is also applied to an OSM example.
+
+Next steps:
+* Simplify network 
+* Smooth pseudo-nodes 
+* Subsetting the main component
+* Spatial joins and spatial filters
+* Shortest paths and more
+
+#  Bike Hires in London
+
+Objectives
+
+* Create a spatial point object based on coordinates
+* Create an origin/destination matrix based on trips data
+* Plot the cycling patterns
+
+Application: 
+
+* Bike hires in London
+
+## Transport for London API
+The R libraries that we'll be using are httr and jsonlite. They serve different roles in our introduction of APIs, but both are essential.
+
+JSON stands for JavaScript Object Notation. While JavaScript is another programming language. JSON is useful because it is easily readable by a computer, and for this reason, it has become the primary way that data is transported through APIs. Most APIs will send their responses in JSON format.
+
+Here, we will request the locations of all the hire bike stations in London from the Transport for London API. We use the `GET` function from `httr` package. The output has the request it-self, time, date, size and if it was successful or not. 
+
+Using the `jsonlite` package, we are ging to extract and format our stations dataframe. JSON is a structure formatted with a key (for example, a variable name `id`) and a value (`BikePoints_308`). We use the function `fromJSON` to transform the API request content into a useable dataframe. 
+
+```{r pakages API}
+# To create a GET request, we need to use the GET() function from the httr library. The GET() function requires a URL, which specifies the server's address to which the request needs to be sent.
+# Here we request all the bike docking stations from the Transport for London API
+request <- GET("https://api.tfl.gov.uk/BikePoint/")
+
+# Examine output
+request
+
+# The response status is 200 for a successful request
+request$status_code
+
+# extract the dataframe
+bikepoints <- jsonlite::fromJSON(content(request, "text"))
+
+```
+
+## Create an sf collection from longitude latitude 
+
+Transport for London has an API to retrieve the locations of all the bike hire stations. We can create a unique identifier to merge the files with trips data later on. Then, using the coordinates, we can plot the stations.
+
+**Please note** you need to place the data-files in the right folder on your laptop.
+
+``` {r hirebikestatiosn}
+# Load the hire bike locations from the London API
+getwd()
+# https://www.any-api.com/tfl_gov_uk/tfl_gov_uk/console/_BikePoint/BikePoint_GetAll
+result <- fromJSON("../GY476_data_2022_23/London/NetworkAnalysis/BikePoint.json")
+
+# create new ID
+result$`Station ID` = as.numeric(substr(result$id, nchar("BikePoints_")+1, nchar(result$id)))
+
+# Print the column names
+names(result)
+
+# create a sf object
+stations_df <- result %>% 
+  sf::st_as_sf(coords = c(10,9))  %>%  # create pts from coordinates
+  st_set_crs(4326) %>%  # set the original CRS
+  relocate(`Station ID`) # set ID as the first column of the dataframe
+
+# plot the stations 
+plot(stations_df$geometry)
+
+# add a background map for more context
+tmap_mode("view")
+tm_basemap() +
+  tm_shape(stations_df) +
+  tm_symbols(id = "commonName", col = "red", scale = .5)
+
+```
+
+The bike stations are primarily located in Central London. 
+
+**Task 2** - Using the the OSMrouting service calculate travel between the LSE and the different bike stations. 
+Refer back to the OSM R-markdown. What type of network analysis is this? Answers are in GY476_NA_OSM.Rmd
+
+## Bike journeys
+
+Transport for London publishes online all trips made by hire bikes (also called Boris/ Santander or Barclays bikes) along many other datasets related to bike usage in London (https://cycling.data.tfl.gov.uk/). The files are published weekly. They have information on starting and ending stations, exact time of the trips. 
+
+We can download the files for August 2018 and do some cleaning to map the most used routes in London. We first need to filter for completed trips and select trips with different origins/destinations.  
+
+The next step is to aggregate the trips by pairs of origin and destination stations. The results should be how many trips have originated and ended from a specific pair (e.g. LSE to St Pancreas) in August 2018.
+
+``` {r hirebikejourneys, message=FALSE}
+
+# download the trips taken by hire bikes in August 2018
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/121JourneyDataExtract01Aug2018-07Aug2018.csv",
+              destfile = "GY476_Files_2021_22/London/NetworkAnalysis/121JourneyDataExtract01Aug2018-07Aug2018.csv")
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/122JourneyDataExtract08Aug2018-14Aug2018.csv",
+              destfile = "GY476_Files_2021_22/London/NetworkAnalysis/122JourneyDataExtract08Aug2018-14Aug2018.csv")
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/123JourneyDataExtract15Aug2018-21Aug2018.csv",
+              destfile = "GY476_Files_2021_22/London/NetworkAnalysis/123JourneyDataExtract15Aug2018-21Aug2018.csv")
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/124JourneyDataExtract22Aug2018-28Aug2018.csv",
+              destfile = "GY476_Files_2021_22/London/NetworkAnalysis/124JourneyDataExtract22Aug2018-28Aug2018.csv")
+
+# list the cycle hire extracts from TfL 
+# https://cycling.data.tfl.gov.uk/
+extracts <- list.files("../GY476_data_2022_23/London/NetworkAnalysis", pattern=glob2rx("*Journey*Data*Extract*"), 
+                       recursive = TRUE,
+                       full.names = TRUE)
+
+# loop through files
+journeys <- do.call("rbind", lapply(extracts, fread))
+
+# aggregate at the station day level
+journeys_agg <- journeys %>%
+  filter(!`StartStation Id`==`EndStation Id`) %>% # filter trip with same origin and destination
+  filter(!is.na(`EndStation Id`)) %>% # filter lost bike
+  filter(!is.na(`StartStation Id`)) %>% # filter lost bike
+  filter(`StartStation Id` %in% stations_df$`Station ID`) %>% # filter stations that closed/ were not opened
+  filter(`EndStation Id` %in% stations_df$`Station ID`) %>%  # filter stations that closed/ were not opened
+  filter(!Duration <= 0) %>% # filter no trips and lost
+  filter(Duration <= 180*60) %>%  # filter trips not well docked
+  group_by(`StartStation Id`, `EndStation Id`) %>%
+  summarise(journeys = n(), 
+            mean_duration = mean(Duration)) %>%
+  ungroup() %>%
+  mutate(share_trips = 100*journeys/sum(journeys))
+
+# quick stats
+summary(journeys_agg)
+
+```
+
+Most origin/destination pairs have `r (mean(round(journeys_agg$journeys)))` trips during the period. The average duration is `r (mean(round(journeys_agg$mean_duration/60)))` min.
+
+## Origin destination matrix
+
+The following step is to filter for the top 2 percentiles of the trips. Most pairs do not have any trips (none goes from the furthest station in Hackney down to Oval station). Plotting all lines would be messy. 
+
+``` {r mapofactivetravel}
+# filter out top 2% 
+od_top2 = journeys_agg %>% 
+  arrange((journeys)) %>% 
+  top_frac(0.02, wt = journeys)
+
+# Creating centroids representing desire line start and end points.
+desire_lines = od2line(od_top2, stations_df) # here using package stplanr 
+
+# plot the results
+plot(desire_lines["journeys"])
+plot(desire_lines["journeys"], breaks="jenks")
+```
+
+We plot the top 0.2% of pairs by the number of trips (you can reduce the percentage if your computer is too slow). We can see that most trips originate from the centre. Let's try to make it nicer and more interactive:
+
+``` {r nicermap, message=FALSE}
+
+# find the breaks
+brks <- classIntervals(desire_lines$journeys, 5, style = "jenks")
+               
+# plot
+tmap_mode("view")
+tm_basemap() + # add a London basemap
+tm_shape(desire_lines) + # add the OD lines
+  tm_lines(id = "journeys", # set the pop up id to the number of journeys
+           palette = "plasma", # purple to yellow palette
+           breaks = brks$brks, # jenks breaks defined earlier
+           lwd = "share_trips", # share trips colour
+           scale = 9,
+           title.lwd = "Share trips (%)", # set thickness of lines
+           alpha = 0.3, # transparency
+           col= "journeys", # set colour fill to number of journeys
+           title = "Number of trips" 
+  ) +
+  tm_shape(stations_df) + # add the stations for context
+  tm_symbols(id = "commonName", col = "red", alpha = 0, scale = .5) + # names of stations as pop up id
+  tm_scale_bar() +
+  tm_layout(
+    legend.bg.alpha = 0.5,
+    legend.bg.color = "white") # legend format
+
+```
+
+For more specific transport network analysis see Chapter 13 https://geocompr.robinlovelace.net/transport.html
+
+## References
+
+Sfnetworks
+https://luukvdmeer.github.io/sfnetworks/articles/sfn01_structure.html
+https://sfnetworks.github.io/foss4g-workshop/slides/slides#6
+
+Other
+
+https://geocompr.robinlovelace.net/transport.html
+https://www.dataquest.io/blog/r-api-tutorial/
+
+
+
+

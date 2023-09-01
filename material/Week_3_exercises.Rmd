@@ -1,0 +1,225 @@
+---
+title: "Week 3 Exercises"
+author:
+  - Louise Bernard, Elisabetta Pietrostefani, Capucine Riom and Lorenzo Sileci
+
+date: "10/10/2022"
+output: 
+  html_document:
+    code_folding: hide
+    theme: cerulean 
+    highlight: tango
+---
+```{r class.source = "fold-show", setup, include=FALSE}
+knitr::opts_knit$set(root.dir = '~/Dropbox/Teaching/GY476/gy476_data_2022_23')
+```
+
+### EXERCISE 1 {.tabset .tabset-fade .tabset-pills}  
+
+##### 1. Vectors
+
+* Assign the first 10 elements of the [Fibonacci sequence](https://www.mathsisfun.com/numbers/fibonacci-sequence.html) to a numeric vector called `fibonacci_vector`.
+```{r}
+fibonacci_vector <- c(0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
+```
+
+* Assign the names of the people sitting at your table to a character vector.
+```{r}
+people_vector <- c("Elisabetta", "Capucine", "Lorenzo")
+```
+
+* Inspect the `length` and `class` of your numeric and character vectors.
+```{r, results='hide'}
+length(fibonacci_vector)
+length(people_vector)
+class(fibonacci_vector)
+class(people_vector)
+```
+
+* Construct a numeric vector containing 10 numbers generated at random from the Uniform distribution with interval [0,1] (*Hint:* `runif()`).
+```{r}
+random_uniform <- runif(10, 0, 1)
+```
+
+* Multiply this vector by a scalar.
+```{r, results='hide'}
+random_uniform*3
+```
+
+* Construct a numeric vector by multiplying `fibonacci_vector` by the vector constructed at step 4.
+```{r}
+new_numeric_vector <- fibonacci_vector*random_uniform
+```
+
+
+##### 2. Matrices
+
+* Construct a 3x3 matrix containing `fibonacci_vector`, the vector of random draws from the uniform distribution, and their multiplication.
+```{r}
+new_matrix <-  matrix(c(fibonacci_vector, random_uniform, new_numeric_vector), ncol =3)
+```
+
+* Convert the matrix to a dataframe (*Hint:* `as.data.frame()`)
+```{r}
+new_df <-  as.data.frame(new_matrix)
+```
+
+* Name the dataframe columns (*Hint:* `dplyr::rename()`)
+
+```{r}
+library(tidyverse)
+
+new_df <-  new_df %>%
+  dplyr::rename(fibonacci_vector = V1,
+                random_uniform = V2,
+                new_numeric_vector = V3)
+```
+
+
+##### 3. Data Frames 
+
+* Construct a Data Frame with 5 columns with an ID, City Name, Population, Area and Population density of 3 cities in the UK.  You can use London, Bristol and other cities in the UK.
+
+```{r}
+
+UK_cities = data.frame(
+  id = c(1,2,3),
+  city_name = c("London", "Bristol", "Liverpool"),
+  population = c(8982000, 467099, 864122),
+  area = c(1572, 110, 200)
+)
+
+UK_cities$pop_density = UK_cities$population/UK_cities$area
+
+# or the tidy way
+UK_cities_tidy = UK_cities %>%
+  mutate(pop_density = population/area)
+
+# Get the structure of the data frame
+str(UK_cities)
+# Print the summary
+print(summary(UK_cities))
+```
+
+
+
+### EXERCISE 2 {.tabset .tabset-fade .tabset-pills} 
+
+**Import the districts shapefile into R and read the rows which have "Hackney" as value for DIST_NAME**.
+
+```{r}
+library(sf) 
+districts <- read_sf("London/Polygons/districts.shp")
+
+districts[districts$DIST_NAME == "Hackney", ]
+```
+
+**Select the rows which correspond to Haringey, Hackney and Islington using tidyverse functions**.
+
+```{r}
+districts %>%
+  filter(DIST_NAME == "Haringey" | DIST_NAME == "Hackney" | DIST_NAME == "Islington")
+```
+
+### EXERCISE 3 {.tabset .tabset-fade .tabset-pills} 
+
+**Plot the City of London in the same map but in a different colour. Some guidance on colours can be found e.g. [here](https://bookdown.org/hneth/ds4psy/D-3-apx-colors-basics.html).**
+
+```{r}
+# plot london in grey
+plot(districts$geometry, col = "lightgrey")
+
+# Add city of London in turquoise to the map
+plot(districts[districts$DIST_NAME == "City of London", ]$geometry, # select city of london
+     col = "turquoise",
+     add = T) # add to the existing map
+```
+
+
+### EXERCISE 4 {.tabset .tabset-fade .tabset-pills} 
+
+**Plot London districts**
+**Add the City of London in purple to the map**
+**Add Hackney in turquoise to the map.**
+
+```{r}
+# plot london in grey
+plot(districts$geometry, col = "lightgrey")
+
+# Add city of London in turquoise to the map
+plot(districts[districts$DIST_NAME == "City of London", ]$geometry, # select city of london
+     col = "purple",
+     add = T) # add to the existing map
+
+plot(districts[districts$DIST_NAME == "Hackney", ]$geometry, # select Hackney
+     col = "turquoise",
+     add = T) # reset
+```
+
+
+### EXERCISE 5 {.tabset .tabset-fade .tabset-pills} 
+
+**Import housesales data and select houses with a sales price less than £500k**
+**Select the Hackney from the districts shapefile**
+**Try to filter houses within the buffer of Hackney**. *Hint:* Explore spatial join functions in the`sf` manual [here](https://r-spatial.github.io/sf/reference/st_join.html)
+
+```{r}
+
+housesales_clean <- read.csv("London/Tables/housesales.csv") %>% # select the main object
+  filter(price < 500000) %>% # remove values above 500,000
+  st_as_sf(coords = c(17,18)) %>% # create sf
+  st_set_crs(27700) # set crs
+
+hackney = districts %>%
+  filter(DIST_NAME == "Hackney")
+
+# buffer
+hackney_buffer <- st_buffer(hackney, 1000)
+plot(hackney_buffer$geometry)
+plot(hackney$geometry, add=T)
+
+# filter
+hackney_filter <- st_filter(housesales_clean, hackney)
+plot(hackney_filter$geometry, add=T, col="red")
+plot(hackney$geometry, add=T)
+
+```
+
+**Produce a graduated map of house sales within the area formed by the districts of Hackney, Haringey and Islington + a buffer of 1km** (*Hint:* `st_union()` helps you dissolve geometries). Make sure the buffer and the Greater London area are also shown on the map.
+
+```{r}
+library(viridis)
+library(ggplot2)
+
+northeast_london = districts %>%
+  filter(DIST_NAME == "Hackney" | DIST_NAME == "Haringey" | DIST_NAME == "Islington") %>%
+  st_union()
+
+# buffer
+NE_london_buffer <- st_buffer(northeast_london, 1000)
+
+# filter
+NE_london_filter <- st_filter(housesales_clean, NE_london_buffer)
+
+# greater London
+gr_london = districts %>% st_union()
+
+
+graduated <- ggplot()+
+  geom_sf(data = gr_london)+
+  geom_sf(data = NE_london_buffer, inherit.aes = F, aes(fill = "red"), alpha = 0.3)+
+  geom_sf(data = NE_london_filter, aes(color = price),  alpha = .75, size = 1.5) +
+  scale_color_viridis(label = scales::dollar)+
+  scale_fill_manual(name="North London",
+                    labels="",
+                    values = "red")+
+  xlab("") +
+  ylab("") +
+  theme_minimal()
+
+graduated
+
+```
+
+
+

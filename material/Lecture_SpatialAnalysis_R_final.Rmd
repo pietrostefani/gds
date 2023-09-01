@@ -1,0 +1,490 @@
+---
+title: "Lecture - Spatial Data Analysis with R"
+author: "Elisabetta Pietrostefani" 
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+---
+
+```{r, echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# __Install all relevant packages__
+
+```{r eval=FALSE}
+if(!require("dplyr")) install.packages("dplyr") 
+if(!require("osmdata")) install.packages("osmdata") #open street map
+if(!require("sf")) install.packages("sf") #simple features 
+if(!require("spData")) install.packages("spData") # 
+```
+
+# __Context__
+
+**Why Spatial analysis with R?**  Because R is an open source environment **made for
+data analysis and graphics** that **runs on all platforms**. If we'd use
+a closed source environment, we'd miss the opportunity to reproduce and scrutinize
+computations and fail to meet the _science_ goal of _Data Science_;
+if we'd use a general purpose programming language we would (more)
+easily end up in a package installation hell.
+
+## How to use this document?
+
+This document was created with R and the R package `rmarkdown`. 
+Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. 
+For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+In RStudio, click **Knit** to recreate the entire rendered document, which _runs all the R chunks_
+
+For running individual R chunks, (notebook "cells"), use the arrows "Run all chunks above", after which you can use "Run current chunk"
+
+## What to expect?
+
+Part 1: Spatial data and geometries
+* All data is spatial
+* Open Source GIS
+* A quick example
+* Representing spatial data in R
+
+Part 2: Coordinate reference system
+* Coordinates
+* What does coordinate reference system mean?
+* How **CRSs are stored in R spatial objects** 
+* Projection and transformation
+
+Part 3: Simple Features
+* sf
+* Geometries in SF
+* Basic Map making
+
+Part 4: Coverages & rasters
+* An example of a raster
+* raster & terra
+
+# __Spatial data and geometries__
+
+## Special about spatial data
+
+**All data is spatial** - data comes from observation, and
+observation needs to happen _somewhere_ and at _some time_.
+This makes all data spatial. For a lot of data, the location
+expressed in spatial, Earth-bound coordinates of observation is
+not of prime importance:
+
+* if a patient undergoes a brain scan, the location of the scanner
+is not important; the location of the person relative to the
+scanner is
+* if a person receives a positive COVID-19 test result, the location
+of testing may not be important for the person's decision on whether
+to go into quarantine or not
+* for someone trying to do contact tracing, this person's location
+history may be most relevant, however
+
+## Open Source GIS
+
+**Open source Geographic Information Systems (GIS)**, such as **QGIS**, have made 
+geographic analysis accessible worldwide. 
+GIS programs tend to emphasize graphical user interfaces (GUIs), 
+with the unintended consequence of discouraging reproducibility (although many 
+can be used from the command line Python + QGIS).
+**R**, by contrast, emphasizes the command line interface (CLI). 
+
+The **‘geodata revolution’** drives demand for high performance computer hardware 
+and efficient, scalable software to handle and extract signal from the noise, 
+to understand and perhaps change the world. Spatial databases enable storage 
+and generation of manageable subsets from the vast geographic data stores,
+making interfaces for gaining knowledge from them vital tools for the future. 
+
+R is one such tool, with advanced analysis, modeling and visualization capabilities.
+
+## Overlapping Spatial Data
+
+The **blue markers** indicate where some of your classmates are from (excuse any errors).
+The **basemap** is a tiled image of the Earth at night provided by NASA. 
+Interact with the online version at geocompr.robinlovelace.net, for example by 
+zooming in and clicking on the popups.
+
+```{r}
+library(leaflet)
+popup = c("Wenqing", "Kendall", "Sean", "Zachary", "Karla", "Peter", "Juanita", "Yan", "Alex")
+leaflet() %>%
+  addProviderTiles("NASAGIBS.ViirsEarthAtNight2012") %>%
+  addMarkers(lng = c(104.1954, -75.00, 127.7669, -95.7129, -102.462776, -106.3468, -74.2973, 103.8198, 21.8243),
+             lat = c(35.8617, 43.0902, 35.9078, 43.227978, 51.213890, 56.1304, 4.5709, 1.3521, 39.0742), 
+             popup = popup)
+```
+
+# __Geometry with Simple Features__
+
+Simple features is an open standard developed and endorsed by the Open Geospatial Consortium (OGC), a not-for-profit organization. Simple Features is a hierarchical data model that represents a wide range of geometry types. Of 18 geometry types supported by the specification, only 7 are used in the vast majority of geographic research; these core geometry types are fully supported by the R package sf (Pebesma 2018).
+
+sf represents all common vector geometry types (raster data classes are not supported by sf):
+* points
+* lines
+* polygons
+* and their respective "multi" versions (which group entities of the same type into a single entity).
+
+## Geometries
+
+The basis of every type of geometry is the point. A point is simply a coordinate in 2D, 3D or 4D space (see thumbnail("sf1") for more information) such as:
+
+\index{sf!point}
+
+- `POINT (5 2)`
+
+\index{sf!linestring}
+A line string is a sequence of points with a straight line connecting the points, for example:
+
+- `LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2)`
+
+
+A polygon is a sequence of points that form a closed ring without intersection. Closed means that the first and the last point of a polygon have the same coordinates:
+
+- `POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5))`
+
+A polygone with a hole: `POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5), (2 4, 3 4, 3 3, 2 3, 2 4))`
+\index{sf!hole}
+
+All types of objects:
+
+```{r sfcs, echo=FALSE, fig.cap="Illustration of point, linestring and polygon geometries.", fig.asp=0.4}
+library(sf)
+old_par = par(mfrow = c(1, 3), pty = "s", mar = c(0, 3, 1, 0))
+plot(st_as_sfc(c("POINT(5 2)")), axes = TRUE, main = "POINT")
+plot(st_as_sfc("LINESTRING(1 5, 4 4, 4 1, 2 2, 3 2)"), axes = TRUE, main = "LINESTRING")
+plot(st_as_sfc("POLYGON((1 5, 2 2, 4 1, 4 4, 1 5))"), col="gray", axes = TRUE, main = "POLYGON")
+par(old_par)
+```
+
+```{r polygon_hole, echo=FALSE, out.width="30%", eval=FALSE}
+# not printed - enough of these figures already (RL)
+par(pty = "s")
+plot(st_as_sfc("POLYGON((1 5, 2 2, 4 1, 4 4, 1 5), (2 4, 3 4, 3 3, 2 3, 2 4))"), col = "gray", axes = TRUE, main = "POLYGON with a hole")
+```
+There are also:
+* sets of polygons, `MULTIPOLYGON(((0 0,1 0,1 1,0 0)), ((3 3,4 3,4 4,3 3)))`
+* combinations of these `GEOMETRYCOLLECTION(POINT(0 1),LINESTRING(0 0,1 1))`- which are inconvenient
+
+## Representing spatial data in R
+
+There are many ways to **handle geographic data in R**, with dozens of packages in the area.
+Like many areas of software development, R’s spatial ecosystem is rapidly evolving 
+(see Figure 1.2 of https://geocompr.robinlovelace.net/intro.html).
+Because R is open source, these developments can easily build on previous work.
+This approach is advantageous because it encourages collaboration and avoids ‘reinventing the wheel.’ 
+
+Several of the simple R data structures can be used to represent spatial
+data, examples are **columns in a data.frame**:
+
+```{r}
+head(quakes)
+```
+
+**a matrix**
+* Elevations of a volcano data-set
+* Visualise each of the cells
+* Contour lines follow raster cells and see the volcano
+* It's just a matrix
+
+```{r}
+class(volcano)
+volcano[1:5,1:5]
+image(volcano)
+```
+
+**numeric vectors for polygon coordinates** with `NA` to separate individual rings:
+```{r}
+library(maps)
+m = map(regions="Italy", plot = FALSE, fill = TRUE)
+pols = cbind(m$x, m$y)
+dim(pols)
+head(cbind(m$x, m$y), 10)
+map(regions="Italy")
+```
+
+**Task 1:** Change the country - you can have a look at this in your own time https://cran.r-project.org/web/packages/maps/maps.pdf
+
+We will shortly see a few more structured approaches to represent
+spatial data, using _simple features_, or _rasters_.
+First let us look at what coordinates mean.
+
+# __Coordinate reference system__
+
+## Coordinates
+
+With coordinates, we usually think a numbered measured along a ruler,
+where the ruler might be an imaginary line: it has an offset (0),
+a unit (m), and a constant direction. For spatial data we could have two
+imaginary lines perpendicular to each other, and we call this
+Cartesian space. Distance between $(x_1,y_1)$ and
+$(x_2,y_2)$ in Cartesian space is computed by Euclidean distance:
+$$\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$$
+
+The spatial data we just saw, above are _not_ of this kind:
+
+* the raster data (`volcano`) did _not_ have coordinates
+* the other examples had coordinates that are **ANGLES**,
+  distances along a circle (or ellipsoidal) arc:
+
+```{r out.width='100%',echo=FALSE}
+knitr::include_graphics("https://r-spatial.org/book/02-Spaces_files/figure-html/fig-sphere-1.png")
+```
+Left: geocentric coordinates (Cartesian, three-dimensional,
+units metres); Right: spherical/ellipsoidal coordinates (angles,
+units degrees)
+
+Euclidean distances **do not work** for ellipsoidal coordinates:
+one degree longitude at the equator is about 111 km, at the poles
+it is 0 km.
+
+## What does _coordinate reference system_ mean?
+
+**CRSs** if disregarded can lead to massive problems. 
+CRSs allow you to make the right assumptions without having to guess.
+They specify what coordinates mean.
+
+"Data are not just numbers, they are numbers with a context" ([Cobb &
+Moore](https://www.jstor.org/stable/2975286?seq=1#metadata_info_tab_contents))
+
+Coordinate reference systems provide the context of coordinates:
+
+* they tell whether the coordinates are ellipsoidal (angles), or derived, projected (Cartesian) coordinates
+* in case they are projected, they detail the kind of projection used, so that the
+underlying ellipsoidal coordinates can be recovered
+* in **any** case, they point out which ellipsoidal model (datum) was used.
+
+Knowing this we can:
+
+* convert between projected and unprojected, or to another projection
+* transform from one datum to another
+* combine the coordinates with any other coordinates that have a coordinate reference system
+
+## Let’s look at how CRSs are stored in R spatial objects and how they can be set
+For this, we need to read-in a vector dataset:
+https://geocompr.robinlovelace.net/reproj-geo-data.html
+Our new object, new_vector, is a polygon representing a world map data (?spData::world). 
+CRS in the sf objects is a list of two elements - input and wkt. 
+* The input element is quite flexible, and depending on the input file or user 
+input, can contain SRID representation (e.g., "EPSG:4326"), CRS’s name (e.g., "WGS84"), 
+or even proj4string definition. 
+* The wkt element stores the WKT2 representation, which is used when saving the 
+object to a file or doing any coordinate operations. Above, we can see that the 
+new_vector object has the WGS84 ellipsoid, uses the Greenwich prime meridian, 
+and the latitude and longitude axis order. 
+In this case, we also have some additional elements, such as USAGE explaining 
+the area suitable for the use of this CRS, and ID pointing to the CRS’s SRID - "EPSG:4326".
+* Once we know about Coordinate Reference Systems we can start thinking about geometries.
+
+```{r retrieve crs}
+library(sf)
+st_crs('EPSG:4326') #retrieve coordinate reference system from object
+```
+
+Another example:
+```{r}
+if(!require("spData")) install.packages("spData") # load geographic data
+vector_filepath = system.file("shapes/world.gpkg", package = "spData")
+new_vector = read_sf(vector_filepath)
+st_crs(new_vector) # get CRS
+```
+
+The st_crs function also has one helpful feature – we can retrieve some 
+additional information about the used CRS. For example, try to run:
+```{r}
+st_crs(new_vector)$IsGeographic # to check is the CRS is geographic or not
+st_crs(new_vector)$units_gdal # to find out the CRS units
+st_crs(new_vector)$srid # extracts its SRID (when available)
+st_crs(new_vector)$proj4string # extracts the proj4string representation
+```
+
+In cases when a coordinate reference system (CRS) is missing or the wrong CRS is set,
+the st_set_crs() function can be used:
+
+```{r}
+new_vector = st_set_crs(new_vector, "EPSG:4326") # set CRS
+```
+
+## Projection and transformation
+Established CRSs captured by EPSG codes are well-suited for many applications. 
+However in some cases it is desirable to create a new CRS, using a custom proj4string.
+This system allows a very wide range of projections to be created, as we’ll see 
+in some of the custom map projections in this section.
+
+A long and growing list of projections has been developed and many of these can
+be set with the +proj= element of proj4strings.31
+
+**the Mollweide projection** is a good choice.
+To use this projection, we need to specify it using the proj4string element, 
+"+proj=moll", in the st_transform function:
+
+```{r}
+world_mollweide = st_transform(world, crs = "+proj=moll")
+plot(world["continent"])
+```
+
+On the other hand, when mapping the world, it is often desirable to have as 
+little distortion as possible for all spatial properties (area, direction, distance). 
+One of the most popular projections to achieve as little distortion as possible
+is **the Winkel tripel projection** st_transform_proj() from the lwgeom package 
+allows for coordinate transformations to a wide range of CRSs.
+
+```{r}
+world_wintri = lwgeom::st_transform_proj(world, crs = "+proj=wintri")
+plot(world_wintri["continent"])
+```
+Moreover, PROJ parameters can be modified in most CRS definitions. 
+The below code transforms the coordinates to **the Lambert azimuthal equal-area projection** 
+centered on longitude and latitude of 0.
+```{r}
+world_laea1 = st_transform(world, 
+                           crs = "+proj=laea +x_0=0 +y_0=0 +lon_0=0 +lat_0=0")
+plot(world_laea1["continent"])
+```
+
+# __Simple Features__
+
+## Basic Map making
+As the first vignette explains, **simple feature objects in R** are stored in a data
+frame, with geographic data occupying a special column, usually named ‘geom’ or ‘geometry.’ 
+
+```{r}
+vignette(package = "sf") # see which vignettes are available
+vignette("sf1")          # an introduction to the package
+```
+
+We will use the world dataset provided by the spData.
+Note that instead of creating a single map, as most GIS programs would, the plot()
+command has created multiple maps, one for each variable in the world datasets. 
+This behavior can be useful for exploring the spatial distribution of different variables.
+
+```{r}
+library(spData)
+names(world)
+plot(world)
+summary(world["gdpPercap"])
+```
+
+Basic maps are created in sf with plot(). 
+A legend or ‘key’ with a continuous color is produced if the object to be plotted 
+has a single variable (see the right-hand panel). 
+Colors can also be set with col =
+
+```{r}
+plot(world[3:6])
+plot(world["gdpPercap"])
+```
+And we can also use ggplot2
+```{r}
+library(ggplot2)
+ggplot() + geom_sf(data = world, aes(fill = gdpPercap))
+```
+
+The subsequent code chunk combines countries in Africa:
+```{r}
+world_africa = world[world$continent == "Africa", ]
+africa = st_union(world_africa)
+```
+
+We can now plot the African continent over a map of the world. 
+Note that the first plot must only have one facet for add = TRUE to work. 
+If the first plot has a key, reset = FALSE must be used (result not shown):
+
+```{r}
+plot(world["gdpPercap"], reset = FALSE)
+plot(africa, add = TRUE, col = "red")
+```
+
+sf’s plot method also has arguments specific to geographic data. expandBB, for example, 
+can be used to plot an sf object in context: it takes a numeric vector of length 
+four that expands the bounding box of the plot relative to zero in the following order: bottom, left, top, right.
+This is used to plot Kenya in the context of Africa, in the following code:
+
+```{r}
+kenya = world[world$name_long == "Kenya", ]
+plot(st_geometry(kenya), expandBB = c(3, 2, 3, 2), col = "gray", lwd = 3)
+plot(world_africa[0], add = TRUE)
+```
+
+# __Rasters__
+
+Coverages are tesselations (subdivisions) of space into regions,
+where _every_ point can be uniquely assigned to a subregion. 
+
+With `POLYGONS` we cannot do that, as two polygons that share
+a boundary cannot tell to which polygon a point on the shared
+boundary belongs.
+
+Rasters are _regular_ tesselations, which uniquely subdivide space
+into square or rectangular areas (raster cells, or pixels).
+
+## An example of a raster:
+* Stars is a package that builds on sf
+* Landsat 7 ETM - Satellite
+* Data around Olinda, Brazil
+* Run ggplot, 6 pans, multi-spectral data (visible and insibile spectrum)
+
+```{r}
+library(stars)
+library (abind)
+(L7 = read_stars(system.file("tif/L7_ETMs.tif", package = "stars")))
+ggplot() + geom_stars(data = L7) + facet_wrap(~band) + coord_equal()
+```
+
+or simply:
+```{r}
+plot(L7)
+```
+
+## Raster and Terra
+
+For the illustration of terra concepts, we will use datasets from the spDataLarge. 
+It consists of a few raster objects and one vector object covering an area of the Zion National Park (Utah, USA). 
+For example, srtm.tif is a digital elevation model of this area.
+First, let’s create a SpatRaster object named my_rast:
+
+```{r}
+if(!require("spDataLarge")) install.packages("spDataLarge", repos = "https://geocompr.r-universe.dev")
+library(spDataLarge)
+library(terra)
+raster_filepath = system.file("raster/srtm.tif", package = "spDataLarge")
+single_layer = rast(raster_filepath)
+single_layer
+plot(single_layer)
+```
+
+The crs() function can be used to access CRS information from a SpatRaster object:
+```{r}
+crs(single_layer) # get CRS
+crs(single_layer) = "EPSG:26912" # set CRS
+```
+Importantly, the st_crs() and crs() functions do not alter coordinates’ values or geometries. 
+Their role is only to set a metadata information about the object CRS. 
+
+The SpatRaster class also handles multiple layers, which typically correspond to 
+a single multispectral satellite file or a time-series of rasters.
+
+```{r}
+multi_raster_file = system.file("raster/landsat.tif", package = "spDataLarge")
+multi_rast = rast(multi_raster_file)
+multi_rast
+```
+
+nlyr() retrieves the number of layers stored in a SpatRaster object:
+
+```{r}
+nlyr(multi_rast)
+```
+
+Packages raster vs terra:
+https://www.r-bloggers.com/2021/05/a-comparison-of-terra-and-raster-packages/
+
+# Acknowledgments
+
+Inspired by material from 
+https://r-spatial.org/book/
+and https://geocompr.robinlovelace.net/index.html
+

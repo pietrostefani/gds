@@ -1,0 +1,357 @@
+---
+title: "GY476_rasters"
+author: "Louise Bernard & Elisabetta Pietrostefani"
+date: "updated 10/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE, echo=FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if(!require("R.utils")) install.packages("R.utils")
+#if(!require("GADMTools")) install.packages("GADMTools")
+if(!require("dplyr")) install.packages("dplyr")
+if(!require("sf")) install.packages("sf")
+if(!require("raster")) install.packages("raster")
+if(!require("terra")) install.packages("terra")
+if(!require("exactextractr")) install.packages("exactextractr")
+if(!require("ggplot2")) install.packages("ggplot2")
+if(!require("viridis")) install.packages("viridis")
+if(!require("tmap")) install.packages("tmap")
+if(!require("RColorBrewer")) install.packages("RColorBrewer")
+
+```
+
+# 1. Example from the Lecture
+
+We are going to load one of R's default data - Volcano. To learn more about this data, type `help(volcano)`. Volcano is **a matrix**. 
+
+```{r volcano-example}
+class(volcano)
+volcano[1:5,1:5]
+image(volcano)
+help(volcano)
+```
+
+# Relative and absolute path
+
+Next we are going to reproduce some of the tasks we did in QGIS.
+
+In order for the script to run smoothly, we need to tell R where to find the files we are using. Generally, there are two ways to define files locations:
+
+- Absolute path: "C:/Users/Elisabetta/Dropbox/teaching/GY476/data" which tells R where my file is located on the computer
+- Relative path: "data". Relative paths are defined by the working directory
+
+By default, R working directory might be in your `R` folder (e.g. "C:/Users/Elisabetta/Documents/R"). If you are working inside a Rstudio project, it will be where the project file is located ("C:/Users/Elisabetta/Dropbox/teaching/GY476/GY476.Rproj"). Finally, if you are working inside a Rmarkdown document, it is where the "Rmd" document is located ("C:/Users/Elisabetta/Dropbox/teaching/GY476/GY476_raster.Rmd"). In doubt, you can always type the command `getwd()` to find out where you are working. 
+
+My data is structured as follow: In the same folder where my Rmarkdown document is saved, I have a `data` folder, and the `Lebanon` and `London` folders are located inside it. 
+
+You need to structure your data similarly for this script to work. Set the location of your `data` folder below: 
+
+``` {r setdatafolder}
+
+getwd() # check working directory
+datafolder <- file.path("../GY476_data_2022_23") # define the location of the data folder
+
+```
+
+# 2. Lebanon's example
+
+## Import raster 
+
+```{r lebanon-import_a_raster}
+
+# Import a raster file for elevation
+# Plot it and look at the CRS - what CRS is it in?
+elevation <- rast(file.path(datafolder, "/Lebanon/LBN_elevation_w_bathymetry.tif"))
+
+# Plot it and look at the CRS 
+plot(elevation) 
+crs(elevation)
+
+```
+
+**Task 1:** What CRS is it in?
+
+## Import the Lebanon shape
+
+```{r lebanon-import_shp}
+Lebanon_adm1 <- read_sf(file.path(datafolder,"Lebanon/LBN_adm1.shp"))
+plot(Lebanon_adm1)
+crs(Lebanon_adm1)
+```
+
+**Task 2:** Import Lebanon cadastres shapefile, plot and check the CRS
+
+Reproject the Raster
+
+To use the projectRaster() function, we need to define two things:
+
+1.  the object we want to reproject and
+2.  the CRS that we want to reproject it to.
+
+
+```{r lebanon-reproject}
+elevation <- terra::project(elevation, crs(Lebanon_adm1))
+crs(elevation)
+plot(elevation)
+```
+
+## Crop to Lebanon's extent
+
+```{r lebanon-crop}
+elevation_lebanon <- crop(elevation, extent(Lebanon_adm1))
+elevation_lebanon_mask <- mask(elevation_lebanon, Lebanon_adm1)
+```
+
+## Plot elevation and overlay the districts 
+
+Does it look familiar? 
+
+```{r lebanon-plot}
+plot(elevation_lebanon_mask)
+plot(Lebanon_adm1$geometry, col= NA, add=T)
+```
+
+## Change colours + plot with defined breaks
+
+Some  colour schemes here: https://rdrr.io/cran/RColorBrewer/man/ColorBrewer.html
+https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3
+
+``` {r lebanon-changecolours}
+ 
+pal = rev(brewer.pal(6,"Oranges"))
+plot(elevation_lebanon_mask, breaks=c(-100,0,700,1200,1800,3300), col=pal)
+plot(Lebanon_adm1$geometry, col= NA, add=T)
+
+```
+**Task 3:** Change the colours and breaks of Lebanon elevation map
+**Task 4:** Add a Title --> Check out this for help https://www.statmethods.net/advgraphs/axes.html - What else needs adding?
+
+# 3. Nighttime Light exercise
+
+## Introduction
+
+To start this exercise, let's see some useful functions to manipulate data in R. 
+
+``` {r introchunck}
+
+# Before we get to clean the data, let's go over a few useful function
+# set the working directory to where you saved the GY476 data
+
+# list files 
+list.files()
+
+# list files in a specific folder
+list.files(file.path(datafolder,"London/Polygons"))
+
+# list files corresponding to a specific pattern ("shp" in the filename)
+list.files(file.path(datafolder,"London/Polygons"), pattern = "shp")
+
+# list files corresponding to a specific pattern ("shp" at the end of the filename)
+shps <- list.files(file.path(datafolder,"London/Polygons"), pattern = "*.shp$")
+
+# we can also select strings following a pattern inside a list or vector using grepl
+shps <- shps[grepl("london", shps)] 
+
+# let's extract the first element of the list "shps"
+file1 <- shps[1]
+file1
+
+# how many characters in the filename
+nchar(file1)
+
+# let's remove the last 4 charcters (the file extension)
+file1_short <- substr(file1, 1, nchar(file1)-4)
+
+# let's add something to the name (concatenate strings) - for example, a new extension ".tif"
+paste(file1_short, ".tif", sep="")
+
+# finally let's create a function MathOperations that first calculate the square and then add 3
+MathOperations <- function(x) {
+  sq <- x^2
+  z <- sq+3
+  return(z)
+}
+
+# try the function on 4, 5, 6
+MathOperations(4)
+MathOperations(5)
+MathOperations(6)
+
+# repeat this operation for the vector 4 to 6 (similar to a loop in STATA)
+lapply(4:6, function(x) MathOperations(x))
+
+
+```
+
+## Download data
+
+We need to download some raster data. NOAA has made nighttime lights data available for 1992 to 2013. It is called the Version 4 DMSP-OLS Nighttime Lights Time Series. The files are cloud-free composites made using all the available archived DMSP-OLS smooth resolution data for calendar years. In cases where two satellites were collecting data - two composites were produced. The products are 30 arc-second grids, spanning -180 to 180 degrees longitude and -65 to 75 degrees latitude. We can download the Average Visible, Stable Lights, & Cloud Free Coverages for 1992 and 2013 from https://www.ngdc.noaa.gov/eog/data/web_data/v4composites/ and put them in the `data/Kenya_Tanzania` folder.   
+
+The downloaded files are going to be in a "TAR" format. A TAR file is an archive created by tar, a Unix-based utility used to package files together for backup or distribution purposes. It contains multiple files stored in an uncompressed format along with metadata about the archive. Tars files are also used to reduce files' size. TAR archives compressed with GNU Zip compression may become GZ, .TAR.GZ, or .TGZ files. We need to decompress them before using them. 
+
+In our example, we will only download two years, but generally, you will have to repeat the same cleaning operations many times. Therefore, to speed up the process, we are going to create a new function. The function is going to (1) decompress the files using the `untar` command, (2) list the decompressed files using `list.files` command (notice there are compressed files inside the TAR archive), (3) identify the TIF archive files using `grepl`, (4) decompress using the `gunzip` command. We are then going to run the function on all the TAR files. 
+
+getwd() # check working directory
+datafolder <- file.path("GY476_Files_2021_22") # define the location of the data folder
+
+```{r downloadunzip, echo=FALSE}
+
+# create the tanzania kenya folder
+dir.create(file.path(datafolder,"Kenya_Tanzania"))
+
+# MANUALLY - download the Average Visible, Stable Lights, & Cloud Free Coverages for 1992 and 2013 manually 
+
+# create a scratch folder
+dir.create(file.path(datafolder,"Kenya_Tanzania/scratch"))
+
+# list downloaded files: they are compressed files using the "tar" format
+tars <- list.files(file.path(datafolder,"Kenya_Tanzania"), pattern = "*.tar")
+
+# unzip
+UnzipSelect <- function(i) {
+  untar(file.path(datafolder,"Kenya_Tanzania",i), exdir = file.path(datafolder, "Kenya_Tanzania/scratch")) # unzip
+  all.files <- list.files(file.path(datafolder,"Kenya_Tanzania/scratch"), pattern = paste0(substr(i, 6, 12), "*")) # list extracted files
+  gz <- all.files[grepl("web.stable_lights.avg_vis.tif.gz", all.files)] # select the TIF files
+  R.utils::gunzip(filename	= file.path(datafolder,"Kenya_Tanzania/scratch", gz),
+                  destname = file.path(datafolder,"Kenya_Tanzania", substr(gz, 1, nchar(gz) -3)),
+                  overwrite = TRUE) # unzip again
+}
+
+# loop over the TAR files
+# note that the function returns the last element created - in this example, the TIF files
+nl <- lapply(tars, UnzipSelect)
+
+# delete the scratch folder with the data we don't need
+unlink(file.path(datafolder,"Kenya_Tanzania/scratch"), recursive = TRUE)
+```
+
+We can load and plot the nighttime lights data. When working with many rasters of the same origin, it is usually faster to stack them together for faster processing. 
+
+``` {r nightlightststats}
+# load NL
+# we apply the function raster to each tif file to load the raster in the workspace
+nl_rasters <- lapply(nl, raster)
+# we stack the raster (only possible for rasters of the same extent and definition)
+nl_rasters_stack <- stack(nl_rasters)
+# plot the result
+plot(nl_rasters_stack,  
+     main=c("Nightlights 1992", "Nightlights 2013"),
+     axes=FALSE)
+# change the names 
+names(nl_rasters_stack) <- c("NL1992", "NL2013")
+```
+
+## Country shapefiles
+
+The second step is to download the shapefiles for Kenya and Tanzania. 
+GADM has made available national and subnational shapefiles for the world.
+The zips you download, such as _gadm36_KEN_shp.zip_ from GADM should be placed in
+the **Kenya_Tanzania** folder.
+This is the link : **https://gadm.org/formats.html**
+
+``` {r loadshp}
+# download the shapefiles for Kenya and Tanzania manually 
+
+# list country shp that we downloaded from the GADM website
+files <- list.files(file.path(datafolder,"Kenya_Tanzania"), pattern = "_shp.zip*", recursive = TRUE, full.names = TRUE)
+files
+
+# create a scratch folder
+dir.create(file.path(datafolder,"Kenya_Tanzania/scratch"))
+
+# unzip
+lapply(files, function(x) unzip(x, exdir = file.path(datafolder,"Kenya_Tanzania/scratch")))
+
+# GADM has shapefiles for different regional levels (e.g. country, region, district, ward) 
+gadm_files <- list.files(file.path(datafolder,"Kenya_Tanzania"), pattern = "gadm*", recursive = TRUE, full.names = TRUE)
+gadm_files
+
+# let's select regional level 2
+gadm_files_level2 <- gadm_files[grepl("2.shp", gadm_files)]
+gadm_files_level2
+
+# load the shapefiles
+shps <- lapply(gadm_files_level2, read_sf)
+shps
+
+# delete the scratch folder with the data we don't need
+unlink(file.path(datafolder,"Kenya_Tanzania/scratch"), recursive = TRUE)
+```
+
+## Zonal statistics
+
+We use the package `exactextractr` to calculate the sum and average nighttime for each region. The nighttime lights rasters are quite large, but as we do not need to do any operations on them (e.g. calculations using the overlay function, cropping or masking to the shapefiles extent), the process should be relatively fast. 
+
+Again, we use the `lapply` function to process the two countries successively. 
+
+``` {r zonalstats}
+# summarize
+ex <- lapply(shps, function(x) exact_extract(nl_rasters_stack, x, c("sum", "mean", "count"), progress = FALSE))
+# lapply returns a list of two dataframes, we can use "do.call" to return each element of the list and iterate the function rbind
+# the results is a dataframe with the merged rows of the dataframes
+ex <- do.call("rbind", ex)
+
+# show first files
+head(ex)
+
+# summary
+summary(ex)
+```
+
+
+## Merge shapefiles
+
+Even though it is not necessary here, we can merge the shapefile to visualize all the regions at once. 
+
+Usually, it is easier to process data in small chunks using a function like "sapply, lapply, mapply" or a loop before merging. For example, when doing zonal statistics, it is faster and easier to process one country at a time and then combine the resulting tables. If you have access to a computer with multiple cores, it is also possible to do "parallel processing" to process each chunk at the same time in parallel. 
+
+```{r merge shapefile}
+
+# merge together
+# we select each sf object and merge the rows
+# do.call() in R to apply a given function to a list as a whole
+# The rbind()  function can be used to bind or combine several vectors, matrices, or data frames by rows
+tza_ken <- do.call("rbind", shps)
+
+# inspect
+str(tza_ken)
+
+# plot
+plot(tza_ken$geometry)
+
+```
+
+``` {r plotnl}
+# merge back with shapefile attribute table
+# this time instead of merging the rows, we append the columns using cbind
+df <- cbind(tza_ken, ex)
+
+# plot
+plot(df["mean.NL1992"])
+plot(df["mean.NL2013"])
+```
+
+Most of the Kenya and Tanzania have really low values. We can make the maps nicer by using fixed breaks and make the maps interactive using the `tmap` package:
+
+``` {r prettymap}
+tmap_mode("view") # switch to other mode: ttm()
+
+tm_shape(df) +
+  tm_fill(c("mean.NL1992", "mean.NL2013"),title=c("Average nightlights"),style="fixed", breaks=c(0, 0.05, 0.1, 2, 63))+
+  tm_facets(sync = TRUE, ncol = 2) +
+  tm_borders() +
+  tm_layout(legend.outside = TRUE, legend.outside.position = "right") 
+
+```
+
+# Resources
+
+https://github.com/walshc/nightlights/tree/master/R
+https://spatialanalysis.github.io/lab_tutorials/4_R_Mapping.html
+
+#Some other useful links
+https://rmarkdown.rstudio.com/index.html
+https://rmarkdown.rstudio.com/authoring_basics.html
+https://rmarkdown.rstudio.com/articles_intro.html // github, stackoverflow
+

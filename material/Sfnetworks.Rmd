@@ -1,0 +1,74 @@
+---
+title: "GY476_Network_Analysis"
+author: "Elisabetta Pietrostefani"
+date: "2022-11-22"
+output: html_document
+---
+# 0 - Packages and options -------------------------------------------------
+
+CLEAN THIS UP
+```{r install, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if(!require("sf")) install.packages("sf")
+if(!require("tidygraph")) install.packages("tidygraph")
+if(!require("osmdata")) install.packages("osmdata")
+if(!require("ggplot2")) install.packages("ggplot2")
+devtools::install_github("luukvdmeer/sfnetworks", force=TRUE)
+
+
+# library(sfnetworks)
+devtools::install_github('ropensci/osmextract')
+library(osmextract)
+library(mapview)
+library(grid)
+library(ggplot2)
+library(purrr)
+mapviewOptions(basemaps = "OpenStreetMap.HOT", viewer.suppress = TRUE)
+options(sfn_max_print_inactive = 6L)
+```
+
+This can get you started
+``` {r extent nyc}
+nyc <- opq(bbox = c(-74.034787,40.681424,-73.940382,40.772330)) 
+#This is a specific extent of NYC, you can chose another if you want, or try with all new york city
+```
+
+``` {r parks}
+street <- nyc %>%
+   add_osm_feature(key = "highway", 
+                   value = c("primary","secondary", "tertiary")) %>%
+   osmdata_sf()
+
+street
+
+not_all_na <- function(x) any(!is.na(x))
+
+# inspect the lines
+osm_lines <- street$osm_liness %>%
+  select(where(not_all_na))
+
+str(osm_lines)
+
+# inspect the polygons and use their centroids to get points
+osm_polys <- osm_q_sf$osm_polygons %>%
+  filter(leisure== "sports_centre") %>% 
+  select(where(not_all_na)) %>%
+  st_centroid()
+
+str(osm_polys)
+
+# bind the results together as points
+osm_results <-  bind_rows(osm_polys, osm_pts)
+osm_results
+``` 
+
+``` {r parks nyc}
+ggplot() + 
+    geom_sf(data = street$osm_lines, fill = '#94ba8e') + theme_minimal()
+``` 
+
+```{r}
+library(sfnetworks)
+net = as_sfnetwork(street)
+plot(street)
+```

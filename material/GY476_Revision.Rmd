@@ -1,0 +1,594 @@
+---
+title: "GY476"
+subtitle: "Revision Session 2022/23"
+author: "Elisabetta Pietrostefani" 
+date: "6/12/2022"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+# R Markdown Formatting
+
+https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+
+## Display Options - do not display outputs that are not requested in the assignment
+
+For example in the Formative Assessment some of you displayed density rasters of the world.
+
+I created four Rmarkdown code chuncks below to explain how to control the rmarkdown output. 
+
+The first chunck uses Rmarkdown standard option: the code will be evaluated (`eval` = `TRUE`) and it will be displayed with the results (`echo` = `TRUE`). 
+
+In the second chunck, I added the option `include` = `FALSE`. The code and its output will not be displayed. It will run normally. 
+
+Finally, in the third chunk, I set the default option to no longer display the code.  You will notice that from now on, the code is no longer displayed, but any output still is. 
+
+``` {r}
+# create a sum and display results
+1+1
+```
+
+``` {r, include = FALSE}
+# create the sum of 1+1 but do not display the code or the result
+s <- 1+1
+```
+
+``` {r}
+knitr::opts_chunk$set(echo = FALSE) # do not display code for all following chuncks
+```
+
+``` {r}
+# display result only
+s
+```
+
+# Let's revise improving maps
+
+``` {r}
+knitr::opts_chunk$set(echo = TRUE) # display codes in the final document
+
+library(sf)
+wards <- read_sf("../GY476_data_2022_23/London/Polygons/wards.shp")
+
+# the simplest map 
+plot(wards$geometry)
+
+# add some grey fill to the wards
+plot(wards$geometry, col="grey")
+
+# add a title
+plot(wards$geometry, col="grey", main = "London wards")
+
+# plot a variable
+wards$level4p <- wards$LEVEL4_5/wards$POP16_74
+plot(wards[,"level4p"], main = "Level 4 and over")
+
+# plot quantiles
+plot(wards[,"level4p"], main = "Level 4 and over", breaks = "quantile")
+
+# select 1st quartile, median, 3rd quartile, and max
+summary(wards[,"level4p"])
+plot(wards[,"level4p"], main = "Level 4 and over", breaks = "quantile", nbreaks = 4)
+
+# choose a new colour palette and set higher values to be red
+summary(wards[,"level4p"])
+plot(wards[,"level4p"], main = "Level 4 and over", breaks = "quantile", nbreaks = 4, pal = heat.colors(4, rev = TRUE))
+
+# if you want to change how the variable displays - change the variable ;)
+wards$level4pp <- wards$LEVEL4_5/wards$POP16_74*100
+summary(wards[,"level4pp"])
+plot(wards[,"level4pp"], main = "Level 4 and over", breaks = "quantile", nbreaks = 4, pal = heat.colors(4, rev = TRUE))
+
+```
+
+The command `plot` does not allowed to add additional data, improve the legend, or add a basemap easily. 
+`ggplot2` offers more graphics options:
+
+``` {r}
+library(ggplot2)
+
+# simple map using ggplot2 and sf
+ggplot(data = wards) +
+    geom_sf()
+```
+``` {r}
+# If I wanted to add labels to my x and y axis
+ggplot(data = wards) +
+    geom_sf() +
+labs(x=expression(paste("Longitude ",degree,"W",sep="")),
+       y=expression(paste("Latitude ",degree,"N",sep="")))
+```
+
+``` {r}
+# remove background
+ggplot() +
+  geom_sf(data = wards) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(),  # remove background
+        axis.text=element_blank()) # remove x and y axis  
+```
+
+``` {r}
+        
+# add share of people with level 4 education 
+ggplot() +
+  geom_sf(data = wards, aes(fill = level4p)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) # remove x and y axis
+```
+
+``` {r}
+
+# reverse the colour to make higher values darker 
+ggplot() +
+  geom_sf(data = wards, aes(fill = -level4p)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) # remove x and y axis
+
+```
+
+``` {r}
+# change the colour to a colour gradient with the mean as midpoint
+ggplot() +
+  geom_sf(data = wards, aes(fill = level4p)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) + # remove x and y axis
+  scale_fill_gradient2("Level 4 and over", 
+                       low = "yellow", 
+                       mid="white", 
+                       high = "red", 
+                       midpoint=mean(wards$level4p))
+
+```
+
+``` {r}
+
+# add a title
+ggplot() +
+  geom_sf(data = wards, aes(fill = level4p)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) + # remove x and y axis
+  scale_fill_gradient2("Level 4 and over", # legend title
+                       low = "yellow", # first colour
+                       mid="white", # midpoint
+                       high = "red", # high
+                       midpoint=mean(wards$level4p)) + # set mid point to mean
+  ggtitle("Share of population with level 4 education") # add title
+
+```
+
+``` {r}
+# add a scale bar 
+library(ggspatial)
+ggplot() +
+  geom_sf(data = wards, aes(fill = level4p)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) + # remove x and y axis
+  scale_fill_gradient2("Level 4 and over", # legend title
+                       low = "yellow", # first colour
+                       mid="white", # midpoint
+                       high = "red", # high
+                       midpoint=mean(wards$level4p)) + # set mid point to mean
+  ggtitle("Share of population with level 4 education") + # add title
+  annotation_scale() + # add a scale
+  annotation_north_arrow(pad_y = unit(1, "cm")) # add an arrow and move it up by 1 cm
+
+```
+
+``` {r}
+# create quantiles using classIntervals
+library(classInt)
+library(dplyr) 
+
+# find the quantiles breaks
+breaks_qt <- classIntervals(wards$level4p, n = 4, style = "quantile")
+
+# create quantiles using the command cut
+# https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/cut
+wards <- mutate(wards, london_edu_cat = cut(level4p, breaks_qt$brks)) 
+
+# plot
+ggplot() +
+  geom_sf(data = wards, aes(fill = london_edu_cat)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) + # remove x and y axis
+  scale_fill_brewer(palette = "OrRd") +
+  ggtitle("Share of population with level 4 education") +
+  annotation_scale() + # add a scale
+  annotation_north_arrow(pad_y = unit(1, "cm")) # add a arrow and move it up by 1 cm
+```
+
+``` {r}
+# there is one missing value and too many digits in our legend
+# we can investigate quickly where the missing value comes from
+summary(wards)
+head(wards[is.na(wards$london_edu_cat),])
+
+# it comes from the lowest value not being included
+
+```
+
+``` {r}
+# we fix the problems by changing how we create our quartiles:
+# include the lowest values of our intervals and only one digit to the labels
+wards <- mutate(wards,
+                london_edu_cat = cut(level4p, breaks_qt$brks, include.lowest = TRUE, dig.lab	=1)) 
+
+# plot
+ggplot() +
+  geom_sf(data = wards, aes(fill = london_edu_cat)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) + # remove x and y axis
+  scale_fill_brewer("Share level 4", palette = "OrRd") +
+  ggtitle("Share of population with level 4 education") +
+  annotation_scale() + # add a scale
+  annotation_north_arrow(pad_y = unit(1, "cm")) # add a arrow and move it up by 1 cm
+
+
+```
+
+``` {r}
+# I am still not happy with my legend, I would like nice percentage
+# plot
+library(Hmisc)
+library(scales)
+wards <- mutate(wards,
+                london_edu_cat2 = Hmisc::cut2(wards$level4p, 
+                                              breaks_qt$brks, 
+                                              formatfun = scales::percent,
+                                              digits=1)) 
+
+# final plot
+ggplot() +
+  geom_sf(data = wards, aes(fill = london_edu_cat2)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) + # remove x and y axis
+  scale_fill_brewer("Share level 4", palette = "OrRd") +
+  ggtitle("Share of population with level 4 education") +
+  annotation_scale() + # add a scale
+  annotation_north_arrow(pad_y = unit(1, "cm")) # add a arrow and move it up by 1 cm
+
+
+```
+
+Interactive maps are also a great way to visualize data:
+
+``` {r map1}
+library(tmap)
+# a basic map of the share of people with level 4 education in London
+tmap_mode("view")
+tm_basemap() +
+  tm_shape(wards) +
+  tm_polygons("level4p", palette = "YlOrBr") 
+```
+
+``` {r map2}
+# change the id to ward name
+tm_basemap() +
+  tm_shape(wards) +
+  tm_polygons("level4p", palette = "YlOrBr", id = "WARD_NAME") 
+```
+
+``` {r map3}
+# map quartiles
+tm_basemap() +
+  tm_shape(wards) +
+  tm_polygons("level4p", palette = "YlOrBr", id = "WARD_NAME", n = 4, style= "quantile")   
+```
+
+``` {r map4}
+# change back to the nice cuts
+tm_basemap() +
+  tm_shape(wards) +
+  tm_polygons("london_edu_cat2", palette = "YlOrBr", id = "WARD_NAME",  title = "Share level 4")
+```
+
+``` {r}
+tmap_mode("plot")
+# let's plot the population
+tm_shape(wards) +
+  tm_fill("POP16_74",style="fixed", title = "Population", breaks=c(0, 4000, 6000, 8000, 10000, 16000))+
+  tm_borders() +
+  tm_layout(legend.outside = TRUE, legend.outside.position = "right") 
+
+# it is not great as larger wards have a higher population 
+# let's normalize by area
+wards <- wards %>% 
+  mutate(area = as.numeric(st_area(.)),
+         `Population density` = POP16_74/area)
+
+
+# summarize the new variable
+summary(wards)
+
+# the min is 0.0001 and max 0.01, not quite easy to interpret
+# area is calculated in m2, but people per km2 would be much easier to visualize
+# let's replace area in m2 by km2
+wards <- wards %>%
+  mutate(area = as.numeric(st_area(.)/1000000),# convert to km2
+         `Population density` = POP16_74/area)
+
+# and now plot the population density
+tm_shape(wards) +
+  tm_fill("Population density",
+          style="fixed",
+          breaks=c(0, 100, 2000, 5000, 8000, 18000),
+          title = "Population density")+
+  tm_borders() +
+  tm_layout(legend.outside = TRUE, legend.outside.position = "right") 
+
+# add a title, scale bar and arrow
+tm_shape(wards) +
+  tm_fill("Population density",
+          style="fixed",
+          breaks=c(0, 100, 2000, 5000, 8000, 18000),
+          title = "Population density")+
+  tm_borders() +
+  tm_layout(title= "Map of London",
+            legend.outside = TRUE, legend.outside.position = "right") +
+  tm_scale_bar(position=c("left", "bottom"))+
+  tm_compass()
+  
+```
+
+# Let's Revise Scatter plot
+
+``` {r scatter1}
+# Basic scatter plot
+ggplot(wards, aes(x=`Population density`, y=level4p)) + 
+  geom_point()
+```
+
+``` {r scatter 2}
+# Change axes labels
+ggplot(wards, aes(x=`Population density`, y=level4p)) + 
+  geom_point()+
+  labs(y = "Share level 4")
+```
+
+``` {r scatter 3}
+# Change the axe scales 
+ggplot(wards, aes(x=`Population density`, y=level4p)) + 
+  geom_point()+
+  labs(y = "Share level 4") + 
+  scale_y_continuous(labels = scales::percent_format(scale = 100)) +
+  scale_x_continuous(labels=comma)
+```
+
+``` {r scatter 4}
+# add a regression line
+ggplot(wards, aes(x=`Population density`, y=level4p)) + 
+  geom_point()+
+  labs(y = "Share level 4") + 
+  scale_y_continuous(labels = scales::percent_format(scale = 100)) +
+  scale_x_continuous(labels=comma)  + 
+  geom_smooth(method='lm', formula= y~x)
+```
+
+``` {r scatter 5}
+# add the formula
+library(ggpmisc)
+
+ggplot(wards, aes(x=`Population density`, y=level4p)) + 
+  geom_point()+
+  labs(y = "Share level 4") + 
+  scale_y_continuous(labels = scales::percent_format(scale = 100)) +
+  scale_x_continuous(labels=comma)  + 
+  geom_smooth(method='lm', formula= y~x) + 
+  stat_poly_eq(formula = y ~ x, 
+                eq.with.lhs = "italic(hat(y))~`=`~",
+                aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")), 
+                parse = TRUE)
+
+
+```
+
+# Correlation matrices
+
+``` {r cormatrix}
+library(corrplot)
+wards_levels <- wards %>% st_drop_geometry() %>% select(starts_with("LEVEL"))
+
+pairs(wards_levels)
+correlations <- cor(wards_levels)
+corrplot(correlations)
+
+```
+
+# Dropping outliers and dplyr pipes
+
+```{r}
+# let's look at airbnbs in Buenos Aires
+BA <- read_sf("../GY476_data_2022_23/InsideAirbnb/neighbourhoods_BA_posgar.shp")
+
+# read the AirBnb listing
+listings <- read.csv("../GY476_data_2022_23/InsideAirbnb/listings_nooutliers.csv")
+summary(listings$price)
+hist(listings$price)
+
+# locate the longitude and latitude
+names(listings)
+
+listings_clean = listings %>% # select the main object
+  filter(price < 30000) %>% # remove values above 500,000
+  st_as_sf(coords = c(8,7)) %>% # create sf
+  st_set_crs(4326) %>% # set crs
+  st_transform(st_crs(BA))
+
+# plot
+plot(BA$geometry)
+plot(listings_clean$geometry, add=TRUE)
+
+hist(listings_clean$price)
+```
+
+## Buffer calculations
+
+Let's calculate the average population around a sample of listed buildinds. First, we need some population data. Then, we can download the census Output Areas for 2011. 
+
+
+``` {r}
+# load building
+listed_buildings <- read_sf("../GY476_data_2022_23/London/Points/listed_buildings_london.shp")
+
+# select randomly 20 ids
+sample_ids <- sample(listed_buildings$ListEntry, 20)
+
+# filter to the randomely selected 20 buildings
+listed_buildings <- listed_buildings[listed_buildings$ListEntry %in% sample_ids,]
+
+```
+
+
+``` {r donwloadoas}
+# create output folder
+dir.create("GY476_data_2022_23")
+download.file("https://data.london.gov.uk/download/statistical-gis-boundary-files-london/9ba8c833-6370-4b11-abdc-314aa020d5e0/statistical-gis-boundaries-london.zip", destfile = "../GY476_Files_2021_22/London/statistical-gis-boundaries-london.zip")
+# unzip
+unzip("../GY476_data_2022_23/London/statistical-gis-boundaries-london.zip", exdir = "../GY476_data_2022_23/London")
+
+# load 
+oas_census <- read_sf("../GY476_data_2022_23/London/statistical-gis-boundaries-london/ESRI/OA_2011_London_gen_MHW.shp")
+
+# calculate areas
+oas_census$area_census <- st_area(oas_census)
+
+# CHECK OUT what you created
+oas_census
+
+# plot
+plot(oas_census$geometry)
+```
+
+The next step is to create a buffer around the buildings:
+
+``` {r buffer}
+# project the data
+listed_buildings <- st_transform(listed_buildings, st_crs(oas_census))
+# create 150m buffer
+buffers500m <- st_buffer(listed_buildings, dist=500)
+# attach distance
+buffers500m$area_buffer <- st_area(buffers500m)
+```
+
+``` {r plot}
+#plotting listed buildings and buffers
+ggplot() +  
+  geom_sf(data = listed_buildings$geometry, inherit.aes = FALSE, colour="#00abff")+
+  geom_sf(data = buffers500m$geometry, fill=NA) 
+```
+
+And calculate the intersection of the Output Areas. 
+
+``` {r inter, message=FALSE}
+# create intersection of all the oas within the buffers
+oas_census <- st_make_valid(oas_census) #can add this in if your R says there is a precision issue
+buffers_inter <- st_intersection(buffers500m, oas_census)
+buffers_inter$area_inter <- st_area(buffers_inter)
+
+```
+
+Finally, we can aggregate up at the building level to find the average population living within 500m of a listed building: 
+
+``` {r aggregate}
+# aggregate at the buffer level
+buffers_agg <- buffers_inter %>% 
+  mutate(weight = as.numeric(area_inter/area_buffer),
+         population = as.numeric(USUALRES)) %>%
+  group_by(ListEntry) %>%
+  summarise_at("population", list(sum = ~sum(. * weight)))
+
+round(mean(buffers_agg$sum))
+
+```
+
+The average population is `r round(mean(buffers_agg$sum))`! 
+
+# Interpolation
+
+``` {r krig}
+library(raster)
+library(gstat)
+
+# Create geostatistical prediction using a ordinary Kriging
+gs <- gstat(formula = price~1, # formula that defines the dependent variable as a linear model of independent variables
+            data = listings_clean, # housesales data 
+            nmax = 500, # the number of nearest observations that should be used
+            set=list(idp = 0.2)) # set inverse distance power  
+
+# Create a blank raster using district extent and crs
+r <- raster(BA, resolution=200) # output cell size 
+
+# Create the interpolated raster using the prediction from the model and the blank raster
+idw <- interpolate(r, gs)
+
+# Mask values outside London
+idwr <- mask(idw, BA)
+
+# Plot result
+plot(idwr, col = rev(heat.colors(100)))
+plot(BA$geometry, fill = NA, add=T)
+
+```
+
+
+# Let's revise Geographic Coordinate Systems vs. Projected Coordinate systems.
+
+It is **good practice** to re-project your data for both for measurement and for lack of distortion.
+
+```{r}
+library("osrm")
+library("osmdata")
+library("dplyr")
+
+q <- opq("greater london uk") %>%
+    add_osm_feature(key = "name", value = "London School of Economics and Political Science") %>%
+  osmdata_sf()
+plot(q$osm_multipolygons$geometry)
+
+lse_centre <- q$osm_multipolygons %>% st_centroid()
+plot(lse_centre$g, add=TRUE)
+
+crs(lse_centre)
+st_crs(lse_centre)$units_gdal # to find out the CRS units
+st_crs(lse_centre)$srid # extracts its SRID (when available)
+
+lse_centre_reproj <- st_transform(lse_centre, crs = 27700)
+crs(lse_centre_reproj)
+st_crs(lse_centre_reproj)$units_gdal
+
+```
+
+`st_set_crs`adds a CRS to a sf object but it does not transform
+
+You can get away using `st_distance` and `st_area` to calculate great circle distance by default in R. 
+Measurement error is not that bad if you forget to project the data. However, I do not recommend this!
+
+# References
+
+## Maps in R
+
+https://cengel.github.io/R-spatial/mapping.html
+
+https://r-spatial.org/r/2018/10/25/ggplot2-sf.html
+
+https://ggplot2.tidyverse.org/reference/ggsf.html
+
+## ggplot2 
+
+http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization
+
+## dplyr
+
+https://seananderson.ca/2014/09/13/dplyr-intro/ 
+
