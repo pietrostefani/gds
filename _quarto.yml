@@ -1,0 +1,23 @@
+project:
+  type: book
+
+book:
+  title: "gds_module"
+  author: "Jane Doe"
+  date: "9/1/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
