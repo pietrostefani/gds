@@ -1,21 +1,36 @@
 project:
   type: book
+  output-dir: _book
 
 book:
-  title: "gds_module"
-  author: "Jane Doe"
-  date: "9/1/2023"
+  title: "Geographic Data Science in R and Python"
+  author: "Dr. Elisabetta Pietrostefani & Dr. Carmen Cabrera-Arnau"
+  date: today
   chapters:
     - index.qmd
     - intro.qmd
     - summary.qmd
     - references.qmd
 
+  page-footer:
+    left: |
+      Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  site-url:  https://pietrostefani.github.io/wma
+  repo-url: https://github.com/pietrostefani/gds
+  repo-actions: [edit]
+  sharing: [twitter, facebook]
+  twitter-card:
+    creator: "@EPietrostefani"
+
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+    - cosmo
+    - r4gds.scss
   pdf:
     documentclass: scrreprt
 
