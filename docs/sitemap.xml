@@ -6,19 +6,19 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/index.html</loc>
-    <lastmod>2023-09-01T16:28:58.939Z</lastmod>
+    <lastmod>2023-09-06T08:45:51.693Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/openscience.html</loc>
-    <lastmod>2023-09-01T16:28:49.488Z</lastmod>
+    <lastmod>2023-09-06T08:22:03.479Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/openscienceR.html</loc>
-    <lastmod>2023-09-01T16:28:46.079Z</lastmod>
+    <lastmod>2023-09-06T08:22:04.073Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/opensciencePython.html</loc>
-    <lastmod>2023-09-01T15:57:16.467Z</lastmod>
+    <lastmod>2023-09-06T08:22:07.686Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/overview.html</loc>
@@ -39,5 +39,53 @@
   <url>
     <loc>https://pietrostefani.github.io/wma/intro.html</loc>
     <lastmod>2023-09-01T16:27:54.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/spatialdata.html</loc>
+    <lastmod>2023-09-06T08:34:48.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/concepts_spatialdata.html</loc>
+    <lastmod>2023-09-06T08:34:48.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/spatialdataR.html</loc>
+    <lastmod>2023-09-06T08:34:48.954Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/spatialdataPy.html</loc>
+    <lastmod>2023-09-06T08:45:44.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/mapvector.html</loc>
+    <lastmod>2023-09-06T08:34:48.956Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/concepts_mapvector.html</loc>
+    <lastmod>2023-09-06T08:34:48.956Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/mapvectorR.html</loc>
+    <lastmod>2023-09-06T08:45:43.938Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/mapvectorPy.html</loc>
+    <lastmod>2023-09-06T08:45:43.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/mapraster.html</loc>
+    <lastmod>2023-09-06T08:35:58.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/concepts_mapraster.html</loc>
+    <lastmod>2023-09-06T08:34:48.959Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/maprasterR.html</loc>
+    <lastmod>2023-09-06T08:45:43.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/maprasterPy.html</loc>
+    <lastmod>2023-09-06T08:45:43.939Z</lastmod>
   </url>
 </urlset>

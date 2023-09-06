@@ -37,7 +37,7 @@
   {
     "objectID": "openscience.html",
     "href": "openscience.html",
-    "title": "1 Open Science",
+    "title": "1 - Open Science",
     "section": "",
     "text": "Our goal in this part of the book is to"
   },
@@ -100,6 +100,27 @@
   {
     "objectID": "concepts_openscience.html",
     "href": "concepts_openscience.html",
+    "title": "Concepts",
+    "section": "",
+    "text": "bla bla bla"
+  },
+  {
+    "objectID": "concepts_spatialdata.html",
+    "href": "concepts_spatialdata.html",
+    "title": "Concepts",
+    "section": "",
+    "text": "bla bla bla"
+  },
+  {
+    "objectID": "concepts_mapvector.html",
+    "href": "concepts_mapvector.html",
+    "title": "Concepts",
+    "section": "",
+    "text": "bla bla bla"
+  },
+  {
+    "objectID": "concepts_mapraster.html",
+    "href": "concepts_mapraster.html",
     "title": "Concepts",
     "section": "",
     "text": "bla bla bla"

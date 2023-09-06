@@ -17,6 +17,21 @@ book:
         - concepts_openscience.qmd
         - openscienceR.qmd
         - opensciencePython.qmd
+    - part: spatialdata.qmd
+      chapters:
+        - concepts_spatialdata.qmd
+        - spatialdataR.qmd
+        - spatialdataPy.qmd
+    - part: mapvector.qmd
+      chapters:
+        - concepts_mapvector.qmd
+        - mapvectorR.qmd
+        - mapvectorPy.qmd
+    - part: mapraster.qmd
+      chapters:
+        - concepts_mapraster.qmd
+        - maprasterR.qmd
+        - maprasterPy.qmd
     - references.qmd
 
   page-footer:
