@@ -12,6 +12,10 @@ book:
     - syllabus.qmd
     - overview.qmd
     - assess.qmd
+    - part: environ.qmd
+      chapters:
+        - environR.qmd
+        - environPy.qmd
     - part: openscience.qmd
       chapters:
         - concepts_openscience.qmd

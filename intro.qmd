@@ -1,5 +1,28 @@
 # Introduction {#sec-intro .unnumbered}
 
-This is a book created from markdown and executable code.
+In this section we introduce what Geographic Data Science is. We top it up with a few (optional) further readings for the interested and curious mind.
 
-See @knuth84 for additional discussion of literate programming.
+## **What is *Geographic Data Science*?**
+
+The following clip is taken from a keynote response by Dani Arribas-Bel at the first [Spatial Data Science Conference](https://carto.com/spatial-data-conference/2017/), organised by [CARTO](https://carto.com/) and held in Brooklyn in 2017. The talk provides a bit of background and context, which will hopefully help you understand a bit better what Geographic Data Science is.
+
+TOP UP with slide content
+
+## **Get ready!**
+
+Go the the Computation Environment section
+
+
+## **Further readings**
+
+To get a better picture, the following readings complement the overview provided above very well:
+
+Bonus
+
+The chapter is available free online [**`HTML`**](http://shop.oreilly.com/product/0636920028529.do) \| [**`PDF`**](http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf)
+
+1.  The introductory chapter to \"Doing Data Science\" [schutt2013doing](https://darribas.org/gds_course/content/bA/concepts_A.html#id1), by Cathy O\'Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.
+
+2.  A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho\'s recent overview [donoho201750](https://darribas.org/gds_course/content/bA/concepts_A.html#id3).
+
+3.  A geographic take on Data Science, proposing more interaction between Geography and Data Science [singleton2019geographic](https://darribas.org/gds_course/content/bA/concepts_A.html#id5).
