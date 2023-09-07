@@ -1,2 +1,28 @@
-# Computational Environment R {.unnumbered}
+# R {sec-R .unnumbered}
 
+To run the analysis and reproduce the code, you need the following software:
+
+-   R-4.2.2
+-   RStudio 2022.12.0-353
+-   the list of libraries in the next section
+
+To install and update:
+
+
+-   R, download the appropriate version from [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org)
+-   RStudio, download the appropriate version from [Posit](https://posit.co/download/rstudio-desktop/)
+-   Quarto, download the appropriate version from [the Quarto website](https://quarto.org/docs/get-started/)
+
+To check your version of:
+
+-   R and libraries run `sessionInfo()`
+-   RStudio click `help` on the menu bar and then `About`
+-   Quarto check the `version` file in the quarto folder on your computer.
+
+## R List of libraries
+
+The list of libraries used in this book is provided below:
+
+-   `sf`
+-   `geojsonsf`
+-   `mapview`

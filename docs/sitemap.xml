@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/index.html</loc>
-    <lastmod>2023-09-06T08:58:19.135Z</lastmod>
+    <lastmod>2023-09-07T17:45:24.576Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/openscience.html</loc>
@@ -22,15 +22,15 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/overview.html</loc>
-    <lastmod>2023-09-01T16:20:42.629Z</lastmod>
+    <lastmod>2023-09-07T17:15:23.900Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/assess.html</loc>
-    <lastmod>2023-09-01T16:20:47.984Z</lastmod>
+    <lastmod>2023-09-07T17:15:14.924Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/syllabus.html</loc>
-    <lastmod>2023-09-01T16:23:33.785Z</lastmod>
+    <lastmod>2023-09-07T17:39:29.063Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/concepts_openscience.html</loc>
@@ -38,11 +38,11 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/intro.html</loc>
-    <lastmod>2023-09-01T16:27:54.914Z</lastmod>
+    <lastmod>2023-09-06T18:37:29.090Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/spatialdata.html</loc>
-    <lastmod>2023-09-06T08:34:48.953Z</lastmod>
+    <lastmod>2023-09-06T09:44:54.198Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/concepts_spatialdata.html</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/spatialdataR.html</loc>
-    <lastmod>2023-09-06T08:34:48.954Z</lastmod>
+    <lastmod>2023-09-06T09:44:54.198Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/spatialdataPy.html</loc>
@@ -87,5 +87,17 @@
   <url>
     <loc>https://pietrostefani.github.io/wma/maprasterPy.html</loc>
     <lastmod>2023-09-06T08:45:43.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/environR.html</loc>
+    <lastmod>2023-09-06T09:44:54.885Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/environ.html</loc>
+    <lastmod>2023-09-07T17:45:21.371Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/environPy.html</loc>
+    <lastmod>2023-09-07T17:39:57.368Z</lastmod>
   </url>
 </urlset>

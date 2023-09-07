@@ -1,6 +1,16 @@
 # Welcome {.unnumbered}
 
-This is the website for the "Geographic Data Science" module **ENVS363/563** at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. The module has two main aims. First, ... Second, ...
+This is the website for the "Geographic Data Science" module **ENVS363/563** at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.
+
+This module will introduce students to the field of **Geographic Data Science (GDS)**, a discipline established at the intersection between **Geographic Information Science (GIS)** and **Data Science**. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.
+
+Core to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.
+
+The module has three main aims.
+
+(1) Providing students with core competences in Geographic Data Science (GDS). This includes advancing their statistical and numerical literacy and introducing basic principles of programming and state-of-the-art computational tools for GDS;
+(2) Presenting a comprehensive overview of the main methodologies available to the Geographic Data Scientist, as well as their intuition as to how and when they can be applied;
+(3) Focusing on real world applications of these techniques in a geographical and applied context.
 
 The website is **free to use** and is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/). A compilation of this web course is hosted as a GitHub repository that you can access:
 

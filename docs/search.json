@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Geographic Data Science in R and Python",
     "section": "",
-    "text": "Welcome\nThis is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. The module has two main aims. First, … Second, …\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
+    "text": "Welcome\nThis is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.\nThis module will introduce students to the field of Geographic Data Science (GDS), a discipline established at the intersection between Geographic Information Science (GIS) and Data Science. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.\nCore to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.\nThe module has three main aims.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
   },
   {
     "objectID": "index.html#contact",
@@ -53,14 +53,14 @@
     "href": "overview.html#learning-outcomes",
     "title": "Overview",
     "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nBy the end of the module, students should be able to:\nFor All\n\nDemonstrate advanced GIS/GDS concepts and be able to use the tools programmatically to import, manipulate and analyse data in different formats.\nUnderstand the motivation and inner workings of the main methodological approaches of GDS, both analytical and visual.\nEvaluate the suitability of a specific technique, what it can offer and how it can help answer questions of interest.\nApply a number of spatial analysis techniques and how to interpret the results, in the process of turning data into information.\nWhen faced with a new data-set, work independently using GIS/GDS tools programmatically.\n\nOnly for MSc-level students (6) Demonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations."
+    "text": "Learning Outcomes\nBy the end of the module, students should be able to:\nFor all\n\nDemonstrate advanced GIS/GDS concepts and be able to use the tools programmatically to import, manipulate and analyse data in different formats.\nUnderstand the motivation and inner workings of the main methodological approaches of GDS, both analytical and visual.\nEvaluate the suitability of a specific technique, what it can offer and how it can help answer questions of interest.\nApply a number of spatial analysis techniques and how to interpret the results, in the process of turning data into information.\nWhen faced with a new data-set, work independently using GIS/GDS tools programmatically.\n\nOnly for MSc students\n\nDemonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations."
   },
   {
     "objectID": "overview.html#feedback",
     "href": "overview.html#feedback",
     "title": "Overview",
     "section": "Feedback",
-    "text": "Feedback\nFILL IN"
+    "text": "Feedback\nFormal assessment of one map, one MCQ test and one computational essays. Written assignment-specific feedback will be provided within three working weeks of the submission deadline. Comments will offer an understanding of the mark awarded and identify areas which can be considered for improvement in future assignments.\nVerbal face-to-face feedback. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.\nOnline forum. Asynchronous written feedback will be provided via an online forum. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability."
   },
   {
     "objectID": "overview.html#computational-environment",
@@ -74,14 +74,14 @@
     "href": "assess.html#assignment-i",
     "title": "Assessments",
     "section": "Assignment I",
-    "text": "Assignment I\n\nDesign, data and assemblage.\n\n\nSubmit"
+    "text": "Assignment I\n\nTitle: Programmed Map\nType: Coursework\nDue date: TBC\n25% of the final mark\nChance to be reassessed\nElectronic submission only\n\nThis assignment will be evaluated on technical data processing, map design abilities, and overall narrative.\nFirst, the data.\nSecond, the assemblage.\nThird, the design and overall narrative\nOnce you have created your map, you will need to present it. Write 250 about the choices you made to create the map.\n\nSubmit\nOnce completed, you will need to submit the following:\nAn html version of an .qmd document with R or Python integrated code.\nThe assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:\n\nData processing\nMap assemblage This includes your ability to master technologies that allow you to create a compelling map.\nDesign and narrative"
   },
   {
     "objectID": "assess.html#assignment-ii",
     "href": "assess.html#assignment-ii",
     "title": "Assessments",
     "section": "Assignment II",
-    "text": "Assignment II\n\nTitle:\nType:\nDue date:\nXX% of the final mark\nChance to be reassessed\nElectronic submission only\n\n\nSubmit\n\n\nHow is this assignment useful?"
+    "text": "Assignment II\n\nTitle: MCQ test\nType: Test\nDue date: TBC\n25% of the final mark\nChance to be reassessed\nElectronic submission only\n\n\nTo ensure students are engaging with the course content as it progresses and\nTo provide core learning in advance of the third assessment."
   },
   {
     "objectID": "assess.html#marking-criteria",
@@ -93,9 +93,9 @@
   {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
-    "title": "Welcome",
+    "title": "Syllabus",
     "section": "",
-    "text": "Insert Course Structure"
+    "text": "Introduction\n\nLecture: Introduction to the module\nLab: Setting up your Computational Environment\n\nOpen Science and Spatial Data\n\nLecture:\nLab:\n\nMapping Vector Data\n\nLecture:\nLab:\n\nMapping Raster Data\n\nLecture:\nLab:\n\nAssignment I: Programmed Map\nSpatial Weights\n\nLecture:\nLab:\n\nESDA\n\nLecture:\nLab:\n\nAssignment II: MCQ test\nClustering\n\nLecture:\nLab:\n\nInterpolation, heatmaps and point patterns\n\nLecture:\nLab:\n\nSpatial Network Analysis\n\nLecture:\nLab:\n\nAssignment III: A computational essay"
   },
   {
     "objectID": "concepts_openscience.html",
@@ -124,5 +124,54 @@
     "title": "Concepts",
     "section": "",
     "text": "bla bla bla"
+  },
+  {
+    "objectID": "environR.html#r-list-of-libraries",
+    "href": "environR.html#r-list-of-libraries",
+    "title": "1  R",
+    "section": "1.1 R List of libraries",
+    "text": "1.1 R List of libraries\nThe list of libraries used in this book is provided below:\n\nsf\ngeojsonsf\nmapview"
+  },
+  {
+    "objectID": "intro.html#what-is-geographic-data-science",
+    "href": "intro.html#what-is-geographic-data-science",
+    "title": "Introduction",
+    "section": "What is Geographic Data Science?",
+    "text": "What is Geographic Data Science?\nThe following clip is taken from a keynote response by Dani Arribas-Bel at the first Spatial Data Science Conference, organised by CARTO and held in Brooklyn in 2017. The talk provides a bit of background and context, which will hopefully help you understand a bit better what Geographic Data Science is.\nTOP UP with slide content"
+  },
+  {
+    "objectID": "intro.html#get-ready",
+    "href": "intro.html#get-ready",
+    "title": "Introduction",
+    "section": "Get ready!",
+    "text": "Get ready!\nGo the the Computation Environment section"
+  },
+  {
+    "objectID": "intro.html#further-readings",
+    "href": "intro.html#further-readings",
+    "title": "Introduction",
+    "section": "Further readings",
+    "text": "Further readings\nTo get a better picture, the following readings complement the overview provided above very well:\nBonus\nThe chapter is available free online HTML | PDF\n\nThe introductory chapter to \"Doing Data Science\" schutt2013doing, by Cathy O'Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.\nA slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho's recent overview donoho201750.\nA geographic take on Data Science, proposing more interaction between Geography and Data Science singleton2019geographic."
+  },
+  {
+    "objectID": "environ.html#software",
+    "href": "environ.html#software",
+    "title": "Environment",
+    "section": "Software",
+    "text": "Software\nTo run the analysis and reproduce the code, you need the following software:\n\nQGIS- the stable version (3.22 LTR at the time of writing) is OK, any more recent version will also work.\nQGIS, download the appropriate version from QGIS.org\nQuarto 1.2.280\nQuarto, download the appropriate version from the Quarto website"
+  },
+  {
+    "objectID": "assess.html#assignment-iii",
+    "href": "assess.html#assignment-iii",
+    "title": "Assessments",
+    "section": "Assignment III",
+    "text": "Assignment III\n\nTitle: Computational Essay\nType: Coursework\nDue date: TBC\n50% of the final mark\nChance to be reassessed\nElectronic submission only\n\nA 2500 word computational essay on a geographic data set which they have explored and analysed using the skills and techniques developed during the course. Students will complete an essay which combines both code, data visualisation and prose supported by references in order to demonstrate sound understanding of all learning outcomes.\nOverview\nHere’s the premise. You will take the role of a real-world geographic sata scientist tasked to explore datasets on New York City and find useful insights for a variety of city decision-makers. It does not matter if you have never been to New York City. In fact, this will help you focus on what you can learn about the city through the data, without the influence of prior knowledge. Furthermore, the assessment will not be marked based on how much you know about New York City but instead about how much you can show you have learned through analysing data. You will need contextualise your project by highlighting the opportunities and limitations of ‘old’ and ‘new’ forms of spatial data and reference relevant literature.\nWhat is a Computational Essay?\nA computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. This piece of assessment is equivalent to 2,500 word. However, this is the overall weight. Since you will need to create not only narrative but also code and figures, here are the requirements:\n\nMaximum of 1,000 words (ordinary text) (references do not contribute to the word count). You should answer the specified questions within the narrative. The questions should be included within a wider analysis.\nUp to four maps or figures (a figure may include more than one map and will only count as one but needs to be integrated in the same overall output)\nUp to one table\n\nThere are three kinds of elements in a computational essay:\n1. Ordinary text (in English)\n2. Computer input (R-markdown or Python code)\n3. Computer output These three elements all work together to express what’s being communicated.\nSubmission (Coming Soon)\nData (Coming Soon)\nSpecifics (Coming Soon)"
+  },
+  {
+    "objectID": "environ.html#book-software",
+    "href": "environ.html#book-software",
+    "title": "Environment",
+    "section": "Book Software",
+    "text": "Book Software\nTo reproduce the code in the book, you need the most recent version of Quarto, R and relevant packages. These can be installed following the instructions provided in our R installation guide. Quarto (1.2.280) can be downloaded from the Quarto website, it may already be installed when you download R and R Studio."
   }
 ]

@@ -12,7 +12,6 @@ TOP UP with slide content
 
 Go the the Computation Environment section
 
-
 ## **Further readings**
 
 To get a better picture, the following readings complement the overview provided above very well:
