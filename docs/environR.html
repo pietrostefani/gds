@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - 1&nbsp; R</title>
+<title>Geographic Data Science in R and Python - R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,8 +62,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - 1&nbsp; R">
-<meta name="twitter:description" content="To run the analysis and reproduce the code, you need the following software:">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - R">
+<meta name="twitter:description" content="To run the analysis and reproduce the code in R, you need the following software:">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></h1>
+      <h1 class="quarto-secondary-nav-title">R</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -122,12 +122,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -150,16 +145,21 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./environR.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></a>
+  <a href="./environR.html" class="sidebar-item-text sidebar-link active">R</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./environPy.html" class="sidebar-item-text sidebar-link">R</a>
+  <a href="./environPy.html" class="sidebar-item-text sidebar-link">Python</a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./openscience.html" class="sidebar-item-text sidebar-link">1 - Open Science</a>
@@ -274,7 +274,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r-list-of-libraries" id="toc-r-list-of-libraries" class="nav-link active" data-scroll-target="#r-list-of-libraries"><span class="toc-section-number">1.1</span>  R List of libraries</a></li>
+  <li><a href="#r-list-of-libraries" id="toc-r-list-of-libraries" class="nav-link active" data-scroll-target="#r-list-of-libraries">R List of libraries</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/environR.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -283,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R</span></h1>
+<h1 class="title d-none d-lg-block">R</h1>
 </div>
 
 
@@ -298,17 +298,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>To run the analysis and reproduce the code, you need the following software:</p>
+<p>To run the analysis and reproduce the code in R, you need the following software:</p>
 <ul>
 <li>R-4.2.2</li>
 <li>RStudio 2022.12.0-353</li>
-<li>the list of libraries in the next section</li>
+<li>The list of libraries in the next section</li>
 </ul>
 <p>To install and update:</p>
 <ul>
 <li>R, download the appropriate version from <a href="https://cran.r-project.org">The Comprehensive R Archive Network (CRAN)</a></li>
 <li>RStudio, download the appropriate version from <a href="https://posit.co/download/rstudio-desktop/">Posit</a></li>
-<li>Quarto, download the appropriate version from <a href="https://quarto.org/docs/get-started/">the Quarto website</a></li>
 </ul>
 <p>To check your version of:</p>
 <ul>
@@ -316,8 +315,8 @@ ul.task-list li input[type="checkbox"] {
 <li>RStudio click <code>help</code> on the menu bar and then <code>About</code></li>
 <li>Quarto check the <code>version</code> file in the quarto folder on your computer.</li>
 </ul>
-<section id="r-list-of-libraries" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="r-list-of-libraries"><span class="header-section-number">1.1</span> R List of libraries</h2>
+<section id="r-list-of-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="r-list-of-libraries">R List of libraries</h2>
 <p>The list of libraries used in this book is provided below:</p>
 <ul>
 <li><code>sf</code></li>
@@ -470,7 +469,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./environPy.html" class="pagination-link">
-        <span class="nav-page-text">R</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Python</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -2,7 +2,13 @@
 
 ## Aims
 
-This module aims to:
+The module has three main aims.
+
+-   Provide students with core competences in Geographic Data Science (GDS). This includes advancing their statistical and numerical literacy and introducing basic principles of programming and state-of-the-art computational tools for GDS;
+
+-   Present a comprehensive overview of the main methodologies available to the Geographic Data Scientist, as well as their intuition as to how and when they can be applied;
+
+-   Focus on real world applications of these techniques in a geographical and applied context.
 
 ## Learning Outcomes
 
@@ -22,7 +28,7 @@ By the end of the module, students should be able to:
 
 **Only for MSc students**
 
-6.   Demonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations.
+6.  Demonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations.
 
 ## Feedback
 
@@ -31,4 +37,3 @@ By the end of the module, students should be able to:
 *Verbal face-to-face feedback*. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.
 
 *Online forum*. Asynchronous written feedback will be provided via an online forum. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.
-

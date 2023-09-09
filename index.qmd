@@ -6,12 +6,6 @@ This module will introduce students to the field of **Geographic Data Science (G
 
 Core to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.
 
-The module has three main aims.
-
-(1) Providing students with core competences in Geographic Data Science (GDS). This includes advancing their statistical and numerical literacy and introducing basic principles of programming and state-of-the-art computational tools for GDS;
-(2) Presenting a comprehensive overview of the main methodologies available to the Geographic Data Scientist, as well as their intuition as to how and when they can be applied;
-(3) Focusing on real world applications of these techniques in a geographical and applied context.
-
 The website is **free to use** and is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/). A compilation of this web course is hosted as a GitHub repository that you can access:
 
 ## Contact {.unnumbered}

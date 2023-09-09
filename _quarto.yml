@@ -8,7 +8,6 @@ book:
   date: today
   chapters:
     - index.qmd
-    - intro.qmd
     - syllabus.qmd
     - overview.qmd
     - assess.qmd
@@ -16,6 +15,7 @@ book:
       chapters:
         - environR.qmd
         - environPy.qmd
+    - intro.qmd
     - part: openscience.qmd
       chapters:
         - concepts_openscience.qmd

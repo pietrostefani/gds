@@ -1,17 +1,15 @@
-# R {sec-R .unnumbered}
+# R {.unnumbered}
 
-To run the analysis and reproduce the code, you need the following software:
+To run the analysis and reproduce the code in R, you need the following software:
 
 -   R-4.2.2
 -   RStudio 2022.12.0-353
--   the list of libraries in the next section
+-   The list of libraries in the next section
 
 To install and update:
 
-
 -   R, download the appropriate version from [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org)
 -   RStudio, download the appropriate version from [Posit](https://posit.co/download/rstudio-desktop/)
--   Quarto, download the appropriate version from [the Quarto website](https://quarto.org/docs/get-started/)
 
 To check your version of:
 

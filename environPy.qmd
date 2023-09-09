@@ -1,1 +1,1 @@
-# Python {sec-Py .unnumbered}
+# Python {.unnumbered}

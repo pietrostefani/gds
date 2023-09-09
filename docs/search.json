@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Geographic Data Science in R and Python",
     "section": "",
-    "text": "Welcome\nThis is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.\nThis module will introduce students to the field of Geographic Data Science (GDS), a discipline established at the intersection between Geographic Information Science (GIS) and Data Science. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.\nCore to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.\nThe module has three main aims.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
+    "text": "Welcome\nThis is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.\nThis module will introduce students to the field of Geographic Data Science (GDS), a discipline established at the intersection between Geographic Information Science (GIS) and Data Science. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.\nCore to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
   },
   {
     "objectID": "index.html#contact",
@@ -46,7 +46,7 @@
     "href": "overview.html#aims",
     "title": "Overview",
     "section": "Aims",
-    "text": "Aims\nThis module aims to:"
+    "text": "Aims\nThe module has three main aims.\n\nProvide students with core competences in Geographic Data Science (GDS). This includes advancing their statistical and numerical literacy and introducing basic principles of programming and state-of-the-art computational tools for GDS;\nPresent a comprehensive overview of the main methodologies available to the Geographic Data Scientist, as well as their intuition as to how and when they can be applied;\nFocus on real world applications of these techniques in a geographical and applied context."
   },
   {
     "objectID": "overview.html#learning-outcomes",
@@ -128,9 +128,9 @@
   {
     "objectID": "environR.html#r-list-of-libraries",
     "href": "environR.html#r-list-of-libraries",
-    "title": "1  R",
-    "section": "1.1 R List of libraries",
-    "text": "1.1 R List of libraries\nThe list of libraries used in this book is provided below:\n\nsf\ngeojsonsf\nmapview"
+    "title": "R",
+    "section": "R List of libraries",
+    "text": "R List of libraries\nThe list of libraries used in this book is provided below:\n\nsf\ngeojsonsf\nmapview"
   },
   {
     "objectID": "intro.html#what-is-geographic-data-science",
