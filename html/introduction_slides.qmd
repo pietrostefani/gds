@@ -39,13 +39,34 @@ align-items: center;
 - Do-It-Yourself: practical material to do on your
 own
 :::
-## Logistics Website
+
+# What is Geographic Data Science?
 
 
-## Logistic Teams
+
+
+# Logistics
+
+## Sessions
+    
+- Lectures *and* labs 
+- **Mondays 9am-12pm** (lecture 1h)
+- **Thursdays 9am-12pm** (lab 2h approx))
+- Always linked to activity on Teams (i.e., stay tuned on Teams!)
+
+## Website
+
+<CENTER><img src="./figs/website.png" height="500"/></CENTER>
+
+<CENTER> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </CENTER>
+
+## Teams
 
 <center><img data-src="./figs/paper_map.svg" width="20%" height="20%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/server.jpg" width="20%" height="20%"><center>
 
+<CENTER>![](./figs/teams.png)</CENTER>
+    
+    
 ## Code
 
 R or Python
@@ -56,6 +77,14 @@ Sweet spot between “proof-of-concept” and
 Industry standard: GIS (Esri, QGIS) and Data
 Science (Google, Facebook, Amazon, Netflix,
 The New York Times, NASA…)
+
+## Website
+
+::: fragment
+- Syllabus
+- Assessments
+- Environment
+:::
 
 ## More Help
 This course is much more about “learning to learn
@@ -80,74 +109,10 @@ the lab
 2. Live answers to questions posted
 3. Support from demonstrators and module lead
 
-# Overview
-    
-## Philosophy
-    
-1. This course is like a gym subsciption
-2. Principles over technology
-3. Collaborate, do not copy 
-
-## Self-directed Learning
-
-
-
-## Delivery
-    
-## Delivery
-
-### Lectures
-
-- Underlying concepts
-- Sometimes standard, sometimes flipped (we'll announce!)
-    
-### Labs
+## Labs
     
 - Hands on!
 - Collaborate *and* participate
-
-## Content
-
-<LEFT> - `W1` Introduction & Context </LEFT>
-
-<LEFT> - `W2-4`: [Data Backends]{.hlg} </LEFT>
-
-<LEFT> - `W5`: Assignment I </LEFT>
-
-<LEFT> - `W6-8`: [Frontend Topics]{.hlg} </LEFT>
-
-<LEFT> - `W9`: Dashboards </LEFT>
-
-<LEFT> - `W10`: Technology Gallery </LEFT>
-
-## Assessment
-
--   Two pieces of [coursework]{.hlg} (50%/50%)
--   *Equivalent* to 2,500 words each
--   Due on [W-6]{.hlg} and [W-11]{.hlg}
--   Description in lectures + lab clinics
-
-# Logistics
-
-## Website
-
-<CENTER><img src="./figs/website.png" height="500"/></CENTER>
-
-<CENTER> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </CENTER>
-
-## Teams
-
-<CENTER>![](./figs/teams.png)</CENTER>
-    
-## Sessions
-    
-- Lectures *and* labs 
-- **Mondays 9am-12pm** (lecture 1h)
-- **Thursdays 9am-12pm** (lab 2h approx))
-- Always linked to activity on Teams (i.e., stay tuned on Teams!)
-
-## Homework
-
 
 
 

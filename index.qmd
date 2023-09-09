@@ -1,6 +1,6 @@
 # Welcome {.unnumbered}
 
-This is the website for the "Geographic Data Science" module **ENVS363/563** at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.
+This is the website for the "Geographic Data Science" module **ENVS363/563** at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. Much of the course material is inspired by Dani Arribas-Bel's [course on Geographic Data Science](https://darribas.org/gds_course/content/home.html).
 
 This module will introduce students to the field of **Geographic Data Science (GDS)**, a discipline established at the intersection between **Geographic Information Science (GIS)** and **Data Science**. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.
 
@@ -8,8 +8,11 @@ Core to the set of employable skills to be taught in this course is an introduct
 
 The website is **free to use** and is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/). A compilation of this web course is hosted as a GitHub repository that you can access:
 
+-   As an [html website](https://pietrostefani.github.io/gds/).
+-   As a [GitHub repository](https://github.com/pietrostefani/gds).
+
 ## Contact {.unnumbered}
 
 > Elisabetta Pietrostefani - e.pietrostefani \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
 
-> Carmen Cabrera-Arnau - darribas \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
+> Carmen Cabrera-Arnau - c.cabrera-arnau \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
