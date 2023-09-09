@@ -1,4 +1,4 @@
-# 1 - Introduction {#sec-intro}
+# Introduction {#sec-intro .unnumbered}
 
 In this section we introduce what Geographic Data Science is. We top it up with a few (optional) further readings for the interested and curious mind.
 
@@ -8,13 +8,13 @@ Slides can be downloaded ["here"](/html/introduction_gds.html)
 
 Geographic Information holds a pivotal position within our modern societies, permeating various aspects of our daily lives. It underpins essential sectors such as housing, transportation, insurance, banking, telecommunications, logistics, energy, retail, agriculture, healthcare, and urban planning. Its significance lies in the capacity to analyze and derive invaluable insights from geo-spatial data, enabling us to make informed decisions and address complex challenges. Proficiency in this field equips individuals with the ability to work with real-world data across multiple domains and tackle diverse problems. Furthermore, it provides the opportunity to acquire essential data science skills and utilize important tools for answering spatial questions. Given its wide-ranging applications and the increasing reliance on location-based information, there is a substantial demand for experts in the geographic information industry, making it a highly sought-after skill set in today's workforce.
 
-**What information does GIS use?** 
+**What information does GIS use?**
 
-- Data that defines geographical features like roads, rivers
-- Soil types, land use, elevation 
-- Demographics, socioeconomic attributes 
-- Environmental, climate, air-quality
-- Annotations that label features and places
+-   Data that defines geographical features like roads, rivers
+-   Soil types, land use, elevation
+-   Demographics, socioeconomic attributes
+-   Environmental, climate, air-quality
+-   Annotations that label features and places
 
 **Geographic Data Science**
 
@@ -52,7 +52,7 @@ Once we know a bit more about why we should care about the tools we use, let's d
 
 Watch: [Solving Life's Everyday Problems with Data](https://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/)
 
-1. **"Doing Data Science"** by Cathy O'Neil, Rachel Schutt in  [**`HTML`**](http://shop.oreilly.com/product/0636920028529.do) or  [**`PDF`**](http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf) is a general overview of why we needed Data Science and where if came from.
+1.  **"Doing Data Science"** by Cathy O'Neil, Rachel Schutt in [**`HTML`**](http://shop.oreilly.com/product/0636920028529.do) or [**`PDF`**](http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf) is a general overview of why we needed Data Science and where if came from.
 
 2.  A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho's recent overview ["50 years of Data Science"](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734).
 

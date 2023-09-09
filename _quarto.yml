@@ -15,7 +15,10 @@ book:
       chapters:
         - environR.qmd
         - environPy.qmd
-    - intro.qmd
+    - part: intro.qmd
+      chapters:
+        - openscienceR.qmd
+        - opensciencePython.qmd
     - part: spatialdata.qmd
       chapters:
         - concepts_spatialdata.qmd

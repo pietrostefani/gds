@@ -1,0 +1,57 @@
+---
+jupyter: python3
+---
+
+```{r}
+#| include: false
+library(reticulate)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+# install python packages needed for this document:
+pkgs = c("geopandas", "shapely", "pandas", "rasterio", "matplotlib", "folium", "mapclassify")
+reticulate::py_install(pkgs)
+```
+
+# OpenScience in R {#sec-open-science-R .unnumbered}
+
+Once we know a bit about what computational notebooks are and why we should care about them, let’s jump to using them! This section introduces you to using R or Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code that “does stuff”. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running code on your own.
+
+Once you have read through and have a bit of a sense of how things work, jump on the Do-It-Yourself section, which will provide you with a challenge to complete it on your own, and will allow you to put what you have already learnt to good use.
+
+## Data wrangling
+
+Real world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to munge them. As has been correctly pointed out in many outlets (e.g.), much of the time spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.
+
+For how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.
+
+This notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at. As a companion to this introduction, there is an additional notebook (see link on the website page for Lab 01) that covers how the dataset used here was prepared from raw data downloaded from the internet, and includes some additional exercises you can do if you want dig deeper into the content of this lab.
+
+In this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.
+
+Before we get our hands data-dirty, let us import all the additional libraries we will need, so we can get that out of the way and focus on the task at hand:
+
+
+## Loading packages
+
+We will start by loading core packages for working with geographic vector and attribute data.
+See detailed description of [R](https://ogh23.robinlovelace.net/tidy#vector-data) and [Python]() implementations.
+
+::: {.panel-tabset group="language"}
+
+## Python
+
+```{python}
+
+```
+
+## R
+
+<!---
+--->
+
+```{r}
+library(sf)
+library(tidyverse)
+library(tmap)
+```
+
+:::
