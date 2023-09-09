@@ -4,21 +4,21 @@
     "href": "index.html",
     "title": "Geographic Data Science in R and Python",
     "section": "",
-    "text": "Welcome\nThis is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.\nThis module will introduce students to the field of Geographic Data Science (GDS), a discipline established at the intersection between Geographic Information Science (GIS) and Data Science. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.\nCore to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
+    "text": "Welcome\nThis is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. Much of the course material is inspired by Dani Arribas-Bel’s course on Geographic Data Science.\nThis module will introduce students to the field of Geographic Data Science (GDS), a discipline established at the intersection between Geographic Information Science (GIS) and Data Science. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.\nCore to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
   },
   {
     "objectID": "index.html#contact",
     "href": "index.html#contact",
     "title": "Geographic Data Science in R and Python",
     "section": "Contact",
-    "text": "Contact\n\nElisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.\n\n\nCarmen Cabrera-Arnau - darribas [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom."
+    "text": "Contact\n\nElisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.\n\n\nCarmen Cabrera-Arnau - c.cabrera-arnau [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom."
   },
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "Introduction",
+    "title": "1  1 - Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "2 Open Science\nWatch: Solving Life’s Everyday Problems with Data"
   },
   {
     "objectID": "summary.html",
@@ -39,7 +39,7 @@
     "href": "openscience.html",
     "title": "1 - Open Science",
     "section": "",
-    "text": "Our goal in this part of the book is to"
+    "text": "Concepts\nThe ideas behind this block are better communicated through narrative than video or lectures. Hence, the concepts section are delivered through a few references you are expected to read. These will total up about one and a half hours of your focused time.\n\n\nOpen Science\nThe first part of this block is about setting the philosophical background. Why do we care about the processes and tools we use when we do computational work? Where do the current paradigm come from? Are we on the verge of a new model? For all of this, we we have two reads to set the tone. Make sure to get those in first thing before moving on to the next bits.\nRead the chapter here. Estimated time: 15min.\n\nFirst half of Chapter 1 in \"Geographic Data Science with PySAL and the PyData stack\" reyABwolf.\n\nRead the piece here. Estimated time: 35min.\n\nThe 2018 Atlantic piece \"The scientific paper is obsolete\" on computational notebooks, by James Somers somers2018scientific.\n\n\n\nModern Scientific Tools\nOnce we know a bit more about why we should care about the tools we use, let's dig into those that will underpin much of this course. This part is interesting in itself, but will also valuable to better understand the practical aspects of the course. Again, we have two reads here to set the tone and complement the practical introduction we saw in the Hands-on and DIY parts of the previous block. We are closing the circle here:\nRead the chapter here.\n\nSecond half of Chapter 1 in \"Geographic Data Science with PySAL and the PyData stack\" reyABwolf.\nThe chapter in the GIS&T Book of Knowledge on computational notebooks, by Geoff Boeing and Dani Arribas-Bel."
   },
   {
     "objectID": "overview.html#aims",
@@ -149,9 +149,9 @@
   {
     "objectID": "intro.html#further-readings",
     "href": "intro.html#further-readings",
-    "title": "Introduction",
-    "section": "Further readings",
-    "text": "Further readings\nTo get a better picture, the following readings complement the overview provided above very well:\nBonus\nThe chapter is available free online HTML | PDF\n\nThe introductory chapter to \"Doing Data Science\" schutt2013doing, by Cathy O'Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.\nA slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho's recent overview donoho201750.\nA geographic take on Data Science, proposing more interaction between Geography and Data Science singleton2019geographic."
+    "title": "1  Introduction",
+    "section": "2.1 Further readings",
+    "text": "2.1 Further readings\nTo get a better picture, the following readings complement the overview provided above very well:\nBonus\nWatch ! All Maps are wrong https://www.youtube.com/watch?v=kIID5FDi2JQ Watch: Solving Life’s Everyday Problems with Data https://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/\nThe chapter is available free online HTML | PDF\n\nThe introductory chapter to “Doing Data Science” schutt2013doing, by Cathy O’Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.\nA slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho’s recent overview donoho201750.\nA geographic take on Data Science, proposing more interaction between Geography and Data Science singleton2019geographic."
   },
   {
     "objectID": "environ.html#software",
@@ -173,5 +173,40 @@
     "title": "Environment",
     "section": "Book Software",
     "text": "Book Software\nTo reproduce the code in the book, you need the most recent version of Quarto, R and relevant packages. These can be installed following the instructions provided in our R installation guide. Quarto (1.2.280) can be downloaded from the Quarto website, it may already be installed when you download R and R Studio."
+  },
+  {
+    "objectID": "intro.html#from-geographic-data-science-to-geographic-data-science",
+    "href": "intro.html#from-geographic-data-science-to-geographic-data-science",
+    "title": "1  1 - Introduction",
+    "section": "1.1 From Geographic Data Science to Geographic Data Science",
+    "text": "1.1 From Geographic Data Science to Geographic Data Science\nGeographic Information holds a pivotal position within our modern societies, permeating various aspects of our daily lives. It underpins essential sectors such as housing, transportation, insurance, banking, telecommunications, logistics, energy, retail, agriculture, healthcare, and urban planning. Its significance lies in the capacity to analyze and derive invaluable insights from geo-spatial data, enabling us to make informed decisions and address complex challenges. Proficiency in this field equips individuals with the ability to work with real-world data across multiple domains and tackle diverse problems. Furthermore, it provides the opportunity to acquire essential data science skills and utilize important tools for answering spatial questions. Given its wide-ranging applications and the increasing reliance on location-based information, there is a substantial demand for experts in the geographic information industry, making it a highly sought-after skill set in today’s workforce.\nWhat information does GIS use?\n\nData that defines geographical features like roads, rivers\nSoil types, land use, elevation\nDemographics, socioeconomic attributes\nEnvironmental, climate, air-quality\nAnnotations that label features and places\n\nGeographic Data Science\nA GIS person typically produces cartographic and analytical products using desktop software. A geospatial data scientist creates code and runs pipelines that produce analytical products and cartographic representations.\nThis entails working with real-world data from various domains and tackling a wide range of complex problems. Through this process geospatial data science includes both data science and GIS tools that lead to the analysos of intricate spatial questions effectively. The synergy between CyberGIS and Geographic Data Science is unmistakable, with coding playing a pivotal role in enabling the seamless development of interactive data analysis. By leveraging cutting-edge technologies and innovative methodologies, this symbiotic relationship enhances the accessibility, scalability, and interactivity of geospatial data analysis. Consequently, it opens up new vistas for collaborative research and decision-making processes.\nThis multifaceted approach equips them with the knowledge and expertise to navigate the intricate world of spatial data analysis and contribute meaningfully to diverse fields where location-based insights are invaluable."
+  },
+  {
+    "objectID": "intro.html#a-useful-clip-cannot-find-it",
+    "href": "intro.html#a-useful-clip-cannot-find-it",
+    "title": "1  1 - Introduction",
+    "section": "1.2 A useful clip (cannot find it)",
+    "text": "1.2 A useful clip (cannot find it)\nThe following clip is taken from a keynote response by Dani Arribas-Bel at the first Spatial Data Science Conference, organised by CARTO and held in Brooklyn in 2017. The talk provides a bit of background and context, which will hopefully help you understand a bit better what Geographic Data Science is."
+  },
+  {
+    "objectID": "intro.html#open-science-1",
+    "href": "intro.html#open-science-1",
+    "title": "1  1 - Introduction",
+    "section": "2.1 Open Science",
+    "text": "2.1 Open Science\nWhy do we care about the processes and tools we use when we do computational work? Where do the current paradigm come from? Are we on the verge of a new model? For all of this, we we have two reads to set the tone. Make sure to get those in first thing before moving on to the next bits.\n\nFirst half of Chapter 1 in “Geographic Data Science with Python” Geographic Thinking for Data Scientists.\nThe 2018 Atlantic piece “The scientific paper is obsolete” on computational notebooks, by James Somers."
+  },
+  {
+    "objectID": "intro.html#modern-scientific-tools",
+    "href": "intro.html#modern-scientific-tools",
+    "title": "1  1 - Introduction",
+    "section": "2.2 Modern Scientific Tools",
+    "text": "2.2 Modern Scientific Tools\nOnce we know a bit more about why we should care about the tools we use, let’s dig into those that will underpin much of this course. This part is interesting in itself, but will also valuable to better understand the practical aspects of the course. Again, we have two reads here to set the tone and complement the practical introduction we saw in the Hands-on and DIY parts of the previous block. We are closing the circle here:\n\nSecond half of Chapter 1 in “Geographic Data Science with Python” Geographic Thinking for Data Scientists.\nFind a good link for computational notebook !!!"
+  },
+  {
+    "objectID": "spatialdata.html",
+    "href": "spatialdata.html",
+    "title": "2 - Spatial Data",
+    "section": "",
+    "text": "Watch ! All Maps are wrong https://www.youtube.com/watch?v=kIID5FDi2JQ"
   }
 ]

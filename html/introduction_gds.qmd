@@ -1,0 +1,184 @@
+---
+title: "Geographic Data Science"
+subtitle: "Introduction"
+author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
+format: 
+    revealjs:
+        navigation-mode: grid
+align-items: center;
+---
+
+# (Self-)Quiz
+
+- Have you ever used data to make decisions in your life?
+- Have you ever heard the term “Data Science ”?
+- Have you ever written a line of computer code?
+
+# Philosophy
+
+::: fragment
+- (Lots of) **methods** and techniques
+  - General overview
+  - Intuition
+  - Very little math
+  - Lots of ways to continue on your own
+- Emphasis on the **application** and **use**
+- Close connection to **“real world”** applications
+:::
+
+## Philosophy
+1. This course is like a gym subsciption
+2. Principles over technology
+3. Collaborate, do not copy 
+
+## Format
+::: fragment
+- **Concepts**: lectures (website + slides), readings, videos
+- **Hands-on**: concepts in (interactive) action
+- **Do-It-Yourself**: practical material to do on your own
+:::
+
+# What is Geographic Data Science?
+
+
+## Geographic Data Science
+
+<center>![](./figs/gds.png){width="60%"}<center>
+
+## Geographic Data Science
+
+- **Analyse** and **extract** insights from geospatial data
+- Work with **real-world data** on a number of domains and problems
+- Acquire key **data science skills** and important tools to answer spatial questions 
+
+<center><mark>It is in very high demand in industry.</mark><center>
+
+## *Philosophy* of Geographic Data Science
+
+<br>
+Statistician George Box :
+
+*All models are wrong, but some are useful In a similar fashion*.
+
+<br>
+Geographer Keith Ord :
+
+*All maps are wrong, but some are useful.*
+
+## In what fields is it useful?
+
+<p class="fragment fade-up">Housing </p>
+<p class="fragment fade-upt">Transportation</p>
+<p class="fragment fade-up">Insurance</p>
+<p class="fragment fade-up">Telecommunications</p>
+<p class="fragment fade-up">Energy</p>
+<p class="fragment fade-up">Retail</p>
+<p class="fragment fade-up">Agriculture</p>
+<p class="fragment fade-up">Healthcare</p>
+<p class="fragment fade-up">Urban planning</p>
+<p class="fragment fade-up">And more...</p>
+
+## GIS
+<center><img data-src="./figs/layers.png" alt="centered image" width="50%" height="60%"><center>
+
+## Layers - Image - Data
+<center><img data-src="./figs/geo_data.jpg" alt="centered image" width="100%" height="100%"><center>
+
+## GIS world vs. Real World
+<center><img data-src="./figs/realworld.png" alt="centered image" width="40%" height="40%"><center>
+
+## Skills
+
+**Hard Skills**
+
+- Programming Language
+- Transparency and Reproducibility
+- Version control
+- Cloud 
+
+**Soft Skills**
+
+- Communication
+- Storytelling
+- Geospatial analytics acumen
+- Ethical skills
+
+# Open Science
+
+add max 2 slides on Open Science
+
+# Logistics
+
+## Sessions
+    
+- Lectures *and* labs 
+- **Mondays 1-2pm** (Lecture 1h)
+- **Thursdays 1-3pm** (Lab 2h approx) except in week 7 **Tuesday 10:30-12:30**
+- Always linked to activity on Teams (i.e., stay tuned on Teams!)
+
+## Website
+
+<center><img data-src="./figs/website.png" alt="centered image" width="80%" height="80%"><center>
+
+<CENTER> [`https://pietrostefani.github.io/gds/`](https://pietrostefani.github.io/gds/) </CENTER>
+
+## Teams
+
+Add in Teams fig
+<CENTER>![](./figs/teams.png)</CENTER>
+
+## Code
+
+<CENTER>![](./figs/l01_xkcd-python.png)</CENTER>
+
+## Code
+
+<center><img data-src="./figs/r.png" alt="centered image" width="50%" height="50%"><center>
+
+## Code
+
+<center><img data-src="./figs/carto_trends.png" alt="centered image" width="50%" height="50%"><center>
+
+## Website
+
+::: fragment
+- Syllabus
+- Assessments
+- Environment
+:::
+
+## More Help
+This course is much more about *learning to learn* and **problem solving** rather than acquiring specific programming tricks or stats wizardry.
+
+- Learn to ask questions (but don’t expect exact answers all the time!!!)
+- Help others as much as you can (the best way to learn is to teach)
+- Search heavily on Google + Stack Overflow
+
+## Workflow
+
+Come to **Lectures**  
+
+Before the lab...
+
+1. Go over the Concepts sections of each week after the lecture
+2. Work through the R or Python section of each week (according to your choice of language)
+3. Get started on the DIY
+3. Record questions and post them on Teams prior to the lab
+
+## Workflow
+
+**Labs** 
+
+1. Come work through the code and DIY sections
+2. Live answers to questions posted
+3. Support from demonstrators and module lead
+
+- Hands on!
+- Collaborate *and* participate
+
+# Questions
+
+
+# 
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Geographic Data Science]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="http://pietrostefani.com" property="cc:attributionName" rel="cc:attributionURL">Elisabetta Pietrostefani</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
