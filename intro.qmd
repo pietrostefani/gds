@@ -26,10 +26,6 @@ This multifaceted approach equips them with the knowledge and expertise to navig
 
 ![](./img/gds.png){width="80%"}
 
-## A useful clip (cannot find it)
-
-The following clip is taken from a keynote response by Dani Arribas-Bel at the first [Spatial Data Science Conference](https://carto.com/spatial-data-conference/2017/), organised by [CARTO](https://carto.com/) and held in Brooklyn in 2017. The talk provides a bit of background and context, which will hopefully help you understand a bit better what Geographic Data Science is.
-
 # Open Science
 
 ## **Open Science**
@@ -46,14 +42,17 @@ Once we know a bit more about why we should care about the tools we use, let's d
 
 -   Second half of Chapter 1 in "Geographic Data Science with Python" [Geographic Thinking for Data Scientists](https://geographicdata.science/book/notebooks/01_geo_thinking.html).
 
+<!---
 -   Find a good link for computational notebook !!!
+Carmen any ideas?
+--->
 
 # **Further readings**
 
 Watch: [Solving Life's Everyday Problems with Data](https://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/)
 
-1.  **"Doing Data Science"** by Cathy O'Neil, Rachel Schutt in [**`HTML`**](http://shop.oreilly.com/product/0636920028529.do) or [**`PDF`**](http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf) is a general overview of why we needed Data Science and where if came from.
+1.  **"Doing Data Science"** by Cathy O'Neil, Rachel Schutt in [html](http://shop.oreilly.com/product/0636920028529.do) or [pdf](http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf) is a general overview of why we needed Data Science and where if came from.
 
-2.  A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho's recent overview ["50 years of Data Science"](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734).
+2.  A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho's recent overview [**"50 years of Data Science"**](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734).
 
-3.  A geographic take on Data Science, proposing more interaction between Geography and Data Science is Alex Singelton's and Dani Arribas-Bel's [Geographic Data Science](https://onlinelibrary.wiley.com/doi/full/10.1111/gean.12194) article.
+3.  A geographic take on Data Science, proposing more interaction between Geography and Data Science is Alex Singelton's and Dani Arribas-Bel's [**Geographic Data Science**](https://onlinelibrary.wiley.com/doi/full/10.1111/gean.12194) article.

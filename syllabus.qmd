@@ -1,5 +1,7 @@
 # Syllabus {.unnumbered}
 
+## Part 1
+
 **Introduction and Open Science**
 
 -   Lecture: Introduction to the module & Open Science
@@ -21,6 +23,8 @@
 -   Lab:
 
 `Assignment I`: Programmed Map
+
+## Part 2
 
 **Spatial Weights**
 

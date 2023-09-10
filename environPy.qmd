@@ -2,6 +2,7 @@
 jupyter: python3
 ---
 
+
 <!---
 EP: Carmen here we need to decide how we want our students to work in python. Whether using jupiter notebooks or quarto directly. Both are feasible. 
 - Needs to be a super clear explanation of how working with Python in quarto works, how to install modules and how/if this works on uni computers...
@@ -15,7 +16,6 @@ EP: Carmen here we need to decide how we want our students to work in python. Wh
 #| echo: false
 
 ```
-
 
 # Resources
 

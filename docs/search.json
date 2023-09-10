@@ -200,7 +200,7 @@
     "href": "intro.html#modern-scientific-tools",
     "title": "Introduction",
     "section": "Modern Scientific Tools",
-    "text": "Modern Scientific Tools\nOnce we know a bit more about why we should care about the tools we use, let’s dig into those that will underpin much of this course. This part is interesting in itself, but will also valuable to better understand the practical aspects of the course. Again, we have two reads here to set the tone and complement the practical introduction we saw in the Hands-on and DIY parts of the previous block. We are closing the circle here:\n\nSecond half of Chapter 1 in “Geographic Data Science with Python” Geographic Thinking for Data Scientists.\nFind a good link for computational notebook !!!"
+    "text": "Modern Scientific Tools\nOnce we know a bit more about why we should care about the tools we use, let’s dig into those that will underpin much of this course. This part is interesting in itself, but will also valuable to better understand the practical aspects of the course. Again, we have two reads here to set the tone and complement the practical introduction we saw in the Hands-on and DIY parts of the previous block. We are closing the circle here:\n\nSecond half of Chapter 1 in “Geographic Data Science with Python” Geographic Thinking for Data Scientists."
   },
   {
     "objectID": "spatialdata.html",
@@ -233,15 +233,29 @@
   {
     "objectID": "openscienceR.html#data-wrangling",
     "href": "openscienceR.html#data-wrangling",
-    "title": "1  | include: false",
-    "section": "1.1 Data wrangling",
-    "text": "1.1 Data wrangling\nReal world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to munge them. As has been correctly pointed out in many outlets (e.g.), much of the time spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.\nFor how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.\nThis notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at. As a companion to this introduction, there is an additional notebook (see link on the website page for Lab 01) that covers how the dataset used here was prepared from raw data downloaded from the internet, and includes some additional exercises you can do if you want dig deeper into the content of this lab.\nIn this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.\nBefore we get our hands data-dirty, let us import all the additional libraries we will need, so we can get that out of the way and focus on the task at hand:"
+    "title": "OpenScience in R",
+    "section": "Data wrangling",
+    "text": "Data wrangling\nReal world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to munge them. As has been correctly pointed out in many outlets (e.g.), much of the time spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.\nFor how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.\nThis notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at. As a companion to this introduction, there is an additional notebook (see link on the website page for Lab 01) that covers how the dataset used here was prepared from raw data downloaded from the internet, and includes some additional exercises you can do if you want dig deeper into the content of this lab.\nIn this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.\nBefore we get our hands data-dirty, let us import all the additional libraries we will need, so we can get that out of the way and focus on the task at hand:"
   },
   {
     "objectID": "openscienceR.html#loading-packages",
     "href": "openscienceR.html#loading-packages",
-    "title": "1  | include: false",
-    "section": "1.2 Loading packages",
-    "text": "1.2 Loading packages\nWe will start by loading core packages for working with geographic vector and attribute data. See detailed description of R and Python implementations.\n\nPythonR\n\n\n\n\n\n\nlibrary(sf)\nlibrary(tidyverse)\nlibrary(tmap)"
+    "title": "OpenScience in R",
+    "section": "Loading packages",
+    "text": "Loading packages\nWe will start by loading core packages for working with geographic vector and attribute data.\n\nPythonR\n\n\n\n\n\n\n\n\n\nlibrary(sf)\n\nLinking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2\n──\n\n\n✔ ggplot2 3.4.0      ✔ purrr   1.0.1 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.3.0      ✔ stringr 1.5.0 \n✔ readr   2.1.3      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nlibrary(tmap)"
+  },
+  {
+    "objectID": "syllabus.html#part-1",
+    "href": "syllabus.html#part-1",
+    "title": "Syllabus",
+    "section": "Part 1",
+    "text": "Part 1\nIntroduction and Open Science\n\nLecture: Introduction to the module & Open Science\nLab: Setting up your Computational Environment & Data Wrangling\n\nSpatial Data\n\nLecture:\nLab:\n\nMapping Vector Data\n\nLecture:\nLab:\n\nMapping Raster Data\n\nLecture:\nLab:\n\nAssignment I: Programmed Map"
+  },
+  {
+    "objectID": "syllabus.html#part-2",
+    "href": "syllabus.html#part-2",
+    "title": "Syllabus",
+    "section": "Part 2",
+    "text": "Part 2\nSpatial Weights\n\nLecture:\nLab:\n\nESDA\n\nLecture:\nLab:\n\nAssignment II: MCQ test\nClustering\n\nLecture:\nLab:\n\nInterpolation, heatmaps and point patterns\n\nLecture:\nLab:\n\nSpatial Network Analysis\n\nLecture:\nLab:\n\nAssignment III: A computational essay"
   }
 ]
