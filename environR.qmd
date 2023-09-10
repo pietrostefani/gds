@@ -29,8 +29,8 @@ The list of libraries used in this book is provided below:
 
 Some help along the way with:
 
-1. [R for Data Science](https://r4ds.had.co.nz/). R4DS teaches you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it.
+1.  [R for Data Science](https://r4ds.had.co.nz/). R4DS teaches you how to do data science with R: You'll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it.
 
-2. [Spatial Data Science](https://r-spatial.org/book/) by Edzer Pebesma and Roger Bivand introduces and explains the concepts underlying spatial data.
+2.  [Spatial Data Science](https://r-spatial.org/book/) by Edzer Pebesma and Roger Bivand introduces and explains the concepts underlying spatial data.
 
-3. [Geo-computation with R](https://r.geocompx.org/) by Robin Lovelace, Jakub Nowosad and Jannes Muenchow.
+3.  [Geo-computation with R](https://r.geocompx.org/) by Robin Lovelace, Jakub Nowosad and Jannes Muenchow.

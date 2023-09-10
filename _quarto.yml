@@ -22,8 +22,8 @@ book:
     - part: spatialdata.qmd
       chapters:
         - concepts_spatialdata.qmd
-        - spatialdataR.qmd
-        - spatialdataPy.qmd
+        - spatialdata_code.qmd
+        - spatialdataDIY.qmd
     - part: mapvector.qmd
       chapters:
         - concepts_mapvector.qmd

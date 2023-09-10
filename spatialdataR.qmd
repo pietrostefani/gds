@@ -1,1 +1,0 @@
-# Spatial Data in R {#sec-spatial-data-R .unnumbered}

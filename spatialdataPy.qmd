@@ -1,1 +1,0 @@
-# Spatial data in Python {#sec-spatial-data-Python .unnumbered}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - R</title>
+<title>Geographic Data Science in R and Python - Spatial Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./environPy.html" rel="next">
-<link href="./environ.html" rel="prev">
+<link href="./spatialdataDIY.html" rel="next">
+<link href="./concepts_spatialdata.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,8 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - R">
-<meta name="twitter:description" content="To run the analysis and reproduce the code in R, you need the following software:">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - Spatial Data">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -74,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">R</h1>
+      <h1 class="quarto-secondary-nav-title">Spatial Data</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -145,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./environR.html" class="sidebar-item-text sidebar-link active">R</a>
+  <a href="./environR.html" class="sidebar-item-text sidebar-link">R</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -190,12 +189,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdataR.html" class="sidebar-item-text sidebar-link">Spatial Data in R</a>
+  <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link active">Spatial Data</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdataPy.html" class="sidebar-item-text sidebar-link">Spatial data in Python</a>
+  <a href="./spatialdataDIY.html" class="sidebar-item-text sidebar-link">Spatial data in Python</a>
   </div>
 </li>
       </ul>
@@ -260,21 +259,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#r-list-of-libraries" id="toc-r-list-of-libraries" class="nav-link active" data-scroll-target="#r-list-of-libraries">R List of libraries</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/environR.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">R</h1>
+<h1 class="title"><span id="sec-spatial-data-R" class="quarto-section-identifier d-none d-lg-block">Spatial Data</span></h1>
 </div>
 
 
@@ -289,43 +281,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>To run the analysis and reproduce the code in R, you need the following software:</p>
-<ul>
-<li>R-4.2.2</li>
-<li>RStudio 2022.12.0-353</li>
-<li>The list of libraries in the next section</li>
-</ul>
-<p>To install and update:</p>
-<ul>
-<li>R, download the appropriate version from <a href="https://cran.r-project.org">The Comprehensive R Archive Network (CRAN)</a></li>
-<li>RStudio, download the appropriate version from <a href="https://posit.co/download/rstudio-desktop/">Posit</a></li>
-</ul>
-<p>To check your version of:</p>
-<ul>
-<li>R and libraries run <code>sessionInfo()</code></li>
-<li>RStudio click <code>help</code> on the menu bar and then <code>About</code></li>
-<li>Quarto check the <code>version</code> file in the quarto folder on your computer.</li>
-</ul>
-<section id="r-list-of-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="r-list-of-libraries">R List of libraries</h2>
-<p>The list of libraries used in this book is provided below:</p>
-<ul>
-<li><code>sf</code></li>
-<li><code>geojsonsf</code></li>
-<li><code>mapview</code></li>
-</ul>
-</section>
-<section id="resources" class="level1">
-<h1>Resources</h1>
-<p>Some help along the way with:</p>
-<ol type="1">
-<li><p><a href="https://r4ds.had.co.nz/">R for Data Science</a>. R4DS teaches you how to do data science with R: You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it.</p></li>
-<li><p><a href="https://r-spatial.org/book/">Spatial Data Science</a> by Edzer Pebesma and Roger Bivand introduces and explains the concepts underlying spatial data.</p></li>
-<li><p><a href="https://r.geocompx.org/">Geo-computation with R</a> by Robin Lovelace, Jakub Nowosad and Jannes Muenchow.</p></li>
-</ol>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -463,13 +420,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./environ.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Environment</span>
+      <a href="./concepts_spatialdata.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Concepts</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./environPy.html" class="pagination-link">
-        <span class="nav-page-text">Python</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./spatialdataDIY.html" class="pagination-link">
+        <span class="nav-page-text">Spatial data in Python</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
