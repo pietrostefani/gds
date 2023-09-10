@@ -42,11 +42,12 @@ Once we know a bit more about why we should care about the tools we use, let's d
 
 -   Second half of Chapter 1 in "Geographic Data Science with Python" [Geographic Thinking for Data Scientists](https://geographicdata.science/book/notebooks/01_geo_thinking.html).
 
+```{=html}
 <!---
 -   Find a good link for computational notebook !!!
 Carmen any ideas?
 --->
-
+```
 # **Further readings**
 
 Watch: [Solving Life's Everyday Problems with Data](https://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/)

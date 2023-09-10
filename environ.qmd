@@ -2,6 +2,6 @@
 
 This course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists *everything* you will require.
 
-## Book Software
+## Website Software
 
 To reproduce the code in the book, you need the most recent version of Quarto, R and relevant packages. These can be installed following the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/). Quarto (1.2.280) can be downloaded from [the Quarto website](https://quarto.org/docs/get-started/), it may already be installed when you download R and R Studio.
