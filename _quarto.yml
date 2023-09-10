@@ -17,8 +17,8 @@ book:
         - environPy.qmd
     - part: intro.qmd
       chapters:
-        - openscienceR.qmd
-        - opensciencePython.qmd
+        - openscience.qmd
+        - openscienceDIY.qmd
     - part: spatialdata.qmd
       chapters:
         - concepts_spatialdata.qmd

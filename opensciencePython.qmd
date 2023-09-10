@@ -1,1 +1,0 @@
-# OpenScience in Python {#sec-open-science-Python .unnumbered}

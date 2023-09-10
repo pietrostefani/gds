@@ -1,0 +1,747 @@
+---
+title: "Introduction to R in RStudio"
+author:
+  - Louise Bernard, Elisabetta Pietrostefani, Capucine Riom and Lorenzo Sileci
+
+date: "08/10/2022"
+output: 
+  html_document:
+    code_folding: hide
+    theme: cerulean 
+    highlight: tango
+---
+```{r class.source = "fold-show", setup, include=FALSE}
+knitr::opts_knit$set(root.dir = '~/Dropbox/Teaching/GY476/gy476_data_2022_23')
+```
+
+## R Basics and Making a simple map of London {.tabset .tabset-fade .tabset-pills}
+
+### R Basics {.tabset .tabset-fade .tabset-pills}
+
+#### Starting a session
+
+Upon startup, RStudio will look something like this. Note: the **Pane Layout** and **Appearance** settings can be altered e.g. on Mac OS by clicking RStudio>Preferences>Appearance and RStudio>Preferences>Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; I personally use the **Cobalt** theme. 
+
+```{r class.source = "fold-show", echo = F}
+setwd('~/Dropbox/Teaching/GY476/GY476_Week_3')
+knitr::include_graphics("startup-r.png")
+```
+
+At the start of a session, it's good practice clearing your R environment:
+
+```{r class.source = "fold-show"}
+rm(list = ls())
+```
+
+In R, we are going to be working with **relative paths**. With the command `getwd()`, you can see where your working directory is currently set. You should have set this following the pre-recorded video.
+
+```{r class.source = "fold-show", results='hide'}
+getwd() 
+```
+
+If the directory is not set yet, type in `setwd("~/pathtodirectory")` to set it. It is crucial to **perform this step at the beginning of your R script**, so that relative paths can be used in the subsequent parts.
+
+```{r class.source = "fold-show", eval = F}
+setwd("~/Dropbox/Teaching/GY476/gy476_data_2022_23")
+```
+
+If you have set your directory correctly, it will show up at the top of the console pane:
+
+```{r class.source = "fold-show", echo = F}
+setwd('~/Dropbox/Teaching/GY476/GY476_Week_3')
+knitr::include_graphics("directory.png")
+```
+
+##### Using the console
+
+Try to use the console to perform a few operations. For example type in:
+
+```{r class.source = "fold-show"}
+1+1
+```
+
+Slightly more complicated:
+
+```{r class.source = "fold-show"}
+print("hello world")
+```
+
+If you are unsure about what a command does, use the "Help" panel in your Files pane or type `?function` in the console. For example, to see how the `dplyr::rename()` function works, type in `?dplyr::rename`. When you see the double colon syntax like in the previous command, it's a call to a package without loading its library.
+
+#### R Objects
+
+Everything in R is an **object**. R possesses a simple generic **function** mechanism which can be used for an object-oriented style of programming. Indeed, everything that happens in R is the **result of a function call** [(John M. Chambers)](https://www.r-bloggers.com/2018/06/three-deep-truths-about-r/). Method dispatch takes place based on the class of the first argument to the generic function.
+
+All R statements where you create objects – “assignments” – have this form: `object_name <- value`. 
+Assignment can also be performed using `=` instead of `<-`, but the standard advice is to use the latter syntax [(see e.g. The R Inferno, ch. 8.2.26)](https://www.burns-stat.com/pages/Tutor/R_inferno.pdf). In RStudio, the standard shortcut for the assignment operator `<-` is **Alt + -** (in Windows) or **option + - ** (in Mac OS).
+
+A mock assignment of the value `30` to the name `age` is reported below. In order to inspect the content of the newly created variable, it is sufficient to type the name into the console. Within R, the hash symbol `#` is used to write comments and create collapsible code sections.
+
+```{r class.source = "fold-show"}
+age <- 30 # Assign the number 30 to the name "age"
+age # print the variable "age" to the console
+
+```
+
+##### A small note on variable types
+
+The function `class()` is used to inspect the type of an object.
+
+There are four main types of variables:
+
+* **Logical**: boolean/binary, can either be `TRUE` or `FALSE`
+
+```{r class.source = "fold-show"}
+class(TRUE)
+```
+
+* **Character (or string)**: simple text, including symbols and numbers. It can be wrapped in single or double quotation, which usually highlights text in a different colour in RStudio
+
+```{r class.source = "fold-show"}
+class("I am a city")
+```
+
+
+* **Numeric**: Numbers. Mathematical operators can be used here.
+
+```{r class.source = "fold-show"}
+class(2022)
+```
+
+
+* **Factor**: Characters or strings, but ordered in categories.
+
+```{r class.source = "fold-show"}
+class(as.factor(c("I", "am", "a", "factor")))
+
+```
+
+Another important value to know is `NA`. It stands for "Not Available" and simply denotes a missing value.
+
+```{r class.source = "fold-show"}
+vector_with_missing <- c(NA, 1, 2, NA)
+vector_with_missing
+```
+
+##### Logical operators and expressions
+
+* `==` asks whether two values are the same or equal ("is equal to")
+* `!=` asks whether two values are the not the same or unequal ("is not equal to")
+* `>` greater than
+* `>=` greater or equal to
+* `<=` smaller or equal to
+* `&` stands for "and" (unsurprisingly)
+* `|` stands for "or"
+* `!` stands for "not
+
+##### Examples 
+
+Let's create some random R objects:
+
+```{r class.source = "fold-show"}
+## Entering random 
+London  <- 8982000 # population
+Bristol <- 467099 # population
+London_area <-1572 # area km2
+Bristol_area <-110 # area km2
+
+London
+```
+
+Calculate Population Density in London:
+
+```{r class.source = "fold-show"}
+London_pop_dens <- London/London_area
+Bristol_pop_dens <- Bristol/Bristol_area
+
+London_pop_dens
+```
+
+The function `c()`, which you will use extensively if you keep coding in R, means "concatenate". In this case, we use it to create a vector of population densities for London and Bristol:
+
+```{r class.source = "fold-show"}
+c(London_pop_dens, Bristol_pop_dens)
+pop_density <- c(London_pop_dens, Bristol_pop_dens) # In order to create a vector in R we make use of c() (which stands for concatenate)
+```
+
+Create a character variable:
+
+```{r class.source = "fold-show"}
+x <- "a city"
+class(x)
+typeof(x)
+length(x)
+```
+
+#### Data Structures
+
+Objects in R are typically stored in **data structures**. There are multiple types of data structures:
+
+##### Vectors
+
+In R, a vector is a sequence of elements which **share the same data type**. A vector supports logical, integer, double, character, complex, or raw data types.
+
+```{r class.source = "fold-show"}
+
+# first vector y
+y <- 1:10
+as.numeric(y)
+class(y)
+length(y)
+
+# another vector z
+z <- c(2, 4, 56, 4)
+z
+
+# and another one called cities
+cities <- c("London", "Bristol", "Bath")
+cities
+```
+
+
+##### Matrices 
+
+Two-dimensional, rectangular, and homogeneous data structures. They are similar to vectors, with the additional attribute of having two dimensions: the number of rows and columns.
+
+```{r class.source = "fold-show"}
+m <- matrix(nrow = 2, ncol = 2)
+m
+
+n <- matrix(c(4, 5, 78, 56), nrow = 2, ncol = 2 )
+n
+```
+
+
+##### Lists
+Lists are containers which can store elements of different types and sizes. A list can contain vectors, matrices, dataframes, another list, functions which can be accessed, unlisted, and assigned to other objects.
+
+```{r class.source = "fold-show"}
+list_data <- list("Red", "Green", c(21,32,11), TRUE, 51.23, 119.1)
+print(list_data)
+```
+
+
+##### Data frames
+They are the most common way of storing data in R and are the most used data structure for statistical analysis. Data frames are "rectangular lists", i.e. tabular structures in which **every element has the same length**, and can also be thought of as lists of equal length vectors.
+
+```{r class.source = "fold-show"}
+## Here is a data frame of 3 columns named id, x, y and 10 rows
+dat <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+dat
+
+head(dat) # read first 5 rows
+tail(dat)
+
+names(dat)
+```
+
+Dataframes in R are indexed by rows and columns numbers using the `[rows,cols]` syntax. The `$` operator allows you to access columns in the dataframe, or to create new columns in the dataframe.
+
+```{r class.source = "fold-show"}
+dat[1,] # read first row and all colum ns
+dat[,1] # read all rows and the first column
+dat[6,3] # read 6th row, third column
+dat[c(2:4),] # read rows 2 to 4 and all columns
+
+dat$y # read column y
+dat[dat$x<7,] # read rows that have a x value less than 7
+dat$new_column <- runif(10, 0, 1) # create a new variable called "new_column"
+
+dat
+```
+
+
+
+#### EXERCISE 1 
+
+##### 1. Vectors
+
+* Assign the first 10 elements of the [Fibonacci sequence](https://www.mathsisfun.com/numbers/fibonacci-sequence.html) to a numeric vector called `fibonacci_vector`.
+```{r}
+fibonacci_vector <- c(0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
+```
+
+* Assign the names of the people sitting at your table to a character vector.
+```{r}
+people_vector <- c("Elisabetta", "Capucine", "Lorenzo")
+```
+
+* Inspect the `length` and `class` of your numeric and character vectors.
+```{r, results='hide'}
+length(fibonacci_vector)
+length(people_vector)
+class(fibonacci_vector)
+class(people_vector)
+```
+
+* Construct a numeric vector containing 10 numbers generated at random from the Uniform distribution with interval [0,1] (*Hint:* `runif()`).
+```{r}
+random_uniform <- runif(10, 0, 1)
+```
+
+* Multiply this vector by a scalar.
+```{r, results='hide'}
+random_uniform*3
+```
+
+* Construct a numeric vector by multiplying `fibonacci_vector` by the vector constructed at step 4.
+```{r}
+new_numeric_vector <- fibonacci_vector*random_uniform
+```
+
+
+##### 2. Matrices
+
+* Construct a 3x3 matrix containing `fibonacci_vector`, the vector of random draws from the uniform distribution, and their multiplication.
+```{r}
+new_matrix <-  matrix(c(fibonacci_vector, random_uniform, new_numeric_vector), ncol =3)
+```
+
+* Convert the matrix to a dataframe (*Hint:* `as.data.frame()`)
+```{r}
+new_df <-  as.data.frame(new_matrix)
+```
+
+* Name the dataframe columns (*Hint:* `dplyr::rename()`)
+```{r, results='hide'}
+library(tidyverse)
+```
+
+```{r}
+new_df <-  new_df %>%
+  dplyr::rename(fibonacci_vector = V1,
+                random_uniform = V2,
+                new_numeric_vector = V3)
+```
+
+
+##### 3. Data Frames 
+
+* Construct a Data Frame with 5 columns with an ID, City Name, Population, Area and Population density of 3 cities in the UK.  You can use London, Bristol and other cities in the UK.
+
+```{r}
+
+UK_cities = data.frame(
+  id = c(1,2,3),
+  city_name = c("London", "Bristol", "Liverpool"),
+  population = c(8982000, 467099, 864122),
+  area = c(1572, 110, 200)
+)
+
+UK_cities$pop_density = UK_cities$population/UK_cities$area
+
+# or the tidy way
+UK_cities_tidy = UK_cities %>%
+  mutate(pop_density = population/area)
+
+# Get the structure of the data frame
+str(UK_cities)
+# Print the summary
+print(summary(UK_cities))
+```
+
+
+### Importing CSV data and Mapping {.tabset .tabset-fade .tabset-pills}
+
+#### Starting up
+
+Clear Environment:
+
+```{r class.source = "fold-show"}
+rm(list=ls())
+```
+
+See where your working directory is currently set (you should have set this following the pre-recorded video):
+
+```{r class.source = "fold-show"}
+getwd() 
+```
+
+Type in working directory if not set yet:
+
+```{r class.source = "fold-show"}
+setwd("~/Dropbox/Teaching/GY476/gy476_data_2022_23")
+```
+
+##### Installing packages
+
+In R, packages are collections of functions, compiled code and sample data. They functionally act as "extensions" to the base R language, and can help you accomplish all operations you might want to perform in R (if no package serves your purpose, you may want to write an entirely new one!).
+Now, we will install the R package tidyverse. Look at the [link](https://tidyverse.tidyverse.org/) to see what tidyverse includes, and directly load a .csv file (comma-separated values) into R from your computer.
+
+```{r class.source = "fold-show"}
+if(!require("tidyverse")) install.packages("tidyverse")
+library(tidyverse) 
+```
+
+Import data from csv:
+
+```{r class.source = "fold-show"}
+Densities_UK_cities <- read_csv("London/Tables/Densities_UK_cities.csv")
+Densities_UK_cities
+```
+
+You can also view the data set with:
+
+```{r class.source = "fold-show"}
+glimpse(Densities_UK_cities)
+table(Densities_UK_cities$city)
+```
+
+##### Geographic data 
+
+Let's work with some GEO files. We will read London polygons file and map it using the package `sf` (simple features), in order to create a new spatial polygons dataframe object. The package information can be viewed at this [link](https://r-spatial.github.io/sf/).
+
+```{r class.source = "fold-show"}
+# Clear Environment
+rm(list=ls())
+
+# Install the "sf" package
+if(!require("sf")) install.packages("sf")
+library(sf) #
+library(readr) #T Insall the readr package. The goal of 'readr' is to provide a fast and friendly way to read rectangular data (like 'csv', 'tsv', and 'fwf').
+
+# Add the polygons of London to the environment
+districts <- read_sf("London/Polygons/districts.shp")
+
+# create a simple plot
+plot(districts)
+
+# Read the first lines of the data table attached to the district shapefile
+# the command "head" reads the first 5 rows of the data
+head(districts)
+
+# dataframe in R are indexed by rows and columns numbers
+districts[1,] # read first row
+districts[,1] # read first column
+districts[1,1] #read first row, first column: 00AA
+
+# variable can be called using the operator $
+districts$DIST_NAME #read the column "DIST_NAME"
+
+# dataframe can be subsetted using conditional statement
+# read the rows which have "City of London" as value for DIST_NAME
+districts[districts$DIST_NAME== "City of London",] 
+
+# read the first lines of the data
+head(districts)
+
+# plot london in grey
+plot(districts$geometry, col = "lightgrey")
+```
+
+#### EXERCISE 2
+
+**Read the rows which have "Hackney" as value for DIST_NAME**.
+
+```{r}
+districts[districts$DIST_NAME == "Hackney", ]
+```
+
+**Select the rows which correspond to Haringey, Hackney and Islington using tidyverse functions**.
+
+```{r}
+districts %>%
+  filter(DIST_NAME == "Haringey" | DIST_NAME == "Hackney" | DIST_NAME == "Islington")
+```
+
+#### EXERCISE 3
+
+**Plot the City of London in the same map but in a different colour. Some guidance on colours can be found e.g. [here](https://bookdown.org/hneth/ds4psy/D-3-apx-colors-basics.html).**
+
+```{r}
+# plot london in grey
+plot(districts$geometry, col = "lightgrey")
+
+# Add city of London in turquoise to the map
+plot(districts[districts$DIST_NAME == "City of London", ]$geometry, # select city of london
+     col = "turquoise",
+     add = T) # add to the existing map
+```
+
+How to reset a plot:
+
+```{r, class.source = "fold-show"}
+plot(districts$geometry, reset = T) # reset
+```
+
+
+#### EXERCISE 4
+
+**Add Hackney in turquoise to the map.**
+
+```{r}
+# plot london in grey
+plot(districts$geometry, col = "lightgrey")
+
+# Add city of London in turquoise to the map
+plot(districts[districts$DIST_NAME == "City of London", ]$geometry, # select city of london
+     col = "purple",
+     add = T) # add to the existing map
+
+plot(districts[districts$DIST_NAME == "Hackney", ]$geometry, # select Hackney
+     col = "turquoise",
+     add = T) # reset
+```
+
+
+### A mapping workflow {.tabset .tabset-fade .tabset-pills}
+
+#### Building a cloropleth map
+
+##### Join districts with educational level data
+
+```{r class.source = "fold-show"}
+
+# import qualifications data from csv
+qualifications2001_df <- read.csv("London/Tables/qualifications2001_2.csv")
+
+# take a quick look at the table by reading the first 5 lines
+head(qualifications2001_df)
+```
+
+
+* Install the `dplyr` package, which is a must have package for data cleaning. More info can be found [here](https://dplyr.tidyverse.org/). `dplyr` is a part of the tidyverse!
+
+```{r class.source = "fold-show"}
+if(!require("dplyr")) install.packages("dplyr")
+library(dplyr)
+```
+
+* Join merge two datasets `join(x, y)`.
+    - `left_join` returns all rows from x (`districts`), and all columns from x (`districts`) and y (`qualifications2001`)
+    - `inner join` returns all rows from x where there are matching values in y, and all columns from x and y)
+    - `right join` returns all rows from x, and all columns from x and y) 
+    - `full_join` returns all rows and all columns from both x and y)
+
+* Merge the data from the `districts` shapefile and the qualifications from the csv file
+* Join `districts` data to `qualifications2001` using district identifiers called `DIST_CODE` in districts and `Zone_Code` in `qualifications2001_df`
+
+```{r class.source = "fold-show"}
+
+#join
+districts <- left_join(districts, 
+                       qualifications2001_df, 
+                       by=c("DIST_CODE"="Zone_Code"))
+
+# tidyverse alternative with pipe operator %>%
+
+districts_tidy <- districts %>%
+  left_join(qualifications2001_df, by=c("DIST_CODE"="Zone_Code"))
+
+# check the first rows of the merged data table
+head(districts)
+```
+
+Now, as in Workshop 2, let's create the share of people with level 4 qualification, i.e. create the new variable `Level4p` equal to the number of people with level4 qualification divided by total population:
+
+```{r class.source = "fold-show"}
+
+districts <- districts %>%
+  mutate(Level4p = Level4/Population1674)
+
+```
+
+##### Mapping the results
+
+And finally, we can map the results! We will be using both the `tmap` (specific for maps, see [here](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)), the `ggplot2` (for general data visualisations, see [here](https://ggplot2.tidyverse.org) and the `mapsf` (for thematic cartography, see [here](https://riatelab.github.io/mapsf/)) packages:
+
+```{r class.source = "fold-show"}
+#3a. plot the new variable using the tmap package
+if(!require("tmap")) install.packages("tmap")
+library("tmap")
+qtm(districts, "Level4p") # Quick thematic map plot
+
+#3b. Use ggplot to create the same map of London
+if(!require("ggplot2")) install.packages("ggplot2")
+library("ggplot2")
+
+ggplot() +
+  geom_sf(data = districts, aes(fill = Level4p)) +
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) # remove x and y axis
+
+#3c. Use mapsf to create the same map of London
+if(!require("mapsf")) install.packages("mapsf")
+library("mapsf") 
+
+# Plot the base map
+mf_map(x = districts)
+# Plot with the data
+mf_map(x = districts, var = "Level4p", type = "choro",
+       pal = "Dark Mint", 
+       breaks = "quantile", 
+       nbreaks = 6, 
+       leg_title = "% of highest edu", 
+       add = TRUE)
+
+```
+
+#### Creating scatterplots with `ggplot2`
+
+In the following, we create a scatterplot of population and education:
+
+```{r class.source = "fold-show"}
+if(!require("scales")) install.packages("scales")
+library("scales") #scales: Scale Functions for Visualization
+
+# create the x y axes corresponding to population and share level 4
+scatter1 <- ggplot(districts, aes(Population1674, Level4p))
+scatter1
+
+# add scatter point
+scatter1 + geom_point()
+
+# add a label for each point corresponding to district name
+scatter1 + geom_point() + geom_text(size = 2, aes(label = DIST_NAME))
+
+# Avoid overlaps
+scatter1 + geom_point() + geom_text(size = 2, aes(label = DIST_NAME), check_overlap = TRUE, nudge_y = 0.01)
+
+# add colours corresponding to share of people with level 4 qualifications and size of population size
+scatter1 + 
+  geom_point(aes(colour = Level4p, size = Population1674)) + 
+  geom_text(size = 2.5, aes(label = DIST_NAME, colour = Level4p), check_overlap = TRUE, nudge_x = 20000, nudge_y = 0.02)+
+  labs(color='Share Level4', size = "Population") 
+
+# Improve the axes
+scatter1 + 
+  geom_point(aes(colour = Level4p, size = Population1674)) + 
+  geom_text(size = 2.5, aes(label = DIST_NAME, colour = Level4p), check_overlap = TRUE, nudge_x = 20000, nudge_y = 0.02) +
+  scale_x_continuous(name="Population", limits=c(5000, 250000), labels = scales::comma) +
+  scale_y_continuous(name="Share Level4", labels = percent)
+```
+
+
+#### Selection tools
+
+Here, we replicate the "Select by expression", "Buffer", and "Select by Location" tools as we've seen them in QGIS.
+
+First, let's add housing transactions data and clean them. We first keep only houses which sold for less than £500k, then we transform the .csv in a `sf` object with the `st_as_sf` function using the coordinates stored in columns 17 and 18, and then we set the dataframe CRS to the British National Grid (EPSG:27700) using the `st_set_crs` function. 
+
+```{r class.source = "fold-show"}
+
+# import housesales data from csv
+housesales <- read.csv("London/Tables/housesales.csv")
+
+# read first lines
+head(housesales)
+
+# 3 commands: 
+housesales_filtered = filter(housesales,price < 500000)
+housesales_sf <- st_as_sf(housesales_filtered, coords = c(17,18)) 
+housesales_clean <- st_set_crs(housesales_sf, 27700) 
+```
+
+As we've also seen before, we can do consecutive operations using `dplyr` pipes `%>%`, they are used to simplify syntax. Pipes allow to perform successive operations on dataframes in one command! More info [here](https://seananderson.ca/2014/09/13/dplyr-intro/).
+
+```{r class.source = "fold-show"}
+
+# all one in go and one output
+housesales_clean = housesales %>% # select the main object
+  filter(price < 500000) %>% # remove values above 500,000
+  st_as_sf(coords = c(17,18)) %>% # create sf
+  st_set_crs(27700) # set crs
+
+#plot
+plot(housesales_clean$geometry)
+
+# plot housesales points with districts
+plot(districts$geometry)
+plot(housesales_clean$geometry, add=T)
+
+```
+
+
+##### Selecting by attributes 
+
+Let's say you only want to keep houses with 3 bedrooms:
+
+```{r class.source = "fold-show"}
+housesales_3bed = housesales_clean[housesales_clean$bedroom == 3, ]
+
+# or the tidy version:
+housesales_3bed_tidy = housesales_clean %>%
+  filter(bedroom == 3)
+```
+
+##### Buffers and selecting by location
+
+Here, we first select by expression the Hackney district and then we create a 1km buffer around it with the `st_buffer()` function from the `sf` package.
+
+```{r class.source = "fold-show"}
+# Select just city of London and make new object
+hackney = districts[districts$DIST_NAME== "Hackney",] 
+plot(hackney$geometry)
+
+# buffer
+hackney_buffer <- st_buffer(hackney, 1000)
+
+plot(hackney_buffer$geometry)
+plot(hackney$geometry, add=T)
+
+
+```
+
+
+#### EXERCISE 5
+
+**Try to filter houses within the buffer of Hackney**. *Hint:* Explore spatial join functions in the`sf` manual [here](https://r-spatial.github.io/sf/reference/st_join.html)
+
+```{r}
+plot(hackney_buffer$geometry)
+plot(hackney$geometry, add=T)
+
+# filter
+hackney_filter <- st_filter(housesales_clean, hackney)
+plot(hackney_filter$geometry, add=T, col="red")
+plot(hackney$geometry, add=T)
+
+```
+
+### Complex map using ggplot {.tabset .tabset-fade .tabset-pills} 
+
+`ggplot` syntax is more complex than previous commands, but also allows to add more cartographic options:
+
+```{r class.source = "fold-show"}
+
+# simple map of london
+if(!require("ggmap")) install.packages("ggmap")
+library("ggmap")
+
+map1 <- ggplot()+
+  geom_sf(data = districts, inherit.aes = FALSE)+
+  xlab("") +
+  ylab("")
+map1
+
+# add housing transactions with prices to the map 
+map1 +
+  geom_sf(data = housesales_clean, inherit.aes = FALSE, aes(color = lnprice, size = floorm2),  alpha = .4) +
+  labs(x = "", y = "", title = "Map of London with housing price transactions")
+
+
+# add education 
+if(!require("viridis")) install.packages("viridis") #https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+
+map2 <- ggplot()+
+  geom_sf(data = districts, inherit.aes = FALSE, aes(fill = Level4p))+
+  geom_sf(data = housesales_clean, inherit.aes = FALSE, aes(color = lnprice),  alpha = .4) +
+  scale_color_viridis(label = scales::dollar)+
+  # scale_fill_gradient2(low = "white", high = 'black') +
+  xlab("") +
+  ylab("") +
+  theme_minimal()
+
+map2
+
+```
+
+### FINAL REMARKS {.tabset .tabset-fade .tabset-pills}
+
+* Can we draw in R? We can but not optimized.
+* You can save a history of your R session in an .Rhistory file by using the history function.
+* You can save all the objects and functions that you have created in an .RData file, by using the `save` or the `save.image` functions.
+* More info on R basics [here](https://stats.idre.ucla.edu/r/faq/the-very-basics-of-r/)!
+  
+

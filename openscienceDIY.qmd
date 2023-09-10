@@ -1,0 +1,74 @@
+# Do-It-Yourself {#sec-open-science-DIY .unnumbered}
+
+This section is all about you taking charge of the steering wheel and choosing your own adventure. For this block, we are going to use what we’ve learnt before to take a look at a dataset of casualties in the war in Afghanistan. The data was originally released by Wikileaks, and the version we will use is published by The Guardian.
+
+You can read a bit more about the data at The Guardian’s data blog
+
+## Import libraries
+
+::: {.panel-tabset group="language"}
+## Python
+
+## R
+
+```{r}
+library(sf)
+library(tidyverse)
+library(tmap)
+```
+:::
+
+## Data preparation
+
+Before you can set off on your data journey, the dataset needs to be read, and there’s a couple of details we will get out of the way so it is then easier for you to start working.
+
+The data are published on a Google Sheet you can check out at:
+
+https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/edit?hl=en#gid=1
+
+As you will see, each row includes casualties recorded month by month, split by Taliban, Civilians, Afghan forces, and NATO.
+
+To read it into a Python session, we need to slightly modify the URL to access it into:
+
+::: {.panel-tabset group="language"}
+
+## Python
+
+## R
+
+:::
+
+
+Note how we split the url into three lines so it is more readable in narrow screens. The result however, stored in url, is the same as one long string.
+
+This allows us to read the data straight into a DataFrame, as we have done in the previous session:
+
+::: {.panel-tabset group="language"}
+## Python
+
+## R
+
+```{r}
+
+```
+
+:::
+
+Note also we use the skiprows=[0, -1] to avoid reading the top (0) and bottom (-1) rows which, if you check on the Google Sheet, involves the title of the table.
+
+Now we are good to go!
+
+
+## Tasks
+
+Now, the challenge is to put to work what we have learnt in this block. For that, the suggestion is that you carry out an analysis of the Afghan Logs in a similar way as how we looked at population composition in Liverpool. These are of course very different datasets reflecting immensely different realities. Their structure, however, is relatively parallel: both capture counts aggregated by a spatial (neighbourhood) or temporal unit (month), and each count is split by a few categories.
+
+Try to answer the following questions:
+
+1. Obtain the minimum number of civilian casualties (in what month was that?)
+2. How many NATO casualties were registered in August 2008?
+3. What is the month with the most total number of casualties?
+4. Can you make a plot of the distribution of casualties over time?
+
+Tip:
+You will need to first create a column with total counts
