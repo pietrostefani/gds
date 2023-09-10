@@ -95,7 +95,7 @@
     "href": "syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "Introduction\n\nLecture: Introduction to the module\nLab: Setting up your Computational Environment\n\nOpen Science and Spatial Data\n\nLecture:\nLab:\n\nMapping Vector Data\n\nLecture:\nLab:\n\nMapping Raster Data\n\nLecture:\nLab:\n\nAssignment I: Programmed Map\nSpatial Weights\n\nLecture:\nLab:\n\nESDA\n\nLecture:\nLab:\n\nAssignment II: MCQ test\nClustering\n\nLecture:\nLab:\n\nInterpolation, heatmaps and point patterns\n\nLecture:\nLab:\n\nSpatial Network Analysis\n\nLecture:\nLab:\n\nAssignment III: A computational essay"
+    "text": "Introduction and Open Science\n\nLecture: Introduction to the module & Open Science\nLab: Setting up your Computational Environment & Data Wrangling\n\nSpatial Data\n\nLecture:\nLab:\n\nMapping Vector Data\n\nLecture:\nLab:\n\nMapping Raster Data\n\nLecture:\nLab:\n\nAssignment I: Programmed Map\nSpatial Weights\n\nLecture:\nLab:\n\nESDA\n\nLecture:\nLab:\n\nAssignment II: MCQ test\nClustering\n\nLecture:\nLab:\n\nInterpolation, heatmaps and point patterns\n\nLecture:\nLab:\n\nSpatial Network Analysis\n\nLecture:\nLab:\n\nAssignment III: A computational essay"
   },
   {
     "objectID": "concepts_openscience.html",
@@ -222,5 +222,26 @@
     "title": "R",
     "section": "",
     "text": "Resources\nSome help along the way with:"
+  },
+  {
+    "objectID": "openscienceR.html",
+    "href": "openscienceR.html",
+    "title": "1  | include: false",
+    "section": "",
+    "text": "OpenScience in R\nOnce we know a bit about what computational notebooks are and why we should care about them, let’s jump to using them! This section introduces you to using R or Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code that “does stuff”. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running code on your own.\nOnce you have read through and have a bit of a sense of how things work, jump on the Do-It-Yourself section, which will provide you with a challenge to complete it on your own, and will allow you to put what you have already learnt to good use."
+  },
+  {
+    "objectID": "openscienceR.html#data-wrangling",
+    "href": "openscienceR.html#data-wrangling",
+    "title": "1  | include: false",
+    "section": "1.1 Data wrangling",
+    "text": "1.1 Data wrangling\nReal world datasets are messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to munge them. As has been correctly pointed out in many outlets (e.g.), much of the time spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.\nFor how labor intensive and relevant this aspect is, there is surprisingly very little published on patterns, techniques, and best practices for quick and efficient data cleaning, manipulation, and transformation. In this session, you will use a few real world datasets and learn how to process them into Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing in Python. These are fundamental tools that are constantly used in almost any task relating to data analysis.\nThis notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at. As a companion to this introduction, there is an additional notebook (see link on the website page for Lab 01) that covers how the dataset used here was prepared from raw data downloaded from the internet, and includes some additional exercises you can do if you want dig deeper into the content of this lab.\nIn this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.\nBefore we get our hands data-dirty, let us import all the additional libraries we will need, so we can get that out of the way and focus on the task at hand:"
+  },
+  {
+    "objectID": "openscienceR.html#loading-packages",
+    "href": "openscienceR.html#loading-packages",
+    "title": "1  | include: false",
+    "section": "1.2 Loading packages",
+    "text": "1.2 Loading packages\nWe will start by loading core packages for working with geographic vector and attribute data. See detailed description of R and Python implementations.\n\nPythonR\n\n\n\n\n\n\nlibrary(sf)\nlibrary(tidyverse)\nlibrary(tmap)"
   }
 ]

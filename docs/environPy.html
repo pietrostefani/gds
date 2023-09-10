@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./openscience.html" rel="next">
+<link href="./intro.html" rel="next">
 <link href="./environR.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -63,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta name="twitter:title" content="Geographic Data Science in R and Python - Python">
+<meta name="twitter:description" content="Some help along the way with:">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -121,11 +122,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
   </div>
 </li>
@@ -161,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./openscience.html" class="sidebar-item-text sidebar-link">1 - Open Science</a>
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -169,12 +165,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./concepts_openscience.html" class="sidebar-item-text sidebar-link">Concepts</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./openscienceR.html" class="sidebar-item-text sidebar-link">OpenScience in R</a>
+  <a href="./openscienceR.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">| include: false</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -186,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">2 - Spatial Data</a>
+            <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">Spatial Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -211,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mapvector.html" class="sidebar-item-text sidebar-link">2 - Mapping Vector Data</a>
+            <a href="./mapvector.html" class="sidebar-item-text sidebar-link">Mapping Vector Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -236,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mapraster.html" class="sidebar-item-text sidebar-link">3 - Mapping Raster Data</a>
+            <a href="./mapraster.html" class="sidebar-item-text sidebar-link">Mapping Raster Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -269,7 +260,13 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/environPy.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -291,8 +288,21 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<!---
+EP: Carmen here we need to decide how we want our students to work in python. Whether using jupiter notebooks or quarto directly. Both are feasible. 
+- Needs to be a super clear explanation of how working with Python in quarto works, how to install modules and how/if this works on uni computers...
+- I'm currently having a path problem with my Modules install I need to fix 
+
+--->
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<p>Some help along the way with:</p>
+<ol type="1">
+<li><a href="https://geographicdata.science/book/intro.html">Geographic Data Science with Python</a> by Sergio J. Rey, Dani Arribas-Bel, Levi J. Wolf</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -435,8 +445,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./openscience.html" class="pagination-link">
-        <span class="nav-page-text">1 - Open Science</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro.html" class="pagination-link">
+        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

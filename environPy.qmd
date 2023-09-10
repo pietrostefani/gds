@@ -1,1 +1,24 @@
+---
+jupyter: python3
+---
+
+<!---
+EP: Carmen here we need to decide how we want our students to work in python. Whether using jupiter notebooks or quarto directly. Both are feasible. 
+- Needs to be a super clear explanation of how working with Python in quarto works, how to install modules and how/if this works on uni computers...
+- I'm currently having a path problem with my Modules install I need to fix 
+
+--->
+
 # Python {.unnumbered}
+
+```{python}
+#| echo: false
+
+```
+
+
+# Resources
+
+Some help along the way with:
+
+1.  [Geographic Data Science with Python](https://geographicdata.science/book/intro.html) by Sergio J. Rey, Dani Arribas-Bel, Levi J. Wolf

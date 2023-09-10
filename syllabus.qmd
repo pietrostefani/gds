@@ -1,52 +1,52 @@
 # Syllabus {.unnumbered}
 
-**Introduction**
+**Introduction and Open Science**
 
--   Lecture: Introduction to the module
--   Lab: Setting up your Computational Environment
+-   Lecture: Introduction to the module & Open Science
+-   Lab: Setting up your Computational Environment & Data Wrangling
 
-**Open Science and Spatial Data**
+**Spatial Data**
 
--   Lecture: 
--   Lab: 
+-   Lecture:
+-   Lab:
 
 **Mapping Vector Data**
 
--   Lecture: 
--   Lab: 
+-   Lecture:
+-   Lab:
 
 **Mapping Raster Data**
 
--   Lecture: 
--   Lab: 
+-   Lecture:
+-   Lab:
 
 `Assignment I`: Programmed Map
 
 **Spatial Weights**
 
--   Lecture: 
--   Lab: 
+-   Lecture:
+-   Lab:
 
 **ESDA**
 
--   Lecture: 
--   Lab: 
+-   Lecture:
+-   Lab:
 
 `Assignment II`: MCQ test
 
 **Clustering**
 
--   Lecture: 
--   Lab: 
+-   Lecture:
+-   Lab:
 
 **Interpolation, heatmaps and point patterns**
 
--   Lecture: 
--   Lab: 
+-   Lecture:
+-   Lab:
 
 **Spatial Network Analysis**
 
--   Lecture: 
+-   Lecture:
 -   Lab:
 
 `Assignment III`: A computational essay
