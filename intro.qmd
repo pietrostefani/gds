@@ -26,8 +26,6 @@ This multifaceted approach equips them with the knowledge and expertise to navig
 
 ![](./img/gds.png){width="80%"}
 
-# Open Science
-
 ## **Open Science**
 
 Why do we care about the processes and tools we use when we do computational work? Where do the current paradigm come from? Are we on the verge of a new model? For all of this, we we have two reads to set the tone. Make sure to get those in first thing before moving on to the next bits.

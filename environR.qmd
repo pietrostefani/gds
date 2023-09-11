@@ -1,3 +1,9 @@
+---
+output: 
+  html:
+    code_fold: true
+---
+
 # R {.unnumbered}
 
 To run the analysis and reproduce the code in R, you need the following software:
@@ -17,6 +23,374 @@ To check your version of:
 -   RStudio click `help` on the menu bar and then `About`
 -   Quarto check the `version` file in the quarto folder on your computer.
 
+## R Basics and Making a simple map of London 
+
+### Starting a session
+
+Upon startup, RStudio will look something like this. Note: the **Pane Layout** and **Appearance** settings can be altered e.g. on Mac OS by clicking RStudio\>Preferences\>Appearance and RStudio\>Preferences\>Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; I personally use the **Cobalt** theme.
+
+```{r class.source = "fold-show", echo = F}
+setwd('~/Dropbox/Github/gds')
+knitr::include_graphics("img/startup-r.png")
+```
+
+At the start of a session, it's good practice clearing your R environment:
+
+```{r class.source = "fold-show"}
+rm(list = ls())
+```
+
+In R, we are going to be working with **relative paths**. With the command `getwd()`, you can see where your working directory is currently set. You should have set this following the pre-recorded video.
+
+```{r class.source = "fold-show", results='hide'}
+getwd() 
+```
+
+If the directory is not set yet, type in `setwd("~/pathtodirectory")` to set it. It is crucial to **perform this step at the beginning of your R script**, so that relative paths can be used in the subsequent parts.
+
+```{r class.source = "fold-show", eval = F}
+setwd("~/Dropbox/Github/gds")
+```
+
+If you have set your directory correctly, it will show up at the top of the console pane:
+
+```{r class.source = "fold-show", echo = F}
+setwd('~/Dropbox/Github/gds')
+knitr::include_graphics("img/directory.png")
+```
+
+### Using the console
+
+Try to use the console to perform a few operations. For example type in:
+
+```{r class.source = "fold-show"}
+1+1
+```
+
+Slightly more complicated:
+
+```{r}
+print("hello world")
+```
+
+If you are unsure about what a command does, use the "Help" panel in your Files pane or type `?function` in the console. For example, to see how the `dplyr::rename()` function works, type in `?dplyr::rename`. When you see the double colon syntax like in the previous command, it's a call to a package without loading its library.
+
+### R Objects
+
+Everything in R is an **object**. R possesses a simple generic **function** mechanism which can be used for an object-oriented style of programming. Indeed, everything that happens in R is the **result of a function call** [(John M. Chambers)](https://www.r-bloggers.com/2018/06/three-deep-truths-about-r/). Method dispatch takes place based on the class of the first argument to the generic function.
+
+All R statements where you create objects -- "assignments" -- have this form: `object_name <- value`. Assignment can also be performed using `=` instead of `<-`, but the standard advice is to use the latter syntax [(see e.g. The R Inferno, ch. 8.2.26)](https://www.burns-stat.com/pages/Tutor/R_inferno.pdf). In RStudio, the standard shortcut for the assignment operator `<-` is **Alt + -** (in Windows) or **option + -** (in Mac OS).
+
+A mock assignment of the value `30` to the name `age` is reported below. In order to inspect the content of the newly created variable, it is sufficient to type the name into the console. Within R, the hash symbol `#` is used to write comments and create collapsible code sections.
+
+```{r class.source = "fold-show"}
+age <- 30 # Assign the number 30 to the name "age"
+age # print the variable "age" to the console
+
+```
+
+### A small note on variable types
+
+The function `class()` is used to inspect the type of an object.
+
+There are four main types of variables:
+
+-   **Logical**: boolean/binary, can either be `TRUE` or `FALSE`
+
+```{r class.source = "fold-show"}
+class(TRUE)
+```
+
+-   **Character (or string)**: simple text, including symbols and numbers. It can be wrapped in single or double quotation, which usually highlights text in a different colour in RStudio
+
+```{r class.source = "fold-show"}
+class("I am a city")
+```
+
+-   **Numeric**: Numbers. Mathematical operators can be used here.
+
+```{r class.source = "fold-show"}
+class(2022)
+```
+
+-   **Factor**: Characters or strings, but ordered in categories.
+
+```{r class.source = "fold-show"}
+class(as.factor(c("I", "am", "a", "factor")))
+
+```
+
+Another important value to know is `NA`. It stands for "Not Available" and simply denotes a missing value.
+
+```{r class.source = "fold-show"}
+vector_with_missing <- c(NA, 1, 2, NA)
+vector_with_missing
+```
+
+### Logical operators and expressions
+
+-   `==` asks whether two values are the same or equal ("is equal to")
+-   `!=` asks whether two values are the not the same or unequal ("is not equal to")
+-   `>` greater than
+-   `>=` greater or equal to
+-   `<=` smaller or equal to
+-   `&` stands for "and" (unsurprisingly)
+-   `|` stands for "or"
+-   `!` stands for "not
+
+### Examples
+
+Let's create some random R objects:
+
+```{r class.source = "fold-show"}
+## Entering random 
+London  <- 8982000 # population
+Bristol <- 467099 # population
+London_area <-1572 # area km2
+Bristol_area <-110 # area km2
+
+London
+```
+
+Calculate Population Density in London:
+
+```{r class.source = "fold-show"}
+London_pop_dens <- London/London_area
+Bristol_pop_dens <- Bristol/Bristol_area
+
+London_pop_dens
+```
+
+The function `c()`, which you will use extensively if you keep coding in R, means "concatenate". In this case, we use it to create a vector of population densities for London and Bristol:
+
+```{r class.source = "fold-show"}
+c(London_pop_dens, Bristol_pop_dens)
+pop_density <- c(London_pop_dens, Bristol_pop_dens) # In order to create a vector in R we make use of c() (which stands for concatenate)
+```
+
+Create a character variable:
+
+```{r class.source = "fold-show"}
+x <- "a city"
+class(x)
+typeof(x)
+length(x)
+```
+
+### Data Structures
+
+Objects in R are typically stored in **data structures**. There are multiple types of data structures:
+
+### Vectors
+
+In R, a vector is a sequence of elements which **share the same data type**. A vector supports logical, integer, double, character, complex, or raw data types.
+
+```{r class.source = "fold-show"}
+
+# first vector y
+y <- 1:10
+as.numeric(y)
+class(y)
+length(y)
+
+# another vector z
+z <- c(2, 4, 56, 4)
+z
+
+# and another one called cities
+cities <- c("London", "Bristol", "Bath")
+cities
+```
+
+### Matrices
+
+Two-dimensional, rectangular, and homogeneous data structures. They are similar to vectors, with the additional attribute of having two dimensions: the number of rows and columns.
+
+```{r class.source = "fold-show"}
+m <- matrix(nrow = 2, ncol = 2)
+m
+
+n <- matrix(c(4, 5, 78, 56), nrow = 2, ncol = 2 )
+n
+```
+
+### Lists
+
+Lists are containers which can store elements of different types and sizes. A list can contain vectors, matrices, dataframes, another list, functions which can be accessed, unlisted, and assigned to other objects.
+
+```{r class.source = "fold-show"}
+list_data <- list("Red", "Green", c(21,32,11), TRUE, 51.23, 119.1)
+print(list_data)
+```
+
+### Data frames
+
+They are the most common way of storing data in R and are the most used data structure for statistical analysis. Data frames are "rectangular lists", i.e. tabular structures in which **every element has the same length**, and can also be thought of as lists of equal length vectors.
+
+```{r class.source = "fold-show"}
+## Here is a data frame of 3 columns named id, x, y and 10 rows
+dat <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+dat
+
+head(dat) # read first 5 rows
+tail(dat)
+
+names(dat)
+```
+
+Dataframes in R are indexed by rows and columns numbers using the `[rows,cols]` syntax. The `$` operator allows you to access columns in the dataframe, or to create new columns in the dataframe.
+
+```{r class.source = "fold-show"}
+dat[1,] # read first row and all colum ns
+dat[,1] # read all rows and the first column
+dat[6,3] # read 6th row, third column
+dat[c(2:4),] # read rows 2 to 4 and all columns
+
+dat$y # read column y
+dat[dat$x<7,] # read rows that have a x value less than 7
+dat$new_column <- runif(10, 0, 1) # create a new variable called "new_column"
+
+dat
+```
+
+### Exercises 1
+
+#### 1. Vectors
+
+-   Assign the first 10 elements of the [Fibonacci sequence](https://www.mathsisfun.com/numbers/fibonacci-sequence.html) to a numeric vector called `fibonacci_vector`.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+fibonacci_vector <- c(0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
+```
+
+-   Assign the names of the people sitting at your table to a character vector.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+people_vector <- c("Elisabetta", "Capucine", "Lorenzo")
+```
+
+-   Inspect the `length` and `class` of your numeric and character vectors.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+length(fibonacci_vector)
+length(people_vector)
+class(fibonacci_vector)
+class(people_vector)
+```
+
+-   Construct a numeric vector containing 10 numbers generated at random from the Uniform distribution with interval \[0,1\] (*Hint:* `runif()`).
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+random_uniform <- runif(10, 0, 1)
+```
+
+-   Multiply this vector by a scalar.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+random_uniform*3
+```
+
+-   Construct a numeric vector by multiplying `fibonacci_vector` by the vector constructed at step 4.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+new_numeric_vector <- fibonacci_vector*random_uniform
+```
+
+#### 2. Matrices
+
+-   Construct a 3x3 matrix containing `fibonacci_vector`, the vector of random draws from the uniform distribution, and their multiplication.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+new_matrix <-  matrix(c(fibonacci_vector, random_uniform, new_numeric_vector), ncol =3)
+```
+
+-   Convert the matrix to a dataframe (*Hint:* `as.data.frame()`)
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+new_df <-  as.data.frame(new_matrix)
+```
+
+-   Name the dataframe columns (*Hint:* `dplyr::rename()`)
+
+```{r message=FALSE}
+library(tidyverse)
+```
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+new_df <-  new_df %>%
+  dplyr::rename(fibonacci_vector = V1,
+                random_uniform = V2,
+                new_numeric_vector = V3)
+```
+
+#### 3. Data Frames
+
+-   Construct a `Data Frame` with 5 columns with an ID, City Name, Population, Area and Population density of 3 cities in the UK. You can use London, Bristol and other cities in the UK.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+
+UK_cities = data.frame(
+  id = c(1,2,3),
+  city_name = c("London", "Bristol", "Liverpool"),
+  population = c(8982000, 467099, 864122),
+  area = c(1572, 110, 200)
+)
+
+UK_cities$pop_density = UK_cities$population/UK_cities$area
+
+# or the tidy way
+UK_cities_tidy = UK_cities %>%
+  mutate(pop_density = population/area)
+
+# Get the structure of the data frame
+str(UK_cities)
+# Print the summary
+print(summary(UK_cities))
+```
+
+## Installing packages
+
+In R, packages are collections of functions, compiled code and sample data. They functionally act as "extensions" to the base R language, and can help you accomplish all operations you might want to perform in R (if no package serves your purpose, you may want to write an entirely new one!). Now, we will install the R package tidyverse. Look at the [link](https://tidyverse.tidyverse.org/) to see what tidyverse includes, and directly load a .csv file (comma-separated values) into R from your computer.
+
+```{r class.source = "fold-show"}
+if(!require("tidyverse")) install.packages("tidyverse")
+library(tidyverse) 
+```
+
+Import data from csv:
+
+```{r class.source = "fold-show"}
+Densities_UK_cities <- read_csv("data/London/Tables/Densities_UK_cities.csv")
+Densities_UK_cities
+```
+
+You can also view the data set with:
+
+```{r class.source = "fold-show"}
+glimpse(Densities_UK_cities)
+table(Densities_UK_cities$city)
+```
+
 ## R List of libraries
 
 The list of libraries used in this book is provided below:
@@ -25,7 +399,7 @@ The list of libraries used in this book is provided below:
 -   `geojsonsf`
 -   `mapview`
 
-# Resources
+## Resources
 
 Some help along the way with:
 
