@@ -26,6 +26,14 @@ This multifaceted approach equips them with the knowledge and expertise to navig
 
 ![](./img/gds.png){width="80%"}
 
+## Open Source GIS
+
+**Open source Geographic Information Systems (GIS)**, such as **QGIS**, have made geographic analysis accessible worldwide. GIS programs tend to emphasize graphical user interfaces (GUIs), with the unintended consequence of discouraging reproducibility (although many can be used from the command line Python + QGIS). **R** and **Python** by contrast, emphasizes the command line interface (CLI).
+
+The **'geodata revolution'** drives demand for high performance computer hardware and efficient, scalable software to handle and extract signal from the noise, to understand and perhaps change the world. Spatial databases enable storage and generation of manageable subsets from the vast geographic data stores, making interfaces for gaining knowledge from them vital tools for the future.
+
+**R** and **Python** are both tools with advanced modeling and visualization capabilities.
+
 ## **Open Science**
 
 Why do we care about the processes and tools we use when we do computational work? Where do the current paradigm come from? Are we on the verge of a new model? For all of this, we we have two reads to set the tone. Make sure to get those in first thing before moving on to the next bits.
