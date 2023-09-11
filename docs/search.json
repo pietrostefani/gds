@@ -16,7 +16,7 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "Introduction",
+    "title": "1 Introduction",
     "section": "",
     "text": "Open Science\nWatch: Solving Life’s Everyday Problems with Data"
   },
@@ -177,7 +177,7 @@
   {
     "objectID": "intro.html#from-geographic-data-science-to-geographic-data-science",
     "href": "intro.html#from-geographic-data-science-to-geographic-data-science",
-    "title": "Introduction",
+    "title": "1 Introduction",
     "section": "From Geographic Data Science to Geographic Data Science",
     "text": "From Geographic Data Science to Geographic Data Science\nGeographic Information holds a pivotal position within our modern societies, permeating various aspects of our daily lives. It underpins essential sectors such as housing, transportation, insurance, banking, telecommunications, logistics, energy, retail, agriculture, healthcare, and urban planning. Its significance lies in the capacity to analyze and derive invaluable insights from geo-spatial data, enabling us to make informed decisions and address complex challenges. Proficiency in this field equips individuals with the ability to work with real-world data across multiple domains and tackle diverse problems. Furthermore, it provides the opportunity to acquire essential data science skills and utilize important tools for answering spatial questions. Given its wide-ranging applications and the increasing reliance on location-based information, there is a substantial demand for experts in the geographic information industry, making it a highly sought-after skill set in today’s workforce.\nWhat information does GIS use?\n\nData that defines geographical features like roads, rivers\nSoil types, land use, elevation\nDemographics, socioeconomic attributes\nEnvironmental, climate, air-quality\nAnnotations that label features and places\n\nGeographic Data Science\nA GIS person typically produces cartographic and analytical products using desktop software. A geospatial data scientist creates code and runs pipelines that produce analytical products and cartographic representations.\nThis entails working with real-world data from various domains and tackling a wide range of complex problems. Through this process geospatial data science includes both data science and GIS tools that lead to the analysos of intricate spatial questions effectively. The synergy between CyberGIS and Geographic Data Science is unmistakable, with coding playing a pivotal role in enabling the seamless development of interactive data analysis. By leveraging cutting-edge technologies and innovative methodologies, this symbiotic relationship enhances the accessibility, scalability, and interactivity of geospatial data analysis. Consequently, it opens up new vistas for collaborative research and decision-making processes.\nThis multifaceted approach equips them with the knowledge and expertise to navigate the intricate world of spatial data analysis and contribute meaningfully to diverse fields where location-based insights are invaluable."
   },
@@ -191,14 +191,14 @@
   {
     "objectID": "intro.html#open-science-1",
     "href": "intro.html#open-science-1",
-    "title": "Introduction",
+    "title": "1 Introduction",
     "section": "Open Science",
     "text": "Open Science\nWhy do we care about the processes and tools we use when we do computational work? Where do the current paradigm come from? Are we on the verge of a new model? For all of this, we we have two reads to set the tone. Make sure to get those in first thing before moving on to the next bits.\n\nFirst half of Chapter 1 in “Geographic Data Science with Python” Geographic Thinking for Data Scientists.\nThe 2018 Atlantic piece “The scientific paper is obsolete” on computational notebooks, by James Somers."
   },
   {
     "objectID": "intro.html#modern-scientific-tools",
     "href": "intro.html#modern-scientific-tools",
-    "title": "Introduction",
+    "title": "1 Introduction",
     "section": "Modern Scientific Tools",
     "text": "Modern Scientific Tools\nOnce we know a bit more about why we should care about the tools we use, let’s dig into those that will underpin much of this course. This part is interesting in itself, but will also valuable to better understand the practical aspects of the course. Again, we have two reads here to set the tone and complement the practical introduction we saw in the Hands-on and DIY parts of the previous block. We are closing the circle here:\n\nSecond half of Chapter 1 in “Geographic Data Science with Python” Geographic Thinking for Data Scientists."
   },

@@ -1,4 +1,4 @@
-# Introduction {#sec-intro .unnumbered}
+# 1 Introduction {#sec-intro .unnumbered}
 
 In this section we introduce what Geographic Data Science is. We top it up with a few (optional) further readings for the interested and curious mind.
 
