@@ -23,7 +23,7 @@ To check your version of:
 -   RStudio click `help` on the menu bar and then `About`
 -   Quarto check the `version` file in the quarto folder on your computer.
 
-## R Basics and Making a simple map of London 
+## R Basics
 
 ### Starting a session
 
@@ -89,7 +89,7 @@ age # print the variable "age" to the console
 
 ```
 
-### A small note on variable types
+## A small note on variable types
 
 The function `class()` is used to inspect the type of an object.
 
@@ -127,7 +127,7 @@ vector_with_missing <- c(NA, 1, 2, NA)
 vector_with_missing
 ```
 
-### Logical operators and expressions
+## Logical operators and expressions
 
 -   `==` asks whether two values are the same or equal ("is equal to")
 -   `!=` asks whether two values are the not the same or unequal ("is not equal to")
@@ -138,7 +138,7 @@ vector_with_missing
 -   `|` stands for "or"
 -   `!` stands for "not
 
-### Examples
+## Examples
 
 Let's create some random R objects:
 
@@ -177,7 +177,7 @@ typeof(x)
 length(x)
 ```
 
-### Data Structures
+## Data Structures
 
 Objects in R are typically stored in **data structures**. There are multiple types of data structures:
 
@@ -253,9 +253,9 @@ dat$new_column <- runif(10, 0, 1) # create a new variable called "new_column"
 dat
 ```
 
-### Exercises 1
+## Exercises 1
 
-#### 1. Vectors
+### 1. Vectors
 
 -   Assign the first 10 elements of the [Fibonacci sequence](https://www.mathsisfun.com/numbers/fibonacci-sequence.html) to a numeric vector called `fibonacci_vector`.
 
@@ -308,7 +308,7 @@ random_uniform*3
 new_numeric_vector <- fibonacci_vector*random_uniform
 ```
 
-#### 2. Matrices
+### 2. Matrices
 
 -   Construct a 3x3 matrix containing `fibonacci_vector`, the vector of random draws from the uniform distribution, and their multiplication.
 
@@ -341,7 +341,7 @@ new_df <-  new_df %>%
                 new_numeric_vector = V3)
 ```
 
-#### 3. Data Frames
+### 3. Data Frames
 
 -   Construct a `Data Frame` with 5 columns with an ID, City Name, Population, Area and Population density of 3 cities in the UK. You can use London, Bristol and other cities in the UK.
 

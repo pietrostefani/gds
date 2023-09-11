@@ -11,10 +11,8 @@ You can read a bit more about the data at The Guardian’s data blog
 
 ## R
 
-```{r}
-library(sf)
+```{r message=FALSE}
 library(tidyverse)
-library(tmap)
 ```
 :::
 
@@ -22,39 +20,32 @@ library(tmap)
 
 Before you can set off on your data journey, the dataset needs to be read, and there’s a couple of details we will get out of the way so it is then easier for you to start working.
 
-The data are published on a Google Sheet you can check out at:
-
-https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/edit?hl=en#gid=1
+The data are published on a [Google Sheet](https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/edit?hl=en#gid=1).
 
 As you will see, each row includes casualties recorded month by month, split by Taliban, Civilians, Afghan forces, and NATO.
 
-To read it into a Python session, we need to slightly modify the URL to access it into:
+Let's read it into an R or Python session:
 
 ::: {.panel-tabset group="language"}
-
-## Python
-
-## R
-
-:::
-
-
-Note how we split the url into three lines so it is more readable in narrow screens. The result however, stored in url, is the same as one long string.
-
-This allows us to read the data straight into a DataFrame, as we have done in the previous session:
-
-::: {.panel-tabset group="language"}
-## Python
 
 ## R
 
 ```{r}
+# Specify the URL of the CSV file
+url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vRa7OIBiz7-yqmgwUEn4V5Wm1TO8rGow_wQVS1PWp--UTCAKqNUhtifECO5ZR9XrMd6Ddq9NxQwf1ll/pub?gid=0&single=true&output=csv"
 
+# Read the data from the URL into a DataFrame
+data <- read.csv(url)
+
+# see the data
+head(data)
 ```
+
+## Python
 
 :::
 
-Note also we use the skiprows=[0, -1] to avoid reading the top (0) and bottom (-1) rows which, if you check on the Google Sheet, involves the title of the table.
+This allows us to read the data straight into a `DataFrame`, as we have done in the previous session.
 
 Now we are good to go!
 
@@ -68,7 +59,6 @@ Try to answer the following questions:
 1. Obtain the minimum number of civilian casualties (in what month was that?)
 2. How many NATO casualties were registered in August 2008?
 3. What is the month with the most total number of casualties?
-4. Can you make a plot of the distribution of casualties over time?
 
 Tip:
 You will need to first create a column with total counts

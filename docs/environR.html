@@ -417,20 +417,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r-basics-and-making-a-simple-map-of-london" id="toc-r-basics-and-making-a-simple-map-of-london" class="nav-link active" data-scroll-target="#r-basics-and-making-a-simple-map-of-london">R Basics and Making a simple map of London</a>
+  <li><a href="#r-basics" id="toc-r-basics" class="nav-link active" data-scroll-target="#r-basics">R Basics</a>
   <ul class="collapse">
   <li><a href="#starting-a-session" id="toc-starting-a-session" class="nav-link" data-scroll-target="#starting-a-session">Starting a session</a></li>
   <li><a href="#using-the-console" id="toc-using-the-console" class="nav-link" data-scroll-target="#using-the-console">Using the console</a></li>
   <li><a href="#r-objects" id="toc-r-objects" class="nav-link" data-scroll-target="#r-objects">R Objects</a></li>
+  </ul></li>
   <li><a href="#a-small-note-on-variable-types" id="toc-a-small-note-on-variable-types" class="nav-link" data-scroll-target="#a-small-note-on-variable-types">A small note on variable types</a></li>
   <li><a href="#logical-operators-and-expressions" id="toc-logical-operators-and-expressions" class="nav-link" data-scroll-target="#logical-operators-and-expressions">Logical operators and expressions</a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a>
+  <ul class="collapse">
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
   <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">Matrices</a></li>
   <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
   <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data frames</a></li>
-  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">Exercises 1</a></li>
+  </ul></li>
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">Exercises 1</a>
+  <ul class="collapse">
+  <li><a href="#vectors-1" id="toc-vectors-1" class="nav-link" data-scroll-target="#vectors-1">1. Vectors</a></li>
+  <li><a href="#matrices-1" id="toc-matrices-1" class="nav-link" data-scroll-target="#matrices-1">2. Matrices</a></li>
+  <li><a href="#data-frames-1" id="toc-data-frames-1" class="nav-link" data-scroll-target="#data-frames-1">3. Data Frames</a></li>
   </ul></li>
   <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages">Installing packages</a></li>
   <li><a href="#r-list-of-libraries" id="toc-r-list-of-libraries" class="nav-link" data-scroll-target="#r-list-of-libraries">R List of libraries</a></li>
@@ -475,8 +482,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>RStudio click <code>help</code> on the menu bar and then <code>About</code></li>
 <li>Quarto check the <code>version</code> file in the quarto folder on your computer.</li>
 </ul>
-<section id="r-basics-and-making-a-simple-map-of-london" class="level2">
-<h2 class="anchored" data-anchor-id="r-basics-and-making-a-simple-map-of-london">R Basics and Making a simple map of London</h2>
+<section id="r-basics" class="level2">
+<h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
 <section id="starting-a-session" class="level3">
 <h3 class="anchored" data-anchor-id="starting-a-session">Starting a session</h3>
 <p>Upon startup, RStudio will look something like this. Note: the <strong>Pane Layout</strong> and <strong>Appearance</strong> settings can be altered e.g.&nbsp;on Mac OS by clicking RStudio&gt;Preferences&gt;Appearance and RStudio&gt;Preferences&gt;Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; I personally use the <strong>Cobalt</strong> theme.</p>
@@ -535,8 +542,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="a-small-note-on-variable-types" class="level3">
-<h3 class="anchored" data-anchor-id="a-small-note-on-variable-types">A small note on variable types</h3>
+</section>
+<section id="a-small-note-on-variable-types" class="level2">
+<h2 class="anchored" data-anchor-id="a-small-note-on-variable-types">A small note on variable types</h2>
 <p>The function <code>class()</code> is used to inspect the type of an object.</p>
 <p>There are four main types of variables:</p>
 <ul>
@@ -584,8 +592,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="logical-operators-and-expressions" class="level3">
-<h3 class="anchored" data-anchor-id="logical-operators-and-expressions">Logical operators and expressions</h3>
+<section id="logical-operators-and-expressions" class="level2">
+<h2 class="anchored" data-anchor-id="logical-operators-and-expressions">Logical operators and expressions</h2>
 <ul>
 <li><code>==</code> asks whether two values are the same or equal (“is equal to”)</li>
 <li><code>!=</code> asks whether two values are the not the same or unequal (“is not equal to”)</li>
@@ -597,8 +605,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>!</code> stands for “not</li>
 </ul>
 </section>
-<section id="examples" class="level3">
-<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
 <p>Let’s create some random R objects:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Entering random </span></span>
@@ -647,10 +655,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="data-structures" class="level3">
-<h3 class="anchored" data-anchor-id="data-structures">Data Structures</h3>
+<section id="data-structures" class="level2">
+<h2 class="anchored" data-anchor-id="data-structures">Data Structures</h2>
 <p>Objects in R are typically stored in <strong>data structures</strong>. There are multiple types of data structures:</p>
-</section>
 <section id="vectors" class="level3">
 <h3 class="anchored" data-anchor-id="vectors">Vectors</h3>
 <p>In R, a vector is a sequence of elements which <strong>share the same data type</strong>. A vector supports logical, integer, double, character, complex, or raw data types.</p>
@@ -816,23 +823,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id  x  y new_column
-1   a  1 11  0.3230397
-2   b  2 12  0.2004565
-3   c  3 13  0.3654617
-4   d  4 14  0.6679464
-5   e  5 15  0.4820938
-6   f  6 16  0.8266886
-7   g  7 17  0.1367763
-8   h  8 18  0.1307404
-9   i  9 19  0.1557868
-10  j 10 20  0.8541773</code></pre>
+1   a  1 11 0.31130612
+2   b  2 12 0.51108502
+3   c  3 13 0.05251427
+4   d  4 14 0.98527547
+5   e  5 15 0.59702848
+6   f  6 16 0.70949907
+7   g  7 17 0.54361005
+8   h  8 18 0.29220352
+9   i  9 19 0.04759733
+10  j 10 20 0.86567181</code></pre>
 </div>
 </div>
 </section>
-<section id="exercises-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-1">Exercises 1</h3>
-<section id="vectors-1" class="level4">
-<h4 class="anchored" data-anchor-id="vectors-1">1. Vectors</h4>
+</section>
+<section id="exercises-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercises-1">Exercises 1</h2>
+<section id="vectors-1" class="level3">
+<h3 class="anchored" data-anchor-id="vectors-1">1. Vectors</h3>
 <ul>
 <li>Assign the first 10 elements of the <a href="https://www.mathsisfun.com/numbers/fibonacci-sequence.html">Fibonacci sequence</a> to a numeric vector called <code>fibonacci_vector</code>.</li>
 </ul>
@@ -902,8 +910,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>random_uniform<span class="sc">*</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 2.17794816 0.05844188 1.55794470 0.55761688 0.20836326 2.56954717
- [7] 2.44263921 2.99906779 0.33792777 1.35694690</code></pre>
+<pre><code> [1] 1.36448262 0.94936261 1.13249667 0.01386841 1.14539223 1.34002270
+ [7] 2.38620325 0.13660425 0.56899676 0.37095379</code></pre>
 </div>
 </div>
 <ul>
@@ -916,8 +924,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 </section>
-<section id="matrices-1" class="level4">
-<h4 class="anchored" data-anchor-id="matrices-1">2. Matrices</h4>
+<section id="matrices-1" class="level3">
+<h3 class="anchored" data-anchor-id="matrices-1">2. Matrices</h3>
 <ul>
 <li>Construct a 3x3 matrix containing <code>fibonacci_vector</code>, the vector of random draws from the uniform distribution, and their multiplication.</li>
 </ul>
@@ -952,8 +960,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 </section>
-<section id="data-frames-1" class="level4">
-<h4 class="anchored" data-anchor-id="data-frames-1">3. Data Frames</h4>
+<section id="data-frames-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-frames-1">3. Data Frames</h3>
 <ul>
 <li>Construct a <code>Data Frame</code> with 5 columns with an ID, City Name, Population, Area and Population density of 3 cities in the UK. You can use London, Bristol and other cities in the UK.</li>
 </ul>
@@ -1006,7 +1014,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  Max.   :5714  </code></pre>
 </div>
 </div>
-</section>
 </section>
 </section>
 <section id="installing-packages" class="level2">

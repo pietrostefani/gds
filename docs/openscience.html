@@ -425,7 +425,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#columns" id="toc-columns" class="nav-link" data-scroll-target="#columns">Columns</a></li>
   <li><a href="#queries" id="toc-queries" class="nav-link" data-scroll-target="#queries">Queries</a></li>
   <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
-  <li><a href="#visual-exploration" id="toc-visual-exploration" class="nav-link" data-scroll-target="#visual-exploration">Visual Exploration</a></li>
+  <li><a href="#additional-lab-materials" id="toc-additional-lab-materials" class="nav-link" data-scroll-target="#additional-lab-materials">Additional lab materials</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/openscience.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -467,9 +467,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="tab-content" data-group="language">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># a structure of data manipulation including several packages </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
@@ -513,8 +512,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>To ensure we can access the data we have read, we store it in an object that we call census2021. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of <code>read.csv</code>.</p>
-<p><strong>Important</strong> You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the file by right-clicking <a href="https://github.com/pietrostefani/gds/tree/main/data">on this link</a> and saving the file 2. Place the file on the same folder as the notebook where you intend to read it</p>
+<p>To ensure we can access the data we have read, we store it in an object that we call <code>census2021</code>. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of <code>read.csv</code>.</p>
+<p><strong>Important</strong></p>
+<p>You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the file by right-clicking <a href="https://github.com/pietrostefani/gds/tree/main/data">on this link</a> and saving the file 2. Place the file on the same folder as the notebook where you intend to read it</p>
 </section>
 <section id="data-sliced-and-diced" class="level2">
 <h2 class="anchored" data-anchor-id="data-sliced-and-diced">Data, sliced and diced</h2>
@@ -656,17 +656,220 @@ Antarctica.and.Oceania         3rd Qu.: 3.00    Max.   :11.00   </code></pre>
 <h2 class="anchored" data-anchor-id="columns">Columns</h2>
 <p><strong>Create new columns</strong></p>
 <p>We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:</p>
+<div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Base R</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>Total_Population <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(census2021[, <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"Middle.East.and.Asia"</span>, <span class="st">"Europe"</span>, <span class="st">"The.Americas.and.the.Caribbean"</span>, <span class="st">"Antarctica.and.Oceania"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><a href="https://www.tidyverse.org/packages/"><code>dplyr</code></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total_Pop =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., Africa, Middle.East.and.Asia, Europe, The.Americas.and.the.Caribbean, Antarctica.and.Oceania)))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
+E01006512    910    106                  840                             24
+E01006513   2225     61                  595                             53
+E01006514   1786     63                  193                             61
+E01006515    974     29                  185                             18
+E01006518   1531     69                   73                             19
+E01006519   1238      7                   24                             14
+          Antarctica.and.Oceania Total_Population Total_Pop
+E01006512                      0             1880      1880
+E01006513                      7             2941      2941
+E01006514                      5             2108      2108
+E01006515                      2             1208      1208
+E01006518                      4             1696      1696
+E01006519                      3             1286      1286</code></pre>
+</div>
+</div>
+<p>A different spin on this is assigning new values: we can generate new variables with scalars, and modify those:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>new_column <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
+E01006512    910    106                  840                             24
+E01006513   2225     61                  595                             53
+E01006514   1786     63                  193                             61
+E01006515    974     29                  185                             18
+E01006518   1531     69                   73                             19
+E01006519   1238      7                   24                             14
+          Antarctica.and.Oceania Total_Population Total_Pop new_column
+E01006512                      0             1880      1880          1
+E01006513                      7             2941      2941          1
+E01006514                      5             2108      2108          1
+E01006515                      2             1208      1208          1
+E01006518                      4             1696      1696          1
+E01006519                      3             1286      1286          1</code></pre>
+</div>
+</div>
+<p><code>dplyr</code> is an immensely useful package in R because it streamlines and simplifies the process of data manipulation and transformation. With its intuitive and consistent syntax, dplyr provides a set of powerful and efficient functions that make tasks like filtering, summarizing, grouping, and joining datasets much more straightforward. Whether you’re working with small or large datasets, <code>dplyr</code>’s optimized code execution ensures fast and efficient operations. Its ability to chain functions together using the pipe operator (<code>%&gt;%</code>) allows for a clean and readable code structure, enhancing code reproducibility and collaboration. Overall, <code>dplyr</code> is an indispensable tool for data analysts and scientists working in R, enabling them to focus on their data insights rather than wrestling with complex data manipulation code.</p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+
+</div>
+</div>
+</div>
 <p><strong>Delete columns</strong></p>
+<p>Permanently deleting variables is also within reach of one command:</p>
+<div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<p>Base R</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> <span class="fu">subset</span>(census2021, <span class="at">select =</span> <span class="sc">-</span>new_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>dplyr</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_column =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+
+</div>
+</div>
+</div>
 </section>
 <section id="queries" class="level2">
 <h2 class="anchored" data-anchor-id="queries">Queries</h2>
-<p><strong>Index-based queries</strong> <strong>Condition-based queries</strong> <strong>Combining queries</strong></p>
+<p><strong>Index-based queries</strong></p>
+<p>Here we explore how we can subset parts of a <code>DataFrame</code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table:</p>
+<div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>eu_tot_first4 <span class="ot">&lt;-</span> census2021[<span class="fu">c</span>(<span class="st">'E01006512'</span>, <span class="st">'E01006513'</span>, <span class="st">'E01006514'</span>, <span class="st">'E01006515'</span>), <span class="fu">c</span>(<span class="st">'Total_Population'</span>, <span class="st">'Europe'</span>)]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>eu_tot_first4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Total_Population Europe
+E01006512             1880    910
+E01006513             2941   2225
+E01006514             2108   1786
+E01006515             1208    974</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<p>we use loc with lists:</p>
+</div>
+</div>
+</div>
+<p><strong>Condition-based queries</strong></p>
+<p>However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g.&nbsp;areas with more than 2,000 inhabitants). For these cases, <code>DataFrames</code> support selection based on conditions. Let us see a few examples. Suppose we want to select…</p>
+<div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<p>Areas with more than 900 people in Total:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pop900 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Total_Population <span class="sc">&gt;</span> <span class="dv">900</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Areas where there are no more than 750 Europeans:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>euro750 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Europe <span class="sc">&lt;</span> <span class="dv">750</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Areas with exactly ten person from Antarctica and Oceania:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>oneOA <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Antarctica.and.Oceania</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<p>… areas with more than 2,500 people in Total:</p>
+<p>… areas where there are no more than 750 Europeans:</p>
+<p>… areas with exactly ten person from Antarctica and Oceania:</p>
+</div>
+</div>
+</div>
+<p><em>Pro-tip</em>: These queries can grow in sophistication with almost no limits.</p>
+<p><strong>Combining queries</strong></p>
+<p>Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:</p>
+<div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ac25_l500 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(The.Americas.and.the.Caribbean <span class="sc">&gt;</span> <span class="dv">25</span>, Total_Population <span class="sc">&lt;</span> <span class="dv">1500</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ac25_l500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
+E01033750   1235     53                  129                             26
+E01033752   1024     19                  114                             33
+E01033754   1262     37                  112                             32
+E01033756    886     31                  221                             42
+E01033757    731     39                  223                             29
+E01033761   1138     52                  138                             33
+          Antarctica.and.Oceania Total_Population Total_Pop new_column
+E01033750                      5             1448      1448          1
+E01033752                      6             1196      1196          1
+E01033754                      9             1452      1452          1
+E01033756                      5             1185      1185          1
+E01033757                      3             1025      1025          1
+E01033761                     11             1372      1372          1</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+
+</div>
+</div>
+</div>
 </section>
 <section id="sorting" class="level2">
 <h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
+<p>Among the many operations <code>DataFrame</code> objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:</p>
+<div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>db_pop_sorted <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Pop)) <span class="co">#sorts the dataframe by the "Total_Pop" column in descending order </span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_pop_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
+E01006747   2551    163                  812                             24
+E01006513   2225     61                  595                             53
+E01006751   1843    139                  568                             21
+E01006524   2235     36                  125                             24
+E01006787   2187     53                   75                             13
+E01006537   2180     23                   46                              6
+          Antarctica.and.Oceania Total_Population Total_Pop new_column
+E01006747                      2             3552      3552          1
+E01006513                      7             2941      2941          1
+E01006751                      1             2572      2572          1
+E01006524                     11             2431      2431          1
+E01006787                      2             2330      2330          1
+E01006537                      2             2257      2257          1</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+
+</div>
+</div>
+</div>
 </section>
-<section id="visual-exploration" class="level2">
-<h2 class="anchored" data-anchor-id="visual-exploration">Visual Exploration</h2>
+<section id="additional-lab-materials" class="level2">
+<h2 class="anchored" data-anchor-id="additional-lab-materials">Additional lab materials</h2>
+<ul>
+<li><p>A good introduction to data manipulation in Python is Wes McKinney’s <a href="https://wesmckinney.com/book/">“Python for Data Analysis”</a></p></li>
+<li><p>A good introduction to data manipulation in R is the <a href="https://r4ds.had.co.nz/wrangle-intro.html">“Data wrangling”</a> chapter in R for Data Science.</p></li>
+<li><p>A good extension is Hadley Wickham’ <a href="https://vita.had.co.nz/papers/tidy-data.pdf">“Tidy data”</a> paper which presents a very popular way of organising tabular data for efficient manipulation.</p></li>
+</ul>
 
 
 </section>

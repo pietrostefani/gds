@@ -1,1 +1,6 @@
 # Spatial Data {#sec-spatial-data-R .unnumbered}
+
+
+##
+
+## Visual exploration
