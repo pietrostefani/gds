@@ -89,7 +89,7 @@ age # print the variable "age" to the console
 
 ```
 
-## A small note on variable types
+### A small note on variable types
 
 The function `class()` is used to inspect the type of an object.
 
@@ -127,7 +127,7 @@ vector_with_missing <- c(NA, 1, 2, NA)
 vector_with_missing
 ```
 
-## Logical operators and expressions
+### Logical operators and expressions
 
 -   `==` asks whether two values are the same or equal ("is equal to")
 -   `!=` asks whether two values are the not the same or unequal ("is not equal to")
@@ -137,6 +137,15 @@ vector_with_missing
 -   `&` stands for "and" (unsurprisingly)
 -   `|` stands for "or"
 -   `!` stands for "not
+
+## Installing packages
+
+In R, packages are collections of functions, compiled code and sample data. They functionally act as "extensions" to the base R language, and can help you accomplish all operations you might want to perform in R (if no package serves your purpose, you may want to write an entirely new one!). Now, we will install the R package tidyverse. Look at the [link](https://tidyverse.tidyverse.org/) to see what tidyverse includes, and directly load a .csv file (comma-separated values) into R from your computer.
+
+```{r class.source = "fold-show"}
+if(!require("tidyverse")) install.packages("tidyverse")
+library(tidyverse) 
+```
 
 ## Examples
 
@@ -253,7 +262,7 @@ dat$new_column <- runif(10, 0, 1) # create a new variable called "new_column"
 dat
 ```
 
-## Exercises 1
+## Exercises 
 
 ### 1. Vectors
 
@@ -328,10 +337,6 @@ new_df <-  as.data.frame(new_matrix)
 
 -   Name the dataframe columns (*Hint:* `dplyr::rename()`)
 
-```{r message=FALSE}
-library(tidyverse)
-```
-
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
@@ -368,16 +373,7 @@ str(UK_cities)
 print(summary(UK_cities))
 ```
 
-## Installing packages
-
-In R, packages are collections of functions, compiled code and sample data. They functionally act as "extensions" to the base R language, and can help you accomplish all operations you might want to perform in R (if no package serves your purpose, you may want to write an entirely new one!). Now, we will install the R package tidyverse. Look at the [link](https://tidyverse.tidyverse.org/) to see what tidyverse includes, and directly load a .csv file (comma-separated values) into R from your computer.
-
-```{r class.source = "fold-show"}
-if(!require("tidyverse")) install.packages("tidyverse")
-library(tidyverse) 
-```
-
-Import data from csv:
+## Import data from csv
 
 ```{r class.source = "fold-show"}
 Densities_UK_cities <- read_csv("data/London/Tables/Densities_UK_cities.csv")
