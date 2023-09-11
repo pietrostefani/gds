@@ -6,7 +6,7 @@ Once you have read through and have a bit of a sense of how things work, jump on
 
 ## Data wrangling
 
-Real world datasets are messy. There is no way around it: datasets have "holes" (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to wrangle (manipulating, transforming & structuring) them. As has been correctly pointed out in many outlets (e.g.), much of the time spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.
+Real world datasets are messy. There is no way around it: datasets have "holes" (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to wrangle (manipulating, transforming & structuring) them. As has been correctly pointed out in many outlets ([e.g.](https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0)), much of the [time](https://twitter.com/BigDataBorat/status/306596352991830016) spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.
 
 In this session, you will use a few real world datasets and learn how to process them in R or Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing. These are fundamental tools that are constantly used in almost any task relating to data analysis.
 
@@ -24,8 +24,7 @@ We will start by loading core packages for working with geographic vector and at
 ## R
 
 ```{r message=FALSE}
-library(sf)
-library(tidyverse)
+library(tidyverse) # a structure of data manipulation including several packages 
 library(data.table)
 ```
 
@@ -76,11 +75,12 @@ To ensure we can access the data we have read, we store it in an object that we 
 
 :::
 
-To ensure we can access the data we have read, we store it in an object that we call census2021. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read.csv`.
+To ensure we can access the data we have read, we store it in an object that we call `census2021`. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read.csv`.
 
 **Important**
+
 You need to store the data file on your computer, and read it locally. To do that, you can follow these steps:
-1. Download the file by right-clicking on this link and saving the file (add link)
+1. Download the file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 
 2. Place the file on the same folder as the notebook where you intend to read it
 
 ## Data, sliced and diced
@@ -89,23 +89,22 @@ Now we are ready to start playing and interrogating the dataset! What we have at
 
 **Structure**
 
-The first aspect worth spending a bit of time is the structure of a DataFrame. We can print it by simply typing its name:
+The first aspect worth spending a bit of time is the structure of a `DataFrame`. We can print it by simply typing its name:
 
 ::: {.panel-tabset group="language"}
 ## R
 ```{r}
-census2021
+view(census2021)
 ```
 ## Python
 
 :::
 
-Note the printing is cut to keep a nice and compact view, but enough to see its structure. Since they represent a table of data, DataFrame objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its index. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the .csv file’s column names. For rows, we have specified when reading the file we wanted the column GeographyCode, so that is used. If we hadn’t specified any, pandas will automatically generate a sequence starting in 0 and going all the way to the number of rows minus one. This is the standard structure of a DataFrame object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.
+Since they represent a table of data, `DataFrame` objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its index. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the .csv file’s column names. For rows, we have specified when reading the file we wanted the column GeographyCode, so that is used. If we hadn’t specified any, `pandas` in Python or `tidyverse` in R will automatically generate a sequence starting in 0 and going all the way to the number of rows minus one. This is the standard structure of a `DataFrame` object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.
 
 One final feature that is worth mentioning about these tables is that they can hold columns with different types of data. In our example, this is not used as we have counts (or int, for integer, types) for each column. But it is useful to keep in mind we can combine this with columns that hold other type of data such as categories, text (str, for string), dates or, as we will see later in the course, geographic features.
 
 Inspecting what it looks like. We can check the top (bottom) X lines of the table by passing X to the method head (tail). For example, for the top/bottom five lines:
-Or getting an overview of the table:
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -117,21 +116,20 @@ tail(census2021)
 
 :::
 
-
 ## Summarise
 
 Or of the values of the table:
+
 ::: {.panel-tabset group="language"}
 ## R
 ```{r}
-
 summary(census2021)
 ```
 ## Python
 
 :::
 
-Note how the output is also a DataFrame object, so you can do with it the same things you would with the original table (e.g. writing it to a file).
+Note how the output is also a `DataFrame` object, so you can do with it the same things you would with the original table (e.g. writing it to a file).
 
 In this case, the summary might be better presented if the table is “transposed”:
 
@@ -144,16 +142,170 @@ t(summary(census2021))
 
 :::
 
-Create new columns
-Delete columns
+## Columns
+
+**Create new columns**
+
+We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:
+
+::: {.panel-tabset group="language"}
+
+## R
+
+Base R
+```{r}
+census2021$Total_Population <- rowSums(census2021[, c("Africa", "Middle.East.and.Asia", "Europe", "The.Americas.and.the.Caribbean", "Antarctica.and.Oceania")])
+```
+
+[`dplyr`](https://www.tidyverse.org/packages/)
+```{r}
+census2021 <- census2021 %>%
+  mutate(Total_Pop = rowSums(select(., Africa, Middle.East.and.Asia, Europe, The.Americas.and.the.Caribbean, Antarctica.and.Oceania)))
+
+head(census2021)
+```
+
+A different spin on this is assigning new values: we can generate new variables with scalars, and modify those:
+```{r}
+census2021$new_column <- 1
+head(census2021)
+```
+
+`dplyr` is an immensely useful package in R because it streamlines and simplifies the process of data manipulation and transformation. With its intuitive and consistent syntax, dplyr provides a set of powerful and efficient functions that make tasks like filtering, summarizing, grouping, and joining datasets much more straightforward. Whether you're working with small or large datasets, `dplyr`'s optimized code execution ensures fast and efficient operations. Its ability to chain functions together using the pipe operator (`%>%`) allows for a clean and readable code structure, enhancing code reproducibility and collaboration. Overall, `dplyr` is an indispensable tool for data analysts and scientists working in R, enabling them to focus on their data insights rather than wrestling with complex data manipulation code.
+
+## Python
+
+:::
+
+**Delete columns**
+
+Permanently deleting variables is also within reach of one command:
+
+::: {.panel-tabset group="language"}
+
+## R
+
+Base R
+```{r}
+census2021 <- subset(census2021, select = -new_column)
+```
+
+`dplyr`
+```{r}
+census2021 <- census2021 %>%
+  mutate(new_column = 1)
+```
+
+## Python
+
+:::
 
 ## Queries
 
-Index-based queries
-Condition-based queries
-Combining queries
+**Index-based queries**
+
+Here we explore how we can subset parts of a `DataFrame` if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table:
+
+::: {.panel-tabset group="language"}
+
+We can select with `c()`. If this structure is new to you have a look [here](https://pietrostefani.github.io/gds/environR.html).
+
+## R
+
+```{r}
+eu_tot_first4 <- census2021[c('E01006512', 'E01006513', 'E01006514', 'E01006515'), c('Total_Population', 'Europe')]
+
+eu_tot_first4
+```
+
+## Python
+we use loc with lists:
+
+:::
+
+**Condition-based queries**
+
+However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g. areas with more than 2,000 inhabitants). For these cases, `DataFrames` support selection based on conditions. Let us see a few examples. Suppose we want to select…
+
+::: {.panel-tabset group="language"}
+
+## R
+Areas with more than 900 people in Total:
+
+```{r}
+pop900 <- census2021 %>%
+  filter(Total_Population > 900)
+```
+
+Areas where there are no more than 750 Europeans:
+
+```{r}
+euro750 <- census2021 %>%
+  filter(Europe < 750)
+```
+
+Areas with exactly ten person from Antarctica and Oceania:
+```{r}
+oneOA <- census2021 %>%
+  filter(`Antarctica.and.Oceania` == 10)
+```
+
+## Python
+
+… areas with more than 2,500 people in Total:
+
+… areas where there are no more than 750 Europeans:
+
+… areas with exactly ten person from Antarctica and Oceania:
+
+::: 
+
+*Pro-tip*: These queries can grow in sophistication with almost no limits. 
+
+**Combining queries**
+
+Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:
+
+::: {.panel-tabset group="language"}
+
+## R
+
+```{r}
+ac25_l500 <- census2021 %>%
+  filter(The.Americas.and.the.Caribbean > 25, Total_Population < 1500)
+ac25_l500
+
+```
+
+## Python
+
+:::
 
 ## Sorting
 
+Among the many operations `DataFrame` objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:
 
-## Visual Exploration
+::: {.panel-tabset group="language"}
+
+## R
+```{r}
+db_pop_sorted <- census2021 %>%
+  arrange(desc(Total_Pop)) #sorts the dataframe by the "Total_Pop" column in descending order 
+
+head(db_pop_sorted)
+```
+## Python
+
+:::
+
+
+## Additional lab materials
+
+- A good introduction to data manipulation in Python is Wes McKinney’s [“Python for Data Analysis”](https://wesmckinney.com/book/)
+
+- A good introduction to data manipulation in R is the ["Data wrangling"](https://r4ds.had.co.nz/wrangle-intro.html) chapter in R for Data Science.
+
+- A good extension is Hadley Wickham’ [“Tidy data”](https://vita.had.co.nz/papers/tidy-data.pdf) paper which presents a very popular way of organising tabular data for efficient manipulation.
+
+
+
