@@ -21,19 +21,37 @@ book:
         - openscienceDIY.qmd
     - part: spatialdata.qmd
       chapters:
-        - concepts_spatialdata.qmd
         - spatialdata_code.qmd
         - spatialdataDIY.qmd
     - part: mapvector.qmd
       chapters:
-        - concepts_mapvector.qmd
-        - mapvectorR.qmd
-        - mapvectorPy.qmd
+        - mapvector_code.qmd
+        - mapvectorDIY.qmd
     - part: mapraster.qmd
       chapters:
-        - concepts_mapraster.qmd
-        - maprasterR.qmd
-        - maprasterPy.qmd
+        - mapraster_code.qmd
+        - maprasterDIY.qmd
+    - part: spatialw.qmd
+      chapters:
+        - spatialw_code.qmd
+        - spatialwDIY.qmd
+    - part: esda.qmd
+      chapters:
+        - esda_code.qmd
+        - esdaDIY.qmd
+    - part: clustering.qmd
+      chapters:
+        - clustering_code.qmd
+        - clusteringDIY.qmd
+    - part: points.qmd
+      chapters:
+        - points_code.qmd
+        - pointsDIY.qmd
+    - part: spatialnetworks.qmd
+      chapters:
+        - spatialnetworks_code.qmd
+        - spatialnetworksDIY.qmd
+    - datasets.qmd
     - references.qmd
 
   page-footer:

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr.&nbsp;Elisabetta Pietrostefani &amp; Dr.&nbsp;Carmen Cabrera-Arnau">
-<meta name="dcterms.date" content="2023-09-11">
 
-<title>Geographic Data Science in R and Python</title>
+<title>Geographic Data Science in R and Python - Do-It-Yourself</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./syllabus.html" rel="next">
+<link href="./datasets.html" rel="next">
+<link href="./spatialnetworks_code.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,8 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python">
-<meta name="twitter:description" content="This is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr.&nbsp;Elisabetta Pietrostefani and Dr.">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - Do-It-Yourself">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -75,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Geographic Data Science in R and Python</h1>
+      <h1 class="quarto-secondary-nav-title">Do-It-Yourself</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -331,7 +329,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialnetworksDIY.html" class="sidebar-item-text sidebar-link">Do-It-Yourself</a>
+  <a href="./spatialnetworksDIY.html" class="sidebar-item-text sidebar-link active">Do-It-Yourself</a>
   </div>
 </li>
       </ul>
@@ -351,42 +349,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
-  <ul class="collapse">
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/index.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Geographic Data Science in R and Python</h1>
+<h1 class="title"><span id="sec-spatialnetdiy" class="quarto-section-identifier d-none d-lg-block">Do-It-Yourself</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dr.&nbsp;Elisabetta Pietrostefani &amp; Dr.&nbsp;Carmen Cabrera-Arnau </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 11, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -394,28 +371,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome</h1>
-<p>This is the website for the “Geographic Data Science” module <strong>ENVS363/563</strong> at the University of Liverpool. This is course designed and delivered by Dr.&nbsp;Elisabetta Pietrostefani and Dr.&nbsp;Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. Much of the course material is inspired by Dani Arribas-Bel’s <a href="https://darribas.org/gds_course/content/home.html">course on Geographic Data Science</a>.</p>
-<p>This module will introduce students to the field of <strong>Geographic Data Science (GDS)</strong>, a discipline established at the intersection between <strong>Geographic Information Science (GIS)</strong> and <strong>Data Science</strong>. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.</p>
-<p>Core to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.</p>
-<p>The website is <strong>free to use</strong> and is licensed under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 International</a>. A compilation of this web course is hosted as a GitHub repository that you can access:</p>
-<ul>
-<li>As an <a href="https://pietrostefani.github.io/gds/">html website</a>.</li>
-<li>As a <a href="https://github.com/pietrostefani/gds">GitHub repository</a>.</li>
-</ul>
-<section id="contact" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="contact">Contact</h2>
-<blockquote class="blockquote">
-<p>Elisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Carmen Cabrera-Arnau - c.cabrera-arnau [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.</p>
-</blockquote>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -553,10 +510,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./spatialnetworks_code.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./syllabus.html" class="pagination-link">
-        <span class="nav-page-text">Syllabus</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./datasets.html" class="pagination-link">
+        <span class="nav-page-text">Data sets</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
