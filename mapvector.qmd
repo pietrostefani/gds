@@ -1,1 +1,4 @@
 # Mapping Vector Data {#sec-vector-data .unnumbered}
+
+
+## Visual exploration

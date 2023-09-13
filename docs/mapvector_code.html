@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - Mapping Vector Data in R</title>
+<title>Geographic Data Science in R and Python - Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,7 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - Mapping Vector Data in R">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - Lab">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Mapping Vector Data in R</h1>
+      <h1 class="quarto-secondary-nav-title">Lab</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">1 Introduction</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -184,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">Spatial Data</a>
+  <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">Lab</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -204,12 +204,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link active">Mapping Vector Data in R</a>
+  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link active">Lab</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">Mapping Vector Data in Python</a>
+  <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">Do-It-Yourself</a>
   </div>
 </li>
       </ul>
@@ -269,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./esdaDIY.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Do-It-Yourself</span></a>
+  <a href="./esdaDIY.html" class="sidebar-item-text sidebar-link">Do-It-Yourself</a>
   </div>
 </li>
       </ul>
@@ -349,14 +349,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#choropleths" id="toc-choropleths" class="nav-link active" data-scroll-target="#choropleths">Choropleths</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#choropleths-1" id="toc-choropleths-1" class="nav-link" data-scroll-target="#choropleths-1">Choropleths</a>
+  <ul class="collapse">
+  <li><a href="#unique-values" id="toc-unique-values" class="nav-link" data-scroll-target="#unique-values">Unique values</a></li>
+  <li><a href="#equal-interval" id="toc-equal-interval" class="nav-link" data-scroll-target="#equal-interval">Equal interval</a></li>
+  <li><a href="#quantiles" id="toc-quantiles" class="nav-link" data-scroll-target="#quantiles">Quantiles</a></li>
+  <li><a href="#fisher-jenks" id="toc-fisher-jenks" class="nav-link" data-scroll-target="#fisher-jenks">Fisher-Jenks</a></li>
+  </ul></li>
+  <li><a href="#zooming-in" id="toc-zooming-in" class="nav-link" data-scroll-target="#zooming-in">Zooming in</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/mapvector_code.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-vector-data-R" class="quarto-section-identifier d-none d-lg-block">Mapping Vector Data in R</span></h1>
+<h1 class="title"><span id="sec-vector-data-lab" class="quarto-section-identifier d-none d-lg-block">Lab</span></h1>
 </div>
 
 
@@ -371,8 +386,32 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="choropleths" class="level2">
+<h2 class="anchored" data-anchor-id="choropleths">Choropleths</h2>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+</section>
+<section id="choropleths-1" class="level2">
+<h2 class="anchored" data-anchor-id="choropleths-1">Choropleths</h2>
+<section id="unique-values" class="level3">
+<h3 class="anchored" data-anchor-id="unique-values">Unique values</h3>
+</section>
+<section id="equal-interval" class="level3">
+<h3 class="anchored" data-anchor-id="equal-interval">Equal interval</h3>
+</section>
+<section id="quantiles" class="level3">
+<h3 class="anchored" data-anchor-id="quantiles">Quantiles</h3>
+</section>
+<section id="fisher-jenks" class="level3">
+<h3 class="anchored" data-anchor-id="fisher-jenks">Fisher-Jenks</h3>
+</section>
+</section>
+<section id="zooming-in" class="level2">
+<h2 class="anchored" data-anchor-id="zooming-in">Zooming in</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -516,7 +555,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./mapvectorDIY.html" class="pagination-link">
-        <span class="nav-page-text">Mapping Vector Data in Python</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Do-It-Yourself</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
