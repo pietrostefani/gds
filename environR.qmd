@@ -27,37 +27,38 @@ To check your version of:
 
 ### Starting a session
 
-Upon startup, RStudio will look something like this. Note: the **Pane Layout** and **Appearance** settings can be altered e.g. on Mac OS by clicking RStudio\>Preferences\>Appearance and RStudio\>Preferences\>Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; I personally use the **Cobalt** theme.
+Upon startup, RStudio will look something like this. Note: the **Pane Layout** and **Appearance** settings can be altered e.g. on Mac OS by clicking RStudio\>Preferences\>Appearance and RStudio\>Preferences\>Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; but you can chose specific [themes](https://quarto.org/docs/output-formats/html-themes.html).
 
 ```{r class.source = "fold-show", echo = F}
-setwd('~/Dropbox/Github/gds')
 knitr::include_graphics("img/startup-r.png")
 ```
 
 At the start of a session, it's good practice clearing your R environment:
 
-```{r class.source = "fold-show"}
+```{r}
 rm(list = ls())
 ```
 
 In R, we are going to be working with **relative paths**. With the command `getwd()`, you can see where your working directory is currently set. You should have set this following the pre-recorded video.
 
-```{r class.source = "fold-show", results='hide'}
+```{r results='hide'}
 getwd() 
 ```
 
 If the directory is not set yet, type in `setwd("~/pathtodirectory")` to set it. It is crucial to **perform this step at the beginning of your R script**, so that relative paths can be used in the subsequent parts.
 
-```{r class.source = "fold-show", eval = F}
+```{r eval = F}
 setwd("~/Dropbox/Github/gds")
 ```
+
 
 If you have set your directory correctly, it will show up at the top of the console pane:
 
 ```{r class.source = "fold-show", echo = F}
-setwd('~/Dropbox/Github/gds')
 knitr::include_graphics("img/directory.png")
 ```
+
+Important: You do not need to set your working directory if you are using an R-markdown or Quarto document and you have it saved in the right location. The pathway will start from where your document is saved.
 
 ### Using the console
 
@@ -262,7 +263,7 @@ dat$new_column <- runif(10, 0, 1) # create a new variable called "new_column"
 dat
 ```
 
-## Exercises 
+## Exercises
 
 ### 1. Vectors
 
@@ -279,7 +280,7 @@ fibonacci_vector <- c(0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
 ```{r}
 #| code-fold: true
 #| code-summary: "Show the code"
-people_vector <- c("Elisabetta", "Capucine", "Lorenzo")
+people_vector <- c("Elisabetta", "Carmen", "Habib")
 ```
 
 -   Inspect the `length` and `class` of your numeric and character vectors.

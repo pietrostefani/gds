@@ -288,12 +288,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapraster_code.html" class="sidebar-item-text sidebar-link">Mapping Raster Data in R</a>
+  <a href="./mapraster_code.html" class="sidebar-item-text sidebar-link">Lab</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maprasterDIY.html" class="sidebar-item-text sidebar-link">Mapping Raster Data in Python</a>
+  <a href="./maprasterDIY.html" class="sidebar-item-text sidebar-link">Do-It-Yourself</a>
   </div>
 </li>
       </ul>
@@ -308,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialw_code.html" class="sidebar-item-text sidebar-link">Spatial Weights Lab</a>
+  <a href="./spatialw_code.html" class="sidebar-item-text sidebar-link">Lab</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -320,7 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./esda.html" class="sidebar-item-text sidebar-link">Exploratory Spatial Data Analysis</a>
+            <a href="./esda.html" class="sidebar-item-text sidebar-link">ESDA</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -487,7 +487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
 <section id="starting-a-session" class="level3">
 <h3 class="anchored" data-anchor-id="starting-a-session">Starting a session</h3>
-<p>Upon startup, RStudio will look something like this. Note: the <strong>Pane Layout</strong> and <strong>Appearance</strong> settings can be altered e.g.&nbsp;on Mac OS by clicking RStudio&gt;Preferences&gt;Appearance and RStudio&gt;Preferences&gt;Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; I personally use the <strong>Cobalt</strong> theme.</p>
+<p>Upon startup, RStudio will look something like this. Note: the <strong>Pane Layout</strong> and <strong>Appearance</strong> settings can be altered e.g.&nbsp;on Mac OS by clicking RStudio&gt;Preferences&gt;Appearance and RStudio&gt;Preferences&gt;Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; but you can chose specific <a href="https://quarto.org/docs/output-formats/html-themes.html">themes</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="img/startup-r.png" class="img-fluid" width="960"></p>
@@ -495,15 +495,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>At the start of a session, it’s good practice clearing your R environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In R, we are going to be working with <strong>relative paths</strong>. With the command <code>getwd()</code>, you can see where your working directory is currently set. You should have set this following the pre-recorded video.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If the directory is not set yet, type in <code>setwd("~/pathtodirectory")</code> to set it. It is crucial to <strong>perform this step at the beginning of your R script</strong>, so that relative paths can be used in the subsequent parts.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Dropbox/Github/gds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Dropbox/Github/gds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you have set your directory correctly, it will show up at the top of the console pane:</p>
 <div class="cell">
@@ -511,6 +511,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="img/directory.png" class="img-fluid" width="960"></p>
 </div>
 </div>
+<p>Important: You do not need to set your working directory if you are using an R-markdown or Quarto document and you have it saved in the right location. The pathway will start from where your document is saved.</p>
 </section>
 <section id="using-the-console" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-console">Using the console</h3>
@@ -845,16 +846,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id  x  y new_column
-1   a  1 11  0.9890341
-2   b  2 12  0.6064517
-3   c  3 13  0.6537263
-4   d  4 14  0.1007369
-5   e  5 15  0.9431083
-6   f  6 16  0.2742992
-7   g  7 17  0.8711712
-8   h  8 18  0.7604358
-9   i  9 19  0.8309118
-10  j 10 20  0.2657117</code></pre>
+1   a  1 11  0.3010756
+2   b  2 12  0.8385961
+3   c  3 13  0.9995331
+4   d  4 14  0.3524862
+5   e  5 15  0.2193594
+6   f  6 16  0.4323096
+7   g  7 17  0.3108788
+8   h  8 18  0.7390689
+9   i  9 19  0.5459272
+10  j 10 20  0.4372490</code></pre>
 </div>
 </div>
 </section>
@@ -878,7 +879,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>people_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Elisabetta"</span>, <span class="st">"Capucine"</span>, <span class="st">"Lorenzo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>people_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Elisabetta"</span>, <span class="st">"Carmen"</span>, <span class="st">"Habib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <ul>
@@ -932,8 +933,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>random_uniform<span class="sc">*</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1.9233819 2.9452656 1.1534789 1.4846426 2.5922999 2.3570782 2.4334863
- [8] 0.7483228 0.2255088 0.2087275</code></pre>
+<pre><code> [1] 1.5953358 2.0322896 2.6865958 0.0149007 2.6957536 2.7249807 2.4787241
+ [8] 2.4239005 1.9102076 0.3193715</code></pre>
 </div>
 </div>
 <ul>
