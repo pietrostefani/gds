@@ -144,6 +144,47 @@ t(summary(census2021))
 ## Python
 :::
 
+Equally, common descriptive statistics are also available:
+
+::: {.panel-tabset group="language"}
+
+## R
+
+We can obtain minimum values for each columns
+```{r}
+min_values <- sapply(census2021, min) # sapply() is used to apply the min() function to each column of the dataframe, resulting in a vector of minimum values for each column. The min_values vector will contain the minimum value for each column.
+
+min_values
+```
+
+Obtain minimum value for the column `Europe`
+
+```{r}
+min_value_Europe <- min(census2021$Europe)
+
+min_value_Europe
+```
+
+Note here how we have restricted the calculation of the maximum value to one column only.
+
+Similarly, we can restrict the calculations to a single row. Here we obtain standard deviation for the row `E01006518`, which represents a particular LSOA.
+```{r}
+# Extract the specified row by row name
+selected_row <- census2021['E01006518', ]
+
+# Calculate the standard deviation for the entire row
+std_dev_row <- sd(selected_row)
+
+# Print the standard deviation for the row
+print(std_dev_row)
+```
+
+
+## Python
+
+:::
+
+
 ## Columns
 
 **Create new columns**

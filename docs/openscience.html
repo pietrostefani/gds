@@ -651,25 +651,74 @@ Antarctica.and.Oceania         3rd Qu.: 3.00    Max.   :11.00   </code></pre>
 </div>
 </div>
 </div>
+<p>Equally, common descriptive statistics are also available:</p>
+<div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>We can obtain minimum values for each columns</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>min_values <span class="ot">&lt;-</span> <span class="fu">sapply</span>(census2021, min) <span class="co"># sapply() is used to apply the min() function to each column of the dataframe, resulting in a vector of minimum values for each column. The min_values vector will contain the minimum value for each column.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>min_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        Europe                         Africa 
+                           731                              0 
+          Middle.East.and.Asia The.Americas.and.the.Caribbean 
+                             1                              0 
+        Antarctica.and.Oceania 
+                             0 </code></pre>
+</div>
+</div>
+<p>Obtain minimum value for the column <code>Europe</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>min_value_Europe <span class="ot">&lt;-</span> <span class="fu">min</span>(census2021<span class="sc">$</span>Europe)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>min_value_Europe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 731</code></pre>
+</div>
+</div>
+<p>Note here how we have restricted the calculation of the maximum value to one column only.</p>
+<p>Similarly, we can restrict the calculations to a single row. Here we obtain standard deviation for the row <code>E01006518</code>, which represents a particular LSOA.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the specified row by row name</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>selected_row <span class="ot">&lt;-</span> census2021[<span class="st">'E01006518'</span>, ]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the standard deviation for the entire row</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>std_dev_row <span class="ot">&lt;-</span> <span class="fu">sd</span>(selected_row)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the standard deviation for the row</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(std_dev_row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 666.9229</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+
+</div>
+</div>
+</div>
 </section>
 <section id="columns" class="level2">
 <h2 class="anchored" data-anchor-id="columns">Columns</h2>
 <p><strong>Create new columns</strong></p>
 <p>We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:</p>
 <div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content" data-group="language">
-<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
 <p>Base R</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>Total_Population <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(census2021[, <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"Middle.East.and.Asia"</span>, <span class="st">"Europe"</span>, <span class="st">"The.Americas.and.the.Caribbean"</span>, <span class="st">"Antarctica.and.Oceania"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>Total_Population <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(census2021[, <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"Middle.East.and.Asia"</span>, <span class="st">"Europe"</span>, <span class="st">"The.Americas.and.the.Caribbean"</span>, <span class="st">"Antarctica.and.Oceania"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><a href="https://www.tidyverse.org/packages/"><code>dplyr</code></a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total_Pop =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., Africa, Middle.East.and.Asia, Europe, The.Americas.and.the.Caribbean, Antarctica.and.Oceania)))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total_Pop =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., Africa, Middle.East.and.Asia, Europe, The.Americas.and.the.Caribbean, Antarctica.and.Oceania)))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
 E01006512    910    106                  840                             24
@@ -689,8 +738,8 @@ E01006519                      3             1286      1286</code></pre>
 </div>
 <p>A different spin on this is assigning new values: we can generate new variables with scalars, and modify those:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>new_column <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>new_column <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
 E01006512    910    106                  840                             24
@@ -710,7 +759,7 @@ E01006519                      3             1286      1286          1</code></p
 </div>
 <p><code>dplyr</code> is an immensely useful package in R because it streamlines and simplifies the process of data manipulation and transformation. With its intuitive and consistent syntax, dplyr provides a set of powerful and efficient functions that make tasks like filtering, summarizing, grouping, and joining datasets much more straightforward. Whether you’re working with small or large datasets, <code>dplyr</code>’s optimized code execution ensures fast and efficient operations. Its ability to chain functions together using the pipe operator (<code>%&gt;%</code>) allows for a clean and readable code structure, enhancing code reproducibility and collaboration. Overall, <code>dplyr</code> is an indispensable tool for data analysts and scientists working in R, enabling them to focus on their data insights rather than wrestling with complex data manipulation code.</p>
 </div>
-<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
 
 </div>
 </div>
@@ -718,20 +767,20 @@ E01006519                      3             1286      1286          1</code></p
 <p><strong>Delete columns</strong></p>
 <p>Permanently deleting variables is also within reach of one command:</p>
 <div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content" data-group="language">
-<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
 <p>Base R</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> <span class="fu">subset</span>(census2021, <span class="at">select =</span> <span class="sc">-</span>new_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> <span class="fu">subset</span>(census2021, <span class="at">select =</span> <span class="sc">-</span>new_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>dplyr</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_column =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_column =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
 
 </div>
 </div>
@@ -742,13 +791,13 @@ E01006519                      3             1286      1286          1</code></p
 <p><strong>Index-based queries</strong></p>
 <p>Here we explore how we can subset parts of a <code>DataFrame</code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table:</p>
 <div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content" data-group="language">
-<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>eu_tot_first4 <span class="ot">&lt;-</span> census2021[<span class="fu">c</span>(<span class="st">'E01006512'</span>, <span class="st">'E01006513'</span>, <span class="st">'E01006514'</span>, <span class="st">'E01006515'</span>), <span class="fu">c</span>(<span class="st">'Total_Population'</span>, <span class="st">'Europe'</span>)]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>eu_tot_first4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>eu_tot_first4 <span class="ot">&lt;-</span> census2021[<span class="fu">c</span>(<span class="st">'E01006512'</span>, <span class="st">'E01006513'</span>, <span class="st">'E01006514'</span>, <span class="st">'E01006515'</span>), <span class="fu">c</span>(<span class="st">'Total_Population'</span>, <span class="st">'Europe'</span>)]</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>eu_tot_first4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Total_Population Europe
 E01006512             1880    910
@@ -758,7 +807,7 @@ E01006515             1208    974</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
 <p>we use loc with lists:</p>
 </div>
 </div>
@@ -766,26 +815,26 @@ E01006515             1208    974</code></pre>
 <p><strong>Condition-based queries</strong></p>
 <p>However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g.&nbsp;areas with more than 2,000 inhabitants). For these cases, <code>DataFrames</code> support selection based on conditions. Let us see a few examples. Suppose we want to select…</p>
 <div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content" data-group="language">
-<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
 <p>Areas with more than 900 people in Total:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pop900 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Total_Population <span class="sc">&gt;</span> <span class="dv">900</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pop900 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Total_Population <span class="sc">&gt;</span> <span class="dv">900</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Areas where there are no more than 750 Europeans:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>euro750 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Europe <span class="sc">&lt;</span> <span class="dv">750</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>euro750 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Europe <span class="sc">&lt;</span> <span class="dv">750</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Areas with exactly ten person from Antarctica and Oceania:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>oneOA <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Antarctica.and.Oceania</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>oneOA <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Antarctica.and.Oceania</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
 <p>… areas with more than 2,500 people in Total:</p>
 <p>… areas where there are no more than 750 Europeans:</p>
 <p>… areas with exactly ten person from Antarctica and Oceania:</p>
@@ -796,13 +845,13 @@ E01006515             1208    974</code></pre>
 <p><strong>Combining queries</strong></p>
 <p>Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:</p>
 <div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content" data-group="language">
-<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ac25_l500 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(The.Americas.and.the.Caribbean <span class="sc">&gt;</span> <span class="dv">25</span>, Total_Population <span class="sc">&lt;</span> <span class="dv">1500</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ac25_l500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ac25_l500 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(The.Americas.and.the.Caribbean <span class="sc">&gt;</span> <span class="dv">25</span>, Total_Population <span class="sc">&lt;</span> <span class="dv">1500</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>ac25_l500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
 E01033750   1235     53                  129                             26
@@ -821,7 +870,7 @@ E01033761                     11             1372      1372          1</code></p
 </div>
 </div>
 </div>
-<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
 
 </div>
 </div>
@@ -831,14 +880,14 @@ E01033761                     11             1372      1372          1</code></p
 <h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
 <p>Among the many operations <code>DataFrame</code> objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:</p>
 <div class="panel-tabset" data-group="language">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content" data-group="language">
-<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>db_pop_sorted <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Pop)) <span class="co">#sorts the dataframe by the "Total_Pop" column in descending order </span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_pop_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>db_pop_sorted <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Pop)) <span class="co">#sorts the dataframe by the "Total_Pop" column in descending order </span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_pop_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
 E01006747   2551    163                  812                             24
@@ -857,7 +906,7 @@ E01006537                      2             2257      2257          1</code></p
 </div>
 </div>
 </div>
-<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
 
 </div>
 </div>
