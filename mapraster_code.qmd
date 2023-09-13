@@ -1,1 +1,1 @@
-# Mapping Raster Data in R {#sec-map-raster-R .unnumbered}
+# Lab {#sec-map-raster-R .unnumbered}

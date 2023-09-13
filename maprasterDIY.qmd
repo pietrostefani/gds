@@ -1,1 +1,1 @@
-# Mapping Raster Data in Python {#sec-map-raster-Python .unnumbered}
+# Do-It-Yourself {#sec-map-raster-DIY .unnumbered}

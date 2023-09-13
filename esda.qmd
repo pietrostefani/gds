@@ -1,1 +1,1 @@
-# Exploratory Spatial Data Analysis {#sec-spatial-esda .unnumbered}
+# ESDA {#sec-spatial-esda .unnumbered}
