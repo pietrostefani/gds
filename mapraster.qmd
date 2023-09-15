@@ -1,69 +1,95 @@
-# Mapping Raster Data {#sec-map-raster .unnumbered}
+<!-- # Mapping Raster Data {#sec-map-raster .unnumbered} -->
 
+<!-- # **Rasters** -->
 
-# **Rasters**
+<!-- Coverages are tesselations (subdivisions) of space into regions, where *every* point can be uniquely assigned to a subregion. -->
 
-Coverages are tesselations (subdivisions) of space into regions, where *every* point can be uniquely assigned to a subregion.
+<!-- With `POLYGONS` we cannot do that, as two polygons that share a boundary cannot tell to which polygon a point on the shared boundary belongs. -->
 
-With `POLYGONS` we cannot do that, as two polygons that share a boundary cannot tell to which polygon a point on the shared boundary belongs.
+<!-- Rasters are *regular* tesselations, which uniquely subdivide space into square or rectangular areas (raster cells, or pixels). -->
 
-Rasters are *regular* tesselations, which uniquely subdivide space into square or rectangular areas (raster cells, or pixels).
+<!-- ## An example of a raster: -->
 
-## An example of a raster:
+<!-- -   Stars is a package that builds on sf -->
 
--   Stars is a package that builds on sf
--   Landsat 7 ETM - Satellite
--   Data around Olinda, Brazil
--   Run ggplot, 6 pans, multi-spectral data (visible and insibile spectrum)
+<!-- -   Landsat 7 ETM - Satellite -->
 
-```{r}
-library(stars)
-library (abind)
-(L7 = read_stars(system.file("tif/L7_ETMs.tif", package = "stars")))
-ggplot() + geom_stars(data = L7) + facet_wrap(~band) + coord_equal()
-```
+<!-- -   Data around Olinda, Brazil -->
 
-or simply:
+<!-- -   Run ggplot, 6 pans, multi-spectral data (visible and insibile spectrum) -->
 
-```{r}
-plot(L7)
-```
+<!-- ```{r} -->
 
-## Raster and Terra
+<!-- library(stars) -->
 
-For the illustration of terra concepts, we will use datasets from the spDataLarge. It consists of a few raster objects and one vector object covering an area of the Zion National Park (Utah, USA). For example, srtm.tif is a digital elevation model of this area. First, let's create a SpatRaster object named my_rast:
+<!-- library (abind) -->
 
-```{r}
-if(!require("spDataLarge")) install.packages("spDataLarge", repos = "https://geocompr.r-universe.dev")
-library(spDataLarge)
-library(terra)
-raster_filepath = system.file("raster/srtm.tif", package = "spDataLarge")
-single_layer = rast(raster_filepath)
-single_layer
-plot(single_layer)
-```
+<!-- (L7 = read_stars(system.file("tif/L7_ETMs.tif", package = "stars"))) -->
 
-The crs() function can be used to access CRS information from a SpatRaster object:
+<!-- ggplot() + geom_stars(data = L7) + facet_wrap(~band) + coord_equal() -->
 
-```{r}
-crs(single_layer) # get CRS
-crs(single_layer) = "EPSG:26912" # set CRS
-```
+<!-- ``` -->
 
-Importantly, the st_crs() and crs() functions do not alter coordinates' values or geometries. Their role is only to set a metadata information about the object CRS.
+<!-- or simply: -->
 
-The SpatRaster class also handles multiple layers, which typically correspond to a single multispectral satellite file or a time-series of rasters.
+<!-- ```{r} -->
 
-```{r}
-multi_raster_file = system.file("raster/landsat.tif", package = "spDataLarge")
-multi_rast = rast(multi_raster_file)
-multi_rast
-```
+<!-- plot(L7) -->
 
-nlyr() retrieves the number of layers stored in a SpatRaster object:
+<!-- ``` -->
 
-```{r}
-nlyr(multi_rast)
-```
+<!-- ## Raster and Terra -->
 
-Packages raster vs terra: https://www.r-bloggers.com/2021/05/a-comparison-of-terra-and-raster-packages/
+<!-- For the illustration of terra concepts, we will use datasets from the spDataLarge. It consists of a few raster objects and one vector object covering an area of the Zion National Park (Utah, USA). For example, srtm.tif is a digital elevation model of this area. First, let's create a SpatRaster object named my_rast: -->
+
+<!-- ```{r} -->
+
+<!-- if(!require("spDataLarge")) install.packages("spDataLarge", repos = "https://geocompr.r-universe.dev") -->
+
+<!-- library(spDataLarge) -->
+
+<!-- library(terra) -->
+
+<!-- raster_filepath = system.file("raster/srtm.tif", package = "spDataLarge") -->
+
+<!-- single_layer = rast(raster_filepath) -->
+
+<!-- single_layer -->
+
+<!-- plot(single_layer) -->
+
+<!-- ``` -->
+
+<!-- The crs() function can be used to access CRS information from a SpatRaster object: -->
+
+<!-- ```{r} -->
+
+<!-- crs(single_layer) # get CRS -->
+
+<!-- crs(single_layer) = "EPSG:26912" # set CRS -->
+
+<!-- ``` -->
+
+<!-- Importantly, the st_crs() and crs() functions do not alter coordinates' values or geometries. Their role is only to set a metadata information about the object CRS. -->
+
+<!-- The SpatRaster class also handles multiple layers, which typically correspond to a single multispectral satellite file or a time-series of rasters. -->
+
+<!-- ```{r} -->
+
+<!-- multi_raster_file = system.file("raster/landsat.tif", package = "spDataLarge") -->
+
+<!-- multi_rast = rast(multi_raster_file) -->
+
+<!-- multi_rast -->
+
+<!-- ``` -->
+
+<!-- nlyr() retrieves the number of layers stored in a SpatRaster object: -->
+
+<!-- ```{r} -->
+
+<!-- nlyr(multi_rast) -->
+
+<!-- ``` -->
+
+<!-- Packages raster vs terra: https://www.r-bloggers.com/2021/05/a-comparison-of-terra-and-raster-packages/ -->

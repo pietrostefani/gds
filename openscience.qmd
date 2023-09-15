@@ -1,20 +1,18 @@
 # OpenScience {#sec-open-science .unnumbered}
 
-Now that we know a bit about what computational notebooks are and why we should care about them, let's jump to using them! This section introduces you to using R or Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.
+Now that you know what computational notebooks are and why we should care about them, let's start using them! This section introduces you to using R or Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.
 
-Once you have read through and have a bit of a sense of how things work, jump on the [Do-It-Yourself](https://pietrostefani.github.io/gds/openscienceDIY.html) section, which will provide you with a challenge to complete it on your own, and will allow you to put what you have already learnt to good use.
+Once you have read through, jump on the [Do-It-Yourself](https://pietrostefani.github.io/gds/openscienceDIY.html) section, which will provide you with a challenge that you should complete on your own, and will allow you to put what you have already learnt into practice.
 
 ## Data wrangling
 
-Real world datasets are messy. There is no way around it: datasets have "holes" (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to wrangle (manipulating, transforming & structuring) them. As has been correctly pointed out in many outlets ([e.g.](https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0)), much of the [time](https://twitter.com/BigDataBorat/status/306596352991830016) spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but has to do with much more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.
+Real world datasets tend to be messy. There is no way around it: datasets have "holes" (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to wrangle (manipulate, transform and structure) them. As has been correctly pointed out in many outlets ([e.g.](https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0)), much of the [time](https://twitter.com/BigDataBorat/status/306596352991830016) spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but to more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.
 
-In this session, you will use a few real world datasets and learn how to process them in R or Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the bread and butter of data analysis and scientific computing. These are fundamental tools that are constantly used in almost any task relating to data analysis.
-
-This notebook covers the basic and the content that is expected to be learnt by every student. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at.
+In this session, you will use a few real world datasets and learn how to process them in R or Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the fundamental tools of data analysis and scientific computing. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at.
 
 In this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.
 
-Before we get our hands data-dirty, let us import all the additional libraries we will need, so we can get that out of the way and focus on the task at hand:
+Before we get our hands data-dirty, let us import all the additional libraries we will need to run the code:
 
 ## Loading packages
 
@@ -29,6 +27,16 @@ library(data.table)
 ```
 
 ## Python
+
+
+```{python}
+# This ensures visualizations are plotted inside the notebook
+
+import os              # This provides several system utilities
+import pandas as pd    # This is the workhorse of data munging in Python
+import seaborn as sns  # This allows us to efficiently and beautifully plot
+```
+
 :::
 
 ## Datasets
@@ -48,46 +56,46 @@ census2021 <- read.csv("data/census2021_ethn/liv_pop.csv", row.names = "Geograph
 
 Let us stop for a minute to learn how we have read the file. Here are the main aspects to keep in mind:
 
--   We are using the method `read.csv` from base R, you could also use `read_csv` from `library("readr")`
+-   We are using the method `read.csv` from base R, you could also use `read_csv` from `library("readr")`.
 
--   Here the csv is based in the file data but it could also be a web address or sometimes you find data in packages
+-   Here the csv is based on a data file but it could also be a web address or sometimes you find data in packages.
 
 -   The argument row.names is not strictly necessary but allows us to choose one of the columns as the index of the table. More on indices below.
 
 -   We are using read.csv because the file we want to read is in the csv format. However, many more formats can be read into an R environment. A full list of formats supported may be found [here](https://www.datacamp.com/tutorial/r-data-import-tutorial).
 
+-   To ensure we can access the data we have read, we store it in an object that we call `census2021`. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read.csv`.
+
 ## Python
 
 ```{python}
-
+census2021 = pd.read_csv("data/census2021_ethn/liv_pop.csv", index_col='GeographyCode')
 ```
 
 Let us stop for a minute to learn how we have read the file. Here are the main aspects to keep in mind:
 
--   We are using the method read_csv from the pandas library, which we have imported with the alias pd.
+-   We are using the method `read_csv` from the pandas library, which we have imported with the alias `pd`.
 
--   In this form, all that is required is to pass the path to the file we want to read, which in this case is a web address.
+-   Here the csv is based on a data file but it could also be a web address or sometimes you find data in packages.
 
 -   The argument index_col is not strictly necessary but allows us to choose one of the columns as the index of the table. More on indices below.
 
--   We are using read_csv because the file we want to read is in the csv format. However, pandas allows for many more formats to be read and write. A full list of formats supported may be found here.
+-   We are using `read_csv` because the file we want to read is in the csv format. However, pandas allows for many more formats to be read and write. A full list of formats supported may be found [here](https://www.datacamp.com/tutorial/r-data-import-tutorial).
 
-To ensure we can access the data we have read, we store it in an object that we call db. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of read_csv.
+-   To ensure we can access the data we have read, we store it in an object that we call `census2021`. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read_csv`.
 :::
-
-To ensure we can access the data we have read, we store it in an object that we call `census2021`. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read.csv`.
 
 **Important**
 
-You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 2. Place the file on the same folder as the notebook where you intend to read it
+You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 2. Place the file on the same folder as the notebook where you intend to read it.
 
 ## Data, sliced and diced
 
-Now we are ready to start playing and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. We call these tables `DataFrame` objects, and they have a lot of functionality built-in to explore and manipulate the data they contain. Let's explore a few of those cool tricks!
+Now we are ready to start playing with and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. We call these tables `DataFrame` objects, and they have a lot of functionality built-in to explore and manipulate the data they contain.
 
 **Structure**
 
-The first aspect worth spending a bit of time is the structure of a `DataFrame`. We can print it by simply typing its name:
+Let's start by exploring the structure of a `DataFrame`. We can print it by simply typing its name:
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -97,13 +105,19 @@ view(census2021)
 ```
 
 ## Python
+
+```{python}
+census2021
+```
 :::
 
 Since they represent a table of data, `DataFrame` objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its index. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the .csv file's column names. For rows, we have specified when reading the file we wanted the column GeographyCode, so that is used. If we hadn't specified any, `pandas` in Python or `tidyverse` in R will automatically generate a sequence starting in 0 and going all the way to the number of rows minus one. This is the standard structure of a `DataFrame` object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.
 
-One final feature that is worth mentioning about these tables is that they can hold columns with different types of data. In our example, this is not used as we have counts (or int, for integer, types) for each column. But it is useful to keep in mind we can combine this with columns that hold other type of data such as categories, text (str, for string), dates or, as we will see later in the course, geographic features.
+One further feature of these tables is that they can hold columns with different types of data. In our example, this is not used as we have counts (or int, for integer, types) for each column. But it is useful to keep in mind we can combine this with columns that hold other type of data such as categories, text (str, for string), dates or, as we will see later in the course, geographic features.
 
-Inspecting what it looks like. We can check the top (bottom) X lines of the table by passing X to the method head (tail). For example, for the top/bottom five lines:
+**Inspecting**
+
+We can check the top (bottom) X lines of the table by passing X to the method head (tail). For example, for the top/bottom five lines:
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -114,11 +128,16 @@ tail(census2021)
 ```
 
 ## Python
+
+```{python}
+census2021.head() # read first 5 rows
+census2021.tail() # read last 5 rows
+```
 :::
 
-## Summarise
+**Summarise**
 
-Or of the values of the table:
+We can get an overview of the values of the table:
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -128,6 +147,10 @@ summary(census2021)
 ```
 
 ## Python
+
+```{python}
+census2021.describe()
+```
 :::
 
 Note how the output is also a `DataFrame` object, so you can do with it the same things you would with the original table (e.g. writing it to a file).
@@ -142,48 +165,11 @@ t(summary(census2021))
 ```
 
 ## Python
+
+```{python}
+census2021.describe().T
+```
 :::
-
-Equally, common descriptive statistics are also available:
-
-::: {.panel-tabset group="language"}
-
-## R
-
-We can obtain minimum values for each columns
-```{r}
-min_values <- sapply(census2021, min) # sapply() is used to apply the min() function to each column of the dataframe, resulting in a vector of minimum values for each column. The min_values vector will contain the minimum value for each column.
-
-min_values
-```
-
-Obtain minimum value for the column `Europe`
-
-```{r}
-min_value_Europe <- min(census2021$Europe)
-
-min_value_Europe
-```
-
-Note here how we have restricted the calculation of the maximum value to one column only.
-
-Similarly, we can restrict the calculations to a single row. Here we obtain standard deviation for the row `E01006518`, which represents a particular LSOA.
-```{r}
-# Extract the specified row by row name
-selected_row <- census2021['E01006518', ]
-
-# Calculate the standard deviation for the entire row
-std_dev_row <- sd(selected_row)
-
-# Print the standard deviation for the row
-print(std_dev_row)
-```
-
-
-## Python
-
-:::
-
 
 ## Columns
 
@@ -194,13 +180,13 @@ We can generate new variables by applying operations on existing ones. For examp
 ::: {.panel-tabset group="language"}
 ## R
 
-Base R
+On base R
 
 ```{r}
 census2021$Total_Population <- rowSums(census2021[, c("Africa", "Middle.East.and.Asia", "Europe", "The.Americas.and.the.Caribbean", "Antarctica.and.Oceania")])
 ```
 
-[`dplyr`](https://www.tidyverse.org/packages/)
+Using the package [`dplyr`](https://www.tidyverse.org/packages/)
 
 ```{r}
 census2021 <- census2021 %>%
@@ -219,6 +205,32 @@ head(census2021)
 `dplyr` is an immensely useful package in R because it streamlines and simplifies the process of data manipulation and transformation. With its intuitive and consistent syntax, dplyr provides a set of powerful and efficient functions that make tasks like filtering, summarizing, grouping, and joining datasets much more straightforward. Whether you're working with small or large datasets, `dplyr`'s optimized code execution ensures fast and efficient operations. Its ability to chain functions together using the pipe operator (`%>%`) allows for a clean and readable code structure, enhancing code reproducibility and collaboration. Overall, `dplyr` is an indispensable tool for data analysts and scientists working in R, enabling them to focus on their data insights rather than wrestling with complex data manipulation code.
 
 ## Python
+
+Longer, hardcoded:
+
+```{python}
+total = census2021['Europe'] + census2021['Africa'] + census2021['Middle East and Asia'] + census2021['The Americas and the Caribbean'] + census2021['Antarctica and Oceania']
+# Print the top of the variable
+total.head()
+```
+
+One shot:
+
+```{python}
+census2021['Total_Population'] = census2021.sum(axis=1)
+# Print the top of the variable
+census2021.head()
+```
+
+Note that we are summing over "axis=1". In a `DataFrame` object, "axis 0" and "axis 1" represent the rows and columns respectively.
+
+A different spin on this is assigning new values: we can generate new variables with scalars, and modify those:
+
+```{python}
+# New variable with all ones
+census2021['ones'] = 1
+census2021.head()
+```
 :::
 
 **Delete columns**
@@ -242,6 +254,11 @@ census2021 <- census2021 %>%
 ```
 
 ## Python
+
+```{python}
+del census2021['ones']
+census2021.head()
+```
 :::
 
 ## Queries
@@ -251,9 +268,9 @@ census2021 <- census2021 %>%
 Here we explore how we can subset parts of a `DataFrame` if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table:
 
 ::: {.panel-tabset group="language"}
-We can select with `c()`. If this structure is new to you have a look [here](https://pietrostefani.github.io/gds/environR.html).
-
 ## R
+
+We can select with `c()`. If this structure is new to you have a look [here](https://pietrostefani.github.io/gds/environR.html).
 
 ```{r}
 eu_tot_first4 <- census2021[c('E01006512', 'E01006513', 'E01006514', 'E01006515'), c('Total_Population', 'Europe')]
@@ -263,7 +280,13 @@ eu_tot_first4
 
 ## Python
 
-we use loc with lists:
+We use `loc` with lists:
+
+```{python}
+eu_tot_first4 = census2021.loc[['E01006512', 'E01006513', 'E01006514', 'E01006515'], ['Total_Population', 'Europe']]
+
+eu_tot_first4
+```
 :::
 
 **Condition-based queries**
@@ -296,11 +319,26 @@ oneOA <- census2021 %>%
 
 ## Python
 
-... areas with more than 2,500 people in Total:
+Areas with more than 900 people in Total:
 
-... areas where there are no more than 750 Europeans:
+```{python}
+pop900 = census2021.loc[census2021['Total_Population'] > 900, :]
+pop900
+```
 
-... areas with exactly ten person from Antarctica and Oceania:
+Areas where there are no more than 750 Europeans:
+
+```{python}
+euro750 = census2021.loc[census2021['Europe'] < 750, :]
+euro750
+```
+
+Areas with exactly ten person from Antarctica and Oceania:
+
+```{python}
+oneOA = census2021.loc[census2021['Antarctica and Oceania'] == 10, :]
+oneOA
+```
 :::
 
 *Pro-tip*: These queries can grow in sophistication with almost no limits.
@@ -320,6 +358,11 @@ ac25_l500
 ```
 
 ## Python
+
+```{python}
+ac25_l500 = census2021.loc[(census2021['The Americas and the Caribbean'] > 25) &                    (census2021['Total_Population'] < 1500), :]
+ac25_l500
+```
 :::
 
 ## Sorting
@@ -337,6 +380,11 @@ head(db_pop_sorted)
 ```
 
 ## Python
+
+```{python}
+db_pop_sorted = census2021.sort_values('Total_Population', ascending=False)
+db_pop_sorted.head()
+```
 :::
 
 ## Additional resources

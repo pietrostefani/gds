@@ -51,7 +51,6 @@ If the directory is not set yet, type in `setwd("~/pathtodirectory")` to set it.
 setwd("~/Dropbox/Github/gds")
 ```
 
-
 If you have set your directory correctly, it will show up at the top of the console pane:
 
 ```{r class.source = "fold-show", echo = F}
