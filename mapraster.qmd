@@ -1,2 +1,1 @@
-# Mapping Raster Data {#sec-map-raster .unnumbered}
-
+# 4 Mapping Raster Data {#sec-map-raster .unnumbered}
