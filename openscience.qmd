@@ -28,15 +28,12 @@ library(data.table)
 
 ## Python
 
-
 ```{python}
 # This ensures visualizations are plotted inside the notebook
 
 import os              # This provides several system utilities
 import pandas as pd    # This is the workhorse of data munging in Python
-import seaborn as sns  # This allows us to efficiently and beautifully plot
 ```
-
 :::
 
 ## Datasets

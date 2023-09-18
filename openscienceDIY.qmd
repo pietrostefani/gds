@@ -7,7 +7,6 @@ You can read a bit more about the data at The Guardian's data blog
 ## Import libraries
 
 ::: {.panel-tabset group="language"}
-
 ## R
 
 ```{r message=FALSE}
@@ -70,4 +69,4 @@ Try to answer the following questions:
 2.  How many NATO casualties were registered in August 2008?
 3.  What is the month with the most total number of casualties?
 
-Tip: You will need to first create a column with total counts
+**Tip**: You will need to first create a column with total counts
