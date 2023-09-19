@@ -56,7 +56,7 @@ book:
 
   page-footer:
     left: |
-      Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.
+      Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   site-url:  https://pietrostefani.github.io/wma
