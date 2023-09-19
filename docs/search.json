@@ -558,5 +558,12 @@
     "title": "4 Mapping Raster Data",
     "section": "",
     "text": "Raster data is more and more popular…"
+  },
+  {
+    "objectID": "mapvector_code.html",
+    "href": "mapvector_code.html",
+    "title": "Lab",
+    "section": "",
+    "text": "# Load the 'sf' library, which stands for Simple Features, used for working with spatial data.\nlibrary(sf)\n# Load the 'tidyverse' library, a collection of packages for data manipulation and visualization.\nlibrary(tidyverse)\n# Load the 'tmap' library, which is used for creating thematic maps and visualizing spatial data.\nlibrary(tmap)\n# The 'readr' library provides a fast and user-friendly way to read data from common formats like CSV.\nlibrary(readr)\n# Converts Between GeoJSON and simple feature objects\nlibrary(geojsonsf) \n# Using data from OpenStreetMap (OSM)\nlibrary(osmdata)\n\n\ndistricts <- read_sf(\"data/London/Polygons/districts.shp\")\n\n# import qualifications data from csv\nqualifications2001_df <- read.csv(\"data/London/Tables/qualifications2001_2.csv\")\n\ndistricts_tidy <- districts %>%\n  left_join(qualifications2001_df, by=c(\"DIST_CODE\"=\"Zone_Code\")) %>%\n  mutate(Level4p = Level4/Population1674)\n\nAnd finally, we can map the results! We will be using both the tmap (specific for maps, see here), the ggplot2 (for general data visualisations, see here and the mapsf (for thematic cartography, see here) packages:\n\n#3a. plot the new variable using the tmap package\nif(!require(\"tmap\")) install.packages(\"tmap\")\nlibrary(\"tmap\")\nqtm(districts_tidy, \"Level4p\") # Quick thematic map plot\n\n\n\n#3b. Use ggplot to create the same map of London\nif(!require(\"ggplot2\")) install.packages(\"ggplot2\")\nlibrary(\"ggplot2\")\n\nggplot() +\n  geom_sf(data = districts_tidy, aes(fill = Level4p)) +\n  theme_void() \n\n\n\n#3c. Use mapsf to create the same map of London\nif(!require(\"mapsf\")) install.packages(\"mapsf\")\n\nLoading required package: mapsf\n\nlibrary(\"mapsf\") \n\n# Plot the base map\nmf_map(x = districts_tidy)\n# Plot with the data\nmf_map(x = districts_tidy, var = \"Level4p\", type = \"choro\",\n       pal = \"Dark Mint\", \n       breaks = \"quantile\", \n       nbreaks = 6, \n       leg_title = \"% of highest edu\", \n       add = TRUE)"
   }
 ]

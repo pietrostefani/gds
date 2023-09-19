@@ -25,6 +25,7 @@ districts_tidy <- districts %>%
   left_join(qualifications2001_df, by=c("DIST_CODE"="Zone_Code")) %>%
   mutate(Level4p = Level4/Population1674)
 ```
+
 And finally, we can map the results! We will be using both the `tmap` (specific for maps, see [here](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)), the `ggplot2` (for general data visualisations, see [here](https://ggplot2.tidyverse.org) and the `mapsf` (for thematic cartography, see [here](https://riatelab.github.io/mapsf/)) packages:
 
 ```{r class.source = "fold-show"}
