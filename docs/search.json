@@ -2,14 +2,14 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Geographic Data Science in R and Python",
+    "title": "A course in Geographic Data Science",
     "section": "",
-    "text": "Welcome\nThis is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. Much of the course material is inspired by Dani Arribas-Bel’s course on Geographic Data Science.\nThis module will introduce students to the field of Geographic Data Science (GDS), a discipline established at the intersection between Geographic Information Science (GIS) and Data Science. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.\nCore to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
+    "text": "This is the website for the “Geographic Data Science” module ENVS363/563 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Carmen Cabrera-Arnau from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. Much of the course material is inspired by Dani Arribas-Bel’s course on Geographic Data Science.\nThis module will introduce students to the field of Geographic Data Science (GDS), a discipline established at the intersection between Geographic Information Science (GIS) and Data Science. The course covers how the modern GIS toolkit can be integrated with Data Science tools to solve practical real-world problems.\nCore to the set of employable skills to be taught in this course is an introduction to programming tools. Students will be able to whether to develop their skills in either R or Python in Lab sessions.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
   },
   {
     "objectID": "index.html#contact",
     "href": "index.html#contact",
-    "title": "Geographic Data Science in R and Python",
+    "title": "A course in Geographic Data Science",
     "section": "Contact",
     "text": "Contact\n\nElisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.\n\n\nCarmen Cabrera-Arnau - c.cabrera-arnau [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom."
   },
@@ -340,7 +340,7 @@
     "href": "openscienceDIY.html#data-preparation",
     "title": "Do-It-Yourself",
     "section": "Data preparation",
-    "text": "Data preparation\nBefore you can set off on your data journey, the dataset needs to be read, and there’s a couple of details we will get out of the way so it is then easier for you to start working.\nThe data are published on a Google Sheet.\nAs you will see, each row includes casualties recorded month by month, split by Taliban, Civilians, Afghan forces, and NATO.\nLet’s read it into an R session:\n\n# Specify the URL of the CSV file\nurl &lt;- \"https://docs.google.com/spreadsheets/d/e/2PACX-1vRa7OIBiz7-yqmgwUEn4V5Wm1TO8rGow_wQVS1PWp--UTCAKqNUhtifECO5ZR9XrMd6Ddq9NxQwf1ll/pub?gid=0&single=true&output=csv\"\n\n# Read the data from the URL into a DataFrame\ndata &lt;- read.csv(url)\n\n# see the data\nhead(data)\n\n  Year    Month Taliban Civilians Afghan.forces Nato..detailed.in.spreadsheet.\n1 2004  January      15        51            23                               \n2 2004 February                 7             4                              5\n3 2004    March      19         2                                            2\n4 2004    April       5         3            19                               \n5 2004      May      18        29            56                              6\n6 2004     June     163        32            14                              2\n  Nato...official.figures\n1                      11\n2                       2\n3                       3\n4                       3\n5                       9\n6                       5\n\n\nThis allows us to read the data straight into a data frame, as we have done in the previous session.\nNow we are good to go!"
+    "text": "Data preparation\nBefore you can set off on your data journey, the dataset needs to be read, and there’s a couple of details we will get out of the way so it is then easier for you to start working.\nThe data are published on a Google Sheet.\nAs you will see, each row includes casualties recorded month by month, split by Taliban, Civilians, Afghan forces, and NATO.\nLet’s read it into an R session:\n\n# Specify the URL of the CSV file\nurl <- \"https://docs.google.com/spreadsheets/d/e/2PACX-1vRa7OIBiz7-yqmgwUEn4V5Wm1TO8rGow_wQVS1PWp--UTCAKqNUhtifECO5ZR9XrMd6Ddq9NxQwf1ll/pub?gid=0&single=true&output=csv\"\n\n# Read the data from the URL into a DataFrame\ndata <- read.csv(url)\n\n# see the data\nhead(data)\n\n  Year    Month Taliban Civilians Afghan.forces Nato..detailed.in.spreadsheet.\n1 2004  January      15        51            23                               \n2 2004 February                 7             4                              5\n3 2004    March      19         2                                            2\n4 2004    April       5         3            19                               \n5 2004      May      18        29            56                              6\n6 2004     June     163        32            14                              2\n  Nato...official.figures\n1                      11\n2                       2\n3                       3\n4                       3\n5                       9\n6                       5\n\n\nThis allows us to read the data straight into a data frame, as we have done in the previous session.\nNow we are good to go!"
   },
   {
     "objectID": "environ.html#website-software",
@@ -522,7 +522,7 @@
     "href": "spatialdata_code.html#saving-maps-to-figures",
     "title": "Lab",
     "section": "Saving maps to figures",
-    "text": "Saving maps to figures\n\nRPython\n\n\nhttps://intro2r.com/export-plots.html\n\ndir.create(\"maps\") # create a file to put your maps\n\n\npdf(\"maps/london_test.pdf\") # Opening the graphical device\nplot(districts$geometry)\nplot(housesales_clean$geometry, add=TRUE) \ndev.off() #Closing the graphical device\n\nquartz_off_screen \n                2 \n\n\n\nggsave(\"maps/map3.pdf\")\n\nSaving 7 x 5 in image\n\nggsave(\"maps/map3_1.png\", width = 4, height = 4)\nggsave(\"maps/map3_2.png\", width = 20, height = 20, units = \"cm\")\n#https://ggplot2.tidyverse.org/reference/ggsave.html"
+    "text": "Saving maps to figures\n\nRPython\n\n\nhttps://intro2r.com/export-plots.html\n\ndir.create(\"maps\") # create a file to put your maps\n\nWarning in dir.create(\"maps\"): 'maps' already exists\n\n\n\npdf(\"maps/london_test.pdf\") # Opening the graphical device\nplot(districts$geometry)\nplot(housesales_clean$geometry, add=TRUE) \ndev.off() #Closing the graphical device\n\nquartz_off_screen \n                2 \n\n\n\nggsave(\"maps/map3.pdf\")\n\nSaving 7 x 5 in image\n\nggsave(\"maps/map3_1.png\", width = 4, height = 4)\nggsave(\"maps/map3_2.png\", width = 20, height = 20, units = \"cm\")\n#https://ggplot2.tidyverse.org/reference/ggsave.html"
   },
   {
     "objectID": "spatialdata_code.html#adding-base-layers-from-web-sources",
@@ -544,5 +544,12 @@
     "title": "Lab",
     "section": "Additional resources",
     "text": "Additional resources"
+  },
+  {
+    "objectID": "intro.html#open-source-gis",
+    "href": "intro.html#open-source-gis",
+    "title": "1 Introduction",
+    "section": "Open Source GIS",
+    "text": "Open Source GIS\nOpen source Geographic Information Systems (GIS), such as QGIS, have made geographic analysis accessible worldwide. GIS programs tend to emphasize graphical user interfaces (GUIs), with the unintended consequence of discouraging reproducibility (although many can be used from the command line Python + QGIS). R and Python by contrast, emphasizes the command line interface (CLI).\nThe ‘geodata revolution’ drives demand for high performance computer hardware and efficient, scalable software to handle and extract signal from the noise, to understand and perhaps change the world. Spatial databases enable storage and generation of manageable subsets from the vast geographic data stores, making interfaces for gaining knowledge from them vital tools for the future.\nR and Python are both tools with advanced modeling and visualization capabilities."
   }
 ]
