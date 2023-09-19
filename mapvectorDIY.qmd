@@ -1,1 +1,1 @@
-# Mapping Vector Data in Python {#sec-vector-data-Python .unnumbered}
+# Do-It-Yourself {#sec-vector-data-diy .unnumbered}

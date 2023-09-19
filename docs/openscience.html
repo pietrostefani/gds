@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - OpenScience</title>
+<title>Geographic Data Science in R and Python - Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,8 +125,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - OpenScience">
-<meta name="twitter:description" content="Now that you know what computational notebooks are and why we should care about them, let’s start using them! This section introduces you to using R or Python for manipulating tabular data.">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - Lab">
+<meta name="twitter:description" content="Now that you know what computational notebooks are and why we should care about them, let’s start using them! This section introduces you to using R (or Python) for manipulating tabular data.">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -137,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">OpenScience</h1>
+      <h1 class="quarto-secondary-nav-title">Lab</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -228,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./openscience.html" class="sidebar-item-text sidebar-link active">OpenScience</a>
+  <a href="./openscience.html" class="sidebar-item-text sidebar-link active">Lab</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mapvector.html" class="sidebar-item-text sidebar-link">Mapping Vector Data</a>
+            <a href="./mapvector.html" class="sidebar-item-text sidebar-link">3 Mapping Vector Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -268,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">Mapping Vector Data</a>
+  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">Lab</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -280,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mapraster.html" class="sidebar-item-text sidebar-link">Mapping Raster Data</a>
+            <a href="./mapraster.html" class="sidebar-item-text sidebar-link">4 Mapping Raster Data</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -433,7 +433,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-open-science" class="quarto-section-identifier d-none d-lg-block">OpenScience</span></h1>
+<h1 class="title"><span id="sec-open-science" class="quarto-section-identifier d-none d-lg-block">Lab</span></h1>
 </div>
 
 
@@ -448,12 +448,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>Now that you know what computational notebooks are and why we should care about them, let’s start using them! This section introduces you to using R or Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.</p>
+<p>Now that you know what computational notebooks are and why we should care about them, let’s start using them! This section introduces you to using R (or Python) for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.</p>
 <p>Once you have read through, jump on the <a href="https://pietrostefani.github.io/gds/openscienceDIY.html">Do-It-Yourself</a> section, which will provide you with a challenge that you should complete on your own, and will allow you to put what you have already learnt into practice.</p>
 <section id="data-wrangling" class="level2">
 <h2 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h2>
 <p>Real world datasets tend to be messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to wrangle (manipulate, transform and structure) them. As has been correctly pointed out in many outlets (<a href="https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">e.g.</a>), much of the <a href="https://twitter.com/BigDataBorat/status/306596352991830016">time</a> spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but to more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.</p>
-<p>In this session, you will use a few real world datasets and learn how to process them in R or Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the fundamental tools of data analysis and scientific computing. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at.</p>
+<p>In this session, you will use a few real world datasets and learn how to process them in R (or Python) so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the fundamental tools of data analysis and scientific computing. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at.</p>
 <p>In this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.</p>
 <p>Before we get our hands data-dirty, let us import all the additional libraries we will need to run the code:</p>
 </section>

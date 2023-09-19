@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "Geographic Data Science in R and Python"
+  title: "A course in Geographic Data Science"
   author: "Dr. Elisabetta Pietrostefani & Dr. Carmen Cabrera-Arnau"
   date: today
   chapters:
@@ -63,6 +63,9 @@ book:
   repo-url: https://github.com/pietrostefani/gds
   repo-actions: [edit]
   sharing: [twitter, facebook]
+  cover-image: density_africa.jpg
+  cover-image-alt: |
+    Alternative text describing the book cover
   twitter-card:
     creator: "@EPietrostefani"
 

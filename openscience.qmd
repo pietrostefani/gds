@@ -1,6 +1,6 @@
-# OpenScience {#sec-open-science .unnumbered}
+# Lab {#sec-open-science .unnumbered}
 
-Now that you know what computational notebooks are and why we should care about them, let's start using them! This section introduces you to using R or Python for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.
+Now that you know what computational notebooks are and why we should care about them, let's start using them! This section introduces you to using R (or Python) for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.
 
 Once you have read through, jump on the [Do-It-Yourself](https://pietrostefani.github.io/gds/openscienceDIY.html) section, which will provide you with a challenge that you should complete on your own, and will allow you to put what you have already learnt into practice.
 
@@ -8,7 +8,7 @@ Once you have read through, jump on the [Do-It-Yourself](https://pietrostefani.g
 
 Real world datasets tend to be messy. There is no way around it: datasets have "holes" (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to wrangle (manipulate, transform and structure) them. As has been correctly pointed out in many outlets ([e.g.](https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0)), much of the [time](https://twitter.com/BigDataBorat/status/306596352991830016) spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but to more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.
 
-In this session, you will use a few real world datasets and learn how to process them in R or Python so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the fundamental tools of data analysis and scientific computing. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at.
+In this session, you will use a few real world datasets and learn how to process them in R (or Python) so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the fundamental tools of data analysis and scientific computing. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at.
 
 In this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.
 
