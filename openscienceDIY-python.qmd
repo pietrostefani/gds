@@ -6,13 +6,19 @@ You can read a bit more about the data at The Guardian's data blog
 
 ## Import libraries
 
-
+::: {.panel-tabset group="language"}
+## R
 
 ```{r message=FALSE}
 library(tidyverse)
 ```
 
+## Python
 
+```{python}
+import pandas
+```
+:::
 
 ## Data preparation
 
@@ -22,7 +28,10 @@ The data are published on a [Google Sheet](https://docs.google.com/spreadsheets/
 
 As you will see, each row includes casualties recorded month by month, split by Taliban, Civilians, Afghan forces, and NATO.
 
-Let's read it into an R session:
+Let's read it into an R or Python session:
+
+::: {.panel-tabset group="language"}
+## R
 
 ```{r}
 # Specify the URL of the CSV file
@@ -35,8 +44,18 @@ data <- read.csv(url)
 head(data)
 ```
 
+## Python
 
-This allows us to read the data straight into a data frame, as we have done in the previous session.
+```{python}
+url = ("https://docs.google.com/spreadsheets/d/1EAx8_ksSCmoWW_SlhFyq2QrRn0FNNhcg1TtDFJzZRgc/export?format=csv&gid=1")
+
+data = pandas.read_csv(url, skiprows=[0, -1], thousands=",")
+
+data.head()
+```
+:::
+
+This allows us to read the data straight into a `DataFrame`, as we have done in the previous session.
 
 Now we are good to go!
 
