@@ -1,4 +1,4 @@
-# OpenScience {#sec-open-science .unnumbered}
+# Lab {#sec-open-science .unnumbered}
 
 Now that you know what computational notebooks are and why we should care about them, let's start using them! This section introduces you to using R for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.
 
@@ -23,7 +23,6 @@ library(tidyverse) # a structure of data manipulation including several packages
 library(data.table)
 ```
 
-
 ## Datasets
 
 We will be exploring some demographic characteristics in Liverpool. To do that, we will use a dataset that contains population counts, split by ethnic origin. These counts are aggregated at the Lower Layer Super Output Area (LSOA from now on). LSOAs are an official Census geography defined by the Office of National Statistics. You can think of them, more or less, as neighbourhoods. Many data products (Census, deprivation indices, etc.) use LSOAs as one of their main geographies.
@@ -31,7 +30,6 @@ We will be exploring some demographic characteristics in Liverpool. To do that, 
 To make things easier, we will read data from a file posted online so, for now, you do not need to download any dataset:
 
 **Import housesales data from csv**
-
 
 ```{r}
 census2021 <- read.csv("data/census2021_ethn/liv_pop.csv", row.names = "GeographyCode")
@@ -49,7 +47,6 @@ Let us stop for a minute to learn how we have read the file. Here are the main a
 
 -   To ensure we can access the data we have read, we store it in an object that we call `census2021`. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read.csv`.
 
-
 **Important**
 
 You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 2. Place the file on the same folder as the notebook where you intend to read it.
@@ -62,11 +59,9 @@ Now we are ready to start playing with and interrogating the dataset! What we ha
 
 Let's start by exploring the structure of a `DataFrame`. We can print it by simply typing its name:
 
-
 ```{r}
 view(census2021)
 ```
-
 
 Since they represent a table of data, `DataFrame` objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its index. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the .csv file's column names. For rows, we have specified when reading the file we wanted the column GeographyCode, so that is used. If we hadn't specified any, `tidyverse` in R will automatically generate a sequence starting in 0 and going all the way to the number of rows minus one. This is the standard structure of a `DataFrame` object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.
 
@@ -81,8 +76,6 @@ head(census2021) # read first 5 rows
 tail(census2021)
 ```
 
-
-
 **Summarise**
 
 We can get an overview of the values of the table:
@@ -95,19 +88,15 @@ Note how the output is also a `DataFrame` object, so you can do with it the same
 
 In this case, the summary might be better presented if the table is "transposed":
 
-
 ```{r}
 t(summary(census2021))
 ```
-
-
 
 ## Columns
 
 **Create new columns**
 
 We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:
-
 
 On base R
 
@@ -133,12 +122,9 @@ head(census2021)
 
 `dplyr` is an immensely useful package in R because it streamlines and simplifies the process of data manipulation and transformation. With its intuitive and consistent syntax, dplyr provides a set of powerful and efficient functions that make tasks like filtering, summarizing, grouping, and joining datasets much more straightforward. Whether you're working with small or large datasets, `dplyr`'s optimized code execution ensures fast and efficient operations. Its ability to chain functions together using the pipe operator (`%>%`) allows for a clean and readable code structure, enhancing code reproducibility and collaboration. Overall, `dplyr` is an indispensable tool for data analysts and scientists working in R, enabling them to focus on their data insights rather than wrestling with complex data manipulation code.
 
-
-
 **Delete columns**
 
 Permanently deleting variables is also within reach of one command:
-
 
 Base R
 
@@ -153,15 +139,11 @@ census2021 <- census2021 %>%
   mutate(new_column = 1)
 ```
 
-
-
 ## Queries
 
 **Index-based queries**
 
 Here we explore how we can subset parts of a `DataFrame` if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table:
-
-
 
 We can select with `c()`. If this structure is new to you have a look [here](https://pietrostefani.github.io/gds/environR.html).
 
@@ -171,13 +153,9 @@ eu_tot_first4 <- census2021[c('E01006512', 'E01006513', 'E01006514', 'E01006515'
 eu_tot_first4
 ```
 
-
-
 **Condition-based queries**
 
 However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g. areas with more than 2,000 inhabitants). For these cases, `DataFrames` support selection based on conditions. Let us see a few examples. Suppose we want to select...
-
-
 
 Areas with more than 900 people in Total:
 
@@ -200,14 +178,11 @@ oneOA <- census2021 %>%
   filter(`Antarctica.and.Oceania` == 10)
 ```
 
-
-
 *Pro-tip*: These queries can grow in sophistication with almost no limits.
 
 **Combining queries**
 
 Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:
-
 
 ```{r}
 ac25_l500 <- census2021 %>%
@@ -215,8 +190,6 @@ ac25_l500 <- census2021 %>%
 ac25_l500
 
 ```
-
-
 
 ## Sorting
 
@@ -228,7 +201,6 @@ db_pop_sorted <- census2021 %>%
 
 head(db_pop_sorted)
 ```
-
 
 ## Additional resources
 

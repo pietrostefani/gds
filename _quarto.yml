@@ -14,7 +14,7 @@ book:
     - part: environ.qmd
       chapters:
         - environR.qmd
-        - environPy.qmd
+        # - environPy.qmd
     - part: intro.qmd
       chapters:
         - openscience.qmd
