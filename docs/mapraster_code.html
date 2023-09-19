@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - Lab</title>
+<title>Geographic Data Science in R and Python – mapraster_code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,12 +63,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - Lab">
-<meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -77,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mapraster.html">mapraster.html</a></li><li class="breadcrumb-item"><a href="./mapraster_code.html">Lab</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mapraster.html">4 Mapping Raster Data</a></li><li class="breadcrumb-item"><a href="./mapraster_code.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapraster_code.html</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -195,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Data</span></a>
+ <span class="menu-text">2 Spatial Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -204,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Data</span></a>
+ <span class="menu-text">Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapvector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapping Vector Data</span></a>
+ <span class="menu-text">3 Mapping Vector Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -241,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapraster.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">mapraster.html</span></a>
+ <span class="menu-text">4 Mapping Raster Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -250,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mapraster_code.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lab</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">mapraster_code.html</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -393,29 +390,41 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-map-raster-R" class="quarto-section-identifier">Lab</span></h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
+<!-- # Lab {#sec-map-raster-R .unnumbered} -->
+<!-- ## Composing multi-layer maps -->
+<!-- And finally, we can map the results! We will be using both the `tmap` (specific for maps, see [here](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)), the `ggplot2` (for general data visualisations, see [here](https://ggplot2.tidyverse.org) and the `mapsf` (for thematic cartography, see [here](https://riatelab.github.io/mapsf/)) packages: -->
+<!-- ```{r class.source = "fold-show"} -->
+<!-- #3a. plot the new variable using the tmap package -->
+<!-- if(!require("tmap")) install.packages("tmap") -->
+<!-- library("tmap") -->
+<!-- qtm(districts, "Level4p") # Quick thematic map plot -->
+<!-- #3b. Use ggplot to create the same map of London -->
+<!-- if(!require("ggplot2")) install.packages("ggplot2") -->
+<!-- library("ggplot2") -->
+<!-- ggplot() + -->
+<!--   geom_sf(data = districts, aes(fill = Level4p)) + -->
+<!--   theme(line = element_blank(), # remove tick marks -->
+<!--         rect = element_blank(), # remove background -->
+<!--         axis.text=element_blank()) # remove x and y axis -->
+<!-- #3c. Use mapsf to create the same map of London -->
+<!-- if(!require("mapsf")) install.packages("mapsf") -->
+<!-- library("mapsf")  -->
+<!-- # Plot the base map -->
+<!-- mf_map(x = districts) -->
+<!-- # Plot with the data -->
+<!-- mf_map(x = districts, var = "Level4p", type = "choro", -->
+<!--        pal = "Dark Mint",  -->
+<!--        breaks = "quantile",  -->
+<!--        nbreaks = 6,  -->
+<!--        leg_title = "% of highest edu",  -->
+<!--        add = TRUE) -->
+<!-- ``` -->
 
 
 
@@ -656,7 +665,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./mapraster.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">mapraster.html</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4 Mapping Raster Data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
