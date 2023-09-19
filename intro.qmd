@@ -2,7 +2,7 @@
 
 In this section we introduce what Geographic Data Science is. We top it up with a few (optional) further readings for the interested and curious mind.
 
-Slides can be downloaded ["here"](/html/introduction_gds.html)
+Slides can be downloaded ["here"](/html/introduction_gds.pdf)
 
 ## From Geographic Data Science to Geographic Data Science
 
