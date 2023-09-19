@@ -9,8 +9,8 @@
 
 **Spatial Data**
 
--   Lecture:
--   Lab:
+-   Lecture: Spatial Data
+-   Lab: London
 
 **Mapping Vector Data**
 

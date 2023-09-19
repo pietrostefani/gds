@@ -4,18 +4,12 @@
 
 -   **Title:** Programmed Map
 -   **Type:** Coursework
--   Due date: **TBC**
+-   Due date: 30th October
 -   25% of the final mark
 -   Chance to be reassessed
 -   Electronic submission only
 
-This assignment will be evaluated on technical data processing, map design abilities, and overall narrative.
-
-First, the data.
-
-Second, the assemblage.
-
-Third, the design and overall narrative
+This assignment will be evaluated on technical data processing, map design abilities (assemblage), and design overall narrative.
 
 Once you have created your map, you will need to present it. Write 250 about the choices you made to create the map.
 
@@ -25,7 +19,7 @@ Once completed, you will need to submit the following:
 
 **An html version of an .qmd document with R or Python integrated code.**
 
-The assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:
+The assignment will be evaluated based on three main pillars, on which you will have to be successful to achieve a good mark:
 
 1.  **Data processing**
 
@@ -36,7 +30,7 @@ The assignment will be evaluated based on four main pillars, on which you will h
 ## Assignment II
 
 -   **Title:** MCQ test
--   **Type:** Test
+-   **Type:** 16th November
 -   Due date: **TBC**
 -   25% of the final mark
 -   Chance to be reassessed
@@ -49,7 +43,7 @@ b)  To provide core learning in advance of the third assessment.
 
 -   **Title:** Computational Essay
 -   **Type:** Coursework
--   Due date: **TBC**
+-   Due date: 18th December
 -   50% of the final mark
 -   Chance to be reassessed
 -   Electronic submission only
@@ -74,7 +68,7 @@ A computational essay is an essay whose narrative is supported by code and compu
 
 1\. Ordinary text (in English)
 
-2\. Computer input (R-markdown or Python code)
+2\. Computer input (R)
 
 3\. Computer output These three elements all work together to express what's being communicated.
 

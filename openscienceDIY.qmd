@@ -6,13 +6,9 @@ You can read a bit more about the data at The Guardian's data blog
 
 ## Import libraries
 
-
-
 ```{r message=FALSE}
 library(tidyverse)
 ```
-
-
 
 ## Data preparation
 
@@ -34,7 +30,6 @@ data <- read.csv(url)
 # see the data
 head(data)
 ```
-
 
 This allows us to read the data straight into a data frame, as we have done in the previous session.
 
