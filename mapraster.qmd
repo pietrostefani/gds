@@ -1,1 +1,3 @@
 # 4 Mapping Raster Data {#sec-map-raster .unnumbered}
+
+Raster data is more and more popular...

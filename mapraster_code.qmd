@@ -1,37 +1,3 @@
-<!-- # Lab {#sec-map-raster-R .unnumbered} -->
+# Lab {#sec-map-raster-R .unnumbered} 
 
-<!-- ## Composing multi-layer maps -->
 
-<!-- And finally, we can map the results! We will be using both the `tmap` (specific for maps, see [here](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html)), the `ggplot2` (for general data visualisations, see [here](https://ggplot2.tidyverse.org) and the `mapsf` (for thematic cartography, see [here](https://riatelab.github.io/mapsf/)) packages: -->
-
-<!-- ```{r class.source = "fold-show"} -->
-<!-- #3a. plot the new variable using the tmap package -->
-<!-- if(!require("tmap")) install.packages("tmap") -->
-<!-- library("tmap") -->
-<!-- qtm(districts, "Level4p") # Quick thematic map plot -->
-
-<!-- #3b. Use ggplot to create the same map of London -->
-<!-- if(!require("ggplot2")) install.packages("ggplot2") -->
-<!-- library("ggplot2") -->
-
-<!-- ggplot() + -->
-<!--   geom_sf(data = districts, aes(fill = Level4p)) + -->
-<!--   theme(line = element_blank(), # remove tick marks -->
-<!--         rect = element_blank(), # remove background -->
-<!--         axis.text=element_blank()) # remove x and y axis -->
-
-<!-- #3c. Use mapsf to create the same map of London -->
-<!-- if(!require("mapsf")) install.packages("mapsf") -->
-<!-- library("mapsf")  -->
-
-<!-- # Plot the base map -->
-<!-- mf_map(x = districts) -->
-<!-- # Plot with the data -->
-<!-- mf_map(x = districts, var = "Level4p", type = "choro", -->
-<!--        pal = "Dark Mint",  -->
-<!--        breaks = "quantile",  -->
-<!--        nbreaks = 6,  -->
-<!--        leg_title = "% of highest edu",  -->
-<!--        add = TRUE) -->
-
-<!-- ``` -->
