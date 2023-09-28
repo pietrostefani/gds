@@ -27,7 +27,7 @@ library(data.table)
 
 We will be exploring some demographic characteristics in Liverpool. To do that, we will use a dataset that contains population counts, split by ethnic origin. These counts are aggregated at the Lower Layer Super Output Area (LSOA from now on). LSOAs are an official Census geography defined by the Office of National Statistics. You can think of them, more or less, as neighbourhoods. Many data products (Census, deprivation indices, etc.) use LSOAs as one of their main geographies.
 
-To make things easier, we will read data from a file posted online so, for now, you do not need to download any dataset:
+To do this, we will download a data folder from github called `census2021_ethn`. You should place this in a data folder you will use throughout the course. 
 
 **Import housesales data from csv**
 
@@ -49,7 +49,8 @@ Let us stop for a minute to learn how we have read the file. Here are the main a
 
 **Important**
 
-You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 2. Place the file on the same folder as the notebook where you intend to read it.
+You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the `census2021_ethn` file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 2. Place the file in a data folder you have created where you intend to read it.
+3. Your folder should have the following structure a. a gds folder (where you will save your quarto documents) b. a data folder c. the `census2021_ethn` folder inside your data folder.
 
 ## Data, sliced and diced
 
