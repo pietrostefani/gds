@@ -1,0 +1,48 @@
+---
+title: "Untitled"
+---
+
+
+```{r}
+library(basemaps)
+library(mapedit)
+
+# view all available maps
+get_maptypes()
+
+
+
+ext <- draw_ext()
+# or use draw_ext() to interactively draw an extent yourself
+
+
+
+# set defaults for the basemap
+set_defaults(ext = ext, map_service = "osm_stamen", map_type = "toner")
+
+
+# load and return basemap map as class of choice, e.g. as image using magick:
+basemap_plot(ext)
+
+map <- basemap(ext)
+
+# or as ggplot2:
+map <- basemap_ggplot(ext)
+ext <- st_transform(ext,  crs = st_crs(3857))
+ext <- st_transform(ext,  crs = st_crs(3857))
+
+# or as ggplot2 layer:
+
+ggplot() + 
+  basemap_gglayer(ext) + 
+  geom_sf(data = ext, color = "red", fill = "transparent") +
+  coord_sf() +
+  scale_fill_identity()
+
+library(ggplot2)
+ggplot() + 
+  basemap_gglayer(map) +
+  geom_sf(data=districts_4326)
+
+```
+https://jakob.schwalb-willmann.de/basemaps/index.html#get-started
