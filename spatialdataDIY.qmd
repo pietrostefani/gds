@@ -1,2 +1,162 @@
 # Do-It-Yourself {#sec-spatial-data-DIY .unnumbered}
 
+In this session, we will practice your skills in mapping with R. Create a new quarto document you can edit interactively, and let's do this!
+
+
+```{r}
+#| include: false
+library(dplyr)
+library(ggplot2)
+library(sf)
+library(viridis)
+library(viridis)
+library(osmdata)
+
+```
+
+## Data preparation
+
+### Polygons
+
+For this section, you will have to push yourself out of the comfort zone when it comes to sourcing the data. As nice as it is to be able to pull a dataset directly from the web at the stroke of a url address, most real-world cases are not that straight forward. Instead, you usually have to download a dataset manually and store it locally on your computer before you can get to work.
+
+We are going to use data from the Consumer Data Research Centre (CDRC) about Liverpool, in particular an extract from the Census. You can download a copy of the data at:
+
+::: callout-important
+You will need a username and password to download the data. Create it for free at:
+
+https://data.cdrc.ac.uk/user/register
+
+Then [download](https://data.cdrc.ac.uk/system/files/Census_Residential_Data_Pack_2011/Census_Residential_Data_Pack_2011_E08000012.zip) the Liverpool Census'11 Residential data pack
+:::
+
+Once you have the `.zip` file on your computer, right-click and "Extract all". The resulting folder will contain all you need. Create a folder called `Liverpool` in `data` folder you created in the first Lab.
+
+```{r}
+library(sf)
+lsoas <- read_sf("data/Liverpool/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp")
+```
+
+### Lines
+
+For a line layer, we are going to use a different bit of `osmdata` functionality that will allow us to extract all the highways. Note the code cell below requires internet connectivity.
+
+```{r roads query}
+
+highway <- opq("Liverpool, U.K.") %>%
+   add_osm_feature(key = "highway", 
+                   value = c("primary", "secondary", "tertiary")) %>%
+   osmdata_sf()
+
+ggplot() + 
+  geom_sf(data = highway$osm_lines, color = 'darkorange') + theme_minimal() 
+```
+
+## Points
+
+For points, we will find some POI (Points of Interest) : pubs in Liverpool, as recorded by OpenStreetMap. Note the code cell below requires internet connectivity.
+
+```{r bar query}
+
+bars <- opq("Liverpool, U.K.") %>%
+   add_osm_feature(key = "amenity", 
+                   value = c("bar")) %>%
+   osmdata_sf()
+
+ggplot() + 
+  geom_sf(data = bars$osm_points) + theme_minimal() 
+```
+
+
+## Tasks
+
+### Task I: Tweak your map
+
+With those three layers, try to complete the following tasks:
+
+-   Make a map of the Liverpool neighborhoods that includes the following characteristics:
+
+    1.  Features a title
+
+    2.  Does not include axes frame
+
+    3.  Polygons are all in color `#525252` and 50% transparent
+
+    4.  Boundary lines ("edges") have a width of 0.3 and are of color `#B9EBE3`
+
+    5.  Includes a basemap different from the one used in class
+
+::: callout-note
+Not all of the requirements above are not equally hard to achieve. If you can get some but not all of them, that's also great! The point is you learn something every time you try.
+:::
+
+### Task II: Non-spatial manipulations
+
+For this one we will combine some of the ideas we learnt in the previous block with this one.
+
+Focus on the LSOA liverpool layer and use it to do the following:
+
+1.  Calculate the area of each neighbourhood
+
+2.  Find the five smallest areas in the table. Create a new object (e.g. smallest with them only)
+
+3.  Create a multi-layer map of Liverpool where the five smallest areas are coloured in red, and the rest appear in grey.
+
+### Task III: Average price per district
+
+```{r}
+#| include: false
+
+districts <- read_sf("data/London/Polygons/districts.shp")
+housesales <- read.csv("data/London/Tables/housesales.csv") # import housesales data from csv
+
+housesales_clean = housesales %>%
+  filter(price < 500000) %>% 
+  st_as_sf(coords = c(17,18)) %>% 
+  st_set_crs(27700) 
+```
+
+This one is a bit more advanced, so don't despair if you can't get it on your first try. It relies on the London data you used in the Lab. Here is the questions for you to answer:
+
+**What is the district with the highest housing prices in London?**
+
+Answering this questions involve 3 steps:
+
+1\. Performing a spatial join (`st_join`) between the district layer (polygons) and the households (points).
+
+2\. Aggregating the data at district level: `group_by` & `summarise()`
+
+3\. Figure out the district with the highest price
+
+::: {.callout-tip collapse="true"}
+Spatial overlay between points and polygons
+
+```{r spatial join}
+housesales_districts <- st_join(districts, housesales_clean)
+```
+
+Aggregate at district level
+
+```{r aggregate}
+housesales_districts_agg <- housesales_districts %>% 
+  group_by(DIST_CODE, DIST_NAME) %>% # group at district level
+  summarise(count_sales = n(),  # create count
+            mean_price = mean(price)) # average price
+head(housesales_districts_agg)
+```
+:::
+
+Once that's done, create a map using `ggplot` and if you're feeling adventurous the function `scale_fill_viridis()` to make your map look especially good.
+
+::: {.callout-tip collapse="true"}
+```{r mapoutput2}
+# map housesales by wards
+map3 <- ggplot()+
+  geom_sf(data = housesales_districts_agg, inherit.aes = FALSE, aes(fill = mean_price)) + # add the district level housing price 
+  scale_fill_viridis("Price", direction = -1, labels = scales::dollar_format(prefix = "£"), option = "magma" )+ # change the legend scale to £ and the colour to magma
+  xlab("") +
+  ylab("") +
+  theme_minimal() # choose a nicer theme https://ggplot2.tidyverse.org/reference/ggtheme.html
+map3
+```
+:::
