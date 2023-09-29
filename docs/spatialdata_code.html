@@ -456,6 +456,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#calculation" id="toc-calculation" class="nav-link" data-scroll-target="#calculation">Calculation</a></li>
   </ul></li>
   <li><a href="#saving-maps-to-figures" id="toc-saving-maps-to-figures" class="nav-link" data-scroll-target="#saving-maps-to-figures">Saving maps to figures</a></li>
+  <li><a href="#adding-baselayers" id="toc-adding-baselayers" class="nav-link" data-scroll-target="#adding-baselayers">Adding baselayers</a></li>
   <li><a href="#interactive-maps" id="toc-interactive-maps" class="nav-link" data-scroll-target="#interactive-maps">Interactive maps</a></li>
   <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
   </ul>
@@ -499,8 +500,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Using data from OpenStreetMap (OSM)</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(osmdata)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Static maps</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(basemaps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(basemapR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To install <code>basemapR</code> you will need to do run</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">'Chrisjb/basemapR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="datasets" class="level2">
@@ -510,14 +515,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="creating-geographic-data">Creating geographic data</h3>
 <p>First we will use the following commands create geographic datasets <em>from scratch</em> representing coordinates of some famous locations in London. Most projects start with pre-generated data, but it’s useful to create datasets to understand data structures.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>poi_df <span class="ot">=</span> <span class="fu">tribble</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>name, <span class="sc">~</span>lon, <span class="sc">~</span>lat,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"The British Museum"</span>,        <span class="sc">-</span><span class="fl">0.1459604</span>, <span class="fl">51.5045975</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Big Ben"</span>,    <span class="sc">-</span><span class="fl">0.1272057</span>, <span class="fl">51.5007325</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"King's Cross"</span>, <span class="sc">-</span><span class="fl">0.1319481</span>, <span class="fl">51.5301701</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"The Natural History Museum"</span>,     <span class="sc">-</span><span class="fl">0.173734</span>, <span class="fl">51.4938451</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>poi_sf <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(poi_df, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="st">"EPSG:4326"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>poi_df <span class="ot">=</span> <span class="fu">tribble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>name, <span class="sc">~</span>lon, <span class="sc">~</span>lat,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"The British Museum"</span>,        <span class="sc">-</span><span class="fl">0.1459604</span>, <span class="fl">51.5045975</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Big Ben"</span>,    <span class="sc">-</span><span class="fl">0.1272057</span>, <span class="fl">51.5007325</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"King's Cross"</span>, <span class="sc">-</span><span class="fl">0.1319481</span>, <span class="fl">51.5301701</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"The Natural History Museum"</span>,     <span class="sc">-</span><span class="fl">0.173734</span>, <span class="fl">51.4938451</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>poi_sf <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(poi_df, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lon"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="st">"EPSG:4326"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="types-of-data" class="level3">
@@ -529,38 +534,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>We first import the district shapefile use <code>read_sf</code>, we then plot it to make sure we are seeing it ‘correctly’. We us <code>$geometry</code> to plot just the geometry, if we don’t include <code>$geometry</code> R will plot the first 9 columns and if the dataset is large this is not advisable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/London/Polygons/districts.shp"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry) <span class="co"># Create a simple plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/London/Polygons/districts.shp"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry) <span class="co"># Create a simple plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>We them import a file of roads in London and plot it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a_roads <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/London/Lines/a_roads.shp"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If you needed to import a `geojson` this would be the function.</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#a_roads &lt;- geojson_sf("data/London/Lines/a_roads.geojson")</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a_roads<span class="sc">$</span>geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a_roads <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/London/Lines/a_roads.shp"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If you needed to import a `geojson` this would be the function.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#a_roads &lt;- geojson_sf("data/London/Lines/a_roads.geojson")</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a_roads<span class="sc">$</span>geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>We can also import point files. So far, we have imported <code>shapefiles</code> and <code>geojsons</code>, but we can also obtain data from urls like in the <a href="https://pietrostefani.github.io/gds/openscienceDIY.html">Open Science DIY</a> session or from other sources like <strong>OpenStreetMap</strong>. Both <code>R</code> and <code>Python</code> have libraries that allow us to query OpenStreetMap.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>osm_q_sf <span class="ot">&lt;-</span> <span class="fu">opq</span>(<span class="st">"Greater London, U.K."</span>) <span class="sc">%&gt;%</span> <span class="co"># searching only in Greater London</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_osm_feature</span>(<span class="at">key =</span> <span class="st">"building"</span>, <span class="at">value =</span> <span class="st">"museum"</span>) <span class="sc">%&gt;%</span> <span class="co">#adding osm data that is tagged as a museum</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">osmdata_sf</span> () <span class="co"># transforming to sf object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>osm_q_sf <span class="ot">&lt;-</span> <span class="fu">opq</span>(<span class="st">"Greater London, U.K."</span>) <span class="sc">%&gt;%</span> <span class="co"># searching only in Greater London</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_osm_feature</span>(<span class="at">key =</span> <span class="st">"building"</span>, <span class="at">value =</span> <span class="st">"museum"</span>) <span class="sc">%&gt;%</span> <span class="co">#adding osm data that is tagged as a museum</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">osmdata_sf</span> () <span class="co"># transforming to sf object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The structure of osmdata objects are clear from their default print method, illustrated using the museum example. We will use them shortly.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>osm_q_sf  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>osm_q_sf  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Object of class 'osmdata' with:
                  $bbox : 51.2867601,-0.5103751,51.6918741,0.3340155
@@ -574,7 +579,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>You do not need to know at this point what happens behind the scenes when we run these lines but, if you are curious, we are making a query to OpenStreetMap (almost as if you typed “museums in London, UK” within Google Maps) and getting the response as a table of data, instead of as a website with an interactive map. Pretty cool, huh?</p>
-<p>Note the code cell above requires internet connectivity.</p>
+<p><em>Note</em>: the code cell above requires internet connectivity.</p>
 <p><strong>Important</strong>: Be careful, if you query too much data, your environment is likely to get stuck.</p>
 </div>
 </div>
@@ -588,7 +593,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Just like a <code>dataframe</code> (see the OpenScience Lab), we can inspect the data (attributes table) within a spatial object. The most direct way to get from a file to a quick visualization of the data is by loading it and calling the <code>plot</code> command. Let’s start by inspecting the data like we did for non spatial <code>dataframes</code>.</p>
 <p>We can see our data is very similar to a traditional, non-spatial <code>dataFrame</code>, but with an additional column called geometry.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(districts) <span class="co"># the command "head" reads the first 5 rows of the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(districts) <span class="co"># the command "head" reads the first 5 rows of the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 6 features and 2 fields
 Geometry type: POLYGON
@@ -608,7 +613,7 @@ Projected CRS: OSGB36 / British National Grid
 </div>
 <p>We can inspect the object in different ways :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>districts[<span class="dv">1</span>,] <span class="co"># read first row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>districts[<span class="dv">1</span>,] <span class="co"># read first row</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 1 feature and 2 fields
 Geometry type: POLYGON
@@ -620,7 +625,7 @@ Projected CRS: OSGB36 / British National Grid
   &lt;chr&gt;     &lt;chr&gt;                                                  &lt;POLYGON [m]&gt;
 1 00AA      City of London ((531028.5 181611.2, 531036.1 181611.5, 531074 18161…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>districts[,<span class="dv">1</span>] <span class="co"># read first column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>districts[,<span class="dv">1</span>] <span class="co"># read first column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 33 features and 1 field
 Geometry type: POLYGON
@@ -640,9 +645,9 @@ Projected CRS: OSGB36 / British National Grid
  8 00AH      ((532745.1 157404.6, 532756.3 157394.6, 532768.1 157384, 532777.3 …
  9 00AJ      ((512740.6 182181.6, 512740.1 182185.9, 512739.5 182190.5, 512739.…
 10 00AK      ((530417 191627.4, 530416.8 191627.6, 530410 191631.2, 530396.3 19…
-# … with 23 more rows</code></pre>
+# ℹ 23 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>districts[<span class="dv">1</span>,<span class="dv">1</span>] <span class="co">#read first row, first column: 00AA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>districts[<span class="dv">1</span>,<span class="dv">1</span>] <span class="co">#read first row, first column: 00AA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 1 feature and 1 field
 Geometry type: POLYGON
@@ -654,8 +659,8 @@ Projected CRS: OSGB36 / British National Grid
   &lt;chr&gt;                                                            &lt;POLYGON [m]&gt;
 1 00AA      ((531028.5 181611.2, 531036.1 181611.5, 531074 181610.3, 531107 181…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variable can be called using the operator $</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>districts<span class="sc">$</span>DIST_NAME <span class="co">#read the column "DIST_NAME"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># variable can be called using the operator $</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>districts<span class="sc">$</span>DIST_NAME <span class="co">#read the column "DIST_NAME"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "City of London"         "Barking and Dagenham"   "Barnet"                
  [4] "Bexley"                 "Brent"                  "Bromley"               
@@ -672,9 +677,9 @@ Projected CRS: OSGB36 / British National Grid
 </div>
 <p>We can read or create subsets:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe can be subsetted using conditional statement</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read the rows which have "City of London" as value for DIST_NAME</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>districts[districts<span class="sc">$</span>DIST_NAME<span class="sc">==</span> <span class="st">"City of London"</span>,] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe can be subsetted using conditional statement</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read the rows which have "City of London" as value for DIST_NAME</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>districts[districts<span class="sc">$</span>DIST_NAME<span class="sc">==</span> <span class="st">"City of London"</span>,] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 1 feature and 2 fields
 Geometry type: POLYGON
@@ -693,23 +698,23 @@ Projected CRS: OSGB36 / British National Grid
 <h3 class="anchored" data-anchor-id="quick-visualisation">Quick visualisation</h3>
 <p>Let’s start by plotting London in a colour and adding Hackney (a district) in a different colour.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot london in grey</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry, <span class="at">col =</span> <span class="st">"lightgrey"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add city of London in turquoise to the map</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts[districts<span class="sc">$</span>DIST_NAME <span class="sc">==</span> <span class="st">"Hackney"</span>, ]<span class="sc">$</span>geometry, <span class="co"># select city of london</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"turquoise"</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">add =</span> T) <span class="co"># add to the existing map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot london in grey</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry, <span class="at">col =</span> <span class="st">"lightgrey"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add city of London in turquoise to the map</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts[districts<span class="sc">$</span>DIST_NAME <span class="sc">==</span> <span class="st">"Hackney"</span>, ]<span class="sc">$</span>geometry, <span class="co"># select city of london</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"turquoise"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">add =</span> T) <span class="co"># add to the existing map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Some guidance on colours in R can be found <a href="https://bookdown.org/hneth/ds4psy/D-3-apx-colors-basics.html">here</a>.</p>
 <p>How to reset a plot:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry, <span class="at">reset =</span> T) <span class="co"># reset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry, <span class="at">reset =</span> T) <span class="co"># reset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -722,20 +727,20 @@ Projected CRS: OSGB36 / British National Grid
 <h3 class="anchored" data-anchor-id="plotting-different-layers">Plotting different layers</h3>
 <p>We first start by plotting one layer over another</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a_roads<span class="sc">$</span>geometry, <span class="at">add=</span>T) <span class="co"># note the `add=T` is adding the second layer.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a_roads<span class="sc">$</span>geometry, <span class="at">add=</span>T) <span class="co"># note the `add=T` is adding the second layer.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Or use the <code>ggplot</code> package for something a bit fancier</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -743,12 +748,12 @@ Projected CRS: OSGB36 / British National Grid
 <h3 class="anchored" data-anchor-id="changing-transparency">Changing transparency</h3>
 <p>The intensity of color of a polygon can be easily changed through the alpha attribute in plot. This is specified as a value betwee zero and one, where the former is entirely transparent while the latter is the fully opaque (maximum intensity):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline &amp; no fill (NA)</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline &amp; no fill (NA)</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -756,16 +761,16 @@ Projected CRS: OSGB36 / British National Grid
 <h3 class="anchored" data-anchor-id="removing-axes">Removing axes</h3>
 <p>Although in some cases, the axes can be useful to obtain context, most of the times maps look and feel better without them. Removing the axes involves wrapping the plot into a figure, which takes a few more lines of aparently useless code but that, in time, it will allow you to tweak the map further and to create much more flexible designs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline &amp; no fill (NA)</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">line =</span> <span class="fu">element_blank</span>(), <span class="co"># remove tick marks</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">rect =</span> <span class="fu">element_blank</span>(), <span class="co"># remove background</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text=</span><span class="fu">element_blank</span>()) <span class="co"># remove x and y axis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline &amp; no fill (NA)</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">line =</span> <span class="fu">element_blank</span>(), <span class="co"># remove tick marks</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">rect =</span> <span class="fu">element_blank</span>(), <span class="co"># remove background</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text=</span><span class="fu">element_blank</span>()) <span class="co"># remove x and y axis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># theme_void() # could also be used instead of the 3 above lines </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># theme_void() # could also be used instead of the 3 above lines </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For more on themes in <code>ggplot</code> see <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">here</a></p>
 </section>
@@ -773,13 +778,13 @@ Projected CRS: OSGB36 / British National Grid
 <h3 class="anchored" data-anchor-id="adding-a-title">Adding a title</h3>
 <p>Adding a title is an extra line, if we are creating the plot within a figure, as we just did. To include text on top of the figure:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline &amp; no fill (NA)</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> <span class="co"># </span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Some London roads"</span>) <span class="co">#add ggtitle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Plot districts with black outline &amp; no fill (NA)</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Plot roads with brown color and 50% transparency</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> <span class="co"># </span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Some London roads"</span>) <span class="co">#add ggtitle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -787,14 +792,14 @@ Projected CRS: OSGB36 / British National Grid
 <h3 class="anchored" data-anchor-id="changing-what-border-lines-look-like">Changing what border lines look like</h3>
 <p>Border lines sometimes can distort or impede proper interpretation of a map. In those cases, it is useful to know how they can be modified. Let us first see the code to make the lines thicker and black, and then we will work our way through the different steps:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> poi_sf, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="co"># size adjusts size of visualization</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Some London Roads"</span>) <span class="co">#add ggtitle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> a_roads, <span class="at">color =</span> <span class="st">"brown"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> poi_sf, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="co"># size adjusts size of visualization</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Some London Roads"</span>) <span class="co">#add ggtitle</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -803,13 +808,13 @@ Projected CRS: OSGB36 / British National Grid
 <p>Labeling maps is of paramount importance as it is often key when presenting data analysis and visualization. Properly labeled maps enables readers to effectively analyze and interpret spatial data.</p>
 <p>Here we are using <code>geom_sf_text</code> to add data, specifically the distrct name, to the centre of each District in a specific size.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts,</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data =</span> districts,</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> DIST_NAME),</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.geometry =</span> sf<span class="sc">::</span>st_centroid, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">fill =</span> <span class="st">"gray95"</span>) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data =</span> districts,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">label =</span> DIST_NAME),</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.geometry =</span> sf<span class="sc">::</span>st_centroid, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="spatialdata_code_files/figure-html/plotdata2-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -824,7 +829,7 @@ Projected CRS: OSGB36 / British National Grid
 <p>Coordindate reference systems (CRS) are the way geographers and cartographers represent a three-dimentional objects, such as the round earth, on a two-dimensional plane, such as a piece of paper or a computer screen. If the source data contain information on the CRS of the data, we can modify this.</p>
 <p>First we need to retrieve the CRS from the vector data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts) <span class="co"># retrieve coordinate reference system from object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts) <span class="co"># retrieve coordinate reference system from object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coordinate Reference System:
   User input: OSGB36 / British National Grid 
@@ -871,19 +876,19 @@ PROJCRS["OSGB36 / British National Grid",
 </div>
 <p>The <code>st_crs</code> function also has one helpful feature - we can retrieve some additional information about the used CRS. For example, try to run:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>IsGeographic <span class="co"># to check is the CRS is geographic or not</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>IsGeographic <span class="co"># to check is the CRS is geographic or not</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>units_gdal <span class="co"># to find out the CRS units</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>units_gdal <span class="co"># to find out the CRS units</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "metre"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>srid <span class="co"># extracts its SRID (when available)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>srid <span class="co"># extracts its SRID (when available)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "EPSG:27700"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>proj4string <span class="co"># extracts the proj4string representation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(districts)<span class="sc">$</span>proj4string <span class="co"># extracts the proj4string representation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs"</code></pre>
 </div>
@@ -892,8 +897,8 @@ PROJCRS["OSGB36 / British National Grid",
 <p>If we want to modify this and “reproject” the polygons into a different CRS, the quickest way is to find the EPSG code online (epsg.io is a good one, although there are others too). For example, if we wanted to transform the dataset into lat/lon coordinates, we would use its EPSG code, 4326 (CRS’s name “WGS84”):</p>
 <p>In cases when a coordinate reference system (CRS) is missing or the wrong CRS is set, the st_set_crs() function can be used:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>districts_4326 <span class="ot">=</span> <span class="fu">st_transform</span>(districts, <span class="st">"EPSG:4326"</span>) <span class="co"># set CRS</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># districts_4326 &lt;- st_transform(districts_4326, crs = 4326)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>districts_4326 <span class="ot">=</span> <span class="fu">st_transform</span>(districts, <span class="st">"EPSG:4326"</span>) <span class="co"># set CRS</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># districts_4326 &lt;- st_transform(districts_4326, crs = 4326)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="from-coordinates-to-spatial-objects" class="level3">
@@ -901,20 +906,20 @@ PROJCRS["OSGB36 / British National Grid",
 <p>CRSs are also very useful if we obtain data that is in a csv, has coordinates but needs to be transformed to a spatial <code>dataframe</code>. For example we have some London housing transactions we want to import and use.</p>
 <p>We want to transform the .csv in a <code>sf</code> object with the <code>st_as_sf</code> function using the coordinates stored in columns 17 and 18, and then we set the <code>dataframe</code> CRS to the British National Grid (EPSG:27700) using the <code>st_set_crs</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>housesales <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/London/Tables/housesales.csv"</span>) <span class="co"># import housesales data from csv</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 commands: </span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>housesales_filtered <span class="ot">=</span> <span class="fu">filter</span>(housesales,price <span class="sc">&lt;</span> <span class="dv">500000</span>)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>housesales_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(housesales_filtered, <span class="at">coords =</span> <span class="fu">c</span>(<span class="dv">17</span>,<span class="dv">18</span>)) <span class="co"># denote columns which have the coordinates</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>housesales_clean <span class="ot">&lt;-</span> <span class="fu">st_set_crs</span>(housesales_sf, <span class="dv">27700</span>)<span class="co"># set crs to British National Grid </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>housesales <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/London/Tables/housesales.csv"</span>) <span class="co"># import housesales data from csv</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 commands: </span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>housesales_filtered <span class="ot">=</span> <span class="fu">filter</span>(housesales,price <span class="sc">&lt;</span> <span class="dv">500000</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>housesales_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(housesales_filtered, <span class="at">coords =</span> <span class="fu">c</span>(<span class="dv">17</span>,<span class="dv">18</span>)) <span class="co"># denote columns which have the coordinates</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>housesales_clean <span class="ot">&lt;-</span> <span class="fu">st_set_crs</span>(housesales_sf, <span class="dv">27700</span>)<span class="co"># set crs to British National Grid </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As we’ve seen in <a href="https://pietrostefani.github.io/gds/openscience.html">open science</a>, we can do consecutive operations using <code>dplyr</code> pipes <code>%&gt;%</code>, they are used to simplify syntax. Pipes allow to perform successive operations on dataframes in one command! More info <a href="https://seananderson.ca/2014/09/13/dplyr-intro/">here</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all one in go and one output</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>housesales_clean <span class="ot">=</span> housesales <span class="sc">%&gt;%</span> <span class="co"># select the main object</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(price <span class="sc">&lt;</span> <span class="dv">500000</span>) <span class="sc">%&gt;%</span> <span class="co"># remove values above 500,000</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="dv">17</span>,<span class="dv">18</span>)) <span class="sc">%&gt;%</span> <span class="co"># # denote columns which have the coordinates</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="dv">27700</span>) <span class="co"># set crs to British National Grid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all one in go and one output</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>housesales_clean <span class="ot">=</span> housesales <span class="sc">%&gt;%</span> <span class="co"># select the main object</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(price <span class="sc">&lt;</span> <span class="dv">500000</span>) <span class="sc">%&gt;%</span> <span class="co"># remove values above 500,000</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="dv">17</span>,<span class="dv">18</span>)) <span class="sc">%&gt;%</span> <span class="co"># # denote columns which have the coordinates</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="dv">27700</span>) <span class="co"># set crs to British National Grid</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="zooming-in-or-out" class="level3">
@@ -922,13 +927,13 @@ PROJCRS["OSGB36 / British National Grid",
 <p>It’s important to know what CRS your data is in if you want to create zoomed versions of your maps. <a href="http://bboxfinder.com/#0.000000,0.000000,0.000000,0.000000">BBox finder</a> is a useful tool to identify coordinates in <code>EPSG:4326</code>.</p>
 <p>Here for example we are zooming in to some of the point we created at the beginning of the lab.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_sf</span>(<span class="at">data =</span> districts_4326<span class="sc">$</span>geometry) <span class="sc">+</span> </span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> poi_sf<span class="sc">$</span>geometry, <span class="at">fill =</span> <span class="st">'blue'</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.180723</span>,<span class="sc">-</span><span class="fl">0.014212</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">51.476668</span>,<span class="fl">51.532337</span>)) <span class="sc">+</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_sf</span>(<span class="at">data =</span> districts_4326<span class="sc">$</span>geometry) <span class="sc">+</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> poi_sf<span class="sc">$</span>geometry, <span class="at">fill =</span> <span class="st">'blue'</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.180723</span>,<span class="sc">-</span><span class="fl">0.014212</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">51.476668</span>,<span class="fl">51.532337</span>)) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -944,49 +949,49 @@ PROJCRS["OSGB36 / British National Grid",
 <p>One of the spatial aspects we often need from polygons is their area. “How big is it?” is a question that always haunts us when we think of countries, regions, or cities. To obtain area measurements, first make sure the <code>dataframe</code> you are working with is projected. If that is the case, you can calculate areas as follows:</p>
 <p>We had already checked that district was projected to the British National Grid</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area =</span> <span class="fu">st_area</span>(.)<span class="sc">/</span><span class="dv">1000000</span>) <span class="co"># calculate area and make it km2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area =</span> <span class="fu">st_area</span>(.)<span class="sc">/</span><span class="dv">1000000</span>) <span class="co"># calculate area and make it km2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>Similarly, an equally common question with lines is their length. Also similarly, their computation is relatively straightforward, provided that our data are projected.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>a_roads <span class="ot">&lt;-</span> a_roads <span class="sc">%&gt;%</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">street_length =</span> <span class="fu">st_length</span>(geometry)) <span class="co"># calculate street length in metres</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>a_roads <span class="ot">&lt;-</span> a_roads <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">street_length =</span> <span class="fu">st_length</span>(geometry)) <span class="co"># calculate street length in metres</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you check the <code>dataframe</code> you will see the lengths.</p>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>Sometimes it is useful to summarize a polygon into a single point and, for that, a good candidate is its centroid (almost like a spatial analogue of the average).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataframe with centroids</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>centroids_df <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_centroid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataframe with centroids</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>centroids_df <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_centroid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Plot the centroids</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts) <span class="sc">+</span>  <span class="co"># Plot the districts segments</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> centroids_df, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># Plot the centroids in red</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts) <span class="sc">+</span>  <span class="co"># Plot the districts segments</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> centroids_df, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># Plot the centroids in red</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <p>Here, we first select by expression the Hackney district and then we create a 1km buffer around it with the <code>st_buffer()</code> function from the <code>sf</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># buffer</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>centroid_buffers <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(centroids_df, <span class="dv">1000</span>)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts) <span class="sc">+</span>  <span class="co"># Plot the districts segments</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> centroids_df, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># Plot the centroids in red</span></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> centroid_buffers, <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># Plot the buffers of the centroids</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># buffer</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>centroid_buffers <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(centroids_df, <span class="dv">1000</span>)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts) <span class="sc">+</span>  <span class="co"># Plot the districts segments</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> centroids_df, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># Plot the centroids in red</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> centroid_buffers, <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>  <span class="co"># Plot the buffers of the centroids</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -999,11 +1004,11 @@ PROJCRS["OSGB36 / British National Grid",
 <section id="join-districts-with-educational-level-data" class="level2">
 <h2 class="anchored" data-anchor-id="join-districts-with-educational-level-data">Join districts with educational level data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import qualifications data from csv</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>qualifications2001_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/London/Tables/qualifications2001_2.csv"</span>)</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># take a quick look at the table by reading the first 5 lines</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(qualifications2001_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import qualifications data from csv</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>qualifications2001_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/London/Tables/qualifications2001_2.csv"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># take a quick look at the table by reading the first 5 lines</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(qualifications2001_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Zone_Code            Zone_Name Population1674 Noquals Level1 Level2 Level3
 1      00AA       City of London           6067     607    359    634    665
@@ -1034,18 +1039,18 @@ PROJCRS["OSGB36 / British National Grid",
 <li><p>Join <code>districts</code> data to <code>qualifications2001</code> using district identifiers called <code>DIST_CODE</code> in districts and <code>Zone_Code</code> in <code>qualifications2001_df</code></p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#join</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">left_join</span>(districts, </span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>                       qualifications2001_df, </span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by=</span><span class="fu">c</span>(<span class="st">"DIST_CODE"</span><span class="ot">=</span><span class="st">"Zone_Code"</span>))</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># tidyverse alternative with pipe operator %&gt;%</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>districts_tidy <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(qualifications2001_df, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"DIST_CODE"</span><span class="ot">=</span><span class="st">"Zone_Code"</span>))</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co"># check the first rows of the merged data table</span></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(districts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#join</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">left_join</span>(districts, </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>                       qualifications2001_df, </span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">by=</span><span class="fu">c</span>(<span class="st">"DIST_CODE"</span><span class="ot">=</span><span class="st">"Zone_Code"</span>))</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co"># tidyverse alternative with pipe operator %&gt;%</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>districts_tidy <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(qualifications2001_df, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"DIST_CODE"</span><span class="ot">=</span><span class="st">"Zone_Code"</span>))</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="co"># check the first rows of the merged data table</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(districts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 6 features and 10 fields
 Geometry type: POLYGON
@@ -1053,24 +1058,24 @@ Dimension:     XY
 Bounding box:  xmin: 515484.9 ymin: 156480.8 xmax: 554503.8 ymax: 198355.2
 Projected CRS: OSGB36 / British National Grid
 # A tibble: 6 × 11
-  DIST_CODE DIST_NAME                    geometry   area Zone_…¹ Popul…² Noquals
-  &lt;chr&gt;     &lt;chr&gt;                   &lt;POLYGON [m]&gt;  [m^2] &lt;chr&gt;     &lt;int&gt;   &lt;int&gt;
-1 00AA      City of Lo… ((531028.5 181611.2, 531…   3.15 City o…    6067     607
-2 00AB      Barking an… ((550817 184196, 550814 …  37.8  Barkin…  113579   44873
-3 00AC      Barnet      ((526830.3 187535.5, 526…  86.7  Barnet   228123   44806
-4 00AD      Bexley      ((552373.5 174606.9, 552…  64.3  Bexley   156172   44887
-5 00AE      Brent       ((524661.7 184631, 52466…  43.2  Brent    198712   48915
-6 00AF      Bromley     ((533852.2 170129, 53385… 150.   Bromley  212368   47093
-# … with 4 more variables: Level1 &lt;int&gt;, Level2 &lt;int&gt;, Level3 &lt;int&gt;,
-#   Level4 &lt;int&gt;, and abbreviated variable names ¹​Zone_Name, ²​Population1674</code></pre>
+  DIST_CODE DIST_NAME                   geometry   area Zone_Name Population1674
+  &lt;chr&gt;     &lt;chr&gt;                  &lt;POLYGON [m]&gt;  [m^2] &lt;chr&gt;              &lt;int&gt;
+1 00AA      City of L… ((531028.5 181611.2, 531…   3.15 City of …           6067
+2 00AB      Barking a… ((550817 184196, 550814 …  37.8  Barking …         113579
+3 00AC      Barnet     ((526830.3 187535.5, 526…  86.7  Barnet            228123
+4 00AD      Bexley     ((552373.5 174606.9, 552…  64.3  Bexley            156172
+5 00AE      Brent      ((524661.7 184631, 52466…  43.2  Brent             198712
+6 00AF      Bromley    ((533852.2 170129, 53385… 150.   Bromley           212368
+# ℹ 5 more variables: Noquals &lt;int&gt;, Level1 &lt;int&gt;, Level2 &lt;int&gt;, Level3 &lt;int&gt;,
+#   Level4 &lt;int&gt;</code></pre>
 </div>
 </div>
 <section id="calculation" class="level3">
 <h3 class="anchored" data-anchor-id="calculation">Calculation</h3>
 <p>Now, let’s create the share of people with level 4 qualification, i.e.&nbsp;create the new variable <code>Level4p</code> equal to the number of people with level4 qualification divided by total population:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Level4p =</span> Level4<span class="sc">/</span>Population1674)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r fold-show code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> districts <span class="sc">%&gt;%</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Level4p =</span> Level4<span class="sc">/</span>Population1674)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1078,17 +1083,17 @@ Projected CRS: OSGB36 / British National Grid
 <h2 class="anchored" data-anchor-id="saving-maps-to-figures">Saving maps to figures</h2>
 <p>Create a file to put your maps:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"maps"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"maps"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in dir.create("maps"): 'maps' already exists</code></pre>
 </div>
 </div>
 <p>If you were creating a map with teh <code>plot</code> function you could save it like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"maps/london_test.pdf"</span>) <span class="co"># Opening the graphical device</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry)</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(housesales_clean<span class="sc">$</span>geometry, <span class="at">add=</span><span class="cn">TRUE</span>) </span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co"># Closing the graphical device</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"maps/london_test.pdf"</span>) <span class="co"># Opening the graphical device</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(districts<span class="sc">$</span>geometry)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(housesales_clean<span class="sc">$</span>geometry, <span class="at">add=</span><span class="cn">TRUE</span>) </span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co"># Closing the graphical device</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>quartz_off_screen 
                 2 </code></pre>
@@ -1096,21 +1101,52 @@ Projected CRS: OSGB36 / British National Grid
 </div>
 <p>Let’s create a simple map with the variable we just created:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>test_map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() </span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="fu">aes</span>(<span class="at">fill =</span> Level4p)) <span class="sc">+</span></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>test_map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts, <span class="fu">aes</span>(<span class="at">fill =</span> Level4p)) <span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
 </div>
 </div>
 <p>Let’s save it, as you can see you can play around with the formatting. For more on <code>ggsave</code> have a look <a href="https://ggplot2.tidyverse.org/reference/ggsave.html">here</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"maps/map3.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"maps/map3.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Saving 7 x 5 in image</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"maps/test_map_1.png"</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">4</span>)</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"maps/test_map_2.png"</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"maps/test_map_1.png"</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">4</span>)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"maps/test_map_2.png"</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">20</span>, <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="adding-baselayers" class="level2">
+<h2 class="anchored" data-anchor-id="adding-baselayers">Adding baselayers</h2>
+<p>Various <code>R</code> libraries allow us to add static basemaps to out maps. We will be using the <code>base_map()</code> function to(down)load a basemap in our maps. This is from the <code>library(basemapR)</code> which is easy to execute.</p>
+<p>The style of basemap currently supported are ‘dark’, ‘hydda’, ‘positron’, ‘voyager’, ‘wikimedia’, ‘mapnik’, google, google-nobg, google-hybrid, google-terrain, google-satellite, google-road. The package aims to ease the use of basemaps in different contexts by providing a function interface as minimalist as possible. There are other packages which support more choices like <code>library(basemaps)</code> which you can check out <a href="https://jakob.schwalb-willmann.de/basemaps/index.html#map-examples">here</a></p>
+<p>We simply add base_map () to our ggplot:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">base_map</span>(<span class="fu">st_bbox</span>(districts_4326), <span class="at">increase_zoom =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts_4326, <span class="at">fill =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>attribution: &amp;copy; &lt;a href="https://www.openstreetmap.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors &amp;copy; &lt;a href="https://carto.com/attributions"&gt;CARTO&lt;/a&gt;</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If we want to specify the map we use <code>basemap =</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">base_map</span>(<span class="fu">st_bbox</span>(districts_4326), <span class="at">basemap =</span> <span class="st">'google-terrain'</span>, <span class="at">increase_zoom =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> districts_4326, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> poi_sf) <span class="sc">+</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>please cite: map data © 2020 Google</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="spatialdata_code_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 </section>
 <section id="interactive-maps" class="level2">
@@ -1118,16 +1154,16 @@ Projected CRS: OSGB36 / British National Grid
 <p>Everything we have seen so far relates to static maps. These are useful for publication, to include in reports or to print. However, modern web technologies afford much more flexibility to explore spatial data interactively.</p>
 <p>In this example, ee will use the package <code>leaflet</code>. This integration connects us with the popular web mapping library Leaflet.js. The key part of the code below is <code>addProviderTiles</code>, We are using CartoDB.Positron but there are many more that you can explore <a href="https://rstudio.github.io/leaflet/basemaps.html">here</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>popup <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"The British Museum"</span>, <span class="st">"Big Ben"</span>, <span class="st">"King's Cross"</span>, <span class="st">"The Natural History Museum"</span>)</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">"CartoDB.Positron"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1459604</span>, <span class="sc">-</span><span class="fl">0.1272057</span>, <span class="sc">-</span><span class="fl">0.1319481</span>, <span class="sc">-</span><span class="fl">0.173734</span>),</span>
-<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">lat =</span> <span class="fu">c</span>(<span class="fl">51.5045975</span>, <span class="fl">51.5007325</span>, <span class="fl">51.5301701</span>, <span class="fl">51.4938451</span>), </span>
-<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">popup =</span> popup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>popup <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"The British Museum"</span>, <span class="st">"Big Ben"</span>, <span class="st">"King's Cross"</span>, <span class="st">"The Natural History Museum"</span>)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">"CartoDB.Positron"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1459604</span>, <span class="sc">-</span><span class="fl">0.1272057</span>, <span class="sc">-</span><span class="fl">0.1319481</span>, <span class="sc">-</span><span class="fl">0.173734</span>),</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">lat =</span> <span class="fu">c</span>(<span class="fl">51.5045975</span>, <span class="fl">51.5007325</span>, <span class="fl">51.5301701</span>, <span class="fl">51.4938451</span>), </span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">popup =</span> popup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="htmlwidget-83c7b219153b000ef18a" style="width:100%;height:464px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-83c7b219153b000ef18a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[51.5045975,51.5007325,51.5301701,51.4938451],[-0.1459604,-0.1272057,-0.1319481,-0.173734],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["The British Museum","Big Ben","King's Cross","The Natural History Museum"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[51.4938451,51.5301701],"lng":[-0.173734,-0.1272057]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b9d13015a2312ee25e83" style="width:100%;height:464px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b9d13015a2312ee25e83">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[51.5045975,51.5007325,51.5301701,51.4938451],[-0.1459604,-0.1272057,-0.1319481,-0.173734],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["The British Museum","Big Ben","King's Cross","The Natural History Museum"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[51.4938451,51.5301701],"lng":[-0.173734,-0.1272057]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
