@@ -1,0 +1,76 @@
+---
+title: "Vector Data"
+author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
+format: 
+    revealjs:
+        navigation-mode: grid
+align-items: center;
+---
+
+## Choropleths
+
+A discrete representation of data
+Counterpart of the histogram
+
+	 Both allows us to gage the distribution of a variable
+
+Values are classified into specific colours: value –> bin
+Information loss as a trade off for simplicity
+
+Key decision to be made why a given value is a specific colour! 
+
+## Classification choices
+N. of bins 
+How to bin? 
+Colours
+
+How many bins?
+Trade-off: detail vs cognitive load
+Exact number depends on purpose of the map 
+Usually not more than 12 
+
+Your maps should tell a story
+
+## How do we bin? Essentially a statistical problem 
+
+## Equal interval (continuous) 
+Take the value span of the data to represent and split it equally
+Splitting happens based on the numerical value 
+Gives more weight to outliers if the distribution is skewed 
+
+
+## Quantile
+Regardless of numerical values, split the distribution keeping the same amount of values in each bin
+Splitting based on the rank of the value
+If distribution is skewed, it can put very different values in the same bin 
+
+
+## Different type of algorithms will optimize for different types of splits 
+Fisher-Jenks
+Natural breaks
+Outlier maps: box maps, std. maps... 
+
+Some involve some fairly fancy statistics
+
+## Colour palette
+ Should align with your purpose  
+
+Categories, non-ordered
+
+Graduated, sequential 
+
+Graduated, divergent 
+TIP: check ColorBrewer for guidance 
+
+## Tips
+Think of the purpose of the map
+Explore by trying different classification alternatives
+Combine (Geo)visualisation with other statistical devices 
+
+
+
+# Questions
+
+# 
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Geographic Data Science]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="http://pietrostefani.com" property="cc:attributionName" rel="cc:attributionURL">Elisabetta Pietrostefani</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

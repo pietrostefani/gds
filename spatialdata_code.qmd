@@ -54,7 +54,7 @@ Now let's look at the different types of geographical data starting with polygon
 
 ::: {.panel-tabset group="data"}
 
-## Polygons
+# Polygons
 
 We first import the district shapefile use `read_sf`, we then plot it to make sure we are seeing it 'correctly'. We us `$geometry` to plot just the geometry, if we don't include `$geometry` R will plot the first 9 columns and if the dataset is large this is not advisable.
 
@@ -64,7 +64,7 @@ districts <- read_sf("data/London/Polygons/districts.shp")
 plot(districts$geometry) # Create a simple plot
 ```
 
-## Lines
+# Lines
 
 We them import a file of roads in London and plot it.
 
@@ -77,7 +77,7 @@ a_roads <- read_sf("data/London/Lines/a_roads.shp")
 plot(a_roads$geometry)
 ```
 
-## Points
+# Points
 
 We can also import point files. So far, we have imported `shapefiles` and `geojsons`, but we can also obtain data from urls like in the [Open Science DIY](https://pietrostefani.github.io/gds/openscienceDIY.html) session or from other sources like **OpenStreetMap**. Both `R` and `Python` have libraries that allow us to query OpenStreetMap.
 
@@ -335,7 +335,7 @@ Geo `dataframes` come with a whole range of traditional GIS operations built-in.
 
 ::: {.panel-tabset group="data"}
 
-## Area
+# Area
 
 One of the spatial aspects we often need from polygons is their area. "How big is it?" is a question that always haunts us when we think of countries, regions, or cities. To obtain area measurements, first make sure the `dataframe` you are working with is projected. If that is the case, you can calculate areas as follows:
 
@@ -346,7 +346,7 @@ districts <- districts %>%
   mutate(area = st_area(.)/1000000) # calculate area and make it km2
 ```
 
-## Length
+# Length
 
 Similarly, an equally common question with lines is their length. Also similarly, their computation is relatively straightforward, provided that our data are projected.
 
@@ -357,7 +357,7 @@ a_roads <- a_roads %>%
 
 If you check the `dataframe` you will see the lengths.
 
-## Centroids
+# Centroids
 
 Sometimes it is useful to summarize a polygon into a single point and, for that, a good candidate is its centroid (almost like a spatial analogue of the average).
 
@@ -376,7 +376,7 @@ ggplot() +
   theme_minimal()
 ```
 
-## Buffers and selecting by location
+# Buffers and selecting by location
 
 Here, we first select by expression the Hackney district and then we create a 1km buffer around it with the `st_buffer()` function from the `sf` package.
 
@@ -515,5 +515,5 @@ leaflet() %>%
 
 ## Additional resources
 
-If you want to look at [Python](https://geographicdata.science/book/notebooks/03_spatial_data.html).
+If you want to have a look at [Python](https://geographicdata.science/book/notebooks/03_spatial_data.html).
 

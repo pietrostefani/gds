@@ -2,7 +2,6 @@
 
 In this session, we will practice your skills in mapping with R. Create a new quarto document you can edit interactively, and let's do this!
 
-
 ```{r}
 #| include: false
 library(dplyr)
@@ -52,7 +51,7 @@ ggplot() +
   geom_sf(data = highway$osm_lines, color = 'darkorange') + theme_minimal() 
 ```
 
-## Points
+### Points
 
 For points, we will find some POI (Points of Interest) : pubs in Liverpool, as recorded by OpenStreetMap. Note the code cell below requires internet connectivity.
 
@@ -66,7 +65,6 @@ bars <- opq("Liverpool, U.K.") %>%
 ggplot() + 
   geom_sf(data = bars$osm_points) + theme_minimal() 
 ```
-
 
 ## Tasks
 
@@ -128,7 +126,10 @@ Answering this questions involve 3 steps:
 
 3\. Figure out the district with the highest price
 
+**Really try** not to open the **answer** below right away.
+
 ::: {.callout-tip collapse="true"}
+## Answer
 Spatial overlay between points and polygons
 
 ```{r spatial join}
@@ -149,6 +150,7 @@ head(housesales_districts_agg)
 Once that's done, create a map using `ggplot` and if you're feeling adventurous the function `scale_fill_viridis()` to make your map look especially good.
 
 ::: {.callout-tip collapse="true"}
+## Answer
 ```{r mapoutput2}
 # map housesales by wards
 map3 <- ggplot()+

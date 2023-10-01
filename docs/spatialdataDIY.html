@@ -416,8 +416,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#polygons" id="toc-polygons" class="nav-link" data-scroll-target="#polygons">Polygons</a></li>
   <li><a href="#lines" id="toc-lines" class="nav-link" data-scroll-target="#lines">Lines</a></li>
-  </ul></li>
   <li><a href="#points" id="toc-points" class="nav-link" data-scroll-target="#points">Points</a></li>
+  </ul></li>
   <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a>
   <ul class="collapse">
   <li><a href="#task-i-tweak-your-map" id="toc-task-i-tweak-your-map" class="nav-link" data-scroll-target="#task-i-tweak-your-map">Task I: Tweak your map</a></li>
@@ -491,9 +491,8 @@ Important
 </div>
 </div>
 </section>
-</section>
-<section id="points" class="level2">
-<h2 class="anchored" data-anchor-id="points">Points</h2>
+<section id="points" class="level3">
+<h3 class="anchored" data-anchor-id="points">Points</h3>
 <p>For points, we will find some POI (Points of Interest) : pubs in Liverpool, as recorded by OpenStreetMap. Note the code cell below requires internet connectivity.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bars <span class="ot">&lt;-</span> <span class="fu">opq</span>(<span class="st">"Liverpool, U.K."</span>) <span class="sc">%&gt;%</span></span>
@@ -507,6 +506,7 @@ Important
 <p><img src="spatialdataDIY_files/figure-html/bar query-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
 </section>
 <section id="tasks" class="level2">
 <h2 class="anchored" data-anchor-id="tasks">Tasks</h2>
@@ -555,13 +555,14 @@ Note
 <p>1. Performing a spatial join (<code>st_join</code>) between the district layer (polygons) and the households (points).</p>
 <p>2. Aggregating the data at district level: <code>group_by</code> &amp; <code>summarise()</code></p>
 <p>3. Figure out the district with the highest price</p>
+<p><strong>Really try</strong> not to open the <strong>answer</strong> below right away.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -610,7 +611,7 @@ Projected CRS: OSGB36 / British National Grid
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
