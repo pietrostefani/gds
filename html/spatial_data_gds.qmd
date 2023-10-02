@@ -114,6 +114,7 @@ Tell your neighbour how maps can lie.
 
 ##  Linking Spatial Info
 
+<br><br>
 <center><img data-src="./figs/world_1.gif" height="200"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/world_2.gif" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/uk1.png" height="250"><center>
 
 ## Linking Spatial Info
