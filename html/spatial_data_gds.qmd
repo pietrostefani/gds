@@ -1,0 +1,142 @@
+---
+title: "Geographic Data Science"
+subtitle: "Spatial Data"
+author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
+format: 
+    revealjs:
+        navigation-mode: grid
+align-items: center;
+---
+
+# Data, data, data
+
+-   Everything produces data
+-   New dense quantitative representations of the world
+-   But data is not useful, insights are
+
+## Data Science
+
+"gathering data messaging it into a tractable form, making it tell its story and presenting that story to others"
+
+<br>
+
+Loukides (2011) What is Data Science?
+
+## Spatial Data Science
+
+-   A lot of new data is spatial data
+-   Spatial is special
+-   We don't want to reinvent the GIS wheel
+-   How do we bring both world together?
+
+# *Good old* spatial data (+)
+
+## *Good old* spatial data (+)
+
+Traditionally, datasets used in social sciences are
+
+- Collected for the purpose (carefully designed)
+- Detailed and informative ("rich profile and portraits of the country") 
+- High quality
+
+## *Good old* spatial data (-)
+
+But also 
+
+- Massive enterprises (very costly) 
+- Coarse in resolution (to preserve privacy they need to be aggregated) 
+- Slow - the more detailed, the less frequent they are available
+
+## Examples
+
+-   Decennial census (census geographies)
+-   Longitudinal surveys
+-   Custom collected surveys, interviews etc.
+-   Economic or well-being indicators
+
+# *New Forms* of spatial data
+
+## *New Forms* of spatial data
+
+Tied into the geo-data revolution
+
+-   Accidental : created for different purposes but available for analysis as a side effect
+
+-   Very diverse in nature: resolution and quality but, potentially much more detailed in both space and time
+
+<br>
+
+<center><mark> We will look at this more in a few weeks! </mark><center>
+
+## Lazer & Radford (2017)
+
+-   <mark>Digital life</mark>: digital actions (Twitter, Facebook, WikiPedia...)
+
+-   <mark>Digital traces</mark>: record of digital actions (CDRs, metadata...)
+
+-   <mark>Digitalised life</mark>: nonintrinsically digital life in digital form (Government records, web...)
+
+## Arribas-Bel (2014)
+
+Three levels, based on how they originate:
+
+-   <mark>Bottom up</mark>: "Citizens as sensors"
+
+-   <mark>Intermediate</mark>: Digital businesses/businesses going digital
+
+-   <mark>Top down</mark>: Open Government Data
+
+## Opportunities (Lazer & Radford, 2017)
+
+- Massive, passive 
+- Nowcasting 
+- Data on social systems 
+- Natural and field experiments ("always-on" observatory of human behaviour)
+- Making big data small
+
+## Challenges (Arribas-Bel, 2014)
+
+- Bias 
+- Technical barriers 
+- Methodological "mismatch"
+
+# All maps are wrong
+
+## All maps are wrong
+
+<center><img data-src="./figs/maps.png" alt="centered image" width="85%" height="85%"><center>
+
+Tell your neighbour how maps can lie. 
+
+## All maps are wrong
+
+<center><img data-src="./figs/size.png" alt="centered image" width="85%" height="85%"><center>
+
+##  Linking Spatial Info
+
+<center><img data-src="./figs/world_1.gif" height="200"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/world_2.gif" height="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/uk1.png" height="250"><center>
+
+## Linking Spatial Info
+
+<center><img data-src="./figs/georef.png" alt="centered image" width="85%" height="850%"><center>
+
+##  Coordinate Reference Systems
+Coordinate reference systems provide the context of coordinates:
+
+-   They tell whether the coordinates are <mark>ellipsoidal (angles)</mark>, or derived, <mark>projected (Cartesian)</mark> coordinates
+-   In case they are projected, they detail the kind of projection used, so that the underlying ellipsoidal coordinates can be recovered
+
+##  Coordinate Reference Systems
+
+-   Convert between projected and unprojected, or to another projection
+-   Transform from one datum to another
+-   Combine the coordinates with any other coordinates that have a coordinate reference system
+
+# Have a better look at the concepts page
+
+
+# Questions
+
+# 
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Geographic Data Science]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="http://pietrostefani.com" property="cc:attributionName" rel="cc:attributionURL">Elisabetta Pietrostefani</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

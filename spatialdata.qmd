@@ -94,9 +94,10 @@ Have a look at the two following articles:
 
 ## All maps are wrong
 
-{{< video https://www.youtu.be/kIID5FDi2JQ >}}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ?si=qo8s3JlTsF4JjAlx"></iframe>
 
-In your own time try have a mess around with [this link](https://thetruesize.com/).
+
+If you're still not convinced, try have a mess around with [this link](https://thetruesize.com/).
 
 ### Coordinates
 
