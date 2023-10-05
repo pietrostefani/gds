@@ -1,1 +1,69 @@
 # Do-It-Yourself {#sec-vector-data-diy .unnumbered}
+
+Let's make a bunch of choropleths! In this section, you will practice the concepts and code we have learnt in this block. Happy hacking!
+
+## Data preparation
+
+::: callout-note
+The AHAH dataset was invented by a University of Liverpool team. If you want to find out more about the background and details of the project, have a look at the [information page](https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah) at the CDRC website.
+:::
+
+We are going to use the Access to Healthy Assets and Hazards (AHAH) index. This is a score that ranks LSOAs (the same polygons we used in the [spatial DIY section](https://pietrostefani.github.io/gds/spatialdataDIY.html)) by the proximity to features of the environment that are considered positive for health (assets) and negative (hazards). The resulting number gives us a sense of how "unhealthy" the environment of the LSOA is. The higher the score, the less healthy the area is assessed to be.
+
+To download the Liverpool AHAH pack, please go over to:
+
+::: callout-important
+If you haven't already, you will need a username and password to download the data. Create it for free at:
+
+[https://data.cdrc.ac.uk/user/register](https://data.cdrc.ac.uk/user/register)
+
+Then [download](https://data.cdrc.ac.uk/system/files/Access_to_Healthy_Assets_and_Hazards_AHAH/Access_to_Healthy_Assets_and_Hazards_AHAH_E08000012.zip) the Liverpool AHAH GeoData pack.
+:::
+
+Once you have the `.zip` file on your computer, right-click and "Extract all". The resulting folder will contain all you need. For the sake of the example, let's assume you place the resulting folder in the same location as the notebook you are using. If that is the case, you can load up the `dataframe` of Liverpool neighborhoods with:
+
+```{r}
+#| message: false
+library(sf)
+lsoas <- read_sf("data/Liverpool/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp")
+```
+
+Now, this gets us the geometries of the LSOAs, but not the AHAH data. For that, we need to read in the data and join it to `ahah`. Assuming the same location of the data as above, we can do as follows:
+
+```{r}
+ahah_data <- read.csv("data/Liverpool/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E08000012/tables/E08000012.csv") # import
+```
+
+## Tasks
+
+### Task I: Join by attribute
+
+Conduct a `left_join` to prepare your final `sf` object ready for mapping.
+
+### Task II: AHAH choropleths
+
+Create the following choropleths and, where possible, complement them with a figure that displays the distribution of values using a KDE:
+
+-   Equal Interval with five classes
+
+-   Quantiles with five classes
+
+-   Fisher-Jenks with five classes
+
+-   Unique Values with the following setup:
+
+    -   Split the LSOAs in two classes: above and below the average AHAH score
+
+    -   Assign a qualitative label (`above` or `below`) to each LSOA
+
+    -   Create a unique value map for the labels you have just created
+
+### Task III: Zoom maps
+
+Generate the following maps:
+
+-   Zoom of the city centre of Liverpool with he same color for every LSOA
+
+-   Quantile map of AHAH for all of Liverpool, zoomed into north of the city centre
+
+-   Zoom to north of the city centre with a quantile map of AHAH for the section only
