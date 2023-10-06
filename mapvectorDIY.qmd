@@ -15,7 +15,7 @@ To download the Liverpool AHAH pack, please go over to:
 ::: callout-important
 If you haven't already, you will need a username and password to download the data. Create it for free at:
 
-[https://data.cdrc.ac.uk/user/register](https://data.cdrc.ac.uk/user/register)
+<https://data.cdrc.ac.uk/user/register>
 
 Then [download](https://data.cdrc.ac.uk/system/files/Access_to_Healthy_Assets_and_Hazards_AHAH/Access_to_Healthy_Assets_and_Hazards_AHAH_E08000012.zip) the Liverpool AHAH GeoData pack.
 :::
@@ -62,7 +62,7 @@ Create the following choropleths and, where possible, complement them with a fig
 
 Generate the following maps:
 
--   Zoom of the city centre of Liverpool with he same color for every LSOA
+-   Zoom of the city centre of Liverpool with the same color for every LSOA
 
 -   Quantile map of AHAH for all of Liverpool, zoomed into north of the city centre
 

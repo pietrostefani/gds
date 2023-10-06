@@ -290,6 +290,16 @@ The code required to create the choropleth mirrors that needed above for equal i
 
 ::: {.panel-tabset group="data"}
 
+# `tmap`
+
+As in our previous example, the coding is a bit simpler if we use `tmap`.
+
+```{r}
+tm_basemap() +
+  tm_shape(world_dev_filtered) +
+  tm_polygons("v_2015", palette = "YlGn", id = "WARD_NAME", n = 4, style= "quantile")   
+```
+
 # `ggplot`
 
 As before, first we create the intervals, in this case quantiles.
@@ -326,15 +336,6 @@ theme_void() + # remove x and y axis
   
 ```
 
-# `tmap`
-
-As in our previous example, the coding is a bit simpler if we use `tmap`.
-
-```{r}
-tm_basemap() +
-  tm_shape(world_dev_filtered) +
-  tm_polygons("v_2015", palette = "YlGn", id = "WARD_NAME", n = 4, style= "quantile")   
-```
 :::
 
 As we are dealing with a limited number of countries it is easier to see how the data is being divided differently in the histogram.
@@ -366,6 +367,16 @@ ggplot(world_dev_filtered, aes(x = v_2015)) +
 Equal interval and quantiles are only two examples of very many classification schemes to encode values into colors. As an example of a more sophisticated one, let us create a Fisher-Jenks choropleth:
 
 ::: {.panel-tabset group="data"}
+
+# `tmap`
+
+As in our previous example, the coding is a bit simpler if we use `tmap`.
+
+```{r}
+tm_basemap() +
+  tm_shape(world_dev_filtered) +
+  tm_polygons("v_2015", palette = "YlGn", id = "WARD_NAME", n = 4, style= "fisher")   
+```
 
 # `ggplot`
 
@@ -401,16 +412,6 @@ theme_void() + # remove x and y axis
   theme_void() +
   theme(legend.position = "bottom")
   
-```
-
-# `tmap`
-
-As in our previous example, the coding is a bit simpler if we use `tmap`.
-
-```{r}
-tm_basemap() +
-  tm_shape(world_dev_filtered) +
-  tm_polygons("v_2015", palette = "YlGn", id = "WARD_NAME", n = 4, style= "fisher")   
 ```
 :::
 
