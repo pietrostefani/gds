@@ -1,6 +1,6 @@
 # 3 Mapping Vector Data {#sec-vector-data .unnumbered}
 
-This section is all about Geovisualisation and displaying statistical information on maps. We start with an introduction on what geovisualisation is; then we follow with the modifiable areal unit problem (MAUO), a key concept to keep in mind when displaying statistical information spatially; and we wrap up with tips to make awesome choropleths, thematic maps. 
+This section is all about Geovisualisation and displaying statistical information on maps. We start with an introduction on *what* geovisualisation is; then we follow with the modifiable areal unit problem (MAUO), a key concept to keep in mind when displaying statistical information spatially; and we wrap up with tips to make awesome choropleths, thematic maps. 
 
 Slides can be downloaded ["here"](/html/vector_data_gds.pdf)
 

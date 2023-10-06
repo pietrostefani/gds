@@ -775,5 +775,40 @@
     "title": "Lab",
     "section": "Additional resources",
     "text": "Additional resources\n\nOn Drawing beautiful maps with sf and ggplot see here\nIf you want to have a look at Choropleths in Python have a look at the chapter on choropleth mapping by Rey, Arribas-Bel and Wolf"
+  },
+  {
+    "objectID": "mapvector.html#geovisualisation",
+    "href": "mapvector.html#geovisualisation",
+    "title": "3 Mapping Vector Data",
+    "section": "Geovisualisation",
+    "text": "Geovisualisation\nGeovisualisation is an area that underpins much what we will discuss in this course. Often, we will be presenting the results of more sophisticated analyses as maps. So getting the principles behind mapping right is critical. In this clip, we cover what is (geo)visualisation and why it is important."
+  },
+  {
+    "objectID": "mapvector.html#geographical-containers-for-data",
+    "href": "mapvector.html#geographical-containers-for-data",
+    "title": "3 Mapping Vector Data",
+    "section": "Geographical containers for data",
+    "text": "Geographical containers for data\nThis section tries to get you to think about the geographical containers we use to represent data in maps. By that, we mean the areas, delineations and aggregations we, implicitly or explicitly, incur in when mapping data. This is an important aspect, but Geographers have been aware of them for a long time, so we are standing on the shoulders of giants."
+  },
+  {
+    "objectID": "mapvector.html#choropleths",
+    "href": "mapvector.html#choropleths",
+    "title": "3 Mapping Vector Data",
+    "section": "Choropleths",
+    "text": "Choropleths\nChoropleths are thematic maps and, these days, are everywhere. From elections, to economic inequality, to the distribution of population density, there’s a choropleth for everyone. Although technically, it is easy to create choropleths, it is even easier to make bad choropleths. Fortunately, there are a few principles that we can follow to create effective choropleths. Get them all delivered right to the conform of your happy place in the following clip and slides!"
+  },
+  {
+    "objectID": "mapvector.html#further-readings",
+    "href": "mapvector.html#further-readings",
+    "title": "3 Mapping Vector Data",
+    "section": "Further readings",
+    "text": "Further readings\nThe clip above contains a compressed version of the key principles behind successful choropleths. For a more comprehensive coverage, please refer to:\nThe chapter is available for free here\nChoropleths chapter on the GDS book (in progress) reyABwolf.\nCynthia Brewer’s “Designing Better Maps” brewer2015designing covers several core aspects of building effective geovisualisations.\n\nChoropleth Mapping chapter by Rey, Arribas-Bel and Wolf"
+  },
+  {
+    "objectID": "mapraster.html#further-readings",
+    "href": "mapraster.html#further-readings",
+    "title": "4 Mapping Raster Data",
+    "section": "Further readings",
+    "text": "Further readings"
   }
 ]

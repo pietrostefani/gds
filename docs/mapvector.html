@@ -63,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta name="twitter:title" content="A course in Geographic Data Science - 3 Mapping Vector Data">
+<meta name="twitter:description" content="This section is all about Geovisualisation and displaying statistical information on maps.">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -145,11 +146,6 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./environR.html" class="sidebar-item-text sidebar-link">R</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environPy.html" class="sidebar-item-text sidebar-link">Python</a>
   </div>
 </li>
       </ul>
@@ -353,7 +349,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#visual-exploration" id="toc-visual-exploration" class="nav-link active" data-scroll-target="#visual-exploration">Visual exploration</a></li>
+  <li><a href="#geovisualisation" id="toc-geovisualisation" class="nav-link active" data-scroll-target="#geovisualisation">Geovisualisation</a></li>
+  <li><a href="#geographical-containers-for-data" id="toc-geographical-containers-for-data" class="nav-link" data-scroll-target="#geographical-containers-for-data">Geographical containers for data</a></li>
+  <li><a href="#choropleths" id="toc-choropleths" class="nav-link" data-scroll-target="#choropleths">Choropleths</a></li>
+  <li><a href="#further-readings" id="toc-further-readings" class="nav-link" data-scroll-target="#further-readings">Further readings</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/mapvector.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -377,8 +376,29 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="visual-exploration" class="level2">
-<h2 class="anchored" data-anchor-id="visual-exploration">Visual exploration</h2>
+<p>This section is all about Geovisualisation and displaying statistical information on maps. We start with an introduction on <em>what</em> geovisualisation is; then we follow with the modifiable areal unit problem (MAUO), a key concept to keep in mind when displaying statistical information spatially; and we wrap up with tips to make awesome choropleths, thematic maps.</p>
+<p>Slides can be downloaded <a href="./html/vector_data_gds.pdf">“here”</a></p>
+<section id="geovisualisation" class="level2">
+<h2 class="anchored" data-anchor-id="geovisualisation">Geovisualisation</h2>
+<p>Geovisualisation is an area that underpins much what we will discuss in this course. Often, we will be presenting the results of more sophisticated analyses as maps. So getting the principles behind mapping right is critical. In this clip, we cover <em>what</em> is (geo)visualisation and why it is important.</p>
+</section>
+<section id="geographical-containers-for-data" class="level2">
+<h2 class="anchored" data-anchor-id="geographical-containers-for-data">Geographical containers for data</h2>
+<p>This section tries to get you to think about the geographical containers we use to represent data in maps. By that, we mean the areas, delineations and aggregations we, implicitly or explicitly, incur in when mapping data. This is an important aspect, but Geographers have been aware of them for a long time, so we are standing on the shoulders of giants.</p>
+</section>
+<section id="choropleths" class="level2">
+<h2 class="anchored" data-anchor-id="choropleths">Choropleths</h2>
+<p>Choropleths are thematic maps and, these days, are everywhere. From elections, to economic inequality, to the distribution of population density, there’s a choropleth for everyone. Although technically, it is easy to create choropleths, it is even easier to make <em>bad</em> choropleths. Fortunately, there are a few principles that we can follow to create effective choropleths. Get them all delivered right to the conform of your happy place in the following clip and slides!</p>
+</section>
+<section id="further-readings" class="level2">
+<h2 class="anchored" data-anchor-id="further-readings">Further readings</h2>
+<p>The clip above contains a compressed version of the key principles behind successful choropleths. For a more comprehensive coverage, please refer to:</p>
+<p>The chapter is available for free here</p>
+<p>Choropleths chapter on the GDS book (in progress) reyABwolf.</p>
+<p>Cynthia Brewer’s “Designing Better Maps” brewer2015designing covers several core aspects of building effective geovisualisations.</p>
+<ul>
+<li><strong>Choropleth Mapping</strong> chapter by <a href="https://geographicdata.science/book/notebooks/05_choropleth.html">Rey, Arribas-Bel and Wolf</a></li>
+</ul>
 
 
 </section>
@@ -532,7 +552,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

@@ -1,5 +1,6 @@
 ---
-title: "Vector Data"
+title: "Geographic Data Science"
+subtitle: "Vector"
 author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
 format: 
     revealjs:
@@ -7,67 +8,106 @@ format:
 align-items: center;
 ---
 
+# (Geo)visualisation
+
+## ADD IN IMAGE
+
+“Data graphics visually display measured quantities by
+means of the combined use of points, lines, a coordinate
+system, numbers, symbols, words, shading, and color.”
+The Visual Display of Quantitative Information. Edward R. Tufte.
+
+## Visualization
+By encoding information visually, they allow to
+present large amounts of numbers in a meaninful
+way.
+If well made, visualizations provide leads into the
+processes underlying the graphic.
+The Visual Display of Quantitative Information. Edward R. Tufte.
+
+## Geovisualization
+
+## Tufte (1983)
+“The most extensive data maps […] place millions of bits
+of information on a single page before our eyes. No other
+method for the display of statistical information is so
+powerful”
+
+## MacEachren (1994)
+“Geographic visualization can be defined as the use of
+concrete visual representations –whether on paper or
+through computer displays or other media–to make spatial
+contexts and problems visible, so as to engage the most
+powerful human information processing abilities, those
+associated with vision.”
+
+## Geovisualization
+Not to replace the human in the loop, but to
+augment her/him.
+Augmentation through engaging the pattern
+recognition capabilities that our brain inherently
+has.
+Combines cartography, infovis and statistics
+
+## A map for everyone
+Maps can fulfill several needs, looking very
+different depending on the end-goal
+MacEachren & Kraak (1997) identify three main
+dimensions:
+Knowledge of what is being plotted
+Target audience
+Degree of interactivity
+
+## MacEachren & Kraak (1997)
+map cube
+
 ## Choropleths
 
-A discrete representation of data
-Counterpart of the histogram
+A discrete representation of data Counterpart of the histogram
 
-	 Both allows us to gage the distribution of a variable
+     Both allows us to gage the distribution of a variable
 
-Values are classified into specific colours: value –> bin
-Information loss as a trade off for simplicity
+Values are classified into specific colours: value --\> bin Information loss as a trade off for simplicity
 
-Key decision to be made why a given value is a specific colour! 
+Key decision to be made why a given value is a specific colour!
 
 ## Classification choices
-N. of bins 
-How to bin? 
-Colours
 
-How many bins?
-Trade-off: detail vs cognitive load
-Exact number depends on purpose of the map 
-Usually not more than 12 
+N. of bins How to bin? Colours
+
+How many bins? Trade-off: detail vs cognitive load Exact number depends on purpose of the map Usually not more than 12
 
 Your maps should tell a story
 
-## How do we bin? Essentially a statistical problem 
+## How do we bin? Essentially a statistical problem
 
-## Equal interval (continuous) 
-Take the value span of the data to represent and split it equally
-Splitting happens based on the numerical value 
-Gives more weight to outliers if the distribution is skewed 
+## Equal interval (continuous)
 
+Take the value span of the data to represent and split it equally Splitting happens based on the numerical value Gives more weight to outliers if the distribution is skewed
 
 ## Quantile
-Regardless of numerical values, split the distribution keeping the same amount of values in each bin
-Splitting based on the rank of the value
-If distribution is skewed, it can put very different values in the same bin 
 
+Regardless of numerical values, split the distribution keeping the same amount of values in each bin Splitting based on the rank of the value If distribution is skewed, it can put very different values in the same bin
 
-## Different type of algorithms will optimize for different types of splits 
-Fisher-Jenks
-Natural breaks
-Outlier maps: box maps, std. maps... 
+## Different type of algorithms will optimize for different types of splits
+
+Fisher-Jenks Natural breaks Outlier maps: box maps, std. maps...
 
 Some involve some fairly fancy statistics
 
 ## Colour palette
- Should align with your purpose  
+
+Should align with your purpose
 
 Categories, non-ordered
 
-Graduated, sequential 
+Graduated, sequential
 
-Graduated, divergent 
-TIP: check ColorBrewer for guidance 
+Graduated, divergent TIP: check ColorBrewer for guidance
 
 ## Tips
-Think of the purpose of the map
-Explore by trying different classification alternatives
-Combine (Geo)visualisation with other statistical devices 
 
-
+Think of the purpose of the map Explore by trying different classification alternatives Combine (Geo)visualisation with other statistical devices
 
 # Questions
 
