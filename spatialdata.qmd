@@ -94,8 +94,9 @@ Have a look at the two following articles:
 
 ## All maps are wrong
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ?si=qo8s3JlTsF4JjAlx"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ?si=qo8s3JlTsF4JjAlx">
 
+</iframe>
 
 If you're still not convinced, try have a mess around with [this link](https://thetruesize.com/).
 
@@ -149,7 +150,7 @@ world_mollweide = st_transform(world, crs = "+proj=moll")
 plot(world["continent"])
 ```
 
-On the other hand, when mapping the world, it is often desirable to have as little distortion as possible for all spatial properties (area, direction, distance). One of the most popular projections to achieve as little distortion as possible is **the Winkel tripel projection** 
+On the other hand, when mapping the world, it is often desirable to have as little distortion as possible for all spatial properties (area, direction, distance). One of the most popular projections to achieve as little distortion as possible is **the Winkel tripel projection**
 
 ```{r}
 #| code-fold: true
@@ -170,7 +171,6 @@ plot(world_laea1["continent"])
 
 Watch: Nathan Yau's [Flowing Data](https://flowingdata.com/)
 
-- [The Problem with our maps](https://www.visualcapitalist.com/problem-with-our-maps/) by Nick Routely
+-   [The Problem with our maps](https://www.visualcapitalist.com/problem-with-our-maps/) by Nick Routely
 -   [Geocomputation with R](https://geocompr.robinlovelace.net/index.html)
 -   [Spatial Data Science](https://r-spatial.org/book/)
-

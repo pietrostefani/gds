@@ -24,7 +24,7 @@ We are going to use data from the Consumer Data Research Centre (CDRC) about Liv
 ::: callout-important
 You will need a username and password to download the data. Create it for free at:
 
-https://data.cdrc.ac.uk/user/register
+<https://data.cdrc.ac.uk/user/register>
 
 Then [download](https://data.cdrc.ac.uk/system/files/Census_Residential_Data_Pack_2011/Census_Residential_Data_Pack_2011_E08000012.zip) the Liverpool Census'11 Residential data pack
 :::
@@ -32,6 +32,7 @@ Then [download](https://data.cdrc.ac.uk/system/files/Census_Residential_Data_Pac
 Once you have the `.zip` file on your computer, right-click and "Extract all". The resulting folder will contain all you need. Create a folder called `Liverpool` in `data` folder you created in the first Lab.
 
 ```{r}
+#| message: false
 library(sf)
 lsoas <- read_sf("data/Liverpool/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp")
 ```
@@ -130,6 +131,7 @@ Answering this questions involve 3 steps:
 
 ::: {.callout-tip collapse="true"}
 ## Answer
+
 Spatial overlay between points and polygons
 
 ```{r spatial join}
@@ -151,6 +153,7 @@ Once that's done, create a map using `ggplot` and if you're feeling adventurous 
 
 ::: {.callout-tip collapse="true"}
 ## Answer
+
 ```{r mapoutput2}
 # map housesales by wards
 map3 <- ggplot()+

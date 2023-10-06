@@ -8,7 +8,6 @@ output:
     df_print: paged
 ---
 
-
 # R Markdown Formatting
 
 https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
@@ -17,36 +16,36 @@ https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
 
 For example in the Formative Assessment some of you displayed density rasters of the world.
 
-I created four Rmarkdown code chuncks below to explain how to control the rmarkdown output. 
+I created four Rmarkdown code chuncks below to explain how to control the rmarkdown output.
 
-The first chunck uses Rmarkdown standard option: the code will be evaluated (`eval` = `TRUE`) and it will be displayed with the results (`echo` = `TRUE`). 
+The first chunck uses Rmarkdown standard option: the code will be evaluated (`eval` = `TRUE`) and it will be displayed with the results (`echo` = `TRUE`).
 
-In the second chunck, I added the option `include` = `FALSE`. The code and its output will not be displayed. It will run normally. 
+In the second chunck, I added the option `include` = `FALSE`. The code and its output will not be displayed. It will run normally.
 
-Finally, in the third chunk, I set the default option to no longer display the code.  You will notice that from now on, the code is no longer displayed, but any output still is. 
+Finally, in the third chunk, I set the default option to no longer display the code. You will notice that from now on, the code is no longer displayed, but any output still is.
 
-``` {r}
+```{r}
 # create a sum and display results
 1+1
 ```
 
-``` {r, include = FALSE}
+```{r, include = FALSE}
 # create the sum of 1+1 but do not display the code or the result
 s <- 1+1
 ```
 
-``` {r}
+```{r}
 knitr::opts_chunk$set(echo = FALSE) # do not display code for all following chuncks
 ```
 
-``` {r}
+```{r}
 # display result only
 s
 ```
 
 # Let's revise improving maps
 
-``` {r}
+```{r}
 knitr::opts_chunk$set(echo = TRUE) # display codes in the final document
 
 library(sf)
@@ -83,17 +82,17 @@ plot(wards[,"level4pp"], main = "Level 4 and over", breaks = "quantile", nbreaks
 
 ```
 
-The command `plot` does not allowed to add additional data, improve the legend, or add a basemap easily. 
-`ggplot2` offers more graphics options:
+The command `plot` does not allowed to add additional data, improve the legend, or add a basemap easily. `ggplot2` offers more graphics options:
 
-``` {r}
+```{r}
 library(ggplot2)
 
 # simple map using ggplot2 and sf
 ggplot(data = wards) +
     geom_sf()
 ```
-``` {r}
+
+```{r}
 # If I wanted to add labels to my x and y axis
 ggplot(data = wards) +
     geom_sf() +
@@ -101,7 +100,7 @@ labs(x=expression(paste("Longitude ",degree,"W",sep="")),
        y=expression(paste("Latitude ",degree,"N",sep="")))
 ```
 
-``` {r}
+```{r}
 # remove background
 ggplot() +
   geom_sf(data = wards) +
@@ -110,7 +109,7 @@ ggplot() +
         axis.text=element_blank()) # remove x and y axis  
 ```
 
-``` {r}
+```{r}
         
 # add share of people with level 4 education 
 ggplot() +
@@ -120,7 +119,7 @@ ggplot() +
         axis.text=element_blank()) # remove x and y axis
 ```
 
-``` {r}
+```{r}
 
 # reverse the colour to make higher values darker 
 ggplot() +
@@ -131,7 +130,7 @@ ggplot() +
 
 ```
 
-``` {r}
+```{r}
 # change the colour to a colour gradient with the mean as midpoint
 ggplot() +
   geom_sf(data = wards, aes(fill = level4p)) +
@@ -146,7 +145,7 @@ ggplot() +
 
 ```
 
-``` {r}
+```{r}
 
 # add a title
 ggplot() +
@@ -163,7 +162,7 @@ ggplot() +
 
 ```
 
-``` {r}
+```{r}
 # add a scale bar 
 library(ggspatial)
 ggplot() +
@@ -182,7 +181,7 @@ ggplot() +
 
 ```
 
-``` {r}
+```{r}
 # create quantiles using classIntervals
 library(classInt)
 library(dplyr) 
@@ -206,7 +205,7 @@ ggplot() +
   annotation_north_arrow(pad_y = unit(1, "cm")) # add a arrow and move it up by 1 cm
 ```
 
-``` {r}
+```{r}
 # there is one missing value and too many digits in our legend
 # we can investigate quickly where the missing value comes from
 summary(wards)
@@ -216,7 +215,7 @@ head(wards[is.na(wards$london_edu_cat),])
 
 ```
 
-``` {r}
+```{r}
 # we fix the problems by changing how we create our quartiles:
 # include the lowest values of our intervals and only one digit to the labels
 wards <- mutate(wards,
@@ -236,7 +235,7 @@ ggplot() +
 
 ```
 
-``` {r}
+```{r}
 # I am still not happy with my legend, I would like nice percentage
 # plot
 library(Hmisc)
@@ -263,7 +262,7 @@ ggplot() +
 
 Interactive maps are also a great way to visualize data:
 
-``` {r map1}
+```{r map1}
 library(tmap)
 # a basic map of the share of people with level 4 education in London
 tmap_mode("view")
@@ -272,28 +271,28 @@ tm_basemap() +
   tm_polygons("level4p", palette = "YlOrBr") 
 ```
 
-``` {r map2}
+```{r map2}
 # change the id to ward name
 tm_basemap() +
   tm_shape(wards) +
   tm_polygons("level4p", palette = "YlOrBr", id = "WARD_NAME") 
 ```
 
-``` {r map3}
+```{r map3}
 # map quartiles
 tm_basemap() +
   tm_shape(wards) +
   tm_polygons("level4p", palette = "YlOrBr", id = "WARD_NAME", n = 4, style= "quantile")   
 ```
 
-``` {r map4}
+```{r map4}
 # change back to the nice cuts
 tm_basemap() +
   tm_shape(wards) +
   tm_polygons("london_edu_cat2", palette = "YlOrBr", id = "WARD_NAME",  title = "Share level 4")
 ```
 
-``` {r}
+```{r}
 tmap_mode("plot")
 # let's plot the population
 tm_shape(wards) +
@@ -343,20 +342,20 @@ tm_shape(wards) +
 
 # Let's Revise Scatter plot
 
-``` {r scatter1}
+```{r scatter1}
 # Basic scatter plot
 ggplot(wards, aes(x=`Population density`, y=level4p)) + 
   geom_point()
 ```
 
-``` {r scatter 2}
+```{r scatter 2}
 # Change axes labels
 ggplot(wards, aes(x=`Population density`, y=level4p)) + 
   geom_point()+
   labs(y = "Share level 4")
 ```
 
-``` {r scatter 3}
+```{r scatter 3}
 # Change the axe scales 
 ggplot(wards, aes(x=`Population density`, y=level4p)) + 
   geom_point()+
@@ -365,7 +364,7 @@ ggplot(wards, aes(x=`Population density`, y=level4p)) +
   scale_x_continuous(labels=comma)
 ```
 
-``` {r scatter 4}
+```{r scatter 4}
 # add a regression line
 ggplot(wards, aes(x=`Population density`, y=level4p)) + 
   geom_point()+
@@ -375,7 +374,7 @@ ggplot(wards, aes(x=`Population density`, y=level4p)) +
   geom_smooth(method='lm', formula= y~x)
 ```
 
-``` {r scatter 5}
+```{r scatter 5}
 # add the formula
 library(ggpmisc)
 
@@ -395,7 +394,7 @@ ggplot(wards, aes(x=`Population density`, y=level4p)) +
 
 # Correlation matrices
 
-``` {r cormatrix}
+```{r cormatrix}
 library(corrplot)
 wards_levels <- wards %>% st_drop_geometry() %>% select(starts_with("LEVEL"))
 
@@ -434,10 +433,9 @@ hist(listings_clean$price)
 
 ## Buffer calculations
 
-Let's calculate the average population around a sample of listed buildinds. First, we need some population data. Then, we can download the census Output Areas for 2011. 
+Let's calculate the average population around a sample of listed buildinds. First, we need some population data. Then, we can download the census Output Areas for 2011.
 
-
-``` {r}
+```{r}
 # load building
 listed_buildings <- read_sf("../GY476_data_2022_23/London/Points/listed_buildings_london.shp")
 
@@ -449,8 +447,7 @@ listed_buildings <- listed_buildings[listed_buildings$ListEntry %in% sample_ids,
 
 ```
 
-
-``` {r donwloadoas}
+```{r donwloadoas}
 # create output folder
 dir.create("GY476_data_2022_23")
 download.file("https://data.london.gov.uk/download/statistical-gis-boundary-files-london/9ba8c833-6370-4b11-abdc-314aa020d5e0/statistical-gis-boundaries-london.zip", destfile = "../GY476_Files_2021_22/London/statistical-gis-boundaries-london.zip")
@@ -472,7 +469,7 @@ plot(oas_census$geometry)
 
 The next step is to create a buffer around the buildings:
 
-``` {r buffer}
+```{r buffer}
 # project the data
 listed_buildings <- st_transform(listed_buildings, st_crs(oas_census))
 # create 150m buffer
@@ -481,16 +478,16 @@ buffers500m <- st_buffer(listed_buildings, dist=500)
 buffers500m$area_buffer <- st_area(buffers500m)
 ```
 
-``` {r plot}
+```{r plot}
 #plotting listed buildings and buffers
 ggplot() +  
   geom_sf(data = listed_buildings$geometry, inherit.aes = FALSE, colour="#00abff")+
   geom_sf(data = buffers500m$geometry, fill=NA) 
 ```
 
-And calculate the intersection of the Output Areas. 
+And calculate the intersection of the Output Areas.
 
-``` {r inter, message=FALSE}
+```{r inter, message=FALSE}
 # create intersection of all the oas within the buffers
 oas_census <- st_make_valid(oas_census) #can add this in if your R says there is a precision issue
 buffers_inter <- st_intersection(buffers500m, oas_census)
@@ -498,9 +495,9 @@ buffers_inter$area_inter <- st_area(buffers_inter)
 
 ```
 
-Finally, we can aggregate up at the building level to find the average population living within 500m of a listed building: 
+Finally, we can aggregate up at the building level to find the average population living within 500m of a listed building:
 
-``` {r aggregate}
+```{r aggregate}
 # aggregate at the buffer level
 buffers_agg <- buffers_inter %>% 
   mutate(weight = as.numeric(area_inter/area_buffer),
@@ -512,11 +509,11 @@ round(mean(buffers_agg$sum))
 
 ```
 
-The average population is `r round(mean(buffers_agg$sum))`! 
+The average population is `r round(mean(buffers_agg$sum))`!
 
 # Interpolation
 
-``` {r krig}
+```{r krig}
 library(raster)
 library(gstat)
 
@@ -540,7 +537,6 @@ plot(idwr, col = rev(heat.colors(100)))
 plot(BA$geometry, fill = NA, add=T)
 
 ```
-
 
 # Let's revise Geographic Coordinate Systems vs. Projected Coordinate systems.
 
@@ -571,8 +567,7 @@ st_crs(lse_centre_reproj)$units_gdal
 
 `st_set_crs`adds a CRS to a sf object but it does not transform
 
-You can get away using `st_distance` and `st_area` to calculate great circle distance by default in R. 
-Measurement error is not that bad if you forget to project the data. However, I do not recommend this!
+You can get away using `st_distance` and `st_area` to calculate great circle distance by default in R. Measurement error is not that bad if you forget to project the data. However, I do not recommend this!
 
 # References
 
@@ -584,11 +579,10 @@ https://r-spatial.org/r/2018/10/25/ggplot2-sf.html
 
 https://ggplot2.tidyverse.org/reference/ggsf.html
 
-## ggplot2 
+## ggplot2
 
 http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization
 
 ## dplyr
 
-https://seananderson.ca/2014/09/13/dplyr-intro/ 
-
+https://seananderson.ca/2014/09/13/dplyr-intro/

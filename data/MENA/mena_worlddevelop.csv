@@ -1,0 +1,42 @@
+﻿Country Name,Country Code,Series Name,Series Code,v_1990,v_2000,v_2010,v_2015,v_2020,income_group,GPIA_2018
+Algeria,DZA,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,6974.076379,8510.359279,13141.12026,12071.81418,11452.22662,Lower middle income,0.86159
+Algeria,DZA,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.353647633,0.305635197,0.242320056,0.327370922,0.324672528,Lower middle income,
+Bahrain,BHR,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,25731.16492,39360.43209,47929.44346,45900.70303,50682.75956,High income,0.96138
+Bahrain,BHR,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.806492954,0.566963904,0.446381285,0.487696778,0.433617033,High income,
+Djibouti,DJI,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,..,..,..,4144.97437,5020.17079,Lower middle income,
+Djibouti,DJI,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,..,..,..,0.107062768,0.078150563,Lower middle income,..
+"Egypt, Arab Rep.",EGY,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,3639.370983,5581.587598,9033.344405,10890.24179,12661.1812,Lower middle income,0.85634
+"Egypt, Arab Rep.",EGY,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.421396512,0.287711619,0.254146288,0.212625435,0.154892544,Lower middle income,
+"Iran, Islamic Rep.",IRN,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,7592.106748,10871.13341,18348.51528,13828.43857,15240.77291,Lower middle income,0.89414
+"Iran, Islamic Rep.",IRN,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.468545395,0.477805278,0.391302786,0.529762786,0.463450992,Lower middle income,
+Iraq,IRQ,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,..,10538.5354,12098.90311,9198.737829,9343.734411,Upper middle income,0.8761
+Iraq,IRQ,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,..,0.337622014,0.286964605,0.383416103,0.411203663,Upper middle income,
+Israel,ISR,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,..,25688.08234,29298.96195,35864.273,40219.26852,High income,0.93378
+Israel,ISR,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,..,0.352810096,0.315719798,0.220647279,0.157765575,High income,
+Jordan,JOR,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,4492.037726,6008.923974,9912.172408,9237.718184,9698.43367,Lower middle income,0.99207
+Jordan,JOR,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.635372285,0.535449002,0.29396908,0.288570221,0.197884781,Lower middle income,
+Kuwait,KWT,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,..,59312.09372,75193.7119,46346.70359,46382.89974,High income,0.98178
+Kuwait,KWT,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,..,0.434270516,0.364742999,0.491405391,0.456409806,High income,
+Lebanon,LBN,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,2991.289142,7952.956237,14835.37258,15379.59978,14563.77053,Lower middle income,0.96335
+Lebanon,LBN,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.522995982,0.456110128,0.281514207,0.274524327,0.260385422,Lower middle income,
+Libya,LBY,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,..,21215.23016,30257.01128,22163.1408,16495.99022,Upper middle income,0.82898
+Libya,LBY,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,..,0.408969248,0.303213153,0.374026766,0.405116964,Upper middle income,
+Malta,MLT,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,8847.346082,19503.01249,28722.44772,37455.12315,44925.83118,High income,1.03103
+Malta,MLT,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.738671191,0.279868024,0.217257566,0.099409011,0.06957151,High income,
+Morocco,MAR,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,2754.775635,3912.095703,6847.389648,7669.945313,7968.674316,Lower middle income,0.77539
+Morocco,MAR,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.315314614,0.291547926,0.229865391,0.223755853,0.224802339,Lower middle income,
+Oman,OMN,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,26296.72474,39581.10022,53255.60642,36449.08849,34952.16348,High income,0.95571
+Oman,OMN,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.251180793,0.270670447,0.306729799,0.459017906,0.447360033,High income,
+Qatar,QAT,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,..,88707.29419,143070.2105,98787.37849,94005.35835,High income,1.01655
+Qatar,QAT,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,..,0.500288629,0.248467296,0.357236142,0.337500362,High income,
+Syrian Arab Republic,SYR,"GDP per capita, PPP (current international $)",,,,,,,Low income,0.83897
+Saudi Arabia,SAU,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,32478.02177,38164.99057,47999.00814,48173.84451,47278.69302,High income,0.95472
+Saudi Arabia,SAU,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.329746628,0.303584846,0.316014577,0.358239897,0.301755071,High income,
+Tunisia,TUN,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,3727.612369,6196.743385,10428.54143,10471.21333,10602.52127,Lower middle income,0.83922
+Tunisia,TUN,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.466350003,0.34366429,0.249265937,0.261331702,0.227174506,Lower middle income,
+United Arab Emirates,ARE,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,83843.22468,94015.70919,65411.94004,69705.70486,71458.63852,High income,1.02672
+United Arab Emirates,ARE,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.346549124,0.275154555,0.293414259,0.31438606,0.283412504,High income,
+West Bank and Gaza,PSE,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,..,2782.160554,4120.271088,5954.400784,5705.155021,Upper middle income,0.97045
+West Bank and Gaza,PSE,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,..,..,..,..,..,Upper middle income,
+"Yemen, Rep.",YEM,"GDP per capita, PPP (current international $)",NY.GDP.PCAP.PP.CD,1809.109912,2763.469847,3895.22361,..,..,Low income,0.4784
+"Yemen, Rep.",YEM,CO2 emissions (kg per PPP $ of GDP),EN.ATM.CO2E.PP.GD,0.274508511,0.291968601,0.263862367,..,..,Low income,

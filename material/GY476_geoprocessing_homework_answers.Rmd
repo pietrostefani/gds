@@ -33,21 +33,21 @@ housesales <- read.csv("../GY476_data_2022_23/London/Tables/housesales.csv")
 
 Exercise 2: Create spatial data points
 
-``` {r createspatialpts}
+```{r createspatialpts}
 # create spatial points
 housesales <- st_as_sf(housesales, coords = c(17,18)) # create pts from coordinates
 ```
 
 Exercise 3: Set the right CRS
 
-``` {r transform}
+```{r transform}
 # change the coordinate system to british national grid
 housesales <-  st_set_crs(housesales, 27700)
 ```
 
 Exercise 4: Create a map of London
 
-``` {r plotdata}
+```{r plotdata}
 # map London
 map1 <- ggplot()+
   geom_sf(data = london, inherit.aes = FALSE)
@@ -56,7 +56,7 @@ map1
 
 Exercise 5: Add the housesales points
 
-``` {r addpts}
+```{r addpts}
 # add housing transactions data
 map1 +  geom_sf(data = housesales, inherit.aes = FALSE)
 ```
@@ -65,7 +65,7 @@ map1 +  geom_sf(data = housesales, inherit.aes = FALSE)
 
 Exercise 6: Create a spatial join of the district polygons and housesales points
 
-``` {r spatialjoin}
+```{r spatialjoin}
 # spatial overlay between points and polygons
 housesales_districts <- st_join(london, housesales)
 
@@ -73,12 +73,11 @@ housesales_districts <- st_join(london, housesales)
 head(housesales_districts)
 ```
 
-## Summarizing data 
+## Summarizing data
 
 Exercise 7: Create a summary of the number of housesales and the average price at the district level
 
-
-``` {r aggregate}
+```{r aggregate}
 # aggregate at ward level
 housesales_districts_agg <- housesales_districts %>% 
   group_by(DIST_CODE, DIST_NAME) %>% # group at district level
@@ -87,8 +86,7 @@ housesales_districts_agg <- housesales_districts %>%
 head(housesales_districts_agg)
 ```
 
-
-``` {r mapoutput}
+```{r mapoutput}
 # map housesales by wards
 map2 <- ggplot()+
   geom_sf(data = housesales_districts_agg, inherit.aes = FALSE, aes(fill = mean_price)) +
@@ -99,8 +97,7 @@ map2
 
 Exercise 8: Improve that map to visualize population better
 
-
-``` {r mapoutput2}
+```{r mapoutput2}
 # map housesales by wards
 map3 <- ggplot()+
   geom_sf(data = housesales_districts_agg, inherit.aes = FALSE, aes(fill = mean_price)) + # add the district level housing price 
@@ -111,11 +108,9 @@ map3 <- ggplot()+
 map3
 ```
 
-
 ## Re-aggregating at a different level
 
-
-``` {r reaggregatingdata}
+```{r reaggregatingdata}
 # Import 1851 parishes
 parishes <- read_sf(dsn = "../GY476_data_2022_23/London/Polygons/london_parish_1851.shp")
 
@@ -136,7 +131,7 @@ plot(parishes$geometry, border = "red", add= TRUE)
 
 Exercise 9: Find the command for the spatial intersection of the `sf` package
 
-``` {r calculategeometry}
+```{r calculategeometry}
 # calculate area
 london$area_district <- st_area(london) / 1000000
 parishes$area_parish <- st_area(parishes) / 1000000
@@ -154,7 +149,7 @@ parishes_districts$area_inter <- st_area(parishes_districts) / 1000000
 
 Exercise 10: Summarize the intersected area at the district level
 
-``` {r summarizeagain}
+```{r summarizeagain}
 # check the union results
 inter_df <- parishes_districts %>%
   group_by(DIST_NAME, DIST_CODE) %>% # group by districts
@@ -170,7 +165,6 @@ head(inter_df)
 
 Exercise 11: Summarize the intersected area at the parish level
 
-
 ```{r reaggregate}
 
 # first we need to know how much of the old parishes has been intersected
@@ -183,7 +177,7 @@ head(inter_agg)
 
 Exercise 12: Summarize the parish population at the district level
 
-``` {r newpopulation}
+```{r newpopulation}
 # second we calculate the share of the intersected polygon for each parish 
 # then we use it to aggregate at the district level
 parishes_districts_join <- parishes_districts %>%
@@ -198,7 +192,7 @@ parishes_districts_join <- parishes_districts %>%
 
 Exercise 13: Improve the map
 
-``` {r plotresults}
+```{r plotresults}
 # plot the results
 plot(parishes_districts_join[, "population"])
 
@@ -218,7 +212,7 @@ sum(parishes_districts_join$population)
 
 Exercise 14: Find the command to calculate the slope of the `terra` package
 
-``` {r rasters}
+```{r rasters}
 # import elevation data
 elevation <- rast("../GY476_data_2022_23/Lebanon/DEM_Leb_projected.tif")
 
@@ -230,7 +224,7 @@ plot(slope)
 
 Exercise 15: Reclassify the elevation to create the flood risk area (elevation under 10m)
 
-``` {r floodrisk}
+```{r floodrisk}
 # flood risk: find area with a elevation less than 10
 flood_risk <- app(elevation, fun= function(x) ifelse(x<10, 1, 0))
 plot(flood_risk)
@@ -238,7 +232,7 @@ plot(flood_risk)
 
 Exercise 16: Load the household points from the survey (Lebanon folder)
 
-``` {r extract}
+```{r extract}
 # sample 
 households <- read_sf("../GY476_data_2022_23/Lebanon/random_survey_LBN.shp")
 

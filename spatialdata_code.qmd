@@ -23,7 +23,8 @@ library(osmdata)
 library(basemapR)
 ```
 
-To install `basemapR` you will need to do run 
+To install `basemapR` you will need to do run
+
 ```{r eval=FALSE}
 library(devtools)
 install_github('Chrisjb/basemapR')
@@ -53,7 +54,6 @@ poi_sf = sf::st_as_sf(poi_df, coords = c("lon", "lat"), crs = "EPSG:4326")
 Now let's look at the different types of geographical data starting with polygons. We will use a dataset that contains the boundaries of the districts of London. We can read it into an object named districts.
 
 ::: {.panel-tabset group="data"}
-
 # Polygons
 
 We first import the district shapefile use `read_sf`, we then plot it to make sure we are seeing it 'correctly'. We us `$geometry` to plot just the geometry, if we don't include `$geometry` R will plot the first 9 columns and if the dataset is large this is not advisable.
@@ -124,11 +124,13 @@ districts$DIST_NAME #read the column "DIST_NAME"
 ```
 
 We can read or create subsets:
+
 ```{r}
 # dataframe can be subsetted using conditional statement
 # read the rows which have "City of London" as value for DIST_NAME
 districts[districts$DIST_NAME== "City of London",] 
 ```
+
 *Note* Go back to [open science](https://pietrostefani.github.io/gds/openscience.html) for subsetting with `dplyr`.
 
 ### Quick visualisation
@@ -334,7 +336,6 @@ Once we have an understanding of how to visually display spatial information con
 Geo `dataframes` come with a whole range of traditional GIS operations built-in. Here we will run through a small subset of them that contains some of the most commonly used ones.
 
 ::: {.panel-tabset group="data"}
-
 # Area
 
 One of the spatial aspects we often need from polygons is their area. "How big is it?" is a question that always haunts us when we think of countries, regions, or cities. To obtain area measurements, first make sure the `dataframe` you are working with is projected. If that is the case, you can calculate areas as follows:
@@ -392,7 +393,7 @@ ggplot() +
 ```
 :::
 
-## Joins 
+## Joins
 
 ## Join districts with educational level data
 
@@ -448,11 +449,13 @@ districts <- districts %>%
 ## Saving maps to figures
 
 Create a file to put your maps:
+
 ```{r}
 dir.create("maps") 
 ```
 
 If you were creating a map with teh `plot` function you could save it like this:
+
 ```{r}
 pdf("maps/london_test.pdf") # Opening the graphical device
 plot(districts$geometry)
@@ -461,6 +464,7 @@ dev.off() # Closing the graphical device
 ```
 
 Let's create a simple map with the variable we just created:
+
 ```{r}
 test_map <- ggplot() 
   geom_sf(data = districts, aes(fill = Level4p)) +
@@ -477,18 +481,21 @@ ggsave("maps/test_map_2.png", width = 20, height = 20, units = "cm")
 ```
 
 ## Adding baselayers
-Various `R` libraries allow us to add static basemaps to out maps. We will be using the `base_map()` function to(down)load a basemap in our maps. This is from the `library(basemapR)` which is easy to execute. 
 
-The style of basemap currently supported are 'dark', 'hydda', 'positron', 'voyager', 'wikimedia', 'mapnik', google, google-nobg, google-hybrid, google-terrain, google-satellite, google-road.  The package aims to ease the use of basemaps in different contexts by providing a function interface as minimalist as possible. There are other packages which support more choices like `library(basemaps)` which you can check out [here](https://jakob.schwalb-willmann.de/basemaps/index.html#map-examples)
+Various `R` libraries allow us to add static basemaps to out maps. We will be using the `base_map()` function to(down)load a basemap in our maps. This is from the `library(basemapR)` which is easy to execute.
+
+The style of basemap currently supported are 'dark', 'hydda', 'positron', 'voyager', 'wikimedia', 'mapnik', google, google-nobg, google-hybrid, google-terrain, google-satellite, google-road. The package aims to ease the use of basemaps in different contexts by providing a function interface as minimalist as possible. There are other packages which support more choices like `library(basemaps)` which you can check out [here](https://jakob.schwalb-willmann.de/basemaps/index.html#map-examples)
 
 We simply add base_map () to our ggplot:
+
 ```{r}
 ggplot() +
   base_map(st_bbox(districts_4326), increase_zoom = 2) + 
   geom_sf(data = districts_4326, fill = NA)
 ```
 
-If we want to specify the map we use `basemap =`: 
+If we want to specify the map we use `basemap =`:
+
 ```{r}
 ggplot() +
   base_map(st_bbox(districts_4326), basemap = 'google-terrain', increase_zoom = 2) +
@@ -516,4 +523,3 @@ leaflet() %>%
 ## Additional resources
 
 If you want to have a look at [Python](https://geographicdata.science/book/notebooks/03_spatial_data.html).
-
