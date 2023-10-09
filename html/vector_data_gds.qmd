@@ -10,12 +10,19 @@ align-items: center;
 
 # (Geo)visualisation
 
-## ADD IN IMAGE
+## 
+
+<center><img data-src="./figs/l03_monalisa_data.png" height="600"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/l03_monalisa.png" height="600">
+
+##
 
 “Data graphics visually display measured quantities by
 means of the combined use of points, lines, a coordinate
 system, numbers, symbols, words, shading, and color.”
-The Visual Display of Quantitative Information. Edward R. Tufte.
+
+<br>
+
+*The Visual Display of Quantitative Information*. Edward R. Tufte.
 
 ## Visualization
 By encoding information visually, they allow to
@@ -23,17 +30,26 @@ present large amounts of numbers in a meaninful
 way.
 If well made, visualizations provide leads into the
 processes underlying the graphic.
-The Visual Display of Quantitative Information. Edward R. Tufte.
+
+<br>
+
+*The Visual Display of Quantitative Information*. Edward R. Tufte.
 
 ## Geovisualization
 
 ## Tufte (1983)
+
+<br>
+
 “The most extensive data maps […] place millions of bits
 of information on a single page before our eyes. No other
 method for the display of statistical information is so
 powerful”
 
 ## MacEachren (1994)
+
+<br>
+
 “Geographic visualization can be defined as the use of
 concrete visual representations –whether on paper or
 through computer displays or other media–to make spatial
@@ -42,72 +58,201 @@ powerful human information processing abilities, those
 associated with vision.”
 
 ## Geovisualization
-Not to replace the human in the loop, but to
-augment her/him.
-Augmentation through engaging the pattern
+- Not to replace the human in the loop, but to augment her/him.
+- Augmentation through engaging the pattern
 recognition capabilities that our brain inherently
 has.
-Combines cartography, infovis and statistics
+- Combines cartography, infovis and statistics
 
 ## A map for everyone
 Maps can fulfill several needs, looking very
-different depending on the end-goal
-MacEachren & Kraak (1997) identify three main
+different depending on the end-goal.
+
+**MacEachren & Kraak (1997)** identify three main
 dimensions:
-Knowledge of what is being plotted
-Target audience
-Degree of interactivity
+
+- Knowledge of what is being plotted
+- Target audience
+- Degree of interactivity
 
 ## MacEachren & Kraak (1997)
-map cube
+
+<center><img data-src="./figs/carto.png" alt="centered image" width="85%" height="85%"><center>
+
+## DiBiase’s (1990) “Swoopy”
+
+Translating numbers into a (visual) language that the human brain “speaks better” 
+
+<center><img data-src="./figs/geovis1.png" alt="centered image" width="55%" height="55%"><center>
+
+## Exploratory Visualization
+
+<br>
+
+“forces us to notice what we never expected to see” (Tukey 1977: vi)
+
+<br>
+
+- Mostly for ourselves in the course of the research process.
+
+- Many, quick and dirty, and rather unattractive graphs.
+
+## Explanatory Visualization
+
+<br>
+
+“forces readers to see the information the designer wanted to convey” (Kosslyn 1994: 271)
+
+<br>
+
+- Mostly for others after the research is completed. 
+
+- Few, carefully crafted, and attractive graphs.
+
+# Modifiable Areal Unit Problem (Openshaw, 1984)
+
+##
+<br>
+<center><img data-src="./figs/l04_maup_pts.png" height="320"> &nbsp;<img data-src="./figs/l04_maup_2x2_grid.png" height="320">&nbsp;<img data-src="./figs/l04_maup_2x2_map.png" height="320"><center>
+
+##
+<br>
+<center><img data-src="./figs/l04_maup_pts.png" height="320"> &nbsp;<img data-src="./figs/l04_maup_5x5_grid.png" height="320">&nbsp;<img data-src="./figs/l04_maup_5x5_map.png" height="320"><center>
+
+##
+<br>
+<center><img data-src="./figs/l04_maup_pts.png" height="320"> &nbsp;<img data-src="./figs/l04_maup_10x10_grid.png" height="320">&nbsp;<img data-src="./figs/l04_maup_10x10_map.png" height="320"><center>
+
+##
+<br>
+<center><img data-src="./figs/l04_maup_2x2_map.png" height="320"> &nbsp;<img data-src="./figs/l04_maup_5x5_map.png" height="320">&nbsp;<img data-src="./figs/l04_maup_10x10_map.png" height="320"><center>
+
+## MAUP
+
+Scale and delineation mismatch between:
+
+- Underlying process (e.g. individuals, firms, shops)
+- Unit of measurement (e.g. neighborhoods, regions,
+etc.)
+- In some cases, it can seriously mislead analysis on
+aggregated data (e.g. [Flint](http://theconversation.com/how-zip-codes-nearly-masked-the-lead-problem-in-flint-65626))
+
+Always keep MAUP in mind when exploring aggregated data!!!
+
+# Choropleths
 
 ## Choropleths
 
-A discrete representation of data Counterpart of the histogram
+*Thematic map in which values of a variable are encoded
+using a color gradient of some sort*
 
-     Both allows us to gage the distribution of a variable
+- Counterpart of the histogram
 
-Values are classified into specific colours: value --\> bin Information loss as a trade off for simplicity
+    **Both allows us to gage the distribution of a variable**
+
+- **Values** are classified into specific **colours**: value --> bin 
+- **Information loss** as a trade off for simplicity
 
 Key decision to be made why a given value is a specific colour!
 
 ## Classification choices
 
-N. of bins How to bin? Colours
+- N. of bins 
+- How to bin? 
+- Colours
 
-How many bins? Trade-off: detail vs cognitive load Exact number depends on purpose of the map Usually not more than 12
+## How many bins? 
+- Trade-off: detail vs cognitive load 
+- Exact number depends on purpose of the map
+- Usually not more than 12
 
-Your maps should tell a story
+## How do we bin? 
 
-## How do we bin? Essentially a statistical problem
+Essentially a statistical problem
+
+## Unique values
+
+- Categorical data
+- No gradient (reflect it with the colour scheme!!!)
+- Examples: Religion, country of origin…
+
+##
+
+<br>
+
+<center><img data-src="./figs/liv_choro1.png" height="600"><center>
 
 ## Equal interval (continuous)
 
-Take the value span of the data to represent and split it equally Splitting happens based on the numerical value Gives more weight to outliers if the distribution is skewed
+- Take the value span of the data to represent and split it equally 
+- Splitting happens based on the numerical value 
+- Gives more weight to outliers if the distribution is skewed
+
+##
+
+<br>
+
+<center><img data-src="./figs/liv_choro2.png" height="500"><center>
 
 ## Quantile
 
-Regardless of numerical values, split the distribution keeping the same amount of values in each bin Splitting based on the rank of the value If distribution is skewed, it can put very different values in the same bin
+- Regardless of numerical values, split the distribution keeping the same amount of values in each bin 
+- Splitting based on the rank of the value 
+- If distribution is skewed, it can put very different values in the same bin
+
+
+##
+
+<br>
+
+<center><img data-src="./figs/liv_choro3.png" height="500"><center>
+
 
 ## Different type of algorithms will optimize for different types of splits
 
-Fisher-Jenks Natural breaks Outlier maps: box maps, std. maps...
+- Fisher-Jenks 
+- Natural breaks 
+- Outlier maps: box maps, std. maps...
 
-Some involve some fairly fancy statistics
+Some involve some fairly fancy statistics.
 
 ## Colour palette
 
-Should align with your purpose
+Categories, non-ordered <br>
+<img data-src="./figs/colour_cat.png" height="60">
 
-Categories, non-ordered
+Graduated, sequential <br>
+<img data-src="./figs/colour_divergent.png" height="60">
 
-Graduated, sequential
+Graduated, divergent <br>
+<img data-src="./figs/colour_grad.png" height="60">
 
-Graduated, divergent TIP: check ColorBrewer for guidance
+
+*TIP*: check ColorBrewer for guidance
 
 ## Tips
 
-Think of the purpose of the map Explore by trying different classification alternatives Combine (Geo)visualisation with other statistical devices
+<br>
+
+- Think of the purpose of the map 
+- Explore by trying different classification alternatives
+- Combine (geo)visualisation with other statistical devices
+
+##
+
+<br>
+<center><img data-src="./figs/googled_map.jpg" height="400"><center>
+
+
+##
+
+<br>
+<center><img data-src="./figs/ukrain_map.jpg" height="500"><center>
+
+
+##
+<br>
+<center><img data-src="./figs/beer_map.jpg" height="500"><center>
 
 # Questions
 

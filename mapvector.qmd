@@ -14,12 +14,7 @@ This section tries to get you to think about the geographical containers we use 
 Choropleths are thematic maps and, these days, are everywhere. From elections, to economic inequality, to the distribution of population density, there’s a choropleth for everyone. Although technically, it is easy to create choropleths, it is even easier to make *bad* choropleths. Fortunately, there are a few principles that we can follow to create effective choropleths. Get them all delivered right to the conform of your happy place in the following clip and slides!
 
 ## Further readings
-The clip above contains a compressed version of the key principles behind successful choropleths. For a more comprehensive coverage, please refer to:
 
-The chapter is available for free here
-
-Choropleths chapter on the GDS book (in progress) reyABwolf.
-
-Cynthia Brewer’s “Designing Better Maps” brewer2015designing covers several core aspects of building effective geovisualisations.
+- Cynthia Brewer’s [“Designing Better] Maps”(https://www.esri.com/en-us/esri-press/browse/designing-better-maps-a-guide-for-gis-users) covers several core aspects of building effective geovisualisations.
 
 - **Choropleth Mapping** chapter by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html) 
