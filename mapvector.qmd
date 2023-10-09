@@ -15,6 +15,6 @@ Choropleths are thematic maps and, these days, are everywhere. From elections, t
 
 ## Further readings
 
-- Cynthia Brewer’s [“Designing Better] Maps”(https://www.esri.com/en-us/esri-press/browse/designing-better-maps-a-guide-for-gis-users) covers several core aspects of building effective geovisualisations.
+- Cynthia Brewer’s [“Designing Better Maps”](https://www.esri.com/en-us/esri-press/browse/designing-better-maps-a-guide-for-gis-users) covers several core aspects of building effective geovisualisations.
 
 - **Choropleth Mapping** chapter by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html) 
