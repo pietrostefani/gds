@@ -802,7 +802,7 @@
     "href": "mapvector.html#further-readings",
     "title": "3 Mapping Vector Data",
     "section": "Further readings",
-    "text": "Further readings\nThe clip above contains a compressed version of the key principles behind successful choropleths. For a more comprehensive coverage, please refer to:\nThe chapter is available for free here\nChoropleths chapter on the GDS book (in progress) reyABwolf.\nCynthia Brewer’s “Designing Better Maps” brewer2015designing covers several core aspects of building effective geovisualisations.\n\nChoropleth Mapping chapter by Rey, Arribas-Bel and Wolf"
+    "text": "Further readings\n\nCynthia Brewer’s [“Designing Better] Maps”(https://www.esri.com/en-us/esri-press/browse/designing-better-maps-a-guide-for-gis-users) covers several core aspects of building effective geovisualisations.\nChoropleth Mapping chapter by Rey, Arribas-Bel and Wolf"
   },
   {
     "objectID": "mapraster.html#further-readings",
