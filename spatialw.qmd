@@ -1,1 +1,1 @@
-# Spatial Weights {#sec-spatial-w .unnumbered}
+# 5 - Spatial Weights {#sec-spatial-w .unnumbered}

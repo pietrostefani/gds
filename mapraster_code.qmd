@@ -128,7 +128,6 @@ plot(Lebanon_adm1$geometry, col= NA, add=T)
 # Define the palette
 pal <- rev(brewer.pal(6, "Oranges"))
 
-
 # Create the base map
 tm_shape(elevation_lebanon_mask) +
   tm_raster(breaks = c(-100, 0, 700, 1200, 1800, 3300),
