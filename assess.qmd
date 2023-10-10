@@ -17,20 +17,20 @@ Once you have created your map, you will need to present it. Write 250 about the
 
 Once completed, you will need to submit the following:
 
-**An html version of an .qmd document with R or Python integrated code.**
+**An html version of an .qmd document with R integrated code.**
 
 The assignment will be evaluated based on three main pillars, on which you will have to be successful to achieve a good mark:
 
-1.  **Data processing**
+1.  **Data Processing:** Your proficiency in handling and manipulating data will be a fundamental aspect of the assessment.
 
 2.  **Map assemblage** This includes your ability to master technologies that allow you to create a compelling map.
 
-3.  **Design and narrative**
+3.  **Design and narrative:** Your success in designing an appealing map with a compelling narrative will play a pivotal role in your overall evaluation.
 
 ## Assignment II
 
 -   **Title:** MCQ test
--   **Type:** 16th November
+-   **Type:** 16th November - during the Lab
 -   Due date: **TBC**
 -   25% of the final mark
 -   Chance to be reassessed
@@ -43,7 +43,7 @@ b)  To provide core learning in advance of the third assessment.
 
 -   **Title:** Computational Essay
 -   **Type:** Coursework
--   Due date: 18th December
+-   Due date: 8th January
 -   50% of the final mark
 -   Chance to be reassessed
 -   Electronic submission only
@@ -71,12 +71,6 @@ A computational essay is an essay whose narrative is supported by code and compu
 2\. Computer input (R)
 
 3\. Computer output These three elements all work together to express what's being communicated.
-
-**Submission** (Coming Soon)
-
-**Data** (Coming Soon)
-
-**Specifics** (Coming Soon)
 
 ## Marking Criteria
 
