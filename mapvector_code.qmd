@@ -4,13 +4,13 @@
 
 In this session, we will build on all we have learnt so far about loading and manipulating (spatial) data and apply it to one of the most commonly used forms of spatial analysis: choropleths. Remember these are maps that display the spatial distribution of a variable encoded in a color scheme, also called palette. Although there are many ways in which you can convert the values of a variable into a specific color, we will focus in this context only on a handful of them, in particular:
 
-- Unique values
+-   Unique values
 
-- Equal interval
+-   Equal interval
 
-- Quantiles
+-   Quantiles
 
-- Fisher-Jenks
+-   Fisher-Jenks
 
 ## Installing Packages
 
@@ -42,10 +42,12 @@ mena_sf <- geojson_sf("data/MENA/MENA.geojson") # we load the geojson using `geo
 
 plot(mena_sf$geometry) # we plot the geometry to make sure it looks like it should
 ```
+
 Don't forget that before you go further, you want to check the `CRS` of the `sf` object as well as the `dataframe`.
 
 ::: {.callout-tip collapse="true"}
 ## Answer
+
 ```{r crs}
 st_crs(mena_sf)
 
@@ -54,16 +56,18 @@ head(mena_sf)
 :::
 
 We then load the `csv` with some World Development Indicators data.
+
 ```{r csv}
 world_dev <- read.csv("data/MENA/mena_worlddevelop.csv") 
 ```
 
 And join the two objects using the relevant codes.
+
 ```{r}
 world_dev_sf <- left_join(mena_sf, 
                        world_dev, 
                        by=c("code_a3"="Country.Code"))
-```                       
+```
 
 Now we are fully ready to map!
 
@@ -71,20 +75,15 @@ We will be using two packages throughout the module. Both `tmap` (see [here](htt
 
 ## Unique values
 
-A choropleth for categorical variables simply assigns a different color to every potential value in the series. Variables could be both nominal or ordinal. 
+A choropleth for categorical variables simply assigns a different color to every potential value in the series. Variables could be both nominal or ordinal.
 
-**Nominal**:
-Nominal variables represent categories or labels *without* any inherent order or ranking.
-The categories are distinct and do not have a natural progression or hierarchy, such as "apple," "banana," and "orange" for fruit types.
+**Nominal**: Nominal variables represent categories or labels *without* any inherent order or ranking. The categories are distinct and do not have a natural progression or hierarchy, such as "apple," "banana," and "orange" for fruit types.
 
-**Ordinal **:
-Ordinal variables represent categories or labels with a meaningful *order* or *ranking*.
-The relative order or hierarchy among the categories is significant, indicating a clear progression from lower to higher values, such as "low," "medium," and "high" for satisfaction levels.
+**Ordinal** : Ordinal variables represent categories or labels with a meaningful *order* or *ranking*. The relative order or hierarchy among the categories is significant, indicating a clear progression from lower to higher values, such as "low," "medium," and "high" for satisfaction levels.
 
 In `R`, creating categorical choropleths is possible with one line of code. To demonstrate this, we can plot the the income level of countries in the MENA region (coded in our table as the income_group variable). The code below uses base `R`, `ggplot` and `tmap` to plot.
 
 ::: {.panel-tabset group="data"}
-
 # `plot`
 
 When using `plot` the code for a simple map of categorical values is one line. We call the data `world_dev_sf` and then the variable of interest `income_group`.
@@ -92,11 +91,12 @@ When using `plot` the code for a simple map of categorical values is one line. W
 ```{r}
 plot(world_dev_sf[,"income_group"])
 ```
-The same, perhaps better map, can be made with a little more effort using various `R` packages. 
+
+The same, perhaps better map, can be made with a little more effort using various `R` packages.
 
 # `tmap`
 
-`tmap` provides another option using the function `tm_fill` and `tm_shape`. A line has been added to to start editing the placement of the legend as well with `tm_layout`. 
+`tmap` provides another option using the function `tm_fill` and `tm_shape`. A line has been added to to start editing the placement of the legend as well with `tm_layout`.
 
 ```{r}
 tm_shape(world_dev_sf) + # data
@@ -114,17 +114,15 @@ ggplot(data = world_dev_sf) +
     geom_sf(aes(fill = income_group)) +
   theme_void()
 ```
-::: 
+:::
 
-::: {.callout-important}
-
+::: callout-important
 These maps are all all a bit rough a need **quite a bit** more work. They are *just* a starting point.
-
 :::
 
 ## Equal Interval
 
-If, instead of categorical variables, we want to display the geographical distribution of a continuous phenomenon, we need to select a way to encode each value into a color. One potential solution is applying what is usually called “equal intervals”. The intuition of this method is to split the range of the distribution, the difference between the minimum and maximum value, into equally large segments and to assign a different color to each of them according to a palette that reflects the fact that values are ordered.
+If, instead of categorical variables, we want to display the geographical distribution of a continuous phenomenon, we need to select a way to encode each value into a color. One potential solution is applying what is usually called "equal intervals". The intuition of this method is to split the range of the distribution, the difference between the minimum and maximum value, into equally large segments and to assign a different color to each of them according to a palette that reflects the fact that values are ordered.
 
 Creating the choropleth is relatively straightforward in `R`. For example, to create an equal interval of GDP per capita in 2015 (v_2015).
 
@@ -147,7 +145,8 @@ world_dev_filtered <- world_dev_sf %>%
 ::: {.callout-tip collapse="true"}
 # Advanced - Looping through different columns
 
-You can also loop through different columns, is for example you wanted to convert GDP per capita for all the years to numeric. 
+You can also loop through different columns, is for example you wanted to convert GDP per capita for all the years to numeric.
+
 ```{r}
 #| eval: false
 #| message: false
@@ -165,7 +164,6 @@ for (col in columns_to_convert) {
 Now let's map using equal intervals.
 
 ::: {.panel-tabset group="data"}
-
 # `tmap`
 
 With a few easy functions `tmap` allows you to plot your data with different *styles*. Here we are using `equal` for equal intervals. Have a look at the code annotation for more detail.
@@ -187,16 +185,17 @@ tm_basemap() +
     title = "GDP per capita by Equal Interval Classification")
 # Customize the map layout using tm_layout().
 ```
+
 Of course, this could do with some further work. You might want to check out [`tm_layout`](https://www.rdocumentation.org/packages/tmap/versions/3.3-4/topics/tm_layout)
 
 # `ggplot`
 
 Mapping in `ggplot` can be a bit tricky at the beginning. You will want to take a look at the package `classInt` [here](https://www.rdocumentation.org/packages/classInt/versions/0.4-10/topics/classIntervals).
 
-**Step 1**: Using the dplyr pipe operator %>%, we're modifying the `world_dev_filtered` data frame.
-We're using the `mutate` function to create a new column 'v_2015bis' in 'world_dev_filtered'.
+**Step 1**: Using the dplyr pipe operator %\>%, we're modifying the `world_dev_filtered` data frame. We're using the `mutate` function to create a new column 'v_2015bis' in 'world_dev_filtered'.
 
-**Step 2**: The 'v_2015' column in 'world_dev_filtered' is being divided by 1000 so we can talk about thousands of $ in GDP per capita, and the result is being rounded to the nearest integer.
+**Step 2**: The 'v_2015' column in 'world_dev_filtered' is being divided by 1000 so we can talk about thousands of \$ in GDP per capita, and the result is being rounded to the nearest integer.
+
 ```{r}
 world_dev_filtered <- world_dev_filtered %>%
   mutate(v_2015bis = round(v_2015 / 1000))
@@ -212,14 +211,13 @@ e_breaks <- classIntervals(world_dev_filtered$v_2015bis, n = 7, style = "equal")
 world_dev_filtered$e_breaks <- cut(world_dev_filtered$v_2015bis, e_breaks$brks)
 
 ```
-- `e_breaks`: This is a variable name that you are assigning to store the result of the class intervals calculation.
-- `classIntervals()`: This is a function that calculates class intervals for a given numeric vector. It is likely provided by a package like 'classInt' or 'classIntervals' in R.
-- `world_dev_filtered$v_2015`: This is the data vector that you want to create class intervals for. It appears to be a column named 'v_2015' within the 'world_dev_filtered' dataset.
-`n = 7`: This argument specifies that you want to divide the data into 7 classes.
-`style = "equal"`: This argument specifies that you want to use equal interval classification, which means that the data range will be divided into equal-sized intervals.
-These class intervals can be useful for creating data visualizations like **choropleth maps** or **histograms**.
+
+-   `e_breaks`: This is a variable name that you are assigning to store the result of the class intervals calculation.
+-   `classIntervals()`: This is a function that calculates class intervals for a given numeric vector. It is likely provided by a package like 'classInt' or 'classIntervals' in R.
+-   `world_dev_filtered$v_2015`: This is the data vector that you want to create class intervals for. It appears to be a column named 'v_2015' within the 'world_dev_filtered' dataset. `n = 7`: This argument specifies that you want to divide the data into 7 classes. `style = "equal"`: This argument specifies that you want to use equal interval classification, which means that the data range will be divided into equal-sized intervals. These class intervals can be useful for creating data visualizations like **choropleth maps** or **histograms**.
 
 **Step 4**: Finally we can map! as you see a bit of extra work was needed, but you ultimately have more control.
+
 ```{r}
 num_bins <-7
 cmap <- brewer.pal(num_bins, "YlGn")
@@ -242,11 +240,8 @@ ggplot() +
 
 It is important to understand that **equal intervals** can first and foremost be visualised on the data distribution. We have already created these intervals with the function `classIntervals` in Step 3 of the `ggplot` tab above. Here we need a couple of extra steps to collect the break values and plot them in histogram form.
 
-::: {.callout-note}
-
-The function `classIntervals` has the following styles:
-"fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih", "headtails", "maximum", or "box".
-
+::: callout-note
+The function `classIntervals` has the following styles: "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih", "headtails", "maximum", or "box".
 :::
 
 ```{r}
@@ -279,17 +274,16 @@ ggplot(world_dev_filtered, aes(x = v_2015)) +
 # Modify the x-axis label to display "GDP per capita in 2015".
   labs(x = "GDP per capita in 2015")
 ```
-Technically speaking, the figure is created by overlaying a KDE plot with vertical bars for each of the break points. This makes much more explicit the issue highlighted by which the first two bin contain a large amount of observations while the one with top values only encompasses a handful of them.
 
+Technically speaking, the figure is created by overlaying a KDE plot with vertical bars for each of the break points. This makes much more explicit the issue highlighted by which the first two bin contain a large amount of observations while the one with top values only encompasses a handful of them.
 
 ## Quantiles
 
-One solution to obtain a more balanced classification scheme is using quantiles. This, by definition, assigns the same amount of values to each bin: the entire series is laid out in order and break points are assigned in a way that leaves exactly the same amount of observations between each of them. This “observation-based” approach contrasts with the “value-based” method of equal intervals and, although it can obscure the magnitude of extreme values, it can be more informative in cases with skewed distributions.
+One solution to obtain a more balanced classification scheme is using quantiles. This, by definition, assigns the same amount of values to each bin: the entire series is laid out in order and break points are assigned in a way that leaves exactly the same amount of observations between each of them. This "observation-based" approach contrasts with the "value-based" method of equal intervals and, although it can obscure the magnitude of extreme values, it can be more informative in cases with skewed distributions.
 
 The code required to create the choropleth mirrors that needed above for equal intervals:
 
 ::: {.panel-tabset group="data"}
-
 # `tmap`
 
 As in our previous example, the coding is a bit simpler if we use `tmap`.
@@ -303,6 +297,7 @@ tm_basemap() +
 # `ggplot`
 
 As before, first we create the intervals, in this case quantiles.
+
 ```{r}
 #| warning: false
 
@@ -314,6 +309,7 @@ world_dev_filtered$qt_breaks <- cut(world_dev_filtered$v_2015bis, qt_breaks$brks
 ```
 
 Then we map the data:
+
 ```{r}
 num_bins <-4
 # Define a color palette for visualizing data.
@@ -335,7 +331,6 @@ theme_void() + # remove x and y axis
   theme(legend.position = "bottom")
   
 ```
-
 :::
 
 As we are dealing with a limited number of countries it is easier to see how the data is being divided differently in the histogram.
@@ -367,7 +362,6 @@ ggplot(world_dev_filtered, aes(x = v_2015)) +
 Equal interval and quantiles are only two examples of very many classification schemes to encode values into colors. As an example of a more sophisticated one, let us create a Fisher-Jenks choropleth:
 
 ::: {.panel-tabset group="data"}
-
 # `tmap`
 
 As in our previous example, the coding is a bit simpler if we use `tmap`.
@@ -381,6 +375,7 @@ tm_basemap() +
 # `ggplot`
 
 As before, first we create the intervals, in this case fisher jenks
+
 ```{r}
 #| warning: false
 
@@ -392,6 +387,7 @@ world_dev_filtered$fish_breaks <- cut(world_dev_filtered$v_2015bis, fish_breaks$
 ```
 
 Then we map the data:
+
 ```{r}
 num_bins <-4
 # Define a color palette for visualizing data.
@@ -476,7 +472,6 @@ ggplot(data = world_dev_sf) +
 
 ## Additional resources
 
-- On Drawing beautiful maps with `sf` and `ggplot` see [here](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html)
+-   On Drawing beautiful maps with `sf` and `ggplot` see [here](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html)
 
-- If you want to have a look at **Choropleths in Python** have a look at the chapter on choropleth mapping by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html) 
-
+-   If you want to have a look at **Choropleths in Python** have a look at the chapter on choropleth mapping by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html)

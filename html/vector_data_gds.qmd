@@ -16,6 +16,8 @@ align-items: center;
 
 ##
 
+<br>
+
 “Data graphics visually display measured quantities by
 means of the combined use of points, lines, a coordinate
 system, numbers, symbols, words, shading, and color.”
@@ -25,6 +27,8 @@ system, numbers, symbols, words, shading, and color.”
 *The Visual Display of Quantitative Information*. Edward R. Tufte.
 
 ## Visualization
+<br>
+
 By encoding information visually, they allow to
 present large amounts of numbers in a meaninful
 way.
@@ -109,7 +113,7 @@ Translating numbers into a (visual) language that the human brain “speaks bett
 
 - Few, carefully crafted, and attractive graphs.
 
-# Modifiable Areal Unit Problem (Openshaw, 1984)
+# Modifiable Area Unit Problem (Openshaw, 1984)
 
 ##
 <br>

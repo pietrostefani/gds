@@ -1,0 +1,53 @@
+---
+title: "Geographic Data Science"
+subtitle: "Vector"
+author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
+format: 
+    revealjs:
+        navigation-mode: grid
+align-items: center;
+---
+
+# Raster Data
+
+## Raster Data
+
+<center><img data-src="./figs/vector_raster.png" height="600"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/vector_raster2.png" height="600">
+
+# ttttt
+
+<center><img data-src="./figs/nightlights.png" alt="centered image" width="55%" height="55%"><center>
+
+# ttttt
+
+Square grid of pixels. Pixel values can represent continuous or categorical variables: 
+Ex: Elevation above sea level, Pollution, Land Use. 
+Divides 2-D space into regular cells - pixels
+Each cell has a single value
+Values assigned according to value at mean, centre point, or some other rule
+Equivalent to digital image formats (jpeg, tiff etc)
+
+
+# Henderson, V. Storeygard A., Weil, N. 2012. Measuring economic growth from outer space, AER.
+
+<center><img data-src="./figs/economicgrowth_space.png" alt="centered image" width="55%" height="55%"><center>
+
+
+# Terrain Data
+
+## Terrain
+
+
+
+# Modifiable Area Unit Problem (Openshaw, 1984)
+
+##
+<br>
+<center><img data-src="./figs/l04_maup_pts.png" height="320"> &nbsp;<img data-src="./figs/l04_maup_2x2_grid.png" height="320">&nbsp;<img data-src="./figs/l04_maup_2x2_map.png" height="320"><center>
+
+
+# Questions
+
+# 
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Geographic Data Science]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="http://pietrostefani.com" property="cc:attributionName" rel="cc:attributionURL">Elisabetta Pietrostefani</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

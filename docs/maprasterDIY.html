@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - Do-It-Yourself</title>
+<title>A course in Geographic Data Science - Do-It-Yourself</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,7 +62,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - Do-It-Yourself">
+<meta name="twitter:title" content="A course in Geographic Data Science - Do-It-Yourself">
+<meta name="twitter:description" content="Let’s work with some more raster data! In this section, you will practice the concepts and code we have learnt in this block. Happy hacking!">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -86,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Geographic Data Science in R and Python</a> 
+      <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/pietrostefani/gds" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
@@ -147,11 +148,6 @@ ul.task-list li input[type="checkbox"] {
   <a href="./environR.html" class="sidebar-item-text sidebar-link">R</a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environPy.html" class="sidebar-item-text sidebar-link">Python</a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -209,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">Mapping Vector Data in Python</a>
+  <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">Do-It-Yourself</a>
   </div>
 </li>
       </ul>
@@ -349,7 +345,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link active" data-scroll-target="#data-preparation">Data preparation</a>
+  <ul class="collapse">
+  <li><a href="#task-i-join-by-attribute" id="toc-task-i-join-by-attribute" class="nav-link" data-scroll-target="#task-i-join-by-attribute">Task I: Join by attribute</a></li>
+  </ul></li>
+  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced">Advanced</a>
+  <ul class="collapse">
+  <li><a href="#task-ii" id="toc-task-ii" class="nav-link" data-scroll-target="#task-ii">Task II:</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/maprasterDIY.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -371,8 +380,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Let’s work with some more raster data! In this section, you will practice the concepts and code we have learnt in this block. Happy hacking!</p>
+<section id="data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation">Data preparation</h2>
+<p>We are going to work with some data of Corsica, a region of France. If you want to challenge yourself you can download the data and pre-process it yourself using <a href="https://earthexplorer.usgs.gov/">Earth Explorer</a>.</p>
+<p>If not you can download it <a href="https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EYaxWikecFxPqLTzUNp7Ch0Bxxiv9hyv1bg5lzh6fUcTrg?e=bTdi70">here</a>. You will need to be signed into your UoL account.</p>
+<p>You will then need to download the shapefiles for France. You can use <a href="https://gadm.org/formats.html">GADM</a> which has made available national and subnational shapefiles for the world.</p>
+<section id="task-i-join-by-attribute" class="level3">
+<h3 class="anchored" data-anchor-id="task-i-join-by-attribute">Task I: Join by attribute</h3>
+<ol type="1">
+<li>Plot your data and the CRS. Make sure your files are in the same CRS. Usually France uses the projected coordinate system <a href="https://epsg.io/2154">Lambert 93</a> or EPSG = 2154</li>
+<li>Crop and Mask the data</li>
+<li>Visualise the elevation using <code>tmap</code></li>
+<li>use <code>geom_spatraster_contour_filled</code> to create a contour map with specific breaks</li>
+</ol>
+</section>
+</section>
+<section id="advanced" class="level2">
+<h2 class="anchored" data-anchor-id="advanced">Advanced</h2>
+<p>Working on a time-series representation of the evolution of Nights Lights in a <strong>country of your choice</strong>. As in the lab, the data can be found <a href="https://www.ngdc.noaa.gov/eog/data/web_data/v4composites/">here</a>.</p>
+<section id="task-ii" class="level3">
+<h3 class="anchored" data-anchor-id="task-ii">Task II:</h3>
+<ol type="1">
+<li>Process the data and make a map with at least two years of night lights data.</li>
+<li>Think about the story the data is telling you.
+<ul>
+<li><p>How have night lights evolved over time in your country of choice? Remember this will mean different things for different countries.</p></li>
+<li><p>What choices have you made in terms of bins, colours, zoom level to tell your story?</p></li>
+</ul></li>
+</ol>
+<iframe src="https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity" loading="lazy" style="width: 100%; height: 600px; border: 0px none;">
+</iframe>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -523,7 +565,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

@@ -2,5 +2,20 @@
 
 Raster data is more and more popular...
 
+
+We are going to load one of R's default data - Volcano. To learn more about this data, type `help(volcano)`. Volcano is **a matrix**.
+
+```{r volcano-example}
+class(volcano)
+volcano[1:5,1:5]
+image(volcano)
+help(volcano)
+```
+
+
 ## Further readings
 
+Henderson, J. Vernon, Adam Storeygard, and David N. Weil. 2012. Measuring Economic Growth from Outer Space. American Economic Review, 102 (2): 994-1028. Replication data : https://www.openicpsr.org/openicpsr/project/112518/version/V1/view 
+Nathan Nunn & Diego Puga, 2012. Ruggedness: The Blessing of Bad Geography in Africa, The Review of Economics and Statistics, MIT Press, vol. 94(1), pages 20-36, February. http://diegopuga.org/data/rugged/rugged_data.zip
+Dugoua, Eugenie, Ryan Kennedy, and Johannes Urpelainen. 2018. Satellite data for the social sciences: measuring rural electrification with night-time lights. International journal of remote sensing 39, no. 9: 2690-2701.
+Su, Yu, Zhing Yanfei, Zhu Qiqi, Zhqo, Ji (2021), Urban scene understanding based on semantic and socioeconomic features: From high-resolution remote sensing imagery to multi-source, geographic datasets. ISPRS Journal of Photogrammetry and Remote Sensing.  Vol. 179: 50-65
