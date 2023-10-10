@@ -1,0 +1,245 @@
+---
+title: "Ripley's K, with SF and Rmarkdown"
+output:
+  pdf_document: default
+  always_allow_html: true
+  html_document:
+    df_print: paged
+---
+
+Hi all,
+
+First thanks for the patience in class while we tried to fix the "projection" problem on site. Here I exprore another option of having the similar analysis as before but with the `sf` package. 
+
+The reason for all of this is that R is a very useful, diverse and dynamic programing language in which you can do _a lot_ of things thanks to lovely people that spend their time creating functions and packages of such functions (such as `sf` and `sp`) so we can do comlex analysis simply. The downside of this is that not everything in R has been 100% checked by a central organization. There is a good amount of checking (specially by "The Comprehensive R Archive Network" [CRAN](https://cran.r-project.org/) ). Even with these some people stop working on their packages and new packages emerge. They try their best to make them all compatible but it doesn't always work.
+
+I do this on an  [R Markdown](http://rmarkdown.rstudio.com) Notebook. It allows both writing notes and having code (on chunks). When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+# install.packages('dplyr')
+library(dplyr)
+
+head(cars)
+```
+
+
+Add a new chunk by clicking the *Insert Chunk* (C+) button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+## Basic R functions and concepts
+
+R is an **object-oriented programming**, this means that everything here are objects. Objects can by of different types (`classes`). They can be numbers, text (character), TRUE or FALSE (`boolean`) an many others.
+
+Aggregations of objects can create lists, vectors, matrices or "dataframes". We will mostly work with dataframes, vectors and lists.
+
+
+### Very basic concepts that EVERYONE needs to understand
+
+1. `<-` or `=` are operators (sit _between_ objects such as `+` and `-`) that assigns whatever it is at the right of it to the object in the left. By executing an object you can "see" it.
+
+```{r}
+first_object = 4
+first_object
+
+first_object - 3
+first_object + 3
+```
+
+2. functions have objects ans inputs and as outputs
+
+the `c()` function creates a vector 
+
+```{r}
+vector_numbers = c(1,2, 3, 4, 5) # the c() function creates a vector 
+vector_numbers
+
+max(vector_numbers)
+```
+
+3. You will constantly have questions on (a) what functions should you use and (b) how funtions work. 
+
+(a) Look at the seminars, frinds or Google. For (b) you should look at the R documentation files:
+
+```{r}
+help(max) # is equivalent to
+?max
+```
+
+(see the help file in the right) 
+
+In all documentations you have:
+
+* The function you are working with
+* Sn explanation of each input of the formula
+* Some examples or use cases
+
+If you want even more information, Google will always be your best ally
+
+4. Differnt ways in which you can get a variable from a dataset
+
+from the dataset `iris` we can pull his variable Sepal.Length using the operator `$`. or the funtion `pull`
+
+```{r}
+iris$Sepal.Length
+
+# which is equivalent to
+pull(iris, Sepal.Length)
+```
+
+
+EXTRA: Using `%>%`:
+
+`%>%` is an operator (such as `<-`) that "passes the left hand side of the operator to the first argument of the right hand side of the operator" 
+
+In the following example, the data frame `iris` gets passed to the function `head()`:
+
+```{r}
+# This
+
+head(iris)
+
+# is equivalent to
+
+iris %>% head()
+
+# and allows to "chain" functions such as 
+
+iris %>% head() %>% pull(Sepal.Width)
+
+iris %>% # take the data
+  filter(Species == "virginica")  %>% # Only keep (filter) the ones that have Species == "virginica"
+  head(n = 30)
+```
+
+Read the definition of `%>%` twice until it really sinks in. It is a very powerful way to making your code more intuitive and easy.
+
+
+So going back to Ripley's K:
+
+## Ripley's K
+
+Note: This code is part from Steve part from Antonio and by Nicolas (a fellow student)
+
+```{r}
+## load packages
+library(dplyr)
+library(sf)
+library(spatstat)
+
+
+# Import data
+data_dir <- "C:/Users/aavil/OneDrive/Documentos/A - Trabajo/GTA/GY460/Descriptive indicators of spatial clusters and concentration/Data for Practical Descriptive/"
+crimes2021 <- read.csv(paste0(data_dir,"2021-11-metropolitan-street.csv"))
+
+#inspect data
+head(crimes2021, n = 20)
+```
+Turn this tabular data into a _spatial_ data and specify their original coordinate system (WGS84)
+
+You can look up epsg codes here https://epsg.org/home.html
+
+```{r}
+crimes2021points <- crimes2021 %>% #take the data
+  st_as_sf(coords =  c("Longitude", "Latitude"))  %>%  # transform it into a spatial data
+  st_set_crs(4326) # set the projection corresponding with code 4326 (lat-long)
+```
+
+
+`spatstat` point pattern analysis requires coordinate system in cartesian coordinates  so we transform coordinate system to OSGB36
+
+```{r}
+crimes2021osgb <- st_transform(crimes2021points, 27700)
+```
+
+In `sf` the spatial representation of each observation (here events of crime and thus points in space) are stored as an additional variable in the datset.
+
+so we take this vector of shapes (always named `geometry`) ang gets the coordinates. 
+
+```{r}
+# add the x an y coordinates (eastins and northings) to the crimes data set
+crime_coord <- crimes2021osgb$geometry %>% st_coordinates()
+
+# see the coordinates we have in this object
+head(crime_coord)
+```
+We join these two vectors to the original data (crimes2021) as new variables
+
+```{r}
+crimes2021 <- cbind(crimes2021, crime_coord)
+
+# view the different crime types and the number of each one of them:
+table(crimes2021$Crime.type)
+```
+As we want to focus our analysis in Burglaries we subset the data so it only has these crimes:
+
+```{r}
+# extract specific crimes in a new dataset 
+
+burglaries2021 <- crimes2021 %>%
+  filter(Crime.type == "Burglary")
+```
+
+Then we to the `spatstat` point pattern analysis:
+
+```{r}
+# define a bounding box (study area) 
+# owin just creates an window object needed by spatstat and requires x min max and y min max
+bbox <- owin(c(528000, 535000), c(182000, 189000))
+
+# transform data frame to point pattern for spatstat
+burglaries2021_p <- ppp(burglaries2021$X, burglaries2021$Y, bbox)
+
+# Check that the point pattern looks right by plotting it:
+plot(burglaries2021_p, clipwin = bbox )
+
+# ripley's K-function with border correction (buffer zone)
+# ?Kest to view Help
+plot(Kest(burglaries2021_p, correction = "border", rmax = 2000))
+
+# Envelopes of K-function - top an bottome 5% under CSR:
+# ?envelope to view Help
+plot(envelope(burglaries2021_p, fun = Kest, nrank = 5, funargs = list(correction = "border", rmax = 2000)))
+
+#KERNEL DENSITY
+
+# kernel smoother of point density:
+plot(density(burglaries2021_p, kernel = "epanechnikov", sigma = 500), axes = TRUE)
+```
+
+
+
+
+
+## EXTRA:
+
+ploting the points into a map: 
+
+```{r}
+# install.packages("tmap")
+library(tmap)
+
+# QTM: Quick TMap:
+crimes2021points %>%
+  sample_n(1000) %>%
+  qtm(basemaps = "Stamen.Watercolor")
+```
+
+or the interactive version:
+
+(not available in the PDF)
+
+```{r}
+# tmap_mode("view") # thsi to activate the interactive version
+# 
+# crimes2021points %>%
+#   sample_n(1000) %>% # just get a random 1000  observations so the dataset is not too large
+#   qtm(crimes2021points, 
+#       basemaps = "Stamen.Watercolor" # this is just an example of a basemap you can have. A very "artistic" one...
+#       )
+```
+

@@ -1,0 +1,184 @@
+## Project: GY460
+## Author: Elisabetta Pietrostefani
+## Date: 04/02/2020
+## Name: GY460 Spatial weights
+## Description: Create spatial matrices in R
+
+
+###############################################################################
+# some reading: https://cran.r-project.org/web/packages/spdep/vignettes/nb.pdf
+# http://www.people.fas.harvard.edu/~zhukov/spatial.R
+# https://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf
+###############################################################################
+
+# clear
+rm(list=ls())
+
+
+#2. Import districts data
+
+# add the polygons of London to the environment
+library(rgdal)
+ward_crime_2001_2002 <- readOGR(dsn = "Data and permissions/GISDATA/Polygons/ward_crime_2001_2002.shp")
+
+# change the projection to "British National Grid"
+library(raster)
+proj4string(ward_crime_2001_2002) <- CRS("+init=epsg:27700")
+
+#4. Create Contiguity Neighbours
+library(spdep)
+
+# extract centroids coordinates
+coords <- coordinates(ward_crime_2001_2002)
+
+# Neighbours list from knn object: k=5
+W_knn5 <- knn2nb(knearneigh(coords, k=5), row.names=ward_crime_2001_2002@data$POLY_ID)
+W_knn5_mat <- nb2listw(W_knn5)
+
+# create spatially lag variables 
+ward_crime_2001_2002@data$w_BUD2001_HH  <- lag.listw(W_knn5_mat, ward_crime_2001_2002@data$BUD2001_HH , zero.policy = T)
+
+# compare values with maps
+library(tmap)
+qtm(shp = ward_crime_2001_2002, 
+    fill = c("BUD2001_HH", "w_BUD2001_HH"), 
+    fill.breaks=seq(0, 0.08, 0.02), 
+    fill.palette = "Blues", 
+    ncol = 2) +
+  tm_legend(legend.position = c("right", "bottom")) # change the legend position to bottom right
+
+# global autocorrelation text moran's 
+moran.results <- moran.test(ward_crime_2001_2002@data$BUD2001_HH , listw=W_knn5_mat, zero.policy=T)
+
+# Moran Scatterplot
+moran.plot(ward_crime_2001_2002@data$BUD2001_HH , 
+           listw=W_knn5_mat, 
+           zero.policy=T, 
+           pch=16, col="black",
+           cex=.5, 
+           quiet=F, 
+           labels=as.character(ward_crime_2001_2002@data$POLY_ID),
+           xlab="Burglaries per household", 
+           ylab="Burglaries per household (Spatial Lag)", 
+           main=paste("Moran's I:", round(moran.results$estimate[1], digits = 2)))
+
+
+# Local Autocorrelation: Local Moran's I (normality assumption)
+lm1 <- localmoran(ward_crime_2001_2002@data$BUD2001_HH , listw=W_knn5_mat, zero.policy=T)
+summary(lm1)
+
+# Extract z-scores
+ward_crime_2001_2002@data$zscore <- abs(lm1[,4]) 
+
+# Extract local moran statistics
+ward_crime_2001_2002@data$local_moran_stats <- abs(lm1[,1]) 
+
+# plot autocorrelation
+lm.palette <- colorRampPalette(c("white","orange", "red"), space = "rgb")
+spplot(ward_crime_2001_2002, zcol="zscore", col.regions=lm.palette(20), main="Local Moran's I (|z| scores)", pretty=T)
+
+## Global Autocorrelation Tests: Moran's I
+moran.test(ward_crime_2001_2002@data$BUD2001_HH , listw=W_knn5_mat, zero.policy=T)
+
+# The global G statistic for spatial autocorrelation
+globalG.test(ward_crime_2001_2002@data$BUD2001_HH, listw=W_knn5_mat, zero.policy=T)
+
+# local G LISA measures
+localG(ward_crime_2001_2002@data$BUD2001_HH, listw=W_knn5_mat, zero.policy=T)
+
+## Global Autocorrelation Tests: Geary's C
+geary.test(ward_crime_2001_2002@data$BUD2001_HH , listw=W_knn5_mat, zero.policy=T)
+
+# differences between Globan Moran's I and Getis-Ord General G: https://pro.arcgis.com/en/pro-app/tool-reference/spatial-statistics/h-how-high-low-clustering-getis-ord-general-g-spat.htm
+
+
+# Ripley K analysis
+#install.packages("spatstat")
+# https://cran.r-project.org/web/packages/spatstat/vignettes/getstart.pdf
+library(spatstat) 
+
+# load data
+crimes <- readOGR(dsn= "Data and permissions/GISDATA/Points/cleaned_crime_2001_extract.shp")
+
+# convert the data to a point pattern object using the spatstat command ppp.
+mypattern <- ppp(crimes@coords[,1],crimes@coords[,2], crimes@bbox[1,], crimes@bbox[2,])
+
+# Check that the point pattern looks right by plotting it:
+plot(mypattern)
+
+# summary of data
+summary(mypattern)
+
+# ripley's K-function
+plot(Kest(mypattern))
+
+# Envelopes of K-function:
+plot(envelope(mypattern,Kest))
+
+# kernel smoother of point density:
+plot(density(mypattern))
+
+# Point Pattern Analysis: Kernel/Point Densities
+# https://mgimond.github.io/Spatial/point-pattern-analysis-in-r.html
+properties <- readOGR(dsn= "Data and permissions/GISDATA/Points/properties.shp")
+properties_ppp <- ppp(properties@coords[,1],properties@coords[,2], properties@bbox[1,], properties@bbox[2,])
+
+# plot
+K1 <- density(properties_ppp, sigma=1000, kernel = "disc")
+plot(K1, las=1)
+contour(K1, add=TRUE)
+
+
+# Annexe
+# Construct contiguousneighbours list from polygon list
+nb_q <- poly2nb(ward_crime_2001_2002, queen = FALSE)
+
+# Spatial weights for neighbours lists
+W_districts_mat <- nb2listw(nb_q, style="W", zero.policy=TRUE)
+
+# plot the links
+plot(ward_crime_2001_2002)
+plot(nb_q, coords, col="grey", add=T)
+
+# Global Autocorrelation Tests: Join Count
+ward_crime_2001_2002@data$high_edu <- as.factor(ifelse(ward_crime_2001_2002@data$BUD2001_HH > summary(ward_crime_2001_2002@data$BUD2001_HH )[3],1,0))
+joincount.multi(ward_crime_2001_2002@data$high_edu, listw=W_districts_mat, zero.policy=T)
+
+
+## Local Autocorrelation: Local Moran's I (saddlepoint approximation) [WARNING: this takes a while to run]
+#lm2 <- localmoran.sad(lm(BUD2001_HH ~1,ward_crime_2001_2002@data), nb=W_cont_el, style="W", zero.policy=T)
+#head(lm2)
+
+
+## Local Autocorrelation: Local Moran's I (exact methods)  [WARNING: this takes a while to run]
+#lm3 <- localmoran.sad(lm(BUD2001_HH ~1,ward_crime_2001_2002@data), nb=W_cont_el, style="W", zero.policy=T)
+#head(lm3)
+
+
+# Neighbours list from knn object: k=5
+W_knn5 <- knn2nb(knearneigh(coords, k=5), row.names=ward_crime_2001_2002@data$POLY_ID)
+W_knn5_mat <- nb2listw(W_knn5)
+
+# Plot the connections
+plot(ward_crime_2001_2002,border="grey")
+plot(W_knn5_mat,coords=coords,pch=19, cex=0.1, col="blue", add=T)
+title("k=5 (Centroids)")
+
+
+# Neighbourhood contiguity by distance
+dist <- unlist(nbdists(W_knn5, coords))
+W_dist1 <- dnearneigh(coords, d1=0, d2=max(dist), row.names=ward_crime_2001_2002@data$POLY_ID) 
+W_dist1_mat <- nb2listw(W_dist1)
+
+# Plot the connections
+plot(ward_crime_2001_2002,border="grey")
+plot(W_dist1_mat,coords=coords,pch=19, cex=0.1, col="blue", add=T)
+title("Minimum Distance (Centroids)")
+
+# Neighbours list from tri object
+W_del <- tri2nb(coords)
+
+# Plot the connections
+plot(ward_crime_2001_2002,border="grey")
+plot(W_del,coords=coords,pch=19, cex=0.1, col="blue", add=T)
+title("Sphere of Influence (Centroids)")
