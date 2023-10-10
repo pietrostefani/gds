@@ -1,1 +1,1 @@
-# 7 - Clustering {#sec-clustering .unnumbered}
+# 7 Clustering {#sec-clustering .unnumbered}
