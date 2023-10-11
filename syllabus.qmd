@@ -2,55 +2,37 @@
 
 ## Part 1
 
-**Introduction and Open Science**
+**Week 1 -** Introduction and Open Science
 
 -   Lecture: Introduction to the module & Open Science
 -   Lab: Setting up your Computational Environment & Data Wrangling
 
-**Spatial Data**
+**Week 2 -** Spatial Data
 
--   Lecture: Spatial Data
--   Lab: London
+**Week 3 -** Mapping Vector Data
 
-**Mapping Vector Data**
+**Week 4** - Mapping Raster Data
 
--   Lecture:
--   Lab:
-
-**Mapping Raster Data**
-
--   Lecture:
--   Lab:
+**Week 5** - No lecture
 
 `Assignment I`: Programmed Map
 
 ## Part 2
 
-**Spatial Weights**
+**Week 6 -** Spatial Weights
 
--   Lecture:
--   Lab:
+**Week 7** - ESDA
 
-**ESDA**
-
--   Lecture:
--   Lab:
+**Week 8**
 
 `Assignment II`: MCQ test
 
-**Clustering**
+**Week 9 -** Clustering
 
--   Lecture:
--   Lab:
+**Week 10** - Interpolation, heatmaps and point patterns
 
-**Interpolation, heatmaps and point patterns**
+**Week 11** - Spatial Network Analysis
 
--   Lecture:
--   Lab:
-
-**Spatial Network Analysis**
-
--   Lecture:
--   Lab:
+**Week 12** - No lecture
 
 `Assignment III`: A computational essay

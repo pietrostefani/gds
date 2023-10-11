@@ -74,7 +74,7 @@
     "href": "assess.html#assignment-i",
     "title": "Assessments",
     "section": "Assignment I",
-    "text": "Assignment I\n\nTitle: Programmed Map\nType: Coursework\nDue date: 30th October\n25% of the final mark\nChance to be reassessed\nElectronic submission only\n\nThis assignment will be evaluated on technical data processing, map design abilities (assemblage), and design overall narrative.\nOnce you have created your map, you will need to present it. Write 250 about the choices you made to create the map.\n\nSubmit\nOnce completed, you will need to submit the following:\nAn html version of an .qmd document with R integrated code.\nThe assignment will be evaluated based on three main pillars, on which you will have to be successful to achieve a good mark:\n\nData Processing: Your proficiency in handling and manipulating data will be a fundamental aspect of the assessment.\nMap assemblage This includes your ability to master technologies that allow you to create a compelling map.\nDesign and narrative: Your success in designing an appealing map with a compelling narrative will play a pivotal role in your overall evaluation."
+    "text": "Assignment I\n\nTitle: Programmed Map\nType: Coursework\nDue date: 30th October\n25% of the final mark\nChance to be reassessed\nElectronic submission only\n\nThis assignment will be evaluated on technical data processing, map design abilities (assemblage), and design overall narrative.\nOnce you have created your map, you will need to present it. Write 250 about the choices you made to create the map.\n\nFull Assignment details\n\n\nSubmit\nOnce completed, you will need to submit the following:\nAn html version of an .qmd document with R integrated code.\nThe assignment will be evaluated based on three main pillars, on which you will have to be successful to achieve a good mark:\n\nData Processing: Your proficiency in handling and manipulating data will be a fundamental aspect of the assessment.\nMap assemblage This includes your ability to master technologies that allow you to create a compelling map.\nDesign and narrative: Your success in designing an appealing map with a compelling narrative will play a pivotal role in your overall evaluation."
   },
   {
     "objectID": "assess.html#assignment-ii",
@@ -249,14 +249,14 @@
     "href": "syllabus.html#part-1",
     "title": "Syllabus",
     "section": "Part 1",
-    "text": "Part 1\nIntroduction and Open Science\n\nLecture: Introduction to the module & Open Science\nLab: Setting up your Computational Environment & Data Wrangling\n\nSpatial Data\n\nLecture: Spatial Data\nLab: London\n\nMapping Vector Data\n\nLecture:\nLab:\n\nMapping Raster Data\n\nLecture:\nLab:\n\nAssignment I: Programmed Map"
+    "text": "Part 1\nWeek 1 - Introduction and Open Science\n\nLecture: Introduction to the module & Open Science\nLab: Setting up your Computational Environment & Data Wrangling\n\nWeek 2 - Spatial Data\nWeek 3 - Mapping Vector Data\nWeek 4 - Mapping Raster Data\nWeek 5 - No lecture\nAssignment I: Programmed Map"
   },
   {
     "objectID": "syllabus.html#part-2",
     "href": "syllabus.html#part-2",
     "title": "Syllabus",
     "section": "Part 2",
-    "text": "Part 2\nSpatial Weights\n\nLecture:\nLab:\n\nESDA\n\nLecture:\nLab:\n\nAssignment II: MCQ test\nClustering\n\nLecture:\nLab:\n\nInterpolation, heatmaps and point patterns\n\nLecture:\nLab:\n\nSpatial Network Analysis\n\nLecture:\nLab:\n\nAssignment III: A computational essay"
+    "text": "Part 2\nWeek 6 - Spatial Weights\nWeek 7 - ESDA\nWeek 8\nAssignment II: MCQ test\nWeek 9 - Clustering\nWeek 10 - Interpolation, heatmaps and point patterns\nWeek 11 - Spatial Network Analysis\nWeek 12 - No lecture\nAssignment III: A computational essay"
   },
   {
     "objectID": "openscienceDIY.html#import-libraries",

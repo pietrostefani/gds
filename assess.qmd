@@ -13,6 +13,8 @@ This assignment will be evaluated on technical data processing, map design abili
 
 Once you have created your map, you will need to present it. Write 250 about the choices you made to create the map.
 
+### [Full Assignment details]()
+
 ### Submit
 
 Once completed, you will need to submit the following:
