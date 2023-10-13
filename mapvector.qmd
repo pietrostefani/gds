@@ -1,20 +1,23 @@
 # 3 Mapping Vector Data {#sec-vector-data .unnumbered}
 
-This section is all about Geovisualisation and displaying statistical information on maps. We start with an introduction on *what* geovisualisation is; then we follow with the modifiable areal unit problem (MAUO), a key concept to keep in mind when displaying statistical information spatially; and we wrap up with tips to make awesome choropleths, thematic maps. 
+This section is all about Geovisualisation and displaying statistical information on maps. We start with an introduction on *what* geovisualisation is; then we follow with the modifiable areal unit problem (MAUP), a key concept to keep in mind when displaying statistical information spatially; and we wrap up with tips to make awesome choropleths, thematic maps.
 
 Slides can be downloaded ["here"](/html/vector_data_gds.pdf)
 
 ## Geovisualisation
+
 Geovisualisation is an area that underpins much what we will discuss in this course. Often, we will be presenting the results of more sophisticated analyses as maps. So getting the principles behind mapping right is critical. In this clip, we cover *what* is (geo)visualisation and why it is important.
 
 ## Geographical containers for data
+
 This section tries to get you to think about the geographical containers we use to represent data in maps. By that, we mean the areas, delineations and aggregations we, implicitly or explicitly, incur in when mapping data. This is an important aspect, but Geographers have been aware of them for a long time, so we are standing on the shoulders of giants.
 
 ## Choropleths
-Choropleths are thematic maps and, these days, are everywhere. From elections, to economic inequality, to the distribution of population density, there’s a choropleth for everyone. Although technically, it is easy to create choropleths, it is even easier to make *bad* choropleths. Fortunately, there are a few principles that we can follow to create effective choropleths. Get them all delivered right to the conform of your happy place in the following clip and slides!
+
+Choropleths are thematic maps and, these days, are everywhere. From elections, to economic inequality, to the distribution of population density, there's a choropleth for everyone. Although technically, it is easy to create choropleths, it is even easier to make *bad* choropleths. Fortunately, there are a few principles that we can follow to create effective choropleths. Get them all delivered right to the conform of your happy place in the following clip and slides!
 
 ## Further readings
 
-- Cynthia Brewer’s [“Designing Better Maps”](https://www.esri.com/en-us/esri-press/browse/designing-better-maps-a-guide-for-gis-users) covers several core aspects of building effective geovisualisations.
+-   Cynthia Brewer's ["Designing Better Maps"](https://www.esri.com/en-us/esri-press/browse/designing-better-maps-a-guide-for-gis-users) covers several core aspects of building effective geovisualisations.
 
-- **Choropleth Mapping** chapter by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html) 
+-   **Choropleth Mapping** chapter by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html)

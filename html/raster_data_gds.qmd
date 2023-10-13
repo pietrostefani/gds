@@ -1,6 +1,6 @@
 ---
 title: "Geographic Data Science"
-subtitle: "Vector"
+subtitle: "Raster Data"
 author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
 format: 
     revealjs:
@@ -10,41 +10,174 @@ align-items: center;
 
 # Raster Data
 
-## Raster Data
+##
 
-<center><img data-src="./figs/vector_raster.png" height="600"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/vector_raster2.png" height="600">
+<br>
 
-# ttttt
+<center><img data-src="./figs/l04_world.jpg" alt="centered image" width="75%" height="75%"><center>
 
-<center><img data-src="./figs/nightlights.png" alt="centered image" width="55%" height="55%"><center>
+##
 
-# ttttt
+<br>
 
-Square grid of pixels. Pixel values can represent continuous or categorical variables: 
-Ex: Elevation above sea level, Pollution, Land Use. 
-Divides 2-D space into regular cells - pixels
-Each cell has a single value
-Values assigned according to value at mean, centre point, or some other rule
-Equivalent to digital image formats (jpeg, tiff etc)
+<center><img data-src="./figs/l04_pixels.png" alt="centered image" width="85%" height="85%"><center>
+
+##
+
+<br>
+
+<center><img data-src="./figs/l04_pixels2.jpg" alt="centered image" width="85%" height="85%"><center>
+
+## Vector Data
+
+<br>
+
+<center><img data-src="./figs/l04_vector.png" alt="centered image" width="95%" height="95%"><center>
+
+## Contrast with Vector Data
+
+<br>
+
+<img data-src="./figs/vector_raster.png" height="350"> &nbsp;&nbsp;<img data-src="./figs/vector_raster2.png" height="350">
+
+## Definition 
+
+- Square grid of pixels. Pixel values can represent continuous or categorical variables: 
+- Divides 2-D space into regular cells - pixels
+- Each cell has a single value
+- Values assigned according to value at mean, centre point, or some other rule
+
+## File Formats 
+
+<br>
+<br>
+
+<center><img data-src="./figs/l04_geojson.png" height="180"> &nbsp;&nbsp;<img data-src="./figs/l04_shp.jpg" height="180"> &nbsp;&nbsp;<img data-src="./figs/l04_tables.jpg" height="180"> &nbsp;&nbsp; <img data-src="./figs/l04_raster.png" height="180"><center>
+
+# Raster Data Types
+
+## Grayscale Rasters
+
+Continuous Data, Single Band
+
+<center><img data-src="./figs/nightlights.png" alt="centered image" width="70%" height="70%"><center>
+
+## Nightlights data
+
+- Nightlights data can be represented as a grayscale raster, where darker areas indicate lower levels of artificial light, and lighter areas represent higher levels of artificial light.
+- The pixel values may represent the radiance or luminance values of nighttime lights.
+- Used for monitoring urban development, assessing light pollution, and understanding human activity patterns at night...
+
+## Multispectral Rasters
+Multiple Bands
+
+<center><img data-src="./figs/l04_bands.png" alt="centered image" width="55%" height="55%"><center>
+
+## Bands 2, 3 and 4
+
+Blue, green, and red for true-color image.
+
+<br>
+
+<center><img data-src="./figs/l04_bands2_3_4.png" alt="centered image" width="75%" height="75%"><center>
+
+## Landsat Satellite Imagery
+
+- Landsat satellites capture data in multiple spectral bands, such as visible, near-infrared, and thermal infrared.
+- Each band is represented as a separate channel in a multispectral raster, allowing for the analysis of various aspects of the Earth's surface. 
+- Different bands capture information related to vegetation, water, and land use.
+
+## Sources {.smaller}
+
+- High spatial resolution data - costly commercial products. 
+- Lower spatial resolution data is free (NASA, ESA, etc). 
+- Several sources:
+  - [http://earthexplorer.usgs.gov/](http://earthexplorer.usgs.gov/)
+  - [https://lpdaacsvc.cr.usgs.gov/appeears/](http://earthexplorer.usgs.gov/)
+  - [https://search.earthdata.nasa.gov/search](http://earthexplorer.usgs.gov/)
+  - [https://lpdaac.usgs.gov/data_access/data_pool](http://earthexplorer.usgs.gov/)
+  - [https://scihub.copernicus.eu/](http://earthexplorer.usgs.gov/)
+  - [https://aws.amazon.com/public-data-sets/landsat/](http://earthexplorer.usgs.gov/)
 
 
-# Henderson, V. Storeygard A., Weil, N. 2012. Measuring economic growth from outer space, AER.
+## Color Rasters
+Digital Photography, Optical Satellites
+
+<center><img data-src="./figs/l_04_pre-post-blast-planet.jpeg" alt="centered image" width="75%" height="75%"><center>
+
+## Color Rasters
+
+- Digital photographs are typically stored as color rasters, combining red, green, and blue (RGB) channels to represent a full range of colors. 
+- Each pixel's RGB values determine the color in the image. 
+- Digital cameras and most image-editing software work with RGB color rasters.
+
+
+## Elevation Rasters
+Representing Terrain Data
+
+<center><img data-src="./figs/l04_terrain.png" alt="centered image" width="75%" height="75%">
+
+Left: *raw RGB*, Center: *decoded to hypsometric tint*, Right: *decoded to hillshades*</center>
+
+</right>[Mapbox](https://blog.mapbox.com/global-elevation-data-6689f1d0ba65)</right>
+
+## Digital Elevation Models (DEMs)
+
+- Digital Elevation Models are used to represent terrain data. 
+- DEMs are rasters where each pixel's value represents the elevation (height) of the corresponding location on the Earth's surface. 
+- These rasters are widely used in geospatial applications, including topographic mapping and hydrological modeling.
+
+# Resolution
+
+## Spatial Resolution
+
+- Level of detail or granularity in the spatial domain of data. 
+- How well an instrument or sensor can distinguish between objects or features in a given space. 
+- <mark>Higher</mark> spatial resolution =  more <mark>detailed</mark> data
+- <mark>Larger file sizes</mark> and <mark>Increased data processing</mark> demands. 
+
+## Temporal Resolution
+- Accuracy and precision of time measurements 
+- The higher the temporal resolution, the more frequent and precise the time measurements, allowing for the tracking of fast-changing processes or events. 
+
+## Data Volume and Storage
+- Unprecedented rate of collection.
+- Fundamental aspects of data management. 
+- Challenges associated with handling and storing vast amounts of dat
+- Traditional hardware-based solutions vs cloud-based storage (right approach?)
+
+
+# Future Trends
+
+## Big Data and Raster Information
+- Transforming the way we handle geospatial data. 
+- Sensors and technology become more sophisticated
+- The volume of raster information is growing exponentially. 
+
+## Machine Learning and Raster Data {.smaller}
+
+- Chen Wangyang, Wu, Abraham Noah, Biljecki and Filip, 2021. Classification of Urban Morphology with Deep Learning: Application on Urban Vitality. *Computers, Environment and Urban Systems*
+
+<center><img data-src="./figs/l04_urbanclass.png" alt="centered image" width="55%" height="55%"><center>
+
+## Cloud-Based Raster Data Services
+<br>
+-  Redefining how we store, process, and share raster data. 
+- The cloud offers scalability, accessibility, and cost-efficiency that traditional on-premises systems can't match. 
+
+# Satellite data for Social Science
+
+## Henderson et al 2012. 
+
+"Measuring economic growth from outer space", AER.
 
 <center><img data-src="./figs/economicgrowth_space.png" alt="centered image" width="55%" height="55%"><center>
 
+## Jean et al. 2016. 
 
-# Terrain Data
+"Combining satellite imagery and machine learning to predict poverty." Science
 
-## Terrain
-
-
-
-# Modifiable Area Unit Problem (Openshaw, 1984)
-
-##
-<br>
-<center><img data-src="./figs/l04_maup_pts.png" height="320"> &nbsp;<img data-src="./figs/l04_maup_2x2_grid.png" height="320">&nbsp;<img data-src="./figs/l04_maup_2x2_map.png" height="320"><center>
-
+<center><img data-src="./figs/l04_satellite_poverty.png" alt="centered image" width="40%" height="40%"><center>
 
 # Questions
 

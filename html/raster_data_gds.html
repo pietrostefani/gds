@@ -325,7 +325,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Geographic Data Science</h1>
-  <p class="subtitle">Vector</p>
+  <p class="subtitle">Raster Data</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -341,40 +341,222 @@ Elisabetta Pietrostefani &amp; Carmen Cabrera-Arnau
 <h1>Raster Data</h1>
 
 </section>
-<section id="raster-data-1" class="slide level2">
-<h2>Raster Data</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><br></p>
 <center>
-<p><img data-src="./figs/vector_raster.png" height="600"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/vector_raster2.png" height="600"></p>
-</center></section></section>
-<section id="ttttt" class="title-slide slide level1 center">
-<h1>ttttt</h1>
-<center>
-<img data-src="./figs/nightlights.png" alt="centered image" width="55%" height="55%">
+<img data-src="./figs/l04_world.jpg" alt="centered image" width="75%" height="75%">
 <center>
 </center></center></section>
-
-<section id="ttttt-1" class="title-slide slide level1 center">
-<h1>ttttt</h1>
-<p>Square grid of pixels. Pixel values can represent continuous or categorical variables: Ex: Elevation above sea level, Pollution, Land Use. Divides 2-D space into regular cells - pixels Each cell has a single value Values assigned according to value at mean, centre point, or some other rule Equivalent to digital image formats (jpeg, tiff etc)</p>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p><br></p>
+<center>
+<img data-src="./figs/l04_pixels.png" alt="centered image" width="85%" height="85%">
+<center>
+</center></center></section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><br></p>
+<center>
+<img data-src="./figs/l04_pixels2.jpg" alt="centered image" width="85%" height="85%">
+<center>
+</center></center></section>
+<section id="vector-data" class="slide level2">
+<h2>Vector Data</h2>
+<p><br></p>
+<center>
+<img data-src="./figs/l04_vector.png" alt="centered image" width="95%" height="95%">
+<center>
+</center></center></section>
+<section id="contrast-with-vector-data" class="slide level2">
+<h2>Contrast with Vector Data</h2>
+<p><br></p>
+<p><img data-src="./figs/vector_raster.png" height="350"> &nbsp;&nbsp;<img data-src="./figs/vector_raster2.png" height="350"></p>
 </section>
+<section id="definition" class="slide level2">
+<h2>Definition</h2>
+<ul>
+<li>Square grid of pixels. Pixel values can represent continuous or categorical variables:</li>
+<li>Divides 2-D space into regular cells - pixels</li>
+<li>Each cell has a single value</li>
+<li>Values assigned according to value at mean, centre point, or some other rule</li>
+</ul>
+</section>
+<section id="file-formats" class="slide level2">
+<h2>File Formats</h2>
+<p><br> <br></p>
+<center>
+<img data-src="./figs/l04_geojson.png" height="180"> &nbsp;&nbsp;<img data-src="./figs/l04_shp.jpg" height="180"> &nbsp;&nbsp;<img data-src="./figs/l04_tables.jpg" height="180"> &nbsp;&nbsp; <img data-src="./figs/l04_raster.png" height="180">
+<center>
+</center></center></section></section>
+<section>
+<section id="raster-data-types" class="title-slide slide level1 center">
+<h1>Raster Data Types</h1>
 
-<section id="henderson-v.-storeygard-a.-weil-n.-2012.-measuring-economic-growth-from-outer-space-aer." class="title-slide slide level1 center">
-<h1>Henderson, V. Storeygard A., Weil, N. 2012. Measuring economic growth from outer space, AER.</h1>
+</section>
+<section id="grayscale-rasters" class="slide level2">
+<h2>Grayscale Rasters</h2>
+<p>Continuous Data, Single Band</p>
+<center>
+<img data-src="./figs/nightlights.png" alt="centered image" width="70%" height="70%">
+<center>
+</center></center></section>
+<section id="nightlights-data" class="slide level2">
+<h2>Nightlights data</h2>
+<ul>
+<li>Nightlights data can be represented as a grayscale raster, where darker areas indicate lower levels of artificial light, and lighter areas represent higher levels of artificial light.</li>
+<li>The pixel values may represent the radiance or luminance values of nighttime lights.</li>
+<li>Used for monitoring urban development, assessing light pollution, and understanding human activity patterns at night…</li>
+</ul>
+</section>
+<section id="multispectral-rasters" class="slide level2">
+<h2>Multispectral Rasters</h2>
+<p>Multiple Bands</p>
+<center>
+<img data-src="./figs/l04_bands.png" alt="centered image" width="55%" height="55%">
+<center>
+</center></center></section>
+<section id="bands-2-3-and-4" class="slide level2">
+<h2>Bands 2, 3 and 4</h2>
+<p>Blue, green, and red for true-color image.</p>
+<p><br></p>
+<center>
+<img data-src="./figs/l04_bands2_3_4.png" alt="centered image" width="75%" height="75%">
+<center>
+</center></center></section>
+<section id="landsat-satellite-imagery" class="slide level2">
+<h2>Landsat Satellite Imagery</h2>
+<ul>
+<li>Landsat satellites capture data in multiple spectral bands, such as visible, near-infrared, and thermal infrared.</li>
+<li>Each band is represented as a separate channel in a multispectral raster, allowing for the analysis of various aspects of the Earth’s surface.</li>
+<li>Different bands capture information related to vegetation, water, and land use.</li>
+</ul>
+</section>
+<section id="sources" class="slide level2 smaller">
+<h2>Sources</h2>
+<ul>
+<li>High spatial resolution data - costly commercial products.</li>
+<li>Lower spatial resolution data is free (NASA, ESA, etc).</li>
+<li>Several sources:
+<ul>
+<li><a href="http://earthexplorer.usgs.gov/">http://earthexplorer.usgs.gov/</a></li>
+<li><a href="http://earthexplorer.usgs.gov/">https://lpdaacsvc.cr.usgs.gov/appeears/</a></li>
+<li><a href="http://earthexplorer.usgs.gov/">https://search.earthdata.nasa.gov/search</a></li>
+<li><a href="http://earthexplorer.usgs.gov/">https://lpdaac.usgs.gov/data_access/data_pool</a></li>
+<li><a href="http://earthexplorer.usgs.gov/">https://scihub.copernicus.eu/</a></li>
+<li><a href="http://earthexplorer.usgs.gov/">https://aws.amazon.com/public-data-sets/landsat/</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="color-rasters" class="slide level2">
+<h2>Color Rasters</h2>
+<p>Digital Photography, Optical Satellites</p>
+<center>
+<img data-src="./figs/l_04_pre-post-blast-planet.jpeg" alt="centered image" width="75%" height="75%">
+<center>
+</center></center></section>
+<section id="color-rasters-1" class="slide level2">
+<h2>Color Rasters</h2>
+<ul>
+<li>Digital photographs are typically stored as color rasters, combining red, green, and blue (RGB) channels to represent a full range of colors.</li>
+<li>Each pixel’s RGB values determine the color in the image.</li>
+<li>Digital cameras and most image-editing software work with RGB color rasters.</li>
+</ul>
+</section>
+<section id="elevation-rasters" class="slide level2">
+<h2>Elevation Rasters</h2>
+<p>Representing Terrain Data</p>
+<center>
+<p><img data-src="./figs/l04_terrain.png" alt="centered image" width="75%" height="75%"></p>
+Left: <em>raw RGB</em>, Center: <em>decoded to hypsometric tint</em>, Right: <em>decoded to hillshades</em>
+</center>
+<p><a href="https://blog.mapbox.com/global-elevation-data-6689f1d0ba65">Mapbox</a></p>
+</section>
+<section id="digital-elevation-models-dems" class="slide level2">
+<h2>Digital Elevation Models (DEMs)</h2>
+<ul>
+<li>Digital Elevation Models are used to represent terrain data.</li>
+<li>DEMs are rasters where each pixel’s value represents the elevation (height) of the corresponding location on the Earth’s surface.</li>
+<li>These rasters are widely used in geospatial applications, including topographic mapping and hydrological modeling.</li>
+</ul>
+</section></section>
+<section>
+<section id="resolution" class="title-slide slide level1 center">
+<h1>Resolution</h1>
+
+</section>
+<section id="spatial-resolution" class="slide level2">
+<h2>Spatial Resolution</h2>
+<ul>
+<li>Level of detail or granularity in the spatial domain of data.</li>
+<li>How well an instrument or sensor can distinguish between objects or features in a given space.</li>
+<li><mark>Higher</mark> spatial resolution = more <mark>detailed</mark> data</li>
+<li><mark>Larger file sizes</mark> and <mark>Increased data processing</mark> demands.</li>
+</ul>
+</section>
+<section id="temporal-resolution" class="slide level2">
+<h2>Temporal Resolution</h2>
+<ul>
+<li>Accuracy and precision of time measurements</li>
+<li>The higher the temporal resolution, the more frequent and precise the time measurements, allowing for the tracking of fast-changing processes or events.</li>
+</ul>
+</section>
+<section id="data-volume-and-storage" class="slide level2">
+<h2>Data Volume and Storage</h2>
+<ul>
+<li>Unprecedented rate of collection.</li>
+<li>Fundamental aspects of data management.</li>
+<li>Challenges associated with handling and storing vast amounts of dat</li>
+<li>Traditional hardware-based solutions vs cloud-based storage (right approach?)</li>
+</ul>
+</section></section>
+<section>
+<section id="future-trends" class="title-slide slide level1 center">
+<h1>Future Trends</h1>
+
+</section>
+<section id="big-data-and-raster-information" class="slide level2">
+<h2>Big Data and Raster Information</h2>
+<ul>
+<li>Transforming the way we handle geospatial data.</li>
+<li>Sensors and technology become more sophisticated</li>
+<li>The volume of raster information is growing exponentially.</li>
+</ul>
+</section>
+<section id="machine-learning-and-raster-data" class="slide level2 smaller">
+<h2>Machine Learning and Raster Data</h2>
+<ul>
+<li>Chen Wangyang, Wu, Abraham Noah, Biljecki and Filip, 2021. Classification of Urban Morphology with Deep Learning: Application on Urban Vitality. <em>Computers, Environment and Urban Systems</em></li>
+</ul>
+<center>
+<img data-src="./figs/l04_urbanclass.png" alt="centered image" width="55%" height="55%">
+<center>
+</center></center></section>
+<section id="cloud-based-raster-data-services" class="slide level2">
+<h2>Cloud-Based Raster Data Services</h2>
+<ul>
+<li>Redefining how we store, process, and share raster data.</li>
+<li>The cloud offers scalability, accessibility, and cost-efficiency that traditional on-premises systems can’t match.</li>
+</ul>
+</section></section>
+<section>
+<section id="satellite-data-for-social-science" class="title-slide slide level1 center">
+<h1>Satellite data for Social Science</h1>
+
+</section>
+<section id="henderson-et-al-2012." class="slide level2">
+<h2>Henderson et al 2012.</h2>
+<p>“Measuring economic growth from outer space”, AER.</p>
 <center>
 <img data-src="./figs/economicgrowth_space.png" alt="centered image" width="55%" height="55%">
 <center>
 </center></center></section>
-
-<section>
-<section id="modifiable-area-unit-problem-openshaw-1984" class="title-slide slide level1 center">
-<h1>Modifiable Area Unit Problem (Openshaw, 1984)</h1>
-
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<br>
+<section id="jean-et-al.-2016." class="slide level2">
+<h2>Jean et al.&nbsp;2016.</h2>
+<p>“Combining satellite imagery and machine learning to predict poverty.” Science</p>
 <center>
-<img data-src="./figs/l04_maup_pts.png" height="320"> &nbsp;<img data-src="./figs/l04_maup_2x2_grid.png" height="320">&nbsp;<img data-src="./figs/l04_maup_2x2_map.png" height="320">
+<img data-src="./figs/l04_satellite_poverty.png" alt="centered image" width="40%" height="40%">
 <center>
 </center></center></section></section>
 <section id="questions" class="title-slide slide level1 center">
@@ -382,7 +564,7 @@ Elisabetta Pietrostefani &amp; Carmen Cabrera-Arnau
 
 </section>
 
-<section id="section-1" class="title-slide slide level1 center">
+<section id="section-3" class="title-slide slide level1 center">
 <h1></h1>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Geographic Data Science</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://pietrostefani.com" property="cc:attributionName" rel="cc:attributionURL">Elisabetta Pietrostefani</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 <div class="footer footer-default">

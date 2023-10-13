@@ -809,7 +809,7 @@
     "href": "mapraster.html#further-readings",
     "title": "4 Mapping Raster Data",
     "section": "Further readings",
-    "text": "Further readings\nHenderson, J. Vernon, Adam Storeygard, and David N. Weil. 2012. Measuring Economic Growth from Outer Space. American Economic Review, 102 (2): 994-1028. Replication data : https://www.openicpsr.org/openicpsr/project/112518/version/V1/view Nathan Nunn & Diego Puga, 2012. Ruggedness: The Blessing of Bad Geography in Africa, The Review of Economics and Statistics, MIT Press, vol. 94(1), pages 20-36, February. http://diegopuga.org/data/rugged/rugged_data.zip Dugoua, Eugenie, Ryan Kennedy, and Johannes Urpelainen. 2018. Satellite data for the social sciences: measuring rural electrification with night-time lights. International journal of remote sensing 39, no. 9: 2690-2701. Su, Yu, Zhing Yanfei, Zhu Qiqi, Zhqo, Ji (2021), Urban scene understanding based on semantic and socioeconomic features: From high-resolution remote sensing imagery to multi-source, geographic datasets. ISPRS Journal of Photogrammetry and Remote Sensing. Vol. 179: 50-65"
+    "text": "Further readings\n\nRaster Data in R"
   },
   {
     "objectID": "mapraster_code.html",
@@ -859,5 +859,26 @@
     "title": "Do-It-Yourself",
     "section": "Advanced",
     "text": "Advanced\nWorking on a time-series representation of the evolution of Nights Lights in a country of your choice. As in the lab, the data can be found here.\n\nTask II:\n\nProcess the data and make a map with at least two years of night lights data.\nThink about the story the data is telling you.\n\nHow have night lights evolved over time in your country of choice? Remember this will mean different things for different countries.\nWhat choices have you made in terms of bins, colours, zoom level to tell your story?"
+  },
+  {
+    "objectID": "mapraster.html#raster-data",
+    "href": "mapraster.html#raster-data",
+    "title": "4 Mapping Raster Data",
+    "section": "Raster Data",
+    "text": "Raster Data\nRaster data is a digital image format that represents data as a grid of individual pixels, with each pixel containing a specific value or color information.\n\nSquare grid of pixels.\nPixel values can represent continuous or categorical variables:\n\nDivides 2-D space into regular cells - pixels\nEach cell has a single value\n\nValues assigned according to value at mean, centre point, or some other rule"
+  },
+  {
+    "objectID": "mapraster.html#data-types",
+    "href": "mapraster.html#data-types",
+    "title": "4 Mapping Raster Data",
+    "section": "Data Types",
+    "text": "Data Types\n\nGrayscale Rasters\nGrayscale raster data is a type of digital image representation that uses varying shades of gray to depict the intensity or brightness of a particular phenomenon at different locations. In grayscale images, pixel values typically range from 0 (black) to 255 (white), with intermediate values representing different levels of gray. These pixel values can represent continuous data, making grayscale rasters suitable for visualizing and analyzing phenomena where intensity or variation needs to be conveyed, such as medical X-rays, satellite nightlights data, or other scenarios where the focus is on quantifying the degree of a single attribute without using color.\nExample: Nightlights Data\nNightlights data can be represented as a grayscale raster, where darker areas indicate lower levels of artificial light, and lighter areas represent higher levels of artificial light. The pixel values may represent the radiance or luminance values of nighttime lights. Satellite-based nightlights data is used for various applications, such as monitoring urban development, assessing light pollution, and understanding human activity patterns at night.\n\n\nMultispectral Rasters\nMultispectral rasters are a type of digital image representation that incorporates multiple spectral bands or channels to capture a diverse range of information about a scene or phenomenon. In multispectral rasters, each channel represents a specific part of the electromagnetic spectrum, such as visible light, near-infrared, or thermal infrared. By combining these spectral bands, multispectral data provides a comprehensive view of the landscape, enabling analysis of various aspects like vegetation health, land use, or changes in urban and rural conditions. This type of raster data is commonly used in applications such as remote sensing, agriculture, and natural resource management, where a nuanced understanding of different attributes of the environment is essential.\nExample: Landsat Satellite Imagery\nLandsat satellite imagery, with its multispectral bands, is extensively used for environmental monitoring. It allows for tracking changes in land cover, assessing vegetation health, monitoring water quality, and detecting forest fires. Researchers and environmental agencies use multispectral data to make informed decisions regarding conservation and resource management.\n\n\nColor Rasters\nColour rasters are a digital image representation that utilizes the combination of three primary colour channels: red, green, and blue (RGB) to create a full range of colors. Each pixel in a colour raster is assigned values for these three color channels, which determine the pixel’s color.\nExample: Digital Photographs\nColuor rasters, as seen in digital photographs can be used for social sciences by analysing pixel differences.\n\n\nElevation Rasters\nElevation rasters are a type of digital representation that use a grid of values to depict the varying heights or elevations of the Earth’s surface across different locations. Each pixel in an elevation raster contains a numerical value representing the height or elevation above a reference point, such as sea level. Elevation rasters are commonly used in geospatial applications, cartography, and terrain modeling. They enable precise visualization and analysis of topographic features, such as mountains, valleys, and slopes, making them essential for tasks like mapmaking, land-use planning, flood risk assessment, and 3D visualization of landscapes.\nExample: Digital Elevation Models (DEMs)\nDEMs are vital for creating topographic maps, analyzing terrain, and conducting spatial modeling. They find applications in urban planning, flood risk assessment, route planning, and 3D visualization. DEMs enable precise representation of Earth’s surface elevation, supporting a wide range of geospatial applications."
+  },
+  {
+    "objectID": "mapraster.html#satellite-data-for-social-science",
+    "href": "mapraster.html#satellite-data-for-social-science",
+    "title": "4 Mapping Raster Data",
+    "section": "Satellite data for Social Science",
+    "text": "Satellite data for Social Science\nHave a look at\n\nJean, Neal, et al. 2016 “Combining satellite imagery and machine learning to predict poverty.” Science\nHenderson, J. Vernon, Adam Storeygard, and David N. Weil. 2012. Measuring Economic Growth from Outer Space American Economic Review, 102 (2): 994-1028. Replication data"
   }
 ]
