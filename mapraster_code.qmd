@@ -217,6 +217,14 @@ households <- cbind(households, housesales_elevation)
 head(households)
 ```
 
+::: callout-important
+
+Make sure all your data is in the same CRS, otherwise the `raster::extract` function will not work properly.
+
+You should not be seeing NAs, if you do you should use the terra `project()` function.
+
+:::
+
 ## Night Lights
 
 This section is a bit more advanced, there are hints along the way to make it simpler.
