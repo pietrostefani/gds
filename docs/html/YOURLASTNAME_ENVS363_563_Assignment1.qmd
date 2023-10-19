@@ -1,0 +1,21 @@
+---
+title: "ENVS363/563 Assignment 1"
+format: html
+editor: visual
+---
+
+# Installing Packages
+
+# Your Annotated Code
+
+
+# Maps
+
+This should include tow maps, Map 1 and Map 2 which can be combined as one final map. 
+
+# Up to 500 words which should address the following questions.
+
+1. What value is associated with each pixel?
+2. Which CRS are you using? Justify your answer.
+3. What is Map 1 saying about population density in China?
+4. Which categorical divisions (Decline, Neutral, Growth and High Growth) did you chose for Map 2 and why?

@@ -15,6 +15,8 @@ Once you have created your map, you will need to present it. Write up to 500 abo
 
 ### [Full Assignment details](https://theuniversityofliverpool-my.sharepoint.com/:b:/g/personal/pietrost_liverpool_ac_uk/Ec7CR-uEYBhAhaRgn5kK-4EByOrKLsF4utUtNglg9szKeA?e=M72Smx)
 
+### [.qmd file](./html/YOURLASTNAME_ENVS363_563_Assignment1.qmd)
+
 ### Submit
 
 Once completed, you will need to submit the following:
@@ -31,8 +33,8 @@ The assignment will be evaluated based on three main pillars, on which you will 
 
 ## Assignment II
 
--   **Title:** MCQ test
--   **Type:** 16th November - during the Lab
+-   **Title:** Multiple Choice Questions - test
+-   **Type:** 16th November - during the Lab. 90 mins
 -   Due date: **TBC**
 -   25% of the final mark
 -   Chance to be reassessed
@@ -68,11 +70,11 @@ A computational essay is an essay whose narrative is supported by code and compu
 
 **There are three kinds of elements in a computational essay:**
 
-1\. Ordinary text (in English)
+1. Ordinary text (in English)
 
-2\. Computer input (R)
+2. Computer input (R)
 
-3\. Computer output These three elements all work together to express what's being communicated.
+3. Computer output These three elements all work together to express what's being communicated.
 
 ## Marking Criteria
 
