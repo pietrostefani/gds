@@ -8,14 +8,21 @@ editor: visual
 
 # Your Annotated Code
 
-
 # Maps
 
-This should include tow maps, Map 1 and Map 2 which can be combined as one final map. 
+This should include tow maps, Map 1 and Map 2 which can be combined as one final map.
+
+**Hint**:
+
+If you want to add a scalebar or north_arrow to your map in tmap you can use:
+`tm_scale_bar(position=c("left", "bottom"))` and `tm_compass()`
+  
+If you want to add a scalebar or north_arrow to your map in ggplot you can use:
+`annotation_scale()`and `annotation_north_arrow(pad_y = unit(1, "cm"))` 
 
 # Up to 500 words which should address the following questions.
 
-1. What value is associated with each pixel?
-2. Which CRS are you using? Justify your answer.
-3. What is Map 1 saying about population density in China?
-4. Which categorical divisions (Decline, Neutral, Growth and High Growth) did you chose for Map 2 and why?
+1.  What value is associated with each pixel?
+2.  Which CRS are you using? Justify your answer.
+3.  What is Map 1 saying about population density in China?
+4.  Which categorical divisions (Decline, Neutral, Growth and High Growth) did you chose for Map 2 and why?
