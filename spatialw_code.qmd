@@ -1,1 +1,587 @@
-# Lab {#sec-spatial-w-lab .unnumbered}
+# Lab ***\*\*Under construction***\*\* {#sec-spatial-w-lab .unnumbered}
+
+There are several ways to create spatial weigths matrices so they contain an accurate representation that aligns with the way we understand spatial interactions between observations associated with different locations. In this session, we will introduce the most commonly used ones and will show how to compute them with the following libraries
+
+```{r}
+library(sf)
+library(dplyr)
+library(spdep)
+library(tibble)
+library(ggplot2)
+library(tmap)
+library(patchwork)
+```
+
+## Data
+
+For this session, we will use a dataset of small areas (or Lower layer Super Output Areas, LSOAs) for Liverpool, UK. The table is available as part of this course, so can be accessed remotely through the web. If you want to see how the table was created, a notebook is available here.
+
+To make things easier, we will read data from a file posted online so, for now, you do not need to download any dataset:
+
+```{r}
+# Read the file in
+df = read_sf("./data/Liverpool/liv_lsoas.gpkg")
+
+```
+
+```{r}
+# Display first few lines
+head(df)
+```
+
+## Building spatial weights
+
+### Contiguity
+
+Contiguity weights matrices define spatial connections through the existence of common boundaries. This makes it directly suitable to use with polygons: if two polygons share boundaries to some degree, they will be labeled as neighbors under these kinds of weights. We will learn two approaches, namely queen and rook, characterised by how much they need to share.
+
+-   **Queen**
+
+Under the queen criterion, two observations only need to share a vertex (a single point) of their boundaries to be considered neighbors. Constructing a weights matrix under these principles can be done by running:
+
+```{r}
+# list all adjacent polygons for each polygon
+nb_q <- poly2nb(df, queen = TRUE) # Construct neighbours list from polygon list
+```
+
+and then:
+
+```{r}
+w_queen <- nb2listw(nb_q, style = "B") # Create a spatial weights matrix using queen contiguity
+```
+
+In reality, `w_queen` is not stored as a matrix containing values for each pair of observations, including zeros for those that are not neighbours. Instead, to save memory, for each observation it stores a list of those other observations that are neighbours according to the queen criterion, and it does not store any values for those observations that are not neighbours. To access summary information about the "spatial weights matrix", we run the following code:
+
+```{r}
+summary(w_queen) # Display summary information about the spatial weights matrix
+```
+
+Note that when we created `w_queen` using the `nb2list2` function, we set `style` to `"B"`. This means that the weights are recorded as a binary variable taking the value 1 to mark the presence of a link between an observation and a neighbouring one.
+
+To see what the ID of the neighbouring polygons for the first polygon in `df`, we can run the following:
+
+```{r}
+nb_q[[1]] # Access the neighbors of the first polygon in the list
+```
+
+We can check if polygon 149 is a neighbour of polygon 1:
+
+```{r}
+149 %in% nb_q[[1]] # Check if district 149 is a neighbor of the first polygon in the list
+```
+
+Yes it is, as it was obvious from the output of `nb_q[[1]]`, which includes 149 as one of the neighbours of 1. We can also check if polygon 150 is a neighbour of polygon 1. This should not be the case.
+
+```{r}
+150 %in% nb_q[[1]] # Check if district 150 is a neighbor of the first polygon in the list
+```
+
+What are the weights assigned to the neighbours of polygon 1?
+
+```{r}
+w_queen$neighbours[[1]] # Display the neighbors of the first polygon in the spatial weights matrix
+w_queen$weights[[1]]    # Display the corresponding weights for the neighbors of the first polygon
+```
+
+The weights are set to 1 for each of the neighbours of 1. This is because we set `style` to `"B"` when we created `w_queen`. More options are available as we will see later.
+
+How many neighbours does observation 1 have? This can be easily checked using the `length()` function:
+
+```{r}
+length(w_queen$neighbours[[1]]) # Calculate the number of neighbors for the first polygon in the spatial weights matrix
+```
+
+But if we wanted to have a more comprehensive understanding of the number of neighbours for all the observations in our dataset, we need to obtain a histogram. This is achieved by running:
+
+```{r}
+# Get the number of neighbors for each element
+num_nb_q <- sapply(nb_q, function(x) length(x))
+
+# Create a dataframe with LSOA11CD and num_neighbors
+nb_counts_q <- data.frame(LSOA11CD = df$LSOA11CD, num_nb_q = num_nb_q)
+
+# Create a histogram of the number of queen neighbors
+hist(nb_counts_q$num_nb_q, breaks = 10, col = "blue", main = "Histogram of no. of queen neighbours", xlab = "No. of queen neighbours")
+```
+
+Looking at the histogram, we conclude that the mode is 4 queen neighbours. We can obtain some additional summary statistics:
+
+```{r}
+# Calculate the mean number of queen neighbours
+mean(nb_counts_q$num_nb_q) 
+
+# Find the maximum number of queen neighbours
+max(nb_counts_q$num_nb_q)  
+
+# Find the minimum number of queen neighbours
+min(nb_counts_q$num_nb_q) 
+```
+
+Are there any isolated nodes, or in other words, are there any polygons that have zero queen neighbours?
+
+```{r}
+# Check if there are elements with zero queen neighbours
+0 %in% nb_counts_q$num_nb_q 
+```
+
+The answer is no!
+
+Let's visualise the queen neighbourhood of the first observation. To do this, we first create sub data frames including polygon 1 and the queen neighbourhood of polygon 1:
+
+```{r}
+ # Extract the first row of the dataframe as 'obs1'
+obs1 <- df[1,]
+
+# Extract the rows corresponding to the neighbors of the first polygon using queen contiguity
+obs1_nb_q <- df[c(nb_q[[1]]),]
+```
+
+We then create a map this using different colors with the `tmap` package, which inherits lots of functionalities from `ggplot2`. We store the plot in the `final_map_q` variable, but we will not plot it just yet. We will plot it side to side with other maps representing other types of neighbourhoods so we can compare these:
+
+```{r}
+
+# Create a map for all the units in mistyrose3 
+rest_map <- tm_shape(df) +  
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "mistyrose3")  
+
+# Create a map for neighbors in steelblue4
+neighbors_map <- tm_shape(obs1_nb_q) +
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "steelblue4")  
+
+# Create a map for observation 1 in red2
+obs1_map <- tm_shape(obs1) +
+  tm_borders(col = "black", lwd = 0.5) + 
+  tm_fill(col = "red2")  
+
+# Combine all the maps, add compass, scale bar, and legend
+final_map_q <- rest_map + neighbors_map + obs1_map +
+  tm_compass(position = c("right", "top")) + 
+  tm_scale_bar(position = c("right", "bottom")) + 
+  tm_add_legend(type = "fill", col = c("red2", "steelblue4","mistyrose3"), 
+                labels = c("Observation 1", "Queen neighbourhood", "Rest of LSOAs"), title = "") + 
+  tm_layout(legend.text.size = 0.55, inner.margins = c(0.01, 0.1, 0.01, 0.05), 
+            legend.position = c(0.03,0.03), legend.width=0.55)
+
+```
+
+-   **Rook**
+
+Rook contiguity is similar to and, in many ways, superseded by queen contiguity. However, since it sometimes comes up in the literature, it is useful to know about it. The main idea is the same: two observations are neighbors if they share some of their boundary lines. However, in the rook case, it is not enough with sharing only one point, it needs to be at least a segment of their boundary. In most applied cases, these differences usually boil down to how the geocoding was done, but in some cases, such as when we use raster data or grids, this approach can differ more substantively and it thus makes more sense.
+
+We create the list of neighbours using `poly2nb()` again, but this time setting the `queen` argument to `FALSE`.
+
+```{r}
+nb_r <- poly2nb(df, queen = FALSE) # Construct neighbors list using rook contiguity
+```
+
+From the list of neighbours for each polygon, we can create a rook spatial weights matrix, setting the weights to 1's to mark the presence of a connection between two polygons:
+
+```{r}
+# Create a spatial weights matrix using rook contiguity
+w_rook <- nb2listw(nb_r, style = "B") 
+# Display summary information about the spatial weights matrix
+summary(w_rook) 
+```
+
+### Distance
+
+Distance-based matrices assign the weight to each pair of observations as a function of how far from each other they are. How this is translated into an actual weight varies across types and variants, but they all share that the ultimate reason why two observations are assigned some weight is due to the distance between them.
+
+-   $K$**-nearest neighbours**
+
+One approach to define weights is to take the distances between a given observation and the rest of the set, rank them, and consider as neighbors the $k$ closest ones. That is exactly what the $k$-nearest neighbors (KNN) criterion does.
+
+To calculate the 5 nearest neighbours for each polygon, we can use the `knearneigh()` function, setting `k=5`. Note that this function only takes point geometries, so instead of passing `df` directly, we compute the coordinates of the centroids for each polygon using `st_centroid()` and `st_coordinates()`:
+
+```{r}
+# Create k-Nearest Neighbors list with k=5
+nb_knn <- knearneigh(st_coordinates(st_centroid(df)), k=5) 
+```
+
+And once again, from the list of neighbours, we can create the "spatial weights matrix", this time using the `knn2nb()` function:
+
+```{r}
+# Convert k-Nearest Neighbors list to a spatial weights matrix
+w_knn <- knn2nb(nb_knn)
+```
+
+Like before, we create a map that will help us visualise the neighbourhood of polygon 1 according to the 5-nearest neighbours criterion:
+
+```{r}
+# Extract the first row of the dataframe as 'obs1'
+obs1 <- df[1,]
+
+# Extract the rows corresponding to the k-Nearest Neighbors of the first centroid
+obs1_nb_knn <- df[c(w_knn[[1]]),]
+```
+
+```{r}
+# Create a map for all the units in mistyrose3 
+rest_map <- tm_shape(df) +  
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "mistyrose3")  
+
+# Create a map for neighbors in steelblue4
+neighbors_map <- tm_shape(obs1_nb_knn) +
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "steelblue4")  
+
+# Create a map for observation 1 in red2
+obs1_map <- tm_shape(obs1) +
+  tm_borders(col = "black", lwd = 0.5) + 
+  tm_fill(col = "red2")  
+
+# Combine all the maps, add compass, scale bar, and legend
+final_map_knn <- rest_map + neighbors_map + obs1_map +
+  tm_compass(position = c("right", "top")) + 
+  tm_scale_bar(position = c("right", "bottom")) + 
+  tm_add_legend(type = "fill", col = c("red2", "steelblue4","mistyrose3"), 
+                labels = c("Observation 1", "k=5 nearest neighbours", "Rest of LSOAs"), title = "") + 
+  tm_layout(legend.text.size = 0.55, inner.margins = c(0.01, 0.1, 0.01, 0.05), 
+            legend.position = c(0.03,0.03), legend.width=0.55)
+```
+
+-   **Distance band**
+
+Another approach to build distance-based spatial weights matrices is to "draw a circle" of certain radius (in case your observation is a polygon, as is our case, the circle should be centered at the centroid of each polygon) and consider as neighbours every observation (whose centroid) falls within the circle. The technique has two main variations: binary and continuous. In the former one, every neighbor is given a weight of one, while in the second one, the weights can be further tweaked by the distance to the observation of interest. We start looking at the binary variation.
+
+First, we create a list of neighbours at a distance less than 2000 meters away from each polygon:
+
+```{r}
+# Create a distance-based neighbors list with a minimum distance of 0 and maximum distance of 2000 meters
+nb_d <- dnearneigh(st_coordinates(st_centroid(df)), d1=0, d2=2000)
+```
+
+We use this to obtain a spatial weights matrix according to the distance-based criterion
+
+```{r}
+# Create a spatial weights matrix using distance-based neighbors with binary style
+w_d <- nb2listw(nb_d, style = "B")
+```
+
+Once again, we create a map to visualise this neighbourhood:
+
+```{r}
+obs1 <- df[1,]
+obs1_nb_d <- df[c(nb_d[[1]]),]
+```
+
+```{r}
+# Create a map for all the units in mistyrose3 
+rest_map <- tm_shape(df) +  
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "mistyrose3")  
+
+# Create a map for neighbors in steelblue4
+neighbors_map <- tm_shape(obs1_nb_d) +
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "steelblue4")  
+
+# Create a map for observation 1 in red2
+obs1_map <- tm_shape(obs1) +
+  tm_borders(col = "black", lwd = 0.5) + 
+  tm_fill(col = "red2")  
+
+# Combine all the maps, add compass, scale bar, and legend
+final_map_d <- rest_map + neighbors_map + obs1_map +
+  tm_compass(position = c("right", "top")) + 
+  tm_scale_bar(position = c("right", "bottom")) + 
+  tm_add_legend(type = "fill", col = c("red2", "steelblue4","mistyrose3"), 
+                labels = c("Observation 1", "Distance neighbourhood", "Rest of LSOAs"), title = "") + 
+  tm_layout(legend.text.size = 0.55, inner.margins = c(0.01, 0.1, 0.01, 0.05), 
+            legend.position = c(0.03,0.03), legend.width=0.55)
+
+```
+
+We are now ready to plot the three maps we created side to side and compare the different neighbourhoods:
+
+```{r}
+tmap_arrange(final_map_q, final_map_knn, final_map_d)
+```
+
+::: {.callout-tip icon="false"}
+## Question
+
+Does the look of neighbourhoods plotted above match your expectations?
+:::
+
+-   **Inverse distance weights**
+
+An extension of the weights above is to introduce further detail by assigning different weights to different neighbours within the radius based on how far they are from the observation of interest. For example, we could think of assigning the inverse of the distance between the centroid of a polygon $i$ and the centroid of a neighouburing polygon $j$ as $w_{ij} = \dfrac{1}{d_{ij}}$, where $d_{ij}$ is the distance in meters between the centroids. This way, polygons that are closer to $i$ "weight" more.
+
+This can be computed by firstly, computing the list of neighbours under a distance of 2,000 meters as we did before:
+
+```{r}
+# Create an inverse distance-based neighbors list with a minimum distance of 0 and maximum distance of 2000
+nb_d_inverse <- dnearneigh(st_coordinates(st_centroid(df)), d1=0, d2=2000)
+```
+
+Then, we can obtain the distance between the centroid of each polygon and its neighbours. Note that we set `longlat` to `FALSE` since the coordinate reference system (CRS) for the geometry field in `df` is not expressed as longitude-latitude decimal degrees:
+
+```{r}
+# Calculate distances between neighbors using the inverse distance-based neighbors list
+dist <- nbdists(nb_d_inverse, st_coordinates(st_centroid(df)), longlat = FALSE)
+
+# Create a list of weights by taking the reciprocal of distances
+w_inverse <- lapply(dist, function(x) 1/(x))
+```
+
+Let's inspect the weights given to the neighbours of the first polygon in `df`:
+
+```{r}
+w_inverse[[1]]
+```
+
+Note that none of them should be smaller than 1/2,000 = 0.0005 since all the neighbours are within a 2,000 meter radius from the centroid of the first polygon.
+
+Following this logic of more detailed weights through distance, there is a temptation to take it further and consider everyone else in the dataset as a neighbor whose weight will then get modulated by the distance effect shown above. However, although conceptually correct, this approach is not always the most computationally or practical one. Because of the nature of spatial weights matrices, particularly because of the fact their size is $N$ by $N$ if all the neighbours are present, they can grow substantially large. A way to cope with this problem is by making sure they remain fairly sparse (with many zeros). Sparsity is typically ensured in the case of contiguity or KNN by construction but, with inverse distance, it needs to be imposed as, otherwise, the matrix could be potentially entirely dense (no zero values other than the diagonal). In practical terms, what is usually done is to impose a distance threshold beyond which no weight is assigned and interaction is assumed to be non-existent, as we did here by setting this threshold to 2,000 meters. Beyond being computationally feasible and scalable, results from this approach usually do not differ much from a fully "dense" one as the additional information that is included from further observations is almost ignored due to the small weight they receive.
+
+### Block weights
+
+Block weights connect every observation in a dataset that belongs to the same category in a list provided ex-ante. Usually, this list will have some relation to geography an the location of the observations but, technically speaking, all one needs to create block weights is a list of memberships. In this class of weights, neighboring observations, those in the same group, are assigned a weight of one, and the rest receive a weight of zero.
+
+In this example, we will build a spatial weights matrix that connects every LSOA with all the other ones in the same MSOA. See how the MSOA code is expressed for every LSOA:
+
+```{r}
+head(df)
+```
+
+To build a block spatial weights matrix that connects as neighbors all the LSOAs in the same MSOA, we only require the MSOA codes. Using `nb2blocknb()`, this is very straighforward!
+
+```{r}
+# Create a block weights matrix using MSOA11CD as block IDs and LSOA11CD as unit IDs
+w_block <- nb2blocknb(nb=NULL, df$MSOA11CD, row.names = df$LSOA11CD)
+```
+
+We can visualise this by creating a map, using the same procedure as before:
+
+```{r}
+# Extract the first row of the dataframe as 'obs1'
+obs1 <- df[1,]
+
+# Extract the rows corresponding to the block neighbors of the first observation
+obs1_nb_block <- df[c(w_block[[1]]),]
+```
+
+```{r}
+# Create a map for the rest of the units in mistyrose3
+rest_map <- tm_shape(df) +  
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "mistyrose3") 
+
+# Create a map for block neighbors in steelblue4
+neighbors_map <- tm_shape(obs1_nb_block) +
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "steelblue4")
+
+# Create a map for observation 1 in red2
+obs1_map <- tm_shape(obs1) +
+  tm_borders(col = "black", lwd = 0.5) +  
+  tm_fill(col = "red2")  
+
+# Combine all the maps, add compass, scale bar, and legend
+final_map_block <- rest_map + neighbors_map + obs1_map +
+  tm_compass(position = c("right", "top")) + 
+  tm_scale_bar(position = c("right", "bottom")) + 
+  tm_add_legend(type = "fill", col = c("red2", "steelblue4","mistyrose3"), 
+                labels = c("Observation 1", "Block neighbourhood (same MSOA)", "Rest of LSOAs"), title = "") + 
+  tm_layout(legend.text.size = 0.65, inner.margins = c(0.1, 0.1, 0.02, 0.05), 
+            legend.position = c(0.03,0.03), legend.width=0.55)
+
+```
+
+```{r}
+final_map_block
+```
+
+To check that the highlighted polygons in the map above are actually the ones belonging to the same MSOA as observation 1, we can do the following. First, output the rows of `df` where the MSOA code, given by column `MSOA11CD` is the as for the first polygon (observation 1):
+
+```{r}
+# Subset the dataframe to get rows with matching MSOA11CD as observation 1
+df[df$MSOA11CD == obs1$MSOA11CD, ]
+```
+
+These observations should be the same as the rows corresponding to the neighbours of the first polygon as given by the `nb2blocknb` fucntion:
+
+```{r}
+# Extract the rows corresponding to the block neighbors of the first observation
+df[c(w_block[[1]]),]
+```
+
+Note that the first output is a dataframe with one more row than the second. This is because the first output includes all the observations in MSOA with code E02001377, whereas the second output only includes the block neighbours that share MSOA with LSOA with code E91006512.
+
+## Standardising spatial weights matrices
+
+In the context of many spatial analysis techniques, a spatial weights matrix with raw values (e.g. ones and zeros for the binary case) is not always the best suiting one for analysis and some sort of transformation is required. This implies modifying each weight so they conform to certain rules. A common one is being row-normalised. This simply means, that for each observation, the weights corresponding to the neighbours must add to 1. We will look into how we can do this in the case of the queen neighbourhood.
+
+We define the neighbour list once again according to the queen criterion:
+
+```{r}
+# Construct neighbors list using queen contiguity
+nb_q <- poly2nb(df, queen = TRUE)
+```
+
+Before, we constructed the spatial weights matrix using `style = "B"` for binary values. To have row-normalised weights, we set `style = "W"`.
+
+```{r}
+# Create a binary spatial weights matrix using queen contiguity
+w_queen <- nb2listw(nb_q, style = "B")
+
+# Create a row-standardized spatial weights matrix using queen contiguity
+w_queen_std <- nb2listw(nb_q, style = "W")
+```
+
+We can now inspect the values of the weights of the neighbours of the first polygon in our data set:
+
+```{r}
+# Display the binary weights for the first observation
+w_queen$weights[[1]]  
+
+# Display the row-standardized weights for the first observation
+w_queen_std$weights[[1]] 
+```
+
+The sum of row-standarised weights should add up to one:
+
+```{r}
+# Calculate the sum of row-standardized weights for the first observation
+sum(w_queen_std$weights[[1]])
+```
+
+YES!!!
+
+## Spatial lag
+
+One of the most direct applications of spatial weight matrices is the so-called *spatial lag*. The spatial lag of a given variable observed at several locations is the product of a spatial weight matrix and the variable itself:
+
+$$
+Y_{sl} = WY
+$$
+where $Y$ is a $Nx1$ vector with the $N$ observations of the variable. Recall that the product of a matrix and a vector equals the sum of a row by column element multiplication for the resulting value of a given row. In terms of the spatial lag:
+
+$$
+y_{sl-i}= \sum_{j=1}^Nw_{ij}y_j
+$$
+If we use row-standardized weights, $w_{ij}$ becomes a proportion between zero and one, and $y_{sl-i}$ can be seen as a weighted average of the variable $Y$ in the neighborhood of $i$.
+
+To illustrate this here, we will use the area of each polygon as the variable $Y$ of interest. And to make things a bit nicer later on, we will keep the log of the area instead of the raw measurement. Hence, let’s create a column for it:
+
+```{r}
+# Calculate the logarithm of the area of each polygon and add it as a new column named 'area'
+df$area <- log(as.vector(st_area(df)))
+```
+
+The spatial lag of a given variable, we use the fucntion `lag.listw()`:
+
+```{r}
+# Calculate the spatial lag of the (log of) 'area' variable using the row-standardized spatial weights matrix
+area.lag <- lag.listw(w_queen_std, df$area)
+```
+
+Below, we output the IDs of the neighbouring polygons accroding to the queen criterion as well as the spatial lag value for observation 1 (i.e. the average value of the log of the area of the neighbours, weighted according to the row-standardised weights in the spatial weights matrix):
+
+```{r}
+# Display the neighbors of the first observation in the spatial weights matrix
+w_queen_std$neighbours[[1]]
+
+ # Display the spatial lag of the 'area' variable for the first observation
+area.lag[[1]]
+```
+
+We add the spatial lag of the log of the area as a new column in `df` called `w_area`:
+
+```{r}
+# Add the calculated spatial lag of 'area' as a new column named 'w_area'
+df$w_area <- area.lag
+```
+
+We can create two choropleth maps, side to side, showing the values of the variable area in each polygon and of the lagged area: 
+
+```{r}
+# Create a map displaying the 'area' variable
+area_map <- tm_shape(df) +
+  tm_borders(col = "black", lwd = 0.5) +
+  tm_fill("area", n=10, style = "quantile", title = "Area", palette = "YlGn") +
+  tm_compass(position = c("right", "top")) + 
+  tm_scale_bar(position = c("right", "bottom")) + 
+  tm_layout(legend.text.size = 0.55, inner.margins = c(0.1, 0.1, 0.02, 0.05), legend.position = c(0.03,0.03), legend.width=0.55)
+
+# Create a map displaying the spatially lagged 'area' variable
+w_area_map <- tm_shape(df) +
+  tm_borders(col = "black", lwd = 0.5) +
+  tm_fill("w_area", n=10, style = "quantile", title = "Lagged area", palette = "YlGn") +
+  tm_compass(position = c("right", "top")) + 
+  tm_scale_bar(position = c("right", "bottom")) + 
+  tm_layout(legend.text.size = 0.55, inner.margins = c(0.1, 0.1, 0.02, 0.05), legend.position = c(0.03,0.03), legend.width=0.55)
+
+# Arrange both maps side by side
+tmap_arrange(area_map, w_area_map)
+```
+
+## Moran plot
+
+The Moran Plot is a graphical way to start exploring the concept of spatial autocorrelation, and it is a good application of spatial weight matrices and the spatial lag. In essence, it is a standard scatter plot in which a given variable (area, for example) is plotted against its own spatial lag. Usually, a fitted line is added to include more information.
+
+We create a Moran plot as follows:
+
+```{r}
+# Create a Moran plot using ggplot2, adding a regression line accroding to a linear model
+moran_plot <- ggplot(df, aes(x=area, y=w_area)) + 
+  geom_point() +
+  geom_smooth(method=lm) +
+  labs(title="Moran plot", x="Area (log)", y = "Lagged area (log)")
+
+# Apply a minimal theme to the Moran plot
+moran_plot + theme_minimal()  
+```
+
+In order to easily compare different scatter plots and spot outlier observations, it is common practice to standardize the values of the variable before computing its spatial lag and plotting it. This can be accomplished by substracting the average value and dividing the result by the standard deviation:
+
+$$
+z_i = \dfrac{y_i - \bar{y}}{\sigma_y}
+$$
+where $z_i$ is the standardised version of $y_i$, also knwon as $z$-score, $\bar{y}$ is the average of the variable, and $\sigma_y$ its standard deviation.
+
+We compute the $z$-score by running the code below. We store it as a new column in `df` called `area_z`:
+
+```{r}
+# Standardize the 'area' variable and add it as a new column named 'area_z'
+df$area_z <- (df$area - mean(df$area)) / sd(df$area)
+```
+
+Creating a standardized Moran Plot implies that average values are centered in the plot (as they are zero when standardized) and dispersion is expressed in standard deviations, with the rule of thumb of values greater or smaller than two standard deviations being outliers. A standardized Moran Plot also partitions the space into four quadrants that represent different situations:
+
+- High-High (HH): values above average surrounded by values above average.
+- Low-Low (LL): values below average surrounded by values below average.
+- High-Low (HL): values above average surrounded by values below average.
+- Low-High (LH): values below average surrounded by values above average.
+
+These will be further explored once spatial autocorrelation has been properly introduced in subsequent blocks.
+
+Below we create a Moran plot with the $z$-scores, but first we need to computer the lag of the $z$-scores:
+
+```{r}
+# Calculate the spatial lag of the standardized 'area' variable
+area_z.lag <- lag.listw(w_queen_std, df$area_z)
+
+# Add the calculated spatial lag of standardized 'area' as a new column named 'w_area_z'
+df$w_area_z <- area_z.lag
+```
+
+And the plot follows as before, but replacing the to the new standardised variables:
+
+```{r}
+# Create a standardized Moran plot using ggplot2
+moran_plot_z <- ggplot(df, aes(x=area_z, y=w_area_z)) + 
+  geom_point() +
+  geom_smooth(method=lm) +
+  geom_hline(aes(yintercept = 0)) +
+  geom_vline(aes(xintercept = 0)) +
+  labs(title="Standardised Moran plot", x="Area (log) z-score", y = "Lagged area (log) z-score")
+
+# Apply a minimal theme to the standardized Moran plot
+moran_plot_z + theme_minimal()  
+```
+

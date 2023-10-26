@@ -1,1 +1,65 @@
-# 5 Spatial Weights {#sec-spatial-w .unnumbered}
+# 5 Spatial Weights ***\*\*Under construction***\*\* {#sec-spatial-w .unnumbered}
+
+This block is about how we can turn geography into numbers that statistics can understand. At this point, we dive right into the more methodological part of the course, so you can expect the conceptual sections to be more challenging. At the same time, the coding side of each block will start looking more and more familiar because we are starting to repeat concepts. We will introduce less new building blocks and instead rely more on what we have seen, just adding small bits here and there.
+
+## Space, formally
+
+*How do you express geographical relations between objects (e.g. areas, points) in a way that can be used in statistical analysis?* This is exactly the core of what we get into in here. There are several ways but one of the most widespread approaches is what is termed spatial weights matrices. Their role is to:
+
+-   Take all richness of geographical relationships and express it in a language that is well understood by statistics and computers
+-   Relate to concepts of spatial 'smoothing' and interpolating data, facilitating visualisation and exploratory analysis
+-   Check how the characteristics or outcomes of one spatial object might be correlated with those of its neighbours: e.g. education, criminality, etc.
+
+Furthermore, they are a core element in several spatial analysis techniques:
+
+-   Spatial autocorrelation
+-   Spatial clustering/geo-demographics
+-   Spatial regression
+
+We define *spatial weights matrices* as structured sets of numbers that formalise geographical relationships between the objects in a dataset. Essentially, a spatial weights matrix of a given geography is a positive definite matrix of dimensions $N \times N$, where $N$ is the total number of observed objects:
+
+$W = \begin{pmatrix} 0 & w_{12} & \dots & w_{1N}\\ w_{21} & \ddots & w_{ij} & \vdots \\ \vdots & w_{ji} & 0 & \vdots \\ w_{N1} & \dots & \dots & 0 \end{pmatrix}$
+
+where each cell contains a value that represents the degree of spatial contact or interaction between observations $i$ and $j$. A fundamental concept in this context is that of *neighbor* and *neighborhood*. By convention, elements in the diagonal ($w_{ii}$) are set to zero. A neighbour of a given observation $i$ is another observation with which $i$ has some degree of spatial connection. In terms of $W$, $i$ and $j$ are neighbours if $w_{ij} > 0$. Following this logic, the neighbourhood of $i$ will be the set of observations in the system with which it has certain connection, or those observations with a weight greater than zero.
+
+## Types of Weights
+
+There are specific types of spatial weights that we can define for our particular analyses.
+
+**Contiguity-based** weights
+
+-   The neighbourhood of an observation is defined by those observations which share boundaries, e.g. rook, bishop or queen neighbourhood (can be based on a point, an edge, etc.).
+
+**Distance based** weights
+
+-   The neighbourhood of an observation is defined by those spatial units which are at a certain distance from the central one, with the weights typically decreasing as distance increases, e.g. inverse distance (1/distance or threshold), $k$ nearest-neighbours or KNN (fixed number of closest neighbors).
+
+## The Spatial Lag
+
+We wrap up the the set of concepts in this block with one of the applications that makes spatial weights matrices so important: the spatial lag.
+
+Given a set of observations for a specific variable in a geography and a spatial weights matrix $W$ for that geography, the spatial lag is defined as the product of $W$ and the observations.
+
+The spatial lag can be interpreted as a measure that captures the behaviour of the variable in the neighbourhood of each observation $i$. If $W$ is *standardised*, the spatial lag is the average value of the variable in the neighbourhood.
+
+## More materials
+
+If you want a similar but slightly different take on spatial weights by Luc Anselin, one of the biggest minds in the field of spatial analysis, we strongly recommend you watch the following two clips, part of the course offered by the Spatial Data Center at the University of Chicago:
+
+ADD LINKS!
+
+Lecture on "Spatial Weights"
+
+Lecture on "Spatial Lag", you can ignore the last five minutes as they are a bit more advanced
+
+## Further readings
+
+If you liked what you saw in this section and would like to dig deeper into spatial weights, the following readings are good next steps:
+
+The chapter is available for free here
+
+ADD LINKS!
+
+Spatial weights chapter on the GDS book (in progress) reyABwolf.
+
+For a more advanced and detailed treatment, the chapters on spatial weights in the Anselin & Rey book anselin2014modern are the best source.

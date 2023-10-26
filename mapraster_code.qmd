@@ -218,11 +218,9 @@ head(households)
 ```
 
 ::: callout-important
-
 Make sure all your data is in the same CRS, otherwise the `raster::extract` function will not work properly.
 
 You should not be seeing NAs, if you do you should use the terra `project()` function.
-
 :::
 
 ## Night Lights
@@ -313,7 +311,7 @@ You can do these steps manually if you can't get the below chunk to work.
 :::
 
 ```{r downloadunzip, message=FALSE}
-datafolder <- file.path("/Users/PIETROST/Library/CloudStorage/Dropbox/GitHub/gds/data") # define the location of the data folder
+datafolder <- file.path("./data") # define the location of the data folder
 
 # list downloaded files: they are compressed files using the "tar" format
 tars <- list.files(file.path("data/Kenya_Tanzania/scratch"), pattern = "*.tar")
