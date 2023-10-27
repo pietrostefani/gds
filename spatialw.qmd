@@ -1,6 +1,8 @@
-# 5 Spatial Weights ***\*\*Under construction***\*\* {#sec-spatial-w .unnumbered}
+# 5 Spatial Weights {#sec-spatial-w .unnumbered}
 
-This block is about how we can turn geography into numbers that statistics can understand. At this point, we dive right into the more methodological part of the course, so you can expect the conceptual sections to be more challenging. At the same time, the coding side of each block will start looking more and more familiar because we are starting to repeat concepts. We will introduce less new building blocks and instead rely more on what we have seen, just adding small bits here and there.
+This section is about how we can turn geography into numbers that statistics can understand. At this point, we dive right into the more methodological part of the course, so you can expect the conceptual sections to be more challenging. At the same time, the coding side of each block will start looking more and more familiar because we are starting to repeat concepts. We will introduce less new building blocks and instead rely more on what we have seen, just adding small bits here and there.
+
+Slides can be downloaded ["here"](/html/Week_spatial-weights_slides.pdf)
 
 ## Space, formally
 
@@ -30,9 +32,13 @@ There are specific types of spatial weights that we can define for our particula
 
 -   The neighbourhood of an observation is defined by those observations which share boundaries, e.g. rook, bishop or queen neighbourhood (can be based on a point, an edge, etc.).
 
-**Distance based** weights
+**Distance-based** weights
 
 -   The neighbourhood of an observation is defined by those spatial units which are at a certain distance from the central one, with the weights typically decreasing as distance increases, e.g. inverse distance (1/distance or threshold), $k$ nearest-neighbours or KNN (fixed number of closest neighbors).
+
+**Block-based** weights
+
+-   The neighbourhood of an observation is defined by those spatial units which share a certain attribute with the central one.
 
 ## The Spatial Lag
 
@@ -42,24 +48,10 @@ Given a set of observations for a specific variable in a geography and a spatial
 
 The spatial lag can be interpreted as a measure that captures the behaviour of the variable in the neighbourhood of each observation $i$. If $W$ is *standardised*, the spatial lag is the average value of the variable in the neighbourhood.
 
-## More materials
-
-If you want a similar but slightly different take on spatial weights by Luc Anselin, one of the biggest minds in the field of spatial analysis, we strongly recommend you watch the following two clips, part of the course offered by the Spatial Data Center at the University of Chicago:
-
-ADD LINKS!
-
-Lecture on "Spatial Weights"
-
-Lecture on "Spatial Lag", you can ignore the last five minutes as they are a bit more advanced
-
 ## Further readings
 
 If you liked what you saw in this section and would like to dig deeper into spatial weights, the following readings are good next steps:
 
-The chapter is available for free here
+Spatial weights chapter on the [GDS book by Rey, Arribas-Bel & Wolf](https://geographicdata.science/book/notebooks/04_spatial_weights.html) in Python.
 
-ADD LINKS!
-
-Spatial weights chapter on the GDS book (in progress) reyABwolf.
-
-For a more advanced and detailed treatment, the chapters on spatial weights in the Anselin & Rey book anselin2014modern are the best source.
+For a more advanced and detailed treatment, the chapters on spatial weights in the [Anselin & Rey book](https://www.amazon.co.uk/Modern-Spatial-Econometrics-Practice-GeoDaSpace/dp/0986342106) are the best source.

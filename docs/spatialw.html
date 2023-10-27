@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A course in Geographic Data Science - 5 Spatial Weights **Under construction**</title>
+<title>A course in Geographic Data Science - 5 Spatial Weights</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="A course in Geographic Data Science - 5 Spatial Weights **Under construction**">
+<meta name="twitter:title" content="A course in Geographic Data Science - 5 Spatial Weights">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialw.html">5 Spatial Weights <strong><em>**Under construction</em></strong>**</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialw.html">5 Spatial Weights</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -261,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialw.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">5 Spatial Weights ***\*\*Under construction***\*\*</span></a>
+ <span class="menu-text">5 Spatial Weights</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -398,7 +398,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#space-formally" id="toc-space-formally" class="nav-link active" data-scroll-target="#space-formally">Space, formally</a></li>
   <li><a href="#types-of-weights" id="toc-types-of-weights" class="nav-link" data-scroll-target="#types-of-weights">Types of Weights</a></li>
   <li><a href="#the-spatial-lag" id="toc-the-spatial-lag" class="nav-link" data-scroll-target="#the-spatial-lag">The Spatial Lag</a></li>
-  <li><a href="#more-materials" id="toc-more-materials" class="nav-link" data-scroll-target="#more-materials">More materials</a></li>
   <li><a href="#further-readings" id="toc-further-readings" class="nav-link" data-scroll-target="#further-readings">Further readings</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/spatialw.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -408,7 +407,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-spatial-w" class="quarto-section-identifier">5 Spatial Weights <strong><em>**Under construction</em></strong>**</span></h1>
+<h1 class="title"><span id="sec-spatial-w" class="quarto-section-identifier">5 Spatial Weights</span></h1>
 </div>
 
 
@@ -423,7 +422,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This block is about how we can turn geography into numbers that statistics can understand. At this point, we dive right into the more methodological part of the course, so you can expect the conceptual sections to be more challenging. At the same time, the coding side of each block will start looking more and more familiar because we are starting to repeat concepts. We will introduce less new building blocks and instead rely more on what we have seen, just adding small bits here and there.</p>
+<p>This section is about how we can turn geography into numbers that statistics can understand. At this point, we dive right into the more methodological part of the course, so you can expect the conceptual sections to be more challenging. At the same time, the coding side of each block will start looking more and more familiar because we are starting to repeat concepts. We will introduce less new building blocks and instead rely more on what we have seen, just adding small bits here and there.</p>
+<p>Slides can be downloaded <a href="./html/Week_spatial-weights_slides.pdf">“here”</a></p>
 <section id="space-formally" class="level2">
 <h2 class="anchored" data-anchor-id="space-formally">Space, formally</h2>
 <p><em>How do you express geographical relations between objects (e.g.&nbsp;areas, points) in a way that can be used in statistical analysis?</em> This is exactly the core of what we get into in here. There are several ways but one of the most widespread approaches is what is termed spatial weights matrices. Their role is to:</p>
@@ -449,9 +449,13 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>The neighbourhood of an observation is defined by those observations which share boundaries, e.g.&nbsp;rook, bishop or queen neighbourhood (can be based on a point, an edge, etc.).</li>
 </ul>
-<p><strong>Distance based</strong> weights</p>
+<p><strong>Distance-based</strong> weights</p>
 <ul>
 <li>The neighbourhood of an observation is defined by those spatial units which are at a certain distance from the central one, with the weights typically decreasing as distance increases, e.g.&nbsp;inverse distance (1/distance or threshold), <span class="math inline">\(k\)</span> nearest-neighbours or KNN (fixed number of closest neighbors).</li>
+</ul>
+<p><strong>Block-based</strong> weights</p>
+<ul>
+<li>The neighbourhood of an observation is defined by those spatial units which share a certain attribute with the central one.</li>
 </ul>
 </section>
 <section id="the-spatial-lag" class="level2">
@@ -460,20 +464,11 @@ ul.task-list li input[type="checkbox"] {
 <p>Given a set of observations for a specific variable in a geography and a spatial weights matrix <span class="math inline">\(W\)</span> for that geography, the spatial lag is defined as the product of <span class="math inline">\(W\)</span> and the observations.</p>
 <p>The spatial lag can be interpreted as a measure that captures the behaviour of the variable in the neighbourhood of each observation <span class="math inline">\(i\)</span>. If <span class="math inline">\(W\)</span> is <em>standardised</em>, the spatial lag is the average value of the variable in the neighbourhood.</p>
 </section>
-<section id="more-materials" class="level2">
-<h2 class="anchored" data-anchor-id="more-materials">More materials</h2>
-<p>If you want a similar but slightly different take on spatial weights by Luc Anselin, one of the biggest minds in the field of spatial analysis, we strongly recommend you watch the following two clips, part of the course offered by the Spatial Data Center at the University of Chicago:</p>
-<p>ADD LINKS!</p>
-<p>Lecture on “Spatial Weights”</p>
-<p>Lecture on “Spatial Lag”, you can ignore the last five minutes as they are a bit more advanced</p>
-</section>
 <section id="further-readings" class="level2">
 <h2 class="anchored" data-anchor-id="further-readings">Further readings</h2>
 <p>If you liked what you saw in this section and would like to dig deeper into spatial weights, the following readings are good next steps:</p>
-<p>The chapter is available for free here</p>
-<p>ADD LINKS!</p>
-<p>Spatial weights chapter on the GDS book (in progress) reyABwolf.</p>
-<p>For a more advanced and detailed treatment, the chapters on spatial weights in the Anselin &amp; Rey book anselin2014modern are the best source.</p>
+<p>Spatial weights chapter on the <a href="https://geographicdata.science/book/notebooks/04_spatial_weights.html">GDS book by Rey, Arribas-Bel &amp; Wolf</a> in Python.</p>
+<p>For a more advanced and detailed treatment, the chapters on spatial weights in the <a href="https://www.amazon.co.uk/Modern-Spatial-Econometrics-Practice-GeoDaSpace/dp/0986342106">Anselin &amp; Rey book</a> are the best source.</p>
 
 
 </section>
