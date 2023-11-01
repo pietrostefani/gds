@@ -1,0 +1,1 @@
+Please note that the Functional Urban Areas geometries have been simplified. In case the user needs a more detailed geometry, please contact RegionStat@oecd.org.
