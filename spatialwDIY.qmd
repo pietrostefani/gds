@@ -44,7 +44,9 @@ tm_shape(nyc) +
 
 Now with the `nyc` object ready to go, here are a few tasks for you to complete:
 
--   Create a contiguity matrix using the queen criterion
+-   Create a contiguity matrix using the queen criterion. Use the `nb2listw()` function, but adding the additional `zero.policy = TRUE` argument to ensure that lists of neighbours with zero length are allowed:
+
+`nb2listw(nb_q, style = "B", zero.policy = TRUE)`
 
 -   Let's focus on [Central Park](https://en.wikipedia.org/wiki/Central_Park). The corresponding polygon is ID 142. How many neighbors does it have?
 

@@ -504,7 +504,10 @@ CRS:           NA</code></pre>
 </div>
 <p>Now with the <code>nyc</code> object ready to go, here are a few tasks for you to complete:</p>
 <ul>
-<li><p>Create a contiguity matrix using the queen criterion</p></li>
+<li>Create a contiguity matrix using the queen criterion. Use the <code>nb2listw()</code> function, but adding the additional <code>zero.policy = TRUE</code> argument to ensure that lists of neighbours with zero length are allowed:</li>
+</ul>
+<p><code>nb2listw(nb_q, style = "B", zero.policy = TRUE)</code></p>
+<ul>
 <li><p>Let’s focus on <a href="https://en.wikipedia.org/wiki/Central_Park">Central Park</a>. The corresponding polygon is ID 142. How many neighbors does it have?</p></li>
 <li><p>Try to reproduce the zoom plot in the previous section, highlighting the polygon of interest and its neighbourhood..</p></li>
 <li><p>Create a block spatial weights matrix where every tract is connected to other tracts in the same borough. For that, use the borocode column of the nyc table.</p></li>
