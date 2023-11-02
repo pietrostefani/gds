@@ -15,13 +15,11 @@ library(patchwork)
 
 ## Data
 
-For this session, we will use a dataset of small areas (or Lower layer Super Output Areas, LSOAs) for Liverpool, UK. The table is available as part of this course, so can be accessed remotely through the web. If you want to see how the table was created, a notebook is available here.
-
-To make things easier, we will read data from a file posted online so, for now, you do not need to download any dataset:
+For this session, we will use a dataset of small areas (or Lower layer Super Output Areas, LSOAs) for Liverpool, UK. The dataset is accessed remotely through the web or downloaded from GitHub and then loaded into the `df` variable:
 
 ```{r}
 # Read the file in
-df = read_sf("./data/Liverpool/liv_lsoas.gpkg")
+df <- read_sf("./data/Liverpool/liv_lsoas.gpkg")
 
 ```
 
