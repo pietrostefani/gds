@@ -48,7 +48,7 @@ Now with the `nyc` object ready to go, here are a few tasks for you to complete:
 
 `nb2listw(nb_q, style = "B", zero.policy = TRUE)`
 
--   Let's focus on [Central Park](https://en.wikipedia.org/wiki/Central_Park). The corresponding polygon is ID 142. How many neighbors does it have?
+-   Let's focus on [Central Park](https://en.wikipedia.org/wiki/Central_Park). The corresponding polygon is ID 143. How many neighbors does it have?
 
 -   Try to reproduce the zoom plot in the previous section, highlighting the polygon of interest and its neighbourhood..
 
