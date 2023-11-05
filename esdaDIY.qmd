@@ -1,1 +1,50 @@
 # Do-It-Yourself {#sec-esdadiy .unnumbered}
+
+In this block, the DIY section is more straightforward: we have a few tasks, but they are all around the same dataset. The tasks incorporates all the bits and pieces we have seen on the hands-on section.
+
+## Data preparation
+
+For this section, we are going to revisit the AHAH dataset we saw in the DIY section of Mapping Vector Data. Please head over to the section to refresh your memory about how to load up the required data. Once you have successfully created the `ahah` object, move on to Task I.
+
+## Task I: get the dataset ready
+
+With the `ahah`, complete all the other bits required for the ESDA analysis of spatial autocorrelation:
+
+-   Make sure your geography does not have any neighbourless polygons
+
+-   When creating your spatial weights matrix, think of one criterion to build it that you think would fit this variable (e.g. contiguity, distance-based, etc.), and apply it.
+
+-   Create a spatial weights matrix
+
+-   Standardise the spatial weights matrix
+
+-   Create the standardised version of the AHAH score
+
+-   Create the spatial lag of the main AHAH score
+
+## Task II: global spatial autocorrelation
+
+Let's move on to the analytics:
+
+-   Visualise the main AHAH score with a Moran Plot
+
+-   Calculate Moran's I
+
+-   What conclusions can you reach from the Moran Plot and Moran's I? What's the main spatial pattern?
+
+## Task III: local spatial autocorrelation
+
+Now that you have a good sense of the overall pattern in the AHAH dataset, let's move to the local scale:
+
+-   Calculate LISA statistics for the LSOA areas
+
+-   Make a map of significant clusters at the 5% significance level (i.e. setting cutoff at 0.05)
+
+-   Can you identify hotspots or coldspots? If so, what do they mean? What about spatial outliers?
+
+::: callout-warning
+The last action is a bit more sophisticated, put all your brain power into it and you'll achieve it!
+:::
+
+-   Create cluster maps for significance levels 1% and 10%; compare them with the one we obtained. What are the main changes? Why?
+

@@ -1,1 +1,31 @@
 # 6 ESDA {#sec-spatial-esda .unnumbered}
+
+In this section we delve into a few statistical methods designed to characterise spatial patterns of data. How phenomena are distributed over space is at the centre of many important questions. From economic inequality, to the management of disease outbreaks, being able to statistically characterise the spatial pattern is the first step into understanding causes and thinking about solutions in the form of policy.
+
+This section is split into a few more subsections than usual, each of them focused on a single concept. Each subsection builds on each other sequentially, so work on them in the order presented here. They are all non-trivial ideas, so focus all your brain power to understand them while tackling each of the sections!
+
+## ESDA
+
+ESDA stands for Exploratory Spatial Data Analysis, and it is a family of techniques to explore and characterise spatial patterns in data. Some of these techniques are explained below.
+
+## Spatial autocorrelation
+
+Spatial autocorrelation refers to the statistical relationship between the values of a variable at different locations in a geographic area. It occurs when nearby locations tend to have similar values, while distant locations exhibit less similarity. This phenomenon is important in fields geography as it helps to identify spatial patterns and understand how they may be influenced by underlying processes.
+
+## Global spatial autocorrelation
+
+Global spatial autocorrelation is a statistical concept used to assess the overall pattern of spatial dependence in a dataset. It quantifies the extent to which similar values of a variable cluster together across the entire geographic area of interest. In other words, it helps determine whether there is a significant overall trend of spatial similarity or dissimilarity in the data.
+
+## Local spatial autocorrelation
+
+This is more modern concept that takes the notion of spatial autocorrelation to a finer scale.It assesses whether specific locations exhibit significant clustering of similar values of a variable, or conversely, if there are areas with high dissimilarity. This analysis helps identify specific hotspots or coldspots where the variable under consideration exhibits distinctive spatial relationships with its neighboring locations.
+
+## Further readings
+
+If this section was of your interest, there is plenty more you can read and explore. The following are good "next steps" to delve a bit deeper into exploratory spatial data analysis:
+
+-   Spatial autocorrelation chapters on the [GDS book](https://geographicdata.science/book/intro.html#) by Rey, Arribas and Wolf.
+
+-   Symanzik's chapter on ESDA in the Handbook of Regional Science @Symanzik2021 introduces the main concepts behind ESDA
+
+-   Haining's chapter in the Handbook of Regional Science @Haining2014 is a good historical perspective of the origins and motivations behind most of global and local measures of spatial autocorrelation.
