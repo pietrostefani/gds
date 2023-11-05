@@ -217,7 +217,7 @@ This is exactly what LISAs are designed to do. As before, a more detailed descri
 
 LISAs are widely used in many fields to identify clusters of values in space. They are a very useful tool that can quickly return areas in which values are concentrated and provide suggestive evidence about the processes that might be at work. For that, they have a prime place in the exploratory toolbox. Examples of contexts where LISAs can be useful include: identification of spatial clusters of poverty in regions, detection of ethnic enclaves, delineation of areas of particularly high/low activity of any phenomenon, etc.
 
-In R we can calculate LISAs in a very streamlined way thanks to the `localmoran_perm()` function in the `spdep` package. We just need to input the variable of interest, the spatial weights, the number of simulations so that the function knows how many times to shuffle the data in order to compute the p-values. Furthermore, we include another argument, `alternative="two.sided"` which is also related to how the p-value is computed. Once again, understanding this bit is beyond the scope of this lecture. Below is the outcome of the `local_perm` function:
+In R we can calculate LISAs in a very streamlined way thanks to the `localmoran_perm()` function in the `spdep` package. We just need to input the variable of interest, the spatial weights, the number of simulations so that the function knows how many times to shuffle the data in order to compute the p-values. Furthermore, we include another argument, `alternative="two.sided"` which is also related to how the p-value is computed. Once again, understanding this bit is beyond the scope of this lecture. If you want to learn more about it, we recommend this reading [@Sauer22NullMoran] by Sauer et al., although it is quite advanced! Below is the outcome of the `local_perm` function:
 
 ```{r}
 lisa_perm <- localmoran_perm(br$Pct_Leave, w_queen_std, nsim=1000, alternative="two.sided")
@@ -328,4 +328,3 @@ moranLISA <- ggplot(br, aes(x=Pct_Leave_std,
 
 moranLISA
 ```
-

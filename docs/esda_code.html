@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -669,25 +688,25 @@ alternative hypothesis: greater</code></pre>
 <p>So far we have classified each observation in the dataset depending on its value and that of its neighbors. This is only half way into identifying areas of unusual concentration of values. To know whether each of the locations is a statistically significant cluster of a given kind, we again need to compare it with what we would expect if the data were allocated in a completely random way. After all, by definition, every observation will be of one kind or another based on the comparison above. However, what we are interested in is whether the strength with which the values are concentrated is unusually high.</p>
 <p>This is exactly what LISAs are designed to do. As before, a more detailed description of their statistical underpinnings is beyond the scope in this context, but we will try to shed some light into the intuition of how they go about it. The core idea is to identify cases in which the comparison between the value of an observation and the average of its neighbors is either more similar (HH, LL) or dissimilar (HL, LH) than we would expect from pure chance. The mechanism to do this is similar to the one in the global Moran’s I, but applied to each observation, resulting then in as many statistics as original observations.</p>
 <p>LISAs are widely used in many fields to identify clusters of values in space. They are a very useful tool that can quickly return areas in which values are concentrated and provide suggestive evidence about the processes that might be at work. For that, they have a prime place in the exploratory toolbox. Examples of contexts where LISAs can be useful include: identification of spatial clusters of poverty in regions, detection of ethnic enclaves, delineation of areas of particularly high/low activity of any phenomenon, etc.</p>
-<p>In R we can calculate LISAs in a very streamlined way thanks to the <code>localmoran_perm()</code> function in the <code>spdep</code> package. We just need to input the variable of interest, the spatial weights, the number of simulations so that the function knows how many times to shuffle the data in order to compute the p-values. Furthermore, we include another argument, <code>alternative="two.sided"</code> which is also related to how the p-value is computed. Once again, understanding this bit is beyond the scope of this lecture. Below is the outcome of the <code>local_perm</code> function:</p>
+<p>In R we can calculate LISAs in a very streamlined way thanks to the <code>localmoran_perm()</code> function in the <code>spdep</code> package. We just need to input the variable of interest, the spatial weights, the number of simulations so that the function knows how many times to shuffle the data in order to compute the p-values. Furthermore, we include another argument, <code>alternative="two.sided"</code> which is also related to how the p-value is computed. Once again, understanding this bit is beyond the scope of this lecture. If you want to learn more about it, we recommend this reading <span class="citation" data-cites="Sauer22NullMoran">(<a href="references.html#ref-Sauer22NullMoran" role="doc-biblioref">Sauer et al. 2022</a>)</span> by Sauer et al., although it is quite advanced! Below is the outcome of the <code>local_perm</code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>lisa_perm <span class="ot">&lt;-</span> <span class="fu">localmoran_perm</span>(br<span class="sc">$</span>Pct_Leave, w_queen_std, <span class="at">nsim=</span><span class="dv">1000</span>, <span class="at">alternative=</span><span class="st">"two.sided"</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lisa_perm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Ii         E.Ii     Var.Ii       Z.Ii Pr(z != E(Ii))
-1  0.96481855 -0.042339066 1.28959651  0.8868916      0.3751373
-2  0.82335963 -0.028070359 0.44398246  1.2778093      0.2013167
-3  0.85318791 -0.008329200 0.49121344  1.2292176      0.2189902
-4  0.56806645 -0.004466883 0.13361287  1.5663061      0.1172770
-5  0.11370566 -0.006108204 0.01844087  0.8823002      0.3776145
-6 -0.07610997 -0.001184587 0.03493896 -0.4008427      0.6885359
+1  0.96481855  0.033662931 1.23818791  0.8368141      0.4026971
+2  0.82335963  0.025134363 0.47156726  1.1623948      0.2450751
+3  0.85318791 -0.021592764 0.51690982  1.2167232      0.2237096
+4  0.56806645  0.003877416 0.13441570  1.5388619      0.1238380
+5  0.11370566 -0.002057723 0.02051168  0.8082964      0.4189200
+6 -0.07610997  0.005520772 0.03268878 -0.4514965      0.6516317
   Pr(z != E(Ii)) Sim Pr(folded) Sim   Skewness    Kurtosis
-1         0.36963037     0.18481518 -0.3981795 -0.04806951
-2         0.17782218     0.08891109 -0.3375299 -0.13450183
-3         0.21578422     0.10789211 -0.3367798  0.16442713
-4         0.08991009     0.04495504 -0.3955820  0.19908176
-5         0.36763237     0.18381618 -0.1773784  0.01494615
-6         0.63336663     0.31668332 -0.4632553  0.34997298</code></pre>
+1          0.3816184     0.19080919 -0.4012573  0.34355184
+2          0.2397602     0.11988012 -0.2709340 -0.15456751
+3          0.2137862     0.10689311 -0.4652117  0.53011360
+4          0.0999001     0.04995005 -0.2850833 -0.04090148
+5          0.4435564     0.22177822 -0.2837252  0.01082380
+6          0.6293706     0.31468531 -0.3143774  0.01704071</code></pre>
 </div>
 </div>
 <p>Because of their very nature, looking at the numerical result of LISAs is not always the most useful way to exploit all the information they can provide. Remember that we are calculating a statistic for every single observation in the data so, if we have many of them, it will be difficult to extract any meaningful pattern. Instead, typically a cluster map is created to reflect the significant observations (those that are highly unlikely to have happened by pure chance), which are plotted with a specific color depending on their quadrant category.</p>
@@ -700,7 +719,7 @@ alternative hypothesis: greater</code></pre>
   [8] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      High-High High-High &lt;NA&gt;     
  [15] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
  [22] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
- [29] &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;      High-High High-High &lt;NA&gt;     
+ [29] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;      &lt;NA&gt;     
  [36] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
  [43] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
  [50] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
@@ -742,7 +761,7 @@ alternative hypothesis: greater</code></pre>
 [302] &lt;NA&gt;      Low-Low   &lt;NA&gt;      Low-Low   &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 [309] &lt;NA&gt;      Low-Low   Low-Low   Low-Low   Low-Low   &lt;NA&gt;      Low-Low  
 [316] Low-Low   &lt;NA&gt;      &lt;NA&gt;      Low-Low   &lt;NA&gt;      Low-Low   Low-Low  
-[323] Low-Low   Low-Low   Low-Low   &lt;NA&gt;      Low-Low   Low-Low   Low-Low  
+[323] Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;      Low-Low   Low-Low   Low-Low  
 [330] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      Low-Low   &lt;NA&gt;      Low-Low  
 [337] Low-Low   Low-Low   &lt;NA&gt;      Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;     
 [344] Low-Low   Low-Low   Low-Low   Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;     
@@ -873,6 +892,11 @@ Note
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Sauer22NullMoran" class="csl-entry" role="listitem">
+Sauer, Jeffery, Taylor Oshan, Sergio Rey, and Levi John Wolf. 2022. <span>“The Importance of Null Hypotheses: Understanding Differences in Local Moran’s Under Heteroskedasticity.”</span> <em>Geographical Analysis</em> 54 (4): 752–68. https://doi.org/<a href="https://doi.org/10.1111/gean.12304">https://doi.org/10.1111/gean.12304</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
