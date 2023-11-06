@@ -4,6 +4,8 @@ In this section we delve into a few statistical methods designed to characterise
 
 This section is split into a few more subsections than usual, each of them focused on a single concept. Each subsection builds on each other sequentially, so work on them in the order presented here. They are all non-trivial ideas, so focus all your brain power to understand them while tackling each of the sections!
 
+Slides can be downloaded ["here"](/html/Week_ESDA_slides.pdf)
+
 ## ESDA
 
 ESDA stands for Exploratory Spatial Data Analysis, and it is a family of techniques to explore and characterise spatial patterns in data. Some of these techniques are explained below.
@@ -28,4 +30,4 @@ If this section was of your interest, there is plenty more you can read and expl
 
 -   Symanzik's chapter on ESDA in the Handbook of Regional Science @Symanzik2021 introduces the main concepts behind ESDA
 
--   Haining's chapter in the Handbook of Regional Science @Haining2014 is a good historical perspective of the origins and motivations behind most of global and local measures of spatial autocorrelation.
+-   Haining and Li's chapter in the Handbook of Regional Science @Haining2021 is a good historical perspective of the origins and motivations behind most of global and local measures of spatial autocorrelation.

@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -423,6 +442,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p>In this section we delve into a few statistical methods designed to characterise spatial patterns of data. How phenomena are distributed over space is at the centre of many important questions. From economic inequality, to the management of disease outbreaks, being able to statistically characterise the spatial pattern is the first step into understanding causes and thinking about solutions in the form of policy.</p>
 <p>This section is split into a few more subsections than usual, each of them focused on a single concept. Each subsection builds on each other sequentially, so work on them in the order presented here. They are all non-trivial ideas, so focus all your brain power to understand them while tackling each of the sections!</p>
+<p>Slides can be downloaded <a href="./html/Week_ESDA_slides.pdf">“here”</a></p>
 <section id="esda" class="level2">
 <h2 class="anchored" data-anchor-id="esda">ESDA</h2>
 <p>ESDA stands for Exploratory Spatial Data Analysis, and it is a family of techniques to explore and characterise spatial patterns in data. Some of these techniques are explained below.</p>
@@ -444,11 +464,19 @@ ul.task-list li input[type="checkbox"] {
 <p>If this section was of your interest, there is plenty more you can read and explore. The following are good “next steps” to delve a bit deeper into exploratory spatial data analysis:</p>
 <ul>
 <li><p>Spatial autocorrelation chapters on the <a href="https://geographicdata.science/book/intro.html#">GDS book</a> by Rey, Arribas and Wolf.</p></li>
-<li><p>Symanzik’s chapter on ESDA in the Handbook of Regional Science <span class="citation" data-cites="Symanzik2021">(<a href="references.html#ref-Symanzik2021" role="doc-biblioref"><strong>Symanzik2021?</strong></a>)</span> introduces the main concepts behind ESDA</p></li>
-<li><p>Haining’s chapter in the Handbook of Regional Science <span class="citation" data-cites="Haining2014">(<a href="references.html#ref-Haining2014" role="doc-biblioref"><strong>Haining2014?</strong></a>)</span> is a good historical perspective of the origins and motivations behind most of global and local measures of spatial autocorrelation.</p></li>
+<li><p>Symanzik’s chapter on ESDA in the Handbook of Regional Science <span class="citation" data-cites="Symanzik2021">Symanzik (<a href="references.html#ref-Symanzik2021" role="doc-biblioref">2021</a>)</span> introduces the main concepts behind ESDA</p></li>
+<li><p>Haining and Li’s chapter in the Handbook of Regional Science <span class="citation" data-cites="Haining2021">Haining and Li (<a href="references.html#ref-Haining2021" role="doc-biblioref">2021</a>)</span> is a good historical perspective of the origins and motivations behind most of global and local measures of spatial autocorrelation.</p></li>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Haining2021" class="csl-entry" role="listitem">
+Haining, Robert, and Guangquan Li. 2021. <span>“Spatial Data and Spatial Statistics.”</span> In <em>Handbook of Regional Science</em>, edited by Manfred M. Fischer and Peter Nijkamp, 1961–83. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-60723-7_71">https://doi.org/10.1007/978-3-662-60723-7_71</a>.
+</div>
+<div id="ref-Symanzik2021" class="csl-entry" role="listitem">
+Symanzik, Jürgen. 2021. <span>“Exploratory Spatial Data Analysis.”</span> In <em>Handbook of Regional Science</em>, edited by Manfred M. Fischer and Peter Nijkamp, 1845–61. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-60723-7_76">https://doi.org/10.1007/978-3-662-60723-7_76</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

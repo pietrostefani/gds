@@ -32,7 +32,7 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "Haining, Robert, and Guangquan Li. 2021. “Spatial Data and Spatial\nStatistics.” In Handbook of Regional Science, edited by\nManfred M. Fischer and Peter Nijkamp, 1961–83. Berlin, Heidelberg:\nSpringer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-60723-7_71.\n\n\nSauer, Jeffery, Taylor Oshan, Sergio Rey, and Levi John Wolf. 2022.\n“The Importance of Null Hypotheses: Understanding Differences in\nLocal Moran’s Under Heteroskedasticity.” Geographical\nAnalysis 54 (4): 752–68. https://doi.org/https://doi.org/10.1111/gean.12304.\n\n\nSymanzik, Jürgen. 2021. “Exploratory Spatial Data\nAnalysis.” In Handbook of Regional Science, edited by\nManfred M. Fischer and Peter Nijkamp, 1845–61. Berlin, Heidelberg:\nSpringer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-60723-7_76."
   },
   {
     "objectID": "openscience.html",
@@ -1033,7 +1033,7 @@
     "href": "esda.html#further-readings",
     "title": "6 ESDA",
     "section": "Further readings",
-    "text": "Further readings\nIf this section was of your interest, there is plenty more you can read and explore. The following are good “next steps” to delve a bit deeper into exploratory spatial data analysis:\n\nSpatial autocorrelation chapters on the GDS book by Rey, Arribas and Wolf.\nSymanzik’s chapter on ESDA in the Handbook of Regional Science (Symanzik2021?) introduces the main concepts behind ESDA\nHaining’s chapter in the Handbook of Regional Science (Haining2014?) is a good historical perspective of the origins and motivations behind most of global and local measures of spatial autocorrelation."
+    "text": "Further readings\nIf this section was of your interest, there is plenty more you can read and explore. The following are good “next steps” to delve a bit deeper into exploratory spatial data analysis:\n\nSpatial autocorrelation chapters on the GDS book by Rey, Arribas and Wolf.\nSymanzik’s chapter on ESDA in the Handbook of Regional Science Symanzik (2021) introduces the main concepts behind ESDA\nHaining and Li’s chapter in the Handbook of Regional Science Haining and Li (2021) is a good historical perspective of the origins and motivations behind most of global and local measures of spatial autocorrelation.\n\n\n\n\n\nHaining, Robert, and Guangquan Li. 2021. “Spatial Data and Spatial Statistics.” In Handbook of Regional Science, edited by Manfred M. Fischer and Peter Nijkamp, 1961–83. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-60723-7_71.\n\n\nSymanzik, Jürgen. 2021. “Exploratory Spatial Data Analysis.” In Handbook of Regional Science, edited by Manfred M. Fischer and Peter Nijkamp, 1845–61. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-60723-7_76."
   },
   {
     "objectID": "esda_code.html#data",
