@@ -1,1 +1,52 @@
 # 8 Points {#sec-points .unnumbered}
+
+## Concepts
+
+In this section, we focus on a particular type of geometry: points. As we will see, points can represent a very particular type of spatial entity. We explore how that is the case and what are its implications, and then wrap up with a particular machine learning technique that allows us to identify clusters of points in space.
+
+Slides can be downloaded ["here"]()
+
+## Point patterns
+Collections of points referencing geographical locations are sometimes called point patterns. What’s special about point patterns? How they differ from other collections of geographical features such as polygons?
+
+If you want to delve deeper into point patterns, watch the video on the expandable below, which features Luc Anselin delivering a longer (and slightly more advanced) lecture on point patterns.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z2iT4JpqGZg?si=6DGvsmVozxFMlXNT">
+
+</iframe>
+
+## Visualisating Points
+Once we have a better sense of what makes points special, we turn to visualising point patterns. Here we cover three main strategies: 
+- One to one mapping 
+- Aggregation 
+- Smoothing
+
+## Clustering Points
+
+As we have seen in this course, “cluster” is a hard to define term. In the Clustering Session, we used it as the outcome of an unsupervised learning algorithm. In this context, we will use the following definition:
+
+::: {.callout-tip title="Definition"}
+Concentrations/agglomerations of points over space, significantly more so than in the rest of the space considered
+:::
+
+Spatial/Geographic clustering has a wide literature going back to spatial mathematics and statistics and, more recently, machine learning. For this section, we will cover one algorithm from the latter discipline which has become very popular in the geographic context in the last few years: **Density-Based Spatial Clustering of Applications with Noise**, or DBSCAN.
+
+VIDEO TO BE INSERTED
+
+Let’s complement and unpack the clip above in the context of this course. The video does a very good job at explaining how the algorithm works, and what general benefits that entails. Here are two *additional* advantages that are not picked up in the clip:
+
+1. It is not necessarily spatial. In fact, the original design was for the area of “data mining” and “knowledge discovery in databases”, which historically does not work with spatial data. Instead, think of purchase histories of consumers, or warehouse stocks: DBSCAN was designed to pick up patterns of similar behaviour in those contexts. Note also that this means you can use DBSCAN not only with two dimensions (e.g. longitude and latitude), but with many more (e.g. product variety) and its mechanics will work in the same way.
+
+2. Fast and scalable. For similar reasons, DBSCAN is very fast and can be run in relatively large databases without problem. This contrasts with much of the traditional point pattern methods, that rely heavily on simulation and thus are trickier to scale feasibly. This is one of the reasons why DBSCAN has been widely adopted in Geographic Data Science: it is relatively straightforward to apply and will run fast, even on large datasets, meaning you can iterate over ideas quickly to learn more about your data.
+
+DBSCAN also has a few drawbacks when compared to some of the techniques we have seen earlier in this course. Here are two prominent ones:
+
+1. It is not based on a probabilistic model. Unlike the LISAs, for example, there is no underlying model that helps us characterise the pattern the algorithms returns. There is no “null hypothesis” to reject, no inferential model and thus no statistical significance. In some cases, this is an important drawback if we want to ensure what we are observing (and the algorithm is picking up) is not a random pattern.
+
+2. Agnostic about the underlying process. Because there is no inferential model and the algorithm imposes very little prior structure to identify clusters, it is also hard to learn anything about the underlying process that gave rise to the pattern picked up by the algorithm. This is by no means a unique feature of DBSCAN, but one that is always good to keep in mind as we are moving from exploratory analysis to more confirmatory approaches.
+
+## Further readings
+
+- [Interpolation with R](https://rspatial.org/raster/analysis/4-interpolation.html)
+
+
