@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -62,8 +62,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="A course in Geographic Data Science - 8 Points">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -94,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/pietrostefani/gds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -313,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clustering_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+ <span class="menu-text">Clustering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -388,7 +391,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#concepts" id="toc-concepts" class="nav-link active" data-scroll-target="#concepts">Concepts</a></li>
+  <li><a href="#point-patterns" id="toc-point-patterns" class="nav-link" data-scroll-target="#point-patterns">Point patterns</a></li>
+  <li><a href="#visualisating-points" id="toc-visualisating-points" class="nav-link" data-scroll-target="#visualisating-points">Visualisating Points</a></li>
+  <li><a href="#clustering-points" id="toc-clustering-points" class="nav-link" data-scroll-target="#clustering-points">Clustering Points</a></li>
+  <li><a href="#interpolation-extra" id="toc-interpolation-extra" class="nav-link" data-scroll-target="#interpolation-extra">Interpolation (Extra)</a></li>
+  <li><a href="#further-readings" id="toc-further-readings" class="nav-link" data-scroll-target="#further-readings">Further readings</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/points.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -410,8 +424,83 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="concepts" class="level2">
+<h2 class="anchored" data-anchor-id="concepts">Concepts</h2>
+<p>In this section, we focus on a particular type of geometry: points. As we will see, points can represent a very particular type of spatial entity. We explore how that is the case and what are its implications, and then wrap up with a particular machine learning technique that allows us to identify clusters of points in space.</p>
+<p>Slides can be downloaded <a href="">“here”</a></p>
+</section>
+<section id="point-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="point-patterns">Point patterns</h2>
+<p>Collections of points referencing geographical locations are sometimes called point patterns. What’s special about point patterns? How they differ from other collections of geographical features such as polygons?</p>
+<p>Point pattern analysis is concerned with describing patterns of points over space, and making inference about the process that could have generated an observed pattern. The main focus here lies on the information carried in the locations of the points, such as: and typically these locations are not controlled by sampling but a result of a process we’re interested in:</p>
+<ul>
+<li>animal sightings</li>
+<li>accidents</li>
+<li>disease cases,</li>
+<li>tree locations.</li>
+</ul>
+<p>This is opposed to geostatistical processes, where we have values of some phenomenon everywhere but observations limited to a set of locations that we can control, at least in principle. Hence, in geostatistical problems the prime interest is not in the observation locations but in estimating the value of the observed phenomenon at unobserved locations.</p>
+<p>Point pattern analysis typically assumes that for an observed area, all points are available, meaning that locations without a point are not unobserved as in a geostatistical process, but are observed and contain no point. In terms of random processes, in point processes locations are random variables, where in geostatistical processes the measured variable is a random field with locations fixed.</p>
+<p>If you want to delve deeper into point patterns, watch the video below which features Luc Anselin delivering a longer (and slightly more advanced) lecture on point patterns.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z2iT4JpqGZg?si=6DGvsmVozxFMlXNT">
+</iframe>
+</section>
+<section id="visualisating-points" class="level2">
+<h2 class="anchored" data-anchor-id="visualisating-points">Visualisating Points</h2>
+<p>Once we have a better sense of what makes points special, we turn to visualising point patterns. Here we cover three main strategies:</p>
+<ul>
+<li>One to one mapping</li>
+<li>Aggregation</li>
+<li>Smoothing</li>
+</ul>
+</section>
+<section id="clustering-points" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-points">Clustering Points</h2>
+<p>As we have seen in this course, “cluster” is a hard to define term. In the Clustering Session, we used it as the outcome of an unsupervised learning algorithm. In this context, we will use the following definition:</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Concentrations/agglomerations of points over space, significantly more so than in the rest of the space considered</p>
+</div>
+</div>
+<p>Spatial/Geographic clustering has a wide literature going back to spatial mathematics and statistics and, more recently, machine learning. For this section, we will cover one algorithm from the latter discipline which has become very popular in the geographic context in the last few years: <strong>Density-Based Spatial Clustering of Applications with Noise</strong>, or DBSCAN.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_A9Tq6mGtLI?si=_c8-Xcqqbl6e2WiV">
+</iframe>
+<p>Let’s complement and unpack the clip above in the context of this course. The video does a very good job at explaining how the algorithm works, and what general benefits that entails. Here are two <em>additional</em> advantages that are not picked up in the clip:</p>
+<ol type="1">
+<li><p><strong>It is not necessarily spatial</strong>. In fact, the original design was for the area of “data mining” and “knowledge discovery in databases”, which historically does not work with spatial data. Instead, think of purchase histories of consumers, or warehouse stocks: <code>dbscan</code> was designed to pick up patterns of similar behaviour in those contexts. Note also that this means you can use <code>dbscan</code> not only with two dimensions (e.g.&nbsp;longitude and latitude), but with many more (e.g.&nbsp;product variety) and its mechanics will work in the same way.</p></li>
+<li><p><strong>Fast and scalable</strong>. For similar reasons, <code>dbscan</code> is very fast and can be run in relatively large databases without problem. This contrasts with much of the traditional point pattern methods, that rely heavily on simulation and thus are trickier to scale feasibly. This is one of the reasons why <code>dbscan</code> has been widely adopted in Geographic Data Science: it is relatively straightforward to apply and will run fast, even on large datasets, meaning you can iterate over ideas quickly to learn more about your data.</p></li>
+</ol>
+<p><code>dbscan</code> also has a few drawbacks when compared to some of the techniques we have seen earlier in this course. Here are two prominent ones:</p>
+<ol type="1">
+<li><p><strong>It is not based on a probabilistic model.</strong> Unlike the LISAs, for example, there is no underlying model that helps us characterise the pattern the algorithms returns. There is no “null hypothesis” to reject, no inferential model and thus no statistical significance. In some cases, this is an important drawback if we want to ensure what we are observing (and the algorithm is picking up) is not a random pattern.</p></li>
+<li><p><strong>Agnostic about the underlying process.</strong> Because there is no inferential model and the algorithm imposes very little prior structure to identify clusters, it is also hard to learn anything about the underlying process that gave rise to the pattern picked up by the algorithm. This is by no means a unique feature of DBSCAN, but one that is always good to keep in mind as we are moving from exploratory analysis to more confirmatory approaches.</p></li>
+</ol>
+</section>
+<section id="interpolation-extra" class="level2">
+<h2 class="anchored" data-anchor-id="interpolation-extra">Interpolation (Extra)</h2>
+<p>Spatial interpolation is the activity of estimating values spatially continuous variables for spatial locations where they have not been observed, based on observations. The statistical methodology for spatial interpolation, called geostatistics, is concerned with the modelling, prediction and simulation of spatially continuous phenomena.</p>
+<p>The typical problem is a missing value problem: we observe a property of a phenomenon <span class="math inline">\(Z(s)\)</span> at a limited number of sample locations, and are interested in the property value at all locations covering an area of interest, so we have to predict it for unobserved locations. This is also called kriging, or Gaussian Process prediction.</p>
+<p>In case <span class="math inline">\(Z(s)\)</span> contains a white noise component <span class="math inline">\(\epsilon\)</span>, possibly reflecting measurement error, an alternative but similar goal is to predict, which may be called spatial filtering or smoothing.</p>
+<p>Data analysis generally involves extracting a ‘signal’ which you are interested in, from the ‘noise’. When trying to see spatial patterns in a variable x, distributed over space, think of some part following a general smooth trend, and another part as more locally random: data = smooth + rough xi = (large scale variation)+(small scale)</p>
+<p>Inverse Distance Weighting (IDW) is an interpolation technique where we assume that an outcome varies smoothly across space - the closer points are - the more likely they are to have the same outcome. To predict values across space, IDW uses neighbours values. There are two main variables: the number of neighbours to consider and the speed of the spatial decay. For example, if we were to model the likelihood of a household to shop at the neighbouring local groceries store, we would need to set a decay such as the probability would be close to 0 as we reach 15 minutes walking distance from home.</p>
+<p>For example. to predict house sale values, we could use a simple kriging method: <span class="math display">\[Price_i = \sum^N_{j=1} w_j * Price_j + \epsilon_i\]</span> with <span class="math inline">\(w_j = (\frac{1}{d_{ij}})^2\)</span> for all <span class="math inline">\(i\)</span> and <span class="math inline">\(j \neq i\)</span>, <span class="math inline">\(d\)</span> the distance between <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>.</p>
+</section>
+<section id="further-readings" class="level2">
+<h2 class="anchored" data-anchor-id="further-readings">Further readings</h2>
+<ul>
+<li><a href="https://rspatial.org/raster/analysis/4-interpolation.html">Interpolation with R</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -665,7 +754,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/points.qmd" class="toc-action">Edit this page</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

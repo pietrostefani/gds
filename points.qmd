@@ -1,52 +1,176 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # 8 Points {#sec-points .unnumbered}
 
 ## Concepts
 
-In this section, we focus on a particular type of geometry: points. As we will see, points can represent a very particular type of spatial entity. We explore how that is the case and what are its implications, and then wrap up with a particular machine learning technique that allows us to identify clusters of points in space.
+In this section, we focus on a particular type of geometry: points. As
+we will see, points can represent a very particular type of spatial
+entity. We explore how that is the case and what are its implications,
+and then wrap up with a particular machine learning technique that
+allows us to identify clusters of points in space.
 
 Slides can be downloaded ["here"]()
 
 ## Point patterns
-Collections of points referencing geographical locations are sometimes called point patterns. What’s special about point patterns? How they differ from other collections of geographical features such as polygons?
 
-If you want to delve deeper into point patterns, watch the video on the expandable below, which features Luc Anselin delivering a longer (and slightly more advanced) lecture on point patterns.
+Collections of points referencing geographical locations are sometimes
+called point patterns. What's special about point patterns? How they
+differ from other collections of geographical features such as polygons?
+
+Point pattern analysis is concerned with describing patterns of points
+over space, and making inference about the process that could have
+generated an observed pattern. The main focus here lies on the
+information carried in the locations of the points, such as: and
+typically these locations are not controlled by sampling but a result of
+a process we're interested in:
+
+-   animal sightings
+-   accidents
+-   disease cases,
+-   tree locations.
+
+This is opposed to geostatistical processes, where we have values of
+some phenomenon everywhere but observations limited to a set of
+locations that we can control, at least in principle. Hence, in
+geostatistical problems the prime interest is not in the observation
+locations but in estimating the value of the observed phenomenon at
+unobserved locations.
+
+Point pattern analysis typically assumes that for an observed area, all
+points are available, meaning that locations without a point are not
+unobserved as in a geostatistical process, but are observed and contain
+no point. In terms of random processes, in point processes locations are
+random variables, where in geostatistical processes the measured
+variable is a random field with locations fixed.
+
+If you want to delve deeper into point patterns, watch the video below
+which features Luc Anselin delivering a longer (and slightly more
+advanced) lecture on point patterns.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Z2iT4JpqGZg?si=6DGvsmVozxFMlXNT">
 
 </iframe>
 
 ## Visualisating Points
-Once we have a better sense of what makes points special, we turn to visualising point patterns. Here we cover three main strategies: 
-- One to one mapping 
-- Aggregation 
-- Smoothing
+
+Once we have a better sense of what makes points special, we turn to
+visualising point patterns. Here we cover three main strategies:
+
+-   One to one mapping
+-   Aggregation
+-   Smoothing
 
 ## Clustering Points
 
-As we have seen in this course, “cluster” is a hard to define term. In the Clustering Session, we used it as the outcome of an unsupervised learning algorithm. In this context, we will use the following definition:
+As we have seen in this course, "cluster" is a hard to define term. In
+the Clustering Session, we used it as the outcome of an unsupervised
+learning algorithm. In this context, we will use the following
+definition:
 
 ::: {.callout-tip title="Definition"}
-Concentrations/agglomerations of points over space, significantly more so than in the rest of the space considered
+Concentrations/agglomerations of points over space, significantly more
+so than in the rest of the space considered
 :::
 
-Spatial/Geographic clustering has a wide literature going back to spatial mathematics and statistics and, more recently, machine learning. For this section, we will cover one algorithm from the latter discipline which has become very popular in the geographic context in the last few years: **Density-Based Spatial Clustering of Applications with Noise**, or DBSCAN.
+Spatial/Geographic clustering has a wide literature going back to
+spatial mathematics and statistics and, more recently, machine learning.
+For this section, we will cover one algorithm from the latter discipline
+which has become very popular in the geographic context in the last few
+years: **Density-Based Spatial Clustering of Applications with Noise**,
+or DBSCAN.
 
-VIDEO TO BE INSERTED
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_A9Tq6mGtLI?si=_c8-Xcqqbl6e2WiV">
 
-Let’s complement and unpack the clip above in the context of this course. The video does a very good job at explaining how the algorithm works, and what general benefits that entails. Here are two *additional* advantages that are not picked up in the clip:
+</iframe>
 
-1. It is not necessarily spatial. In fact, the original design was for the area of “data mining” and “knowledge discovery in databases”, which historically does not work with spatial data. Instead, think of purchase histories of consumers, or warehouse stocks: DBSCAN was designed to pick up patterns of similar behaviour in those contexts. Note also that this means you can use DBSCAN not only with two dimensions (e.g. longitude and latitude), but with many more (e.g. product variety) and its mechanics will work in the same way.
+Let's complement and unpack the clip above in the context of this
+course. The video does a very good job at explaining how the algorithm
+works, and what general benefits that entails. Here are two *additional*
+advantages that are not picked up in the clip:
 
-2. Fast and scalable. For similar reasons, DBSCAN is very fast and can be run in relatively large databases without problem. This contrasts with much of the traditional point pattern methods, that rely heavily on simulation and thus are trickier to scale feasibly. This is one of the reasons why DBSCAN has been widely adopted in Geographic Data Science: it is relatively straightforward to apply and will run fast, even on large datasets, meaning you can iterate over ideas quickly to learn more about your data.
+1.  **It is not necessarily spatial**. In fact, the original design was for
+    the area of "data mining" and "knowledge discovery in databases",
+    which historically does not work with spatial data. Instead, think
+    of purchase histories of consumers, or warehouse stocks: `dbscan`
+    was designed to pick up patterns of similar behaviour in those
+    contexts. Note also that this means you can use `dbscan` not only with
+    two dimensions (e.g. longitude and latitude), but with many more
+    (e.g. product variety) and its mechanics will work in the same way.
 
-DBSCAN also has a few drawbacks when compared to some of the techniques we have seen earlier in this course. Here are two prominent ones:
+2.  **Fast and scalable**. For similar reasons, `dbscan` is very fast and can
+    be run in relatively large databases without problem. This contrasts
+    with much of the traditional point pattern methods, that rely
+    heavily on simulation and thus are trickier to scale feasibly. This
+    is one of the reasons why `dbscan` has been widely adopted in
+    Geographic Data Science: it is relatively straightforward to apply
+    and will run fast, even on large datasets, meaning you can iterate
+    over ideas quickly to learn more about your data.
 
-1. It is not based on a probabilistic model. Unlike the LISAs, for example, there is no underlying model that helps us characterise the pattern the algorithms returns. There is no “null hypothesis” to reject, no inferential model and thus no statistical significance. In some cases, this is an important drawback if we want to ensure what we are observing (and the algorithm is picking up) is not a random pattern.
+`dbscan` also has a few drawbacks when compared to some of the techniques
+we have seen earlier in this course. Here are two prominent ones:
 
-2. Agnostic about the underlying process. Because there is no inferential model and the algorithm imposes very little prior structure to identify clusters, it is also hard to learn anything about the underlying process that gave rise to the pattern picked up by the algorithm. This is by no means a unique feature of DBSCAN, but one that is always good to keep in mind as we are moving from exploratory analysis to more confirmatory approaches.
+1.  **It is not based on a probabilistic model.** Unlike the LISAs, for
+    example, there is no underlying model that helps us characterise the
+    pattern the algorithms returns. There is no "null hypothesis" to
+    reject, no inferential model and thus no statistical significance.
+    In some cases, this is an important drawback if we want to ensure
+    what we are observing (and the algorithm is picking up) is not a
+    random pattern.
+
+2. **Agnostic about the underlying process.** Because there is no
+    inferential model and the algorithm imposes very little prior
+    structure to identify clusters, it is also hard to learn anything
+    about the underlying process that gave rise to the pattern picked up
+    by the algorithm. This is by no means a unique feature of DBSCAN,
+    but one that is always good to keep in mind as we are moving from
+    exploratory analysis to more confirmatory approaches.
+
+## Interpolation (Extra)
+
+Spatial interpolation is the activity of estimating values spatially
+continuous variables for spatial locations where they have not been
+observed, based on observations. The statistical methodology for spatial
+interpolation, called geostatistics, is concerned with the modelling,
+prediction and simulation of spatially continuous phenomena.
+
+The typical problem is a missing value problem: we observe a property of
+a phenomenon $Z(s)$ at a limited number of sample locations, and are
+interested in the property value at all locations covering an area of
+interest, so we have to predict it for unobserved locations. This is
+also called kriging, or Gaussian Process prediction.
+
+In case $Z(s)$ contains a white noise component $\epsilon$, possibly
+reflecting measurement error, an alternative but similar goal is to
+predict, which may be called spatial filtering or smoothing.
+
+Data analysis generally involves extracting a 'signal' which you are
+interested in, from the 'noise'. When trying to see spatial patterns in
+a variable x, distributed over space, think of some part following a
+general smooth trend, and another part as more locally random: data =
+smooth + rough xi = (large scale variation)+(small scale)
+
+Inverse Distance Weighting (IDW) is an interpolation technique where we assume that an outcome varies
+smoothly across space - the closer points are - the more likely they are
+to have the same outcome. To predict values across space, IDW uses
+neighbours values. There are two main variables: the number of
+neighbours to consider and the speed of the spatial decay. For example,
+if we were to model the likelihood of a household to shop at the
+neighbouring local groceries store, we would need to set a decay such as
+the probability would be close to 0 as we reach 15 minutes walking
+distance from home.
+
+For example. to predict house sale values, we could use a
+simple kriging method:
+$$Price_i = \sum^N_{j=1} w_j * Price_j + \epsilon_i$$ with
+$w_j = (\frac{1}{d_{ij}})^2$ for all $i$ and $j \neq i$, $d$ the
+distance between $i$ and $j$.
 
 ## Further readings
 
-- [Interpolation with R](https://rspatial.org/raster/analysis/4-interpolation.html)
-
-
+-   [Interpolation with
+    R](https://rspatial.org/raster/analysis/4-interpolation.html)
