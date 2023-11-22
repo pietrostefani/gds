@@ -556,15 +556,15 @@ let us get a first run at computing `DBSCAN`.
 
 In R we use the following packages to compute `DBSCAN` for real data.
 
--    `dbscan`: package which implements the DBSCAN algorithm
+-   `dbscan`: package which implements the DBSCAN algorithm
 
--    `fpc`: flexible procedures for clustering
+-   `fpc`: flexible procedures for clustering
 
 ### Data preparation for DBSCAN.
 
-In preparing the data we are going to subset only the variables
-that we will need for the analysis. These include the location and the
-id of the stations.
+In preparing the data we are going to subset only the variables that we
+will need for the analysis. These include the location and the id of the
+stations.
 
 ```{r, warning=FALSE}
 listings <- read.csv("data/BuenosAires/listings_nooutliers.csv")
@@ -606,23 +606,24 @@ Run the DBSCAN algorithm, specifying:
     'epsilon neighborhoods' of core points (including the point itself).
 -   Note that 'core points' refer to points which are within the
     'epsilon neighborhood' of the randomly selected starting point.
-    
+
 ```{r}
 db <- dbscan::dbscan(locs.scaled, eps=0.10, minPts = 10)
 db
 ```
 
-Use the results from applying `dbscan` to plot the example data once more,
-coloring points according to which cluster `dbscan` grouped each point in.
-In the `dbscan` results, cluster group '0', plotted below in black,
-indicates 'noise points'. A 'noise point' is one which isn't close
-enough to ('minPts' - 1) number of other points to be considered part of
-any cluster.
+Use the results from applying `dbscan` to plot the example data once
+more, coloring points according to which cluster `dbscan` grouped each
+point in. In the `dbscan` results, cluster group '0', plotted below in
+black, indicates 'noise points'. A 'noise point' is one which isn't
+close enough to ('minPts' - 1) number of other points to be considered
+part of any cluster.
 
 ```{r, warning=FALSE}
 factoextra::fviz_cluster(db,locs.scaled,stand = F,ellipse = T,geom = "point") + theme_minimal() 
 
 ```
+
 This needs some cleaning up, but you get the idea.
 
 You can also display the results of the `dbscan`.
@@ -630,6 +631,7 @@ You can also display the results of the `dbscan`.
 ```{r}
 print(db)
 ```
+
 The `dbscan` algorithm is very sensitive to changes to the `epsilon` and
 `minPts` values. Smaller `epsilons` leads to definition of sparser
 clusters as noise while larger epsilon sizes may make denser clusters to
@@ -638,14 +640,14 @@ be merged.
 ### Determining the optimal eps value.
 
 To determine the optimal distance, think of every point and its average
-distance from its nearest neighbours. We can now use k-nearest
-neighbour distances matrix to compute this with a specified value of k
+distance from its nearest neighbours. We can now use k-nearest neighbour
+distances matrix to compute this with a specified value of k
 corresponding to `minPts`.
 
 We then plot these points in ascending order with an aim of aim of
-determining the "knee" which corresponds to the optimal eps
-parameter. The "knee" in this case is equivalent to a threshhold where a
-sharp change occurs along the k distance curve.
+determining the "knee" which corresponds to the optimal eps parameter.
+The "knee" in this case is equivalent to a threshhold where a sharp
+change occurs along the k distance curve.
 
 We can use the `kNNdistplot()` function from the `dbscan` package.
 
@@ -655,7 +657,6 @@ abline(h=0.15,lty = 2,col=rainbow(1),main="eps optimal value")
 ```
 
 The optimal value of eps is around 0.10 from the chart above.
-
 
 ## Interpolation
 
@@ -696,11 +697,13 @@ gs <- gstat(formula = price~1, # formula that defines the dependent variable as 
 ```
 
 Create a blank raster using district extent and crs
+
 ```{r}
 r <- raster(BA_proj, resolution=200) # output cell size 
 ```
 
-Create the interpolated raster using the prediction from the model and the blank raster
+Create the interpolated raster using the prediction from the model and
+the blank raster
 
 ```{r}
 # Interpolated raster using the prediction from the model 

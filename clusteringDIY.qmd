@@ -1,1 +1,90 @@
 # Do-It-Yourself {#sec-clusteringlab .unnumbered}
+
+```{r}
+#| message: false
+library(sf)
+library(tmap)
+library(rosm)
+```
+
+## Task I: NYC Geodemographics
+
+We are going to try to get at the (geographic) essence of New York City. For that, we will rely on the same set up Census tracts for New York City we used a few blocks ago. Once you have the `nyc` object loaded, create a geodemographic classification using the following variables:
+
+-   `european`: Total Population White
+
+-   `asian`: Total Population Asian American
+
+-   `american`: Total Population American Indian
+
+-   `african`: Total Population African American
+
+-   `hispanic`: Total Population Hispanic
+
+-   `mixed`: Total Population Mixed race
+
+-   `pacific`: Total Population Pacific Islander
+
+For this, make sure you standardise the table by the size of each tract. That is, compute a column with the total population as the sum of all the ethnic groups and divide each of them by that column. This way, the values will range between 0 (no population of a given ethnic group) and 1 (all the population in the tract is of that group).
+
+Once this is ready, get to work with the following tasks:
+
+1.  Pick a number of clusters (e.g. 10)
+2.  Run K-Means for that number of clusters
+3.  Plot the different clusters on a map
+4.  Analyse the results:
+
+-   What do you find?
+-   What are the main characteristics of each cluster?
+-   How are clusters distributed geographically?
+-   Can you identify some groups concentrated on particular areas (e.g. China Town, Little Italy)?
+
+## Task II: Regionalisation of Dar Es Salaam
+
+For this task we will travel to Tanzania's Dar Es Salaam. We are using a dataset assembled to describe the built environment of the city centre. Let's load up the dataset before anything:
+
+```{r}
+df <- st_read('./data/Kenya_Tanzania/dar_es_salaam.geojson')
+```
+
+Geographically, this is what we are looking at:
+
+```{r}
+#| message: false
+map <- tm_shape(df) +
+  tm_borders(col = "blue", lwd = 1)  + # add borders
+  tm_compass(type = "arrow", position = c("left", "top") , size = 1) + # add compass
+  tm_scale_bar(breaks = c(0,1,2,3), text.size = 0.5, position =  c("left", "bottom")) # add scale bar
+
+base_map <- osm.raster(df) #add a basemap
+tm_shape(base_map) + tm_rgb() + map
+```
+
+We can inspect the data:
+
+```{r}
+head(df)
+```
+
+Two main aspects of the built environment are considered: the street network and buildings. To capture those, the following variables are calculated at for the H3 hexagonal grid system, zoom level 8:
+
+-   Building density: number of buildings per hexagon
+-   Building coverage: proportion of the hexagon covered by buildings
+-   Street length: total length of streets within the hexagon
+-   Street linearity: a measure of how regular the street network is
+
+With these at hand, your task is the following:
+
+*"Develop a regionalisation that partitions Dar Es Salaam based on its built environment"*
+
+For that, you can follow these suggestions:
+
+-   Create a spatial weights matrix to capture spatial relationships between hexagons
+-   Set up a regionalisation algorithm with a given number of clusters (e.g. seven)
+-   Generate a geography that contains only the boundaries of each region and visualise it (ideally with a raster image as basemap for context)
+-   "Rinse" and repeat with several combinations of variables and number of clusters
+-   Pick your best. Why have you selected it? What does it show? What are the main groups of areas based on the built environment?
+
+::: callout-note
+Remember, the instructions above are just guidelines. Feel free to improvise and go beyond to what is set.
+:::
