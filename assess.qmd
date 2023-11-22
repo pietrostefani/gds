@@ -35,7 +35,7 @@ The assignment will be evaluated based on three main pillars, on which you will 
 
 -   **Title:** Multiple Choice Questions - test
 -   **Type:** 16th November - during the Lab. 90 mins
--   Due date: **TBC**
+-   Due date: 22nd November
 -   25% of the final mark
 -   Chance to be reassessed
 -   Electronic submission only
@@ -54,9 +54,11 @@ b)  To provide core learning in advance of the third assessment.
 
 A 2500 word computational essay on a geographic data set which they have explored and analysed using the skills and techniques developed during the course. Students will complete an essay which combines both code, data visualisation and prose supported by references in order to demonstrate sound understanding of all learning outcomes.
 
+### [Full Assignment details]()
+
 **Overview**
 
-Here's the premise. You will take the role of a real-world geographic sata scientist tasked to explore datasets on New York City and find useful insights for a variety of city decision-makers. It does not matter if you have never been to New York City. In fact, this will help you focus on what you can learn about the city through the data, without the influence of prior knowledge. Furthermore, the assessment will not be marked based on how much you know about New York City but instead about how much you can show you have learned through analysing data. You will need contextualise your project by highlighting the opportunities and limitations of 'old' and 'new' forms of spatial data and reference relevant literature.
+Here's the premise. You will take the role of a real-world geographic data scientist tasked to explore datasets on New York City and find useful insights for a variety of city decision-makers. It does not matter if you have never been to New York City. In fact, this will help you focus on what you can learn about the city through the data, without the influence of prior knowledge. Furthermore, the assessment will not be marked based on how much you know about New York City but instead about how much you can show you have learned through analysing data. You will need contextualise your project by highlighting the opportunities and limitations of 'old' and 'new' forms of spatial data and reference relevant literature.
 
 **What is a Computational Essay?**
 
@@ -70,11 +72,11 @@ A computational essay is an essay whose narrative is supported by code and compu
 
 **There are three kinds of elements in a computational essay:**
 
-1. Ordinary text (in English)
+1.  Ordinary text (in English)
 
-2. Computer input (R)
+2.  Computer input (R)
 
-3. Computer output These three elements all work together to express what's being communicated.
+3.  Computer output These three elements all work together to express what's being communicated.
 
 ## Marking Criteria
 
