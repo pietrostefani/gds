@@ -1,6 +1,7 @@
 # Do-It-Yourself {#sec-clusteringlab .unnumbered}
 
 ```{r}
+#| message: false
 library(sf)
 library(tmap)
 library(rosm)

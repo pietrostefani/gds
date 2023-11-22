@@ -1,4 +1,4 @@
-# Clustering {#sec-clusteringlab .unnumbered}
+# Lab {#sec-clusteringlab .unnumbered}
 
 We will start by loading the necessary libraries:
 
