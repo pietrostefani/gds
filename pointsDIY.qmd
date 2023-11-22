@@ -1,1 +1,86 @@
 # Do-It-Yourself {#sec-pointsdiy .unnumbered}
+
+```{r message=FALSE}
+library(sf)
+library(leaflet)
+library(tmap)
+library(geojsonsf) 
+library(dplyr)
+```
+
+## Task I: Photographs in Tokyo
+
+In this task, you will explore patterns in the distribution of the location of photos. We are going to dip our toes in the lake of point data by looking at a sample of geo-referenced photographs in Tokyo. The dataset comes from the [GDS Python Book](https://geographicdata.science/) and contains photographs voluntarily uploaded to the Flickr service.
+
+### Photos
+
+```{r}
+# Read the CSV file into a data frame
+tokyo <- read.csv("https://geographicdata.science/book/_downloads/7fb86b605af15b3c9cbd9bfcbead23e9/tokyo_clean.csv")
+```
+
+### Administrative areas
+
+```{r}
+url <- "https://darribas.org/gds_course/content/data/tokyo_admin_boundaries.geojson"
+
+tokyo_areas <- sf::st_read(url) # import
+```
+
+With these at hand, get to work with the following challenges:
+
+1.  Create a Hex binning map of the photos
+
+2.  Compute and display a kernel density estimate (KDE) of the distribution of the photos
+
+3.  Using the area layer:
+
+    1.  Obtain a count of property by area (no the the area name is present in the property table)
+
+    2.  Create a raw count choropleth
+
+    3.  Create a choropleth of the density of properties by polygon
+
+## Task II: Clusters of Indian cities
+
+For this one, we are going to use a dataset on the location of populated places in India provided by http://geojson.xyz. The original table covers the entire world so, to get it ready for you to work on it, we need to prepare it:
+
+```{r warning=FALSE}
+url <- "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_populated_places_simple.geojson"
+
+data <- sf::st_read(url) # import
+data <- st_make_valid(data)
+
+plot(data$geometry) # plot to check all is well
+```
+
+Note the code cell above requires internet connectivity.
+
+```{r}
+places <- data %>%
+  filter(adm0name == "India")
+```
+
+By default, place locations come expressed in longitude and latitude. Because you will be working with distances, it makes sense to convert the table into a system expressed in metres. For India, this can be the "Kalianpur 1975 / India zone I" (EPSG:24378) projection.
+
+```{r}
+places_m <- st_transform(places, crs = 24378)
+```
+
+```{r}
+tmap_mode("view")
+
+tm_shape(places_m) + tm_bubbles(size = "pop_max", col = "yellow")+
+tm_tiles("Stamen.TonerLabels")
+
+```
+
+With this at hand, get to work:
+
+1.  Use the DBSCAN algorithm to identify clusters
+
+2.  Start with the following parameters: at least five cities for a cluster (min_samples) and a maximum of 1,000Km (eps)
+
+3.  Obtain the clusters and plot them on a map. Does it pick up any interesting pattern?
+
+4.  Based on the results above, tweak the values of both parameters to find a cluster of southern cities, and another one of cities in the North around New Dehli
