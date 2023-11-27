@@ -58,7 +58,8 @@ A 2500 word computational essay on a geographic data set which they have explore
 
 ### [Data in csv format if you are not using API](https://theuniversityofliverpool-my.sharepoint.com/:x:/g/personal/pietrost_liverpool_ac_uk/EazWqRBVnxFCvnj62XdSvPwBqxArzWsQayqt71L4wR7N_w?e=JT61c7)
 
-### [.qmd file](./html/ENVS363_563.3.qmd)
+### .qmd file - Please see Teams
+
 
 
 **Overview**

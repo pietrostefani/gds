@@ -1,6 +1,6 @@
 ---
 title: "Computational Essay"
-author: "Elisabetta Pietrostefani"
+author: "..."
 toc: true
 format: 
   html:
@@ -14,29 +14,22 @@ execute:
 ---
 
 # Installing Packages
+
 # Introduction
+
 # Body
+
 # Conclusion
+
 # References
 
-•	Maximum of 1,000 words (ordinary text) (references do not contribute to the word count). You should answer the specified questions within the narrative. The questions should be included within a wider analysis.
-•	Up to five maps or figures (a figure may include more than one map and will only count as one but needs to be integrated in the same overall output)
-•	Up to one table
-
-
-
-
-
-
-
-
-
+• Maximum of 1,000 words (ordinary text) (references do not contribute to the word count). You should answer the specified questions within the narrative. The questions should be included within a wider analysis. • Up to five maps or figures (a figure may include more than one map and will only count as one but needs to be integrated in the same overall output) • Up to one table
 
 NOTE: Below is some code to get you started if you want to use Tidycensus for the socio-economic data
 
 # Tidycensus
-To get started working with tidycensus, users should load the package along with the tidyverse package, and set you Census API key. 
-A key can be obtained from http://api.census.gov/data/key_signup.html.
+
+To get started working with tidycensus, users should load the package along with the tidyverse package, and set you Census API key. A key can be obtained from http://api.census.gov/data/key_signup.html.
 
 ```{r tidycensus, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -52,11 +45,11 @@ https://rdrr.io/cran/tigris/man/zctas.html
 
 ## Searching for variables
 
-* Variables in tidycensus are identified by their Census ID, e.g. B19013_001
+-   Variables in tidycensus are identified by their Census ID, e.g. B19013_001
 
-* Entire tables of variables can be requested with the table argument, e.g. table = "B19001"
+-   Entire tables of variables can be requested with the table argument, e.g. table = "B19001"
 
-* Users can request multiple variables at a time, and set custom names with a named vector
+-   Users can request multiple variables at a time, and set custom names with a named vector
 
 Getting variables from the US American Community Survey (ACS) 5-Year Data (2016-2020) requires knowing the variable ID - and there are thousands of these IDs across the different files. To rapidly search for variables, use the load_variables() function. The function takes two required arguments: the year of the Census or endyear of the ACS sample, and the dataset name, which varies in availability by year. For the ACS, use either "acs1" or "acs5" for the ACS detailed tables, and append /profile for the Data Profile and /subject for the Subject Tables. To browse these variables, assign the result of this function to a variable and use the View function in RStudio. An optional argument cache = TRUE will cache the dataset on your computer for future use.
 
@@ -69,6 +62,7 @@ View(view_vars)
 # An Example: New York City
 
 The following example shows median household income from the 2016-2020 ACS for Census tracts in New York State:
+
 ```{r nyc}
 
 nyc <- get_acs(
@@ -84,6 +78,7 @@ head(nyc)
 ```
 
 Visualizing median household income New York:
+
 ```{r}
 nyc %>%
   ggplot(aes(fill = estimate)) + 
@@ -92,6 +87,7 @@ nyc %>%
 ```
 
 Getting Median household income for our Areas of Interest in the Summative
+
 ```{r San Fran}
 bay <- get_acs(
   state = "CA",
@@ -108,6 +104,7 @@ plot(bay$geometry)
 ```
 
 Visualizing median household income in the Bay Are - be careful you will want to restrict the extent of your box
+
 ```{r}
 bay %>%
   ggplot(aes(fill = estimate)) + 
@@ -116,9 +113,11 @@ bay %>%
 ```
 
 # Getting *all* our data for our Areas of Interest
+
 You will need look at https://api.census.gov/data/2020/acs/acs5/variables.html
 
 Example - Race
+
 ```{r San Fran Population Race}
 bay_race <- get_acs(
   state = "CA",
@@ -138,6 +137,7 @@ head(bay_race)
 ```
 
 # Join
+
 ```{r}
 bay_all <- join_all(list(bay_race, XXXXXadd_in_all_your_other_dataframes), by='GEOID', type='left')
 
@@ -150,11 +150,6 @@ bay_plot <- left_join(bay,
                        by='GEOID')
 ```
 
-# References and Helpful links
----------------------------
+## \# References and Helpful links
 
-https://api.census.gov/data/2020/acs/acs5/variables.html
-https://walker-data.com/tidycensus/articles/basic-usage.html
-https://walker-data.com/tidycensus/
-https://walker-data.com/tidycensus/articles/spatial-data.html
-https://walker-data.com/isds-webinar/#34
+https://api.census.gov/data/2020/acs/acs5/variables.html https://walker-data.com/tidycensus/articles/basic-usage.html https://walker-data.com/tidycensus/ https://walker-data.com/tidycensus/articles/spatial-data.html https://walker-data.com/isds-webinar/#34
