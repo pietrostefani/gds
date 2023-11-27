@@ -54,7 +54,11 @@ b)  To provide core learning in advance of the third assessment.
 
 A 2500 word computational essay on a geographic data set which they have explored and analysed using the skills and techniques developed during the course. Students will complete an essay which combines both code, data visualisation and prose supported by references in order to demonstrate sound understanding of all learning outcomes.
 
-### [Full Assignment details]()
+### [Full Assignment details](https://theuniversityofliverpool-my.sharepoint.com/:b:/g/personal/pietrost_liverpool_ac_uk/EbImdbxvREhGpbo2TwxqKpwBSRsP_xY_22rDiHpBZxq9fw?e=Kp2t5e)
+
+### [Data in csv format if you are not using API](https://theuniversityofliverpool-my.sharepoint.com/:x:/g/personal/pietrost_liverpool_ac_uk/EazWqRBVnxFCvnj62XdSvPwBqxArzWsQayqt71L4wR7N_w?e=JT61c7)
+
+### [.qmd file](./html/ENVS363_563.3.qmd)
 
 
 **Overview**
