@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - Do-It-Yourself</title>
+<title>A course in Geographic Data Science - Do-It-Yourself</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -63,9 +97,13 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - Do-It-Yourself">
+<meta name="twitter:title" content="A course in Geographic Data Science - Do-It-Yourself">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://pietrostefani.github.io/wma/spatialnetworksDIY_files/figure-html/unnamed-chunk-10-1.png">
 <meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="960">
+<meta name="twitter:image-width" content="1344">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -77,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksDIY.html">Do-It-Yourself</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksDIY.html">Do-It-Yourself</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -92,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Geographic Data Science in R and Python</a> 
+      <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -161,12 +199,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">R</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./environPy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -181,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./openscience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OpenScience</span></a>
+ <span class="menu-text">Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -195,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Data</span></a>
+ <span class="menu-text">2 Spatial Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -204,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Data</span></a>
+ <span class="menu-text">Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapvector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapping Vector Data</span></a>
+ <span class="menu-text">3 Mapping Vector Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -227,13 +259,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapping Vector Data in R</span></a>
+ <span class="menu-text">Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapping Vector Data in Python</span></a>
+ <span class="menu-text">Do-It-Yourself</span></a>
   </div>
 </li>
       </ul>
@@ -241,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapraster.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">mapraster.html</span></a>
+ <span class="menu-text">4 Mapping Raster Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -264,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialw.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Weights</span></a>
+ <span class="menu-text">5 Spatial Weights</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -287,7 +319,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./esda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ESDA</span></a>
+ <span class="menu-text">6 ESDA</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -310,7 +342,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clustering</span></a>
+ <span class="menu-text">7 Clustering</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -333,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./points.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Points</span></a>
+ <span class="menu-text">8 Points</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -356,7 +388,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Networks</span></a>
+ <span class="menu-text">9 - Spatial Networks</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -394,7 +426,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#task-1-network-metrics" id="toc-task-1-network-metrics" class="nav-link active" data-scroll-target="#task-1-network-metrics">Task 1: network metrics</a></li>
+  <li><a href="#task-2-community-detection" id="toc-task-2-community-detection" class="nav-link" data-scroll-target="#task-2-community-detection">Task 2: community detection</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/spatialnetworksDIY.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -416,8 +455,136 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>We start by loading all the libraries required for this section.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'igraph'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    decompose, spectrum</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:base':
+
+    union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:igraph':
+
+    as_data_frame, groups, union</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+</div>
+<p>And the data. In this case, you are going to be working with Local Authority units in the UK. The LADs will be the nodes and their centroids will determine the position of the nodes in the network.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_lads <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"./data/UK-mobility/LAD_Dec_2021_GB_BFC_2022_1464193826337634923.gpkg"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="st">"epsg:4326"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `LAD_DEC_2021_GB_BFC' from data source 
+  `/Users/carmen/Library/CloudStorage/OneDrive-TheUniversityofLiverpool/GitHub/gds/data/UK-mobility/LAD_Dec_2021_GB_BFC_2022_1464193826337634923.gpkg' 
+  using driver `GPKG'
+Simple feature collection with 363 features and 8 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 5512.998 ymin: 5336.966 xmax: 655653.8 ymax: 1220302
+Projected CRS: OSGB36 / British National Grid</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="ot">&lt;-</span> <span class="fu">st_drop_geometry</span>(df_lads) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before getting started with the analysis, we perform a few operations to make the subsequent work simpler. Firstly, we rename the variable for the name of the nodes and place it in the first columns of the <code>df_nodes</code> dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df_nodes)[<span class="fu">names</span>(df_nodes) <span class="sc">==</span> <span class="st">"LAD21NM"</span>] <span class="ot">&lt;-</span> <span class="st">"name"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="ot">&lt;-</span> df_nodes <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(<span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The edges of the network are going to be determined by flows of people between LADs. The data for flows is based on posts with location information, mined from Twitter. This dataset was created by Cabrera-Arnau and co-authors to track internal mobility during COVID-19 in the UK. If you are interested in how the data was obtained and processed, you can find the information here <span class="citation" data-cites="wang2022">(<a href="references.html#ref-wang2022" role="doc-biblioref"><strong>wang2022?</strong></a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_edges <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/UK-mobility/Twitter-LAD.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In order to simplify the network, we are going to work only with edges representing flows that involve more than 2 people. We can easily redefine the dataframe of edges:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_edges <span class="ot">&lt;-</span> df_edges[df_edges<span class="sc">$</span>flow <span class="sc">&gt;</span> <span class="dv">2</span>, ]  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To make sure that the dataset of edges matches with the information in the dataset of nodes, we filter <code>df_edges</code> so that it only contains names of LADs that are in the <code>df_nodes</code> dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>unique_names <span class="ot">&lt;-</span> <span class="fu">unique</span>(df_nodes<span class="sc">$</span>name)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_edges <span class="ot">&lt;-</span> df_edges[df_edges<span class="sc">$</span>origin_LAD <span class="sc">%in%</span> unique_names, ]  </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_edges <span class="ot">&lt;-</span> df_edges[df_edges<span class="sc">$</span>destination_LAD <span class="sc">%in%</span> unique_names, ] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>At this point, we are ready to create the mobility network:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a graph 'g_lads' from data frames 'df_edges' and 'df_nodes'</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The graph is undirected (directed = TRUE)</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>g_lads <span class="ot">&lt;-</span> <span class="fu">graph_from_data_frame</span>(<span class="at">d =</span> df_edges,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">vertices =</span> df_nodes,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">directed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For visualisation purposes, you can obtain the centroids of the LAD geographies, which will mark the layout of the network nodes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> <span class="fu">st_centroid</span>(df_lads)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: st_centroid assumes attributes are constant over geometries</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract x and y coordinates</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df_centroids <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">st_coordinates</span>(centroids)[, <span class="st">"X"</span>],</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">st_coordinates</span>(centroids)[, <span class="st">"Y"</span>]</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>lo <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(df_centroids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And now you can plot the network on top of the LAD polygons for geographical context:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(df_lads), <span class="at">border=</span><span class="fu">adjustcolor</span>(<span class="st">"white"</span>), <span class="at">lwd=</span><span class="fl">0.5</span>, <span class="at">col =</span> <span class="fu">adjustcolor</span>(<span class="st">"sienna2"</span>, <span class="at">alpha.f =</span> <span class="fl">0.6</span>))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g_lads, <span class="at">layout=</span>lo,  <span class="at">rescale=</span><span class="cn">FALSE</span>, <span class="at">edge.curved=</span><span class="fl">0.1</span>, <span class="at">edge.width=</span><span class="fl">0.08</span><span class="sc">*</span>(<span class="fu">E</span>(g_lads)<span class="sc">$</span>flow)<span class="sc">^</span><span class="fl">1.5</span>, <span class="at">edge.arrow.size=</span>.<span class="dv">15</span>, <span class="at">edge.arrow.width=</span>.<span class="dv">2</span>, <span class="at">edge.color=</span><span class="fu">adjustcolor</span>(<span class="st">"gray40"</span>, <span class="at">alpha.f =</span> .<span class="dv">45</span>), <span class="at">vertex.color=</span><span class="st">"darkred"</span>, <span class="at">vertex.frame.color=</span><span class="st">"black"</span>, <span class="at">vertex.frame.width=</span><span class="fl">0.1</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="at">vertex.label=</span> <span class="st">" "</span>, <span class="at">vertex.label.color=</span><span class="st">"black"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="at">vertex.size=</span><span class="dv">8</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="spatialnetworksDIY_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="task-1-network-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="task-1-network-metrics">Task 1: network metrics</h2>
+<p>Compute the following network metrics:</p>
+<ul>
+<li><p>Density</p></li>
+<li><p>Histogram of in-degree</p></li>
+<li><p>Histogram of out-degree</p></li>
+<li><p>Histogram of closeness centrality</p></li>
+<li><p>Histogram of betweenness centrality</p></li>
+<li><p>Diameter</p></li>
+</ul>
+<p>Reflect on your findings? Do you find anything unexpected? Do your findings agree with your prior knowledge of internal mobility in the UK?</p>
+</section>
+<section id="task-2-community-detection" class="level2">
+<h2 class="anchored" data-anchor-id="task-2-community-detection">Task 2: community detection</h2>
+<p>Find network communities by running the walktrap algorithm. Explore other well-known community-detection algorithms such as greedy optimisation, Louvain method, Leiden method, etc. Useful resources are, for example, <span class="citation" data-cites="fortunato2022">(<a href="references.html#ref-clauset2004" role="doc-biblioref"><strong>clauset2004?</strong></a>)</span>. If you are curious, you are very welcome to explore these techniques to try to understand what goes on behind the scenes.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -668,10 +835,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/spatialnetworksDIY.qmd" class="toc-action">Edit this page</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

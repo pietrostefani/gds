@@ -1,0 +1,4515 @@
+origin_LAD,destination_LAD,flow,month_start,month_end
+Aberdeen City,Aberdeenshire,9,2021-09,2021-10
+Aberdeen City,Ashford,1,2021-09,2021-10
+Aberdeen City,Brighton and Hove,1,2021-09,2021-10
+Aberdeen City,Cambridge,1,2021-09,2021-10
+Aberdeen City,Camden,2,2021-09,2021-10
+Aberdeen City,City of Edinburgh,3,2021-09,2021-10
+Aberdeen City,Dundee City,1,2021-09,2021-10
+Aberdeen City,East Lothian,2,2021-09,2021-10
+Aberdeen City,Exeter,1,2021-09,2021-10
+Aberdeen City,Falkirk,1,2021-09,2021-10
+Aberdeen City,Fife,5,2021-09,2021-10
+Aberdeen City,Glasgow City,2,2021-09,2021-10
+Aberdeen City,Highland,3,2021-09,2021-10
+Aberdeen City,Isle of Wight,2,2021-09,2021-10
+Aberdeen City,Newark and Sherwood,1,2021-09,2021-10
+Aberdeen City,North Tyneside,1,2021-09,2021-10
+Aberdeen City,Peterborough,2,2021-09,2021-10
+Aberdeen City,Sheffield,1,2021-09,2021-10
+Aberdeen City,South Ayrshire,2,2021-09,2021-10
+Aberdeen City,South Lanarkshire,1,2021-09,2021-10
+Aberdeen City,Stirling,2,2021-09,2021-10
+Aberdeen City,Stockton-on-Tees,1,2021-09,2021-10
+Aberdeen City,Tameside,1,2021-09,2021-10
+Aberdeen City,West Lancashire,2,2021-09,2021-10
+Aberdeenshire,Aberdeen City,12,2021-09,2021-10
+Aberdeenshire,Chesterfield,1,2021-09,2021-10
+Aberdeenshire,City of Edinburgh,1,2021-09,2021-10
+Aberdeenshire,Dundee City,1,2021-09,2021-10
+Aberdeenshire,Fife,1,2021-09,2021-10
+Aberdeenshire,Fylde,1,2021-09,2021-10
+Aberdeenshire,Glasgow City,1,2021-09,2021-10
+Aberdeenshire,Highland,1,2021-09,2021-10
+Aberdeenshire,Wandsworth,1,2021-09,2021-10
+Adur,Birmingham,2,2021-09,2021-10
+Adur,Brighton and Hove,1,2021-09,2021-10
+Adur,Cornwall,2,2021-09,2021-10
+Adur,East Hampshire,2,2021-09,2021-10
+Adur,Portsmouth,1,2021-09,2021-10
+Adur,Westminster,2,2021-09,2021-10
+Allerdale,Bury,1,2021-09,2021-10
+Allerdale,Cheshire West and Chester,3,2021-09,2021-10
+Allerdale,Glasgow City,3,2021-09,2021-10
+Allerdale,Greenwich,1,2021-09,2021-10
+Allerdale,High Peak,1,2021-09,2021-10
+Allerdale,Leeds,1,2021-09,2021-10
+Allerdale,Manchester,3,2021-09,2021-10
+Allerdale,Reigate and Banstead,2,2021-09,2021-10
+Allerdale,Salford,1,2021-09,2021-10
+Allerdale,Scottish Borders,1,2021-09,2021-10
+Allerdale,Stroud,1,2021-09,2021-10
+Allerdale,Swindon,1,2021-09,2021-10
+Amber Valley,Barnsley,2,2021-09,2021-10
+Amber Valley,Coventry,2,2021-09,2021-10
+Amber Valley,Derby,2,2021-09,2021-10
+Amber Valley,Nottingham,2,2021-09,2021-10
+Amber Valley,Rochdale,1,2021-09,2021-10
+Angus,Aberdeenshire,3,2021-09,2021-10
+Angus,City of Edinburgh,2,2021-09,2021-10
+Angus,Dundee City,6,2021-09,2021-10
+Angus,Glasgow City,1,2021-09,2021-10
+Angus,North Lanarkshire,1,2021-09,2021-10
+Angus,Solihull,1,2021-09,2021-10
+Angus,Southwark,1,2021-09,2021-10
+Antrim and Newtownabbey,Ards and North Down,1,2021-09,2021-10
+Antrim and Newtownabbey,"Armagh City, Banbridge and Craigavon",2,2021-09,2021-10
+Antrim and Newtownabbey,Belfast,13,2021-09,2021-10
+Antrim and Newtownabbey,Bury,1,2021-09,2021-10
+Antrim and Newtownabbey,City of Edinburgh,2,2021-09,2021-10
+Antrim and Newtownabbey,Harborough,2,2021-09,2021-10
+Antrim and Newtownabbey,Lisburn and Castlereagh,2,2021-09,2021-10
+Ards and North Down,"Armagh City, Banbridge and Craigavon",2,2021-09,2021-10
+Ards and North Down,Belfast,6,2021-09,2021-10
+Ards and North Down,Derry City and Strabane,1,2021-09,2021-10
+Ards and North Down,Glasgow City,1,2021-09,2021-10
+Ards and North Down,Liverpool,2,2021-09,2021-10
+Ards and North Down,Mid Ulster,1,2021-09,2021-10
+Ards and North Down,Vale of White Horse,1,2021-09,2021-10
+Ards and North Down,Wychavon,1,2021-09,2021-10
+Argyll and Bute,Ashfield,1,2021-09,2021-10
+Argyll and Bute,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Argyll and Bute,Bromsgrove,1,2021-09,2021-10
+Argyll and Bute,City of Edinburgh,2,2021-09,2021-10
+Argyll and Bute,East Ayrshire,1,2021-09,2021-10
+Argyll and Bute,Falkirk,2,2021-09,2021-10
+Argyll and Bute,Fife,1,2021-09,2021-10
+Argyll and Bute,Glasgow City,6,2021-09,2021-10
+Argyll and Bute,Highland,2,2021-09,2021-10
+Argyll and Bute,Lewisham,2,2021-09,2021-10
+Argyll and Bute,Midlothian,1,2021-09,2021-10
+Argyll and Bute,North Lanarkshire,3,2021-09,2021-10
+Argyll and Bute,Renfrewshire,3,2021-09,2021-10
+Argyll and Bute,Shetland Islands,1,2021-09,2021-10
+Argyll and Bute,South Ribble,1,2021-09,2021-10
+Argyll and Bute,Stirling,2,2021-09,2021-10
+Argyll and Bute,Stockport,2,2021-09,2021-10
+"Armagh City, Banbridge and Craigavon",Belfast,1,2021-09,2021-10
+"Armagh City, Banbridge and Craigavon",Bridgend,1,2021-09,2021-10
+"Armagh City, Banbridge and Craigavon",Lisburn and Castlereagh,1,2021-09,2021-10
+"Armagh City, Banbridge and Craigavon","Newry, Mourne and Down",2,2021-09,2021-10
+"Armagh City, Banbridge and Craigavon",Rugby,1,2021-09,2021-10
+Arun,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Arun,Great Yarmouth,2,2021-09,2021-10
+Arun,Liverpool,2,2021-09,2021-10
+Arun,West Devon,2,2021-09,2021-10
+Ashfield,Amber Valley,2,2021-09,2021-10
+Ashfield,Coventry,1,2021-09,2021-10
+Ashfield,Fife,1,2021-09,2021-10
+Ashfield,Gedling,1,2021-09,2021-10
+Ashfield,Middlesbrough,1,2021-09,2021-10
+Ashfield,Nottingham,4,2021-09,2021-10
+Ashfield,Sedgemoor,1,2021-09,2021-10
+Ashfield,Stockton-on-Tees,1,2021-09,2021-10
+Ashford,Dartford,2,2021-09,2021-10
+Ashford,Folkestone and Hythe,1,2021-09,2021-10
+Ashford,Hart,1,2021-09,2021-10
+Ashford,North Norfolk,1,2021-09,2021-10
+Ashford,Sunderland,1,2021-09,2021-10
+Barking and Dagenham,Bath and North East Somerset,1,2021-09,2021-10
+Barking and Dagenham,Bexley,1,2021-09,2021-10
+Barking and Dagenham,Castle Point,1,2021-09,2021-10
+Barking and Dagenham,City of Edinburgh,1,2021-09,2021-10
+Barking and Dagenham,Colchester,1,2021-09,2021-10
+Barking and Dagenham,Harlow,2,2021-09,2021-10
+Barking and Dagenham,Havering,1,2021-09,2021-10
+Barking and Dagenham,Lambeth,2,2021-09,2021-10
+Barking and Dagenham,Lewisham,1,2021-09,2021-10
+Barking and Dagenham,Newham,3,2021-09,2021-10
+Barking and Dagenham,Southwark,2,2021-09,2021-10
+Barnet,Brent,4,2021-09,2021-10
+Barnet,Camden,2,2021-09,2021-10
+Barnet,Dacorum,2,2021-09,2021-10
+Barnet,Enfield,1,2021-09,2021-10
+Barnet,Hillingdon,1,2021-09,2021-10
+Barnet,Isle of Wight,1,2021-09,2021-10
+Barnet,Kirklees,3,2021-09,2021-10
+Barnet,Liverpool,1,2021-09,2021-10
+Barnet,Manchester,2,2021-09,2021-10
+Barnet,Tower Hamlets,1,2021-09,2021-10
+Barnet,Uttlesford,1,2021-09,2021-10
+Barnet,York,2,2021-09,2021-10
+Barnsley,County Durham,1,2021-09,2021-10
+Barnsley,Fermanagh and Omagh,2,2021-09,2021-10
+Barnsley,Glasgow City,2,2021-09,2021-10
+Barnsley,Hambleton,1,2021-09,2021-10
+Barnsley,"Herefordshire, County of",2,2021-09,2021-10
+Barnsley,Kirklees,1,2021-09,2021-10
+Barnsley,Leeds,1,2021-09,2021-10
+Barnsley,Scarborough,1,2021-09,2021-10
+Barnsley,Sheffield,1,2021-09,2021-10
+Barnsley,Torbay,2,2021-09,2021-10
+Barnsley,Wakefield,2,2021-09,2021-10
+Barnsley,Wolverhampton,1,2021-09,2021-10
+Barrow-in-Furness,Lambeth,1,2021-09,2021-10
+Barrow-in-Furness,South Lakeland,1,2021-09,2021-10
+Basildon,Blackpool,2,2021-09,2021-10
+Basildon,Chelmsford,1,2021-09,2021-10
+Basildon,Thurrock,2,2021-09,2021-10
+Basildon,West Suffolk,1,2021-09,2021-10
+Basingstoke and Deane,Boston,2,2021-09,2021-10
+Basingstoke and Deane,Bradford,1,2021-09,2021-10
+Basingstoke and Deane,Cardiff,2,2021-09,2021-10
+Basingstoke and Deane,Croydon,2,2021-09,2021-10
+Basingstoke and Deane,Hillingdon,2,2021-09,2021-10
+Basingstoke and Deane,Huntingdonshire,1,2021-09,2021-10
+Basingstoke and Deane,Newcastle upon Tyne,1,2021-09,2021-10
+Basingstoke and Deane,Southampton,2,2021-09,2021-10
+Basingstoke and Deane,Test Valley,2,2021-09,2021-10
+Basingstoke and Deane,Thanet,2,2021-09,2021-10
+Basingstoke and Deane,Trafford,1,2021-09,2021-10
+Basingstoke and Deane,Warwick,1,2021-09,2021-10
+Bassetlaw,Lambeth,1,2021-09,2021-10
+Bassetlaw,Leeds,1,2021-09,2021-10
+Bassetlaw,Newcastle upon Tyne,1,2021-09,2021-10
+Bassetlaw,Northumberland,1,2021-09,2021-10
+Bassetlaw,West Suffolk,1,2021-09,2021-10
+Bath and North East Somerset,"Bristol, City of",1,2021-09,2021-10
+Bath and North East Somerset,City of London,1,2021-09,2021-10
+Bath and North East Somerset,Cornwall,2,2021-09,2021-10
+Bath and North East Somerset,Crawley,2,2021-09,2021-10
+Bath and North East Somerset,Derby,1,2021-09,2021-10
+Bath and North East Somerset,Exeter,1,2021-09,2021-10
+Bath and North East Somerset,Fylde,1,2021-09,2021-10
+Bath and North East Somerset,Glasgow City,3,2021-09,2021-10
+Bath and North East Somerset,Harrogate,1,2021-09,2021-10
+Bath and North East Somerset,Hillingdon,2,2021-09,2021-10
+Bath and North East Somerset,Luton,1,2021-09,2021-10
+Bath and North East Somerset,Malvern Hills,2,2021-09,2021-10
+Bath and North East Somerset,Mendip,3,2021-09,2021-10
+Bath and North East Somerset,New Forest,2,2021-09,2021-10
+Bath and North East Somerset,North Somerset,1,2021-09,2021-10
+Bath and North East Somerset,Norwich,2,2021-09,2021-10
+Bath and North East Somerset,Powys,1,2021-09,2021-10
+Bath and North East Somerset,Sheffield,1,2021-09,2021-10
+Bath and North East Somerset,South Gloucestershire,1,2021-09,2021-10
+Bath and North East Somerset,St Albans,1,2021-09,2021-10
+Bath and North East Somerset,Tameside,1,2021-09,2021-10
+Bath and North East Somerset,Wiltshire,2,2021-09,2021-10
+Bedford,Birmingham,1,2021-09,2021-10
+Bedford,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Bedford,Camden,1,2021-09,2021-10
+Bedford,Central Bedfordshire,1,2021-09,2021-10
+Bedford,Luton,2,2021-09,2021-10
+Bedford,North Hertfordshire,2,2021-09,2021-10
+Bedford,Vale of White Horse,1,2021-09,2021-10
+Bedford,West Northamptonshire,1,2021-09,2021-10
+Belfast,Antrim and Newtownabbey,11,2021-09,2021-10
+Belfast,Ards and North Down,12,2021-09,2021-10
+Belfast,"Armagh City, Banbridge and Craigavon",3,2021-09,2021-10
+Belfast,Barnsley,2,2021-09,2021-10
+Belfast,Bassetlaw,1,2021-09,2021-10
+Belfast,Birmingham,1,2021-09,2021-10
+Belfast,Bridgend,1,2021-09,2021-10
+Belfast,"Bristol, City of",1,2021-09,2021-10
+Belfast,Bromley,1,2021-09,2021-10
+Belfast,Caerphilly,1,2021-09,2021-10
+Belfast,Causeway Coast and Glens,1,2021-09,2021-10
+Belfast,City of London,1,2021-09,2021-10
+Belfast,Cornwall,2,2021-09,2021-10
+Belfast,Derry City and Strabane,4,2021-09,2021-10
+Belfast,Dundee City,1,2021-09,2021-10
+Belfast,Exeter,1,2021-09,2021-10
+Belfast,Fermanagh and Omagh,1,2021-09,2021-10
+Belfast,Glasgow City,3,2021-09,2021-10
+Belfast,Hackney,1,2021-09,2021-10
+Belfast,Isle of Wight,1,2021-09,2021-10
+Belfast,Lambeth,1,2021-09,2021-10
+Belfast,Lewisham,2,2021-09,2021-10
+Belfast,Lisburn and Castlereagh,8,2021-09,2021-10
+Belfast,Liverpool,2,2021-09,2021-10
+Belfast,Manchester,5,2021-09,2021-10
+Belfast,Mid and East Antrim,2,2021-09,2021-10
+Belfast,Newcastle upon Tyne,4,2021-09,2021-10
+Belfast,"Newry, Mourne and Down",1,2021-09,2021-10
+Belfast,Salford,1,2021-09,2021-10
+Belfast,Sheffield,2,2021-09,2021-10
+Belfast,Slough,1,2021-09,2021-10
+Belfast,South Somerset,2,2021-09,2021-10
+Belfast,Three Rivers,2,2021-09,2021-10
+Belfast,Walsall,1,2021-09,2021-10
+Belfast,West Dunbartonshire,1,2021-09,2021-10
+Bexley,Ashford,1,2021-09,2021-10
+Bexley,Bromley,2,2021-09,2021-10
+Bexley,City of London,1,2021-09,2021-10
+Bexley,Dorset,1,2021-09,2021-10
+Bexley,Greenwich,9,2021-09,2021-10
+Bexley,Hastings,2,2021-09,2021-10
+Bexley,Lewisham,2,2021-09,2021-10
+Bexley,Medway,1,2021-09,2021-10
+Bexley,New Forest,2,2021-09,2021-10
+Bexley,Portsmouth,1,2021-09,2021-10
+Birmingham,Allerdale,1,2021-09,2021-10
+Birmingham,Ards and North Down,2,2021-09,2021-10
+Birmingham,Blaenau Gwent,1,2021-09,2021-10
+Birmingham,Bolton,2,2021-09,2021-10
+Birmingham,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Birmingham,Brent,2,2021-09,2021-10
+Birmingham,"Bristol, City of",1,2021-09,2021-10
+Birmingham,Bromsgrove,5,2021-09,2021-10
+Birmingham,Cambridge,2,2021-09,2021-10
+Birmingham,Camden,1,2021-09,2021-10
+Birmingham,Cannock Chase,2,2021-09,2021-10
+Birmingham,Charnwood,2,2021-09,2021-10
+Birmingham,Cheltenham,1,2021-09,2021-10
+Birmingham,Cheshire West and Chester,1,2021-09,2021-10
+Birmingham,Chesterfield,2,2021-09,2021-10
+Birmingham,City of Edinburgh,1,2021-09,2021-10
+Birmingham,Colchester,1,2021-09,2021-10
+Birmingham,Cornwall,3,2021-09,2021-10
+Birmingham,Coventry,3,2021-09,2021-10
+Birmingham,Craven,1,2021-09,2021-10
+Birmingham,East Ayrshire,1,2021-09,2021-10
+Birmingham,Flintshire,4,2021-09,2021-10
+Birmingham,Guildford,4,2021-09,2021-10
+Birmingham,Hammersmith and Fulham,1,2021-09,2021-10
+Birmingham,Harlow,1,2021-09,2021-10
+Birmingham,"Herefordshire, County of",3,2021-09,2021-10
+Birmingham,"Kingston upon Hull, City of",1,2021-09,2021-10
+Birmingham,Kingston upon Thames,1,2021-09,2021-10
+Birmingham,Kirklees,1,2021-09,2021-10
+Birmingham,Leeds,1,2021-09,2021-10
+Birmingham,Leicester,1,2021-09,2021-10
+Birmingham,Lichfield,3,2021-09,2021-10
+Birmingham,Lincoln,2,2021-09,2021-10
+Birmingham,Liverpool,3,2021-09,2021-10
+Birmingham,Luton,1,2021-09,2021-10
+Birmingham,Manchester,8,2021-09,2021-10
+Birmingham,Newcastle-under-Lyme,2,2021-09,2021-10
+Birmingham,Newport,1,2021-09,2021-10
+Birmingham,North East Lincolnshire,2,2021-09,2021-10
+Birmingham,North Hertfordshire,1,2021-09,2021-10
+Birmingham,North Warwickshire,3,2021-09,2021-10
+Birmingham,Nottingham,2,2021-09,2021-10
+Birmingham,Plymouth,4,2021-09,2021-10
+Birmingham,Redditch,2,2021-09,2021-10
+Birmingham,Sandwell,6,2021-09,2021-10
+Birmingham,Scarborough,1,2021-09,2021-10
+Birmingham,Sheffield,1,2021-09,2021-10
+Birmingham,Solihull,15,2021-09,2021-10
+Birmingham,Somerset West and Taunton,1,2021-09,2021-10
+Birmingham,South Oxfordshire,1,2021-09,2021-10
+Birmingham,South Staffordshire,2,2021-09,2021-10
+Birmingham,Southwark,1,2021-09,2021-10
+Birmingham,Stafford,1,2021-09,2021-10
+Birmingham,Stoke-on-Trent,1,2021-09,2021-10
+Birmingham,Stratford-on-Avon,2,2021-09,2021-10
+Birmingham,Tamworth,2,2021-09,2021-10
+Birmingham,Thanet,1,2021-09,2021-10
+Birmingham,Torbay,2,2021-09,2021-10
+Birmingham,Tower Hamlets,3,2021-09,2021-10
+Birmingham,Vale of White Horse,1,2021-09,2021-10
+Birmingham,Walsall,3,2021-09,2021-10
+Birmingham,Westminster,1,2021-09,2021-10
+Birmingham,Wolverhampton,2,2021-09,2021-10
+Birmingham,Wyre,1,2021-09,2021-10
+Birmingham,York,4,2021-09,2021-10
+Blaby,Leicester,5,2021-09,2021-10
+Blaby,North Norfolk,1,2021-09,2021-10
+Blackburn with Darwen,Bolton,1,2021-09,2021-10
+Blackpool,Carlisle,1,2021-09,2021-10
+Blackpool,East Lindsey,2,2021-09,2021-10
+Blackpool,Fife,1,2021-09,2021-10
+Blackpool,Fylde,7,2021-09,2021-10
+Blackpool,Glasgow City,1,2021-09,2021-10
+Blackpool,"Kingston upon Hull, City of",1,2021-09,2021-10
+Blackpool,Kirklees,1,2021-09,2021-10
+Blackpool,Lancaster,2,2021-09,2021-10
+Blackpool,Liverpool,2,2021-09,2021-10
+Blackpool,Plymouth,2,2021-09,2021-10
+Blackpool,Sandwell,1,2021-09,2021-10
+Blackpool,South Lanarkshire,1,2021-09,2021-10
+Blackpool,Wirral,2,2021-09,2021-10
+Blackpool,Wyre,1,2021-09,2021-10
+Blaenau Gwent,"Bristol, City of",1,2021-09,2021-10
+Blaenau Gwent,Cardiff,2,2021-09,2021-10
+Blaenau Gwent,City of Edinburgh,1,2021-09,2021-10
+Blaenau Gwent,Malvern Hills,1,2021-09,2021-10
+Blaenau Gwent,Merthyr Tydfil,1,2021-09,2021-10
+Blaenau Gwent,Rhondda Cynon Taf,2,2021-09,2021-10
+Bolsover,Nottingham,3,2021-09,2021-10
+Bolsover,Peterborough,1,2021-09,2021-10
+Bolton,Cheshire East,2,2021-09,2021-10
+Bolton,Cheshire West and Chester,1,2021-09,2021-10
+Bolton,Kirklees,1,2021-09,2021-10
+Bolton,Manchester,4,2021-09,2021-10
+Bolton,Mid Devon,2,2021-09,2021-10
+Bolton,Plymouth,1,2021-09,2021-10
+Bolton,Portsmouth,2,2021-09,2021-10
+Bolton,Tower Hamlets,1,2021-09,2021-10
+Bolton,Trafford,2,2021-09,2021-10
+Bolton,West Lothian,1,2021-09,2021-10
+Bolton,Wigan,1,2021-09,2021-10
+Bolton,Wolverhampton,2,2021-09,2021-10
+Boston,Cornwall,1,2021-09,2021-10
+Boston,Hastings,2,2021-09,2021-10
+Boston,Horsham,1,2021-09,2021-10
+Boston,Islington,2,2021-09,2021-10
+Boston,North Lincolnshire,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Allerdale,4,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Bradford,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Brighton and Hove,2,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Bromley,2,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Buckinghamshire,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Cardiff,2,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Carmarthenshire,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Cheshire West and Chester,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Dorset,4,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Ealing,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",East Devon,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Elmbridge,2,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Greenwich,2,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Lewisham,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Mansfield,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",New Forest,2,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Newport,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Scottish Borders,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Slough,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Solihull,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Torfaen,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Wandsworth,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Westminster,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Winchester,1,2021-09,2021-10
+"Bournemouth, Christchurch and Poole",Wirral,2,2021-09,2021-10
+Bracknell Forest,Belfast,1,2021-09,2021-10
+Bracknell Forest,Bromley,1,2021-09,2021-10
+Bracknell Forest,Broxtowe,1,2021-09,2021-10
+Bracknell Forest,City of London,1,2021-09,2021-10
+Bracknell Forest,Stockport,1,2021-09,2021-10
+Bracknell Forest,Surrey Heath,1,2021-09,2021-10
+Bracknell Forest,Vale of Glamorgan,3,2021-09,2021-10
+Bracknell Forest,Wokingham,1,2021-09,2021-10
+Bradford,Birmingham,1,2021-09,2021-10
+Bradford,Calderdale,3,2021-09,2021-10
+Bradford,Camden,1,2021-09,2021-10
+Bradford,Canterbury,2,2021-09,2021-10
+Bradford,Cheshire West and Chester,2,2021-09,2021-10
+Bradford,City of Edinburgh,1,2021-09,2021-10
+Bradford,County Durham,2,2021-09,2021-10
+Bradford,Craven,1,2021-09,2021-10
+Bradford,East Riding of Yorkshire,1,2021-09,2021-10
+Bradford,Glasgow City,2,2021-09,2021-10
+Bradford,Hillingdon,1,2021-09,2021-10
+Bradford,Kirklees,2,2021-09,2021-10
+Bradford,Lambeth,1,2021-09,2021-10
+Bradford,Leeds,11,2021-09,2021-10
+Bradford,Leicester,1,2021-09,2021-10
+Bradford,Manchester,2,2021-09,2021-10
+Bradford,Neath Port Talbot,1,2021-09,2021-10
+Bradford,North Kesteven,1,2021-09,2021-10
+Bradford,North Somerset,1,2021-09,2021-10
+Bradford,Oxford,2,2021-09,2021-10
+Bradford,Scarborough,1,2021-09,2021-10
+Bradford,Stockton-on-Tees,2,2021-09,2021-10
+Bradford,Wakefield,2,2021-09,2021-10
+Bradford,Westminster,1,2021-09,2021-10
+Bradford,Wychavon,2,2021-09,2021-10
+Braintree,Highland,1,2021-09,2021-10
+Braintree,Newham,1,2021-09,2021-10
+Breckland,Bath and North East Somerset,1,2021-09,2021-10
+Breckland,East Devon,1,2021-09,2021-10
+Breckland,Norwich,1,2021-09,2021-10
+Brent,Babergh,2,2021-09,2021-10
+Brent,Belfast,2,2021-09,2021-10
+Brent,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Brent,Chelmsford,1,2021-09,2021-10
+Brent,Coventry,1,2021-09,2021-10
+Brent,Dudley,1,2021-09,2021-10
+Brent,Ealing,1,2021-09,2021-10
+Brent,Hackney,1,2021-09,2021-10
+Brent,Harrow,2,2021-09,2021-10
+Brent,Hastings,1,2021-09,2021-10
+Brent,Hillingdon,2,2021-09,2021-10
+Brent,Hounslow,2,2021-09,2021-10
+Brent,Huntingdonshire,1,2021-09,2021-10
+Brent,Leicester,2,2021-09,2021-10
+Brent,Lewisham,1,2021-09,2021-10
+Brent,Liverpool,2,2021-09,2021-10
+Brent,Luton,1,2021-09,2021-10
+Brent,Mendip,1,2021-09,2021-10
+Brent,Oxford,1,2021-09,2021-10
+Brent,Peterborough,1,2021-09,2021-10
+Brent,Rutland,2,2021-09,2021-10
+Brent,Sheffield,4,2021-09,2021-10
+Brent,Shropshire,1,2021-09,2021-10
+Brent,South Holland,2,2021-09,2021-10
+Brent,Southampton,1,2021-09,2021-10
+Brent,Southwark,1,2021-09,2021-10
+Brent,Stoke-on-Trent,1,2021-09,2021-10
+Brent,Swindon,2,2021-09,2021-10
+Brent,Three Rivers,1,2021-09,2021-10
+Brent,Tower Hamlets,3,2021-09,2021-10
+Brent,Uttlesford,1,2021-09,2021-10
+Brent,Wandsworth,2,2021-09,2021-10
+Brent,Westminster,1,2021-09,2021-10
+Brentwood,Basildon,1,2021-09,2021-10
+Brentwood,Tower Hamlets,1,2021-09,2021-10
+Bridgend,Caerphilly,2,2021-09,2021-10
+Bridgend,Cardiff,4,2021-09,2021-10
+Bridgend,Carmarthenshire,2,2021-09,2021-10
+Bridgend,Hammersmith and Fulham,4,2021-09,2021-10
+Bridgend,Kensington and Chelsea,1,2021-09,2021-10
+Bridgend,Rhondda Cynon Taf,3,2021-09,2021-10
+Bridgend,Southend-on-Sea,2,2021-09,2021-10
+Bridgend,Swansea,1,2021-09,2021-10
+Bridgend,Woking,1,2021-09,2021-10
+Bridgend,Wolverhampton,1,2021-09,2021-10
+Brighton and Hove,Adur,2,2021-09,2021-10
+Brighton and Hove,Barnet,1,2021-09,2021-10
+Brighton and Hove,Barnsley,2,2021-09,2021-10
+Brighton and Hove,Basildon,1,2021-09,2021-10
+Brighton and Hove,Birmingham,4,2021-09,2021-10
+Brighton and Hove,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Brighton and Hove,Brent,1,2021-09,2021-10
+Brighton and Hove,"Bristol, City of",3,2021-09,2021-10
+Brighton and Hove,Bromley,1,2021-09,2021-10
+Brighton and Hove,Camden,5,2021-09,2021-10
+Brighton and Hove,Canterbury,1,2021-09,2021-10
+Brighton and Hove,Cheshire East,1,2021-09,2021-10
+Brighton and Hove,City of Edinburgh,5,2021-09,2021-10
+Brighton and Hove,Cornwall,3,2021-09,2021-10
+Brighton and Hove,Coventry,2,2021-09,2021-10
+Brighton and Hove,Crawley,2,2021-09,2021-10
+Brighton and Hove,Croydon,1,2021-09,2021-10
+Brighton and Hove,Denbighshire,1,2021-09,2021-10
+Brighton and Hove,Derby,2,2021-09,2021-10
+Brighton and Hove,Epping Forest,1,2021-09,2021-10
+Brighton and Hove,Epsom and Ewell,1,2021-09,2021-10
+Brighton and Hove,Falkirk,1,2021-09,2021-10
+Brighton and Hove,Fareham,1,2021-09,2021-10
+Brighton and Hove,Folkestone and Hythe,1,2021-09,2021-10
+Brighton and Hove,Glasgow City,5,2021-09,2021-10
+Brighton and Hove,Guildford,2,2021-09,2021-10
+Brighton and Hove,Hackney,1,2021-09,2021-10
+Brighton and Hove,Hammersmith and Fulham,2,2021-09,2021-10
+Brighton and Hove,Hillingdon,3,2021-09,2021-10
+Brighton and Hove,Horsham,1,2021-09,2021-10
+Brighton and Hove,Hyndburn,1,2021-09,2021-10
+Brighton and Hove,Isle of Anglesey,2,2021-09,2021-10
+Brighton and Hove,Islington,1,2021-09,2021-10
+Brighton and Hove,"Kingston upon Hull, City of",2,2021-09,2021-10
+Brighton and Hove,Lambeth,3,2021-09,2021-10
+Brighton and Hove,Leeds,1,2021-09,2021-10
+Brighton and Hove,Leicester,1,2021-09,2021-10
+Brighton and Hove,Lewisham,1,2021-09,2021-10
+Brighton and Hove,Lichfield,1,2021-09,2021-10
+Brighton and Hove,Liverpool,1,2021-09,2021-10
+Brighton and Hove,Luton,2,2021-09,2021-10
+Brighton and Hove,Manchester,15,2021-09,2021-10
+Brighton and Hove,Merton,1,2021-09,2021-10
+Brighton and Hove,Mid Sussex,5,2021-09,2021-10
+Brighton and Hove,Newham,1,2021-09,2021-10
+Brighton and Hove,North Hertfordshire,3,2021-09,2021-10
+Brighton and Hove,Oldham,1,2021-09,2021-10
+Brighton and Hove,Oxford,1,2021-09,2021-10
+Brighton and Hove,Plymouth,1,2021-09,2021-10
+Brighton and Hove,Scarborough,1,2021-09,2021-10
+Brighton and Hove,Sheffield,2,2021-09,2021-10
+Brighton and Hove,Southampton,1,2021-09,2021-10
+Brighton and Hove,Southwark,2,2021-09,2021-10
+Brighton and Hove,St Albans,1,2021-09,2021-10
+Brighton and Hove,Stroud,1,2021-09,2021-10
+Brighton and Hove,Thurrock,1,2021-09,2021-10
+Brighton and Hove,Tower Hamlets,5,2021-09,2021-10
+Brighton and Hove,Trafford,1,2021-09,2021-10
+Brighton and Hove,Uttlesford,1,2021-09,2021-10
+Brighton and Hove,Waltham Forest,2,2021-09,2021-10
+Brighton and Hove,Wandsworth,1,2021-09,2021-10
+Brighton and Hove,Warwick,2,2021-09,2021-10
+Brighton and Hove,West Lothian,1,2021-09,2021-10
+Brighton and Hove,Westminster,1,2021-09,2021-10
+Brighton and Hove,Worthing,5,2021-09,2021-10
+"Bristol, City of",Aberdeenshire,2,2021-09,2021-10
+"Bristol, City of",Babergh,1,2021-09,2021-10
+"Bristol, City of",Barnet,1,2021-09,2021-10
+"Bristol, City of",Bath and North East Somerset,2,2021-09,2021-10
+"Bristol, City of",Camden,1,2021-09,2021-10
+"Bristol, City of",City of Edinburgh,3,2021-09,2021-10
+"Bristol, City of",Crawley,1,2021-09,2021-10
+"Bristol, City of",Dorset,2,2021-09,2021-10
+"Bristol, City of",East Devon,1,2021-09,2021-10
+"Bristol, City of",Fife,1,2021-09,2021-10
+"Bristol, City of",Gloucester,1,2021-09,2021-10
+"Bristol, City of",Hammersmith and Fulham,2,2021-09,2021-10
+"Bristol, City of",Harrogate,1,2021-09,2021-10
+"Bristol, City of",Harrow,1,2021-09,2021-10
+"Bristol, City of",Islington,1,2021-09,2021-10
+"Bristol, City of",Lambeth,2,2021-09,2021-10
+"Bristol, City of",Leeds,1,2021-09,2021-10
+"Bristol, City of",Lincoln,2,2021-09,2021-10
+"Bristol, City of",Manchester,1,2021-09,2021-10
+"Bristol, City of",Milton Keynes,1,2021-09,2021-10
+"Bristol, City of",Monmouthshire,2,2021-09,2021-10
+"Bristol, City of",New Forest,1,2021-09,2021-10
+"Bristol, City of",Newport,1,2021-09,2021-10
+"Bristol, City of",North Northamptonshire,9,2021-09,2021-10
+"Bristol, City of",North Somerset,3,2021-09,2021-10
+"Bristol, City of",Oxford,2,2021-09,2021-10
+"Bristol, City of",Plymouth,1,2021-09,2021-10
+"Bristol, City of",Portsmouth,1,2021-09,2021-10
+"Bristol, City of",Richmondshire,2,2021-09,2021-10
+"Bristol, City of",South Gloucestershire,2,2021-09,2021-10
+"Bristol, City of",Southampton,2,2021-09,2021-10
+"Bristol, City of",Southwark,1,2021-09,2021-10
+"Bristol, City of",Stevenage,1,2021-09,2021-10
+"Bristol, City of",Vale of Glamorgan,1,2021-09,2021-10
+"Bristol, City of",Wandsworth,1,2021-09,2021-10
+"Bristol, City of",West Northamptonshire,1,2021-09,2021-10
+Broadland,Great Yarmouth,2,2021-09,2021-10
+Broadland,Highland,1,2021-09,2021-10
+Broadland,Isle of Wight,1,2021-09,2021-10
+Broadland,Norwich,1,2021-09,2021-10
+Broadland,Oxford,4,2021-09,2021-10
+Broadland,Swansea,1,2021-09,2021-10
+Broadland,Tendring,1,2021-09,2021-10
+Bromley,Birmingham,2,2021-09,2021-10
+Bromley,Brentwood,2,2021-09,2021-10
+Bromley,Cambridge,1,2021-09,2021-10
+Bromley,Canterbury,2,2021-09,2021-10
+Bromley,City of London,2,2021-09,2021-10
+Bromley,Cornwall,2,2021-09,2021-10
+Bromley,Croydon,2,2021-09,2021-10
+Bromley,Ealing,2,2021-09,2021-10
+Bromley,East Ayrshire,1,2021-09,2021-10
+Bromley,Hart,1,2021-09,2021-10
+Bromley,Hastings,1,2021-09,2021-10
+Bromley,Lambeth,1,2021-09,2021-10
+Bromley,Leicester,2,2021-09,2021-10
+Bromley,Lewisham,5,2021-09,2021-10
+Bromley,Liverpool,2,2021-09,2021-10
+Bromley,Orkney Islands,2,2021-09,2021-10
+Bromley,Reigate and Banstead,1,2021-09,2021-10
+Bromley,Rushmoor,1,2021-09,2021-10
+Bromley,Sevenoaks,2,2021-09,2021-10
+Bromley,South Hams,1,2021-09,2021-10
+Bromley,Southwark,4,2021-09,2021-10
+Bromley,St Albans,1,2021-09,2021-10
+Bromley,Stratford-on-Avon,4,2021-09,2021-10
+Bromley,Stroud,2,2021-09,2021-10
+Bromley,Tandridge,2,2021-09,2021-10
+Bromley,Tower Hamlets,1,2021-09,2021-10
+Bromley,Westminster,2,2021-09,2021-10
+Bromley,Woking,1,2021-09,2021-10
+Bromley,Worthing,1,2021-09,2021-10
+Bromley,Wrexham,2,2021-09,2021-10
+Bromsgrove,Cheshire West and Chester,2,2021-09,2021-10
+Bromsgrove,Flintshire,1,2021-09,2021-10
+Bromsgrove,Lincoln,1,2021-09,2021-10
+Bromsgrove,Wychavon,1,2021-09,2021-10
+Broxbourne,City of London,4,2021-09,2021-10
+Broxbourne,East Hertfordshire,1,2021-09,2021-10
+Broxbourne,Enfield,1,2021-09,2021-10
+Broxbourne,Hammersmith and Fulham,1,2021-09,2021-10
+Broxtowe,Buckinghamshire,1,2021-09,2021-10
+Broxtowe,East Devon,1,2021-09,2021-10
+Broxtowe,Erewash,1,2021-09,2021-10
+Broxtowe,Glasgow City,2,2021-09,2021-10
+Broxtowe,Nottingham,4,2021-09,2021-10
+Broxtowe,West Northamptonshire,1,2021-09,2021-10
+Buckinghamshire,Adur,1,2021-09,2021-10
+Buckinghamshire,Barnsley,1,2021-09,2021-10
+Buckinghamshire,Cardiff,2,2021-09,2021-10
+Buckinghamshire,City of London,2,2021-09,2021-10
+Buckinghamshire,Cornwall,2,2021-09,2021-10
+Buckinghamshire,Dorset,1,2021-09,2021-10
+Buckinghamshire,Greenwich,1,2021-09,2021-10
+Buckinghamshire,Guildford,2,2021-09,2021-10
+Buckinghamshire,Haringey,1,2021-09,2021-10
+Buckinghamshire,Hillingdon,1,2021-09,2021-10
+Buckinghamshire,Hounslow,2,2021-09,2021-10
+Buckinghamshire,Islington,1,2021-09,2021-10
+Buckinghamshire,Milton Keynes,1,2021-09,2021-10
+Buckinghamshire,Newham,2,2021-09,2021-10
+Buckinghamshire,South Oxfordshire,1,2021-09,2021-10
+Buckinghamshire,Westminster,3,2021-09,2021-10
+Buckinghamshire,Windsor and Maidenhead,1,2021-09,2021-10
+Burnley,Bolton,2,2021-09,2021-10
+Burnley,"Bristol, City of",2,2021-09,2021-10
+Burnley,Caerphilly,1,2021-09,2021-10
+Burnley,Central Bedfordshire,1,2021-09,2021-10
+Burnley,Hyndburn,1,2021-09,2021-10
+Burnley,Islington,1,2021-09,2021-10
+Burnley,Manchester,1,2021-09,2021-10
+Burnley,Pendle,1,2021-09,2021-10
+Burnley,Preston,1,2021-09,2021-10
+Burnley,Rossendale,1,2021-09,2021-10
+Burnley,Shropshire,2,2021-09,2021-10
+Bury,Birmingham,1,2021-09,2021-10
+Bury,Bolton,5,2021-09,2021-10
+Bury,Camden,1,2021-09,2021-10
+Bury,Cornwall,2,2021-09,2021-10
+Bury,Manchester,4,2021-09,2021-10
+Bury,Northumberland,1,2021-09,2021-10
+Bury,Rossendale,1,2021-09,2021-10
+Bury,Salford,2,2021-09,2021-10
+Bury,Wyre,2,2021-09,2021-10
+Caerphilly,Cardiff,3,2021-09,2021-10
+Caerphilly,Cheshire West and Chester,1,2021-09,2021-10
+Caerphilly,City of Edinburgh,1,2021-09,2021-10
+Caerphilly,Dudley,1,2021-09,2021-10
+Caerphilly,Glasgow City,1,2021-09,2021-10
+Caerphilly,Merthyr Tydfil,1,2021-09,2021-10
+Caerphilly,Plymouth,2,2021-09,2021-10
+Caerphilly,Rhondda Cynon Taf,3,2021-09,2021-10
+Caerphilly,Torfaen,2,2021-09,2021-10
+Calderdale,Argyll and Bute,4,2021-09,2021-10
+Calderdale,Bradford,2,2021-09,2021-10
+Calderdale,Canterbury,2,2021-09,2021-10
+Calderdale,Cardiff,1,2021-09,2021-10
+Calderdale,Colchester,4,2021-09,2021-10
+Calderdale,County Durham,2,2021-09,2021-10
+Calderdale,Dorset,2,2021-09,2021-10
+Calderdale,Kirklees,3,2021-09,2021-10
+Calderdale,Leeds,1,2021-09,2021-10
+Calderdale,Liverpool,5,2021-09,2021-10
+Calderdale,North Lanarkshire,1,2021-09,2021-10
+Calderdale,Wakefield,1,2021-09,2021-10
+Calderdale,West Lothian,1,2021-09,2021-10
+Cambridge,"Bristol, City of",3,2021-09,2021-10
+Cambridge,Camden,1,2021-09,2021-10
+Cambridge,Dorset,2,2021-09,2021-10
+Cambridge,East Cambridgeshire,1,2021-09,2021-10
+Cambridge,Epsom and Ewell,1,2021-09,2021-10
+Cambridge,Harborough,1,2021-09,2021-10
+Cambridge,Harrogate,1,2021-09,2021-10
+Cambridge,Huntingdonshire,1,2021-09,2021-10
+Cambridge,Islington,2,2021-09,2021-10
+Cambridge,"Kingston upon Hull, City of",1,2021-09,2021-10
+Cambridge,New Forest,1,2021-09,2021-10
+Cambridge,"Newry, Mourne and Down",1,2021-09,2021-10
+Cambridge,Plymouth,2,2021-09,2021-10
+Cambridge,Preston,1,2021-09,2021-10
+Cambridge,Richmondshire,2,2021-09,2021-10
+Cambridge,South Cambridgeshire,8,2021-09,2021-10
+Cambridge,Southampton,1,2021-09,2021-10
+Cambridge,Southwark,2,2021-09,2021-10
+Cambridge,Staffordshire Moorlands,1,2021-09,2021-10
+Cambridge,Sunderland,1,2021-09,2021-10
+Cambridge,Tower Hamlets,2,2021-09,2021-10
+Cambridge,West Suffolk,2,2021-09,2021-10
+Camden,Arun,2,2021-09,2021-10
+Camden,Barnet,6,2021-09,2021-10
+Camden,Barnsley,1,2021-09,2021-10
+Camden,Bradford,2,2021-09,2021-10
+Camden,Brent,2,2021-09,2021-10
+Camden,Calderdale,2,2021-09,2021-10
+Camden,Cheshire West and Chester,3,2021-09,2021-10
+Camden,City of Edinburgh,3,2021-09,2021-10
+Camden,City of London,5,2021-09,2021-10
+Camden,Coventry,1,2021-09,2021-10
+Camden,Dacorum,2,2021-09,2021-10
+Camden,Dorset,1,2021-09,2021-10
+Camden,Ealing,1,2021-09,2021-10
+Camden,Enfield,3,2021-09,2021-10
+Camden,Epsom and Ewell,1,2021-09,2021-10
+Camden,Fife,1,2021-09,2021-10
+Camden,Folkestone and Hythe,1,2021-09,2021-10
+Camden,Gravesham,1,2021-09,2021-10
+Camden,Greenwich,1,2021-09,2021-10
+Camden,Hackney,7,2021-09,2021-10
+Camden,Haringey,4,2021-09,2021-10
+Camden,Hillingdon,2,2021-09,2021-10
+Camden,Islington,7,2021-09,2021-10
+Camden,Kingston upon Thames,1,2021-09,2021-10
+Camden,Liverpool,3,2021-09,2021-10
+Camden,Manchester,1,2021-09,2021-10
+Camden,Newham,1,2021-09,2021-10
+Camden,North Hertfordshire,1,2021-09,2021-10
+Camden,North Norfolk,2,2021-09,2021-10
+Camden,Northumberland,1,2021-09,2021-10
+Camden,Nottingham,1,2021-09,2021-10
+Camden,Perth and Kinross,1,2021-09,2021-10
+Camden,Redbridge,1,2021-09,2021-10
+Camden,Sevenoaks,1,2021-09,2021-10
+Camden,Sheffield,2,2021-09,2021-10
+Camden,Solihull,1,2021-09,2021-10
+Camden,South Somerset,1,2021-09,2021-10
+Camden,Southampton,2,2021-09,2021-10
+Camden,Southwark,9,2021-09,2021-10
+Camden,Stoke-on-Trent,1,2021-09,2021-10
+Camden,Tower Hamlets,1,2021-09,2021-10
+Camden,Waltham Forest,1,2021-09,2021-10
+Camden,Welwyn Hatfield,2,2021-09,2021-10
+Camden,Westminster,5,2021-09,2021-10
+Camden,Wiltshire,1,2021-09,2021-10
+Camden,York,1,2021-09,2021-10
+Cannock Chase,Lichfield,3,2021-09,2021-10
+Cannock Chase,Solihull,2,2021-09,2021-10
+Canterbury,Charnwood,2,2021-09,2021-10
+Canterbury,City of London,1,2021-09,2021-10
+Canterbury,Dartford,1,2021-09,2021-10
+Canterbury,Dover,2,2021-09,2021-10
+Canterbury,Elmbridge,1,2021-09,2021-10
+Canterbury,Folkestone and Hythe,1,2021-09,2021-10
+Canterbury,Greenwich,1,2021-09,2021-10
+Canterbury,Hammersmith and Fulham,2,2021-09,2021-10
+Canterbury,Ipswich,1,2021-09,2021-10
+Canterbury,Kingston upon Thames,1,2021-09,2021-10
+Canterbury,Lambeth,1,2021-09,2021-10
+Canterbury,Mole Valley,1,2021-09,2021-10
+Cardiff,Bath and North East Somerset,1,2021-09,2021-10
+Cardiff,Birmingham,3,2021-09,2021-10
+Cardiff,Bradford,4,2021-09,2021-10
+Cardiff,Bridgend,3,2021-09,2021-10
+Cardiff,"Bristol, City of",5,2021-09,2021-10
+Cardiff,Caerphilly,3,2021-09,2021-10
+Cardiff,Cambridge,1,2021-09,2021-10
+Cardiff,Camden,1,2021-09,2021-10
+Cardiff,Carmarthenshire,3,2021-09,2021-10
+Cardiff,Ceredigion,1,2021-09,2021-10
+Cardiff,Chichester,1,2021-09,2021-10
+Cardiff,Croydon,2,2021-09,2021-10
+Cardiff,Derby,1,2021-09,2021-10
+Cardiff,Doncaster,1,2021-09,2021-10
+Cardiff,Flintshire,1,2021-09,2021-10
+Cardiff,Greenwich,2,2021-09,2021-10
+Cardiff,Guildford,1,2021-09,2021-10
+Cardiff,Gwynedd,3,2021-09,2021-10
+Cardiff,Hammersmith and Fulham,2,2021-09,2021-10
+Cardiff,Harborough,1,2021-09,2021-10
+Cardiff,"Kingston upon Hull, City of",1,2021-09,2021-10
+Cardiff,Leeds,2,2021-09,2021-10
+Cardiff,Leicester,2,2021-09,2021-10
+Cardiff,Liverpool,3,2021-09,2021-10
+Cardiff,Manchester,1,2021-09,2021-10
+Cardiff,Mendip,2,2021-09,2021-10
+Cardiff,Mid Devon,1,2021-09,2021-10
+Cardiff,Monmouthshire,2,2021-09,2021-10
+Cardiff,Neath Port Talbot,2,2021-09,2021-10
+Cardiff,Newham,2,2021-09,2021-10
+Cardiff,Newport,6,2021-09,2021-10
+Cardiff,North Lincolnshire,1,2021-09,2021-10
+Cardiff,North Somerset,1,2021-09,2021-10
+Cardiff,Oxford,1,2021-09,2021-10
+Cardiff,Pembrokeshire,1,2021-09,2021-10
+Cardiff,Powys,2,2021-09,2021-10
+Cardiff,Rhondda Cynon Taf,3,2021-09,2021-10
+Cardiff,Sevenoaks,2,2021-09,2021-10
+Cardiff,South Somerset,2,2021-09,2021-10
+Cardiff,Southwark,2,2021-09,2021-10
+Cardiff,Sunderland,2,2021-09,2021-10
+Cardiff,Swansea,2,2021-09,2021-10
+Cardiff,Vale of Glamorgan,13,2021-09,2021-10
+Cardiff,Vale of White Horse,1,2021-09,2021-10
+Cardiff,Wiltshire,1,2021-09,2021-10
+Cardiff,Wrexham,3,2021-09,2021-10
+Carlisle,Cheshire West and Chester,1,2021-09,2021-10
+Carlisle,Dumfries and Galloway,2,2021-09,2021-10
+Carlisle,Glasgow City,2,2021-09,2021-10
+Carlisle,Manchester,1,2021-09,2021-10
+Carlisle,South Ayrshire,1,2021-09,2021-10
+Carmarthenshire,Cardiff,5,2021-09,2021-10
+Carmarthenshire,Neath Port Talbot,2,2021-09,2021-10
+Carmarthenshire,Pembrokeshire,2,2021-09,2021-10
+Carmarthenshire,Swansea,1,2021-09,2021-10
+Carmarthenshire,Vale of Glamorgan,2,2021-09,2021-10
+Castle Point,Basildon,1,2021-09,2021-10
+Castle Point,Cornwall,2,2021-09,2021-10
+Causeway Coast and Glens,Ards and North Down,1,2021-09,2021-10
+Causeway Coast and Glens,Belfast,2,2021-09,2021-10
+Causeway Coast and Glens,Derry City and Strabane,1,2021-09,2021-10
+Causeway Coast and Glens,Highland,1,2021-09,2021-10
+Causeway Coast and Glens,Lisburn and Castlereagh,2,2021-09,2021-10
+Causeway Coast and Glens,Merton,1,2021-09,2021-10
+Causeway Coast and Glens,Mid and East Antrim,2,2021-09,2021-10
+Central Bedfordshire,Belfast,2,2021-09,2021-10
+Central Bedfordshire,Buckinghamshire,2,2021-09,2021-10
+Central Bedfordshire,Calderdale,1,2021-09,2021-10
+Central Bedfordshire,Dacorum,2,2021-09,2021-10
+Central Bedfordshire,Epsom and Ewell,1,2021-09,2021-10
+Central Bedfordshire,Hammersmith and Fulham,2,2021-09,2021-10
+Central Bedfordshire,Havering,1,2021-09,2021-10
+Central Bedfordshire,Huntingdonshire,1,2021-09,2021-10
+Central Bedfordshire,Luton,1,2021-09,2021-10
+Central Bedfordshire,Milton Keynes,1,2021-09,2021-10
+Central Bedfordshire,North Norfolk,1,2021-09,2021-10
+Central Bedfordshire,Rochdale,1,2021-09,2021-10
+Central Bedfordshire,South Lakeland,1,2021-09,2021-10
+Central Bedfordshire,Stoke-on-Trent,2,2021-09,2021-10
+Central Bedfordshire,West Northamptonshire,1,2021-09,2021-10
+Central Bedfordshire,West Oxfordshire,1,2021-09,2021-10
+Central Bedfordshire,Woking,1,2021-09,2021-10
+Ceredigion,Birmingham,2,2021-09,2021-10
+Ceredigion,Cardiff,3,2021-09,2021-10
+Ceredigion,Conwy,1,2021-09,2021-10
+Ceredigion,County Durham,2,2021-09,2021-10
+Ceredigion,Hammersmith and Fulham,1,2021-09,2021-10
+Ceredigion,Manchester,2,2021-09,2021-10
+Ceredigion,Powys,1,2021-09,2021-10
+Ceredigion,Salford,2,2021-09,2021-10
+Ceredigion,Vale of Glamorgan,2,2021-09,2021-10
+Ceredigion,Walsall,2,2021-09,2021-10
+Charnwood,Belfast,2,2021-09,2021-10
+Charnwood,Blaby,2,2021-09,2021-10
+Charnwood,Blackpool,2,2021-09,2021-10
+Charnwood,Erewash,1,2021-09,2021-10
+Charnwood,Huntingdonshire,2,2021-09,2021-10
+Charnwood,Lambeth,1,2021-09,2021-10
+Charnwood,Leicester,4,2021-09,2021-10
+Charnwood,North Norfolk,1,2021-09,2021-10
+Charnwood,North Northamptonshire,1,2021-09,2021-10
+Charnwood,Shetland Islands,2,2021-09,2021-10
+Charnwood,Westminster,1,2021-09,2021-10
+Charnwood,Wirral,1,2021-09,2021-10
+Chelmsford,Basildon,2,2021-09,2021-10
+Chelmsford,Colchester,4,2021-09,2021-10
+Chelmsford,Coventry,1,2021-09,2021-10
+Chelmsford,Hackney,1,2021-09,2021-10
+Chelmsford,Haringey,2,2021-09,2021-10
+Chelmsford,Maldon,1,2021-09,2021-10
+Chelmsford,Mid Devon,2,2021-09,2021-10
+Chelmsford,Newham,4,2021-09,2021-10
+Chelmsford,North Lincolnshire,2,2021-09,2021-10
+Chelmsford,Rotherham,1,2021-09,2021-10
+Chelmsford,Southend-on-Sea,1,2021-09,2021-10
+Cheltenham,"Bristol, City of",1,2021-09,2021-10
+Cheltenham,Camden,4,2021-09,2021-10
+Cheltenham,Central Bedfordshire,2,2021-09,2021-10
+Cheltenham,Cherwell,2,2021-09,2021-10
+Cheltenham,East Hertfordshire,1,2021-09,2021-10
+Cheltenham,Gloucester,5,2021-09,2021-10
+Cheltenham,Liverpool,2,2021-09,2021-10
+Cheltenham,North Lanarkshire,1,2021-09,2021-10
+Cheltenham,Portsmouth,1,2021-09,2021-10
+Cheltenham,Torbay,1,2021-09,2021-10
+Cherwell,Buckinghamshire,1,2021-09,2021-10
+Cherwell,Denbighshire,1,2021-09,2021-10
+Cherwell,East Suffolk,2,2021-09,2021-10
+Cherwell,Hambleton,2,2021-09,2021-10
+Cherwell,Nottingham,1,2021-09,2021-10
+Cherwell,Rhondda Cynon Taf,2,2021-09,2021-10
+Cherwell,West Northamptonshire,2,2021-09,2021-10
+Cherwell,Windsor and Maidenhead,4,2021-09,2021-10
+Cheshire East,Belfast,1,2021-09,2021-10
+Cheshire East,Bolton,1,2021-09,2021-10
+Cheshire East,Cardiff,1,2021-09,2021-10
+Cheshire East,Cheshire West and Chester,2,2021-09,2021-10
+Cheshire East,Liverpool,1,2021-09,2021-10
+Cheshire East,Manchester,1,2021-09,2021-10
+Cheshire East,Newark and Sherwood,1,2021-09,2021-10
+Cheshire East,Newcastle upon Tyne,1,2021-09,2021-10
+Cheshire East,Oldham,1,2021-09,2021-10
+Cheshire East,Portsmouth,1,2021-09,2021-10
+Cheshire East,South Lakeland,1,2021-09,2021-10
+Cheshire East,Stevenage,2,2021-09,2021-10
+Cheshire East,Wigan,1,2021-09,2021-10
+Cheshire West and Chester,Argyll and Bute,2,2021-09,2021-10
+Cheshire West and Chester,Barnsley,2,2021-09,2021-10
+Cheshire West and Chester,Birmingham,1,2021-09,2021-10
+Cheshire West and Chester,Blackpool,1,2021-09,2021-10
+Cheshire West and Chester,"Bristol, City of",1,2021-09,2021-10
+Cheshire West and Chester,Broadland,1,2021-09,2021-10
+Cheshire West and Chester,Bury,1,2021-09,2021-10
+Cheshire West and Chester,Calderdale,1,2021-09,2021-10
+Cheshire West and Chester,Cherwell,1,2021-09,2021-10
+Cheshire West and Chester,Cheshire East,3,2021-09,2021-10
+Cheshire West and Chester,City of Edinburgh,1,2021-09,2021-10
+Cheshire West and Chester,Cornwall,2,2021-09,2021-10
+Cheshire West and Chester,Glasgow City,3,2021-09,2021-10
+Cheshire West and Chester,High Peak,1,2021-09,2021-10
+Cheshire West and Chester,Hounslow,1,2021-09,2021-10
+Cheshire West and Chester,Kingston upon Thames,1,2021-09,2021-10
+Cheshire West and Chester,Leeds,1,2021-09,2021-10
+Cheshire West and Chester,Lewisham,1,2021-09,2021-10
+Cheshire West and Chester,Lincoln,1,2021-09,2021-10
+Cheshire West and Chester,Liverpool,2,2021-09,2021-10
+Cheshire West and Chester,Manchester,10,2021-09,2021-10
+Cheshire West and Chester,Middlesbrough,1,2021-09,2021-10
+Cheshire West and Chester,Newark and Sherwood,1,2021-09,2021-10
+Cheshire West and Chester,North Ayrshire,1,2021-09,2021-10
+Cheshire West and Chester,North West Leicestershire,1,2021-09,2021-10
+Cheshire West and Chester,Nottingham,2,2021-09,2021-10
+Cheshire West and Chester,Powys,1,2021-09,2021-10
+Cheshire West and Chester,Ryedale,1,2021-09,2021-10
+Cheshire West and Chester,Salford,1,2021-09,2021-10
+Cheshire West and Chester,Sheffield,2,2021-09,2021-10
+Cheshire West and Chester,Shropshire,2,2021-09,2021-10
+Cheshire West and Chester,South Holland,2,2021-09,2021-10
+Cheshire West and Chester,South Lakeland,4,2021-09,2021-10
+Cheshire West and Chester,South Ribble,1,2021-09,2021-10
+Cheshire West and Chester,South Staffordshire,1,2021-09,2021-10
+Cheshire West and Chester,Stockport,1,2021-09,2021-10
+Cheshire West and Chester,Stoke-on-Trent,2,2021-09,2021-10
+Cheshire West and Chester,Swindon,1,2021-09,2021-10
+Cheshire West and Chester,Tendring,1,2021-09,2021-10
+Cheshire West and Chester,Trafford,7,2021-09,2021-10
+Cheshire West and Chester,Warrington,1,2021-09,2021-10
+Cheshire West and Chester,Wigan,1,2021-09,2021-10
+Cheshire West and Chester,Wirral,2,2021-09,2021-10
+Cheshire West and Chester,Wrexham,2,2021-09,2021-10
+Cheshire West and Chester,York,3,2021-09,2021-10
+Chesterfield,Bolsover,1,2021-09,2021-10
+Chesterfield,County Durham,1,2021-09,2021-10
+Chesterfield,Gateshead,1,2021-09,2021-10
+Chesterfield,Glasgow City,1,2021-09,2021-10
+Chesterfield,Newport,1,2021-09,2021-10
+Chesterfield,North East Derbyshire,2,2021-09,2021-10
+Chesterfield,Ribble Valley,1,2021-09,2021-10
+Chesterfield,Rotherham,1,2021-09,2021-10
+Chesterfield,Sheffield,4,2021-09,2021-10
+Chesterfield,West Lothian,1,2021-09,2021-10
+Chichester,Arun,2,2021-09,2021-10
+Chichester,Belfast,2,2021-09,2021-10
+Chichester,Camden,1,2021-09,2021-10
+Chichester,City of Edinburgh,1,2021-09,2021-10
+Chichester,Dacorum,2,2021-09,2021-10
+Chichester,Epsom and Ewell,2,2021-09,2021-10
+Chichester,Fareham,1,2021-09,2021-10
+Chichester,Gosport,1,2021-09,2021-10
+Chichester,Gwynedd,2,2021-09,2021-10
+Chichester,Huntingdonshire,1,2021-09,2021-10
+Chichester,Milton Keynes,1,2021-09,2021-10
+Chichester,Neath Port Talbot,2,2021-09,2021-10
+Chichester,Portsmouth,1,2021-09,2021-10
+Chichester,Woking,2,2021-09,2021-10
+Chorley,Gloucester,1,2021-09,2021-10
+Chorley,South Hams,1,2021-09,2021-10
+Chorley,South Ribble,1,2021-09,2021-10
+City of Edinburgh,Angus,4,2021-09,2021-10
+City of Edinburgh,Argyll and Bute,1,2021-09,2021-10
+City of Edinburgh,Belfast,3,2021-09,2021-10
+City of Edinburgh,Birmingham,1,2021-09,2021-10
+City of Edinburgh,Bridgend,2,2021-09,2021-10
+City of Edinburgh,Brighton and Hove,6,2021-09,2021-10
+City of Edinburgh,Buckinghamshire,1,2021-09,2021-10
+City of Edinburgh,Camden,1,2021-09,2021-10
+City of Edinburgh,Cornwall,3,2021-09,2021-10
+City of Edinburgh,Craven,1,2021-09,2021-10
+City of Edinburgh,Dumfries and Galloway,2,2021-09,2021-10
+City of Edinburgh,Dundee City,1,2021-09,2021-10
+City of Edinburgh,East Lothian,4,2021-09,2021-10
+City of Edinburgh,Elmbridge,1,2021-09,2021-10
+City of Edinburgh,Falkirk,1,2021-09,2021-10
+City of Edinburgh,Fife,11,2021-09,2021-10
+City of Edinburgh,Gateshead,1,2021-09,2021-10
+City of Edinburgh,Glasgow City,19,2021-09,2021-10
+City of Edinburgh,Hart,1,2021-09,2021-10
+City of Edinburgh,High Peak,1,2021-09,2021-10
+City of Edinburgh,Highland,8,2021-09,2021-10
+City of Edinburgh,Hillingdon,1,2021-09,2021-10
+City of Edinburgh,Kirklees,2,2021-09,2021-10
+City of Edinburgh,Knowsley,1,2021-09,2021-10
+City of Edinburgh,Liverpool,1,2021-09,2021-10
+City of Edinburgh,Manchester,5,2021-09,2021-10
+City of Edinburgh,Medway,2,2021-09,2021-10
+City of Edinburgh,Midlothian,9,2021-09,2021-10
+City of Edinburgh,Moray,1,2021-09,2021-10
+City of Edinburgh,Na h-Eileanan Siar,1,2021-09,2021-10
+City of Edinburgh,Newham,2,2021-09,2021-10
+City of Edinburgh,North Lanarkshire,1,2021-09,2021-10
+City of Edinburgh,North Tyneside,1,2021-09,2021-10
+City of Edinburgh,Northumberland,3,2021-09,2021-10
+City of Edinburgh,Nottingham,1,2021-09,2021-10
+City of Edinburgh,Pembrokeshire,1,2021-09,2021-10
+City of Edinburgh,Perth and Kinross,2,2021-09,2021-10
+City of Edinburgh,Powys,2,2021-09,2021-10
+City of Edinburgh,Renfrewshire,1,2021-09,2021-10
+City of Edinburgh,Rushmoor,2,2021-09,2021-10
+City of Edinburgh,Scarborough,3,2021-09,2021-10
+City of Edinburgh,Scottish Borders,2,2021-09,2021-10
+City of Edinburgh,South Ayrshire,2,2021-09,2021-10
+City of Edinburgh,South Lakeland,1,2021-09,2021-10
+City of Edinburgh,South Lanarkshire,3,2021-09,2021-10
+City of Edinburgh,Stevenage,2,2021-09,2021-10
+City of Edinburgh,Stirling,5,2021-09,2021-10
+City of Edinburgh,Sutton,1,2021-09,2021-10
+City of Edinburgh,Warrington,1,2021-09,2021-10
+City of Edinburgh,Wealden,1,2021-09,2021-10
+City of Edinburgh,West Lothian,5,2021-09,2021-10
+City of Edinburgh,West Oxfordshire,2,2021-09,2021-10
+City of Edinburgh,West Suffolk,1,2021-09,2021-10
+City of Edinburgh,Westminster,5,2021-09,2021-10
+City of London,Ards and North Down,1,2021-09,2021-10
+City of London,Barnet,1,2021-09,2021-10
+City of London,Birmingham,1,2021-09,2021-10
+City of London,Brent,1,2021-09,2021-10
+City of London,Bromley,1,2021-09,2021-10
+City of London,Buckinghamshire,1,2021-09,2021-10
+City of London,Camden,1,2021-09,2021-10
+City of London,Canterbury,1,2021-09,2021-10
+City of London,Cardiff,1,2021-09,2021-10
+City of London,Croydon,2,2021-09,2021-10
+City of London,Enfield,2,2021-09,2021-10
+City of London,Epsom and Ewell,1,2021-09,2021-10
+City of London,Greenwich,2,2021-09,2021-10
+City of London,Hackney,3,2021-09,2021-10
+City of London,Harrow,5,2021-09,2021-10
+City of London,Hillingdon,1,2021-09,2021-10
+City of London,Hounslow,2,2021-09,2021-10
+City of London,Huntingdonshire,1,2021-09,2021-10
+City of London,Islington,7,2021-09,2021-10
+City of London,Lambeth,2,2021-09,2021-10
+City of London,Leeds,1,2021-09,2021-10
+City of London,Lewisham,1,2021-09,2021-10
+City of London,Liverpool,4,2021-09,2021-10
+City of London,Manchester,2,2021-09,2021-10
+City of London,Milton Keynes,3,2021-09,2021-10
+City of London,Moray,1,2021-09,2021-10
+City of London,Newham,1,2021-09,2021-10
+City of London,Reading,1,2021-09,2021-10
+City of London,Redbridge,2,2021-09,2021-10
+City of London,Rochford,1,2021-09,2021-10
+City of London,Sheffield,4,2021-09,2021-10
+City of London,South Lanarkshire,1,2021-09,2021-10
+City of London,Southwark,7,2021-09,2021-10
+City of London,St Albans,1,2021-09,2021-10
+City of London,Sunderland,2,2021-09,2021-10
+City of London,Tower Hamlets,10,2021-09,2021-10
+City of London,Wandsworth,4,2021-09,2021-10
+City of London,Watford,1,2021-09,2021-10
+Clackmannanshire,Blackpool,2,2021-09,2021-10
+Clackmannanshire,Fife,1,2021-09,2021-10
+Clackmannanshire,Glasgow City,2,2021-09,2021-10
+Clackmannanshire,Leicester,1,2021-09,2021-10
+Clackmannanshire,Perth and Kinross,2,2021-09,2021-10
+Clackmannanshire,Vale of Glamorgan,1,2021-09,2021-10
+Colchester,Babergh,2,2021-09,2021-10
+Colchester,Braintree,1,2021-09,2021-10
+Colchester,City of London,1,2021-09,2021-10
+Colchester,Derbyshire Dales,1,2021-09,2021-10
+Colchester,Fenland,2,2021-09,2021-10
+Colchester,Ipswich,1,2021-09,2021-10
+Colchester,Islington,2,2021-09,2021-10
+Colchester,Norwich,1,2021-09,2021-10
+Colchester,South Holland,2,2021-09,2021-10
+Colchester,Tendring,3,2021-09,2021-10
+Colchester,West Suffolk,1,2021-09,2021-10
+Colchester,Winchester,1,2021-09,2021-10
+Conwy,Birmingham,2,2021-09,2021-10
+Conwy,"Bristol, City of",1,2021-09,2021-10
+Conwy,Carmarthenshire,2,2021-09,2021-10
+Conwy,Cheshire East,2,2021-09,2021-10
+Conwy,Denbighshire,2,2021-09,2021-10
+Conwy,Flintshire,1,2021-09,2021-10
+Conwy,Gwynedd,1,2021-09,2021-10
+Conwy,Leeds,2,2021-09,2021-10
+Conwy,Manchester,1,2021-09,2021-10
+Conwy,Mendip,1,2021-09,2021-10
+Conwy,Salford,1,2021-09,2021-10
+Conwy,Sheffield,1,2021-09,2021-10
+Conwy,St. Helens,1,2021-09,2021-10
+Conwy,Tameside,1,2021-09,2021-10
+Conwy,Wrexham,2,2021-09,2021-10
+Conwy,Wyre Forest,1,2021-09,2021-10
+Copeland,Angus,2,2021-09,2021-10
+Copeland,Bradford,2,2021-09,2021-10
+Copeland,Lancaster,1,2021-09,2021-10
+Copeland,North Lanarkshire,1,2021-09,2021-10
+Cornwall,Ashford,2,2021-09,2021-10
+Cornwall,Bassetlaw,3,2021-09,2021-10
+Cornwall,Birmingham,1,2021-09,2021-10
+Cornwall,Blackpool,5,2021-09,2021-10
+Cornwall,"Bristol, City of",3,2021-09,2021-10
+Cornwall,Caerphilly,4,2021-09,2021-10
+Cornwall,Cambridge,4,2021-09,2021-10
+Cornwall,Ceredigion,4,2021-09,2021-10
+Cornwall,Cheltenham,2,2021-09,2021-10
+Cornwall,Cheshire West and Chester,1,2021-09,2021-10
+Cornwall,Crawley,1,2021-09,2021-10
+Cornwall,Dorset,1,2021-09,2021-10
+Cornwall,Ealing,2,2021-09,2021-10
+Cornwall,East Hertfordshire,2,2021-09,2021-10
+Cornwall,Eastleigh,2,2021-09,2021-10
+Cornwall,Exeter,1,2021-09,2021-10
+Cornwall,Fareham,1,2021-09,2021-10
+Cornwall,Fife,1,2021-09,2021-10
+Cornwall,Forest of Dean,2,2021-09,2021-10
+Cornwall,Gloucester,2,2021-09,2021-10
+Cornwall,Greenwich,1,2021-09,2021-10
+Cornwall,Harrogate,2,2021-09,2021-10
+Cornwall,Hart,1,2021-09,2021-10
+Cornwall,Hinckley and Bosworth,1,2021-09,2021-10
+Cornwall,Huntingdonshire,1,2021-09,2021-10
+Cornwall,Isles of Scilly,5,2021-09,2021-10
+Cornwall,"Kingston upon Hull, City of",1,2021-09,2021-10
+Cornwall,Kingston upon Thames,2,2021-09,2021-10
+Cornwall,Lambeth,2,2021-09,2021-10
+Cornwall,Leeds,1,2021-09,2021-10
+Cornwall,Lincoln,2,2021-09,2021-10
+Cornwall,Manchester,2,2021-09,2021-10
+Cornwall,Mansfield,2,2021-09,2021-10
+Cornwall,Neath Port Talbot,1,2021-09,2021-10
+Cornwall,Newham,2,2021-09,2021-10
+Cornwall,North East Derbyshire,2,2021-09,2021-10
+Cornwall,North Kesteven,1,2021-09,2021-10
+Cornwall,Nuneaton and Bedworth,2,2021-09,2021-10
+Cornwall,Oxford,2,2021-09,2021-10
+Cornwall,Plymouth,3,2021-09,2021-10
+Cornwall,Portsmouth,1,2021-09,2021-10
+Cornwall,Redditch,1,2021-09,2021-10
+Cornwall,Rhondda Cynon Taf,1,2021-09,2021-10
+Cornwall,Rugby,3,2021-09,2021-10
+Cornwall,Rushcliffe,2,2021-09,2021-10
+Cornwall,Scarborough,2,2021-09,2021-10
+Cornwall,Shropshire,2,2021-09,2021-10
+Cornwall,Slough,1,2021-09,2021-10
+Cornwall,Somerset West and Taunton,5,2021-09,2021-10
+Cornwall,South Gloucestershire,2,2021-09,2021-10
+Cornwall,South Hams,2,2021-09,2021-10
+Cornwall,Southwark,1,2021-09,2021-10
+Cornwall,Staffordshire Moorlands,2,2021-09,2021-10
+Cornwall,Stevenage,1,2021-09,2021-10
+Cornwall,Stockport,1,2021-09,2021-10
+Cornwall,Stoke-on-Trent,2,2021-09,2021-10
+Cornwall,Swindon,2,2021-09,2021-10
+Cornwall,Torbay,2,2021-09,2021-10
+Cornwall,Tower Hamlets,1,2021-09,2021-10
+Cornwall,Waltham Forest,2,2021-09,2021-10
+Cornwall,Warrington,3,2021-09,2021-10
+Cornwall,Wealden,2,2021-09,2021-10
+Cornwall,West Lothian,1,2021-09,2021-10
+Cornwall,West Suffolk,1,2021-09,2021-10
+Cornwall,Westminster,1,2021-09,2021-10
+Cornwall,Wigan,1,2021-09,2021-10
+Cornwall,Woking,2,2021-09,2021-10
+Cornwall,Wychavon,1,2021-09,2021-10
+Cornwall,Wyre,1,2021-09,2021-10
+Cotswold,Luton,2,2021-09,2021-10
+Cotswold,Oxford,1,2021-09,2021-10
+Cotswold,Somerset West and Taunton,1,2021-09,2021-10
+Cotswold,Southampton,2,2021-09,2021-10
+Cotswold,St. Helens,2,2021-09,2021-10
+Cotswold,Stroud,1,2021-09,2021-10
+Cotswold,West Berkshire,1,2021-09,2021-10
+Cotswold,Wychavon,1,2021-09,2021-10
+County Durham,Ceredigion,1,2021-09,2021-10
+County Durham,Cheshire West and Chester,1,2021-09,2021-10
+County Durham,Chesterfield,1,2021-09,2021-10
+County Durham,East Riding of Yorkshire,1,2021-09,2021-10
+County Durham,Fife,2,2021-09,2021-10
+County Durham,Glasgow City,12,2021-09,2021-10
+County Durham,Hambleton,1,2021-09,2021-10
+County Durham,Islington,3,2021-09,2021-10
+County Durham,Lichfield,1,2021-09,2021-10
+County Durham,Manchester,1,2021-09,2021-10
+County Durham,Newcastle upon Tyne,1,2021-09,2021-10
+County Durham,Sunderland,2,2021-09,2021-10
+County Durham,Thurrock,2,2021-09,2021-10
+County Durham,Tower Hamlets,1,2021-09,2021-10
+Coventry,Birmingham,1,2021-09,2021-10
+Coventry,Blaby,1,2021-09,2021-10
+Coventry,Camden,1,2021-09,2021-10
+Coventry,City of Edinburgh,1,2021-09,2021-10
+Coventry,East Lindsey,1,2021-09,2021-10
+Coventry,Gloucester,1,2021-09,2021-10
+Coventry,Greenwich,2,2021-09,2021-10
+Coventry,Harlow,2,2021-09,2021-10
+Coventry,Hastings,1,2021-09,2021-10
+Coventry,Leicester,1,2021-09,2021-10
+Coventry,Manchester,2,2021-09,2021-10
+Coventry,Mansfield,1,2021-09,2021-10
+Coventry,Merton,1,2021-09,2021-10
+Coventry,Redbridge,1,2021-09,2021-10
+Coventry,Southwark,2,2021-09,2021-10
+Coventry,Teignbridge,1,2021-09,2021-10
+Coventry,Telford and Wrekin,1,2021-09,2021-10
+Coventry,Warwick,2,2021-09,2021-10
+Coventry,West Northamptonshire,1,2021-09,2021-10
+Coventry,West Suffolk,1,2021-09,2021-10
+Coventry,Wolverhampton,1,2021-09,2021-10
+Craven,Allerdale,1,2021-09,2021-10
+Craven,Ashfield,1,2021-09,2021-10
+Craven,Bradford,1,2021-09,2021-10
+Craven,East Riding of Yorkshire,1,2021-09,2021-10
+Craven,Eden,1,2021-09,2021-10
+Craven,Fife,4,2021-09,2021-10
+Craven,Halton,1,2021-09,2021-10
+Craven,Richmondshire,1,2021-09,2021-10
+Craven,Southwark,2,2021-09,2021-10
+Crawley,Belfast,1,2021-09,2021-10
+Crawley,Braintree,2,2021-09,2021-10
+Crawley,Brighton and Hove,2,2021-09,2021-10
+Crawley,Croydon,1,2021-09,2021-10
+Crawley,Ealing,1,2021-09,2021-10
+Crawley,Epsom and Ewell,2,2021-09,2021-10
+Crawley,Horsham,1,2021-09,2021-10
+Crawley,Lambeth,1,2021-09,2021-10
+Crawley,Mid Sussex,1,2021-09,2021-10
+Crawley,Newham,2,2021-09,2021-10
+Crawley,Reigate and Banstead,1,2021-09,2021-10
+Crawley,Wandsworth,1,2021-09,2021-10
+Croydon,Adur,2,2021-09,2021-10
+Croydon,Brent,1,2021-09,2021-10
+Croydon,Bromley,1,2021-09,2021-10
+Croydon,Camden,1,2021-09,2021-10
+Croydon,Gedling,1,2021-09,2021-10
+Croydon,Glasgow City,2,2021-09,2021-10
+Croydon,Greenwich,2,2021-09,2021-10
+Croydon,Hackney,2,2021-09,2021-10
+Croydon,Hillingdon,1,2021-09,2021-10
+Croydon,Lambeth,4,2021-09,2021-10
+Croydon,Manchester,2,2021-09,2021-10
+Croydon,Merton,4,2021-09,2021-10
+Croydon,Portsmouth,1,2021-09,2021-10
+Croydon,Reading,1,2021-09,2021-10
+Croydon,Scarborough,2,2021-09,2021-10
+Croydon,Southwark,7,2021-09,2021-10
+Croydon,Staffordshire Moorlands,5,2021-09,2021-10
+Croydon,Swindon,1,2021-09,2021-10
+Croydon,Tandridge,1,2021-09,2021-10
+Croydon,Wandsworth,1,2021-09,2021-10
+Croydon,Warrington,1,2021-09,2021-10
+Dacorum,Brent,1,2021-09,2021-10
+Dacorum,Cardiff,1,2021-09,2021-10
+Dacorum,Central Bedfordshire,1,2021-09,2021-10
+Dacorum,City of London,1,2021-09,2021-10
+Dacorum,East Hertfordshire,1,2021-09,2021-10
+Dacorum,Hertsmere,1,2021-09,2021-10
+Dacorum,Leeds,1,2021-09,2021-10
+Dacorum,Luton,1,2021-09,2021-10
+Dacorum,Milton Keynes,1,2021-09,2021-10
+Dacorum,Torbay,2,2021-09,2021-10
+Dacorum,Watford,2,2021-09,2021-10
+Darlington,Glasgow City,1,2021-09,2021-10
+Darlington,Harrow,1,2021-09,2021-10
+Darlington,Leeds,2,2021-09,2021-10
+Darlington,Newcastle upon Tyne,2,2021-09,2021-10
+Darlington,Richmondshire,2,2021-09,2021-10
+Darlington,South Cambridgeshire,1,2021-09,2021-10
+Darlington,St Albans,1,2021-09,2021-10
+Darlington,Stockton-on-Tees,2,2021-09,2021-10
+Dartford,Enfield,1,2021-09,2021-10
+Dartford,Oxford,1,2021-09,2021-10
+Dartford,Sevenoaks,1,2021-09,2021-10
+Denbighshire,Burnley,2,2021-09,2021-10
+Denbighshire,Cardiff,1,2021-09,2021-10
+Denbighshire,East Staffordshire,1,2021-09,2021-10
+Denbighshire,Liverpool,1,2021-09,2021-10
+Denbighshire,Manchester,1,2021-09,2021-10
+Denbighshire,Northumberland,1,2021-09,2021-10
+Denbighshire,South Lanarkshire,2,2021-09,2021-10
+Derby,Amber Valley,1,2021-09,2021-10
+Derby,Broxtowe,1,2021-09,2021-10
+Derby,Charnwood,2,2021-09,2021-10
+Derby,Cheshire West and Chester,1,2021-09,2021-10
+Derby,County Durham,2,2021-09,2021-10
+Derby,Gateshead,1,2021-09,2021-10
+Derby,Gwynedd,1,2021-09,2021-10
+Derby,Kensington and Chelsea,1,2021-09,2021-10
+Derby,Leicester,2,2021-09,2021-10
+Derby,Maidstone,2,2021-09,2021-10
+Derby,Newport,1,2021-09,2021-10
+Derby,North Norfolk,1,2021-09,2021-10
+Derby,Oxford,1,2021-09,2021-10
+Derby,Sheffield,1,2021-09,2021-10
+Derby,South Derbyshire,1,2021-09,2021-10
+Derby,Wirral,1,2021-09,2021-10
+Derby,Wyre,1,2021-09,2021-10
+Derbyshire Dales,Broxtowe,1,2021-09,2021-10
+Derbyshire Dales,Highland,1,2021-09,2021-10
+Derbyshire Dales,Leicester,1,2021-09,2021-10
+Derbyshire Dales,Manchester,1,2021-09,2021-10
+Derbyshire Dales,Pendle,1,2021-09,2021-10
+Derbyshire Dales,Sheffield,3,2021-09,2021-10
+Derbyshire Dales,South Kesteven,2,2021-09,2021-10
+Derbyshire Dales,West Northamptonshire,2,2021-09,2021-10
+Derry City and Strabane,"Armagh City, Banbridge and Craigavon",2,2021-09,2021-10
+Derry City and Strabane,Belfast,4,2021-09,2021-10
+Derry City and Strabane,Causeway Coast and Glens,6,2021-09,2021-10
+Derry City and Strabane,Derby,1,2021-09,2021-10
+Derry City and Strabane,Glasgow City,3,2021-09,2021-10
+Derry City and Strabane,Liverpool,1,2021-09,2021-10
+Derry City and Strabane,Manchester,1,2021-09,2021-10
+Derry City and Strabane,"Newry, Mourne and Down",1,2021-09,2021-10
+Derry City and Strabane,North Lanarkshire,1,2021-09,2021-10
+Derry City and Strabane,Oxford,1,2021-09,2021-10
+Doncaster,Cardiff,1,2021-09,2021-10
+Doncaster,East Lindsey,1,2021-09,2021-10
+Doncaster,Huntingdonshire,1,2021-09,2021-10
+Doncaster,Leeds,4,2021-09,2021-10
+Doncaster,Malvern Hills,1,2021-09,2021-10
+Doncaster,Manchester,1,2021-09,2021-10
+Doncaster,North Lincolnshire,1,2021-09,2021-10
+Doncaster,Sevenoaks,1,2021-09,2021-10
+Doncaster,Sheffield,3,2021-09,2021-10
+Doncaster,South Lakeland,1,2021-09,2021-10
+Doncaster,South Ribble,2,2021-09,2021-10
+Doncaster,Stoke-on-Trent,1,2021-09,2021-10
+Doncaster,Welwyn Hatfield,2,2021-09,2021-10
+Doncaster,West Lancashire,1,2021-09,2021-10
+Dorset,Allerdale,2,2021-09,2021-10
+Dorset,Barnet,2,2021-09,2021-10
+Dorset,Bath and North East Somerset,1,2021-09,2021-10
+Dorset,Birmingham,1,2021-09,2021-10
+Dorset,Blackpool,2,2021-09,2021-10
+Dorset,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Dorset,Bromsgrove,1,2021-09,2021-10
+Dorset,Buckinghamshire,2,2021-09,2021-10
+Dorset,Canterbury,3,2021-09,2021-10
+Dorset,Cardiff,2,2021-09,2021-10
+Dorset,East Hampshire,2,2021-09,2021-10
+Dorset,Fife,1,2021-09,2021-10
+Dorset,Forest of Dean,4,2021-09,2021-10
+Dorset,Gravesham,2,2021-09,2021-10
+Dorset,Greenwich,1,2021-09,2021-10
+Dorset,Haringey,1,2021-09,2021-10
+Dorset,Lewisham,2,2021-09,2021-10
+Dorset,Lincoln,1,2021-09,2021-10
+Dorset,Maidstone,2,2021-09,2021-10
+Dorset,Manchester,4,2021-09,2021-10
+Dorset,Medway,3,2021-09,2021-10
+Dorset,New Forest,2,2021-09,2021-10
+Dorset,Newcastle upon Tyne,1,2021-09,2021-10
+Dorset,North Devon,2,2021-09,2021-10
+Dorset,North Hertfordshire,1,2021-09,2021-10
+Dorset,North Northamptonshire,1,2021-09,2021-10
+Dorset,Stevenage,1,2021-09,2021-10
+Dorset,Thurrock,1,2021-09,2021-10
+Dorset,Tonbridge and Malling,1,2021-09,2021-10
+Dorset,Wiltshire,2,2021-09,2021-10
+Dorset,Wokingham,2,2021-09,2021-10
+Dorset,Wolverhampton,1,2021-09,2021-10
+Dorset,Wyre,1,2021-09,2021-10
+Dover,Bromley,2,2021-09,2021-10
+Dover,Canterbury,1,2021-09,2021-10
+Dover,Glasgow City,2,2021-09,2021-10
+Dover,Maidstone,1,2021-09,2021-10
+Dudley,Bedford,1,2021-09,2021-10
+Dudley,Birmingham,2,2021-09,2021-10
+Dudley,Hillingdon,2,2021-09,2021-10
+Dudley,Leicester,2,2021-09,2021-10
+Dudley,Newcastle upon Tyne,2,2021-09,2021-10
+Dudley,Scarborough,1,2021-09,2021-10
+Dudley,Solihull,1,2021-09,2021-10
+Dudley,Stafford,2,2021-09,2021-10
+Dudley,West Northamptonshire,1,2021-09,2021-10
+Dudley,Wolverhampton,1,2021-09,2021-10
+Dudley,Wyre Forest,1,2021-09,2021-10
+Dumfries and Galloway,Carlisle,1,2021-09,2021-10
+Dumfries and Galloway,East Ayrshire,2,2021-09,2021-10
+Dumfries and Galloway,East Riding of Yorkshire,1,2021-09,2021-10
+Dumfries and Galloway,Knowsley,1,2021-09,2021-10
+Dumfries and Galloway,Malvern Hills,1,2021-09,2021-10
+Dumfries and Galloway,Renfrewshire,4,2021-09,2021-10
+Dumfries and Galloway,Rhondda Cynon Taf,1,2021-09,2021-10
+Dumfries and Galloway,Salford,1,2021-09,2021-10
+Dumfries and Galloway,Warwick,4,2021-09,2021-10
+Dumfries and Galloway,West Lothian,3,2021-09,2021-10
+Dumfries and Galloway,Worcester,1,2021-09,2021-10
+Dundee City,Aberdeenshire,1,2021-09,2021-10
+Dundee City,Angus,3,2021-09,2021-10
+Dundee City,Ards and North Down,1,2021-09,2021-10
+Dundee City,City of Edinburgh,2,2021-09,2021-10
+Dundee City,Conwy,1,2021-09,2021-10
+Dundee City,East Renfrewshire,1,2021-09,2021-10
+Dundee City,Glasgow City,3,2021-09,2021-10
+Dundee City,Highland,2,2021-09,2021-10
+Dundee City,Moray,2,2021-09,2021-10
+Dundee City,Newcastle upon Tyne,1,2021-09,2021-10
+Dundee City,North Ayrshire,1,2021-09,2021-10
+Dundee City,Pembrokeshire,1,2021-09,2021-10
+Dundee City,Perth and Kinross,1,2021-09,2021-10
+Dundee City,South Ayrshire,1,2021-09,2021-10
+Ealing,Argyll and Bute,2,2021-09,2021-10
+Ealing,Bromley,1,2021-09,2021-10
+Ealing,Camden,1,2021-09,2021-10
+Ealing,City of London,1,2021-09,2021-10
+Ealing,East Devon,2,2021-09,2021-10
+Ealing,Enfield,1,2021-09,2021-10
+Ealing,Hackney,1,2021-09,2021-10
+Ealing,Hammersmith and Fulham,2,2021-09,2021-10
+Ealing,Hounslow,7,2021-09,2021-10
+Ealing,Kensington and Chelsea,2,2021-09,2021-10
+Ealing,Liverpool,1,2021-09,2021-10
+Ealing,Nottingham,2,2021-09,2021-10
+Ealing,Sheffield,1,2021-09,2021-10
+Ealing,South Gloucestershire,2,2021-09,2021-10
+Ealing,Southwark,1,2021-09,2021-10
+Ealing,Spelthorne,1,2021-09,2021-10
+Ealing,Surrey Heath,1,2021-09,2021-10
+Ealing,Tonbridge and Malling,1,2021-09,2021-10
+Ealing,Worcester,2,2021-09,2021-10
+East Ayrshire,Aberdeenshire,1,2021-09,2021-10
+East Ayrshire,Glasgow City,1,2021-09,2021-10
+East Ayrshire,Liverpool,2,2021-09,2021-10
+East Ayrshire,North Norfolk,1,2021-09,2021-10
+East Ayrshire,South Ayrshire,3,2021-09,2021-10
+East Ayrshire,West Lothian,2,2021-09,2021-10
+East Cambridgeshire,City of Edinburgh,2,2021-09,2021-10
+East Cambridgeshire,South Norfolk,1,2021-09,2021-10
+East Devon,Brent,2,2021-09,2021-10
+East Devon,Harrogate,1,2021-09,2021-10
+East Devon,Lichfield,1,2021-09,2021-10
+East Devon,Plymouth,2,2021-09,2021-10
+East Dunbartonshire,Glasgow City,4,2021-09,2021-10
+East Dunbartonshire,North Ayrshire,1,2021-09,2021-10
+East Hampshire,Cornwall,1,2021-09,2021-10
+East Hampshire,Reading,2,2021-09,2021-10
+East Hertfordshire,Broxbourne,1,2021-09,2021-10
+East Hertfordshire,Cambridge,1,2021-09,2021-10
+East Hertfordshire,City of Edinburgh,2,2021-09,2021-10
+East Hertfordshire,Dover,1,2021-09,2021-10
+East Hertfordshire,Manchester,1,2021-09,2021-10
+East Hertfordshire,Uttlesford,1,2021-09,2021-10
+East Lindsey,Barnsley,2,2021-09,2021-10
+East Lindsey,Cardiff,2,2021-09,2021-10
+East Lindsey,Glasgow City,1,2021-09,2021-10
+East Lindsey,Liverpool,1,2021-09,2021-10
+East Lindsey,Manchester,1,2021-09,2021-10
+East Lindsey,Newark and Sherwood,2,2021-09,2021-10
+East Lindsey,Newcastle upon Tyne,1,2021-09,2021-10
+East Lindsey,North East Lincolnshire,1,2021-09,2021-10
+East Lindsey,North Norfolk,2,2021-09,2021-10
+East Lindsey,Salford,1,2021-09,2021-10
+East Lindsey,Sevenoaks,1,2021-09,2021-10
+East Lindsey,Stirling,1,2021-09,2021-10
+East Lindsey,West Oxfordshire,2,2021-09,2021-10
+East Lindsey,Windsor and Maidenhead,4,2021-09,2021-10
+East Lothian,Birmingham,1,2021-09,2021-10
+East Lothian,City of Edinburgh,4,2021-09,2021-10
+East Lothian,Perth and Kinross,2,2021-09,2021-10
+East Lothian,Sheffield,2,2021-09,2021-10
+East Renfrewshire,Clackmannanshire,1,2021-09,2021-10
+East Renfrewshire,Glasgow City,5,2021-09,2021-10
+East Renfrewshire,Inverclyde,2,2021-09,2021-10
+East Renfrewshire,South Ayrshire,1,2021-09,2021-10
+East Renfrewshire,Stirling,1,2021-09,2021-10
+East Riding of Yorkshire,Craven,1,2021-09,2021-10
+East Riding of Yorkshire,Flintshire,2,2021-09,2021-10
+East Riding of Yorkshire,Gedling,2,2021-09,2021-10
+East Riding of Yorkshire,Huntingdonshire,1,2021-09,2021-10
+East Riding of Yorkshire,"Kingston upon Hull, City of",16,2021-09,2021-10
+East Riding of Yorkshire,Leeds,4,2021-09,2021-10
+East Riding of Yorkshire,North East Derbyshire,2,2021-09,2021-10
+East Riding of Yorkshire,North Lanarkshire,1,2021-09,2021-10
+East Riding of Yorkshire,North Lincolnshire,2,2021-09,2021-10
+East Riding of Yorkshire,Perth and Kinross,1,2021-09,2021-10
+East Riding of Yorkshire,Shetland Islands,1,2021-09,2021-10
+East Riding of Yorkshire,Waltham Forest,1,2021-09,2021-10
+East Riding of Yorkshire,West Lothian,2,2021-09,2021-10
+East Staffordshire,Cheltenham,1,2021-09,2021-10
+East Staffordshire,Dartford,2,2021-09,2021-10
+East Staffordshire,Hinckley and Bosworth,1,2021-09,2021-10
+East Staffordshire,Stoke-on-Trent,1,2021-09,2021-10
+East Staffordshire,Sutton,1,2021-09,2021-10
+East Staffordshire,Wigan,1,2021-09,2021-10
+East Suffolk,Basildon,1,2021-09,2021-10
+East Suffolk,Camden,1,2021-09,2021-10
+East Suffolk,Derby,1,2021-09,2021-10
+East Suffolk,Derbyshire Dales,2,2021-09,2021-10
+East Suffolk,Glasgow City,2,2021-09,2021-10
+East Suffolk,Greenwich,2,2021-09,2021-10
+East Suffolk,Haringey,1,2021-09,2021-10
+East Suffolk,Ipswich,2,2021-09,2021-10
+East Suffolk,King's Lynn and West Norfolk,2,2021-09,2021-10
+East Suffolk,Lewisham,2,2021-09,2021-10
+East Suffolk,Milton Keynes,2,2021-09,2021-10
+East Suffolk,Monmouthshire,2,2021-09,2021-10
+East Suffolk,Newport,1,2021-09,2021-10
+East Suffolk,Norwich,1,2021-09,2021-10
+East Suffolk,Nottingham,2,2021-09,2021-10
+East Suffolk,Sheffield,1,2021-09,2021-10
+East Suffolk,St Albans,1,2021-09,2021-10
+East Suffolk,Tendring,4,2021-09,2021-10
+East Suffolk,Waltham Forest,1,2021-09,2021-10
+East Suffolk,Wokingham,1,2021-09,2021-10
+East Suffolk,Wolverhampton,1,2021-09,2021-10
+Eastbourne,Aberdeen City,1,2021-09,2021-10
+Eastbourne,Crawley,1,2021-09,2021-10
+Eastbourne,Hastings,1,2021-09,2021-10
+Eastbourne,"Kingston upon Hull, City of",1,2021-09,2021-10
+Eastbourne,Lewes,2,2021-09,2021-10
+Eastbourne,Lewisham,1,2021-09,2021-10
+Eastbourne,Rother,2,2021-09,2021-10
+Eastbourne,Salford,2,2021-09,2021-10
+Eastleigh,Cheltenham,1,2021-09,2021-10
+Eastleigh,East Lindsey,1,2021-09,2021-10
+Eastleigh,Fareham,2,2021-09,2021-10
+Eastleigh,Lambeth,1,2021-09,2021-10
+Eastleigh,Liverpool,2,2021-09,2021-10
+Eastleigh,Southampton,4,2021-09,2021-10
+Eastleigh,Wokingham,2,2021-09,2021-10
+Eden,Carlisle,3,2021-09,2021-10
+Eden,Cheshire West and Chester,1,2021-09,2021-10
+Eden,Leeds,2,2021-09,2021-10
+Eden,Manchester,1,2021-09,2021-10
+Eden,Perth and Kinross,1,2021-09,2021-10
+Eden,Wigan,1,2021-09,2021-10
+Elmbridge,Bexley,1,2021-09,2021-10
+Elmbridge,Cherwell,1,2021-09,2021-10
+Elmbridge,King's Lynn and West Norfolk,1,2021-09,2021-10
+Elmbridge,Lambeth,1,2021-09,2021-10
+Elmbridge,Manchester,2,2021-09,2021-10
+Elmbridge,Walsall,2,2021-09,2021-10
+Enfield,Birmingham,4,2021-09,2021-10
+Enfield,Camden,1,2021-09,2021-10
+Enfield,Haringey,2,2021-09,2021-10
+Enfield,Harlow,4,2021-09,2021-10
+Enfield,Islington,2,2021-09,2021-10
+Enfield,Lambeth,1,2021-09,2021-10
+Enfield,Lewisham,2,2021-09,2021-10
+Enfield,Manchester,1,2021-09,2021-10
+Enfield,North Northamptonshire,1,2021-09,2021-10
+Enfield,Reading,4,2021-09,2021-10
+Enfield,Waltham Forest,1,2021-09,2021-10
+Enfield,Westminster,1,2021-09,2021-10
+Epping Forest,Basildon,1,2021-09,2021-10
+Epping Forest,Birmingham,2,2021-09,2021-10
+Epping Forest,Braintree,2,2021-09,2021-10
+Epping Forest,Brighton and Hove,1,2021-09,2021-10
+Epping Forest,Dorset,1,2021-09,2021-10
+Epping Forest,Greenwich,1,2021-09,2021-10
+Epping Forest,Ipswich,2,2021-09,2021-10
+Epping Forest,Kingston upon Thames,1,2021-09,2021-10
+Epping Forest,Waltham Forest,1,2021-09,2021-10
+Epping Forest,Westminster,1,2021-09,2021-10
+Epsom and Ewell,Arun,1,2021-09,2021-10
+Epsom and Ewell,Crawley,1,2021-09,2021-10
+Epsom and Ewell,Elmbridge,1,2021-09,2021-10
+Epsom and Ewell,Greenwich,1,2021-09,2021-10
+Epsom and Ewell,Middlesbrough,1,2021-09,2021-10
+Epsom and Ewell,North West Leicestershire,1,2021-09,2021-10
+Epsom and Ewell,Nottingham,2,2021-09,2021-10
+Epsom and Ewell,Sutton,1,2021-09,2021-10
+Erewash,Ashfield,1,2021-09,2021-10
+Erewash,Birmingham,1,2021-09,2021-10
+Erewash,Derby,5,2021-09,2021-10
+Erewash,Leicester,1,2021-09,2021-10
+Erewash,North West Leicestershire,1,2021-09,2021-10
+Erewash,Nottingham,2,2021-09,2021-10
+Erewash,South Ayrshire,1,2021-09,2021-10
+Erewash,Warrington,1,2021-09,2021-10
+Erewash,York,1,2021-09,2021-10
+Exeter,Basingstoke and Deane,1,2021-09,2021-10
+Exeter,"Bristol, City of",1,2021-09,2021-10
+Exeter,Cambridge,4,2021-09,2021-10
+Exeter,City of Edinburgh,1,2021-09,2021-10
+Exeter,East Devon,2,2021-09,2021-10
+Exeter,Greenwich,2,2021-09,2021-10
+Exeter,Harrogate,2,2021-09,2021-10
+Exeter,Mid Devon,1,2021-09,2021-10
+Exeter,North Devon,1,2021-09,2021-10
+Exeter,North Norfolk,1,2021-09,2021-10
+Exeter,North Somerset,1,2021-09,2021-10
+Exeter,Plymouth,1,2021-09,2021-10
+Exeter,Somerset West and Taunton,2,2021-09,2021-10
+Exeter,Vale of Glamorgan,1,2021-09,2021-10
+Falkirk,Aberdeen City,3,2021-09,2021-10
+Falkirk,Brighton and Hove,1,2021-09,2021-10
+Falkirk,City of Edinburgh,1,2021-09,2021-10
+Falkirk,Fife,1,2021-09,2021-10
+Falkirk,Glasgow City,5,2021-09,2021-10
+Falkirk,Highland,1,2021-09,2021-10
+Falkirk,"Kingston upon Hull, City of",1,2021-09,2021-10
+Falkirk,Perth and Kinross,1,2021-09,2021-10
+Falkirk,Sheffield,2,2021-09,2021-10
+Falkirk,Shetland Islands,1,2021-09,2021-10
+Falkirk,Stirling,2,2021-09,2021-10
+Falkirk,West Lothian,1,2021-09,2021-10
+Fareham,Birmingham,1,2021-09,2021-10
+Fareham,Chichester,2,2021-09,2021-10
+Fareham,Flintshire,2,2021-09,2021-10
+Fareham,Gosport,2,2021-09,2021-10
+Fenland,Barnsley,1,2021-09,2021-10
+Fenland,Carlisle,2,2021-09,2021-10
+Fenland,Nottingham,1,2021-09,2021-10
+Fenland,Peterborough,1,2021-09,2021-10
+Fermanagh and Omagh,Belfast,1,2021-09,2021-10
+Fermanagh and Omagh,Lisburn and Castlereagh,4,2021-09,2021-10
+Fermanagh and Omagh,Shropshire,1,2021-09,2021-10
+Fife,Barrow-in-Furness,1,2021-09,2021-10
+Fife,Belfast,1,2021-09,2021-10
+Fife,Camden,1,2021-09,2021-10
+Fife,City of Edinburgh,8,2021-09,2021-10
+Fife,Dudley,1,2021-09,2021-10
+Fife,Dundee City,6,2021-09,2021-10
+Fife,East Lothian,1,2021-09,2021-10
+Fife,Falkirk,1,2021-09,2021-10
+Fife,Glasgow City,1,2021-09,2021-10
+Fife,Highland,4,2021-09,2021-10
+Fife,Lewisham,2,2021-09,2021-10
+Fife,Liverpool,2,2021-09,2021-10
+Fife,North West Leicestershire,2,2021-09,2021-10
+Fife,Oldham,1,2021-09,2021-10
+Fife,Perth and Kinross,2,2021-09,2021-10
+Fife,Shropshire,2,2021-09,2021-10
+Fife,Swansea,1,2021-09,2021-10
+Fife,Tower Hamlets,1,2021-09,2021-10
+Fife,Wirral,1,2021-09,2021-10
+Fife,York,1,2021-09,2021-10
+Flintshire,Bath and North East Somerset,2,2021-09,2021-10
+Flintshire,City of Edinburgh,3,2021-09,2021-10
+Flintshire,Fife,1,2021-09,2021-10
+Flintshire,Guildford,1,2021-09,2021-10
+Flintshire,Leeds,1,2021-09,2021-10
+Flintshire,Liverpool,1,2021-09,2021-10
+Flintshire,Manchester,1,2021-09,2021-10
+Flintshire,Newark and Sherwood,1,2021-09,2021-10
+Flintshire,Northumberland,1,2021-09,2021-10
+Flintshire,Sheffield,1,2021-09,2021-10
+Flintshire,Thanet,2,2021-09,2021-10
+Flintshire,Wirral,2,2021-09,2021-10
+Folkestone and Hythe,Brighton and Hove,1,2021-09,2021-10
+Folkestone and Hythe,Dover,1,2021-09,2021-10
+Folkestone and Hythe,Fylde,1,2021-09,2021-10
+Folkestone and Hythe,Manchester,2,2021-09,2021-10
+Folkestone and Hythe,Rother,6,2021-09,2021-10
+Folkestone and Hythe,Sevenoaks,1,2021-09,2021-10
+Folkestone and Hythe,Southampton,1,2021-09,2021-10
+Folkestone and Hythe,Thanet,1,2021-09,2021-10
+Forest of Dean,Bath and North East Somerset,2,2021-09,2021-10
+Forest of Dean,Gateshead,1,2021-09,2021-10
+Forest of Dean,Gwynedd,1,2021-09,2021-10
+Forest of Dean,Plymouth,1,2021-09,2021-10
+Fylde,Amber Valley,1,2021-09,2021-10
+Fylde,Blackpool,2,2021-09,2021-10
+Fylde,Chorley,1,2021-09,2021-10
+Fylde,Craven,2,2021-09,2021-10
+Fylde,Eastleigh,1,2021-09,2021-10
+Fylde,Manchester,3,2021-09,2021-10
+Fylde,Wyre,2,2021-09,2021-10
+Gateshead,Cambridge,2,2021-09,2021-10
+Gateshead,Cheshire West and Chester,1,2021-09,2021-10
+Gateshead,County Durham,1,2021-09,2021-10
+Gateshead,Doncaster,1,2021-09,2021-10
+Gateshead,Glasgow City,3,2021-09,2021-10
+Gateshead,Newcastle upon Tyne,7,2021-09,2021-10
+Gateshead,North East Lincolnshire,2,2021-09,2021-10
+Gateshead,Northumberland,2,2021-09,2021-10
+Gateshead,South Lakeland,1,2021-09,2021-10
+Gateshead,Stockton-on-Tees,2,2021-09,2021-10
+Gateshead,Sunderland,2,2021-09,2021-10
+Gedling,Brighton and Hove,1,2021-09,2021-10
+Gedling,Charnwood,3,2021-09,2021-10
+Gedling,Cheshire East,4,2021-09,2021-10
+Gedling,Cotswold,1,2021-09,2021-10
+Gedling,Crawley,1,2021-09,2021-10
+Gedling,East Lindsey,2,2021-09,2021-10
+Gedling,Erewash,1,2021-09,2021-10
+Gedling,Manchester,2,2021-09,2021-10
+Gedling,Nottingham,3,2021-09,2021-10
+Gedling,Reigate and Banstead,2,2021-09,2021-10
+Gedling,Rushcliffe,2,2021-09,2021-10
+Gedling,South Lakeland,2,2021-09,2021-10
+Gedling,Stirling,2,2021-09,2021-10
+Gedling,Wiltshire,1,2021-09,2021-10
+Glasgow City,Aberdeen City,9,2021-09,2021-10
+Glasgow City,Aberdeenshire,4,2021-09,2021-10
+Glasgow City,Argyll and Bute,5,2021-09,2021-10
+Glasgow City,Barnet,1,2021-09,2021-10
+Glasgow City,Barnsley,2,2021-09,2021-10
+Glasgow City,Birmingham,2,2021-09,2021-10
+Glasgow City,Blackpool,1,2021-09,2021-10
+Glasgow City,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Glasgow City,Brent,1,2021-09,2021-10
+Glasgow City,"Bristol, City of",2,2021-09,2021-10
+Glasgow City,Bromley,1,2021-09,2021-10
+Glasgow City,Broxtowe,1,2021-09,2021-10
+Glasgow City,Buckinghamshire,1,2021-09,2021-10
+Glasgow City,Bury,2,2021-09,2021-10
+Glasgow City,Cheshire West and Chester,3,2021-09,2021-10
+Glasgow City,Chesterfield,1,2021-09,2021-10
+Glasgow City,City of Edinburgh,14,2021-09,2021-10
+Glasgow City,Clackmannanshire,1,2021-09,2021-10
+Glasgow City,County Durham,5,2021-09,2021-10
+Glasgow City,Coventry,1,2021-09,2021-10
+Glasgow City,Darlington,4,2021-09,2021-10
+Glasgow City,Derby,1,2021-09,2021-10
+Glasgow City,Dudley,1,2021-09,2021-10
+Glasgow City,Dumfries and Galloway,3,2021-09,2021-10
+Glasgow City,Dundee City,3,2021-09,2021-10
+Glasgow City,Ealing,2,2021-09,2021-10
+Glasgow City,East Ayrshire,1,2021-09,2021-10
+Glasgow City,East Devon,1,2021-09,2021-10
+Glasgow City,East Dunbartonshire,5,2021-09,2021-10
+Glasgow City,East Hertfordshire,1,2021-09,2021-10
+Glasgow City,East Renfrewshire,1,2021-09,2021-10
+Glasgow City,East Riding of Yorkshire,2,2021-09,2021-10
+Glasgow City,Exeter,4,2021-09,2021-10
+Glasgow City,Fife,1,2021-09,2021-10
+Glasgow City,Gateshead,3,2021-09,2021-10
+Glasgow City,Greenwich,2,2021-09,2021-10
+Glasgow City,Highland,5,2021-09,2021-10
+Glasgow City,Hillingdon,1,2021-09,2021-10
+Glasgow City,Inverclyde,3,2021-09,2021-10
+Glasgow City,"Kingston upon Hull, City of",1,2021-09,2021-10
+Glasgow City,Leeds,4,2021-09,2021-10
+Glasgow City,Lewes,1,2021-09,2021-10
+Glasgow City,Manchester,1,2021-09,2021-10
+Glasgow City,Medway,1,2021-09,2021-10
+Glasgow City,Middlesbrough,1,2021-09,2021-10
+Glasgow City,Milton Keynes,1,2021-09,2021-10
+Glasgow City,Moray,3,2021-09,2021-10
+Glasgow City,Newcastle upon Tyne,8,2021-09,2021-10
+Glasgow City,North Ayrshire,4,2021-09,2021-10
+Glasgow City,North Lanarkshire,3,2021-09,2021-10
+Glasgow City,North Tyneside,1,2021-09,2021-10
+Glasgow City,Northumberland,5,2021-09,2021-10
+Glasgow City,Orkney Islands,1,2021-09,2021-10
+Glasgow City,Renfrewshire,14,2021-09,2021-10
+Glasgow City,Richmondshire,1,2021-09,2021-10
+Glasgow City,Salford,1,2021-09,2021-10
+Glasgow City,Scarborough,1,2021-09,2021-10
+Glasgow City,Sheffield,5,2021-09,2021-10
+Glasgow City,South Ayrshire,2,2021-09,2021-10
+Glasgow City,South Gloucestershire,1,2021-09,2021-10
+Glasgow City,South Lakeland,1,2021-09,2021-10
+Glasgow City,South Lanarkshire,6,2021-09,2021-10
+Glasgow City,South Tyneside,4,2021-09,2021-10
+Glasgow City,Stirling,1,2021-09,2021-10
+Glasgow City,Stockport,1,2021-09,2021-10
+Glasgow City,Stockton-on-Tees,4,2021-09,2021-10
+Glasgow City,Stoke-on-Trent,1,2021-09,2021-10
+Glasgow City,Stroud,1,2021-09,2021-10
+Glasgow City,Sunderland,2,2021-09,2021-10
+Glasgow City,Swansea,1,2021-09,2021-10
+Glasgow City,Tower Hamlets,2,2021-09,2021-10
+Glasgow City,Tunbridge Wells,2,2021-09,2021-10
+Glasgow City,Wakefield,1,2021-09,2021-10
+Glasgow City,West Lothian,2,2021-09,2021-10
+Glasgow City,West Oxfordshire,2,2021-09,2021-10
+Glasgow City,Worcester,1,2021-09,2021-10
+Gloucester,Birmingham,1,2021-09,2021-10
+Gloucester,Cheltenham,8,2021-09,2021-10
+Gloucester,Lambeth,1,2021-09,2021-10
+Gloucester,Mid Suffolk,2,2021-09,2021-10
+Gosport,Leeds,1,2021-09,2021-10
+Gosport,South Somerset,1,2021-09,2021-10
+Gosport,Waltham Forest,1,2021-09,2021-10
+Gravesham,Dartford,1,2021-09,2021-10
+Gravesham,Islington,1,2021-09,2021-10
+Gravesham,Medway,1,2021-09,2021-10
+Gravesham,Sevenoaks,1,2021-09,2021-10
+Great Yarmouth,Central Bedfordshire,4,2021-09,2021-10
+Great Yarmouth,Cornwall,1,2021-09,2021-10
+Great Yarmouth,Croydon,1,2021-09,2021-10
+Great Yarmouth,Dacorum,1,2021-09,2021-10
+Great Yarmouth,East Suffolk,2,2021-09,2021-10
+Great Yarmouth,Havering,1,2021-09,2021-10
+Great Yarmouth,Isle of Wight,1,2021-09,2021-10
+Great Yarmouth,North West Leicestershire,2,2021-09,2021-10
+Great Yarmouth,Norwich,2,2021-09,2021-10
+Greenwich,"Armagh City, Banbridge and Craigavon",1,2021-09,2021-10
+Greenwich,Bexley,1,2021-09,2021-10
+Greenwich,"Bournemouth, Christchurch and Poole",5,2021-09,2021-10
+Greenwich,Brent,1,2021-09,2021-10
+Greenwich,Bromley,1,2021-09,2021-10
+Greenwich,Cambridge,1,2021-09,2021-10
+Greenwich,Chichester,1,2021-09,2021-10
+Greenwich,City of Edinburgh,1,2021-09,2021-10
+Greenwich,City of London,3,2021-09,2021-10
+Greenwich,Cornwall,3,2021-09,2021-10
+Greenwich,Glasgow City,2,2021-09,2021-10
+Greenwich,Hackney,1,2021-09,2021-10
+Greenwich,Harborough,1,2021-09,2021-10
+Greenwich,Haringey,1,2021-09,2021-10
+Greenwich,Hillingdon,1,2021-09,2021-10
+Greenwich,Inverclyde,2,2021-09,2021-10
+Greenwich,Islington,1,2021-09,2021-10
+Greenwich,Lambeth,1,2021-09,2021-10
+Greenwich,Lewisham,1,2021-09,2021-10
+Greenwich,Lincoln,1,2021-09,2021-10
+Greenwich,Liverpool,2,2021-09,2021-10
+Greenwich,Manchester,2,2021-09,2021-10
+Greenwich,Merton,1,2021-09,2021-10
+Greenwich,Mid Ulster,1,2021-09,2021-10
+Greenwich,Newham,4,2021-09,2021-10
+Greenwich,Northumberland,2,2021-09,2021-10
+Greenwich,Sevenoaks,1,2021-09,2021-10
+Greenwich,Southwark,6,2021-09,2021-10
+Greenwich,Tower Hamlets,4,2021-09,2021-10
+Greenwich,Winchester,1,2021-09,2021-10
+Greenwich,York,1,2021-09,2021-10
+Guildford,Dorset,1,2021-09,2021-10
+Guildford,Epsom and Ewell,1,2021-09,2021-10
+Guildford,Ipswich,1,2021-09,2021-10
+Guildford,Kingston upon Thames,4,2021-09,2021-10
+Guildford,Redbridge,1,2021-09,2021-10
+Guildford,Rochdale,1,2021-09,2021-10
+Guildford,Southampton,1,2021-09,2021-10
+Guildford,Sutton,1,2021-09,2021-10
+Guildford,Woking,2,2021-09,2021-10
+Gwynedd,Ards and North Down,1,2021-09,2021-10
+Gwynedd,Birmingham,2,2021-09,2021-10
+Gwynedd,"Bournemouth, Christchurch and Poole",1,2021-09,2021-10
+Gwynedd,"Bristol, City of",1,2021-09,2021-10
+Gwynedd,Buckinghamshire,1,2021-09,2021-10
+Gwynedd,Cambridge,2,2021-09,2021-10
+Gwynedd,Cheshire East,2,2021-09,2021-10
+Gwynedd,Dorset,1,2021-09,2021-10
+Gwynedd,East Devon,1,2021-09,2021-10
+Gwynedd,Hounslow,1,2021-09,2021-10
+Gwynedd,Isle of Anglesey,2,2021-09,2021-10
+Gwynedd,Kirklees,1,2021-09,2021-10
+Gwynedd,Maidstone,1,2021-09,2021-10
+Gwynedd,Mid Sussex,2,2021-09,2021-10
+Gwynedd,Newcastle-under-Lyme,1,2021-09,2021-10
+Gwynedd,Pembrokeshire,1,2021-09,2021-10
+Gwynedd,Sheffield,1,2021-09,2021-10
+Gwynedd,Solihull,1,2021-09,2021-10
+Gwynedd,St. Helens,1,2021-09,2021-10
+Gwynedd,Stockport,1,2021-09,2021-10
+Gwynedd,Stoke-on-Trent,1,2021-09,2021-10
+Gwynedd,Tameside,2,2021-09,2021-10
+Gwynedd,Tonbridge and Malling,2,2021-09,2021-10
+Gwynedd,Torbay,1,2021-09,2021-10
+Gwynedd,Warrington,2,2021-09,2021-10
+Gwynedd,Wolverhampton,1,2021-09,2021-10
+Hackney,Camden,3,2021-09,2021-10
+Hackney,City of Edinburgh,2,2021-09,2021-10
+Hackney,City of London,6,2021-09,2021-10
+Hackney,Enfield,2,2021-09,2021-10
+Hackney,Epsom and Ewell,2,2021-09,2021-10
+Hackney,Greenwich,1,2021-09,2021-10
+Hackney,Hammersmith and Fulham,4,2021-09,2021-10
+Hackney,Haringey,1,2021-09,2021-10
+Hackney,Havering,1,2021-09,2021-10
+Hackney,Highland,1,2021-09,2021-10
+Hackney,Hounslow,1,2021-09,2021-10
+Hackney,Islington,5,2021-09,2021-10
+Hackney,Kirklees,2,2021-09,2021-10
+Hackney,Lambeth,1,2021-09,2021-10
+Hackney,Leeds,1,2021-09,2021-10
+Hackney,Liverpool,2,2021-09,2021-10
+Hackney,Newham,3,2021-09,2021-10
+Hackney,Richmond upon Thames,1,2021-09,2021-10
+Hackney,Southwark,1,2021-09,2021-10
+Hackney,Sutton,1,2021-09,2021-10
+Hackney,Telford and Wrekin,1,2021-09,2021-10
+Hackney,Tower Hamlets,7,2021-09,2021-10
+Hackney,Waltham Forest,5,2021-09,2021-10
+Hackney,Westminster,2,2021-09,2021-10
+Halton,Cornwall,2,2021-09,2021-10
+Halton,Knowsley,1,2021-09,2021-10
+Halton,Liverpool,2,2021-09,2021-10
+Halton,Manchester,1,2021-09,2021-10
+Halton,South Lakeland,1,2021-09,2021-10
+Halton,Wirral,2,2021-09,2021-10
+Hambleton,Calderdale,1,2021-09,2021-10
+Hambleton,Glasgow City,1,2021-09,2021-10
+Hambleton,South Lakeland,1,2021-09,2021-10
+Hambleton,Stockton-on-Tees,1,2021-09,2021-10
+Hambleton,Wigan,1,2021-09,2021-10
+Hambleton,York,1,2021-09,2021-10
+Hammersmith and Fulham,Barnet,2,2021-09,2021-10
+Hammersmith and Fulham,Birmingham,1,2021-09,2021-10
+Hammersmith and Fulham,Brent,2,2021-09,2021-10
+Hammersmith and Fulham,Camden,2,2021-09,2021-10
+Hammersmith and Fulham,Cardiff,1,2021-09,2021-10
+Hammersmith and Fulham,Cheshire East,2,2021-09,2021-10
+Hammersmith and Fulham,City of London,1,2021-09,2021-10
+Hammersmith and Fulham,Havering,1,2021-09,2021-10
+Hammersmith and Fulham,Hillingdon,2,2021-09,2021-10
+Hammersmith and Fulham,Horsham,1,2021-09,2021-10
+Hammersmith and Fulham,Hounslow,2,2021-09,2021-10
+Hammersmith and Fulham,Liverpool,5,2021-09,2021-10
+Hammersmith and Fulham,Manchester,1,2021-09,2021-10
+Hammersmith and Fulham,Milton Keynes,1,2021-09,2021-10
+Hammersmith and Fulham,North Hertfordshire,1,2021-09,2021-10
+Hammersmith and Fulham,Reading,2,2021-09,2021-10
+Hammersmith and Fulham,Sheffield,1,2021-09,2021-10
+Hammersmith and Fulham,Southwark,1,2021-09,2021-10
+Hammersmith and Fulham,Swansea,2,2021-09,2021-10
+Hammersmith and Fulham,Tower Hamlets,1,2021-09,2021-10
+Hammersmith and Fulham,Wandsworth,3,2021-09,2021-10
+Hammersmith and Fulham,Westminster,2,2021-09,2021-10
+Harborough,Bradford,2,2021-09,2021-10
+Harborough,Leicester,1,2021-09,2021-10
+Harborough,Nuneaton and Bedworth,1,2021-09,2021-10
+Harborough,Shropshire,1,2021-09,2021-10
+Harborough,West Northamptonshire,1,2021-09,2021-10
+Harborough,Wyre Forest,2,2021-09,2021-10
+Haringey,Barnet,1,2021-09,2021-10
+Haringey,Belfast,1,2021-09,2021-10
+Haringey,Bradford,1,2021-09,2021-10
+Haringey,Buckinghamshire,1,2021-09,2021-10
+Haringey,Camden,1,2021-09,2021-10
+Haringey,City of London,3,2021-09,2021-10
+Haringey,Crawley,1,2021-09,2021-10
+Haringey,Ealing,1,2021-09,2021-10
+Haringey,Enfield,3,2021-09,2021-10
+Haringey,Greenwich,1,2021-09,2021-10
+Haringey,Hackney,1,2021-09,2021-10
+Haringey,Hammersmith and Fulham,3,2021-09,2021-10
+Haringey,Hastings,2,2021-09,2021-10
+Haringey,Hillingdon,1,2021-09,2021-10
+Haringey,Hounslow,1,2021-09,2021-10
+Haringey,Islington,3,2021-09,2021-10
+Haringey,King's Lynn and West Norfolk,1,2021-09,2021-10
+Haringey,Leeds,1,2021-09,2021-10
+Haringey,Liverpool,2,2021-09,2021-10
+Haringey,Manchester,2,2021-09,2021-10
+Haringey,Milton Keynes,1,2021-09,2021-10
+Haringey,Newcastle upon Tyne,1,2021-09,2021-10
+Haringey,Newham,1,2021-09,2021-10
+Haringey,Perth and Kinross,2,2021-09,2021-10
+Haringey,Powys,2,2021-09,2021-10
+Haringey,Redbridge,1,2021-09,2021-10
+Haringey,Tower Hamlets,2,2021-09,2021-10
+Haringey,Vale of Glamorgan,1,2021-09,2021-10
+Haringey,Warwick,1,2021-09,2021-10
+Haringey,Westminster,2,2021-09,2021-10
+Harlow,Dacorum,1,2021-09,2021-10
+Harlow,East Suffolk,1,2021-09,2021-10
+Harlow,Newham,2,2021-09,2021-10
+Harlow,North Northamptonshire,2,2021-09,2021-10
+Harlow,Southend-on-Sea,1,2021-09,2021-10
+Harlow,Uttlesford,4,2021-09,2021-10
+Harlow,Westminster,1,2021-09,2021-10
+Harrogate,Barnsley,1,2021-09,2021-10
+Harrogate,Bradford,2,2021-09,2021-10
+Harrogate,Highland,2,2021-09,2021-10
+Harrogate,Kingston upon Thames,1,2021-09,2021-10
+Harrogate,Leeds,8,2021-09,2021-10
+Harrogate,New Forest,2,2021-09,2021-10
+Harrogate,Salford,1,2021-09,2021-10
+Harrogate,Sheffield,2,2021-09,2021-10
+Harrogate,St. Helens,1,2021-09,2021-10
+Harrogate,Trafford,1,2021-09,2021-10
+Harrogate,West Lothian,1,2021-09,2021-10
+Harrogate,York,3,2021-09,2021-10
+Harrow,Barnet,4,2021-09,2021-10
+Harrow,Brent,1,2021-09,2021-10
+Harrow,Camden,2,2021-09,2021-10
+Harrow,Cornwall,1,2021-09,2021-10
+Harrow,Dorset,1,2021-09,2021-10
+Harrow,Hillingdon,3,2021-09,2021-10
+Harrow,Isle of Wight,1,2021-09,2021-10
+Harrow,North Norfolk,1,2021-09,2021-10
+Hart,West Lothian,1,2021-09,2021-10
+Hartlepool,Exeter,2,2021-09,2021-10
+Hartlepool,Glasgow City,2,2021-09,2021-10
+Hartlepool,Highland,2,2021-09,2021-10
+Hartlepool,Newcastle upon Tyne,2,2021-09,2021-10
+Hartlepool,Sheffield,2,2021-09,2021-10
+Hartlepool,Sunderland,1,2021-09,2021-10
+Hartlepool,York,1,2021-09,2021-10
+Hastings,Brighton and Hove,1,2021-09,2021-10
+Hastings,"Bristol, City of",1,2021-09,2021-10
+Hastings,Camden,2,2021-09,2021-10
+Hastings,Hackney,1,2021-09,2021-10
+Hastings,Hammersmith and Fulham,1,2021-09,2021-10
+Hastings,"Kingston upon Hull, City of",1,2021-09,2021-10
+Hastings,Rochdale,2,2021-09,2021-10
+Hastings,Rother,1,2021-09,2021-10
+Hastings,Sheffield,1,2021-09,2021-10
+Hastings,Swansea,1,2021-09,2021-10
+Hastings,Tower Hamlets,1,2021-09,2021-10
+Havant,City of Edinburgh,1,2021-09,2021-10
+Havant,East Hampshire,1,2021-09,2021-10
+Havant,Fareham,1,2021-09,2021-10
+Havant,Portsmouth,2,2021-09,2021-10
+Havering,Arun,1,2021-09,2021-10
+Havering,Barking and Dagenham,2,2021-09,2021-10
+Havering,Bath and North East Somerset,1,2021-09,2021-10
+Havering,Brentwood,1,2021-09,2021-10
+Havering,Brighton and Hove,2,2021-09,2021-10
+Havering,Derry City and Strabane,1,2021-09,2021-10
+Havering,Epping Forest,1,2021-09,2021-10
+Havering,Middlesbrough,1,2021-09,2021-10
+Havering,Newham,2,2021-09,2021-10
+Havering,Redbridge,2,2021-09,2021-10
+Havering,Rochford,1,2021-09,2021-10
+Havering,Southend-on-Sea,1,2021-09,2021-10
+Havering,Thurrock,1,2021-09,2021-10
+Havering,Tower Hamlets,2,2021-09,2021-10
+Havering,West Northamptonshire,1,2021-09,2021-10
+Havering,Westminster,1,2021-09,2021-10
+"Herefordshire, County of",Birmingham,1,2021-09,2021-10
+"Herefordshire, County of","Bournemouth, Christchurch and Poole",4,2021-09,2021-10
+"Herefordshire, County of","Bristol, City of",1,2021-09,2021-10
+"Herefordshire, County of",City of Edinburgh,2,2021-09,2021-10
+"Herefordshire, County of",Crawley,1,2021-09,2021-10
+"Herefordshire, County of",Huntingdonshire,1,2021-09,2021-10
+"Herefordshire, County of",Liverpool,2,2021-09,2021-10
+"Herefordshire, County of",Manchester,1,2021-09,2021-10
+"Herefordshire, County of",North Hertfordshire,1,2021-09,2021-10
+"Herefordshire, County of",South Staffordshire,1,2021-09,2021-10
+Hertsmere,Charnwood,1,2021-09,2021-10
+Hertsmere,East Staffordshire,1,2021-09,2021-10
+Hertsmere,Harrow,1,2021-09,2021-10
+Hertsmere,Luton,1,2021-09,2021-10
+Hertsmere,Stevenage,1,2021-09,2021-10
+Hertsmere,Watford,1,2021-09,2021-10
+High Peak,Argyll and Bute,2,2021-09,2021-10
+High Peak,Buckinghamshire,1,2021-09,2021-10
+High Peak,Calderdale,2,2021-09,2021-10
+High Peak,Cotswold,1,2021-09,2021-10
+High Peak,Enfield,1,2021-09,2021-10
+High Peak,Glasgow City,1,2021-09,2021-10
+High Peak,Highland,1,2021-09,2021-10
+High Peak,Isle of Anglesey,4,2021-09,2021-10
+High Peak,Shetland Islands,2,2021-09,2021-10
+Highland,Aberdeen City,5,2021-09,2021-10
+Highland,Aberdeenshire,1,2021-09,2021-10
+Highland,Argyll and Bute,1,2021-09,2021-10
+Highland,Belfast,2,2021-09,2021-10
+Highland,Blackpool,1,2021-09,2021-10
+Highland,Cardiff,1,2021-09,2021-10
+Highland,Chelmsford,1,2021-09,2021-10
+Highland,Cheshire West and Chester,1,2021-09,2021-10
+Highland,Chichester,2,2021-09,2021-10
+Highland,City of Edinburgh,3,2021-09,2021-10
+Highland,Conwy,4,2021-09,2021-10
+Highland,Cotswold,1,2021-09,2021-10
+Highland,Crawley,1,2021-09,2021-10
+Highland,Denbighshire,1,2021-09,2021-10
+Highland,Dorset,1,2021-09,2021-10
+Highland,Dundee City,2,2021-09,2021-10
+Highland,East Renfrewshire,1,2021-09,2021-10
+Highland,Falkirk,3,2021-09,2021-10
+Highland,Fife,2,2021-09,2021-10
+Highland,Glasgow City,5,2021-09,2021-10
+Highland,Halton,1,2021-09,2021-10
+Highland,Haringey,2,2021-09,2021-10
+Highland,Harrogate,1,2021-09,2021-10
+Highland,Inverclyde,2,2021-09,2021-10
+Highland,Knowsley,1,2021-09,2021-10
+Highland,Leeds,2,2021-09,2021-10
+Highland,Liverpool,8,2021-09,2021-10
+Highland,Manchester,1,2021-09,2021-10
+Highland,Moray,2,2021-09,2021-10
+Highland,North Lanarkshire,1,2021-09,2021-10
+Highland,North Tyneside,2,2021-09,2021-10
+Highland,Orkney Islands,2,2021-09,2021-10
+Highland,Perth and Kinross,3,2021-09,2021-10
+Highland,Scarborough,2,2021-09,2021-10
+Highland,Scottish Borders,2,2021-09,2021-10
+Highland,Sefton,1,2021-09,2021-10
+Highland,Shetland Islands,2,2021-09,2021-10
+Highland,Solihull,1,2021-09,2021-10
+Highland,South Holland,1,2021-09,2021-10
+Highland,South Lanarkshire,2,2021-09,2021-10
+Highland,Stirling,2,2021-09,2021-10
+Highland,Sunderland,5,2021-09,2021-10
+Highland,Telford and Wrekin,2,2021-09,2021-10
+Highland,Wandsworth,1,2021-09,2021-10
+Highland,Warrington,1,2021-09,2021-10
+Highland,West Lothian,2,2021-09,2021-10
+Highland,West Northamptonshire,2,2021-09,2021-10
+Highland,West Suffolk,1,2021-09,2021-10
+Highland,Wirral,1,2021-09,2021-10
+Hillingdon,Ashford,1,2021-09,2021-10
+Hillingdon,Barnet,1,2021-09,2021-10
+Hillingdon,"Bristol, City of",4,2021-09,2021-10
+Hillingdon,Broxtowe,1,2021-09,2021-10
+Hillingdon,Buckinghamshire,1,2021-09,2021-10
+Hillingdon,Cambridge,2,2021-09,2021-10
+Hillingdon,Camden,1,2021-09,2021-10
+Hillingdon,Canterbury,2,2021-09,2021-10
+Hillingdon,Cardiff,2,2021-09,2021-10
+Hillingdon,Cornwall,1,2021-09,2021-10
+Hillingdon,Croydon,2,2021-09,2021-10
+Hillingdon,Doncaster,1,2021-09,2021-10
+Hillingdon,Ealing,1,2021-09,2021-10
+Hillingdon,Fife,1,2021-09,2021-10
+Hillingdon,Flintshire,1,2021-09,2021-10
+Hillingdon,Gedling,1,2021-09,2021-10
+Hillingdon,Guildford,2,2021-09,2021-10
+Hillingdon,Hammersmith and Fulham,1,2021-09,2021-10
+Hillingdon,Haringey,2,2021-09,2021-10
+Hillingdon,Harrow,4,2021-09,2021-10
+Hillingdon,Hounslow,3,2021-09,2021-10
+Hillingdon,Kingston upon Thames,1,2021-09,2021-10
+Hillingdon,Leicester,1,2021-09,2021-10
+Hillingdon,Manchester,3,2021-09,2021-10
+Hillingdon,Oxford,1,2021-09,2021-10
+Hillingdon,Reading,3,2021-09,2021-10
+Hillingdon,South Ayrshire,1,2021-09,2021-10
+Hillingdon,Southwark,3,2021-09,2021-10
+Hillingdon,Surrey Heath,1,2021-09,2021-10
+Hillingdon,Sutton,1,2021-09,2021-10
+Hillingdon,Wandsworth,1,2021-09,2021-10
+Hillingdon,Westminster,1,2021-09,2021-10
+Hillingdon,Windsor and Maidenhead,1,2021-09,2021-10
+Hinckley and Bosworth,Coventry,1,2021-09,2021-10
+Hinckley and Bosworth,Lambeth,1,2021-09,2021-10
+Hinckley and Bosworth,Lincoln,2,2021-09,2021-10
+Hinckley and Bosworth,North West Leicestershire,1,2021-09,2021-10
+Horsham,Adur,1,2021-09,2021-10
+Horsham,Brighton and Hove,3,2021-09,2021-10
+Horsham,Chichester,1,2021-09,2021-10
+Horsham,Crawley,2,2021-09,2021-10
+Horsham,Haringey,1,2021-09,2021-10
+Horsham,Torridge,2,2021-09,2021-10
+Horsham,Westminster,1,2021-09,2021-10
+Horsham,Wirral,2,2021-09,2021-10
+Hounslow,"Armagh City, Banbridge and Craigavon",2,2021-09,2021-10
+Hounslow,Birmingham,1,2021-09,2021-10
+Hounslow,"Bournemouth, Christchurch and Poole",1,2021-09,2021-10
+Hounslow,City of London,3,2021-09,2021-10
+Hounslow,Cornwall,1,2021-09,2021-10
+Hounslow,Cotswold,1,2021-09,2021-10
+Hounslow,Dorset,5,2021-09,2021-10
+Hounslow,Ealing,4,2021-09,2021-10
+Hounslow,Elmbridge,1,2021-09,2021-10
+Hounslow,Hammersmith and Fulham,2,2021-09,2021-10
+Hounslow,Harrow,1,2021-09,2021-10
+Hounslow,Hillingdon,2,2021-09,2021-10
+Hounslow,King's Lynn and West Norfolk,1,2021-09,2021-10
+Hounslow,Liverpool,1,2021-09,2021-10
+Hounslow,Manchester,2,2021-09,2021-10
+Hounslow,Newham,2,2021-09,2021-10
+Hounslow,Sheffield,2,2021-09,2021-10
+Hounslow,Southend-on-Sea,1,2021-09,2021-10
+Hounslow,Spelthorne,1,2021-09,2021-10
+Hounslow,Tower Hamlets,2,2021-09,2021-10
+Hounslow,Warwick,2,2021-09,2021-10
+Hounslow,Westminster,2,2021-09,2021-10
+Hounslow,York,2,2021-09,2021-10
+Huntingdonshire,Barking and Dagenham,1,2021-09,2021-10
+Huntingdonshire,Barnet,4,2021-09,2021-10
+Huntingdonshire,Bath and North East Somerset,2,2021-09,2021-10
+Huntingdonshire,Birmingham,2,2021-09,2021-10
+Huntingdonshire,Central Bedfordshire,1,2021-09,2021-10
+Huntingdonshire,Cheltenham,3,2021-09,2021-10
+Huntingdonshire,Cornwall,5,2021-09,2021-10
+Huntingdonshire,Coventry,1,2021-09,2021-10
+Huntingdonshire,Denbighshire,1,2021-09,2021-10
+Huntingdonshire,East Cambridgeshire,2,2021-09,2021-10
+Huntingdonshire,Glasgow City,1,2021-09,2021-10
+Huntingdonshire,King's Lynn and West Norfolk,1,2021-09,2021-10
+Huntingdonshire,Lambeth,1,2021-09,2021-10
+Huntingdonshire,Mid Devon,4,2021-09,2021-10
+Huntingdonshire,Moray,2,2021-09,2021-10
+Huntingdonshire,"Newry, Mourne and Down",1,2021-09,2021-10
+Huntingdonshire,North Norfolk,1,2021-09,2021-10
+Huntingdonshire,Oldham,2,2021-09,2021-10
+Huntingdonshire,Perth and Kinross,1,2021-09,2021-10
+Huntingdonshire,Peterborough,1,2021-09,2021-10
+Huntingdonshire,Reigate and Banstead,1,2021-09,2021-10
+Huntingdonshire,Rotherham,1,2021-09,2021-10
+Huntingdonshire,Sevenoaks,2,2021-09,2021-10
+Huntingdonshire,Sheffield,1,2021-09,2021-10
+Huntingdonshire,Stoke-on-Trent,3,2021-09,2021-10
+Huntingdonshire,Trafford,2,2021-09,2021-10
+Huntingdonshire,Westminster,1,2021-09,2021-10
+Hyndburn,Ribble Valley,1,2021-09,2021-10
+Hyndburn,Scottish Borders,1,2021-09,2021-10
+Hyndburn,West Lothian,5,2021-09,2021-10
+Hyndburn,Wigan,3,2021-09,2021-10
+Inverclyde,East Dunbartonshire,4,2021-09,2021-10
+Inverclyde,Highland,1,2021-09,2021-10
+Inverclyde,North Ayrshire,3,2021-09,2021-10
+Inverclyde,Renfrewshire,1,2021-09,2021-10
+Ipswich,Cambridge,2,2021-09,2021-10
+Ipswich,Camden,1,2021-09,2021-10
+Ipswich,City of London,2,2021-09,2021-10
+Ipswich,Colchester,2,2021-09,2021-10
+Ipswich,East Suffolk,5,2021-09,2021-10
+Ipswich,Eastleigh,1,2021-09,2021-10
+Ipswich,Plymouth,1,2021-09,2021-10
+Isle of Anglesey,Birmingham,2,2021-09,2021-10
+Isle of Anglesey,Burnley,3,2021-09,2021-10
+Isle of Anglesey,Cheshire West and Chester,2,2021-09,2021-10
+Isle of Anglesey,Denbighshire,1,2021-09,2021-10
+Isle of Anglesey,Haringey,1,2021-09,2021-10
+Isle of Anglesey,Powys,1,2021-09,2021-10
+Isle of Anglesey,Salford,1,2021-09,2021-10
+Isle of Anglesey,Trafford,1,2021-09,2021-10
+Isle of Wight,Arun,1,2021-09,2021-10
+Isle of Wight,Belfast,1,2021-09,2021-10
+Isle of Wight,Cherwell,1,2021-09,2021-10
+Isle of Wight,Eastleigh,3,2021-09,2021-10
+Isle of Wight,Hammersmith and Fulham,1,2021-09,2021-10
+Isle of Wight,Newport,4,2021-09,2021-10
+Isle of Wight,Southampton,2,2021-09,2021-10
+Isle of Wight,Tower Hamlets,1,2021-09,2021-10
+Isle of Wight,Wigan,2,2021-09,2021-10
+Islington,Barnet,5,2021-09,2021-10
+Islington,Brent,3,2021-09,2021-10
+Islington,Bridgend,2,2021-09,2021-10
+Islington,Broadland,1,2021-09,2021-10
+Islington,Buckinghamshire,1,2021-09,2021-10
+Islington,Camden,9,2021-09,2021-10
+Islington,City of Edinburgh,1,2021-09,2021-10
+Islington,City of London,2,2021-09,2021-10
+Islington,Dorset,2,2021-09,2021-10
+Islington,Ealing,1,2021-09,2021-10
+Islington,East Dunbartonshire,1,2021-09,2021-10
+Islington,East Suffolk,1,2021-09,2021-10
+Islington,Enfield,2,2021-09,2021-10
+Islington,Greenwich,3,2021-09,2021-10
+Islington,Gwynedd,1,2021-09,2021-10
+Islington,Hackney,3,2021-09,2021-10
+Islington,Haringey,3,2021-09,2021-10
+Islington,Hertsmere,3,2021-09,2021-10
+Islington,Highland,1,2021-09,2021-10
+Islington,Kingston upon Thames,2,2021-09,2021-10
+Islington,Lambeth,1,2021-09,2021-10
+Islington,Leeds,2,2021-09,2021-10
+Islington,Leicester,2,2021-09,2021-10
+Islington,Liverpool,1,2021-09,2021-10
+Islington,Manchester,4,2021-09,2021-10
+Islington,Nottingham,1,2021-09,2021-10
+Islington,Rother,1,2021-09,2021-10
+Islington,Somerset West and Taunton,1,2021-09,2021-10
+Islington,South Norfolk,1,2021-09,2021-10
+Islington,Southwark,1,2021-09,2021-10
+Islington,Stevenage,1,2021-09,2021-10
+Islington,Tonbridge and Malling,1,2021-09,2021-10
+Islington,Tower Hamlets,4,2021-09,2021-10
+Islington,West Northamptonshire,3,2021-09,2021-10
+Islington,Westminster,4,2021-09,2021-10
+Islington,Wyre Forest,1,2021-09,2021-10
+Kensington and Chelsea,Doncaster,2,2021-09,2021-10
+Kensington and Chelsea,Mendip,1,2021-09,2021-10
+Kensington and Chelsea,Oldham,1,2021-09,2021-10
+Kensington and Chelsea,Wandsworth,1,2021-09,2021-10
+King's Lynn and West Norfolk,Ceredigion,2,2021-09,2021-10
+King's Lynn and West Norfolk,City of Edinburgh,1,2021-09,2021-10
+King's Lynn and West Norfolk,Dover,1,2021-09,2021-10
+King's Lynn and West Norfolk,Enfield,2,2021-09,2021-10
+King's Lynn and West Norfolk,Glasgow City,2,2021-09,2021-10
+King's Lynn and West Norfolk,Harborough,2,2021-09,2021-10
+King's Lynn and West Norfolk,Ipswich,2,2021-09,2021-10
+King's Lynn and West Norfolk,North Norfolk,1,2021-09,2021-10
+King's Lynn and West Norfolk,North Northamptonshire,2,2021-09,2021-10
+King's Lynn and West Norfolk,Nottingham,2,2021-09,2021-10
+King's Lynn and West Norfolk,Stevenage,1,2021-09,2021-10
+King's Lynn and West Norfolk,Tameside,1,2021-09,2021-10
+King's Lynn and West Norfolk,West Northamptonshire,2,2021-09,2021-10
+"Kingston upon Hull, City of",Birmingham,1,2021-09,2021-10
+"Kingston upon Hull, City of",Blaby,1,2021-09,2021-10
+"Kingston upon Hull, City of",Bradford,2,2021-09,2021-10
+"Kingston upon Hull, City of",Doncaster,1,2021-09,2021-10
+"Kingston upon Hull, City of",East Riding of Yorkshire,5,2021-09,2021-10
+"Kingston upon Hull, City of",Kingston upon Thames,1,2021-09,2021-10
+"Kingston upon Hull, City of",Kirklees,1,2021-09,2021-10
+"Kingston upon Hull, City of",Monmouthshire,1,2021-09,2021-10
+"Kingston upon Hull, City of",North East Lincolnshire,2,2021-09,2021-10
+"Kingston upon Hull, City of",Rugby,1,2021-09,2021-10
+"Kingston upon Hull, City of",Scarborough,2,2021-09,2021-10
+"Kingston upon Hull, City of",Shetland Islands,1,2021-09,2021-10
+"Kingston upon Hull, City of",Stockport,1,2021-09,2021-10
+"Kingston upon Hull, City of",Tower Hamlets,1,2021-09,2021-10
+"Kingston upon Hull, City of",West Lindsey,1,2021-09,2021-10
+"Kingston upon Hull, City of",Wirral,2,2021-09,2021-10
+"Kingston upon Hull, City of",York,1,2021-09,2021-10
+Kingston upon Thames,Birmingham,1,2021-09,2021-10
+Kingston upon Thames,Camden,1,2021-09,2021-10
+Kingston upon Thames,Epsom and Ewell,2,2021-09,2021-10
+Kingston upon Thames,Hammersmith and Fulham,1,2021-09,2021-10
+Kingston upon Thames,Hounslow,1,2021-09,2021-10
+Kingston upon Thames,Kensington and Chelsea,2,2021-09,2021-10
+Kingston upon Thames,"Kingston upon Hull, City of",1,2021-09,2021-10
+Kingston upon Thames,Lincoln,2,2021-09,2021-10
+Kingston upon Thames,Manchester,1,2021-09,2021-10
+Kingston upon Thames,North East Lincolnshire,1,2021-09,2021-10
+Kingston upon Thames,Oxford,2,2021-09,2021-10
+Kingston upon Thames,Sheffield,5,2021-09,2021-10
+Kingston upon Thames,South Kesteven,2,2021-09,2021-10
+Kingston upon Thames,South Tyneside,2,2021-09,2021-10
+Kingston upon Thames,Sutton,2,2021-09,2021-10
+Kingston upon Thames,Three Rivers,1,2021-09,2021-10
+Kingston upon Thames,Tunbridge Wells,1,2021-09,2021-10
+Kingston upon Thames,Vale of White Horse,2,2021-09,2021-10
+Kingston upon Thames,Waltham Forest,1,2021-09,2021-10
+Kirklees,Bradford,4,2021-09,2021-10
+Kirklees,Bromley,2,2021-09,2021-10
+Kirklees,Cardiff,1,2021-09,2021-10
+Kirklees,Cheshire West and Chester,1,2021-09,2021-10
+Kirklees,City of Edinburgh,1,2021-09,2021-10
+Kirklees,Craven,1,2021-09,2021-10
+Kirklees,Glasgow City,2,2021-09,2021-10
+Kirklees,Leeds,6,2021-09,2021-10
+Kirklees,Lisburn and Castlereagh,1,2021-09,2021-10
+Kirklees,Manchester,3,2021-09,2021-10
+Kirklees,Nottingham,1,2021-09,2021-10
+Kirklees,Rother,2,2021-09,2021-10
+Kirklees,Sevenoaks,1,2021-09,2021-10
+Kirklees,Sheffield,1,2021-09,2021-10
+Kirklees,South Lakeland,1,2021-09,2021-10
+Kirklees,South Tyneside,1,2021-09,2021-10
+Kirklees,Wirral,2,2021-09,2021-10
+Kirklees,York,1,2021-09,2021-10
+Knowsley,Cambridge,2,2021-09,2021-10
+Knowsley,Cheshire West and Chester,1,2021-09,2021-10
+Knowsley,Cornwall,1,2021-09,2021-10
+Knowsley,Liverpool,4,2021-09,2021-10
+Knowsley,Sefton,1,2021-09,2021-10
+Knowsley,Trafford,1,2021-09,2021-10
+Knowsley,Waltham Forest,1,2021-09,2021-10
+Knowsley,West Lancashire,1,2021-09,2021-10
+Lambeth,Belfast,1,2021-09,2021-10
+Lambeth,Brighton and Hove,1,2021-09,2021-10
+Lambeth,Bromley,1,2021-09,2021-10
+Lambeth,Camden,2,2021-09,2021-10
+Lambeth,Cardiff,1,2021-09,2021-10
+Lambeth,City of London,7,2021-09,2021-10
+Lambeth,Cornwall,1,2021-09,2021-10
+Lambeth,Crawley,1,2021-09,2021-10
+Lambeth,Croydon,2,2021-09,2021-10
+Lambeth,Dorset,2,2021-09,2021-10
+Lambeth,Eastleigh,1,2021-09,2021-10
+Lambeth,Greenwich,1,2021-09,2021-10
+Lambeth,Gwynedd,1,2021-09,2021-10
+Lambeth,Hackney,3,2021-09,2021-10
+Lambeth,Haringey,1,2021-09,2021-10
+Lambeth,Havering,1,2021-09,2021-10
+Lambeth,Islington,2,2021-09,2021-10
+Lambeth,Kingston upon Thames,1,2021-09,2021-10
+Lambeth,Leeds,1,2021-09,2021-10
+Lambeth,Leicester,1,2021-09,2021-10
+Lambeth,Lewisham,3,2021-09,2021-10
+Lambeth,Liverpool,1,2021-09,2021-10
+Lambeth,Manchester,4,2021-09,2021-10
+Lambeth,Merton,3,2021-09,2021-10
+Lambeth,Newham,1,2021-09,2021-10
+Lambeth,Renfrewshire,1,2021-09,2021-10
+Lambeth,Solihull,1,2021-09,2021-10
+Lambeth,South Lakeland,1,2021-09,2021-10
+Lambeth,Southwark,16,2021-09,2021-10
+Lambeth,Sunderland,2,2021-09,2021-10
+Lambeth,Tower Hamlets,2,2021-09,2021-10
+Lambeth,Walsall,2,2021-09,2021-10
+Lambeth,Wandsworth,6,2021-09,2021-10
+Lambeth,Watford,2,2021-09,2021-10
+Lambeth,Westminster,1,2021-09,2021-10
+Lambeth,Woking,1,2021-09,2021-10
+Lancaster,Cherwell,1,2021-09,2021-10
+Lancaster,East Ayrshire,4,2021-09,2021-10
+Lancaster,North Kesteven,2,2021-09,2021-10
+Lancaster,West Lothian,1,2021-09,2021-10
+Lancaster,Wrexham,2,2021-09,2021-10
+Leeds,Belfast,2,2021-09,2021-10
+Leeds,Birmingham,2,2021-09,2021-10
+Leeds,Blackpool,2,2021-09,2021-10
+Leeds,Bradford,13,2021-09,2021-10
+Leeds,Caerphilly,1,2021-09,2021-10
+Leeds,Cambridge,1,2021-09,2021-10
+Leeds,Camden,4,2021-09,2021-10
+Leeds,Cardiff,1,2021-09,2021-10
+Leeds,City of Edinburgh,1,2021-09,2021-10
+Leeds,City of London,1,2021-09,2021-10
+Leeds,County Durham,1,2021-09,2021-10
+Leeds,Coventry,1,2021-09,2021-10
+Leeds,Craven,2,2021-09,2021-10
+Leeds,Crawley,2,2021-09,2021-10
+Leeds,Ealing,4,2021-09,2021-10
+Leeds,East Riding of Yorkshire,1,2021-09,2021-10
+Leeds,Gedling,2,2021-09,2021-10
+Leeds,Glasgow City,4,2021-09,2021-10
+Leeds,Great Yarmouth,1,2021-09,2021-10
+Leeds,Greenwich,2,2021-09,2021-10
+Leeds,Gwynedd,1,2021-09,2021-10
+Leeds,Hambleton,1,2021-09,2021-10
+Leeds,Harrogate,5,2021-09,2021-10
+Leeds,Islington,2,2021-09,2021-10
+Leeds,"Kingston upon Hull, City of",2,2021-09,2021-10
+Leeds,Kirklees,8,2021-09,2021-10
+Leeds,Lambeth,2,2021-09,2021-10
+Leeds,Leicester,1,2021-09,2021-10
+Leeds,Lincoln,1,2021-09,2021-10
+Leeds,Manchester,9,2021-09,2021-10
+Leeds,Northumberland,4,2021-09,2021-10
+Leeds,Norwich,2,2021-09,2021-10
+Leeds,Oxford,1,2021-09,2021-10
+Leeds,Redcar and Cleveland,1,2021-09,2021-10
+Leeds,Rushcliffe,1,2021-09,2021-10
+Leeds,Scarborough,3,2021-09,2021-10
+Leeds,Sheffield,6,2021-09,2021-10
+Leeds,Southampton,2,2021-09,2021-10
+Leeds,Tendring,1,2021-09,2021-10
+Leeds,Tower Hamlets,1,2021-09,2021-10
+Leeds,Trafford,1,2021-09,2021-10
+Leeds,Wakefield,5,2021-09,2021-10
+Leeds,Walsall,2,2021-09,2021-10
+Leeds,West Northamptonshire,2,2021-09,2021-10
+Leeds,Westminster,1,2021-09,2021-10
+Leeds,Wirral,1,2021-09,2021-10
+Leeds,Wychavon,1,2021-09,2021-10
+Leeds,York,4,2021-09,2021-10
+Leicester,Birmingham,2,2021-09,2021-10
+Leicester,Blaby,4,2021-09,2021-10
+Leicester,Buckinghamshire,2,2021-09,2021-10
+Leicester,Cambridge,1,2021-09,2021-10
+Leicester,Cardiff,2,2021-09,2021-10
+Leicester,Charnwood,3,2021-09,2021-10
+Leicester,City of London,1,2021-09,2021-10
+Leicester,Coventry,1,2021-09,2021-10
+Leicester,Glasgow City,1,2021-09,2021-10
+Leicester,Kirklees,1,2021-09,2021-10
+Leicester,Lambeth,1,2021-09,2021-10
+Leicester,Manchester,1,2021-09,2021-10
+Leicester,North East Derbyshire,1,2021-09,2021-10
+Leicester,North West Leicestershire,2,2021-09,2021-10
+Leicester,Sheffield,2,2021-09,2021-10
+Leicester,South Lanarkshire,2,2021-09,2021-10
+Leicester,Stockport,2,2021-09,2021-10
+Leicester,West Northamptonshire,2,2021-09,2021-10
+Lewes,Adur,1,2021-09,2021-10
+Lewes,Brighton and Hove,4,2021-09,2021-10
+Lewes,Eastbourne,1,2021-09,2021-10
+Lewes,Mid Sussex,1,2021-09,2021-10
+Lewes,Warwick,1,2021-09,2021-10
+Lewes,Wealden,1,2021-09,2021-10
+Lewisham,Barnsley,1,2021-09,2021-10
+Lewisham,Bromley,1,2021-09,2021-10
+Lewisham,Buckinghamshire,1,2021-09,2021-10
+Lewisham,Canterbury,1,2021-09,2021-10
+Lewisham,City of Edinburgh,1,2021-09,2021-10
+Lewisham,City of London,1,2021-09,2021-10
+Lewisham,Croydon,2,2021-09,2021-10
+Lewisham,Dover,3,2021-09,2021-10
+Lewisham,Epping Forest,2,2021-09,2021-10
+Lewisham,Greenwich,4,2021-09,2021-10
+Lewisham,Hackney,3,2021-09,2021-10
+Lewisham,Haringey,1,2021-09,2021-10
+Lewisham,Hertsmere,2,2021-09,2021-10
+Lewisham,Hillingdon,1,2021-09,2021-10
+Lewisham,Horsham,1,2021-09,2021-10
+Lewisham,Lambeth,7,2021-09,2021-10
+Lewisham,Maidstone,1,2021-09,2021-10
+Lewisham,Mid and East Antrim,1,2021-09,2021-10
+Lewisham,Norwich,1,2021-09,2021-10
+Lewisham,Oxford,1,2021-09,2021-10
+Lewisham,Portsmouth,1,2021-09,2021-10
+Lewisham,Rother,2,2021-09,2021-10
+Lewisham,Scarborough,1,2021-09,2021-10
+Lewisham,Southwark,8,2021-09,2021-10
+Lewisham,Westminster,1,2021-09,2021-10
+Lewisham,Wiltshire,2,2021-09,2021-10
+Lewisham,Woking,2,2021-09,2021-10
+Lichfield,Ashford,2,2021-09,2021-10
+Lichfield,Birmingham,2,2021-09,2021-10
+Lichfield,Cambridge,2,2021-09,2021-10
+Lichfield,Cornwall,2,2021-09,2021-10
+Lichfield,Coventry,1,2021-09,2021-10
+Lichfield,East Staffordshire,2,2021-09,2021-10
+Lichfield,Kingston upon Thames,2,2021-09,2021-10
+Lichfield,Stoke-on-Trent,1,2021-09,2021-10
+Lichfield,Tamworth,1,2021-09,2021-10
+Lichfield,Walsall,1,2021-09,2021-10
+Lincoln,Ashfield,1,2021-09,2021-10
+Lincoln,Camden,1,2021-09,2021-10
+Lincoln,City of Edinburgh,2,2021-09,2021-10
+Lincoln,Dundee City,2,2021-09,2021-10
+Lincoln,East Riding of Yorkshire,1,2021-09,2021-10
+Lincoln,"Kingston upon Hull, City of",1,2021-09,2021-10
+Lincoln,North East Lincolnshire,1,2021-09,2021-10
+Lincoln,North Hertfordshire,1,2021-09,2021-10
+Lincoln,North Kesteven,1,2021-09,2021-10
+Lincoln,Plymouth,1,2021-09,2021-10
+Lincoln,Ribble Valley,1,2021-09,2021-10
+Lincoln,Rotherham,2,2021-09,2021-10
+Lincoln,Shropshire,1,2021-09,2021-10
+Lisburn and Castlereagh,Ards and North Down,3,2021-09,2021-10
+Lisburn and Castlereagh,Belfast,12,2021-09,2021-10
+Lisburn and Castlereagh,Bridgend,1,2021-09,2021-10
+Lisburn and Castlereagh,Causeway Coast and Glens,1,2021-09,2021-10
+Lisburn and Castlereagh,Fermanagh and Omagh,2,2021-09,2021-10
+Lisburn and Castlereagh,"Newry, Mourne and Down",1,2021-09,2021-10
+Lisburn and Castlereagh,Wakefield,2,2021-09,2021-10
+Liverpool,Barnet,4,2021-09,2021-10
+Liverpool,Bath and North East Somerset,1,2021-09,2021-10
+Liverpool,Belfast,1,2021-09,2021-10
+Liverpool,Birmingham,1,2021-09,2021-10
+Liverpool,Boston,2,2021-09,2021-10
+Liverpool,Bradford,1,2021-09,2021-10
+Liverpool,Burnley,1,2021-09,2021-10
+Liverpool,Camden,5,2021-09,2021-10
+Liverpool,Cardiff,3,2021-09,2021-10
+Liverpool,Chelmsford,1,2021-09,2021-10
+Liverpool,Cheshire West and Chester,5,2021-09,2021-10
+Liverpool,Chichester,2,2021-09,2021-10
+Liverpool,City of Edinburgh,3,2021-09,2021-10
+Liverpool,City of London,9,2021-09,2021-10
+Liverpool,Colchester,2,2021-09,2021-10
+Liverpool,Conwy,1,2021-09,2021-10
+Liverpool,Cornwall,1,2021-09,2021-10
+Liverpool,Denbighshire,1,2021-09,2021-10
+Liverpool,Derby,1,2021-09,2021-10
+Liverpool,Dorset,1,2021-09,2021-10
+Liverpool,East Lothian,2,2021-09,2021-10
+Liverpool,Enfield,1,2021-09,2021-10
+Liverpool,Glasgow City,4,2021-09,2021-10
+Liverpool,Greenwich,2,2021-09,2021-10
+Liverpool,Hackney,1,2021-09,2021-10
+Liverpool,Hammersmith and Fulham,3,2021-09,2021-10
+Liverpool,Haringey,1,2021-09,2021-10
+Liverpool,Harrogate,1,2021-09,2021-10
+Liverpool,Hertsmere,1,2021-09,2021-10
+Liverpool,High Peak,1,2021-09,2021-10
+Liverpool,Highland,9,2021-09,2021-10
+Liverpool,Hyndburn,1,2021-09,2021-10
+Liverpool,Islington,1,2021-09,2021-10
+Liverpool,Kensington and Chelsea,1,2021-09,2021-10
+Liverpool,Kirklees,1,2021-09,2021-10
+Liverpool,Knowsley,5,2021-09,2021-10
+Liverpool,Lambeth,4,2021-09,2021-10
+Liverpool,Leeds,2,2021-09,2021-10
+Liverpool,Manchester,9,2021-09,2021-10
+Liverpool,Merton,1,2021-09,2021-10
+Liverpool,New Forest,2,2021-09,2021-10
+Liverpool,Newcastle-under-Lyme,1,2021-09,2021-10
+Liverpool,Newham,2,2021-09,2021-10
+Liverpool,"Newry, Mourne and Down",1,2021-09,2021-10
+Liverpool,North Lanarkshire,1,2021-09,2021-10
+Liverpool,Pembrokeshire,2,2021-09,2021-10
+Liverpool,Portsmouth,1,2021-09,2021-10
+Liverpool,Salford,1,2021-09,2021-10
+Liverpool,Sandwell,1,2021-09,2021-10
+Liverpool,Sefton,5,2021-09,2021-10
+Liverpool,Sheffield,3,2021-09,2021-10
+Liverpool,South Kesteven,1,2021-09,2021-10
+Liverpool,Southwark,2,2021-09,2021-10
+Liverpool,St. Helens,3,2021-09,2021-10
+Liverpool,Stockport,1,2021-09,2021-10
+Liverpool,Surrey Heath,1,2021-09,2021-10
+Liverpool,Sutton,3,2021-09,2021-10
+Liverpool,Tower Hamlets,2,2021-09,2021-10
+Liverpool,Trafford,2,2021-09,2021-10
+Liverpool,Waltham Forest,1,2021-09,2021-10
+Liverpool,Wandsworth,1,2021-09,2021-10
+Liverpool,Warrington,1,2021-09,2021-10
+Liverpool,Watford,1,2021-09,2021-10
+Liverpool,West Lancashire,1,2021-09,2021-10
+Liverpool,Westminster,4,2021-09,2021-10
+Liverpool,Wigan,2,2021-09,2021-10
+Liverpool,Wirral,5,2021-09,2021-10
+Liverpool,York,1,2021-09,2021-10
+Luton,"Bournemouth, Christchurch and Poole",1,2021-09,2021-10
+Luton,City of London,1,2021-09,2021-10
+Luton,Doncaster,1,2021-09,2021-10
+Luton,Hammersmith and Fulham,3,2021-09,2021-10
+Luton,Leicester,2,2021-09,2021-10
+Luton,North Lanarkshire,1,2021-09,2021-10
+Luton,Nottingham,2,2021-09,2021-10
+Luton,Stevenage,4,2021-09,2021-10
+Maidstone,Canterbury,1,2021-09,2021-10
+Maidstone,Solihull,1,2021-09,2021-10
+Maldon,Chelmsford,1,2021-09,2021-10
+Maldon,Colchester,1,2021-09,2021-10
+Maldon,Guildford,1,2021-09,2021-10
+Maldon,Tendring,2,2021-09,2021-10
+Maldon,Tower Hamlets,2,2021-09,2021-10
+Malvern Hills,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Malvern Hills,Brighton and Hove,1,2021-09,2021-10
+Malvern Hills,Kensington and Chelsea,1,2021-09,2021-10
+Malvern Hills,Liverpool,1,2021-09,2021-10
+Malvern Hills,Nottingham,2,2021-09,2021-10
+Malvern Hills,Telford and Wrekin,1,2021-09,2021-10
+Manchester,Barrow-in-Furness,1,2021-09,2021-10
+Manchester,Belfast,4,2021-09,2021-10
+Manchester,Birmingham,4,2021-09,2021-10
+Manchester,Bolton,1,2021-09,2021-10
+Manchester,Bradford,5,2021-09,2021-10
+Manchester,"Bristol, City of",1,2021-09,2021-10
+Manchester,Bromley,1,2021-09,2021-10
+Manchester,Broxtowe,1,2021-09,2021-10
+Manchester,Burnley,3,2021-09,2021-10
+Manchester,Bury,4,2021-09,2021-10
+Manchester,Calderdale,1,2021-09,2021-10
+Manchester,Cheshire East,1,2021-09,2021-10
+Manchester,Cheshire West and Chester,7,2021-09,2021-10
+Manchester,City of Edinburgh,1,2021-09,2021-10
+Manchester,City of London,2,2021-09,2021-10
+Manchester,Conwy,2,2021-09,2021-10
+Manchester,County Durham,1,2021-09,2021-10
+Manchester,Darlington,1,2021-09,2021-10
+Manchester,Derby,1,2021-09,2021-10
+Manchester,Dudley,1,2021-09,2021-10
+Manchester,East Renfrewshire,2,2021-09,2021-10
+Manchester,East Riding of Yorkshire,2,2021-09,2021-10
+Manchester,Fermanagh and Omagh,2,2021-09,2021-10
+Manchester,Glasgow City,6,2021-09,2021-10
+Manchester,Greenwich,1,2021-09,2021-10
+Manchester,Gwynedd,1,2021-09,2021-10
+Manchester,Halton,1,2021-09,2021-10
+Manchester,Hambleton,2,2021-09,2021-10
+Manchester,Harrow,1,2021-09,2021-10
+Manchester,High Peak,1,2021-09,2021-10
+Manchester,Highland,2,2021-09,2021-10
+Manchester,Hillingdon,1,2021-09,2021-10
+Manchester,Huntingdonshire,2,2021-09,2021-10
+Manchester,Islington,2,2021-09,2021-10
+Manchester,"Kingston upon Hull, City of",5,2021-09,2021-10
+Manchester,Kirklees,1,2021-09,2021-10
+Manchester,Lambeth,1,2021-09,2021-10
+Manchester,Leeds,3,2021-09,2021-10
+Manchester,Leicester,2,2021-09,2021-10
+Manchester,Lisburn and Castlereagh,2,2021-09,2021-10
+Manchester,Liverpool,7,2021-09,2021-10
+Manchester,Merton,1,2021-09,2021-10
+Manchester,Newark and Sherwood,2,2021-09,2021-10
+Manchester,Newcastle upon Tyne,3,2021-09,2021-10
+Manchester,Newham,1,2021-09,2021-10
+Manchester,North Lincolnshire,1,2021-09,2021-10
+Manchester,Northumberland,1,2021-09,2021-10
+Manchester,Oldham,3,2021-09,2021-10
+Manchester,Oxford,2,2021-09,2021-10
+Manchester,Powys,1,2021-09,2021-10
+Manchester,Rochdale,1,2021-09,2021-10
+Manchester,Rossendale,2,2021-09,2021-10
+Manchester,Salford,34,2021-09,2021-10
+Manchester,Sheffield,2,2021-09,2021-10
+Manchester,Somerset West and Taunton,1,2021-09,2021-10
+Manchester,South Lakeland,2,2021-09,2021-10
+Manchester,South Ribble,1,2021-09,2021-10
+Manchester,Southwark,1,2021-09,2021-10
+Manchester,St Albans,1,2021-09,2021-10
+Manchester,Stockport,15,2021-09,2021-10
+Manchester,Sunderland,3,2021-09,2021-10
+Manchester,Sutton,1,2021-09,2021-10
+Manchester,Tameside,5,2021-09,2021-10
+Manchester,Thanet,1,2021-09,2021-10
+Manchester,Tower Hamlets,2,2021-09,2021-10
+Manchester,Trafford,23,2021-09,2021-10
+Manchester,Warrington,2,2021-09,2021-10
+Manchester,West Lancashire,1,2021-09,2021-10
+Manchester,West Lothian,4,2021-09,2021-10
+Manchester,West Oxfordshire,1,2021-09,2021-10
+Manchester,Wigan,4,2021-09,2021-10
+Manchester,Winchester,1,2021-09,2021-10
+Manchester,Windsor and Maidenhead,1,2021-09,2021-10
+Manchester,Wokingham,2,2021-09,2021-10
+Manchester,York,4,2021-09,2021-10
+Mansfield,Ashford,1,2021-09,2021-10
+Mansfield,Derbyshire Dales,1,2021-09,2021-10
+Mansfield,Northumberland,1,2021-09,2021-10
+Mansfield,Nottingham,2,2021-09,2021-10
+Mansfield,Wiltshire,4,2021-09,2021-10
+Medway,Birmingham,1,2021-09,2021-10
+Medway,Broadland,2,2021-09,2021-10
+Medway,Dacorum,1,2021-09,2021-10
+Medway,Dorset,1,2021-09,2021-10
+Mendip,Bath and North East Somerset,3,2021-09,2021-10
+Mendip,Brighton and Hove,1,2021-09,2021-10
+Mendip,Exeter,1,2021-09,2021-10
+Mendip,Fife,1,2021-09,2021-10
+Mendip,Lewisham,1,2021-09,2021-10
+Mendip,North Norfolk,1,2021-09,2021-10
+Merthyr Tydfil,Rhondda Cynon Taf,1,2021-09,2021-10
+Merthyr Tydfil,Vale of Glamorgan,1,2021-09,2021-10
+Merton,Camden,1,2021-09,2021-10
+Merton,Canterbury,3,2021-09,2021-10
+Merton,City of London,3,2021-09,2021-10
+Merton,Crawley,1,2021-09,2021-10
+Merton,Croydon,3,2021-09,2021-10
+Merton,Dorset,1,2021-09,2021-10
+Merton,Elmbridge,2,2021-09,2021-10
+Merton,Epsom and Ewell,1,2021-09,2021-10
+Merton,Hillingdon,1,2021-09,2021-10
+Merton,Lewisham,2,2021-09,2021-10
+Merton,Liverpool,2,2021-09,2021-10
+Merton,Sheffield,1,2021-09,2021-10
+Merton,Sutton,2,2021-09,2021-10
+Merton,Swansea,2,2021-09,2021-10
+Merton,Tower Hamlets,2,2021-09,2021-10
+Merton,Wakefield,1,2021-09,2021-10
+Merton,Wandsworth,6,2021-09,2021-10
+Merton,Windsor and Maidenhead,1,2021-09,2021-10
+Mid Devon,Craven,1,2021-09,2021-10
+Mid Devon,East Devon,1,2021-09,2021-10
+Mid Suffolk,Barnsley,1,2021-09,2021-10
+Mid Suffolk,Bedford,1,2021-09,2021-10
+Mid Suffolk,County Durham,2,2021-09,2021-10
+Mid Suffolk,South Lanarkshire,2,2021-09,2021-10
+Mid Suffolk,Stockton-on-Tees,1,2021-09,2021-10
+Mid Sussex,Argyll and Bute,1,2021-09,2021-10
+Mid Sussex,Calderdale,2,2021-09,2021-10
+Mid Sussex,City of Edinburgh,2,2021-09,2021-10
+Mid Sussex,Dorset,2,2021-09,2021-10
+Mid Sussex,Perth and Kinross,1,2021-09,2021-10
+Mid Sussex,Southwark,1,2021-09,2021-10
+Mid Sussex,Thurrock,1,2021-09,2021-10
+Mid and East Antrim,Antrim and Newtownabbey,2,2021-09,2021-10
+Mid and East Antrim,Ards and North Down,1,2021-09,2021-10
+Mid and East Antrim,Belfast,6,2021-09,2021-10
+Mid and East Antrim,Causeway Coast and Glens,2,2021-09,2021-10
+Mid and East Antrim,Highland,2,2021-09,2021-10
+Mid and East Antrim,Lichfield,2,2021-09,2021-10
+Mid and East Antrim,Lisburn and Castlereagh,1,2021-09,2021-10
+Mid and East Antrim,Mid Ulster,3,2021-09,2021-10
+Middlesbrough,Darlington,1,2021-09,2021-10
+Middlesbrough,Glasgow City,5,2021-09,2021-10
+Middlesbrough,Hambleton,1,2021-09,2021-10
+Middlesbrough,"Kingston upon Hull, City of",2,2021-09,2021-10
+Middlesbrough,Redcar and Cleveland,1,2021-09,2021-10
+Middlesbrough,Rushcliffe,2,2021-09,2021-10
+Middlesbrough,Stockton-on-Tees,1,2021-09,2021-10
+Middlesbrough,Wolverhampton,1,2021-09,2021-10
+Midlothian,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Midlothian,City of Edinburgh,4,2021-09,2021-10
+Midlothian,Fife,1,2021-09,2021-10
+Midlothian,North Lanarkshire,1,2021-09,2021-10
+Midlothian,Scarborough,2,2021-09,2021-10
+Milton Keynes,Bedford,1,2021-09,2021-10
+Milton Keynes,Birmingham,1,2021-09,2021-10
+Milton Keynes,Bradford,1,2021-09,2021-10
+Milton Keynes,Buckinghamshire,1,2021-09,2021-10
+Milton Keynes,Camden,1,2021-09,2021-10
+Milton Keynes,Cardiff,1,2021-09,2021-10
+Milton Keynes,Charnwood,1,2021-09,2021-10
+Milton Keynes,City of Edinburgh,1,2021-09,2021-10
+Milton Keynes,City of London,1,2021-09,2021-10
+Milton Keynes,Crawley,2,2021-09,2021-10
+Milton Keynes,Dumfries and Galloway,1,2021-09,2021-10
+Milton Keynes,Highland,1,2021-09,2021-10
+Milton Keynes,Northumberland,2,2021-09,2021-10
+Milton Keynes,Salford,1,2021-09,2021-10
+Milton Keynes,Solihull,1,2021-09,2021-10
+Milton Keynes,Southwark,1,2021-09,2021-10
+Milton Keynes,Torbay,1,2021-09,2021-10
+Milton Keynes,Watford,3,2021-09,2021-10
+Milton Keynes,West Northamptonshire,3,2021-09,2021-10
+Milton Keynes,Westminster,2,2021-09,2021-10
+Mole Valley,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Mole Valley,Epsom and Ewell,1,2021-09,2021-10
+Mole Valley,Mid Suffolk,4,2021-09,2021-10
+Mole Valley,Reigate and Banstead,1,2021-09,2021-10
+Mole Valley,Scarborough,1,2021-09,2021-10
+Mole Valley,Sheffield,1,2021-09,2021-10
+Mole Valley,South Cambridgeshire,2,2021-09,2021-10
+Monmouthshire,Bassetlaw,1,2021-09,2021-10
+Monmouthshire,Blaenau Gwent,2,2021-09,2021-10
+Monmouthshire,Bridgend,2,2021-09,2021-10
+Monmouthshire,Ceredigion,1,2021-09,2021-10
+Monmouthshire,City of Edinburgh,2,2021-09,2021-10
+Monmouthshire,City of London,1,2021-09,2021-10
+Monmouthshire,Dorset,2,2021-09,2021-10
+Monmouthshire,Haringey,1,2021-09,2021-10
+Monmouthshire,Malvern Hills,1,2021-09,2021-10
+Monmouthshire,South Gloucestershire,2,2021-09,2021-10
+Monmouthshire,Tewkesbury,1,2021-09,2021-10
+Monmouthshire,Thurrock,1,2021-09,2021-10
+Moray,Bromley,1,2021-09,2021-10
+Moray,City of Edinburgh,2,2021-09,2021-10
+Moray,Clackmannanshire,2,2021-09,2021-10
+Moray,Glasgow City,2,2021-09,2021-10
+Moray,Highland,2,2021-09,2021-10
+Moray,Newcastle upon Tyne,1,2021-09,2021-10
+Moray,South Lanarkshire,1,2021-09,2021-10
+Na h-Eileanan Siar,Angus,1,2021-09,2021-10
+Na h-Eileanan Siar,Birmingham,1,2021-09,2021-10
+Na h-Eileanan Siar,Glasgow City,2,2021-09,2021-10
+Na h-Eileanan Siar,Havant,2,2021-09,2021-10
+Na h-Eileanan Siar,Lewes,1,2021-09,2021-10
+Na h-Eileanan Siar,Oxford,2,2021-09,2021-10
+Na h-Eileanan Siar,Sheffield,1,2021-09,2021-10
+Na h-Eileanan Siar,Stirling,1,2021-09,2021-10
+Neath Port Talbot,Brighton and Hove,1,2021-09,2021-10
+Neath Port Talbot,Cardiff,2,2021-09,2021-10
+Neath Port Talbot,Swansea,4,2021-09,2021-10
+Neath Port Talbot,Westminster,1,2021-09,2021-10
+Neath Port Talbot,Wigan,1,2021-09,2021-10
+New Forest,Allerdale,1,2021-09,2021-10
+New Forest,Bassetlaw,2,2021-09,2021-10
+New Forest,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+New Forest,"Bristol, City of",1,2021-09,2021-10
+New Forest,Canterbury,1,2021-09,2021-10
+New Forest,Manchester,1,2021-09,2021-10
+New Forest,Southampton,2,2021-09,2021-10
+New Forest,Wealden,1,2021-09,2021-10
+Newark and Sherwood,Gosport,1,2021-09,2021-10
+Newark and Sherwood,Lincoln,1,2021-09,2021-10
+Newark and Sherwood,Mansfield,4,2021-09,2021-10
+Newark and Sherwood,West Northamptonshire,2,2021-09,2021-10
+Newcastle upon Tyne,Antrim and Newtownabbey,2,2021-09,2021-10
+Newcastle upon Tyne,Brent,1,2021-09,2021-10
+Newcastle upon Tyne,Cherwell,1,2021-09,2021-10
+Newcastle upon Tyne,Cheshire West and Chester,2,2021-09,2021-10
+Newcastle upon Tyne,Chesterfield,1,2021-09,2021-10
+Newcastle upon Tyne,City of Edinburgh,2,2021-09,2021-10
+Newcastle upon Tyne,Dundee City,2,2021-09,2021-10
+Newcastle upon Tyne,East Lindsey,1,2021-09,2021-10
+Newcastle upon Tyne,East Lothian,1,2021-09,2021-10
+Newcastle upon Tyne,East Riding of Yorkshire,2,2021-09,2021-10
+Newcastle upon Tyne,Gateshead,3,2021-09,2021-10
+Newcastle upon Tyne,Glasgow City,10,2021-09,2021-10
+Newcastle upon Tyne,Gloucester,1,2021-09,2021-10
+Newcastle upon Tyne,Harrogate,1,2021-09,2021-10
+Newcastle upon Tyne,Highland,2,2021-09,2021-10
+Newcastle upon Tyne,"Kingston upon Hull, City of",2,2021-09,2021-10
+Newcastle upon Tyne,Lambeth,1,2021-09,2021-10
+Newcastle upon Tyne,Lewisham,1,2021-09,2021-10
+Newcastle upon Tyne,Liverpool,2,2021-09,2021-10
+Newcastle upon Tyne,North Tyneside,15,2021-09,2021-10
+Newcastle upon Tyne,Northumberland,7,2021-09,2021-10
+Newcastle upon Tyne,Renfrewshire,1,2021-09,2021-10
+Newcastle upon Tyne,Rotherham,1,2021-09,2021-10
+Newcastle upon Tyne,South Ayrshire,1,2021-09,2021-10
+Newcastle upon Tyne,South Holland,1,2021-09,2021-10
+Newcastle upon Tyne,South Kesteven,2,2021-09,2021-10
+Newcastle upon Tyne,South Tyneside,1,2021-09,2021-10
+Newcastle upon Tyne,Sunderland,1,2021-09,2021-10
+Newcastle upon Tyne,West Lindsey,1,2021-09,2021-10
+Newcastle upon Tyne,Westminster,1,2021-09,2021-10
+Newcastle upon Tyne,York,1,2021-09,2021-10
+Newcastle-under-Lyme,Birmingham,1,2021-09,2021-10
+Newcastle-under-Lyme,Conwy,2,2021-09,2021-10
+Newcastle-under-Lyme,Lambeth,1,2021-09,2021-10
+Newcastle-under-Lyme,Stoke-on-Trent,3,2021-09,2021-10
+Newcastle-under-Lyme,Tendring,1,2021-09,2021-10
+Newham,Belfast,1,2021-09,2021-10
+Newham,Birmingham,1,2021-09,2021-10
+Newham,Chelmsford,2,2021-09,2021-10
+Newham,City of Edinburgh,3,2021-09,2021-10
+Newham,Coventry,1,2021-09,2021-10
+Newham,Croydon,3,2021-09,2021-10
+Newham,Ealing,2,2021-09,2021-10
+Newham,Enfield,2,2021-09,2021-10
+Newham,Epping Forest,1,2021-09,2021-10
+Newham,Exeter,1,2021-09,2021-10
+Newham,Falkirk,2,2021-09,2021-10
+Newham,Greenwich,1,2021-09,2021-10
+Newham,Hackney,1,2021-09,2021-10
+Newham,Haringey,2,2021-09,2021-10
+Newham,Harrogate,1,2021-09,2021-10
+Newham,Islington,1,2021-09,2021-10
+Newham,Lewisham,1,2021-09,2021-10
+Newham,Liverpool,2,2021-09,2021-10
+Newham,Mendip,1,2021-09,2021-10
+Newham,Newcastle upon Tyne,2,2021-09,2021-10
+Newham,North Northamptonshire,1,2021-09,2021-10
+Newham,Oldham,1,2021-09,2021-10
+Newham,Sheffield,1,2021-09,2021-10
+Newham,Solihull,3,2021-09,2021-10
+Newham,Southwark,1,2021-09,2021-10
+Newham,Tower Hamlets,7,2021-09,2021-10
+Newham,Waltham Forest,2,2021-09,2021-10
+Newham,Westminster,1,2021-09,2021-10
+Newport,Brighton and Hove,1,2021-09,2021-10
+Newport,Cardiff,6,2021-09,2021-10
+Newport,Carmarthenshire,1,2021-09,2021-10
+Newport,Gosport,1,2021-09,2021-10
+Newport,Isle of Wight,1,2021-09,2021-10
+Newport,South Somerset,1,2021-09,2021-10
+Newport,Swansea,2,2021-09,2021-10
+Newport,Vale of Glamorgan,1,2021-09,2021-10
+Newport,Westminster,1,2021-09,2021-10
+"Newry, Mourne and Down","Armagh City, Banbridge and Craigavon",2,2021-09,2021-10
+"Newry, Mourne and Down",Belfast,6,2021-09,2021-10
+"Newry, Mourne and Down",Bridgend,1,2021-09,2021-10
+"Newry, Mourne and Down",Bromley,2,2021-09,2021-10
+"Newry, Mourne and Down",Gloucester,2,2021-09,2021-10
+"Newry, Mourne and Down",Lisburn and Castlereagh,2,2021-09,2021-10
+"Newry, Mourne and Down",Rugby,1,2021-09,2021-10
+North Ayrshire,Burnley,1,2021-09,2021-10
+North Ayrshire,City of Edinburgh,3,2021-09,2021-10
+North Ayrshire,Ealing,1,2021-09,2021-10
+North Ayrshire,East Ayrshire,1,2021-09,2021-10
+North Ayrshire,Glasgow City,5,2021-09,2021-10
+North Ayrshire,South Lanarkshire,4,2021-09,2021-10
+North Devon,Argyll and Bute,1,2021-09,2021-10
+North Devon,Birmingham,1,2021-09,2021-10
+North Devon,Blackpool,1,2021-09,2021-10
+North Devon,City of London,1,2021-09,2021-10
+North Devon,Colchester,1,2021-09,2021-10
+North Devon,Salford,1,2021-09,2021-10
+North Devon,Sandwell,1,2021-09,2021-10
+North Devon,Uttlesford,2,2021-09,2021-10
+North Devon,West Oxfordshire,1,2021-09,2021-10
+North Devon,Wiltshire,2,2021-09,2021-10
+North East Derbyshire,Chesterfield,2,2021-09,2021-10
+North East Derbyshire,Mansfield,1,2021-09,2021-10
+North East Derbyshire,Sheffield,1,2021-09,2021-10
+North East Derbyshire,Wychavon,1,2021-09,2021-10
+North East Lincolnshire,Buckinghamshire,1,2021-09,2021-10
+North East Lincolnshire,Glasgow City,2,2021-09,2021-10
+North East Lincolnshire,Lincoln,2,2021-09,2021-10
+North East Lincolnshire,Scarborough,2,2021-09,2021-10
+North East Lincolnshire,Sheffield,1,2021-09,2021-10
+North East Lincolnshire,Southwark,2,2021-09,2021-10
+North Hertfordshire,Babergh,1,2021-09,2021-10
+North Hertfordshire,Bath and North East Somerset,1,2021-09,2021-10
+North Hertfordshire,Cambridge,1,2021-09,2021-10
+North Hertfordshire,Central Bedfordshire,1,2021-09,2021-10
+North Hertfordshire,King's Lynn and West Norfolk,1,2021-09,2021-10
+North Hertfordshire,South Cambridgeshire,1,2021-09,2021-10
+North Kesteven,Charnwood,1,2021-09,2021-10
+North Kesteven,Gwynedd,2,2021-09,2021-10
+North Kesteven,New Forest,1,2021-09,2021-10
+North Kesteven,North Lincolnshire,1,2021-09,2021-10
+North Kesteven,Nottingham,1,2021-09,2021-10
+North Kesteven,Rushcliffe,1,2021-09,2021-10
+North Kesteven,Wigan,1,2021-09,2021-10
+North Lanarkshire,Argyll and Bute,1,2021-09,2021-10
+North Lanarkshire,City of Edinburgh,6,2021-09,2021-10
+North Lanarkshire,Clackmannanshire,2,2021-09,2021-10
+North Lanarkshire,East Dunbartonshire,1,2021-09,2021-10
+North Lanarkshire,Falkirk,2,2021-09,2021-10
+North Lanarkshire,Glasgow City,22,2021-09,2021-10
+North Lanarkshire,Gwynedd,2,2021-09,2021-10
+North Lanarkshire,Huntingdonshire,1,2021-09,2021-10
+North Lanarkshire,"Kingston upon Hull, City of",1,2021-09,2021-10
+North Lanarkshire,Kirklees,1,2021-09,2021-10
+North Lanarkshire,Moray,1,2021-09,2021-10
+North Lanarkshire,Portsmouth,1,2021-09,2021-10
+North Lanarkshire,South Lanarkshire,3,2021-09,2021-10
+North Lincolnshire,Birmingham,2,2021-09,2021-10
+North Lincolnshire,Doncaster,2,2021-09,2021-10
+North Lincolnshire,East Lindsey,1,2021-09,2021-10
+North Lincolnshire,Huntingdonshire,1,2021-09,2021-10
+North Lincolnshire,Manchester,2,2021-09,2021-10
+North Lincolnshire,North East Lincolnshire,2,2021-09,2021-10
+North Lincolnshire,West Suffolk,2,2021-09,2021-10
+North Norfolk,Aberdeenshire,1,2021-09,2021-10
+North Norfolk,Braintree,2,2021-09,2021-10
+North Norfolk,Broadland,2,2021-09,2021-10
+North Norfolk,Bromley,1,2021-09,2021-10
+North Norfolk,Calderdale,1,2021-09,2021-10
+North Norfolk,Charnwood,2,2021-09,2021-10
+North Norfolk,Cornwall,1,2021-09,2021-10
+North Norfolk,Ealing,1,2021-09,2021-10
+North Norfolk,Glasgow City,1,2021-09,2021-10
+North Norfolk,Great Yarmouth,1,2021-09,2021-10
+North Norfolk,Milton Keynes,1,2021-09,2021-10
+North Norfolk,North East Lincolnshire,1,2021-09,2021-10
+North Norfolk,Rochdale,1,2021-09,2021-10
+North Norfolk,Sheffield,2,2021-09,2021-10
+North Norfolk,Southwark,1,2021-09,2021-10
+North Norfolk,Warwick,1,2021-09,2021-10
+North Northamptonshire,Bath and North East Somerset,2,2021-09,2021-10
+North Northamptonshire,"Bristol, City of",5,2021-09,2021-10
+North Northamptonshire,Dudley,1,2021-09,2021-10
+North Northamptonshire,Dumfries and Galloway,1,2021-09,2021-10
+North Northamptonshire,Epsom and Ewell,2,2021-09,2021-10
+North Northamptonshire,Exeter,3,2021-09,2021-10
+North Northamptonshire,Glasgow City,1,2021-09,2021-10
+North Northamptonshire,Haringey,1,2021-09,2021-10
+North Northamptonshire,Leicester,1,2021-09,2021-10
+North Northamptonshire,Manchester,1,2021-09,2021-10
+North Northamptonshire,Salford,1,2021-09,2021-10
+North Northamptonshire,Solihull,2,2021-09,2021-10
+North Northamptonshire,South Gloucestershire,2,2021-09,2021-10
+North Northamptonshire,Stirling,2,2021-09,2021-10
+North Northamptonshire,West Northamptonshire,5,2021-09,2021-10
+North Somerset,Bath and North East Somerset,1,2021-09,2021-10
+North Somerset,"Bristol, City of",7,2021-09,2021-10
+North Somerset,Cornwall,3,2021-09,2021-10
+North Somerset,East Devon,1,2021-09,2021-10
+North Somerset,Exeter,1,2021-09,2021-10
+North Somerset,Huntingdonshire,1,2021-09,2021-10
+North Somerset,Leicester,2,2021-09,2021-10
+North Somerset,Maidstone,2,2021-09,2021-10
+North Somerset,North Northamptonshire,1,2021-09,2021-10
+North Somerset,Swindon,1,2021-09,2021-10
+North Somerset,Wigan,2,2021-09,2021-10
+North Tyneside,Belfast,1,2021-09,2021-10
+North Tyneside,East Lindsey,2,2021-09,2021-10
+North Tyneside,Glasgow City,6,2021-09,2021-10
+North Tyneside,Highland,2,2021-09,2021-10
+North Tyneside,Islington,1,2021-09,2021-10
+North Tyneside,Leeds,1,2021-09,2021-10
+North Tyneside,Moray,2,2021-09,2021-10
+North Tyneside,Newcastle upon Tyne,7,2021-09,2021-10
+North Tyneside,South Tyneside,3,2021-09,2021-10
+North Tyneside,Warwick,2,2021-09,2021-10
+North Tyneside,Welwyn Hatfield,1,2021-09,2021-10
+North Warwickshire,Basingstoke and Deane,2,2021-09,2021-10
+North Warwickshire,Ealing,2,2021-09,2021-10
+North Warwickshire,Tower Hamlets,1,2021-09,2021-10
+North West Leicestershire,Charnwood,1,2021-09,2021-10
+North West Leicestershire,County Durham,1,2021-09,2021-10
+North West Leicestershire,Havant,2,2021-09,2021-10
+North West Leicestershire,Leicester,6,2021-09,2021-10
+North West Leicestershire,Milton Keynes,1,2021-09,2021-10
+North West Leicestershire,Nottingham,1,2021-09,2021-10
+Northumberland,Blackpool,1,2021-09,2021-10
+Northumberland,"Bristol, City of",1,2021-09,2021-10
+Northumberland,Broadland,2,2021-09,2021-10
+Northumberland,Cheshire West and Chester,2,2021-09,2021-10
+Northumberland,Conwy,1,2021-09,2021-10
+Northumberland,Coventry,1,2021-09,2021-10
+Northumberland,Craven,1,2021-09,2021-10
+Northumberland,Derby,1,2021-09,2021-10
+Northumberland,Glasgow City,2,2021-09,2021-10
+Northumberland,Horsham,1,2021-09,2021-10
+Northumberland,Huntingdonshire,2,2021-09,2021-10
+Northumberland,Leeds,2,2021-09,2021-10
+Northumberland,Leicester,2,2021-09,2021-10
+Northumberland,Newcastle upon Tyne,5,2021-09,2021-10
+Northumberland,North Tyneside,3,2021-09,2021-10
+Northumberland,Nottingham,2,2021-09,2021-10
+Northumberland,Portsmouth,1,2021-09,2021-10
+Northumberland,South Holland,1,2021-09,2021-10
+Northumberland,St Albans,2,2021-09,2021-10
+Northumberland,Stirling,1,2021-09,2021-10
+Northumberland,Tameside,1,2021-09,2021-10
+Northumberland,Trafford,2,2021-09,2021-10
+Northumberland,Wealden,1,2021-09,2021-10
+Northumberland,West Lindsey,1,2021-09,2021-10
+Norwich,Brighton and Hove,2,2021-09,2021-10
+Norwich,Broadland,7,2021-09,2021-10
+Norwich,City of London,1,2021-09,2021-10
+Norwich,Gravesham,2,2021-09,2021-10
+Norwich,Great Yarmouth,2,2021-09,2021-10
+Norwich,Ipswich,1,2021-09,2021-10
+Norwich,Leicester,1,2021-09,2021-10
+Norwich,Liverpool,1,2021-09,2021-10
+Norwich,Melton,1,2021-09,2021-10
+Norwich,North Lanarkshire,2,2021-09,2021-10
+Norwich,Nottingham,1,2021-09,2021-10
+Norwich,Nuneaton and Bedworth,2,2021-09,2021-10
+Norwich,Pembrokeshire,2,2021-09,2021-10
+Norwich,South Tyneside,1,2021-09,2021-10
+Norwich,Trafford,1,2021-09,2021-10
+Norwich,Waltham Forest,1,2021-09,2021-10
+Norwich,Wrexham,1,2021-09,2021-10
+Nottingham,Birmingham,1,2021-09,2021-10
+Nottingham,Blackpool,2,2021-09,2021-10
+Nottingham,Broxtowe,3,2021-09,2021-10
+Nottingham,Camden,1,2021-09,2021-10
+Nottingham,Central Bedfordshire,2,2021-09,2021-10
+Nottingham,Charnwood,1,2021-09,2021-10
+Nottingham,Cheshire West and Chester,1,2021-09,2021-10
+Nottingham,Derby,5,2021-09,2021-10
+Nottingham,Erewash,4,2021-09,2021-10
+Nottingham,Gedling,1,2021-09,2021-10
+Nottingham,Gloucester,2,2021-09,2021-10
+Nottingham,Leicester,1,2021-09,2021-10
+Nottingham,Newham,1,2021-09,2021-10
+Nottingham,North Northamptonshire,1,2021-09,2021-10
+Nottingham,North Tyneside,2,2021-09,2021-10
+Nottingham,Rushcliffe,9,2021-09,2021-10
+Nottingham,Salford,1,2021-09,2021-10
+Nottingham,Scarborough,1,2021-09,2021-10
+Nottingham,Sheffield,4,2021-09,2021-10
+Nottingham,Southampton,1,2021-09,2021-10
+Nottingham,Thurrock,1,2021-09,2021-10
+Nuneaton and Bedworth,Ceredigion,2,2021-09,2021-10
+Nuneaton and Bedworth,Coventry,1,2021-09,2021-10
+Nuneaton and Bedworth,North Norfolk,1,2021-09,2021-10
+Nuneaton and Bedworth,Norwich,1,2021-09,2021-10
+Nuneaton and Bedworth,Oadby and Wigston,1,2021-09,2021-10
+Nuneaton and Bedworth,Wigan,1,2021-09,2021-10
+Oadby and Wigston,Blaby,1,2021-09,2021-10
+Oadby and Wigston,Leicester,1,2021-09,2021-10
+Oadby and Wigston,North Northamptonshire,1,2021-09,2021-10
+Oldham,Boston,2,2021-09,2021-10
+Oldham,Cardiff,1,2021-09,2021-10
+Oldham,Hertsmere,1,2021-09,2021-10
+Oldham,Manchester,6,2021-09,2021-10
+Oldham,Redcar and Cleveland,2,2021-09,2021-10
+Oldham,Sheffield,1,2021-09,2021-10
+Oldham,Stockport,1,2021-09,2021-10
+Oldham,Tameside,1,2021-09,2021-10
+Oldham,York,1,2021-09,2021-10
+Orkney Islands,Argyll and Bute,1,2021-09,2021-10
+Orkney Islands,Lewes,2,2021-09,2021-10
+Oxford,Birmingham,4,2021-09,2021-10
+Oxford,Bromley,1,2021-09,2021-10
+Oxford,Cambridge,2,2021-09,2021-10
+Oxford,City of Edinburgh,1,2021-09,2021-10
+Oxford,City of London,1,2021-09,2021-10
+Oxford,Coventry,1,2021-09,2021-10
+Oxford,Derry City and Strabane,1,2021-09,2021-10
+Oxford,Forest of Dean,1,2021-09,2021-10
+Oxford,Glasgow City,1,2021-09,2021-10
+Oxford,Greenwich,1,2021-09,2021-10
+Oxford,Islington,1,2021-09,2021-10
+Oxford,Kensington and Chelsea,3,2021-09,2021-10
+Oxford,Leeds,1,2021-09,2021-10
+Oxford,Liverpool,1,2021-09,2021-10
+Oxford,Newcastle-under-Lyme,1,2021-09,2021-10
+Oxford,Vale of White Horse,1,2021-09,2021-10
+Oxford,Wigan,1,2021-09,2021-10
+Pembrokeshire,Barnsley,1,2021-09,2021-10
+Pembrokeshire,Birmingham,4,2021-09,2021-10
+Pembrokeshire,Broxtowe,2,2021-09,2021-10
+Pembrokeshire,Camden,1,2021-09,2021-10
+Pembrokeshire,Cardiff,5,2021-09,2021-10
+Pembrokeshire,Carmarthenshire,1,2021-09,2021-10
+Pembrokeshire,Central Bedfordshire,2,2021-09,2021-10
+Pembrokeshire,Colchester,1,2021-09,2021-10
+Pembrokeshire,Denbighshire,1,2021-09,2021-10
+Pembrokeshire,"Herefordshire, County of",2,2021-09,2021-10
+Pembrokeshire,Liverpool,2,2021-09,2021-10
+Pembrokeshire,Newcastle-under-Lyme,1,2021-09,2021-10
+Pembrokeshire,North Somerset,1,2021-09,2021-10
+Pembrokeshire,Norwich,1,2021-09,2021-10
+Pembrokeshire,Nottingham,1,2021-09,2021-10
+Pembrokeshire,Wyre Forest,1,2021-09,2021-10
+Pendle,Brent,1,2021-09,2021-10
+Pendle,Broadland,1,2021-09,2021-10
+Pendle,Burnley,2,2021-09,2021-10
+Pendle,Cheshire West and Chester,1,2021-09,2021-10
+Perth and Kinross,Aberdeen City,1,2021-09,2021-10
+Perth and Kinross,Aberdeenshire,2,2021-09,2021-10
+Perth and Kinross,Angus,1,2021-09,2021-10
+Perth and Kinross,Brighton and Hove,2,2021-09,2021-10
+Perth and Kinross,Bromsgrove,1,2021-09,2021-10
+Perth and Kinross,Canterbury,1,2021-09,2021-10
+Perth and Kinross,Chesterfield,1,2021-09,2021-10
+Perth and Kinross,City of Edinburgh,2,2021-09,2021-10
+Perth and Kinross,Dundee City,2,2021-09,2021-10
+Perth and Kinross,Fife,2,2021-09,2021-10
+Perth and Kinross,Flintshire,1,2021-09,2021-10
+Perth and Kinross,Glasgow City,3,2021-09,2021-10
+Perth and Kinross,Middlesbrough,2,2021-09,2021-10
+Perth and Kinross,Milton Keynes,1,2021-09,2021-10
+Perth and Kinross,Moray,1,2021-09,2021-10
+Perth and Kinross,Northumberland,1,2021-09,2021-10
+Perth and Kinross,Scottish Borders,1,2021-09,2021-10
+Perth and Kinross,Swindon,1,2021-09,2021-10
+Perth and Kinross,Wandsworth,2,2021-09,2021-10
+Perth and Kinross,Westminster,1,2021-09,2021-10
+Perth and Kinross,Wirral,2,2021-09,2021-10
+Peterborough,Central Bedfordshire,2,2021-09,2021-10
+Peterborough,Hammersmith and Fulham,1,2021-09,2021-10
+Peterborough,Hounslow,1,2021-09,2021-10
+Peterborough,King's Lynn and West Norfolk,1,2021-09,2021-10
+Peterborough,Newham,1,2021-09,2021-10
+Peterborough,Northumberland,1,2021-09,2021-10
+Peterborough,Sandwell,1,2021-09,2021-10
+Peterborough,Solihull,1,2021-09,2021-10
+Peterborough,Stratford-on-Avon,1,2021-09,2021-10
+Plymouth,Birmingham,1,2021-09,2021-10
+Plymouth,"Bristol, City of",2,2021-09,2021-10
+Plymouth,City of Edinburgh,2,2021-09,2021-10
+Plymouth,Cornwall,1,2021-09,2021-10
+Plymouth,Coventry,1,2021-09,2021-10
+Plymouth,Dorset,1,2021-09,2021-10
+Plymouth,Fife,2,2021-09,2021-10
+Plymouth,Kirklees,1,2021-09,2021-10
+Plymouth,Lewisham,2,2021-09,2021-10
+Plymouth,Maldon,2,2021-09,2021-10
+Plymouth,Rochdale,1,2021-09,2021-10
+Plymouth,Rochford,1,2021-09,2021-10
+Plymouth,South Hams,6,2021-09,2021-10
+Plymouth,Southwark,3,2021-09,2021-10
+Plymouth,Swansea,1,2021-09,2021-10
+Plymouth,Tewkesbury,1,2021-09,2021-10
+Plymouth,Torbay,1,2021-09,2021-10
+Plymouth,Trafford,1,2021-09,2021-10
+Plymouth,Waverley,1,2021-09,2021-10
+Plymouth,Wealden,1,2021-09,2021-10
+Portsmouth,Boston,1,2021-09,2021-10
+Portsmouth,Brighton and Hove,2,2021-09,2021-10
+Portsmouth,Buckinghamshire,1,2021-09,2021-10
+Portsmouth,Cambridge,1,2021-09,2021-10
+Portsmouth,Chichester,1,2021-09,2021-10
+Portsmouth,Cornwall,1,2021-09,2021-10
+Portsmouth,Dorset,1,2021-09,2021-10
+Portsmouth,East Riding of Yorkshire,2,2021-09,2021-10
+Portsmouth,Eastleigh,1,2021-09,2021-10
+Portsmouth,Fareham,1,2021-09,2021-10
+Portsmouth,Havant,3,2021-09,2021-10
+Portsmouth,Kingston upon Thames,1,2021-09,2021-10
+Portsmouth,Lambeth,1,2021-09,2021-10
+Portsmouth,Leeds,1,2021-09,2021-10
+Portsmouth,Lincoln,1,2021-09,2021-10
+Portsmouth,Liverpool,1,2021-09,2021-10
+Portsmouth,Middlesbrough,2,2021-09,2021-10
+Portsmouth,Northumberland,2,2021-09,2021-10
+Portsmouth,Stroud,1,2021-09,2021-10
+Portsmouth,Vale of Glamorgan,2,2021-09,2021-10
+Powys,Denbighshire,1,2021-09,2021-10
+Powys,Isle of Anglesey,2,2021-09,2021-10
+Powys,Shropshire,1,2021-09,2021-10
+Powys,Walsall,1,2021-09,2021-10
+Preston,Bassetlaw,1,2021-09,2021-10
+Preston,Blackpool,2,2021-09,2021-10
+Preston,Bolton,2,2021-09,2021-10
+Preston,Brighton and Hove,2,2021-09,2021-10
+Preston,"Bristol, City of",2,2021-09,2021-10
+Preston,Highland,2,2021-09,2021-10
+Preston,Hyndburn,1,2021-09,2021-10
+Preston,Northumberland,1,2021-09,2021-10
+Preston,Ribble Valley,1,2021-09,2021-10
+Preston,Rossendale,1,2021-09,2021-10
+Preston,South Ribble,2,2021-09,2021-10
+Preston,Wigan,1,2021-09,2021-10
+Reading,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Reading,Bromley,1,2021-09,2021-10
+Reading,Camden,1,2021-09,2021-10
+Reading,Cornwall,1,2021-09,2021-10
+Reading,Islington,2,2021-09,2021-10
+Reading,Newcastle upon Tyne,1,2021-09,2021-10
+Reading,North Devon,1,2021-09,2021-10
+Reading,Redbridge,1,2021-09,2021-10
+Reading,Sheffield,1,2021-09,2021-10
+Reading,Stockport,2,2021-09,2021-10
+Reading,Test Valley,1,2021-09,2021-10
+Reading,West Berkshire,1,2021-09,2021-10
+Reading,Wokingham,2,2021-09,2021-10
+Redbridge,"Bristol, City of",2,2021-09,2021-10
+Redbridge,Camden,1,2021-09,2021-10
+Redbridge,Charnwood,4,2021-09,2021-10
+Redbridge,City of London,4,2021-09,2021-10
+Redbridge,Cornwall,1,2021-09,2021-10
+Redbridge,Cotswold,4,2021-09,2021-10
+Redbridge,Hackney,2,2021-09,2021-10
+Redbridge,Harlow,2,2021-09,2021-10
+Redbridge,Havering,2,2021-09,2021-10
+Redbridge,Lambeth,2,2021-09,2021-10
+Redbridge,Middlesbrough,2,2021-09,2021-10
+Redbridge,Reading,1,2021-09,2021-10
+Redbridge,Reigate and Banstead,1,2021-09,2021-10
+Redbridge,Tower Hamlets,1,2021-09,2021-10
+Redbridge,Uttlesford,2,2021-09,2021-10
+Redbridge,Wiltshire,1,2021-09,2021-10
+Redcar and Cleveland,Darlington,2,2021-09,2021-10
+Redcar and Cleveland,Glasgow City,4,2021-09,2021-10
+Redcar and Cleveland,Hartlepool,2,2021-09,2021-10
+Redcar and Cleveland,Middlesbrough,2,2021-09,2021-10
+Redcar and Cleveland,Newcastle upon Tyne,1,2021-09,2021-10
+Redditch,Birmingham,1,2021-09,2021-10
+Redditch,Stratford-on-Avon,1,2021-09,2021-10
+Redditch,Stroud,2,2021-09,2021-10
+Redditch,Worcester,2,2021-09,2021-10
+Redditch,Wychavon,2,2021-09,2021-10
+Reigate and Banstead,Bexley,2,2021-09,2021-10
+Reigate and Banstead,Brent,2,2021-09,2021-10
+Reigate and Banstead,Elmbridge,1,2021-09,2021-10
+Reigate and Banstead,Epsom and Ewell,2,2021-09,2021-10
+Reigate and Banstead,Gedling,3,2021-09,2021-10
+Reigate and Banstead,Haringey,1,2021-09,2021-10
+Reigate and Banstead,Lambeth,1,2021-09,2021-10
+Reigate and Banstead,Merton,2,2021-09,2021-10
+Reigate and Banstead,Sutton,1,2021-09,2021-10
+Renfrewshire,Argyll and Bute,1,2021-09,2021-10
+Renfrewshire,City of Edinburgh,5,2021-09,2021-10
+Renfrewshire,East Renfrewshire,2,2021-09,2021-10
+Renfrewshire,Glasgow City,21,2021-09,2021-10
+Renfrewshire,Hillingdon,1,2021-09,2021-10
+Renfrewshire,Inverclyde,1,2021-09,2021-10
+Renfrewshire,Rushcliffe,1,2021-09,2021-10
+Renfrewshire,South Ayrshire,2,2021-09,2021-10
+Renfrewshire,Stirling,2,2021-09,2021-10
+Rhondda Cynon Taf,Antrim and Newtownabbey,1,2021-09,2021-10
+Rhondda Cynon Taf,Blaenau Gwent,1,2021-09,2021-10
+Rhondda Cynon Taf,Bridgend,1,2021-09,2021-10
+Rhondda Cynon Taf,Cardiff,6,2021-09,2021-10
+Rhondda Cynon Taf,Conwy,1,2021-09,2021-10
+Rhondda Cynon Taf,Cornwall,2,2021-09,2021-10
+Rhondda Cynon Taf,East Suffolk,2,2021-09,2021-10
+Rhondda Cynon Taf,Gwynedd,1,2021-09,2021-10
+Rhondda Cynon Taf,Liverpool,1,2021-09,2021-10
+Rhondda Cynon Taf,Merthyr Tydfil,1,2021-09,2021-10
+Rhondda Cynon Taf,Neath Port Talbot,1,2021-09,2021-10
+Rhondda Cynon Taf,Vale of Glamorgan,1,2021-09,2021-10
+Ribble Valley,Bolton,2,2021-09,2021-10
+Ribble Valley,Burnley,1,2021-09,2021-10
+Ribble Valley,Cheshire West and Chester,1,2021-09,2021-10
+Ribble Valley,Eden,1,2021-09,2021-10
+Ribble Valley,Kirklees,2,2021-09,2021-10
+Richmond upon Thames,Salford,2,2021-09,2021-10
+Richmond upon Thames,Sheffield,2,2021-09,2021-10
+Richmondshire,Boston,1,2021-09,2021-10
+Richmondshire,Newcastle upon Tyne,2,2021-09,2021-10
+Rochdale,Bolton,1,2021-09,2021-10
+Rochdale,Conwy,1,2021-09,2021-10
+Rochdale,Manchester,5,2021-09,2021-10
+Rochdale,Oldham,1,2021-09,2021-10
+Rochdale,Ribble Valley,2,2021-09,2021-10
+Rochdale,Wandsworth,1,2021-09,2021-10
+Rochdale,West Lancashire,2,2021-09,2021-10
+Rochdale,West Northamptonshire,1,2021-09,2021-10
+Rochford,Dorset,1,2021-09,2021-10
+Rochford,Haringey,2,2021-09,2021-10
+Rochford,Solihull,1,2021-09,2021-10
+Rossendale,Aberdeen City,2,2021-09,2021-10
+Rossendale,Burnley,1,2021-09,2021-10
+Rossendale,Bury,2,2021-09,2021-10
+Rossendale,Manchester,2,2021-09,2021-10
+Rossendale,Preston,1,2021-09,2021-10
+Rossendale,Salford,1,2021-09,2021-10
+Rother,Ashford,1,2021-09,2021-10
+Rother,Eastbourne,1,2021-09,2021-10
+Rother,Mid Suffolk,1,2021-09,2021-10
+Rother,Torbay,1,2021-09,2021-10
+Rother,Wealden,1,2021-09,2021-10
+Rotherham,Barnsley,1,2021-09,2021-10
+Rotherham,"Bristol, City of",2,2021-09,2021-10
+Rotherham,City of Edinburgh,1,2021-09,2021-10
+Rotherham,Doncaster,1,2021-09,2021-10
+Rotherham,Highland,2,2021-09,2021-10
+Rotherham,Huntingdonshire,2,2021-09,2021-10
+Rotherham,King's Lynn and West Norfolk,1,2021-09,2021-10
+Rotherham,Manchester,1,2021-09,2021-10
+Rotherham,Ribble Valley,1,2021-09,2021-10
+Rotherham,Sheffield,8,2021-09,2021-10
+Rotherham,Wyre,1,2021-09,2021-10
+Rugby,Coventry,1,2021-09,2021-10
+Rugby,Dudley,1,2021-09,2021-10
+Rugby,Haringey,1,2021-09,2021-10
+Rugby,"Kingston upon Hull, City of",4,2021-09,2021-10
+Rugby,Na h-Eileanan Siar,1,2021-09,2021-10
+Runnymede,Cambridge,1,2021-09,2021-10
+Runnymede,Oxford,4,2021-09,2021-10
+Runnymede,Sheffield,1,2021-09,2021-10
+Runnymede,Swindon,1,2021-09,2021-10
+Runnymede,Windsor and Maidenhead,2,2021-09,2021-10
+Rushcliffe,Amber Valley,2,2021-09,2021-10
+Rushcliffe,Birmingham,1,2021-09,2021-10
+Rushcliffe,Broxtowe,2,2021-09,2021-10
+Rushcliffe,"Kingston upon Hull, City of",2,2021-09,2021-10
+Rushcliffe,Neath Port Talbot,1,2021-09,2021-10
+Rushcliffe,Nottingham,1,2021-09,2021-10
+Rushcliffe,South Lakeland,2,2021-09,2021-10
+Rushcliffe,South Somerset,1,2021-09,2021-10
+Rushcliffe,Wiltshire,2,2021-09,2021-10
+Rushcliffe,York,1,2021-09,2021-10
+Rushmoor,Hillingdon,2,2021-09,2021-10
+Rushmoor,Walsall,3,2021-09,2021-10
+Rutland,Barnsley,2,2021-09,2021-10
+Rutland,Epsom and Ewell,1,2021-09,2021-10
+Rutland,Leeds,1,2021-09,2021-10
+Rutland,South Hams,1,2021-09,2021-10
+Rutland,West Northamptonshire,2,2021-09,2021-10
+Ryedale,Ards and North Down,2,2021-09,2021-10
+Ryedale,Barnet,2,2021-09,2021-10
+Ryedale,Coventry,2,2021-09,2021-10
+Ryedale,East Riding of Yorkshire,1,2021-09,2021-10
+Salford,Birmingham,1,2021-09,2021-10
+Salford,Blackpool,2,2021-09,2021-10
+Salford,"Bristol, City of",1,2021-09,2021-10
+Salford,Bury,6,2021-09,2021-10
+Salford,Cheshire East,1,2021-09,2021-10
+Salford,Cornwall,1,2021-09,2021-10
+Salford,Crawley,1,2021-09,2021-10
+Salford,Enfield,1,2021-09,2021-10
+Salford,Flintshire,1,2021-09,2021-10
+Salford,High Peak,1,2021-09,2021-10
+Salford,Highland,2,2021-09,2021-10
+Salford,Leeds,1,2021-09,2021-10
+Salford,Liverpool,3,2021-09,2021-10
+Salford,Manchester,23,2021-09,2021-10
+Salford,Newcastle upon Tyne,1,2021-09,2021-10
+Salford,Oldham,4,2021-09,2021-10
+Salford,Rochdale,1,2021-09,2021-10
+Salford,Rossendale,1,2021-09,2021-10
+Salford,Sefton,1,2021-09,2021-10
+Salford,Sheffield,1,2021-09,2021-10
+Salford,St. Helens,2,2021-09,2021-10
+Salford,Staffordshire Moorlands,1,2021-09,2021-10
+Salford,Stirling,1,2021-09,2021-10
+Salford,Stockport,1,2021-09,2021-10
+Salford,Stoke-on-Trent,1,2021-09,2021-10
+Salford,Sunderland,1,2021-09,2021-10
+Salford,Tower Hamlets,1,2021-09,2021-10
+Salford,Trafford,5,2021-09,2021-10
+Salford,Warwick,1,2021-09,2021-10
+Salford,West Lancashire,3,2021-09,2021-10
+Salford,West Suffolk,2,2021-09,2021-10
+Salford,Wigan,1,2021-09,2021-10
+Salford,Wyre,1,2021-09,2021-10
+Sandwell,Birmingham,12,2021-09,2021-10
+Sandwell,Cannock Chase,1,2021-09,2021-10
+Sandwell,Cardiff,1,2021-09,2021-10
+Sandwell,Cornwall,2,2021-09,2021-10
+Sandwell,Dudley,2,2021-09,2021-10
+Sandwell,North West Leicestershire,1,2021-09,2021-10
+Sandwell,Redbridge,1,2021-09,2021-10
+Sandwell,Solihull,1,2021-09,2021-10
+Sandwell,Tameside,1,2021-09,2021-10
+Sandwell,Westminster,2,2021-09,2021-10
+Sandwell,Wokingham,1,2021-09,2021-10
+Sandwell,Wolverhampton,2,2021-09,2021-10
+Scarborough,Barnsley,3,2021-09,2021-10
+Scarborough,Blackpool,2,2021-09,2021-10
+Scarborough,Bolton,1,2021-09,2021-10
+Scarborough,Bradford,1,2021-09,2021-10
+Scarborough,Calderdale,1,2021-09,2021-10
+Scarborough,City of Edinburgh,2,2021-09,2021-10
+Scarborough,East Hertfordshire,1,2021-09,2021-10
+Scarborough,Harrogate,1,2021-09,2021-10
+Scarborough,Highland,2,2021-09,2021-10
+Scarborough,Leeds,5,2021-09,2021-10
+Scarborough,Lincoln,1,2021-09,2021-10
+Scarborough,Liverpool,1,2021-09,2021-10
+Scarborough,Rotherham,1,2021-09,2021-10
+Scarborough,Selby,1,2021-09,2021-10
+Scarborough,Stratford-on-Avon,2,2021-09,2021-10
+Scottish Borders,Cardiff,2,2021-09,2021-10
+Scottish Borders,City of Edinburgh,2,2021-09,2021-10
+Scottish Borders,Glasgow City,2,2021-09,2021-10
+Scottish Borders,Highland,1,2021-09,2021-10
+Scottish Borders,Hyndburn,1,2021-09,2021-10
+Scottish Borders,Leeds,1,2021-09,2021-10
+Scottish Borders,Newcastle upon Tyne,1,2021-09,2021-10
+Scottish Borders,North Ayrshire,1,2021-09,2021-10
+Scottish Borders,South Ayrshire,1,2021-09,2021-10
+Scottish Borders,Stirling,2,2021-09,2021-10
+Scottish Borders,Swale,2,2021-09,2021-10
+Sedgemoor,"Bristol, City of",1,2021-09,2021-10
+Sedgemoor,Caerphilly,1,2021-09,2021-10
+Sedgemoor,Coventry,1,2021-09,2021-10
+Sedgemoor,Dorset,1,2021-09,2021-10
+Sedgemoor,Glasgow City,1,2021-09,2021-10
+Sedgemoor,Gloucester,1,2021-09,2021-10
+Sedgemoor,North Somerset,4,2021-09,2021-10
+Sedgemoor,Portsmouth,1,2021-09,2021-10
+Sedgemoor,South Oxfordshire,1,2021-09,2021-10
+Sedgemoor,West Berkshire,1,2021-09,2021-10
+Sefton,Highland,4,2021-09,2021-10
+Sefton,Leicester,1,2021-09,2021-10
+Sefton,Liverpool,4,2021-09,2021-10
+Sefton,Northumberland,2,2021-09,2021-10
+Sefton,Plymouth,1,2021-09,2021-10
+Sefton,West Lancashire,1,2021-09,2021-10
+Selby,Kirklees,1,2021-09,2021-10
+Selby,Leeds,4,2021-09,2021-10
+Selby,Portsmouth,1,2021-09,2021-10
+Selby,South Ayrshire,1,2021-09,2021-10
+Selby,Wakefield,1,2021-09,2021-10
+Selby,Westminster,2,2021-09,2021-10
+Selby,Wirral,1,2021-09,2021-10
+Selby,York,1,2021-09,2021-10
+Sevenoaks,Bromley,2,2021-09,2021-10
+Sevenoaks,Folkestone and Hythe,2,2021-09,2021-10
+Sevenoaks,Gedling,1,2021-09,2021-10
+Sevenoaks,Newcastle upon Tyne,1,2021-09,2021-10
+Sevenoaks,Northumberland,1,2021-09,2021-10
+Sevenoaks,Reigate and Banstead,1,2021-09,2021-10
+Sevenoaks,Surrey Heath,1,2021-09,2021-10
+Sevenoaks,Tunbridge Wells,1,2021-09,2021-10
+Sevenoaks,Waverley,1,2021-09,2021-10
+Sheffield,Barnsley,2,2021-09,2021-10
+Sheffield,Blackburn with Darwen,1,2021-09,2021-10
+Sheffield,Brent,4,2021-09,2021-10
+Sheffield,"Bristol, City of",2,2021-09,2021-10
+Sheffield,Bromley,1,2021-09,2021-10
+Sheffield,Bromsgrove,2,2021-09,2021-10
+Sheffield,Broxtowe,1,2021-09,2021-10
+Sheffield,Cambridge,1,2021-09,2021-10
+Sheffield,Charnwood,1,2021-09,2021-10
+Sheffield,Cheshire West and Chester,1,2021-09,2021-10
+Sheffield,City of London,3,2021-09,2021-10
+Sheffield,Conwy,2,2021-09,2021-10
+Sheffield,County Durham,2,2021-09,2021-10
+Sheffield,Coventry,1,2021-09,2021-10
+Sheffield,Croydon,2,2021-09,2021-10
+Sheffield,Derby,1,2021-09,2021-10
+Sheffield,Derbyshire Dales,1,2021-09,2021-10
+Sheffield,Doncaster,3,2021-09,2021-10
+Sheffield,East Ayrshire,1,2021-09,2021-10
+Sheffield,Elmbridge,2,2021-09,2021-10
+Sheffield,Flintshire,1,2021-09,2021-10
+Sheffield,Gedling,1,2021-09,2021-10
+Sheffield,Gwynedd,1,2021-09,2021-10
+Sheffield,Hammersmith and Fulham,2,2021-09,2021-10
+Sheffield,Haringey,4,2021-09,2021-10
+Sheffield,Highland,2,2021-09,2021-10
+Sheffield,Hounslow,8,2021-09,2021-10
+Sheffield,King's Lynn and West Norfolk,3,2021-09,2021-10
+Sheffield,Kingston upon Thames,5,2021-09,2021-10
+Sheffield,Kirklees,1,2021-09,2021-10
+Sheffield,Leeds,5,2021-09,2021-10
+Sheffield,Liverpool,8,2021-09,2021-10
+Sheffield,Manchester,7,2021-09,2021-10
+Sheffield,Newcastle upon Tyne,2,2021-09,2021-10
+Sheffield,Newham,1,2021-09,2021-10
+Sheffield,North Devon,1,2021-09,2021-10
+Sheffield,North East Derbyshire,4,2021-09,2021-10
+Sheffield,North Lanarkshire,1,2021-09,2021-10
+Sheffield,Northumberland,1,2021-09,2021-10
+Sheffield,Nottingham,2,2021-09,2021-10
+Sheffield,Reading,1,2021-09,2021-10
+Sheffield,Richmondshire,2,2021-09,2021-10
+Sheffield,Rotherham,8,2021-09,2021-10
+Sheffield,Runnymede,1,2021-09,2021-10
+Sheffield,Ryedale,1,2021-09,2021-10
+Sheffield,Southampton,1,2021-09,2021-10
+Sheffield,Sutton,1,2021-09,2021-10
+Sheffield,Swansea,2,2021-09,2021-10
+Sheffield,Tower Hamlets,1,2021-09,2021-10
+Sheffield,Wandsworth,3,2021-09,2021-10
+Sheffield,Wiltshire,2,2021-09,2021-10
+Shetland Islands,Ashford,1,2021-09,2021-10
+Shetland Islands,City of Edinburgh,1,2021-09,2021-10
+Shetland Islands,Glasgow City,1,2021-09,2021-10
+Shetland Islands,Manchester,1,2021-09,2021-10
+Shetland Islands,South Lakeland,1,2021-09,2021-10
+Shetland Islands,St. Helens,1,2021-09,2021-10
+Shropshire,Barnet,2,2021-09,2021-10
+Shropshire,Birmingham,1,2021-09,2021-10
+Shropshire,Buckinghamshire,1,2021-09,2021-10
+Shropshire,Dudley,1,2021-09,2021-10
+Shropshire,Eastbourne,1,2021-09,2021-10
+Shropshire,Manchester,4,2021-09,2021-10
+Shropshire,Powys,1,2021-09,2021-10
+Shropshire,Stoke-on-Trent,1,2021-09,2021-10
+Shropshire,Telford and Wrekin,1,2021-09,2021-10
+Shropshire,Tower Hamlets,1,2021-09,2021-10
+Shropshire,Westminster,1,2021-09,2021-10
+Shropshire,Wolverhampton,1,2021-09,2021-10
+Slough,Buckinghamshire,2,2021-09,2021-10
+Slough,Central Bedfordshire,1,2021-09,2021-10
+Slough,Elmbridge,1,2021-09,2021-10
+Slough,Leicester,1,2021-09,2021-10
+Slough,Nottingham,2,2021-09,2021-10
+Slough,South Kesteven,1,2021-09,2021-10
+Slough,Southwark,1,2021-09,2021-10
+Slough,Windsor and Maidenhead,1,2021-09,2021-10
+Solihull,Barnet,1,2021-09,2021-10
+Solihull,Birmingham,11,2021-09,2021-10
+Solihull,"Bournemouth, Christchurch and Poole",1,2021-09,2021-10
+Solihull,Brent,2,2021-09,2021-10
+Solihull,Cheltenham,2,2021-09,2021-10
+Solihull,City of Edinburgh,2,2021-09,2021-10
+Solihull,Coventry,2,2021-09,2021-10
+Solihull,Dudley,1,2021-09,2021-10
+Solihull,Fermanagh and Omagh,1,2021-09,2021-10
+Solihull,Highland,1,2021-09,2021-10
+Solihull,Isle of Wight,2,2021-09,2021-10
+Solihull,Islington,1,2021-09,2021-10
+Solihull,"Kingston upon Hull, City of",1,2021-09,2021-10
+Solihull,Manchester,1,2021-09,2021-10
+Solihull,Newcastle-under-Lyme,2,2021-09,2021-10
+Solihull,North Lincolnshire,1,2021-09,2021-10
+Solihull,North Northamptonshire,2,2021-09,2021-10
+Solihull,North Tyneside,2,2021-09,2021-10
+Solihull,Northumberland,1,2021-09,2021-10
+Solihull,Rugby,1,2021-09,2021-10
+Solihull,Shropshire,1,2021-09,2021-10
+Solihull,Stockport,1,2021-09,2021-10
+Solihull,Telford and Wrekin,1,2021-09,2021-10
+Solihull,Warwick,2,2021-09,2021-10
+Solihull,Wolverhampton,1,2021-09,2021-10
+Somerset West and Taunton,Blaby,2,2021-09,2021-10
+Somerset West and Taunton,Brighton and Hove,2,2021-09,2021-10
+Somerset West and Taunton,"Bristol, City of",1,2021-09,2021-10
+Somerset West and Taunton,Caerphilly,1,2021-09,2021-10
+Somerset West and Taunton,East Devon,1,2021-09,2021-10
+Somerset West and Taunton,Exeter,2,2021-09,2021-10
+Somerset West and Taunton,Glasgow City,1,2021-09,2021-10
+Somerset West and Taunton,Harrow,1,2021-09,2021-10
+Somerset West and Taunton,Mendip,2,2021-09,2021-10
+Somerset West and Taunton,Mid Devon,1,2021-09,2021-10
+Somerset West and Taunton,North Somerset,2,2021-09,2021-10
+Somerset West and Taunton,Swansea,1,2021-09,2021-10
+Somerset West and Taunton,West Northamptonshire,1,2021-09,2021-10
+South Ayrshire,City of Edinburgh,2,2021-09,2021-10
+South Ayrshire,Cornwall,1,2021-09,2021-10
+South Ayrshire,Dundee City,2,2021-09,2021-10
+South Ayrshire,East Ayrshire,1,2021-09,2021-10
+South Ayrshire,Glasgow City,2,2021-09,2021-10
+South Ayrshire,North Lanarkshire,1,2021-09,2021-10
+South Ayrshire,South Tyneside,1,2021-09,2021-10
+South Cambridgeshire,Bedford,1,2021-09,2021-10
+South Cambridgeshire,Brighton and Hove,1,2021-09,2021-10
+South Cambridgeshire,Cambridge,1,2021-09,2021-10
+South Cambridgeshire,Cardiff,1,2021-09,2021-10
+South Cambridgeshire,Fenland,2,2021-09,2021-10
+South Cambridgeshire,Isle of Wight,2,2021-09,2021-10
+South Cambridgeshire,Mansfield,1,2021-09,2021-10
+South Cambridgeshire,Rutland,1,2021-09,2021-10
+South Cambridgeshire,Stevenage,2,2021-09,2021-10
+South Derbyshire,Derbyshire Dales,1,2021-09,2021-10
+South Derbyshire,East Staffordshire,2,2021-09,2021-10
+South Derbyshire,North Warwickshire,1,2021-09,2021-10
+South Derbyshire,North West Leicestershire,1,2021-09,2021-10
+South Gloucestershire,Ashford,1,2021-09,2021-10
+South Gloucestershire,"Bristol, City of",3,2021-09,2021-10
+South Gloucestershire,East Devon,1,2021-09,2021-10
+South Gloucestershire,Monmouthshire,1,2021-09,2021-10
+South Gloucestershire,West Northamptonshire,1,2021-09,2021-10
+South Hams,"Bristol, City of",2,2021-09,2021-10
+South Hams,Cambridge,1,2021-09,2021-10
+South Hams,Cardiff,2,2021-09,2021-10
+South Hams,"Kingston upon Hull, City of",1,2021-09,2021-10
+South Hams,Kirklees,2,2021-09,2021-10
+South Hams,Lambeth,1,2021-09,2021-10
+South Hams,Mid Sussex,2,2021-09,2021-10
+South Hams,Stratford-on-Avon,1,2021-09,2021-10
+South Hams,Swansea,3,2021-09,2021-10
+South Holland,Birmingham,1,2021-09,2021-10
+South Holland,Brighton and Hove,1,2021-09,2021-10
+South Holland,Manchester,1,2021-09,2021-10
+South Holland,Peterborough,3,2021-09,2021-10
+South Holland,West Northamptonshire,1,2021-09,2021-10
+South Kesteven,Bassetlaw,1,2021-09,2021-10
+South Kesteven,Bedford,1,2021-09,2021-10
+South Kesteven,City of Edinburgh,1,2021-09,2021-10
+South Kesteven,North Kesteven,1,2021-09,2021-10
+South Lakeland,Birmingham,2,2021-09,2021-10
+South Lakeland,Chorley,1,2021-09,2021-10
+South Lakeland,East Dunbartonshire,1,2021-09,2021-10
+South Lakeland,Falkirk,1,2021-09,2021-10
+South Lakeland,Harrow,2,2021-09,2021-10
+South Lakeland,Havant,1,2021-09,2021-10
+South Lakeland,Lancaster,2,2021-09,2021-10
+South Lakeland,Leicester,2,2021-09,2021-10
+South Lakeland,Manchester,3,2021-09,2021-10
+South Lakeland,North Kesteven,2,2021-09,2021-10
+South Lakeland,North Warwickshire,2,2021-09,2021-10
+South Lakeland,Oxford,1,2021-09,2021-10
+South Lakeland,Peterborough,1,2021-09,2021-10
+South Lakeland,Redbridge,1,2021-09,2021-10
+South Lakeland,Scarborough,2,2021-09,2021-10
+South Lakeland,South Somerset,1,2021-09,2021-10
+South Lakeland,Stevenage,2,2021-09,2021-10
+South Lakeland,Stockton-on-Tees,1,2021-09,2021-10
+South Lakeland,West Lothian,1,2021-09,2021-10
+South Lakeland,York,2,2021-09,2021-10
+South Lanarkshire,Barnsley,2,2021-09,2021-10
+South Lanarkshire,Belfast,2,2021-09,2021-10
+South Lanarkshire,Cheshire East,1,2021-09,2021-10
+South Lanarkshire,East Dunbartonshire,1,2021-09,2021-10
+South Lanarkshire,East Renfrewshire,2,2021-09,2021-10
+South Lanarkshire,Glasgow City,12,2021-09,2021-10
+South Lanarkshire,Lambeth,1,2021-09,2021-10
+South Lanarkshire,Liverpool,2,2021-09,2021-10
+South Lanarkshire,North Lanarkshire,2,2021-09,2021-10
+South Lanarkshire,Northumberland,2,2021-09,2021-10
+South Lanarkshire,Redditch,2,2021-09,2021-10
+South Lanarkshire,Scottish Borders,2,2021-09,2021-10
+South Lanarkshire,South Ayrshire,3,2021-09,2021-10
+South Lanarkshire,South Derbyshire,1,2021-09,2021-10
+South Lanarkshire,Staffordshire Moorlands,1,2021-09,2021-10
+South Norfolk,Great Yarmouth,1,2021-09,2021-10
+South Norfolk,Norwich,1,2021-09,2021-10
+South Norfolk,Oxford,1,2021-09,2021-10
+South Norfolk,Sheffield,2,2021-09,2021-10
+South Norfolk,Wokingham,2,2021-09,2021-10
+South Oxfordshire,Bath and North East Somerset,1,2021-09,2021-10
+South Oxfordshire,Cardiff,1,2021-09,2021-10
+South Oxfordshire,Cheshire East,2,2021-09,2021-10
+South Oxfordshire,Eastbourne,1,2021-09,2021-10
+South Oxfordshire,Lincoln,1,2021-09,2021-10
+South Oxfordshire,New Forest,1,2021-09,2021-10
+South Oxfordshire,Oxford,2,2021-09,2021-10
+South Oxfordshire,Reading,1,2021-09,2021-10
+South Oxfordshire,Sheffield,2,2021-09,2021-10
+South Oxfordshire,Wealden,1,2021-09,2021-10
+South Oxfordshire,West Dunbartonshire,1,2021-09,2021-10
+South Ribble,Belfast,2,2021-09,2021-10
+South Ribble,Chorley,1,2021-09,2021-10
+South Ribble,Kirklees,2,2021-09,2021-10
+South Ribble,Ribble Valley,1,2021-09,2021-10
+South Ribble,Salford,1,2021-09,2021-10
+South Somerset,Blaenau Gwent,1,2021-09,2021-10
+South Somerset,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+South Somerset,Cardiff,1,2021-09,2021-10
+South Somerset,Dartford,1,2021-09,2021-10
+South Somerset,Leeds,1,2021-09,2021-10
+South Somerset,Redbridge,1,2021-09,2021-10
+South Somerset,Southwark,1,2021-09,2021-10
+South Somerset,Stevenage,1,2021-09,2021-10
+South Staffordshire,Birmingham,1,2021-09,2021-10
+South Staffordshire,Bromsgrove,2,2021-09,2021-10
+South Staffordshire,Cannock Chase,1,2021-09,2021-10
+South Staffordshire,Ceredigion,1,2021-09,2021-10
+South Staffordshire,Coventry,1,2021-09,2021-10
+South Staffordshire,Derby,1,2021-09,2021-10
+South Staffordshire,Dover,2,2021-09,2021-10
+South Staffordshire,Gloucester,1,2021-09,2021-10
+South Staffordshire,Solihull,1,2021-09,2021-10
+South Staffordshire,Wakefield,1,2021-09,2021-10
+South Staffordshire,Wolverhampton,3,2021-09,2021-10
+South Tyneside,Glasgow City,3,2021-09,2021-10
+South Tyneside,Leeds,1,2021-09,2021-10
+South Tyneside,Newcastle upon Tyne,3,2021-09,2021-10
+South Tyneside,Northumberland,1,2021-09,2021-10
+South Tyneside,Oldham,1,2021-09,2021-10
+South Tyneside,Stockton-on-Tees,1,2021-09,2021-10
+Southampton,"Bournemouth, Christchurch and Poole",3,2021-09,2021-10
+Southampton,Bradford,1,2021-09,2021-10
+Southampton,Buckinghamshire,1,2021-09,2021-10
+Southampton,Cambridge,2,2021-09,2021-10
+Southampton,Cardiff,2,2021-09,2021-10
+Southampton,Cheshire West and Chester,1,2021-09,2021-10
+Southampton,Cornwall,2,2021-09,2021-10
+Southampton,Crawley,3,2021-09,2021-10
+Southampton,Dacorum,1,2021-09,2021-10
+Southampton,East Suffolk,1,2021-09,2021-10
+Southampton,Eastleigh,4,2021-09,2021-10
+Southampton,Fareham,1,2021-09,2021-10
+Southampton,Hammersmith and Fulham,1,2021-09,2021-10
+Southampton,Hounslow,1,2021-09,2021-10
+Southampton,New Forest,1,2021-09,2021-10
+Southampton,North Lincolnshire,2,2021-09,2021-10
+Southampton,Oxford,4,2021-09,2021-10
+Southampton,Reading,1,2021-09,2021-10
+Southampton,Runnymede,4,2021-09,2021-10
+Southampton,Salford,2,2021-09,2021-10
+Southampton,Southwark,2,2021-09,2021-10
+Southampton,Winchester,3,2021-09,2021-10
+Southend-on-Sea,Barnsley,1,2021-09,2021-10
+Southend-on-Sea,Blackpool,1,2021-09,2021-10
+Southend-on-Sea,Manchester,1,2021-09,2021-10
+Southend-on-Sea,Redbridge,2,2021-09,2021-10
+Southend-on-Sea,Rochford,3,2021-09,2021-10
+Southend-on-Sea,Stockport,1,2021-09,2021-10
+Southend-on-Sea,Wigan,1,2021-09,2021-10
+Southwark,Barking and Dagenham,1,2021-09,2021-10
+Southwark,Barnet,2,2021-09,2021-10
+Southwark,Belfast,1,2021-09,2021-10
+Southwark,Brent,1,2021-09,2021-10
+Southwark,Brighton and Hove,1,2021-09,2021-10
+Southwark,"Bristol, City of",2,2021-09,2021-10
+Southwark,Bromley,7,2021-09,2021-10
+Southwark,Cambridge,2,2021-09,2021-10
+Southwark,Camden,5,2021-09,2021-10
+Southwark,Chelmsford,1,2021-09,2021-10
+Southwark,City of Edinburgh,1,2021-09,2021-10
+Southwark,City of London,7,2021-09,2021-10
+Southwark,Cornwall,2,2021-09,2021-10
+Southwark,Croydon,2,2021-09,2021-10
+Southwark,Dorset,2,2021-09,2021-10
+Southwark,Ealing,4,2021-09,2021-10
+Southwark,Folkestone and Hythe,2,2021-09,2021-10
+Southwark,Glasgow City,3,2021-09,2021-10
+Southwark,Hackney,3,2021-09,2021-10
+Southwark,Halton,1,2021-09,2021-10
+Southwark,Hammersmith and Fulham,1,2021-09,2021-10
+Southwark,Haringey,2,2021-09,2021-10
+Southwark,Hastings,1,2021-09,2021-10
+Southwark,Hounslow,1,2021-09,2021-10
+Southwark,Huntingdonshire,1,2021-09,2021-10
+Southwark,Islington,2,2021-09,2021-10
+Southwark,Lambeth,8,2021-09,2021-10
+Southwark,Lewes,1,2021-09,2021-10
+Southwark,Lewisham,6,2021-09,2021-10
+Southwark,Newcastle upon Tyne,1,2021-09,2021-10
+Southwark,Oxford,3,2021-09,2021-10
+Southwark,Peterborough,1,2021-09,2021-10
+Southwark,Redbridge,1,2021-09,2021-10
+Southwark,Sheffield,2,2021-09,2021-10
+Southwark,Tamworth,2,2021-09,2021-10
+Southwark,Thanet,2,2021-09,2021-10
+Southwark,Tower Hamlets,4,2021-09,2021-10
+Southwark,Wandsworth,2,2021-09,2021-10
+Southwark,West Oxfordshire,2,2021-09,2021-10
+Southwark,Westminster,1,2021-09,2021-10
+Southwark,Wiltshire,1,2021-09,2021-10
+Spelthorne,Cardiff,2,2021-09,2021-10
+Spelthorne,Coventry,1,2021-09,2021-10
+Spelthorne,Kingston upon Thames,1,2021-09,2021-10
+Spelthorne,Swindon,1,2021-09,2021-10
+St Albans,"Bristol, City of",1,2021-09,2021-10
+St Albans,Camden,4,2021-09,2021-10
+St Albans,Coventry,2,2021-09,2021-10
+St Albans,Doncaster,2,2021-09,2021-10
+St Albans,Elmbridge,1,2021-09,2021-10
+St Albans,Haringey,1,2021-09,2021-10
+St Albans,Harrogate,1,2021-09,2021-10
+St Albans,Neath Port Talbot,1,2021-09,2021-10
+St Albans,Portsmouth,1,2021-09,2021-10
+St Albans,Southampton,1,2021-09,2021-10
+St Albans,Southwark,1,2021-09,2021-10
+St Albans,Stevenage,1,2021-09,2021-10
+St Albans,Watford,1,2021-09,2021-10
+St. Helens,Cheshire West and Chester,1,2021-09,2021-10
+St. Helens,Chorley,2,2021-09,2021-10
+St. Helens,City of Edinburgh,2,2021-09,2021-10
+St. Helens,East Lindsey,1,2021-09,2021-10
+St. Helens,Halton,1,2021-09,2021-10
+St. Helens,Highland,2,2021-09,2021-10
+St. Helens,Knowsley,3,2021-09,2021-10
+St. Helens,Liverpool,2,2021-09,2021-10
+St. Helens,Preston,1,2021-09,2021-10
+St. Helens,Salford,2,2021-09,2021-10
+St. Helens,Trafford,1,2021-09,2021-10
+St. Helens,Warrington,10,2021-09,2021-10
+Stafford,Bath and North East Somerset,1,2021-09,2021-10
+Stafford,Cannock Chase,1,2021-09,2021-10
+Stafford,Hammersmith and Fulham,1,2021-09,2021-10
+Stafford,Manchester,2,2021-09,2021-10
+Staffordshire Moorlands,Arun,1,2021-09,2021-10
+Staffordshire Moorlands,Blackpool,1,2021-09,2021-10
+Staffordshire Moorlands,Cheshire West and Chester,1,2021-09,2021-10
+Staffordshire Moorlands,Manchester,4,2021-09,2021-10
+Staffordshire Moorlands,Runnymede,1,2021-09,2021-10
+Staffordshire Moorlands,Test Valley,1,2021-09,2021-10
+Stevenage,Dacorum,2,2021-09,2021-10
+Stevenage,Luton,1,2021-09,2021-10
+Stevenage,Scarborough,1,2021-09,2021-10
+Stevenage,Sheffield,1,2021-09,2021-10
+Stirling,Bridgend,1,2021-09,2021-10
+Stirling,City of Edinburgh,1,2021-09,2021-10
+Stirling,Clackmannanshire,1,2021-09,2021-10
+Stirling,East Dunbartonshire,1,2021-09,2021-10
+Stirling,Falkirk,1,2021-09,2021-10
+Stirling,Glasgow City,1,2021-09,2021-10
+Stirling,Highland,1,2021-09,2021-10
+Stirling,Renfrewshire,1,2021-09,2021-10
+Stirling,West Lothian,1,2021-09,2021-10
+Stockport,Cheshire West and Chester,4,2021-09,2021-10
+Stockport,City of Edinburgh,1,2021-09,2021-10
+Stockport,Conwy,1,2021-09,2021-10
+Stockport,Croydon,1,2021-09,2021-10
+Stockport,Glasgow City,1,2021-09,2021-10
+Stockport,Hackney,1,2021-09,2021-10
+Stockport,High Peak,1,2021-09,2021-10
+Stockport,Leeds,1,2021-09,2021-10
+Stockport,Manchester,7,2021-09,2021-10
+Stockport,North East Lincolnshire,1,2021-09,2021-10
+Stockport,North Lanarkshire,1,2021-09,2021-10
+Stockport,Northumberland,1,2021-09,2021-10
+Stockport,Reading,1,2021-09,2021-10
+Stockport,Salford,1,2021-09,2021-10
+Stockport,Sheffield,1,2021-09,2021-10
+Stockport,Stafford,1,2021-09,2021-10
+Stockport,Wokingham,1,2021-09,2021-10
+Stockport,Wrexham,2,2021-09,2021-10
+Stockton-on-Tees,Chesterfield,2,2021-09,2021-10
+Stockton-on-Tees,Darlington,1,2021-09,2021-10
+Stockton-on-Tees,Glasgow City,3,2021-09,2021-10
+Stockton-on-Tees,Hertsmere,1,2021-09,2021-10
+Stockton-on-Tees,"Kingston upon Hull, City of",2,2021-09,2021-10
+Stockton-on-Tees,Middlesbrough,5,2021-09,2021-10
+Stockton-on-Tees,Redcar and Cleveland,1,2021-09,2021-10
+Stockton-on-Tees,Richmondshire,1,2021-09,2021-10
+Stockton-on-Tees,Wandsworth,2,2021-09,2021-10
+Stoke-on-Trent,Ashfield,1,2021-09,2021-10
+Stoke-on-Trent,Cheshire East,1,2021-09,2021-10
+Stoke-on-Trent,Cheshire West and Chester,4,2021-09,2021-10
+Stoke-on-Trent,Cornwall,2,2021-09,2021-10
+Stoke-on-Trent,Liverpool,1,2021-09,2021-10
+Stoke-on-Trent,Manchester,2,2021-09,2021-10
+Stoke-on-Trent,Newcastle-under-Lyme,6,2021-09,2021-10
+Stoke-on-Trent,Powys,1,2021-09,2021-10
+Stoke-on-Trent,Stafford,4,2021-09,2021-10
+Stoke-on-Trent,Staffordshire Moorlands,1,2021-09,2021-10
+Stoke-on-Trent,Telford and Wrekin,1,2021-09,2021-10
+Stoke-on-Trent,Warrington,1,2021-09,2021-10
+Stratford-on-Avon,Birmingham,2,2021-09,2021-10
+Stratford-on-Avon,Central Bedfordshire,1,2021-09,2021-10
+Stratford-on-Avon,Cherwell,2,2021-09,2021-10
+Stratford-on-Avon,Doncaster,2,2021-09,2021-10
+Stratford-on-Avon,Fife,2,2021-09,2021-10
+Stratford-on-Avon,Gwynedd,2,2021-09,2021-10
+Stratford-on-Avon,Hounslow,1,2021-09,2021-10
+Stratford-on-Avon,Leicester,1,2021-09,2021-10
+Stratford-on-Avon,Newcastle upon Tyne,1,2021-09,2021-10
+Stratford-on-Avon,Redcar and Cleveland,1,2021-09,2021-10
+Stratford-on-Avon,Solihull,1,2021-09,2021-10
+Stratford-on-Avon,Tower Hamlets,2,2021-09,2021-10
+Stratford-on-Avon,Wandsworth,1,2021-09,2021-10
+Stratford-on-Avon,Warrington,1,2021-09,2021-10
+Stratford-on-Avon,Wiltshire,1,2021-09,2021-10
+Stroud,Gloucester,3,2021-09,2021-10
+Stroud,Malvern Hills,1,2021-09,2021-10
+Stroud,South Hams,2,2021-09,2021-10
+Stroud,York,1,2021-09,2021-10
+Sunderland,Bassetlaw,2,2021-09,2021-10
+Sunderland,Glasgow City,12,2021-09,2021-10
+Sunderland,Gosport,2,2021-09,2021-10
+Sunderland,Highland,2,2021-09,2021-10
+Sunderland,Manchester,2,2021-09,2021-10
+Sunderland,Newcastle upon Tyne,4,2021-09,2021-10
+Sunderland,North Tyneside,2,2021-09,2021-10
+Sunderland,Redcar and Cleveland,1,2021-09,2021-10
+Sunderland,South Tyneside,3,2021-09,2021-10
+Sunderland,Stevenage,1,2021-09,2021-10
+Surrey Heath,Bracknell Forest,1,2021-09,2021-10
+Surrey Heath,Brent,1,2021-09,2021-10
+Surrey Heath,Bromley,3,2021-09,2021-10
+Surrey Heath,Guildford,1,2021-09,2021-10
+Surrey Heath,Wokingham,1,2021-09,2021-10
+Sutton,Brighton and Hove,1,2021-09,2021-10
+Sutton,"Bristol, City of",2,2021-09,2021-10
+Sutton,Croydon,1,2021-09,2021-10
+Sutton,Lambeth,1,2021-09,2021-10
+Sutton,Merton,5,2021-09,2021-10
+Sutton,South Holland,1,2021-09,2021-10
+Sutton,Wandsworth,1,2021-09,2021-10
+Sutton,Wealden,1,2021-09,2021-10
+Swale,Buckinghamshire,2,2021-09,2021-10
+Swale,Dorset,1,2021-09,2021-10
+Swale,Gravesham,1,2021-09,2021-10
+Swale,Rother,1,2021-09,2021-10
+Swale,Sheffield,2,2021-09,2021-10
+Swansea,Birmingham,4,2021-09,2021-10
+Swansea,Caerphilly,2,2021-09,2021-10
+Swansea,Cardiff,1,2021-09,2021-10
+Swansea,Carmarthenshire,1,2021-09,2021-10
+Swansea,Ceredigion,1,2021-09,2021-10
+Swansea,Charnwood,1,2021-09,2021-10
+Swansea,Cornwall,1,2021-09,2021-10
+Swansea,Derby,1,2021-09,2021-10
+Swansea,East Suffolk,1,2021-09,2021-10
+Swansea,Lambeth,2,2021-09,2021-10
+Swansea,Liverpool,1,2021-09,2021-10
+Swansea,Medway,1,2021-09,2021-10
+Swansea,Monmouthshire,1,2021-09,2021-10
+Swansea,Neath Port Talbot,1,2021-09,2021-10
+Swansea,North Somerset,1,2021-09,2021-10
+Swansea,Northumberland,2,2021-09,2021-10
+Swansea,Oxford,1,2021-09,2021-10
+Swansea,Pembrokeshire,3,2021-09,2021-10
+Swansea,West Oxfordshire,2,2021-09,2021-10
+Swindon,Islington,1,2021-09,2021-10
+Swindon,Liverpool,1,2021-09,2021-10
+Swindon,Preston,1,2021-09,2021-10
+Swindon,Walsall,1,2021-09,2021-10
+Swindon,Wiltshire,2,2021-09,2021-10
+Tameside,"Bristol, City of",1,2021-09,2021-10
+Tameside,Cheshire West and Chester,2,2021-09,2021-10
+Tameside,Chesterfield,1,2021-09,2021-10
+Tameside,Glasgow City,4,2021-09,2021-10
+Tameside,High Peak,2,2021-09,2021-10
+Tameside,Highland,2,2021-09,2021-10
+Tameside,Manchester,1,2021-09,2021-10
+Tameside,North Lincolnshire,1,2021-09,2021-10
+Tameside,Nottingham,1,2021-09,2021-10
+Tameside,Oldham,1,2021-09,2021-10
+Tameside,Pembrokeshire,2,2021-09,2021-10
+Tameside,Stockport,2,2021-09,2021-10
+Tamworth,Coventry,1,2021-09,2021-10
+Tamworth,Leicester,1,2021-09,2021-10
+Tandridge,Bromley,1,2021-09,2021-10
+Tandridge,City of London,1,2021-09,2021-10
+Tandridge,Cornwall,1,2021-09,2021-10
+Tandridge,Crawley,1,2021-09,2021-10
+Tandridge,Croydon,1,2021-09,2021-10
+Tandridge,Ipswich,1,2021-09,2021-10
+Tandridge,Mid Sussex,4,2021-09,2021-10
+Tandridge,Sheffield,1,2021-09,2021-10
+Tandridge,South Lakeland,1,2021-09,2021-10
+Tandridge,Sutton,2,2021-09,2021-10
+Teignbridge,Birmingham,2,2021-09,2021-10
+Teignbridge,"Bristol, City of",2,2021-09,2021-10
+Teignbridge,Camden,2,2021-09,2021-10
+Teignbridge,Cheshire West and Chester,1,2021-09,2021-10
+Teignbridge,Exeter,2,2021-09,2021-10
+Teignbridge,Highland,2,2021-09,2021-10
+Teignbridge,Lambeth,2,2021-09,2021-10
+Teignbridge,Manchester,2,2021-09,2021-10
+Teignbridge,Monmouthshire,2,2021-09,2021-10
+Teignbridge,Newham,1,2021-09,2021-10
+Teignbridge,Nottingham,1,2021-09,2021-10
+Teignbridge,Plymouth,2,2021-09,2021-10
+Teignbridge,Southwark,2,2021-09,2021-10
+Telford and Wrekin,Broxtowe,2,2021-09,2021-10
+Telford and Wrekin,Dundee City,1,2021-09,2021-10
+Telford and Wrekin,Manchester,1,2021-09,2021-10
+Telford and Wrekin,Newport,2,2021-09,2021-10
+Telford and Wrekin,Pembrokeshire,1,2021-09,2021-10
+Telford and Wrekin,Rushmoor,1,2021-09,2021-10
+Telford and Wrekin,Sevenoaks,2,2021-09,2021-10
+Telford and Wrekin,Sheffield,1,2021-09,2021-10
+Telford and Wrekin,Shropshire,4,2021-09,2021-10
+Telford and Wrekin,South Staffordshire,1,2021-09,2021-10
+Tendring,Boston,1,2021-09,2021-10
+Tendring,Buckinghamshire,2,2021-09,2021-10
+Tendring,City of London,1,2021-09,2021-10
+Tendring,Colchester,1,2021-09,2021-10
+Tendring,East Suffolk,2,2021-09,2021-10
+Tendring,Enfield,1,2021-09,2021-10
+Tendring,Leeds,1,2021-09,2021-10
+Tendring,Lewisham,2,2021-09,2021-10
+Test Valley,Breckland,1,2021-09,2021-10
+Test Valley,Dorset,1,2021-09,2021-10
+Test Valley,St. Helens,2,2021-09,2021-10
+Test Valley,Westminster,1,2021-09,2021-10
+Tewkesbury,Gloucester,1,2021-09,2021-10
+Tewkesbury,Hackney,2,2021-09,2021-10
+Tewkesbury,Liverpool,1,2021-09,2021-10
+Tewkesbury,Newcastle-under-Lyme,1,2021-09,2021-10
+Tewkesbury,Worcester,1,2021-09,2021-10
+Tewkesbury,Wychavon,1,2021-09,2021-10
+Thanet,Bexley,1,2021-09,2021-10
+Thanet,Blaenau Gwent,2,2021-09,2021-10
+Thanet,Canterbury,2,2021-09,2021-10
+Thanet,Lambeth,1,2021-09,2021-10
+Thanet,South Cambridgeshire,1,2021-09,2021-10
+Thanet,Southend-on-Sea,1,2021-09,2021-10
+Thanet,Swale,1,2021-09,2021-10
+Thanet,Torbay,2,2021-09,2021-10
+Thanet,Watford,1,2021-09,2021-10
+Three Rivers,Dorset,2,2021-09,2021-10
+Three Rivers,Hillingdon,2,2021-09,2021-10
+Thurrock,Basildon,1,2021-09,2021-10
+Thurrock,Cambridge,1,2021-09,2021-10
+Thurrock,City of London,2,2021-09,2021-10
+Thurrock,Hartlepool,1,2021-09,2021-10
+Thurrock,Tendring,2,2021-09,2021-10
+Tonbridge and Malling,City of London,1,2021-09,2021-10
+Tonbridge and Malling,Maidstone,1,2021-09,2021-10
+Tonbridge and Malling,Westminster,1,2021-09,2021-10
+Torbay,Aberdeen City,2,2021-09,2021-10
+Torbay,Birmingham,1,2021-09,2021-10
+Torbay,Bolton,2,2021-09,2021-10
+Torbay,Cardiff,1,2021-09,2021-10
+Torbay,Carlisle,1,2021-09,2021-10
+Torbay,Coventry,1,2021-09,2021-10
+Torbay,Dorset,1,2021-09,2021-10
+Torbay,Enfield,1,2021-09,2021-10
+Torbay,Exeter,2,2021-09,2021-10
+Torbay,Hertsmere,2,2021-09,2021-10
+Torbay,Lewisham,1,2021-09,2021-10
+Torbay,Manchester,3,2021-09,2021-10
+Torbay,Newport,2,2021-09,2021-10
+Torbay,Renfrewshire,2,2021-09,2021-10
+Torbay,Sedgemoor,2,2021-09,2021-10
+Torbay,Teignbridge,2,2021-09,2021-10
+Torbay,Worthing,2,2021-09,2021-10
+Torbay,York,2,2021-09,2021-10
+Torfaen,Newport,1,2021-09,2021-10
+Torridge,Birmingham,1,2021-09,2021-10
+Torridge,Colchester,1,2021-09,2021-10
+Torridge,Cornwall,1,2021-09,2021-10
+Torridge,New Forest,1,2021-09,2021-10
+Torridge,Plymouth,1,2021-09,2021-10
+Tower Hamlets,Arun,1,2021-09,2021-10
+Tower Hamlets,Basildon,1,2021-09,2021-10
+Tower Hamlets,Bassetlaw,2,2021-09,2021-10
+Tower Hamlets,Brighton and Hove,2,2021-09,2021-10
+Tower Hamlets,Camden,1,2021-09,2021-10
+Tower Hamlets,City of London,5,2021-09,2021-10
+Tower Hamlets,Coventry,1,2021-09,2021-10
+Tower Hamlets,Craven,1,2021-09,2021-10
+Tower Hamlets,Dacorum,1,2021-09,2021-10
+Tower Hamlets,Fife,1,2021-09,2021-10
+Tower Hamlets,Flintshire,1,2021-09,2021-10
+Tower Hamlets,Glasgow City,2,2021-09,2021-10
+Tower Hamlets,Greenwich,2,2021-09,2021-10
+Tower Hamlets,Hackney,4,2021-09,2021-10
+Tower Hamlets,Hammersmith and Fulham,2,2021-09,2021-10
+Tower Hamlets,Haringey,1,2021-09,2021-10
+Tower Hamlets,Harrow,2,2021-09,2021-10
+Tower Hamlets,Lewisham,2,2021-09,2021-10
+Tower Hamlets,Manchester,1,2021-09,2021-10
+Tower Hamlets,Newcastle upon Tyne,1,2021-09,2021-10
+Tower Hamlets,Newham,2,2021-09,2021-10
+Tower Hamlets,North Northamptonshire,1,2021-09,2021-10
+Tower Hamlets,South Oxfordshire,2,2021-09,2021-10
+Tower Hamlets,Southwark,1,2021-09,2021-10
+Tower Hamlets,Stirling,1,2021-09,2021-10
+Tower Hamlets,Stockport,4,2021-09,2021-10
+Tower Hamlets,Waltham Forest,1,2021-09,2021-10
+Tower Hamlets,West Northamptonshire,1,2021-09,2021-10
+Trafford,Brent,1,2021-09,2021-10
+Trafford,Brighton and Hove,1,2021-09,2021-10
+Trafford,Cheshire East,2,2021-09,2021-10
+Trafford,Cheshire West and Chester,1,2021-09,2021-10
+Trafford,Conwy,2,2021-09,2021-10
+Trafford,Denbighshire,1,2021-09,2021-10
+Trafford,Halton,1,2021-09,2021-10
+Trafford,Haringey,1,2021-09,2021-10
+Trafford,Isle of Anglesey,3,2021-09,2021-10
+Trafford,Manchester,24,2021-09,2021-10
+Trafford,Newcastle upon Tyne,2,2021-09,2021-10
+Trafford,Oldham,1,2021-09,2021-10
+Trafford,Portsmouth,2,2021-09,2021-10
+Trafford,Rushcliffe,1,2021-09,2021-10
+Trafford,Salford,5,2021-09,2021-10
+Trafford,Sefton,1,2021-09,2021-10
+Trafford,Tameside,3,2021-09,2021-10
+Trafford,West Lothian,1,2021-09,2021-10
+Trafford,Wirral,1,2021-09,2021-10
+Tunbridge Wells,Brighton and Hove,1,2021-09,2021-10
+Tunbridge Wells,Canterbury,1,2021-09,2021-10
+Tunbridge Wells,East Suffolk,1,2021-09,2021-10
+Tunbridge Wells,Eastbourne,1,2021-09,2021-10
+Tunbridge Wells,Tower Hamlets,2,2021-09,2021-10
+Tunbridge Wells,Wealden,1,2021-09,2021-10
+Uttlesford,Cambridge,1,2021-09,2021-10
+Uttlesford,East Hertfordshire,1,2021-09,2021-10
+Uttlesford,Hackney,2,2021-09,2021-10
+Uttlesford,Lincoln,4,2021-09,2021-10
+Uttlesford,Tower Hamlets,1,2021-09,2021-10
+Vale of Glamorgan,Camden,1,2021-09,2021-10
+Vale of Glamorgan,Cardiff,12,2021-09,2021-10
+Vale of Glamorgan,Cornwall,2,2021-09,2021-10
+Vale of Glamorgan,Rhondda Cynon Taf,1,2021-09,2021-10
+Vale of Glamorgan,Swansea,2,2021-09,2021-10
+Vale of Glamorgan,West Oxfordshire,2,2021-09,2021-10
+Vale of White Horse,Canterbury,1,2021-09,2021-10
+Vale of White Horse,Dorset,2,2021-09,2021-10
+Vale of White Horse,Middlesbrough,1,2021-09,2021-10
+Vale of White Horse,Oxford,3,2021-09,2021-10
+Vale of White Horse,Surrey Heath,2,2021-09,2021-10
+Vale of White Horse,Swindon,1,2021-09,2021-10
+Wakefield,Aberdeen City,1,2021-09,2021-10
+Wakefield,Bradford,1,2021-09,2021-10
+Wakefield,Calderdale,1,2021-09,2021-10
+Wakefield,Doncaster,2,2021-09,2021-10
+Wakefield,Glasgow City,1,2021-09,2021-10
+Wakefield,Kirklees,3,2021-09,2021-10
+Wakefield,Leeds,17,2021-09,2021-10
+Wakefield,Manchester,2,2021-09,2021-10
+Wakefield,Newcastle upon Tyne,1,2021-09,2021-10
+Wakefield,Newham,2,2021-09,2021-10
+Wakefield,Norwich,1,2021-09,2021-10
+Wakefield,Salford,1,2021-09,2021-10
+Wakefield,York,4,2021-09,2021-10
+Walsall,Birmingham,3,2021-09,2021-10
+Walsall,Gwynedd,1,2021-09,2021-10
+Walsall,Leeds,2,2021-09,2021-10
+Walsall,Watford,2,2021-09,2021-10
+Walsall,Wolverhampton,2,2021-09,2021-10
+Waltham Forest,Argyll and Bute,2,2021-09,2021-10
+Waltham Forest,Birmingham,1,2021-09,2021-10
+Waltham Forest,City of London,1,2021-09,2021-10
+Waltham Forest,Epsom and Ewell,2,2021-09,2021-10
+Waltham Forest,Gateshead,4,2021-09,2021-10
+Waltham Forest,Greenwich,4,2021-09,2021-10
+Waltham Forest,Hackney,3,2021-09,2021-10
+Waltham Forest,Haringey,2,2021-09,2021-10
+Waltham Forest,Islington,1,2021-09,2021-10
+Waltham Forest,Kingston upon Thames,2,2021-09,2021-10
+Waltham Forest,Liverpool,1,2021-09,2021-10
+Waltham Forest,Newcastle upon Tyne,1,2021-09,2021-10
+Waltham Forest,Newham,2,2021-09,2021-10
+Waltham Forest,Southwark,1,2021-09,2021-10
+Waltham Forest,Stockport,1,2021-09,2021-10
+Waltham Forest,Tower Hamlets,4,2021-09,2021-10
+Waltham Forest,Westminster,1,2021-09,2021-10
+Wandsworth,Belfast,1,2021-09,2021-10
+Wandsworth,"Bournemouth, Christchurch and Poole",2,2021-09,2021-10
+Wandsworth,Brent,1,2021-09,2021-10
+Wandsworth,Buckinghamshire,1,2021-09,2021-10
+Wandsworth,Camden,5,2021-09,2021-10
+Wandsworth,Canterbury,2,2021-09,2021-10
+Wandsworth,City of London,3,2021-09,2021-10
+Wandsworth,Croydon,2,2021-09,2021-10
+Wandsworth,Doncaster,1,2021-09,2021-10
+Wandsworth,Ealing,2,2021-09,2021-10
+Wandsworth,Hammersmith and Fulham,4,2021-09,2021-10
+Wandsworth,Hounslow,1,2021-09,2021-10
+Wandsworth,Ipswich,1,2021-09,2021-10
+Wandsworth,Kingston upon Thames,2,2021-09,2021-10
+Wandsworth,Lambeth,4,2021-09,2021-10
+Wandsworth,Leeds,1,2021-09,2021-10
+Wandsworth,Lewisham,1,2021-09,2021-10
+Wandsworth,Malvern Hills,1,2021-09,2021-10
+Wandsworth,Manchester,3,2021-09,2021-10
+Wandsworth,Merton,5,2021-09,2021-10
+Wandsworth,Milton Keynes,1,2021-09,2021-10
+Wandsworth,Newham,2,2021-09,2021-10
+Wandsworth,Salford,3,2021-09,2021-10
+Wandsworth,Southwark,2,2021-09,2021-10
+Wandsworth,Stockport,1,2021-09,2021-10
+Wandsworth,Torfaen,2,2021-09,2021-10
+Wandsworth,Westminster,1,2021-09,2021-10
+Wandsworth,Wiltshire,3,2021-09,2021-10
+Wandsworth,Windsor and Maidenhead,1,2021-09,2021-10
+Warrington,Birmingham,2,2021-09,2021-10
+Warrington,Bolton,1,2021-09,2021-10
+Warrington,Bradford,2,2021-09,2021-10
+Warrington,Cheshire East,1,2021-09,2021-10
+Warrington,Copeland,2,2021-09,2021-10
+Warrington,Halton,1,2021-09,2021-10
+Warrington,Ipswich,1,2021-09,2021-10
+Warrington,Liverpool,2,2021-09,2021-10
+Warrington,Manchester,2,2021-09,2021-10
+Warrington,Newham,1,2021-09,2021-10
+Warrington,North East Lincolnshire,1,2021-09,2021-10
+Warrington,Nottingham,1,2021-09,2021-10
+Warrington,Oxford,2,2021-09,2021-10
+Warrington,Redbridge,2,2021-09,2021-10
+Warrington,Rochdale,1,2021-09,2021-10
+Warrington,Salford,4,2021-09,2021-10
+Warrington,Sheffield,2,2021-09,2021-10
+Warrington,South Lakeland,1,2021-09,2021-10
+Warrington,South Ribble,2,2021-09,2021-10
+Warrington,St. Helens,2,2021-09,2021-10
+Warrington,Trafford,2,2021-09,2021-10
+Warrington,Waltham Forest,1,2021-09,2021-10
+Warrington,West Lothian,1,2021-09,2021-10
+Warwick,Birmingham,2,2021-09,2021-10
+Warwick,Coventry,3,2021-09,2021-10
+Warwick,Kirklees,1,2021-09,2021-10
+Warwick,Lichfield,1,2021-09,2021-10
+Warwick,Manchester,1,2021-09,2021-10
+Warwick,Newcastle upon Tyne,4,2021-09,2021-10
+Warwick,Stratford-on-Avon,2,2021-09,2021-10
+Warwick,Torbay,2,2021-09,2021-10
+Warwick,Wirral,4,2021-09,2021-10
+Watford,Barnet,2,2021-09,2021-10
+Watford,Birmingham,2,2021-09,2021-10
+Watford,Brent,1,2021-09,2021-10
+Watford,Cambridge,1,2021-09,2021-10
+Watford,East Hertfordshire,2,2021-09,2021-10
+Watford,Exeter,1,2021-09,2021-10
+Watford,Merton,1,2021-09,2021-10
+Watford,Milton Keynes,1,2021-09,2021-10
+Watford,St Albans,2,2021-09,2021-10
+Watford,Tameside,1,2021-09,2021-10
+Watford,Trafford,1,2021-09,2021-10
+Watford,York,1,2021-09,2021-10
+Waverley,Guildford,3,2021-09,2021-10
+Waverley,Hounslow,1,2021-09,2021-10
+Waverley,Isle of Anglesey,1,2021-09,2021-10
+Wealden,Blaenau Gwent,1,2021-09,2021-10
+Wealden,Brighton and Hove,1,2021-09,2021-10
+Wealden,Camden,1,2021-09,2021-10
+Wealden,Eastbourne,1,2021-09,2021-10
+Wealden,Hastings,1,2021-09,2021-10
+Wealden,Huntingdonshire,1,2021-09,2021-10
+Wealden,Mid Sussex,1,2021-09,2021-10
+Wealden,Southwark,1,2021-09,2021-10
+Wealden,Tunbridge Wells,2,2021-09,2021-10
+Wealden,Waltham Forest,4,2021-09,2021-10
+Wealden,Wandsworth,1,2021-09,2021-10
+Welwyn Hatfield,Hertsmere,1,2021-09,2021-10
+Welwyn Hatfield,Luton,1,2021-09,2021-10
+Welwyn Hatfield,North Hertfordshire,1,2021-09,2021-10
+Welwyn Hatfield,Northumberland,4,2021-09,2021-10
+Welwyn Hatfield,West Northamptonshire,2,2021-09,2021-10
+West Berkshire,"Bristol, City of",1,2021-09,2021-10
+West Berkshire,City of Edinburgh,1,2021-09,2021-10
+West Berkshire,Kingston upon Thames,1,2021-09,2021-10
+West Berkshire,Reading,2,2021-09,2021-10
+West Berkshire,Redbridge,1,2021-09,2021-10
+West Devon,"Bristol, City of",1,2021-09,2021-10
+West Devon,Liverpool,1,2021-09,2021-10
+West Devon,Medway,1,2021-09,2021-10
+West Devon,Plymouth,1,2021-09,2021-10
+West Dunbartonshire,Clackmannanshire,1,2021-09,2021-10
+West Dunbartonshire,Glasgow City,4,2021-09,2021-10
+West Dunbartonshire,Highland,1,2021-09,2021-10
+West Dunbartonshire,Renfrewshire,2,2021-09,2021-10
+West Lancashire,Eden,2,2021-09,2021-10
+West Lancashire,Hyndburn,1,2021-09,2021-10
+West Lancashire,Knowsley,2,2021-09,2021-10
+West Lancashire,Liverpool,3,2021-09,2021-10
+West Lancashire,Sefton,4,2021-09,2021-10
+West Lancashire,South Lakeland,2,2021-09,2021-10
+West Lancashire,Wigan,4,2021-09,2021-10
+West Lindsey,City of London,2,2021-09,2021-10
+West Lindsey,County Durham,1,2021-09,2021-10
+West Lindsey,Craven,2,2021-09,2021-10
+West Lindsey,Hillingdon,1,2021-09,2021-10
+West Lindsey,Knowsley,1,2021-09,2021-10
+West Lindsey,Manchester,1,2021-09,2021-10
+West Lothian,Aberdeen City,1,2021-09,2021-10
+West Lothian,Argyll and Bute,1,2021-09,2021-10
+West Lothian,Birmingham,1,2021-09,2021-10
+West Lothian,Bolton,2,2021-09,2021-10
+West Lothian,"Bristol, City of",1,2021-09,2021-10
+West Lothian,Bury,2,2021-09,2021-10
+West Lothian,Cheshire West and Chester,3,2021-09,2021-10
+West Lothian,City of Edinburgh,5,2021-09,2021-10
+West Lothian,Dumfries and Galloway,2,2021-09,2021-10
+West Lothian,Dundee City,2,2021-09,2021-10
+West Lothian,Falkirk,1,2021-09,2021-10
+West Lothian,Harrogate,4,2021-09,2021-10
+West Lothian,Hyndburn,2,2021-09,2021-10
+West Lothian,Lancaster,2,2021-09,2021-10
+West Lothian,Manchester,1,2021-09,2021-10
+West Lothian,Newcastle upon Tyne,1,2021-09,2021-10
+West Lothian,Preston,1,2021-09,2021-10
+West Lothian,Ribble Valley,3,2021-09,2021-10
+West Lothian,Tameside,2,2021-09,2021-10
+West Lothian,Trafford,2,2021-09,2021-10
+West Lothian,Wigan,1,2021-09,2021-10
+West Northamptonshire,Barnsley,1,2021-09,2021-10
+West Northamptonshire,Birmingham,1,2021-09,2021-10
+West Northamptonshire,Carlisle,1,2021-09,2021-10
+West Northamptonshire,Central Bedfordshire,1,2021-09,2021-10
+West Northamptonshire,City of Edinburgh,2,2021-09,2021-10
+West Northamptonshire,Dumfries and Galloway,1,2021-09,2021-10
+West Northamptonshire,Epping Forest,2,2021-09,2021-10
+West Northamptonshire,Hillingdon,1,2021-09,2021-10
+West Northamptonshire,Hounslow,1,2021-09,2021-10
+West Northamptonshire,Isle of Wight,1,2021-09,2021-10
+West Northamptonshire,Islington,2,2021-09,2021-10
+West Northamptonshire,Lambeth,1,2021-09,2021-10
+West Northamptonshire,Lewisham,2,2021-09,2021-10
+West Northamptonshire,Milton Keynes,2,2021-09,2021-10
+West Northamptonshire,North Northamptonshire,8,2021-09,2021-10
+West Northamptonshire,Rugby,1,2021-09,2021-10
+West Northamptonshire,Ryedale,2,2021-09,2021-10
+West Northamptonshire,Sheffield,1,2021-09,2021-10
+West Northamptonshire,Shropshire,3,2021-09,2021-10
+West Northamptonshire,South Cambridgeshire,1,2021-09,2021-10
+West Northamptonshire,South Oxfordshire,1,2021-09,2021-10
+West Northamptonshire,Sunderland,1,2021-09,2021-10
+West Northamptonshire,Tunbridge Wells,1,2021-09,2021-10
+West Northamptonshire,Westminster,1,2021-09,2021-10
+West Northamptonshire,Wiltshire,3,2021-09,2021-10
+West Northamptonshire,Wyre Forest,1,2021-09,2021-10
+West Oxfordshire,Haringey,2,2021-09,2021-10
+West Oxfordshire,Oxford,2,2021-09,2021-10
+West Oxfordshire,South Kesteven,2,2021-09,2021-10
+West Oxfordshire,Swansea,2,2021-09,2021-10
+West Suffolk,Babergh,1,2021-09,2021-10
+West Suffolk,Breckland,1,2021-09,2021-10
+West Suffolk,Brent,2,2021-09,2021-10
+West Suffolk,Broxbourne,1,2021-09,2021-10
+West Suffolk,Cambridge,1,2021-09,2021-10
+West Suffolk,Cornwall,2,2021-09,2021-10
+West Suffolk,Great Yarmouth,2,2021-09,2021-10
+West Suffolk,Haringey,1,2021-09,2021-10
+West Suffolk,Havant,2,2021-09,2021-10
+West Suffolk,Medway,2,2021-09,2021-10
+West Suffolk,Mid Devon,1,2021-09,2021-10
+West Suffolk,South Cambridgeshire,1,2021-09,2021-10
+West Suffolk,West Lindsey,1,2021-09,2021-10
+Westminster,Barnsley,1,2021-09,2021-10
+Westminster,Birmingham,2,2021-09,2021-10
+Westminster,Brent,2,2021-09,2021-10
+Westminster,Brighton and Hove,1,2021-09,2021-10
+Westminster,Buckinghamshire,1,2021-09,2021-10
+Westminster,Cambridge,1,2021-09,2021-10
+Westminster,Camden,3,2021-09,2021-10
+Westminster,Charnwood,2,2021-09,2021-10
+Westminster,Cheshire West and Chester,1,2021-09,2021-10
+Westminster,Chichester,1,2021-09,2021-10
+Westminster,City of London,4,2021-09,2021-10
+Westminster,County Durham,1,2021-09,2021-10
+Westminster,Croydon,2,2021-09,2021-10
+Westminster,Dacorum,1,2021-09,2021-10
+Westminster,Darlington,2,2021-09,2021-10
+Westminster,Ealing,2,2021-09,2021-10
+Westminster,Greenwich,4,2021-09,2021-10
+Westminster,Hackney,1,2021-09,2021-10
+Westminster,Hammersmith and Fulham,7,2021-09,2021-10
+Westminster,Harrow,4,2021-09,2021-10
+Westminster,Horsham,1,2021-09,2021-10
+Westminster,Islington,2,2021-09,2021-10
+Westminster,Lambeth,2,2021-09,2021-10
+Westminster,Leeds,2,2021-09,2021-10
+Westminster,Leicester,1,2021-09,2021-10
+Westminster,Lewes,2,2021-09,2021-10
+Westminster,Liverpool,7,2021-09,2021-10
+Westminster,Manchester,1,2021-09,2021-10
+Westminster,Merton,1,2021-09,2021-10
+Westminster,Na h-Eileanan Siar,1,2021-09,2021-10
+Westminster,Newham,1,2021-09,2021-10
+Westminster,Norwich,2,2021-09,2021-10
+Westminster,Nottingham,1,2021-09,2021-10
+Westminster,Oxford,2,2021-09,2021-10
+Westminster,Plymouth,1,2021-09,2021-10
+Westminster,Sheffield,2,2021-09,2021-10
+Westminster,Spelthorne,1,2021-09,2021-10
+Westminster,Stockton-on-Tees,1,2021-09,2021-10
+Westminster,Stoke-on-Trent,1,2021-09,2021-10
+Westminster,Tonbridge and Malling,1,2021-09,2021-10
+Westminster,Torfaen,1,2021-09,2021-10
+Westminster,Tower Hamlets,3,2021-09,2021-10
+Westminster,Waltham Forest,1,2021-09,2021-10
+Westminster,Wandsworth,2,2021-09,2021-10
+Westminster,West Suffolk,1,2021-09,2021-10
+Westminster,Wiltshire,1,2021-09,2021-10
+Wigan,Chorley,1,2021-09,2021-10
+Wigan,Doncaster,1,2021-09,2021-10
+Wigan,"Kingston upon Hull, City of",1,2021-09,2021-10
+Wigan,Liverpool,1,2021-09,2021-10
+Wigan,Manchester,1,2021-09,2021-10
+Wigan,Northumberland,1,2021-09,2021-10
+Wigan,Nuneaton and Bedworth,1,2021-09,2021-10
+Wigan,Southend-on-Sea,1,2021-09,2021-10
+Wigan,Sunderland,1,2021-09,2021-10
+Wigan,Wakefield,2,2021-09,2021-10
+Wigan,West Lancashire,1,2021-09,2021-10
+Wiltshire,Barnet,2,2021-09,2021-10
+Wiltshire,Bath and North East Somerset,3,2021-09,2021-10
+Wiltshire,Belfast,1,2021-09,2021-10
+Wiltshire,Birmingham,1,2021-09,2021-10
+Wiltshire,Bolsover,1,2021-09,2021-10
+Wiltshire,"Bournemouth, Christchurch and Poole",1,2021-09,2021-10
+Wiltshire,Buckinghamshire,1,2021-09,2021-10
+Wiltshire,Camden,1,2021-09,2021-10
+Wiltshire,Cheshire West and Chester,1,2021-09,2021-10
+Wiltshire,Chesterfield,2,2021-09,2021-10
+Wiltshire,Cotswold,2,2021-09,2021-10
+Wiltshire,Gedling,1,2021-09,2021-10
+Wiltshire,Portsmouth,1,2021-09,2021-10
+Wiltshire,Sevenoaks,1,2021-09,2021-10
+Wiltshire,South Lakeland,1,2021-09,2021-10
+Wiltshire,West Suffolk,1,2021-09,2021-10
+Winchester,Broxbourne,2,2021-09,2021-10
+Winchester,Cherwell,2,2021-09,2021-10
+Winchester,Fareham,2,2021-09,2021-10
+Winchester,Hammersmith and Fulham,2,2021-09,2021-10
+Winchester,Ryedale,1,2021-09,2021-10
+Winchester,Southampton,4,2021-09,2021-10
+Winchester,Spelthorne,2,2021-09,2021-10
+Windsor and Maidenhead,Bath and North East Somerset,1,2021-09,2021-10
+Windsor and Maidenhead,Chichester,4,2021-09,2021-10
+Windsor and Maidenhead,Hillingdon,1,2021-09,2021-10
+Windsor and Maidenhead,Hounslow,1,2021-09,2021-10
+Windsor and Maidenhead,Runnymede,1,2021-09,2021-10
+Windsor and Maidenhead,Slough,2,2021-09,2021-10
+Windsor and Maidenhead,Solihull,2,2021-09,2021-10
+Windsor and Maidenhead,Stockport,2,2021-09,2021-10
+Wirral,Cheshire West and Chester,1,2021-09,2021-10
+Wirral,East Riding of Yorkshire,2,2021-09,2021-10
+Wirral,Flintshire,1,2021-09,2021-10
+Wirral,Glasgow City,1,2021-09,2021-10
+Wirral,Knowsley,1,2021-09,2021-10
+Wirral,Lambeth,1,2021-09,2021-10
+Wirral,Liverpool,10,2021-09,2021-10
+Wirral,Na h-Eileanan Siar,1,2021-09,2021-10
+Wirral,Peterborough,1,2021-09,2021-10
+Wirral,Preston,1,2021-09,2021-10
+Wirral,Sandwell,2,2021-09,2021-10
+Wirral,Sefton,2,2021-09,2021-10
+Wirral,Wigan,4,2021-09,2021-10
+Woking,Charnwood,4,2021-09,2021-10
+Woking,Guildford,2,2021-09,2021-10
+Woking,Powys,1,2021-09,2021-10
+Woking,Tandridge,1,2021-09,2021-10
+Wokingham,Brighton and Hove,1,2021-09,2021-10
+Wokingham,Bromley,1,2021-09,2021-10
+Wokingham,Dartford,1,2021-09,2021-10
+Wokingham,Lewisham,1,2021-09,2021-10
+Wokingham,Reading,2,2021-09,2021-10
+Wokingham,Wakefield,1,2021-09,2021-10
+Wokingham,Westminster,1,2021-09,2021-10
+Wokingham,Winchester,1,2021-09,2021-10
+Wokingham,York,1,2021-09,2021-10
+Wolverhampton,Barnsley,1,2021-09,2021-10
+Wolverhampton,Birmingham,3,2021-09,2021-10
+Wolverhampton,Burnley,1,2021-09,2021-10
+Wolverhampton,Charnwood,1,2021-09,2021-10
+Wolverhampton,Conwy,2,2021-09,2021-10
+Wolverhampton,Dudley,3,2021-09,2021-10
+Wolverhampton,Harrow,1,2021-09,2021-10
+Wolverhampton,Newcastle-under-Lyme,1,2021-09,2021-10
+Wolverhampton,Newham,1,2021-09,2021-10
+Wolverhampton,Sandwell,4,2021-09,2021-10
+Wolverhampton,South Staffordshire,3,2021-09,2021-10
+Wolverhampton,Stafford,2,2021-09,2021-10
+Wolverhampton,Wandsworth,1,2021-09,2021-10
+Worcester,Cheltenham,1,2021-09,2021-10
+Worcester,"Herefordshire, County of",2,2021-09,2021-10
+Worcester,Liverpool,1,2021-09,2021-10
+Worcester,Tewkesbury,1,2021-09,2021-10
+Worcester,West Northamptonshire,1,2021-09,2021-10
+Worcester,Wychavon,2,2021-09,2021-10
+Worthing,Brighton and Hove,2,2021-09,2021-10
+Worthing,Croydon,1,2021-09,2021-10
+Worthing,Fenland,1,2021-09,2021-10
+Worthing,Leeds,1,2021-09,2021-10
+Worthing,Woking,2,2021-09,2021-10
+Wrexham,Blackpool,2,2021-09,2021-10
+Wrexham,Epsom and Ewell,4,2021-09,2021-10
+Wrexham,Gosport,1,2021-09,2021-10
+Wrexham,Great Yarmouth,2,2021-09,2021-10
+Wrexham,Kingston upon Thames,1,2021-09,2021-10
+Wrexham,Leeds,4,2021-09,2021-10
+Wrexham,Newcastle upon Tyne,1,2021-09,2021-10
+Wrexham,Salford,2,2021-09,2021-10
+Wrexham,South Staffordshire,2,2021-09,2021-10
+Wychavon,Birmingham,1,2021-09,2021-10
+Wychavon,Bromsgrove,1,2021-09,2021-10
+Wychavon,Burnley,1,2021-09,2021-10
+Wychavon,Cheltenham,2,2021-09,2021-10
+Wychavon,Dudley,1,2021-09,2021-10
+Wychavon,"Herefordshire, County of",1,2021-09,2021-10
+Wychavon,"Kingston upon Hull, City of",1,2021-09,2021-10
+Wychavon,Oxford,1,2021-09,2021-10
+Wychavon,Redditch,2,2021-09,2021-10
+Wychavon,Sheffield,1,2021-09,2021-10
+Wyre,Blackpool,2,2021-09,2021-10
+Wyre,Calderdale,1,2021-09,2021-10
+Wyre,Chorley,2,2021-09,2021-10
+Wyre,Fife,1,2021-09,2021-10
+Wyre,Highland,2,2021-09,2021-10
+Wyre,South Lakeland,1,2021-09,2021-10
+Wyre Forest,City of London,1,2021-09,2021-10
+Wyre Forest,Flintshire,2,2021-09,2021-10
+Wyre Forest,Manchester,1,2021-09,2021-10
+York,Birmingham,1,2021-09,2021-10
+York,Bolton,1,2021-09,2021-10
+York,Chichester,1,2021-09,2021-10
+York,City of Edinburgh,2,2021-09,2021-10
+York,Conwy,2,2021-09,2021-10
+York,County Durham,4,2021-09,2021-10
+York,Hambleton,1,2021-09,2021-10
+York,Hartlepool,1,2021-09,2021-10
+York,Hertsmere,1,2021-09,2021-10
+York,Isle of Wight,2,2021-09,2021-10
+York,Kirklees,1,2021-09,2021-10
+York,Leeds,6,2021-09,2021-10
+York,Lincoln,1,2021-09,2021-10
+York,Manchester,1,2021-09,2021-10
+York,Merton,2,2021-09,2021-10
+York,Rotherham,3,2021-09,2021-10
+York,Salford,1,2021-09,2021-10
+York,Selby,2,2021-09,2021-10
+York,Stoke-on-Trent,1,2021-09,2021-10
+York,Tameside,1,2021-09,2021-10
+York,Tewkesbury,1,2021-09,2021-10
+York,Trafford,1,2021-09,2021-10
+York,Wakefield,1,2021-09,2021-10
