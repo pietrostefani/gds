@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -584,7 +603,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(network_isolated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 6/6 vertices, named, from be7f23c:
+<pre><code>+ 6/6 vertices, named, from e6d37a8:
 [1] City 1 City 2 City 3 City 5 City 4 City 6</code></pre>
 </div>
 </div>
@@ -603,7 +622,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(network_isolated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 7/7 edges from be7f23c (vertex names):
+<pre><code>+ 7/7 edges from e6d37a8 (vertex names):
 [1] City 1-&gt;City 2 City 2-&gt;City 3 City 2-&gt;City 5 City 3-&gt;City 1 City 3-&gt;City 4
 [6] City 4-&gt;City 5 City 5-&gt;City 1</code></pre>
 </div>
@@ -644,7 +663,7 @@ $population
 </section>
 <section id="basic-visualisation" class="level3">
 <h3 class="anchored" data-anchor-id="basic-visualisation">Basic visualisation</h3>
-<p>You have already seen how we can visualise networks using the base R function <code>plot()</code>. We will now elaborate on how individual components of the network can be visually adjusted using specific parameters in the plot function. More sophisticated data visualisations can be produced integrating geographic information, see Chapter 5 in <span class="citation" data-cites="roweetal2023-rps">(<a href="references.html#ref-roweetal2023-rps" role="doc-biblioref"><strong>roweetal2023-rps?</strong></a>)</span>, or using other packages such as <code>ggraph</code> in conjunction with <code>ggplot2</code> as we will see in the section on Percolation.</p>
+<p>You have already seen how we can visualise networks using the base R function <code>plot()</code>. We will now elaborate on how individual components of the network can be visually adjusted using specific parameters in the plot function. More sophisticated data visualisations can be produced integrating geographic information, see Chapter 5 in <span class="citation" data-cites="roweetal2023-rps">Rowe, Cabrera-Arnau, and Piestrostefani (<a href="references.html#ref-roweetal2023-rps" role="doc-biblioref">2023</a>)</span>, or using other packages such as <code>ggraph</code> in conjunction with <code>ggplot2</code> as we will see in the section on Percolation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(network_isolated,</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">layout =</span> <span class="fu">layout.circle</span>(network_isolated),</span>
@@ -669,8 +688,8 @@ $population
 </section>
 <section id="spatial-networks-from-data" class="level2">
 <h2 class="anchored" data-anchor-id="spatial-networks-from-data">Spatial networks from data</h2>
-<p>So far in this computational notebook we have seen how to create networks with the <code>igraph</code> package with no input data. However, one of the most powerful features of the package is that it allows to easily create networks based on dataframes with information about the nodes and edges. Here, we work with a network of African roads constructed by considering all continental cities with more than 100,000 inhabitants as the nodes, obtained from <span class="citation" data-cites="Moriconi16">(<a href="references.html#ref-Moriconi16" role="doc-biblioref"><strong>Moriconi16?</strong></a>)</span>. The edges of the network were created based on the road infrastructure from OpenStreetMap <span class="citation" data-cites="openstreetmapOpenStreetMap">(<a href="references.html#ref-openstreetmapOpenStreetMap" role="doc-biblioref"><strong>openstreetmapOpenStreetMap?</strong></a>)</span>, using all primary roads, highways and trunk roads. Each edge was constructed by measuring the physical distance of consecutive points that describe the intricate patterns of the roads. Thus, a reasonably good estimate of its road length is available for each edge. Additional nodes besides cities are needed to describe the road infrastructure, such as some road intersections. These nodes are labelled as “transport nodes” and help define possible routes between cities. Some transport nodes correspond to towns with less than 100,000 inhabitants, so they are labelled as attached to nearby cities. The urban network enables us to consider the existing roads in the continent and measure the travelling distance rather than the physical distance between cities. The constructed network is formed by 7,361 nodes (2,162 cities and 5,199 transport nodes) and 9,159 edges. For more details on how the network was built, see <span class="citation" data-cites="PRIETOCURIELmethodsX">(<a href="references.html#ref-PRIETOCURIELmethodsX" role="doc-biblioref"><strong>PRIETOCURIELmethodsX?</strong></a>)</span>.</p>
-<p>The network is connected, meaning that it is possible to find a sequence of nodes and existing roads linking any pair of cities, and therefore, it is also possible to find the shortest road distance between any two cities and define it as the network distance. The network consists of 361,000 km of road infrastructure and connects 461 million people living in African cities, representing roughly 39% of the continent’s population <span class="citation" data-cites="PrietoCurielBeyond">(<a href="references.html#ref-PrietoCurielBeyond" role="doc-biblioref"><strong>PrietoCurielBeyond?</strong></a>)</span>.</p>
+<p>So far in this computational notebook we have seen how to create networks with the <code>igraph</code> package with no input data. However, one of the most powerful features of the package is that it allows to easily create networks based on dataframes with information about the nodes and edges. Here, we work with a network of African roads constructed by considering all continental cities with more than 100,000 inhabitants as the nodes, obtained from <span class="citation" data-cites="Moriconi16">(<a href="references.html#ref-Moriconi16" role="doc-biblioref">Moriconi-Ebrard, Harre, and Heinrigs 2016</a>)</span>. The edges of the network were created based on the road infrastructure from OpenStreetMap <span class="citation" data-cites="openstreetmapOpenStreetMap">(<a href="references.html#ref-openstreetmapOpenStreetMap" role="doc-biblioref"><span>“Openstreetmap.org”</span></a>)</span>, using all primary roads, highways and trunk roads. Each edge was constructed by measuring the physical distance of consecutive points that describe the intricate patterns of the roads. Thus, a reasonably good estimate of its road length is available for each edge. Additional nodes besides cities are needed to describe the road infrastructure, such as some road intersections. These nodes are labelled as “transport nodes” and help define possible routes between cities. Some transport nodes correspond to towns with less than 100,000 inhabitants, so they are labelled as attached to nearby cities. The urban network enables us to consider the existing roads in the continent and measure the travelling distance rather than the physical distance between cities. The constructed network is formed by 7,361 nodes (2,162 cities and 5,199 transport nodes) and 9,159 edges. For more details on how the network was built, see <span class="citation" data-cites="PRIETOCURIELmethodsX">(<a href="references.html#ref-PRIETOCURIELmethodsX" role="doc-biblioref">Prieto-Curiel et al. 2022</a>)</span>.</p>
+<p>The network is connected, meaning that it is possible to find a sequence of nodes and existing roads linking any pair of cities, and therefore, it is also possible to find the shortest road distance between any two cities and define it as the network distance. The network consists of 361,000 km of road infrastructure and connects 461 million people living in African cities, representing roughly 39% of the continent’s population <span class="citation" data-cites="PrietoCurielBeyond">(<a href="references.html#ref-PrietoCurielBeyond" role="doc-biblioref">Prieto Curiel, Cabrera-Arnau, and Bishop 2022</a>)</span>.</p>
 </section>
 <section id="creating-a-network-from-a-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-network-from-a-data-frame">Creating a network from a data frame</h2>
@@ -941,6 +960,23 @@ Note
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Moriconi16" class="csl-entry" role="listitem">
+Moriconi-Ebrard, François, Dominique Harre, and Philipp Heinrigs. 2016. <em>Urbanisation Dynamics in West Africa 1950–2010</em>. https://doi.org/<a href="https://doi.org/https://doi.org/10.1787/9789264252233-en">https://doi.org/https://doi.org/10.1787/9789264252233-en</a>.
+</div>
+<div id="ref-openstreetmapOpenStreetMap" class="csl-entry" role="listitem">
+<span>“Openstreetmap.org.”</span> <a href="https://www.openstreetmap.org/" class="uri">https://www.openstreetmap.org/</a>.
+</div>
+<div id="ref-PrietoCurielBeyond" class="csl-entry" role="listitem">
+Prieto Curiel, Rafael, Carmen Cabrera-Arnau, and Steven Richard Bishop. 2022. <span>“Scaling Beyond Cities.”</span> <em>Frontiers in Physics</em> 10. <a href="https://doi.org/10.3389/fphy.2022.858307">https://doi.org/10.3389/fphy.2022.858307</a>.
+</div>
+<div id="ref-PRIETOCURIELmethodsX" class="csl-entry" role="listitem">
+Prieto-Curiel, Rafael, Inhoi Heo, Abel Schumann, and Philipp Heinrigs. 2022. <span>“Constructing a Simplified Interurban Road Network Based on Crowdsourced Geodata.”</span> <em>MethodsX</em> 9: 101845. https://doi.org/<a href="https://doi.org/10.1016/j.mex.2022.101845">https://doi.org/10.1016/j.mex.2022.101845</a>.
+</div>
+<div id="ref-roweetal2023-rps" class="csl-entry" role="listitem">
+Rowe, Francisco, Carmen Cabrera-Arnau, and Elisabetta Piestrostefani. 2023. <em>Population Science</em>. <a href="https://population-science.net">population-science.net</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

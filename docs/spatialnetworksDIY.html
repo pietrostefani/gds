@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -483,7 +502,7 @@ Projected CRS: OSGB36 / British National Grid</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="ot">&lt;-</span> df_nodes <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(<span class="st">"name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The edges of the network are going to be determined by flows of people between LADs. The data for flows is based on posts with location information, mined from Twitter. This dataset was created by Cabrera-Arnau and co-authors to track internal mobility during COVID-19 in the UK. If you are interested in how the data was obtained and processed, you can find the information here <span class="citation" data-cites="wang2022">(<a href="references.html#ref-wang2022" role="doc-biblioref"><strong>wang2022?</strong></a>)</span>.</p>
+<p>The edges of the network are going to be determined by flows of people between LADs. The data for flows is based on posts with location information, mined from Twitter. This dataset was created by Cabrera-Arnau and co-authors to track internal mobility during COVID-19 in the UK. If you are interested in how the data was obtained and processed, you can find the information here <span class="citation" data-cites="wang2022">(<a href="references.html#ref-wang2022" role="doc-biblioref">Wang et al. 2022</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_edges <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/UK-mobility/Twitter-LAD.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -545,9 +564,23 @@ Projected CRS: OSGB36 / British National Grid</code></pre>
 </section>
 <section id="task-2-community-detection" class="level2">
 <h2 class="anchored" data-anchor-id="task-2-community-detection">Task 2: community detection</h2>
-<p>Find network communities by running the walktrap algorithm. Explore other well-known community-detection algorithms such as greedy optimisation, Louvain method, Leiden method, etc. Useful resources are, for example, <span class="citation" data-cites="fortunato2022">(<a href="references.html#ref-clauset2004" role="doc-biblioref"><strong>clauset2004?</strong></a>)</span>. If you are curious, you are very welcome to explore these techniques to try to understand what goes on behind the scenes.</p>
+<p>Find network communities by running the walktrap algorithm. Explore other well-known community-detection algorithms such as greedy optimisation, Louvain method, Leiden method, etc. Useful resources are, for example, <span class="citation" data-cites="fortunato2022">Clauset, Newman, and Moore (<a href="references.html#ref-clauset2004" role="doc-biblioref">2004</a>)</span>. If you are curious, you are very welcome to explore these techniques to try to understand what goes on behind the scenes.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-clauset2004" class="csl-entry" role="listitem">
+Clauset, Aaron, M. E. J. Newman, and Cristopher Moore. 2004. <span>“Finding Community Structure in Very Large Networks.”</span> <em>Physical Review E</em> 70 (6). <a href="https://doi.org/10.1103/physreve.70.066111">https://doi.org/10.1103/physreve.70.066111</a>.
+</div>
+<div id="ref-fortunato2022" class="csl-entry" role="listitem">
+Fortunato, Santo, and Mark E. J. Newman. 2022. <span>“20 Years of Network Community Detection.”</span> <em>Nature Physics</em> 18 (8): 848–50. <a href="https://doi.org/10.1038/s41567-022-01716-7">https://doi.org/10.1038/s41567-022-01716-7</a>.
+</div>
+<div id="ref-pons2005" class="csl-entry" role="listitem">
+Pons, Pascal, and Matthieu Latapy. 2005. <span>“Computing Communities in Large Networks Using Random Walks (Long Version).”</span> <a href="https://doi.org/10.48550/ARXIV.PHYSICS/0512106">https://doi.org/10.48550/ARXIV.PHYSICS/0512106</a>.
+</div>
+<div id="ref-wang2022" class="csl-entry" role="listitem">
+Wang, Yikang, Chen Zhong, Qili Gao, and Carmen Cabrera-Arnau. 2022. <span>“Understanding Internal Migration in the UK Before and During the COVID-19 Pandemic Using Twitter Data.”</span> <em>Urban Informatics</em> 1 (1). <a href="https://doi.org/10.1007/s44212-022-00018-w">https://doi.org/10.1007/s44212-022-00018-w</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
