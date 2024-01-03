@@ -1,0 +1,122 @@
+---
+title: "Geographic Data Science"
+subtitle: "Introduction"
+author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
+format: 
+    revealjs:
+        navigation-mode: grid
+align-items: center;
+---
+
+# (Self-)Quiz
+
+- Have you ever used data to make decisions in your life?
+- Have you ever heard the term “Data Science ”?
+- Have you ever written a line of computer code?
+
+# Philosophy
+
+::: fragment
+- (Lots of) **methods** and techniques
+  - General overview
+  - Intuition
+  - Very little math
+  - Lots of ways to continue on your own
+- Emphasis on the **application** and **use**
+- Close connection to **“real world”** applications
+:::
+
+## Philosophy
+1. This course is like a gym subsciption
+2. Principles over technology
+3. Collaborate, do not copy 
+
+# Format
+
+::: fragment
+- Concepts: lectures + website + slides, readings
+- Hands-on: concepts in (interactive) action
+- Do-It-Yourself: practical material to do on your
+own
+:::
+
+# What is Geographic Data Science?
+
+
+
+
+# Logistics
+
+## Sessions
+    
+- Lectures *and* labs 
+- **Mondays 9am-12pm** (lecture 1h)
+- **Thursdays 9am-12pm** (lab 2h approx))
+- Always linked to activity on Teams (i.e., stay tuned on Teams!)
+
+## Website
+
+<CENTER><img src="./figs/website.png" height="500"/></CENTER>
+
+<CENTER> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </CENTER>
+
+## Teams
+
+<center><img data-src="./figs/paper_map.svg" width="20%" height="20%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/server.jpg" width="20%" height="20%"><center>
+
+<CENTER>![](./figs/teams.png)</CENTER>
+    
+    
+## Code
+
+R or Python
+
+General purpose programming language
+Sweet spot between “proof-of-concept” and
+“production-ready”
+Industry standard: GIS (Esri, QGIS) and Data
+Science (Google, Facebook, Amazon, Netflix,
+The New York Times, NASA…)
+
+## Website
+
+::: fragment
+- Syllabus
+- Assessments
+- Environment
+:::
+
+## More Help
+This course is much more about “learning to learn
+”
+and problem solving rather than acquiring specific
+programming tricks or stats wizardry
+Learn to ask questions (but don
+’t expect exact
+answers all the time!!!)
+Help others as much as you can (the best way to
+learn is to teach)
+Search heavily on Google + Stack Overflow
+
+## Workflow
+Go over the Concepts and Hands-on sections of a
+block
+2. Get started on the DIY
+3. Record questions and post them on Teams prior to
+the lab
+
+. Come work on the DIY sections
+2. Live answers to questions posted
+3. Support from demonstrators and module lead
+
+## Labs
+    
+- Hands on!
+- Collaborate *and* participate
+
+
+
+
+# 
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Web Mapping & Analysis]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

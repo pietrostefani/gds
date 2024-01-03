@@ -13,6 +13,6 @@ The website is **free to use** and is licensed under the [Attribution-NonCommerc
 
 ## Contact {.unnumbered}
 
-> Elisabetta Pietrostefani - e.pietrostefani \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
+> Elisabetta Pietrostefani - e.pietrostefani \[at\] liverpool.ac.uk Lecturer in Geographic Data Science, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
 
-> Carmen Cabrera-Arnau - c.cabrera-arnau \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
+> Carmen Cabrera-Arnau - c.cabrera-arnau \[at\] liverpool.ac.uk Lecturer in Geographic Data Science, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.

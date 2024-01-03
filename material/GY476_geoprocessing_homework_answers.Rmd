@@ -1,0 +1,253 @@
+---
+title: "GY476_geoprocessing_homework"
+author: "Elisabetta Pietrostefani and Louise Bernard"
+date: "7/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sf)
+library(raster)
+library(terra)
+library(ggplot2)
+library(dplyr)
+library(viridis)
+library(tmap)
+```
+
+## Load and map data
+
+Exercise 1: Find the correct command to load your data
+
+```{r importdata}
+#Import London districts and housesales data
+
+# add the polygons of London to the environment
+london <- read_sf(dsn = "../GY476_data_2022_23/London/Polygons/districts.shp")
+#../ is the parent of the current directory
+
+# import housesales data from csv
+housesales <- read.csv("../GY476_data_2022_23/London/Tables/housesales.csv")
+```
+
+Exercise 2: Create spatial data points
+
+``` {r createspatialpts}
+# create spatial points
+housesales <- st_as_sf(housesales, coords = c(17,18)) # create pts from coordinates
+```
+
+Exercise 3: Set the right CRS
+
+``` {r transform}
+# change the coordinate system to british national grid
+housesales <-  st_set_crs(housesales, 27700)
+```
+
+Exercise 4: Create a map of London
+
+``` {r plotdata}
+# map London
+map1 <- ggplot()+
+  geom_sf(data = london, inherit.aes = FALSE)
+map1
+```
+
+Exercise 5: Add the housesales points
+
+``` {r addpts}
+# add housing transactions data
+map1 +  geom_sf(data = housesales, inherit.aes = FALSE)
+```
+
+## Spatial join
+
+Exercise 6: Create a spatial join of the district polygons and housesales points
+
+``` {r spatialjoin}
+# spatial overlay between points and polygons
+housesales_districts <- st_join(london, housesales)
+
+# read the first lines of the attribute table
+head(housesales_districts)
+```
+
+## Summarizing data 
+
+Exercise 7: Create a summary of the number of housesales and the average price at the district level
+
+
+``` {r aggregate}
+# aggregate at ward level
+housesales_districts_agg <- housesales_districts %>% 
+  group_by(DIST_CODE, DIST_NAME) %>% # group at district level
+  summarise(count_sales = n(),  # create count
+            mean_price = mean(price)) # average price
+head(housesales_districts_agg)
+```
+
+
+``` {r mapoutput}
+# map housesales by wards
+map2 <- ggplot()+
+  geom_sf(data = housesales_districts_agg, inherit.aes = FALSE, aes(fill = mean_price)) +
+  xlab("") +
+  ylab("")
+map2
+```
+
+Exercise 8: Improve that map to visualize population better
+
+
+``` {r mapoutput2}
+# map housesales by wards
+map3 <- ggplot()+
+  geom_sf(data = housesales_districts_agg, inherit.aes = FALSE, aes(fill = mean_price)) + # add the district level housing price 
+  scale_fill_viridis("Price", direction = -1, labels = scales::dollar_format(prefix = "£"), option = "magma" )+ # change the legend scale to £ and the colour to magma
+  xlab("") +
+  ylab("") +
+  theme_minimal() # choose a nicer theme https://ggplot2.tidyverse.org/reference/ggtheme.html
+map3
+```
+
+
+## Re-aggregating at a different level
+
+
+``` {r reaggregatingdata}
+# Import 1851 parishes
+parishes <- read_sf(dsn = "../GY476_data_2022_23/London/Polygons/london_parish_1851.shp")
+
+# I randomly generate population data from the 1851 parishes
+set.seed(12345678) #set. seed() function in R is used to create reproducible results when writing code that involves creating variables that take on random values
+parishes$population <- runif(dim(parishes)[1], min=100, max=10000) 
+plot(parishes[, "population"])
+
+
+```
+
+```{r visualinspection}
+# let's overlay the two shapefiles
+# we want to get 1851 population data into today's districts
+plot(london$geometry, border="blue")
+plot(parishes$geometry, border = "red", add= TRUE)
+```
+
+Exercise 9: Find the command for the spatial intersection of the `sf` package
+
+``` {r calculategeometry}
+# calculate area
+london$area_district <- st_area(london) / 1000000
+parishes$area_parish <- st_area(parishes) / 1000000
+
+london <- st_make_valid(london) # fixing setting precision
+parishes <- st_make_valid(parishes) # fixing setting precision
+
+# intersectpolygons
+parishes_districts <- st_intersection(london, parishes)
+plot(parishes_districts$geometry)
+
+# calculate area
+parishes_districts$area_inter <- st_area(parishes_districts) / 1000000
+```
+
+Exercise 10: Summarize the intersected area at the district level
+
+``` {r summarizeagain}
+# check the union results
+inter_df <- parishes_districts %>%
+  group_by(DIST_NAME, DIST_CODE) %>% # group by districts
+  summarise(area_district_check = sum(area_inter)) %>% # calculate the total area by ward
+  st_drop_geometry() %>%
+  left_join(london, c("DIST_CODE", "DIST_NAME"))
+
+# check 
+head(inter_df)
+
+# the polygons do not perfectly overlap (e.g. borders of the Tames); the area of the re-aggregated districts are systematically smaller than the original
+```
+
+Exercise 11: Summarize the intersected area at the parish level
+
+
+```{r reaggregate}
+
+# first we need to know how much of the old parishes has been intersected
+inter_agg <- parishes_districts %>%
+  st_drop_geometry() %>% # remove sf geometry
+  group_by(name) %>% # group at the parish level
+  summarise(area_intersected = sum(area_inter)) # calculate the sum of intersected area
+head(inter_agg)
+```
+
+Exercise 12: Summarize the parish population at the district level
+
+``` {r newpopulation}
+# second we calculate the share of the intersected polygon for each parish 
+# then we use it to aggregate at the district level
+parishes_districts_join <- parishes_districts %>%
+  st_drop_geometry() %>%
+  left_join(inter_agg[, c("name", "area_intersected")]) %>% # we calculate how much of the original parish is there (small difference in geometry can explain why the parishes are smaller)
+  mutate(share_parish = area_inter/area_intersected) %>% # we create how much of the old parish each intersection represent
+  group_by(DIST_NAME, DIST_CODE) %>% # we group at the district level
+  summarise_at("population", list(population = ~sum(. * share_parish))) %>% # we attribute the old parish population based on how much the intersected area represent 
+  inner_join(london) %>% # join back with the sf feature
+  st_as_sf()
+```
+
+Exercise 13: Improve the map
+
+``` {r plotresults}
+# plot the results
+plot(parishes_districts_join[, "population"])
+
+tm_shape(parishes_districts_join) +
+  tm_fill("population",style="fixed", title = "Population", breaks=c(0, 25000, 50000, 75000, 500000))+
+  tm_borders() +
+  tm_layout(legend.outside = TRUE, legend.outside.position = "right") 
+
+
+# check it makes sense
+sum(parishes$population)
+sum(parishes_districts_join$population)
+
+```
+
+## Raster operations
+
+Exercise 14: Find the command to calculate the slope of the `terra` package
+
+``` {r rasters}
+# import elevation data
+elevation <- rast("../GY476_data_2022_23/Lebanon/DEM_Leb_projected.tif")
+
+# calculate slope
+#https://rdrr.io/cran/terra/man/terrain.html
+slope <- terrain(elevation, v="slope", neighbors=8, unit="degrees")
+plot(slope)
+```
+
+Exercise 15: Reclassify the elevation to create the flood risk area (elevation under 10m)
+
+``` {r floodrisk}
+# flood risk: find area with a elevation less than 10
+flood_risk <- app(elevation, fun= function(x) ifelse(x<10, 1, 0))
+plot(flood_risk)
+```
+
+Exercise 16: Load the household points from the survey (Lebanon folder)
+
+``` {r extract}
+# sample 
+households <- read_sf("../GY476_data_2022_23/Lebanon/random_survey_LBN.shp")
+
+# point data: calculate elevation at points' coordinates
+housesales_elevation <- raster::extract(elevation,
+                                households)
+
+# attach elevation at each point to the original housesales dataframe
+households <- cbind(households, housesales_elevation)
+head(households)
+ 
+```
