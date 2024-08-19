@@ -1,1 +1,7 @@
 # OpenScience in Python {#sec-open-science-Python .unnumbered}
+
+# Resources
+
+Some help along the way with:
+
+1.  [Geographic Data Science with Python](https://geographicdata.science/book/intro.html) by Sergio J. Rey, Dani Arribas-Bel, Levi J. Wolf
