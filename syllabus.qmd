@@ -4,35 +4,37 @@
 
 **Week 1 -** Introduction and Open Science
 
--   Lecture: Introduction to the module & Open Science
--   Lab: Setting up your Computational Environment & Data Wrangling
-
 **Week 2 -** Spatial Data
 
 **Week 3 -** Mapping Vector Data
 
 **Week 4** - Mapping Raster Data
 
-**Week 5** - No lecture
+**Week 5** - Points
+
+**Week 6** - No Lecture & Clinic
 
 `Assignment I`: Programmed Map
 
 ## Part 2
 
-**Week 6 -** Spatial Weights
+**Week 7 -** Spatial Weights
 
-**Week 7** - ESDA
+**Week 8** - ESDA
 
-**Week 8**
+**Week 9** - Clustering
 
-`Assignment II`: MCQ test
+**Week 10** - Spatial Network Analysis
 
-**Week 9 -** Clustering
+**Week 11** - No lecture & Clinic
 
-**Week 10** - Interpolation, heatmaps and point patterns
+`Assignment II`: A computational essay
 
-**Week 11** - Spatial Network Analysis
+## Learning Outcomes
 
-**Week 12** - No lecture
-
-`Assignment III`: A computational essay
+- **LO1**	Demonstrate advanced GIS/GDS concepts and be able to use the tools programmatically to import, manipulate and analyse data in different formats.	
+- **LO2**	Understand the motivation and inner workings of the main methodological approaches of GDS, both analytical and visual.	
+- **LO3**	Evaluate the suitability of a specific technique, what it can offer and how it can help answer questions of interest.	
+- **LO4**	Apply a number of spatial analysis techniques and how to interpret the results, in the process of turning data into information.	
+- **LO5**	When faced with a new data-set, work independently using GIS/GDS tools programmatically.
+-	**LO6**	Demonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations.

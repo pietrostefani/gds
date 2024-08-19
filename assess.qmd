@@ -4,8 +4,8 @@
 
 -   **Title:** Programmed Map
 -   **Type:** Coursework
--   Due date: 30th October
--   25% of the final mark
+-   Due date: TBC
+-   40% of the final mark
 -   Chance to be reassessed
 -   Electronic submission only
 
@@ -13,9 +13,9 @@ This assignment will be evaluated on technical data processing, map design abili
 
 Once you have created your map, you will need to present it. Write up to 500 about the choices you made to create the map.
 
-### [Full Assignment details](https://theuniversityofliverpool-my.sharepoint.com/:b:/g/personal/pietrost_liverpool_ac_uk/Ec7CR-uEYBhAhaRgn5kK-4EByOrKLsF4utUtNglg9szKeA?e=M72Smx)
+### [Full Assignment details]()
 
-### [.qmd file](./html/YOURLASTNAME_ENVS363_563_Assignment1.qmd)
+### [.qmd file]()
 
 ### Submit
 
@@ -33,38 +33,24 @@ The assignment will be evaluated based on three main pillars, on which you will 
 
 ## Assignment II
 
--   **Title:** Multiple Choice Questions - test
--   **Type:** 16th November - during the Lab. 90 mins
--   Due date: 22nd November
--   25% of the final mark
--   Chance to be reassessed
--   Electronic submission only
-
-a)  To ensure students are engaging with the course content as it progresses and
-b)  To provide core learning in advance of the third assessment.
-
-## Assignment III
-
 -   **Title:** Computational Essay
 -   **Type:** Coursework
--   Due date: 8th January
--   50% of the final mark
+-   Due date: TBC
+-   60% of the final mark
 -   Chance to be reassessed
 -   Electronic submission only
 
 A 2500 word computational essay on a geographic data set which they have explored and analysed using the skills and techniques developed during the course. Students will complete an essay which combines both code, data visualisation and prose supported by references in order to demonstrate sound understanding of all learning outcomes.
 
-### [Full Assignment details](https://theuniversityofliverpool-my.sharepoint.com/:b:/g/personal/pietrost_liverpool_ac_uk/EbImdbxvREhGpbo2TwxqKpwBSRsP_xY_22rDiHpBZxq9fw?e=Kp2t5e)
+### [Full Assignment details]()
 
-### [Data in csv format if you are not using API](https://theuniversityofliverpool-my.sharepoint.com/:x:/g/personal/pietrost_liverpool_ac_uk/EazWqRBVnxFCvnj62XdSvPwBqxArzWsQayqt71L4wR7N_w?e=JT61c7)
+### [Data in csv format if you are not using API]()
 
-### .qmd file - Please see Teams
-
-
+### .qmd file
 
 **Overview**
 
-Here’s the premise. You will take the role of a real-world geographic data scientist tasked to explore datasets on the San Francisco Bay Area (often just called the Bay Area) and find useful insights for a variety of city decision-makers. It does not matter if you have never been to the Bay Area. In fact, this will help you focus on what you can learn about the city through the data, without the influence of prior knowledge. Furthermore, the assessment will not be marked based on how much you know about the San Francisco Bay Area but instead about how much you can show you have learned through analysing data. You will need contextualise your project by highlighting the opportunities and limitations of ‘old’ and ‘new’ forms of spatial data and reference relevant literature.
+Here’s the premise. You will take the role of a real-world geographic data scientist tasked to explore datasets on Los Angeles and find useful insights for a variety of city decision-makers. It does not matter if you have never been to the Los Angeles. In fact, this will help you focus on what you can learn about the city through the data, without the influence of prior knowledge. Furthermore, the assessment will not be marked based on how much you know about Los Angeles but instead about how much you can show you have learned through analysing data. You will need contextualise your project by highlighting the opportunities and limitations of ‘old’ and ‘new’ forms of spatial data and reference relevant literature.
 
 **What is a Computational Essay?**
 
@@ -80,9 +66,11 @@ A computational essay is an essay whose narrative is supported by code and compu
 
 1.  Ordinary text (in English)
 
-2.  Computer input (R)
+2.  Computer input (R or Python)
 
-3.  Computer output These three elements all work together to express what's being communicated.
+3.  Computer output 
+
+These three elements all work together to express what's being communicated.
 
 ## Marking Criteria
 
