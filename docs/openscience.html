@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A course in Geographic Data Science - Lab</title>
+<title>Geographic Data Science in R and Python - 1 - Open Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./openscienceDIY.html" rel="next">
+<link href="./concepts_openscience.html" rel="next">
 <link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -97,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta name="twitter:title" content="A course in Geographic Data Science - Lab">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - 1 - Open Science">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
@@ -112,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">1 Introduction</a></li><li class="breadcrumb-item"><a href="./openscience.html">Lab</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./openscience.html">1 - Open Science</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -127,7 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">A course in Geographic Data Science</a> 
+      <a href="./">Geographic Data Science in R and Python</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -196,12 +162,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">R</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./environPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 Introduction</span></a>
+            <a href="./openscience.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1 - Open Science</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -209,14 +187,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./openscience.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_openscience.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./openscienceDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./openscienceR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenScience in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./opensciencePython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenScience in Python</span></a>
   </div>
 </li>
       </ul>
@@ -224,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 Spatial Data</span></a>
+ <span class="menu-text">2 - Spatial Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -232,14 +216,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_spatialdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdataDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./spatialdataR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialdataPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data in Python</span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapvector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 Mapping Vector Data</span></a>
+ <span class="menu-text">2 - Mapping Vector Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -255,14 +245,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_mapvector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./mapvectorR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Vector Data in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mapvectorPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Vector Data in Python</span></a>
   </div>
 </li>
       </ul>
@@ -270,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapraster.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 Mapping Raster Data</span></a>
+ <span class="menu-text">3 - Mapping Raster Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -278,139 +274,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapraster_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_mapraster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maprasterDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./maprasterR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Raster Data in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maprasterPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Raster Data in Python</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./spatialw.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 Spatial Weights</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialw_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialwDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./esda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 ESDA</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./esda_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./esdaDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 Clustering</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clustering_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clusteringDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./points.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 Points</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./points_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./pointsDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 - Spatial Networks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialnetworks_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialnetworksDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data sets</span></a>
-  </div>
-</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -423,27 +304,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link active" data-scroll-target="#data-wrangling">Data wrangling</a></li>
-  <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages">Loading packages</a></li>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
-  <li><a href="#data-sliced-and-diced" id="toc-data-sliced-and-diced" class="nav-link" data-scroll-target="#data-sliced-and-diced">Data, sliced and diced</a></li>
-  <li><a href="#columns" id="toc-columns" class="nav-link" data-scroll-target="#columns">Columns</a></li>
-  <li><a href="#queries" id="toc-queries" class="nav-link" data-scroll-target="#queries">Queries</a></li>
-  <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional resources</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/openscience.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-open-science" class="quarto-section-identifier">Lab</span></h1>
+<h1 class="title"><span id="sec-open-science" class="quarto-section-identifier">1 - Open Science</span></h1>
 </div>
 
 
@@ -458,308 +326,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Now that you know what computational notebooks are and why we should care about them, let’s start using them! This section introduces you to using R for manipulating tabular data. Please read through it carefully and pay attention to how ideas about manipulating data are translated into code. For this part, you can read directly from the course website, although it is recommended you follow the section interactively by running the code on your own.</p>
-<p>Once you have read through, jump on the <a href="https://pietrostefani.github.io/gds/openscienceDIY.html">Do-It-Yourself</a> section, which will provide you with a challenge that you should complete on your own, and will allow you to put what you have already learnt into practice.</p>
-<section id="data-wrangling" class="level2">
-<h2 class="anchored" data-anchor-id="data-wrangling">Data wrangling</h2>
-<p>Real world datasets tend to be messy. There is no way around it: datasets have “holes” (missing data), the amount of formats in which data can be stored is endless, and the best structure to share data is not always the optimum to analyze them, hence the need to wrangle (manipulate, transform and structure) them. As has been correctly pointed out in many outlets (<a href="https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">e.g.</a>), much of the <a href="https://twitter.com/BigDataBorat/status/306596352991830016">time</a> spent in what is called (Geo-)Data Science is related not only to sophisticated modeling and insight, but to more basic and less exotic tasks such as obtaining data, processing, turning them into a shape that makes analysis possible, and exploring it to get to know their basic properties.</p>
-<p>In this session, you will use a few real world datasets and learn how to process them in R so they can be transformed and manipulated, if necessary, and analyzed. For this, we will introduce some of the fundamental tools of data analysis and scientific computing. We use a prepared dataset that saves us much of the more intricate processing that goes beyond the introductory level the session is aimed at.</p>
-<p>In this notebook, we discuss several patterns to clean and structure data properly, including tidying, subsetting, and aggregating; and we finish with some basic visualization. An additional extension presents more advanced tricks to manipulate tabular data.</p>
-<p>Before we get our hands data-dirty, let us import all the additional libraries we will need to run the code:</p>
-</section>
-<section id="loading-packages" class="level2">
-<h2 class="anchored" data-anchor-id="loading-packages">Loading packages</h2>
-<p>We will start by loading core packages for working with geographic vector and attribute data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># a structure of data manipulation including several packages </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="datasets" class="level2">
-<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
-<p>We will be exploring some demographic characteristics in Liverpool. To do that, we will use a dataset that contains population counts, split by ethnic origin. These counts are aggregated at the Lower Layer Super Output Area (LSOA from now on). LSOAs are an official Census geography defined by the Office of National Statistics. You can think of them, more or less, as neighbourhoods. Many data products (Census, deprivation indices, etc.) use LSOAs as one of their main geographies.</p>
-<p>To do this, we will download a data folder from github called <code>census2021_ethn</code>. You should place this in a data folder you will use throughout the course.</p>
-<p><strong>Import housesales data from csv</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/census2021_ethn/liv_pop.csv"</span>, <span class="at">row.names =</span> <span class="st">"GeographyCode"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Let us stop for a minute to learn how we have read the file. Here are the main aspects to keep in mind:</p>
-<ul>
-<li><p>We are using the method <code>read.csv</code> from base R, you could also use <code>read_csv</code> from <code>library("readr")</code>.</p></li>
-<li><p>Here the csv is based on a data file but it could also be a web address or sometimes you find data in packages.</p></li>
-<li><p>The argument row.names is not strictly necessary but allows us to choose one of the columns as the index of the table. More on indices below.</p></li>
-<li><p>We are using read.csv because the file we want to read is in the csv format. However, many more formats can be read into an R environment. A full list of formats supported may be found <a href="https://www.datacamp.com/tutorial/r-data-import-tutorial">here</a>.</p></li>
-<li><p>To ensure we can access the data we have read, we store it in an object that we call <code>census2021</code>. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of <code>read.csv</code>.</p></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the <code>census2021_ethn</code> file by right-clicking <a href="https://github.com/pietrostefani/gds/tree/main/data">on this link</a> and saving the file 2. Place the file in a data folder you have created where you intend to read it. 3. Your folder should have the following structure a. a gds folder (where you will save your quarto documents) b. a data folder c.&nbsp;the <code>census2021_ethn</code> folder inside your data folder.</p>
-</div>
-</div>
-</section>
-<section id="data-sliced-and-diced" class="level2">
-<h2 class="anchored" data-anchor-id="data-sliced-and-diced">Data, sliced and diced</h2>
-<p>Now we are ready to start playing with and interrogating the dataset! What we have at our fingertips is a table that summarizes, for each of the LSOAs in Liverpool, how many people live in each, by the region of the world where they were born. We call these tables <code>DataFrame</code> objects, and they have a lot of functionality built-in to explore and manipulate the data they contain.</p>
-<p><strong>Structure</strong></p>
-<p>Let’s start by exploring the structure of a <code>DataFrame</code>. We can print it by simply typing its name:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Since they represent a table of data, <code>DataFrame</code> objects have two dimensions: rows and columns. Each of these is automatically assigned a name in what we will call its index. When printing, the index of each dimension is rendered in bold, as opposed to the standard rendering for the content. In the example above, we can see how the column index is automatically picked up from the .csv file’s column names. For rows, we have specified when reading the file we wanted the column GeographyCode, so that is used. If we hadn’t specified any, <code>tidyverse</code> in R will automatically generate a sequence starting in 0 and going all the way to the number of rows minus one. This is the standard structure of a <code>DataFrame</code> object, so we will come to it over and over. Importantly, even when we move to spatial data, our datasets will have a similar structure.</p>
-<p>One further feature of these tables is that they can hold columns with different types of data. In our example, this is not used as we have counts (or int, for integer, types) for each column. But it is useful to keep in mind we can combine this with columns that hold other type of data such as categories, text (str, for string), dates or, as we will see later in the course, geographic features.</p>
-<p><strong>Inspecting</strong></p>
-<p>We can check the top (bottom) X lines of the table by passing X to the method head (tail). For example, for the top/bottom five lines:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021) <span class="co"># read first 5 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
-E01006512    910    106                  840                             24
-E01006513   2225     61                  595                             53
-E01006514   1786     63                  193                             61
-E01006515    974     29                  185                             18
-E01006518   1531     69                   73                             19
-E01006519   1238      7                   24                             14
-          Antarctica.and.Oceania
-E01006512                      0
-E01006513                      7
-E01006514                      5
-E01006515                      2
-E01006518                      4
-E01006519                      3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
-E01033763   1302     68                  142                             11
-E01033764   2106     32                   49                             15
-E01033765   1277     21                   33                             17
-E01033766   1028     12                   20                              8
-E01033767   1003     29                   29                              5
-E01033768   1016     69                  111                             21
-          Antarctica.and.Oceania
-E01033763                      4
-E01033764                      0
-E01033765                      3
-E01033766                      7
-E01033767                      1
-E01033768                      6</code></pre>
-</div>
-</div>
-<p><strong>Summarise</strong></p>
-<p>We can get an overview of the values of the table:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     Europe         Africa       Middle.East.and.Asia
- Min.   : 731   Min.   :  0.00   Min.   :  1.00      
- 1st Qu.:1331   1st Qu.:  7.00   1st Qu.: 16.00      
- Median :1446   Median : 14.00   Median : 33.50      
- Mean   :1462   Mean   : 29.82   Mean   : 62.91      
- 3rd Qu.:1580   3rd Qu.: 30.00   3rd Qu.: 62.75      
- Max.   :2551   Max.   :484.00   Max.   :840.00      
- The.Americas.and.the.Caribbean Antarctica.and.Oceania
- Min.   : 0.000                 Min.   : 0.00         
- 1st Qu.: 2.000                 1st Qu.: 0.00         
- Median : 5.000                 Median : 1.00         
- Mean   : 8.087                 Mean   : 1.95         
- 3rd Qu.:10.000                 3rd Qu.: 3.00         
- Max.   :61.000                 Max.   :11.00         </code></pre>
-</div>
-</div>
-<p>Note how the output is also a <code>DataFrame</code> object, so you can do with it the same things you would with the original table (e.g.&nbsp;writing it to a file).</p>
-<p>In this case, the summary might be better presented if the table is “transposed”:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">summary</span>(census2021))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                                                
-    Europe                     Min.   : 731     1st Qu.:1331    
-    Africa                     Min.   :  0.00   1st Qu.:  7.00  
-Middle.East.and.Asia           Min.   :  1.00   1st Qu.: 16.00  
-The.Americas.and.the.Caribbean Min.   : 0.000   1st Qu.: 2.000  
-Antarctica.and.Oceania         Min.   : 0.00    1st Qu.: 0.00   
-                                                                
-    Europe                     Median :1446     Mean   :1462    
-    Africa                     Median : 14.00   Mean   : 29.82  
-Middle.East.and.Asia           Median : 33.50   Mean   : 62.91  
-The.Americas.and.the.Caribbean Median : 5.000   Mean   : 8.087  
-Antarctica.and.Oceania         Median : 1.00    Mean   : 1.95   
-                                                                
-    Europe                     3rd Qu.:1580     Max.   :2551    
-    Africa                     3rd Qu.: 30.00   Max.   :484.00  
-Middle.East.and.Asia           3rd Qu.: 62.75   Max.   :840.00  
-The.Americas.and.the.Caribbean 3rd Qu.:10.000   Max.   :61.000  
-Antarctica.and.Oceania         3rd Qu.: 3.00    Max.   :11.00   </code></pre>
-</div>
-</div>
-</section>
-<section id="columns" class="level2">
-<h2 class="anchored" data-anchor-id="columns">Columns</h2>
-<p><strong>Create new columns</strong></p>
-<p>We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:</p>
-<p>On base R</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>Total_Population <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(census2021[, <span class="fu">c</span>(<span class="st">"Africa"</span>, <span class="st">"Middle.East.and.Asia"</span>, <span class="st">"Europe"</span>, <span class="st">"The.Americas.and.the.Caribbean"</span>, <span class="st">"Antarctica.and.Oceania"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Using the package <a href="https://www.tidyverse.org/packages/"><code>dplyr</code></a></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total_Pop =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., Africa, Middle.East.and.Asia, Europe, The.Americas.and.the.Caribbean, Antarctica.and.Oceania)))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
-E01006512    910    106                  840                             24
-E01006513   2225     61                  595                             53
-E01006514   1786     63                  193                             61
-E01006515    974     29                  185                             18
-E01006518   1531     69                   73                             19
-E01006519   1238      7                   24                             14
-          Antarctica.and.Oceania Total_Population Total_Pop
-E01006512                      0             1880      1880
-E01006513                      7             2941      2941
-E01006514                      5             2108      2108
-E01006515                      2             1208      1208
-E01006518                      4             1696      1696
-E01006519                      3             1286      1286</code></pre>
-</div>
-</div>
-<p>A different spin on this is assigning new values: we can generate new variables with scalars, and modify those:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>census2021<span class="sc">$</span>new_column <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(census2021)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
-E01006512    910    106                  840                             24
-E01006513   2225     61                  595                             53
-E01006514   1786     63                  193                             61
-E01006515    974     29                  185                             18
-E01006518   1531     69                   73                             19
-E01006519   1238      7                   24                             14
-          Antarctica.and.Oceania Total_Population Total_Pop new_column
-E01006512                      0             1880      1880          1
-E01006513                      7             2941      2941          1
-E01006514                      5             2108      2108          1
-E01006515                      2             1208      1208          1
-E01006518                      4             1696      1696          1
-E01006519                      3             1286      1286          1</code></pre>
-</div>
-</div>
-<p><code>dplyr</code> is an immensely useful package in R because it streamlines and simplifies the process of data manipulation and transformation. With its intuitive and consistent syntax, dplyr provides a set of powerful and efficient functions that make tasks like filtering, summarizing, grouping, and joining datasets much more straightforward. Whether you’re working with small or large datasets, <code>dplyr</code>’s optimized code execution ensures fast and efficient operations. Its ability to chain functions together using the pipe operator (<code>%&gt;%</code>) allows for a clean and readable code structure, enhancing code reproducibility and collaboration. Overall, <code>dplyr</code> is an indispensable tool for data analysts and scientists working in R, enabling them to focus on their data insights rather than wrestling with complex data manipulation code.</p>
-<p><strong>Delete columns</strong></p>
-<p>Permanently deleting variables is also within reach of one command:</p>
-<p>Base R</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> <span class="fu">subset</span>(census2021, <span class="at">select =</span> <span class="sc">-</span>new_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>dplyr</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_column =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="queries" class="level2">
-<h2 class="anchored" data-anchor-id="queries">Queries</h2>
-<p><strong>Index-based queries</strong></p>
-<p>Here we explore how we can subset parts of a <code>DataFrame</code> if we know exactly which bits we want. For example, if we want to extract the total and European population of the first four areas in the table:</p>
-<p>We can select with <code>c()</code>. If this structure is new to you have a look <a href="https://pietrostefani.github.io/gds/environR.html">here</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>eu_tot_first4 <span class="ot">&lt;-</span> census2021[<span class="fu">c</span>(<span class="st">'E01006512'</span>, <span class="st">'E01006513'</span>, <span class="st">'E01006514'</span>, <span class="st">'E01006515'</span>), <span class="fu">c</span>(<span class="st">'Total_Population'</span>, <span class="st">'Europe'</span>)]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>eu_tot_first4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Total_Population Europe
-E01006512             1880    910
-E01006513             2941   2225
-E01006514             2108   1786
-E01006515             1208    974</code></pre>
-</div>
-</div>
-<p><strong>Condition-based queries</strong></p>
-<p>However, sometimes, we do not know exactly which observations we want, but we do know what conditions they need to satisfy (e.g.&nbsp;areas with more than 2,000 inhabitants). For these cases, <code>DataFrames</code> support selection based on conditions. Let us see a few examples. Suppose we want to select…</p>
-<p>Areas with more than 900 people in Total:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pop900 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Total_Population <span class="sc">&gt;</span> <span class="dv">900</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Areas where there are no more than 750 Europeans:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>euro750 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Europe <span class="sc">&lt;</span> <span class="dv">750</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Areas with exactly ten person from Antarctica and Oceania:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>oneOA <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Antarctica.and.Oceania</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><em>Pro-tip</em>: These queries can grow in sophistication with almost no limits.</p>
-<p><strong>Combining queries</strong></p>
-<p>Now all of these queries can be combined with each other, for further flexibility. For example, imagine we want areas with more than 25 people from the Americas and Caribbean, but less than 1,500 in total:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ac25_l500 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(The.Americas.and.the.Caribbean <span class="sc">&gt;</span> <span class="dv">25</span>, Total_Population <span class="sc">&lt;</span> <span class="dv">1500</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ac25_l500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
-E01033750   1235     53                  129                             26
-E01033752   1024     19                  114                             33
-E01033754   1262     37                  112                             32
-E01033756    886     31                  221                             42
-E01033757    731     39                  223                             29
-E01033761   1138     52                  138                             33
-          Antarctica.and.Oceania Total_Population Total_Pop new_column
-E01033750                      5             1448      1448          1
-E01033752                      6             1196      1196          1
-E01033754                      9             1452      1452          1
-E01033756                      5             1185      1185          1
-E01033757                      3             1025      1025          1
-E01033761                     11             1372      1372          1</code></pre>
-</div>
-</div>
-</section>
-<section id="sorting" class="level2">
-<h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
-<p>Among the many operations <code>DataFrame</code> objects support, one of the most useful ones is to sort a table based on a given column. For example, imagine we want to sort the table by total population:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>db_pop_sorted <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Total_Pop)) <span class="co">#sorts the dataframe by the "Total_Pop" column in descending order </span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_pop_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          Europe Africa Middle.East.and.Asia The.Americas.and.the.Caribbean
-E01006747   2551    163                  812                             24
-E01006513   2225     61                  595                             53
-E01006751   1843    139                  568                             21
-E01006524   2235     36                  125                             24
-E01006787   2187     53                   75                             13
-E01006537   2180     23                   46                              6
-          Antarctica.and.Oceania Total_Population Total_Pop new_column
-E01006747                      2             3552      3552          1
-E01006513                      7             2941      2941          1
-E01006751                      1             2572      2572          1
-E01006524                     11             2431      2431          1
-E01006787                      2             2330      2330          1
-E01006537                      2             2257      2257          1</code></pre>
-</div>
-</div>
-</section>
-<section id="additional-resources" class="level2">
-<h2 class="anchored" data-anchor-id="additional-resources">Additional resources</h2>
-<ul>
-<li><p>A good introduction to data manipulation in Python is Wes McKinney’s <a href="https://wesmckinney.com/book/">“Python for Data Analysis”</a></p></li>
-<li><p>A good introduction to data manipulation in R is the <a href="https://r4ds.had.co.nz/wrangle-intro.html">“Data wrangling”</a> chapter in R for Data Science.</p></li>
-<li><p>A good extension is Hadley Wickham’ <a href="https://vita.had.co.nz/papers/tidy-data.pdf">“Tidy data”</a> paper which presents a very popular way of organising tabular data for efficient manipulation.</p></li>
-</ul>
+<p>Our goal in this part of the book is to</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -998,22 +567,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1 Introduction</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./openscienceDIY.html" class="pagination-link">
-        <span class="nav-page-text">Do-It-Yourself</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./concepts_openscience.html" class="pagination-link">
+        <span class="nav-page-text">Concepts</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/openscience.qmd" class="toc-action">Edit this page</a></p></div></div></div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

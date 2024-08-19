@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A course in Geographic Data Science - 1 Introduction</title>
+<title>Geographic Data Science in R and Python - 1&nbsp; Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./openscience.html" rel="next">
-<link href="./environR.html" rel="prev">
+<link href="./environPy.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,12 +63,12 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="A course in Geographic Data Science - 1 Introduction">
+<meta name="twitter:title" content="Geographic Data Science in R and Python - 1&nbsp; Introduction">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://pietrostefani.github.io/wma/img/gds.png">
+<meta name="twitter:image" content="https://pietrostefani.github.io/wma/img/layers.png">
 <meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:image-height" content="1424">
-<meta name="twitter:image-width" content="1534">
+<meta name="twitter:image-height" content="1212">
+<meta name="twitter:image-width" content="1596">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">1 Introduction</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -96,9 +96,9 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">A course in Geographic Data Science</a> 
+      <a href="./">Geographic Data Science in R and Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/pietrostefani/gds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -165,12 +165,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">R</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./environPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">1 Introduction</span></a>
+            <a href="./openscience.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Open Science</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -178,14 +190,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./openscience.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_openscience.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./openscienceDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./openscienceR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenScience in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./opensciencePython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenScience in Python</span></a>
   </div>
 </li>
       </ul>
@@ -193,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 Spatial Data</span></a>
+ <span class="menu-text">2 - Spatial Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -201,14 +219,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_spatialdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdataDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./spatialdataR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialdataPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial data in Python</span></a>
   </div>
 </li>
       </ul>
@@ -216,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapvector.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 Mapping Vector Data</span></a>
+ <span class="menu-text">2 - Mapping Vector Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -224,14 +248,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_mapvector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./mapvectorR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Vector Data in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mapvectorPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Vector Data in Python</span></a>
   </div>
 </li>
       </ul>
@@ -239,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./mapraster.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 Mapping Raster Data</span></a>
+ <span class="menu-text">3 - Mapping Raster Data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -247,139 +277,24 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapraster_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./concepts_mapraster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maprasterDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
+  <a href="./maprasterR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Raster Data in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maprasterPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapping Raster Data in Python</span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./spatialw.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 Spatial Weights</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialw_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialwDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./esda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 ESDA</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./esda_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./esdaDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 Clustering</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clustering_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clustering</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clusteringDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./points.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 Points</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./points_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./pointsDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 - Spatial Networks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialnetworks_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialnetworksDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data sets</span></a>
-  </div>
-</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -396,11 +311,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#from-geographic-data-science-to-geographic-data-science" id="toc-from-geographic-data-science-to-geographic-data-science" class="nav-link active" data-scroll-target="#from-geographic-data-science-to-geographic-data-science">From Geographic Data Science to Geographic Data Science</a></li>
-  <li><a href="#open-source-gis" id="toc-open-source-gis" class="nav-link" data-scroll-target="#open-source-gis">Open Source GIS</a></li>
-  <li><a href="#open-science" id="toc-open-science" class="nav-link" data-scroll-target="#open-science"><strong>Open Science</strong></a></li>
-  <li><a href="#modern-scientific-tools" id="toc-modern-scientific-tools" class="nav-link" data-scroll-target="#modern-scientific-tools"><strong>Modern Scientific Tools</strong></a></li>
-  <li><a href="#further-readings" id="toc-further-readings" class="nav-link" data-scroll-target="#further-readings"><strong>Further readings</strong></a></li>
+  <li><a href="#from-geographic-data-science-to-geographic-data-science" id="toc-from-geographic-data-science-to-geographic-data-science" class="nav-link active" data-scroll-target="#from-geographic-data-science-to-geographic-data-science"><span class="header-section-number">1.1</span> From Geographic Data Science to Geographic Data Science</a></li>
+  <li><a href="#what-is-geographic-data-science" id="toc-what-is-geographic-data-science" class="nav-link" data-scroll-target="#what-is-geographic-data-science"><span class="header-section-number">1.2</span> <strong>What is <em>Geographic Data Science</em>?</strong></a></li>
+  <li><a href="#types-of-spatial-data" id="toc-types-of-spatial-data" class="nav-link" data-scroll-target="#types-of-spatial-data"><span class="header-section-number">1.3</span> Types of Spatial data</a></li>
+  <li><a href="#get-ready" id="toc-get-ready" class="nav-link" data-scroll-target="#get-ready"><span class="header-section-number">1.4</span> <strong>Get ready!</strong></a></li>
+  <li><a href="#further-readings" id="toc-further-readings" class="nav-link" data-scroll-target="#further-readings"><span class="header-section-number">1.5</span> <strong>Further readings</strong></a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/intro.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -409,7 +324,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier">1 Introduction</span></h1>
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></h1>
 </div>
 
 
@@ -425,56 +340,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>In this section we introduce what Geographic Data Science is. We top it up with a few (optional) further readings for the interested and curious mind.</p>
-<p>Slides can be downloaded <a href="./html/introduction_gds.pdf">“here”</a></p>
-<section id="from-geographic-data-science-to-geographic-data-science" class="level2">
-<h2 class="anchored" data-anchor-id="from-geographic-data-science-to-geographic-data-science">From Geographic Data Science to Geographic Data Science</h2>
-<p>Geographic Information holds a pivotal position within our modern societies, permeating various aspects of our daily lives. It underpins essential sectors such as housing, transportation, insurance, banking, telecommunications, logistics, energy, retail, agriculture, healthcare, and urban planning. Its significance lies in the capacity to analyze and derive invaluable insights from geo-spatial data, enabling us to make informed decisions and address complex challenges. Proficiency in this field equips individuals with the ability to work with real-world data across multiple domains and tackle diverse problems. Furthermore, it provides the opportunity to acquire essential data science skills and utilize important tools for answering spatial questions. Given its wide-ranging applications and the increasing reliance on location-based information, there is a substantial demand for experts in the geographic information industry, making it a highly sought-after skill set in today’s workforce.</p>
-<p><strong>What information does GIS use?</strong></p>
-<ul>
-<li>Data that defines geographical features like roads, rivers</li>
-<li>Soil types, land use, elevation</li>
-<li>Demographics, socioeconomic attributes</li>
-<li>Environmental, climate, air-quality</li>
-<li>Annotations that label features and places</li>
-</ul>
-<p><strong>Geographic Data Science</strong></p>
-<p>A GIS person typically produces cartographic and analytical products using desktop software. A geospatial data scientist <strong>creates code</strong> and <strong>runs pipelines</strong> that produce <strong>analytical products</strong> and <strong>cartographic representations</strong>.</p>
-<p>This entails working with real-world data from various domains and tackling a wide range of complex problems. Through this process geospatial data science includes both data science and GIS tools that lead to the analysos of intricate spatial questions effectively. The synergy between CyberGIS and Geographic Data Science is unmistakable, with coding playing a pivotal role in enabling the seamless development of interactive data analysis. By leveraging cutting-edge technologies and innovative methodologies, this symbiotic relationship enhances the accessibility, scalability, and interactivity of geospatial data analysis. Consequently, it opens up new vistas for collaborative research and decision-making processes.</p>
-<p>This multifaceted approach equips them with the knowledge and expertise to navigate the intricate world of spatial data analysis and contribute meaningfully to diverse fields where location-based insights are invaluable.</p>
-<p><img src="./img/gds.png" class="img-fluid" style="width:80.0%"></p>
+<section id="from-geographic-data-science-to-geographic-data-science" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="from-geographic-data-science-to-geographic-data-science"><span class="header-section-number">1.1</span> From Geographic Data Science to Geographic Data Science</h2>
+<p>Geographic Information plays a crucial role in our societies housing, transportation, insurance, banking, telecommunications, logistics, energy, retail, agriculture, healthcare, urban planning Analyse and extract insights from geospatial data Work with real-world data on a number of domains and problems Acquire key data science skills and important tools to answer spatial questions + high demand in industry</p>
+<p><strong>What information does GIS use?</strong> Data that defines geographical features like roads, rivers Soil types, land use, elevation Demographics, socioeconomic attributes Environmental, climate, air-quality Annotations that label features and places</p>
+<p>From the real-world to the GIS world</p>
+<p><img src="./img/layers.png" class="img-fluid" style="width:80.0%"></p>
+<p>As a GIS person typically produces cartographic and analytical products using desktop software Geospatial data scientist creates code and runs pipelines that produce analytical products and cartographic representations.</p>
+<p><img src="./img/gds.png" class="img-fluid" style="width:80.0%"> Hard Skills Programming Language SQL Version control Cloud</p>
+<p>Soft Skills Communication Storytelling Geospatial analytics acumen Ethical skills</p>
 </section>
-<section id="open-source-gis" class="level2">
-<h2 class="anchored" data-anchor-id="open-source-gis">Open Source GIS</h2>
-<p><strong>Open source Geographic Information Systems (GIS)</strong>, such as <strong>QGIS</strong>, have made geographic analysis accessible worldwide. GIS programs tend to emphasize graphical user interfaces (GUIs), with the unintended consequence of discouraging reproducibility (although many can be used from the command line Python + QGIS). <strong>R</strong> and <strong>Python</strong> by contrast, emphasizes the command line interface (CLI).</p>
-<p>The <strong>‘geodata revolution’</strong> drives demand for high performance computer hardware and efficient, scalable software to handle and extract signal from the noise, to understand and perhaps change the world. Spatial databases enable storage and generation of manageable subsets from the vast geographic data stores, making interfaces for gaining knowledge from them vital tools for the future.</p>
-<p><strong>R</strong> and <strong>Python</strong> are both tools with advanced modeling and visualization capabilities.</p>
+<section id="what-is-geographic-data-science" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="what-is-geographic-data-science"><span class="header-section-number">1.2</span> <strong>What is <em>Geographic Data Science</em>?</strong></h2>
+<p><strong>Philosophy</strong></p>
+<p>Statistician George Box :</p>
+<p><em>All models are wrong, but some are useful In a similar fashion</em>.</p>
+<p>Geographer Keith Ord :</p>
+<p><em>All maps are wrong, but some are useful.</em></p>
+<p>The following clip is taken from a keynote response by Dani Arribas-Bel at the first <a href="https://carto.com/spatial-data-conference/2017/">Spatial Data Science Conference</a>, organised by <a href="https://carto.com/">CARTO</a> and held in Brooklyn in 2017. The talk provides a bit of background and context, which will hopefully help you understand a bit better what Geographic Data Science is.</p>
 </section>
-<section id="open-science" class="level2">
-<h2 class="anchored" data-anchor-id="open-science"><strong>Open Science</strong></h2>
-<p>Why do we care about the processes and tools we use when we do computational work? Where do the current paradigm come from? Are we on the verge of a new model? For all of this, we we have two reads to set the tone. Make sure to get those in first thing before moving on to the next bits.</p>
-<ul>
-<li><p>First half of Chapter 1 in “Geographic Data Science with Python” <a href="https://geographicdata.science/book/notebooks/01_geo_thinking.html">Geographic Thinking for Data Scientists</a>.</p></li>
-<li><p>The 2018 Atlantic piece <a href="https://juliacomputing.com/docs/press_pdfs/april5.pdf">“The scientific paper is obsolete”</a> on computational notebooks, by James Somers.</p></li>
-</ul>
+<section id="types-of-spatial-data" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="types-of-spatial-data"><span class="header-section-number">1.3</span> Types of Spatial data</h2>
+<p>Vector Raster</p>
 </section>
-<section id="modern-scientific-tools" class="level2">
-<h2 class="anchored" data-anchor-id="modern-scientific-tools"><strong>Modern Scientific Tools</strong></h2>
-<p>Once we know a bit more about why we should care about the tools we use, let’s dig into those that will underpin much of this course. This part is interesting in itself, but will also valuable to better understand the practical aspects of the course. Again, we have two reads here to set the tone and complement the practical introduction we saw in the Hands-on and DIY parts of the previous block. We are closing the circle here:</p>
-<ul>
-<li>Second half of Chapter 1 in “Geographic Data Science with Python” <a href="https://geographicdata.science/book/notebooks/01_geo_thinking.html">Geographic Thinking for Data Scientists</a>.</li>
-</ul>
-<!---
--   Find a good link for computational notebook !!!
-Carmen any ideas?
---->
+<section id="get-ready" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="get-ready"><span class="header-section-number">1.4</span> <strong>Get ready!</strong></h2>
+<p>Go the the Computation Environment section</p>
 </section>
-<section id="further-readings" class="level1">
-<h1><strong>Further readings</strong></h1>
-<p>Watch: <a href="https://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/">Solving Life’s Everyday Problems with Data</a></p>
+<section id="further-readings" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="further-readings"><span class="header-section-number">1.5</span> <strong>Further readings</strong></h2>
+<p>To get a better picture, the following readings complement the overview provided above very well:</p>
+<p>Bonus</p>
+<p>Watch ! All Maps are wrong https://www.youtube.com/watch?v=kIID5FDi2JQ Watch: Solving Life’s Everyday Problems with Data https://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/</p>
+<p>The chapter is available free online <a href="http://shop.oreilly.com/product/0636920028529.do"><strong><code>HTML</code></strong></a> | <a href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf"><strong><code>PDF</code></strong></a></p>
 <ol type="1">
-<li><p><strong>“Doing Data Science”</strong> by Cathy O’Neil, Rachel Schutt in <a href="http://shop.oreilly.com/product/0636920028529.do">html</a> or <a href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf">pdf</a> is a general overview of why we needed Data Science and where if came from.</p></li>
-<li><p>A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho’s recent overview <a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734"><strong>“50 years of Data Science”</strong></a>.</p></li>
-<li><p>A geographic take on Data Science, proposing more interaction between Geography and Data Science is Alex Singelton’s and Dani Arribas-Bel’s <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/gean.12194"><strong>Geographic Data Science</strong></a> article.</p></li>
+<li><p>The introductory chapter to “Doing Data Science” <a href="https://darribas.org/gds_course/content/bA/concepts_A.html#id1">schutt2013doing</a>, by Cathy O’Neil and Rachel Schutt is general overview of why we needed Data Science and where if came from.</p></li>
+<li><p>A slightly more technical historical perspective on where Data Science came from and where it might go can be found in David Donoho’s recent overview <a href="https://darribas.org/gds_course/content/bA/concepts_A.html#id3">donoho201750</a>.</p></li>
+<li><p>A geographic take on Data Science, proposing more interaction between Geography and Data Science <a href="https://darribas.org/gds_course/content/bA/concepts_A.html#id5">singleton2019geographic</a>.</p></li>
 </ol>
 
 
@@ -716,20 +618,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./environR.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R</span>
+      <a href="./environPy.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./openscience.html" class="pagination-link">
-        <span class="nav-page-text">Lab</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">1 - Open Science</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
