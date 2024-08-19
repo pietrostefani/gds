@@ -16,6 +16,10 @@ Geographic Information holds a pivotal position within our modern societies, per
 -   Environmental, climate, air-quality
 -   Annotations that label features and places
 
+From the real-world to the GIS world
+
+![](./img/layers.png){width="80%"}
+
 **Geographic Data Science**
 
 A GIS person typically produces cartographic and analytical products using desktop software. A geospatial data scientist **creates code** and **runs pipelines** that produce **analytical products** and **cartographic representations**.
@@ -25,6 +29,16 @@ This entails working with real-world data from various domains and tackling a wi
 This multifaceted approach equips them with the knowledge and expertise to navigate the intricate world of spatial data analysis and contribute meaningfully to diverse fields where location-based insights are invaluable.
 
 ![](./img/gds.png){width="80%"}
+
+## What is Geographic Data Science?
+
+Statistician George Box :
+
+*All models are wrong, but some are useful In a similar fashion.*
+
+Geographer Keith Ord :
+
+*All maps are wrong, but some are useful.*
 
 ## Open Source GIS
 
@@ -48,12 +62,6 @@ Once we know a bit more about why we should care about the tools we use, let's d
 
 -   Second half of Chapter 1 in "Geographic Data Science with Python" [Geographic Thinking for Data Scientists](https://geographicdata.science/book/notebooks/01_geo_thinking.html).
 
-```{=html}
-<!---
--   Find a good link for computational notebook !!!
-Carmen any ideas?
---->
-```
 # **Further readings**
 
 Watch: [Solving Life's Everyday Problems with Data](https://www.sciencefriday.com/segments/solving-lifes-everyday-problems-with-data/)
