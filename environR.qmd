@@ -30,7 +30,7 @@ To check your version of:
 Upon startup, RStudio will look something like this. Note: the **Pane Layout** and **Appearance** settings can be altered e.g. on Mac OS by clicking RStudio\>Preferences\>Appearance and RStudio\>Preferences\>Pane Layout. I personally like to have my Console in the top right corner and Environment in the bottom left and keep the Source and Environment panes wider than Console and Files for easier readability. Default settings will probably have the Console in the bottom left and Environment in the top right. You will also have a standard white background; but you can chose specific [themes](https://quarto.org/docs/output-formats/html-themes.html).
 
 ```{r class.source = "fold-show", echo = F}
-knitr::include_graphics("img/startup-r.png")
+knitr::include_graphics("img/environ_R_1.png")
 ```
 
 At the start of a session, it's good practice clearing your R environment:
@@ -51,10 +51,10 @@ If the directory is not set yet, type in `setwd("~/pathtodirectory")` to set it.
 setwd("~/Dropbox/Github/gds")
 ```
 
-If you have set your directory correctly, it will show up at the top of the console pane:
+If you have set your directory correctly, you can check it with `getwd()`
 
 ```{r class.source = "fold-show", echo = F}
-knitr::include_graphics("img/directory.png")
+knitr::include_graphics("img/environ_R_2.png")
 ```
 
 Important: You do not need to set your working directory if you are using an R-markdown or Quarto document and you have it saved in the right location. The pathway will start from where your document is saved.
@@ -391,9 +391,67 @@ table(Densities_UK_cities$city)
 
 The list of libraries used in this book is provided below:
 
--   `sf`
--   `geojsonsf`
--   `mapview`
+- `tidyverse` 
+- `data.table`
+- `sf`
+- `tmap`
+- `readr`
+- `geojsonsf`
+- `osmdata`
+- `basemapR`
+- `RColorBrewer`
+- `classInt`
+- `R.utils`
+- `dplyr`
+- `ggplot2`
+- `viridis`
+- `raster`
+- `terra`
+- `exactextractr`
+- `tidyterra`
+- `spdep`
+- `tibble`
+- `patchwork`
+- `rosm`
+- `tidyr`
+- `GGally`
+- `cluster`
+- `rgeoda`
+- `mapview`
+- `ggspatial`
+- `colorspace`
+- `gstat`
+- `spatstat`
+- `dbscan`
+- `fpc`
+- `eks`
+- `igraph`
+- `tidygraph`
+
+You need to ensure you have installed the list of libraries used in this book, running the following code:
+
+```{r, eval=FALSE}
+
+# package names
+packages <- c(
+  "tmap", "readr", "geojsonsf", "osmdata", "basemapR", "sf", "tidyverse", 
+  "RColorBrewer", "classInt", "R.utils", "dplyr", "ggplot2", "viridis", 
+  "raster", "terra", "exactextractr", "tidyterra", "spdep", "tibble", 
+  "patchwork", "rosm", "tidyr", "GGally", "cluster", "rgeoda", "mapview", 
+  "ggspatial", "colorspace", "gstat", "spatstat", "dbscan", "fpc", "eks", 
+  "igraph", "tidygraph"
+)
+
+# Function to check and install missing packages
+install_if_missing <- function(p) {
+  if (!requireNamespace(p, quietly = TRUE)) {
+    install.packages(p)
+  }
+}
+
+# Apply the function to each package
+invisible(sapply(packages, install_if_missing))
+```
 
 ## Resources
 

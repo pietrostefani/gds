@@ -1,7 +1,11 @@
 # Environment {.unnumbered}
 
-This course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists *everything* you will require.
+This course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralised section that lists *everything* you will require.
 
-## Website Software
+## Coding Languages
 
-To reproduce the code in the book, you need the most recent version of Quarto, R and relevant packages. These can be installed following the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/). Quarto (1.2.280) can be downloaded from [the Quarto website](https://quarto.org/docs/get-started/), it may already be installed when you download R and R Studio.
+In this course, you have the option to follow along using either `R` or `Python`, depending on your past experienc with these programming languages and preference. Please choose **one** language to focus on and stick to it throughout. This course has two assignments and you will be required to submit both assignments in the same  programming languages. The next two sections will guide you through the process of setting up your development environment in `R` or `Python`, so you can get started with the course smoothly.
+
+## Reproducing code in this book
+
+If you want to reproduce the code in the book, you need the most recent version of Quarto, R and relevant packages. These can be installed following the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/). Quarto (1.2.280) can be downloaded from [the Quarto website](https://quarto.org/docs/get-started/), it may already be installed when you download R and R Studio.
