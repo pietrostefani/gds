@@ -20,7 +20,7 @@ We will start by loading core packages for working with geographic vector and at
 
 ```{r message=FALSE}
 library(tidyverse) # a structure of data manipulation including several packages 
-library(data.table)
+library(data.table) # load the data.table package
 ```
 
 ## Datasets
@@ -43,13 +43,34 @@ Let us stop for a minute to learn how we have read the file. Here are the main a
 
 -   The argument row.names is not strictly necessary but allows us to choose one of the columns as the index of the table. More on indices below.
 
--   We are using read.csv because the file we want to read is in the csv format. However, many more formats can be read into an R environment. A full list of formats supported may be found [here](https://www.datacamp.com/tutorial/r-data-import-tutorial).
+-   We are using `read.csv` because the file we want to read is in the csv format. However, many more formats can be read into an R environment. A full list of formats supported may be found [here](https://www.datacamp.com/tutorial/r-data-import-tutorial).
 
 -   To ensure we can access the data we have read, we store it in an object that we call `census2021`. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read.csv`.
 
 ::: callout-important
 
-You need to store the data file on your computer, and read it locally. To do that, you can follow these steps: 1. Download the `census2021_ethn` file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 2. Place the file in a data folder you have created where you intend to read it. 3. Your folder should have the following structure a. a gds folder (where you will save your quarto documents) b. a data folder c. the `census2021_ethn` folder inside your data folder.
+You need to store the data file on your computer, and read it locally. To do that, you can follow these steps:
+
+1. Download the `census2021_ethn` file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 
+
+2. Place the file in a data folder you have created where you intend to read it. 
+
+3. Your folder should have the following structure a. a gds folder (where you will save your quarto .qmd documents) b. a data folder c. the `census2021_ethn` folder inside your data folder.
+
+:::
+
+::: callout-tip
+
+## Download a folder on github
+
+1. First go to [https://download-directory.github.io/](https://download-directory.github.io/)
+
+2. Then go to the folder you need to today. So for example copy: https://github.com/pietrostefani/gds/tree/main/data/London
+
+3. Paste it in the green box... give it a few minutes
+
+4. Check your downloads file and unzip
+
 :::
 
 ## Data, sliced and diced
@@ -99,12 +120,6 @@ t(summary(census2021))
 
 We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:
 
-On base R
-
-```{r}
-census2021$Total_Population <- rowSums(census2021[, c("Africa", "Middle.East.and.Asia", "Europe", "The.Americas.and.the.Caribbean", "Antarctica.and.Oceania")])
-```
-
 Using the package [`dplyr`](https://www.tidyverse.org/packages/)
 
 ```{r}
@@ -127,17 +142,16 @@ head(census2021)
 
 Permanently deleting variables is also within reach of one command:
 
-Base R
-
-```{r}
-census2021 <- subset(census2021, select = -new_column)
-```
-
 `dplyr`
 
 ```{r}
 census2021 <- census2021 %>%
   mutate(new_column = 1)
+```
+
+```{r}
+census2021 <- census2021 %>%
+  select(-new_column)
 ```
 
 ## Queries
@@ -149,7 +163,9 @@ Here we explore how we can subset parts of a `DataFrame` if we know exactly whic
 We can select with `c()`. If this structure is new to you have a look [here](https://pietrostefani.github.io/gds/environR.html).
 
 ```{r}
-eu_tot_first4 <- census2021[c('E01006512', 'E01006513', 'E01006514', 'E01006515'), c('Total_Population', 'Europe')]
+eu_tot_first4 <- census2021 %>%
+  filter(rownames(census2021) %in% c('E01006512', 'E01006513', 'E01006514', 'E01006515')) %>%
+  select(Total_Pop, Europe)
 
 eu_tot_first4
 ```
@@ -162,7 +178,7 @@ Areas with more than 900 people in Total:
 
 ```{r}
 pop900 <- census2021 %>%
-  filter(Total_Population > 900)
+  filter(Total_Pop > 900)
 ```
 
 Areas where there are no more than 750 Europeans:
@@ -179,7 +195,10 @@ oneOA <- census2021 %>%
   filter(`Antarctica.and.Oceania` == 10)
 ```
 
-*Pro-tip*: These queries can grow in sophistication with almost no limits.
+::: {.callout-tip}
+## Tip with Title
+These queries can grow in sophistication with almost no limits.
+:::
 
 **Combining queries**
 
@@ -187,7 +206,7 @@ Now all of these queries can be combined with each other, for further flexibilit
 
 ```{r}
 ac25_l500 <- census2021 %>%
-  filter(The.Americas.and.the.Caribbean > 25, Total_Population < 1500)
+  filter(The.Americas.and.the.Caribbean > 25, Total_Pop < 1500)
 ac25_l500
 
 ```
@@ -204,8 +223,6 @@ head(db_pop_sorted)
 ```
 
 ## Additional resources
-
--   A good introduction to data manipulation in Python is Wes McKinney's ["Python for Data Analysis"](https://wesmckinney.com/book/)
 
 -   A good introduction to data manipulation in R is the ["Data wrangling"](https://r4ds.had.co.nz/wrangle-intro.html) chapter in R for Data Science.
 
