@@ -52,7 +52,7 @@ envs363/
 
 <img src="./img/environ_Py_1.png" width="80%"/>
 
-3.  In the **Anaconda Terminal** write: `conda env create -n envs363 --file C:\envs456\envs456.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
+3.  In the **Anaconda Terminal** write: `conda env create -n envs363 --file C:\envs363\envs363_563.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
 4.  If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 5.  In the **Anaconda Terminal** write `conda activate envs363` and press `Enter`. This activates your working environment.
 6.  *Necessary* on University machines, otherwise *Optional*: Configuration of Jupyter Notebooks
@@ -68,10 +68,11 @@ envs363/
 
 <img src="./img/environ_Py_3.png" width="80%"/>
 
+```{=html}
 <!--
 Needs new screenshot
 -->
-
+```
 2.  Save the file in the `labs` folder within your `envs363` folder on your machine.
 3.  Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`.
 4.  In the **Anaconda Terminal** write and run `conda activate envs363`.
@@ -79,10 +80,11 @@ Needs new screenshot
 
 <img src="./img/environ_Py_4.png" width="80%"/>
 
+```{=html}
 <!--
 Needs new screenshot
 -->
-
+```
 6.  Navigate to your course folder in and double click on the notebook downloaded in step 1.
 7.  You can now work on your copy of the notebook.
 
@@ -114,10 +116,11 @@ envs363/
 
 <img src="./img/environ_Py_5.png" width="80%"/>
 
+```{=html}
 <!--
 Needs new screenshot
 -->
-
+```
 ### Set up the Python Environment {.unnumbered}
 
 1.  Download the `envs363_563.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
@@ -127,10 +130,11 @@ Needs new screenshot
 
 <img src="./img/environ_Py_6.png" width="80%"/>
 
+```{=html}
 <!--
 Needs new screenshot
 -->
-
+```
 4.  If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 
 ### Start a Lab Session {.unnumbered}
@@ -139,7 +143,7 @@ Needs new screenshot
 
 <img src="./img/environ_Py_3.png" width="80%"/>
 
-2.  Save the file in the `labs` folder within your `envs456` folder on your machine.
+2.  Save the file in the `labs` folder within your `envs363` folder on your machine.
 3.  Type in the search bar, find and open the **Terminal**.
 4.  In the **Terminal** write and run `conda activate envs456`.
 5.  In the **Terminal** write and run `jupyter notebook`.
@@ -154,10 +158,11 @@ Needs new screenshot
 
 ## Py Basics
 
+```{=html}
 <!--
 Carmen can you add something here for it to be similar to the R version
 -->
-
+```
 ## Resources
 
 Some help along the way with:

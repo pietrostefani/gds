@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Geographic Data Science in R and Python - Spatial data in Python</title>
+<title>A course in Geographic Data Science - Lab in Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,8 +17,42 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./mapvector.html" rel="next">
+<link href="./spatialdataDIY.html" rel="next">
 <link href="./spatialdataR.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -57,25 +91,35 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
 
-<meta name="twitter:title" content="Geographic Data Science in R and Python - Spatial data in Python">
+<meta name="twitter:title" content="A course in Geographic Data Science - Lab in Python">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://pietrostefani.github.io/wma/spatialdataPy_files/figure-html/cell-4-output-1.png">
 <meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="822">
+<meta name="twitter:image-width" content="1115">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Spatial data in Python</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialdata.html">2 Spatial Data</a></li><li class="breadcrumb-item"><a href="./spatialdataPy.html">Lab in Python</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -83,180 +127,225 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Geographic Data Science in R and Python</a> 
+      <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/pietrostefani/gds" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
+    <a href="https://github.com/pietrostefani/gds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="./overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overview.html" class="sidebar-item-text sidebar-link">Overview</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assess.html" class="sidebar-item-text sidebar-link">Assessments</a>
+  <a href="./assess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assessments</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./openscience.html" class="sidebar-item-text sidebar-link">1 - Open Science</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a href="./environ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Environment</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./concepts_openscience.html" class="sidebar-item-text sidebar-link">Concepts</a>
+  <a href="./environR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./openscienceR.html" class="sidebar-item-text sidebar-link">OpenScience in R</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./opensciencePython.html" class="sidebar-item-text sidebar-link">OpenScience in Python</a>
+  <a href="./environPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">2 - Spatial Data</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./concepts_spatialdata.html" class="sidebar-item-text sidebar-link">Concepts</a>
+  <a href="./openscienceR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenScience in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdataR.html" class="sidebar-item-text sidebar-link">OpenScience in Python</a>
+  <a href="./opensciencePy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OpenScience in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdataPy.html" class="sidebar-item-text sidebar-link active">Spatial data in Python</a>
+  <a href="./openscienceDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mapvector.html" class="sidebar-item-text sidebar-link">2 - Mapping Vector Data</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Spatial Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./concepts_mapvector.html" class="sidebar-item-text sidebar-link">Concepts</a>
+  <a href="./spatialdataR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvectorR.html" class="sidebar-item-text sidebar-link">Mapping Vector Data in R</a>
+  <a href="./spatialdataPy.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvectorPy.html" class="sidebar-item-text sidebar-link">Mapping Vector Data in Python</a>
+  <a href="./spatialdataDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mapraster.html" class="sidebar-item-text sidebar-link">3 - Mapping Raster Data</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a href="./mapvector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 Mapping Vector Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./concepts_mapraster.html" class="sidebar-item-text sidebar-link">Concepts</a>
+  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maprasterR.html" class="sidebar-item-text sidebar-link">Mapping Raster Data in R</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./maprasterPy.html" class="sidebar-item-text sidebar-link">Mapping Raster Data in Python</a>
+  <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data sets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#installing-libraries" id="toc-installing-libraries" class="nav-link active" data-scroll-target="#installing-libraries">Installing libraries</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a>
+  <ul class="collapse">
+  <li><a href="#creating-geographic-data" id="toc-creating-geographic-data" class="nav-link" data-scroll-target="#creating-geographic-data">Creating geographic data</a></li>
+  <li><a href="#types-of-data" id="toc-types-of-data" class="nav-link" data-scroll-target="#types-of-data">Types of Data</a></li>
+  </ul></li>
+  <li><a href="#inspecting-spatial-data" id="toc-inspecting-spatial-data" class="nav-link" data-scroll-target="#inspecting-spatial-data">Inspecting Spatial Data</a>
+  <ul class="collapse">
+  <li><a href="#inspecting" id="toc-inspecting" class="nav-link" data-scroll-target="#inspecting">Inspecting</a></li>
+  <li><a href="#quick-visualisation" id="toc-quick-visualisation" class="nav-link" data-scroll-target="#quick-visualisation">Quick visualisation</a></li>
+  </ul></li>
+  <li><a href="#styling-plots" id="toc-styling-plots" class="nav-link" data-scroll-target="#styling-plots">Styling plots</a>
+  <ul class="collapse">
+  <li><a href="#plotting-different-layers" id="toc-plotting-different-layers" class="nav-link" data-scroll-target="#plotting-different-layers">Plotting different layers</a></li>
+  <li><a href="#changing-transparency" id="toc-changing-transparency" class="nav-link" data-scroll-target="#changing-transparency">Changing transparency</a></li>
+  <li><a href="#removing-axes" id="toc-removing-axes" class="nav-link" data-scroll-target="#removing-axes">Removing axes</a></li>
+  <li><a href="#adding-a-title" id="toc-adding-a-title" class="nav-link" data-scroll-target="#adding-a-title">Adding a title</a></li>
+  <li><a href="#changing-what-border-lines-look-like" id="toc-changing-what-border-lines-look-like" class="nav-link" data-scroll-target="#changing-what-border-lines-look-like">Changing what border lines look like</a></li>
+  <li><a href="#labelling" id="toc-labelling" class="nav-link" data-scroll-target="#labelling">Labelling</a></li>
+  </ul></li>
+  <li><a href="#coordinate-reference-systems" id="toc-coordinate-reference-systems" class="nav-link" data-scroll-target="#coordinate-reference-systems">Coordinate reference Systems</a>
+  <ul class="collapse">
+  <li><a href="#crss-in-python" id="toc-crss-in-python" class="nav-link" data-scroll-target="#crss-in-python">CRSs in Python</a></li>
+  <li><a href="#from-coordinates-to-spatial-objects" id="toc-from-coordinates-to-spatial-objects" class="nav-link" data-scroll-target="#from-coordinates-to-spatial-objects">From coordinates to spatial objects</a></li>
+  <li><a href="#zooming-in-or-out" id="toc-zooming-in-or-out" class="nav-link" data-scroll-target="#zooming-in-or-out">Zooming in or out</a></li>
+  </ul></li>
+  <li><a href="#manipulating-spatial-tables" id="toc-manipulating-spatial-tables" class="nav-link" data-scroll-target="#manipulating-spatial-tables">Manipulating Spatial Tables</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/spatialdataPy.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-spatial-data-Python" class="quarto-section-identifier d-none d-lg-block">Spatial data in Python</span></h1>
+<h1 class="title"><span id="sec-spatial-data-Python" class="quarto-section-identifier">Lab in Python</span></h1>
 </div>
 
 
@@ -271,8 +360,639 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>In this lab, we will learn how to load, manipulate and visualize spatial data. In some senses, spatial data are usually included simply as “one more column” in a table. However, <em>spatial is special</em> sometimes and there are few aspects in which geographic data differ from standard numerical tables. In this session, we will extend the skills developed in the previous one about non-spatial data, and combine them. In the process, we will discover that, although with some particularities, dealing with spatial data in <code>Python</code> largely resembles dealing with non-spatial data.</p>
+<section id="installing-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="installing-libraries">Installing libraries</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> cx</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyproj <span class="im">import</span> CRS <span class="co"># Import the CRS (Coordinate Reference System) class from the pyproj library.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/pietrost/.virtualenvs/r-reticulate/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(</code></pre>
+</div>
+</div>
+</section>
+<section id="datasets" class="level2">
+<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
+<p>Today we are going to go to London. We will be playing around with different datasets loading them both locally and dynamically from the web. You can download data manually, keep a copy on your computer, and load them from there.</p>
+<section id="creating-geographic-data" class="level3">
+<h3 class="anchored" data-anchor-id="creating-geographic-data">Creating geographic data</h3>
+<p>First we will use the following commands create geographic datasets <em>from scratch</em> representing coordinates of some famous locations in London. Most projects start with pre-generated data, but it’s useful to create datasets to understand data structures.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the DataFrame</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: [<span class="st">"The British Museum"</span>, <span class="st">"Big Ben"</span>, <span class="st">"King's Cross"</span>, <span class="st">"The Natural History Museum"</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'lon'</span>: [<span class="op">-</span><span class="fl">0.1459604</span>, <span class="op">-</span><span class="fl">0.1272057</span>, <span class="op">-</span><span class="fl">0.1319481</span>, <span class="op">-</span><span class="fl">0.173734</span>],</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'lat'</span>: [<span class="fl">51.5045975</span>, <span class="fl">51.5007325</span>, <span class="fl">51.5301701</span>, <span class="fl">51.4938451</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>poi_df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert DataFrame to GeoDataFrame</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>geometry <span class="op">=</span> [Point(xy) <span class="cf">for</span> xy <span class="kw">in</span> <span class="bu">zip</span>(poi_df[<span class="st">'lon'</span>], poi_df[<span class="st">'lat'</span>])]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>poi_gdf <span class="op">=</span> gpd.GeoDataFrame(poi_df, geometry<span class="op">=</span>geometry)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the coordinate reference system (CRS)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>poi_gdf.set_crs(epsg<span class="op">=</span><span class="dv">4326</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(poi_gdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         name       lon        lat                   geometry
+0          The British Museum -0.145960  51.504598  POINT (-0.14596 51.50460)
+1                     Big Ben -0.127206  51.500732  POINT (-0.12721 51.50073)
+2                King's Cross -0.131948  51.530170  POINT (-0.13195 51.53017)
+3  The Natural History Museum -0.173734  51.493845  POINT (-0.17373 51.49385)</code></pre>
+</div>
+</div>
+</section>
+<section id="types-of-data" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-data">Types of Data</h3>
+<p>Now let’s look at the different types of geographical data starting with polygons. We will use a dataset that contains the boundaries of the districts of London. We can read it into an object named districts.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="data">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Polygons</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Lines</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Points</a></li></ul>
+<div class="tab-content" data-group="data">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>We first import the district shapefile use <code>gpd.read_file</code>, we then plot it to make sure we are seeing it ‘correctly’.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the shapefile for districts</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>districts <span class="op">=</span> gpd.read_file(<span class="st">"data/London/Polygons/districts.shp"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple plot</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>districts.plot()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-4-output-1.png" width="558" height="411"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>We them import a file of roads in London and plot it.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the shapefile for A roads</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>a_roads <span class="op">=</span> gpd.read_file(<span class="st">"data/London/Lines/a_roads.shp"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If you needed to import a `geojson` file, this would be the function:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># a_roads = gpd.read_file("data/London/Lines/a_roads.geojson")</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple plot of the roads</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>a_roads.plot()</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-5-output-1.png" width="562" height="411"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>We can also import point files. So far, we have imported <code>shapefiles</code> and <code>geojsons</code>, but we can also obtain data from urls like in the <a href="https://pietrostefani.github.io/gds/openscienceDIY.html">Open Science DIY</a> session or from other sources like <strong>OpenStreetMap</strong>. Both <code>R</code> and <code>Python</code> have libraries that allow us to query OpenStreetMap.</p>
+<p>Note that we use the method <code>features_from_place</code>, which queries for points in a particular place (London in this case) and creates a GeoDataFrame of OSM features.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an OSM query for "Greater London, U.K."</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"London, United Kingdom"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>restaurants <span class="op">=</span> ox.features_from_place(query, tags<span class="op">=</span>{<span class="st">"amenity"</span>: [<span class="st">"restaurant"</span>, <span class="st">"bar"</span>, <span class="st">"pub"</span>]})</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple plot of the roads</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>restaurants.plot()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-6-output-1.png" width="531" height="414"></p>
+</div>
+</div>
+<p>And to inspect the data queried:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>restaurants.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;
+MultiIndex: 12197 entries, ('node', 451152) to ('relation', 17299869)
+Columns: 572 entries, addr:city to ways
+dtypes: geometry(1), object(571)
+memory usage: 53.6+ MB</code></pre>
+</div>
+</div>
+<p>You do not need to know at this point what happens behind the scenes when we run these lines but, if you are curious, we are making a query to OpenStreetMap (almost as if you typed “restaurant in London, UK” within Google Maps) and getting the response as a table of data, instead of as a website with an interactive map. Pretty cool, huh?</p>
+<p><em>Note</em>: the code cells above requires internet connectivity. For more about querying from osm see <a href="https://osmnx.readthedocs.io/en/stable/user-reference.html#osmnx.features.features_from_point">here</a>.</p>
+<p><strong>Important</strong>: Be careful, if you query too much data, your environment is likely to get stuck.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inspecting-spatial-data" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-spatial-data">Inspecting Spatial Data</h2>
+<section id="inspecting" class="level3">
+<h3 class="anchored" data-anchor-id="inspecting">Inspecting</h3>
+<p>Just like a <code>dataframe</code> (see the OpenScience Lab), we can inspect the data (attributes table) within a spatial object. The most direct way to get from a file to a quick visualization of the data is by loading it and calling the <code>plot</code> command. Let’s start by inspecting the data like we did for non spatial <code>dataframes</code>.</p>
+<p>We can see our data is very similar to a traditional, non-spatial <code>dataFrame</code>, but with an additional column called geometry.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the first 5 rows of the data</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(districts.head()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  DIST_CODE             DIST_NAME  \
+0      00AA        City of London   
+1      00AB  Barking and Dagenham   
+2      00AC                Barnet   
+3      00AD                Bexley   
+4      00AE                 Brent   
+
+                                            geometry  
+0  POLYGON ((531028.507 181611.160, 531036.062 18...  
+1  POLYGON ((550817.007 184195.999, 550814.000 18...  
+2  POLYGON ((526830.313 187535.453, 526830.302 18...  
+3  POLYGON ((552373.534 174606.900, 552372.893 17...  
+4  POLYGON ((524661.688 184631.047, 524665.261 18...  </code></pre>
+</div>
+</div>
+<p>We can inspect the object in different ways :</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the first row</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(districts.iloc[<span class="dv">0</span>])</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the first column</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(districts.iloc[:, <span class="dv">0</span>])</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the first row, first column</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(districts.iloc[<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the column "DIST_NAME"</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(districts[<span class="st">'DIST_NAME'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DIST_CODE                                                 00AA
+DIST_NAME                                       City of London
+geometry     POLYGON ((531028.5069610038 181611.15961117705...
+Name: 0, dtype: object
+0     00AA
+1     00AB
+2     00AC
+3     00AD
+4     00AE
+5     00AF
+6     00AG
+7     00AH
+8     00AJ
+9     00AK
+10    00AL
+11    00AM
+12    00AN
+13    00AP
+14    00AQ
+15    00AR
+16    00AS
+17    00AT
+18    00AU
+19    00AW
+20    00AX
+21    00AY
+22    00AZ
+23    00BA
+24    00BB
+25    00BC
+26    00BD
+27    00BE
+28    00BF
+29    00BG
+30    00BH
+31    00BJ
+32    00BK
+Name: DIST_CODE, dtype: object
+00AA
+0             City of London
+1       Barking and Dagenham
+2                     Barnet
+3                     Bexley
+4                      Brent
+5                    Bromley
+6                     Camden
+7                    Croydon
+8                     Ealing
+9                    Enfield
+10                 Greenwich
+11                   Hackney
+12    Hammersmith and Fulham
+13                  Haringey
+14                    Harrow
+15                  Havering
+16                Hillingdon
+17                  Hounslow
+18                 Islington
+19    Kensington and Chelsea
+20      Kingston upon Thames
+21                   Lambeth
+22                  Lewisham
+23                    Merton
+24                    Newham
+25                 Redbridge
+26      Richmond upon Thames
+27                 Southwark
+28                    Sutton
+29             Tower Hamlets
+30            Waltham Forest
+31                Wandsworth
+32               Westminster
+Name: DIST_NAME, dtype: object</code></pre>
+</div>
+</div>
+<p>We can read or create subsets:</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe can be subsetted using conditional statement</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read the rows which have "City of London" as value for DIST_NAME</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows where 'DIST_NAME' is 'City of London'</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>filtered_districts <span class="op">=</span> districts[districts[<span class="st">'DIST_NAME'</span>] <span class="op">==</span> <span class="st">'City of London'</span>]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(filtered_districts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  DIST_CODE       DIST_NAME                                           geometry
+0      00AA  City of London  POLYGON ((531028.507 181611.160, 531036.062 18...</code></pre>
+</div>
+</div>
+</section>
+<section id="quick-visualisation" class="level3">
+<h3 class="anchored" data-anchor-id="quick-visualisation">Quick visualisation</h3>
+<p>Let’s start by plotting London in a colour and adding Hackney (a district) in a different colour.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot London in grey</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'lightgrey'</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add city of London (Hackney) in turquoise to the map</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>hackney <span class="op">=</span> districts[districts[<span class="st">'DIST_NAME'</span>] <span class="op">==</span> <span class="st">'Hackney'</span>]</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>hackney.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'turquoise'</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-11-output-1.png" width="558" height="411"></p>
+</div>
+</div>
+<p>Some guidance on colours in <code>Python</code> can be found <a href="https://matplotlib.org/stable/gallery/color/named_colors.html">here</a>.</p>
+</section>
+</section>
+<section id="styling-plots" class="level2">
+<h2 class="anchored" data-anchor-id="styling-plots">Styling plots</h2>
+<p>It is possible to tweak many aspects of a plot to customize if to particular needs. In this section, we will explore some of the basic elements that will allow us to obtain more compelling maps.</p>
+<p><strong>Note</strong>: some of these variations are very straightforward while others are more intricate and require tinkering with the internal parts of a plot. They are not necessarily organized by increasing level of complexity.</p>
+<section id="plotting-different-layers" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-different-layers">Plotting different layers</h3>
+<p>We first start by plotting one layer over another</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the geometries</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot districts with no fill (transparent fill)</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'black'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)  <span class="co"># No fill, only border</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot roads with transparency</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>a_roads.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'brown'</span>)  <span class="co"># Roads in brown</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-12-output-1.png" width="558" height="411"></p>
+</div>
+</div>
+</section>
+<section id="changing-transparency" class="level3">
+<h3 class="anchored" data-anchor-id="changing-transparency">Changing transparency</h3>
+<p>The intensity of color of a polygon can be easily changed through the alpha attribute in plot. This is specified as a value betwee zero and one, where the former is entirely transparent while the latter is the fully opaque (maximum intensity):</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the geometries</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot districts with no fill (transparent fill)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'black'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)  <span class="co"># No fill, only border</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot roads with transparency</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>a_roads.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'brown'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Roads in brown</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-13-output-1.png" width="558" height="411"></p>
+</div>
+</div>
+</section>
+<section id="removing-axes" class="level3">
+<h3 class="anchored" data-anchor-id="removing-axes">Removing axes</h3>
+<p>Although in some cases, the axes can be useful to obtain context, most of the times maps look and feel better without them. Removing the axes involves wrapping the plot into a figure, which takes a few more lines of aparently useless code but that, in time, it will allow you to tweak the map further and to create much more flexible designs.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the geometries</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot districts with no fill (transparent fill)</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'black'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)  <span class="co"># No fill, only border</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot roads with transparency</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>a_roads.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'brown'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Roads with 50% transparency</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the axis</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-14-output-1.png" width="498" height="389"></p>
+</div>
+</div>
+<p>Let us stop for a second a study each of the previous lines:</p>
+<p>We have first created a figure named <code>fig</code> with one axis named <code>ax</code> by using the command <code>plt.subplots</code> (part of the library matplotlib, which we have imported at the top of the notebook). Note how the method is returning two elements and we can assign each of them to objects with different name (<code>fig</code> and <code>ax</code>) by simply listing them at the front of the line, separated by commas.</p>
+<p>Second, we plot the geographies as before, but this time we tell the function that we want it to draw the polygons on the axis we are passing, <code>ax</code>. This method returns the axis with the geographies in them, so we make sure to store it on an object with the same name, <code>ax</code>.</p>
+<p>On the third line, we effectively remove the box with coordinates.</p>
+<p>Finally, we draw the entire plot by calling plt.<code>show()</code>.</p>
+</section>
+<section id="adding-a-title" class="level3">
+<h3 class="anchored" data-anchor-id="adding-a-title">Adding a title</h3>
+<p>Adding a title is an extra line, if we are creating the plot within a figure, as we just did. To include text on top of the figure:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the geometries</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot districts with no fill (transparent fill)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'black'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)  <span class="co"># No fill, only border</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot roads with transparency</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>a_roads.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'brown'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Roads with 50% transparency</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the axis</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Add figure title</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Main roads in London"</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-15-output-1.png" width="498" height="437"></p>
+</div>
+</div>
+</section>
+<section id="changing-what-border-lines-look-like" class="level3">
+<h3 class="anchored" data-anchor-id="changing-what-border-lines-look-like">Changing what border lines look like</h3>
+<p>Border lines sometimes can distort or impede proper interpretation of a map. In those cases, it is useful to know how they can be modified. Let us first see the code to make the lines thicker and black, and then we will work our way through the different steps:</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert CRS from WGS 84 (EPSG:4326) to British National Grid (EPSG:27700)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>poi_gdf_bng <span class="op">=</span> poi_gdf.to_crs(epsg<span class="op">=</span><span class="dv">27700</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the geometries</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot districts with no fill, black borders</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'black'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot roads with brown color and 50% transparency</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>a_roads.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'brown'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot restaurants with blue color and adjusted size</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>poi_gdf_bng.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'blue'</span>, facecolor<span class="op">=</span><span class="st">'blue'</span>, markersize<span class="op">=</span><span class="dv">100</span>)<span class="co"># Adjust size accordingly</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the axis for a clean look</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Add figure title</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Main roads in London"</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-16-output-1.png" width="498" height="437"></p>
+</div>
+</div>
+</section>
+<section id="labelling" class="level3">
+<h3 class="anchored" data-anchor-id="labelling">Labelling</h3>
+<p>Labeling maps is of paramount importance as it is often key when presenting data analysis and visualization. Properly labeled maps enables readers to effectively analyze and interpret spatial data.</p>
+<ul>
+<li><code>iterrows()</code> is a pandas function that iterates over DataFrame rows as (index, Series) pairs. Here, <code>idx</code> is the index of the row, and row is a <code>pandas</code> series containing the data for that particular district.</li>
+<li><code>centroid = row['geometry'].centroid</code> gets the centroid of each district’s geometry. <code>row['geometry']</code> refers to the geometry of the district, which could be a polygon or a multipolygon. <code>.centroid</code> computes the geometric center (centroid) of this polygon.</li>
+<li><code>ax.text()</code> is a method from <code>Matplotlib</code>, used to place text at specific coordinates on the plot. <code>centroid.x</code> and <code>centroid.y</code> provide the x and y coordinates of the centroid, which determine where the text will be placed. <code>row['DIST_NAME']</code> is the name of the district that will be displayed as the label. <code>fontsize=6</code> sets the size of the text to 8 points. <code>ha='center'</code> ensures that the text is horizontally aligned to the center of the specified coordinates.</li>
+</ul>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the districts with a gray fill</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">"black"</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text labels at the centroids of the districts</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, row <span class="kw">in</span> districts.iterrows():</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    centroid <span class="op">=</span> row[<span class="st">'geometry'</span>].centroid</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    ax.text(centroid.x, centroid.y, row[<span class="st">'DIST_NAME'</span>], fontsize<span class="op">=</span><span class="dv">6</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove axis</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-17-output-1.png" width="498" height="389"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="coordinate-reference-systems" class="level2">
+<h2 class="anchored" data-anchor-id="coordinate-reference-systems">Coordinate reference Systems</h2>
+<section id="crss-in-python" class="level3">
+<h3 class="anchored" data-anchor-id="crss-in-python">CRSs in Python</h3>
+<p>Coordindate reference systems (CRS) are the way geographers and cartographers represent a three-dimentional objects, such as the round earth, on a two-dimensional plane, such as a piece of paper or a computer screen. If the source data contain information on the CRS of the data, we can modify this.</p>
+<p>First we need to retrieve the CRS from the vector data.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the CRS from the GeoDataFrame</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> districts.crs</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the CRS information</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>EPSG:27700</code></pre>
+</div>
+</div>
+<p>We can also retrieve some additional information about the used CRS. For example, try to run:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the CRS is geographic or not</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>is_geographic <span class="op">=</span> CRS(crs).is_geographic</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Find out the CRS units</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>units_gdal <span class="op">=</span> CRS(crs).axis_info[<span class="dv">0</span>].unit_name <span class="cf">if</span> CRS(crs).axis_info <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the SRID</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>srid <span class="op">=</span> CRS(crs).to_epsg()</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the proj4string representation</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>proj4string <span class="op">=</span> CRS(crs).to_proj4()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Is Geographic: </span><span class="sc">{</span>is_geographic<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Units (GDAL): </span><span class="sc">{</span>units_gdal<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"SRID: </span><span class="sc">{</span>srid<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proj4 String: </span><span class="sc">{</span>proj4string<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Is Geographic: False
+Units (GDAL): metre
+SRID: 27700
+Proj4 String: +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs +type=crs</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/pietrost/.virtualenvs/r-reticulate/lib/python3.9/site-packages/pyproj/crs/crs.py:1293: UserWarning: You will likely lose important projection information when converting to a PROJ string from another format. See: https://proj.org/faq.html#what-is-the-best-format-for-describing-coordinate-reference-systems
+  proj = self._crs.to_proj4(version=version)</code></pre>
+</div>
+</div>
+<p>As we can see, there is information stored about the reference system: it is using the standard British projection (British National Grid EPSG:27700), which is expressed in meters. There are also other less decipherable parameters but we do not need to worry about them right now.</p>
+<p>If we want to modify this and “reproject” the polygons into a different CRS, the quickest way is to find the EPSG code online (epsg.io is a good one, although there are others too). For example, if we wanted to transform the dataset into lat/lon coordinates, we would use its EPSG code, 4326 (CRS’s name “WGS84”):</p>
+<p>In cases when a coordinate reference system (CRS) is missing or the wrong CRS is set, the <code>.to_crs</code> function can be used:</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the CRS to EPSG:4326</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>districts_4326 <span class="op">=</span> districts.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, print the new CRS to verify</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(districts_4326.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>EPSG:4326</code></pre>
+</div>
+</div>
+</section>
+<section id="from-coordinates-to-spatial-objects" class="level3">
+<h3 class="anchored" data-anchor-id="from-coordinates-to-spatial-objects">From coordinates to spatial objects</h3>
+<p>CRSs are also very useful if we obtain data that is in a csv, has coordinates but needs to be transformed to a <code>GeoDataFrame</code>. For example we have some London housing transactions we want to import and use.</p>
+<p>We want to transform the .csv in a <code>GeoDataFrame</code> using the coordinates stored in columns 17 and 18, and then we set the <code>GeoDataFrame</code> CRS to the British National Grid (EPSG:27700).</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import housesales data from CSV</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>housesales <span class="op">=</span> pd.read_csv(<span class="st">"data/London/Tables/housesales.csv"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter housesales to include only those with price less than 500000</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>housesales_f <span class="op">=</span> housesales[housesales[<span class="st">'price'</span>] <span class="op">&lt;</span> <span class="dv">500000</span>]</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume columns 17 and 18 are 'longitude' and 'latitude' respectively</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>housesales_gdf <span class="op">=</span> gpd.GeoDataFrame(</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    housesales_f, geometry<span class="op">=</span>gpd.points_from_xy(housesales_f.greastings, housesales_f.grnorthing), crs<span class="op">=</span><span class="st">"EPSG:27700"</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(housesales_gdf.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   propid   price  lnprice  advance  age  bathroom  bedroom buyage  centheat  \
+0       1  105000       12    85000   18         1        2     25         1   
+1       2   84000       11    79800   31         1        1     47         0   
+2       3   89000       11    84550   16         1        1     30         0   
+3       4  136000       12   106000   31         2        4     32         2   
+4       5  103550       12    88000   31         1        2     38         1   
+
+   chelec  ...  psemi  pterrace  popdens  prkdouble  prknone  prksingle  \
+0       0  ...      0         0        3          0        0          0   
+1       0  ...      0         0        0          0        0          0   
+2       0  ...      0         1       23          0        1          0   
+3       1  ...      0         1       23          0        1          0   
+4       0  ...      0         0       39          0        0          1   
+
+   prkspace  tenfree  tenlease                       geometry  
+0         1        0         1  POINT (504998.000 188930.000)  
+1         1        0         1  POINT (505026.000 177041.000)  
+2         0        1         0  POINT (505049.000 189030.000)  
+3         0        1         0  POINT (505087.000 189238.000)  
+4         0        0         1  POINT (505132.000 183300.000)  
+
+[5 rows x 34 columns]</code></pre>
+</div>
+</div>
+</section>
+<section id="zooming-in-or-out" class="level3">
+<h3 class="anchored" data-anchor-id="zooming-in-or-out">Zooming in or out</h3>
+<p>It’s important to know what CRS your data is in if you want to create zoomed versions of your maps. <a href="http://bboxfinder.com/#0.000000,0.000000,0.000000,0.000000">BBox finder</a> is a useful tool to identify coordinates in <code>EPSG:4326</code>.</p>
+<p>Here for example we are zooming in to some of the point we created at the beginning of the lab.</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the districts</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>districts_4326.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'none'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the points of interest</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>poi_gdf.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'blue'</span>, markersize<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the coordinate limits</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="fl">0.180723</span>, <span class="op">-</span><span class="fl">0.014212</span>)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">51.476668</span>, <span class="fl">51.532337</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove axis labels and ticks</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-22-output-1.png" width="763" height="419"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="manipulating-spatial-tables" class="level2">
+<h2 class="anchored" data-anchor-id="manipulating-spatial-tables">Manipulating Spatial Tables</h2>
+<p>Once we have an understanding of how to visually display spatial information contained, let us see how it can be combined with the operations related to manipulating non-spatial tabular data. Essentially, the key is to realize that a <code>GeoDataFrame</code> contain most of its spatial information in a single column named geometry, but the rest of it looks and behaves exactly like a non-spatial <code>dataframe</code> (in fact, it is). This concedes them all the flexibility and convenience that we saw in manipulating, slicing, and transforming tabular data, with the bonus that spatial data is carried away in all those steps. In addition, <code>GeoDataFrame</code> also incorporate a set of explicitly spatial operations to combine and transform data. In this section, we will consider both.</p>
+<p><code>GeoDataFrames</code> come with a whole range of traditional GIS operations built-in. Here we will run through a small subset of them that contains some of the most commonly used ones.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="data">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Area</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Length</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Centroids</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Buffers and selecting by location</a></li></ul>
+<div class="tab-content" data-group="data">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>One of the spatial aspects we often need from polygons is their area. “How big is it?” is a question that always haunts us when we think of countries, regions, or cities. To obtain area measurements, first make sure the <code>GeoDataFrame</code> you are working with is projected. If that is the case, you can calculate areas as follows:</p>
+<p>We had already checked that district was projected to the British National Grid</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>districts_areas <span class="op">=</span> districts.area</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>districts_areas.head()</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>areas_in_sqkm <span class="op">=</span> districts_areas <span class="op">/</span> <span class="dv">1000000</span> <span class="co">#convert into squared kilometres</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>areas_in_sqkm.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>0     3.151465
+1    37.778900
+2    86.736434
+3    64.263476
+4    43.235288
+dtype: float64</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Similarly, an equally common question with lines is their length. Also similarly, their computation is relatively straightforward, provided that our data are projected.</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>street_length <span class="op">=</span> a_roads.length</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>street_length.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>0       7.695310
+1     374.714434
+2     417.493662
+3      45.221697
+4    1748.445461
+dtype: float64</code></pre>
+</div>
+</div>
+<p>If you check the <code>dataframe</code> you will see the lengths.</p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Sometimes it is useful to summarize a polygon into a single point and, for that, a good candidate is its centroid (almost like a spatial analogue of the average).</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataframe with centroids</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>cents <span class="op">=</span> districts.centroid</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>cents.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>0    POINT (532464.075 181219.688)
+1    POINT (548021.148 184939.599)
+2    POINT (524027.452 192316.258)
+3    POINT (548927.608 175720.862)
+4    POINT (520176.906 185829.122)
+dtype: geometry</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p>To create a buffer using <code>geopandas</code>, simply call the buffer method, passing in the radious. For example, to draw a 1000m. buffer around every centroid of every district:</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># buffer</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>buf <span class="op">=</span> cents.<span class="bu">buffer</span>(<span class="dv">1000</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>buf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>0    POLYGON ((533464.075 181219.688, 533459.260 18...
+1    POLYGON ((549021.148 184939.599, 549016.333 18...
+2    POLYGON ((525027.452 192316.258, 525022.637 19...
+3    POLYGON ((549927.608 175720.862, 549922.793 17...
+4    POLYGON ((521176.906 185829.122, 521172.091 18...
+dtype: geometry</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the districts</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>districts.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'none'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the centroids</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>cents.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'black'</span>, markersize<span class="op">=</span><span class="dv">20</span>, edgecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the centroid buffers</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>buf.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'none'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, edgecolor<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set minimal theme by removing axes and grid</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialdataPy_files/figure-html/cell-27-output-1.png" width="763" height="594"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -302,9 +1022,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -369,6 +1103,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -411,19 +1231,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./spatialdataR.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">OpenScience in Python</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab in R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./mapvector.html" class="pagination-link">
-        <span class="nav-page-text">2 - Mapping Vector Data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./spatialdataDIY.html" class="pagination-link">
+        <span class="nav-page-text">Do-It-Yourself</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science in R and Python by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

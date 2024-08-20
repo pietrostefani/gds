@@ -1,6 +1,6 @@
 # 2 Spatial Data {#sec-spatial-data .unnumbered}
 
-This blocks explore spatial data, old and new. We start with an overview of traditional datasets, discussing their benefits and challenges for social scientists; then we move on to new forms of data, and how they pose different challenges, but also exciting opportunities. These two areas are covered with clips and slides that can be complemented with readings. Once conceptual areas are covered, we jump into working with spatial data in `R`, which will prepare you for your own adventure in exploring spatial data.
+This blocks explore spatial data, old and new. We start with an overview of traditional datasets, discussing their benefits and challenges for social scientists; then we move on to new forms of data, and how they pose different challenges, but also exciting opportunities. These two areas are covered with clips and slides that can be complemented with readings. Once conceptual areas are covered, we jump into working with spatial data in `R` or `Python`, which will prepare you for your own adventure in exploring spatial data.
 
 Slides can be downloaded ["here"](/html/spatial_data_gds.pdf)
 
@@ -14,7 +14,7 @@ Slides can be downloaded ["here"](/html/spatial_data_gds.pdf)
 
 ## Geometries
 
-These core spatial geometries are all supported in `R` package sf.
+These core spatial geometries are all supported in `R` package `sf` and `Python` library `geopandas`.
 
 -   points
 -   lines
@@ -100,6 +100,8 @@ Have a look at the two following articles:
 
 If you're still not convinced, try have a mess around with [this link](https://thetruesize.com/).
 
+<img src="./img/truegeosize.png" width="80%"/>
+
 ### Coordinates
 
 With coordinates, we usually think a numbered measured along a ruler, where the ruler might be an imaginary line: it has an offset (0), a unit (m), and a constant direction. For spatial data we could have two imaginary lines perpendicular to each other, and we call this Cartesian space. Distance between $(x_1,y_1)$ and $(x_2,y_2)$ in Cartesian space is computed by Euclidean distance: $$\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$$
@@ -136,7 +138,7 @@ Established CRSs captured by EPSG codes are well-suited for many applications. A
 
 **The Mollweide projection**.
 
-```{r Mollweide1}
+```{r Mollweide1, warning=FALSE}
 #| echo: false
 #| message: false
 library(sf)
@@ -144,7 +146,7 @@ if(!require("spData")) install.packages("spData") # load geographic data
 vector_filepath = system.file("shapes/world.gpkg", package = "spData")
 ```
 
-```{r Mollweide2}
+```{r Mollweide2, warning=FALSE}
 #| code-fold: true
 world_mollweide = st_transform(world, crs = "+proj=moll")
 plot(world["continent"])
@@ -152,7 +154,7 @@ plot(world["continent"])
 
 On the other hand, when mapping the world, it is often desirable to have as little distortion as possible for all spatial properties (area, direction, distance). One of the most popular projections to achieve as little distortion as possible is **the Winkel tripel projection**
 
-```{r}
+```{r, warning=FALSE}
 #| code-fold: true
 world_wintri = lwgeom::st_transform_proj(world, crs = "+proj=wintri")
 plot(world_wintri["continent"])

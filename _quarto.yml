@@ -22,7 +22,8 @@ book:
         - openscienceDIY.qmd
     - part: spatialdata.qmd
       chapters:
-        - spatialdata_code.qmd
+        - spatialdataR.qmd
+        - spatialdataPy.qmd
         - spatialdataDIY.qmd
     - part: mapvector.qmd
       chapters:

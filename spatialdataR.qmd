@@ -1,1 +1,522 @@
-# Spatial Data in R {#sec-spatial-data-R .unnumbered}
+# Lab in R {#sec-spatial-data-R .unnumbered}
+
+In this lab, we will learn how to load, manipulate and visualize spatial data. In some senses, spatial data are usually included simply as "one more column" in a table. However, *spatial is special* sometimes and there are few aspects in which geographic data differ from standard numerical tables. In this session, we will extend the skills developed in the previous one about non-spatial data, and combine them. In the process, we will discover that, although with some particularities, dealing with spatial data in `R` largely resembles dealing with non-spatial data.
+
+## Installing packages
+
+We will start by loading core packages for working with spatial data. See detailed description of [R](https://r.geocompx.org/spatial-class).
+
+```{r message=FALSE}
+# Load the 'sf' library, which stands for Simple Features, used for working with spatial data.
+library(sf)
+# Load the 'tidyverse' library, a collection of packages for data manipulation and visualization.
+library(tidyverse)
+# Load the 'tmap' library, which is used for creating thematic maps and visualizing spatial data.
+library(tmap)
+# The 'readr' library provides a fast and user-friendly way to read data from common formats like CSV.
+library(readr)
+# Converts Between GeoJSON and simple feature objects
+library(geojsonsf) 
+# Using data from OpenStreetMap (OSM)
+library(osmdata)
+# Static maps
+library(basemapR)
+```
+
+To install `basemapR` you will need to do run
+
+```{r eval=FALSE}
+library(devtools)
+install_github('Chrisjb/basemapR')
+```
+
+## Datasets
+
+Today we are going to go to London. We will be playing around with different datasets loading them both locally and dynamically from the web. You can download data manually, keep a copy on your computer, and load them from there.
+
+### Creating geographic data
+
+First we will use the following commands create geographic datasets *from scratch* representing coordinates of some famous locations in London. Most projects start with pre-generated data, but it's useful to create datasets to understand data structures.
+
+```{r}
+poi_df = tribble(
+  ~name, ~lon, ~lat,
+  "The British Museum",        -0.1459604, 51.5045975,
+  "Big Ben",    -0.1272057, 51.5007325,
+  "King's Cross", -0.1319481, 51.5301701,
+  "The Natural History Museum",     -0.173734, 51.4938451
+)
+poi_sf = sf::st_as_sf(poi_df, coords = c("lon", "lat"), crs = "EPSG:4326")
+```
+
+### Types of Data
+
+Now let's look at the different types of geographical data starting with polygons. We will use a dataset that contains the boundaries of the districts of London. We can read it into an object named districts.
+
+::: {.panel-tabset group="data"}
+## Polygons
+
+We first import the district shapefile use `read_sf`, we then plot it to make sure we are seeing it 'correctly'. We us `$geometry` to plot just the geometry, if we don't include `$geometry` R will plot the first 9 columns and if the dataset is large this is not advisable.
+
+```{r}
+districts <- read_sf("data/London/Polygons/districts.shp")
+
+plot(districts$geometry) # Create a simple plot
+```
+
+## Lines
+
+We them import a file of roads in London and plot it.
+
+```{r}
+a_roads <- read_sf("data/London/Lines/a_roads.shp")
+
+# If you needed to import a `geojson` this would be the function.
+#a_roads <- geojson_sf("data/London/Lines/a_roads.geojson")
+
+plot(a_roads$geometry)
+```
+
+## Points
+
+We can also import point files. So far, we have imported `shapefiles` and `geojsons`, but we can also obtain data from urls like in the [Open Science DIY](https://pietrostefani.github.io/gds/openscienceDIY.html) session or from other sources like **OpenStreetMap**. Both `R` and `Python` have libraries that allow us to query OpenStreetMap.
+
+```{r build_query}
+osm_q_sf <- opq("Greater London, U.K.") %>% # searching only in Greater London
+    add_osm_feature(key = "amenity", value = "restaurant") %>% #adding osm data that is tagged as a museum
+  osmdata_sf () # transforming to sf object
+```
+
+The structure of osmdata objects are clear from their default print method, illustrated using the museum example. We will use them shortly.
+
+```{r}
+osm_q_sf  
+```
+
+You do not need to know at this point what happens behind the scenes when we run these lines but, if you are curious, we are making a query to OpenStreetMap (almost as if you typed "museums in London, UK" within Google Maps) and getting the response as a table of data, instead of as a website with an interactive map. Pretty cool, huh?
+
+*Note*: the code cell above requires internet connectivity.
+
+**Important**: Be careful, if you query too much data, your environment is likely to get stuck.
+:::
+
+## Inspecting Spatial Data
+
+### Inspecting
+
+Just like a `dataframe` (see the OpenScience Lab), we can inspect the data (attributes table) within a spatial object. The most direct way to get from a file to a quick visualization of the data is by loading it and calling the `plot` command. Let's start by inspecting the data like we did for non spatial `dataframes`.
+
+We can see our data is very similar to a traditional, non-spatial `dataFrame`, but with an additional column called geometry.
+
+```{r}
+head(districts) # the command "head" reads the first 5 rows of the data
+```
+
+We can inspect the object in different ways :
+
+```{r}
+districts[1,] # read first row
+districts[,1] # read first column
+districts[1,1] #read first row, first column: 00AA
+
+# variable can be called using the operator $
+districts$DIST_NAME #read the column "DIST_NAME"
+```
+
+We can read or create subsets:
+
+```{r}
+# dataframe can be subsetted using conditional statement
+# read the rows which have "City of London" as value for DIST_NAME
+districts[districts$DIST_NAME== "City of London",] 
+```
+
+*Note* Go back to [open science](https://pietrostefani.github.io/gds/openscience.html) for subsetting with `dplyr`.
+
+### Quick visualisation
+
+Let's start by plotting London in a colour and adding Hackney (a district) in a different colour.
+
+```{r}
+# plot london in grey
+plot(districts$geometry, col = "lightgrey")
+
+# Add city of London in turquoise to the map
+plot(districts[districts$DIST_NAME == "Hackney", ]$geometry, # select city of london
+     col = "turquoise",
+     add = T) # add to the existing map
+```
+
+Some guidance on colours in R can be found [here](https://bookdown.org/hneth/ds4psy/D-3-apx-colors-basics.html).
+
+How to reset a plot:
+
+```{r, class.source = "fold-show"}
+plot(districts$geometry, reset = T) # reset
+```
+
+## Styling plots
+
+It is possible to tweak many aspects of a plot to customize if to particular needs. In this section, we will explore some of the basic elements that will allow us to obtain more compelling maps.
+
+**Note**: some of these variations are very straightforward while others are more intricate and require tinkering with the internal parts of a plot. They are not necessarily organized by increasing level of complexity.
+
+### Plotting different layers
+
+We first start by plotting one layer over another
+
+```{r}
+plot(districts$geometry)
+plot(a_roads$geometry, add=T) # note the `add=T` is adding the second layer.
+```
+
+Or use the `ggplot` package for something a bit fancier
+
+```{r}
+
+ggplot() +
+ geom_sf(data = districts, color = "black") +  # Plot districts with black outline
+  geom_sf(data = a_roads, color = "brown") +  # Plot roads with brown color and 50% transparency
+  theme_minimal() 
+```
+
+### Changing transparency
+
+The intensity of color of a polygon can be easily changed through the alpha attribute in plot. This is specified as a value betwee zero and one, where the former is entirely transparent while the latter is the fully opaque (maximum intensity):
+
+```{r}
+ggplot() +
+  geom_sf(data = districts, fill = NA, color = "black") +  # Plot districts with black outline & no fill (NA)
+  geom_sf(data = a_roads, color = "brown", alpha = 0.5) +  # Plot roads with brown color and 50% transparency
+  theme_minimal()
+```
+
+### Removing axes
+
+Although in some cases, the axes can be useful to obtain context, most of the times maps look and feel better without them. Removing the axes involves wrapping the plot into a figure, which takes a few more lines of aparently useless code but that, in time, it will allow you to tweak the map further and to create much more flexible designs.
+
+```{r}
+
+ggplot() +
+  geom_sf(data = districts, fill = NA, color = "black") +  # Plot districts with black outline & no fill (NA)
+  geom_sf(data = a_roads, color = "brown", alpha = 0.5) +  # Plot roads with brown color and 50% transparency
+  theme(line = element_blank(), # remove tick marks
+        rect = element_blank(), # remove background
+        axis.text=element_blank()) # remove x and y axis
+  # theme_void() # could also be used instead of the 3 above lines 
+
+```
+
+For more on themes in `ggplot` see [here](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+
+### Adding a title
+
+Adding a title is an extra line, if we are creating the plot within a figure, as we just did. To include text on top of the figure:
+
+```{r}
+ggplot() +
+  geom_sf(data = districts, fill = NA, color = "black") +  # Plot districts with black outline & no fill (NA)
+  geom_sf(data = a_roads, color = "brown", alpha = 0.5) +  # Plot roads with brown color and 50% transparency
+  theme_void() + # 
+  ggtitle("Some London roads") #add ggtitle
+```
+
+### Changing what border lines look like
+
+Border lines sometimes can distort or impede proper interpretation of a map. In those cases, it is useful to know how they can be modified. Let us first see the code to make the lines thicker and black, and then we will work our way through the different steps:
+
+```{r}
+
+ggplot() +
+  geom_sf(data = districts, fill = NA, color = "black") +  
+  geom_sf(data = a_roads, color = "brown", alpha = 0.5) + 
+  geom_sf(data = poi_sf, color = "blue", size = 3) + # size adjusts size of visualization
+  theme_void() +
+  ggtitle("Some London Roads") #add ggtitle
+
+
+```
+
+### Labelling
+
+Labeling maps is of paramount importance as it is often key when presenting data analysis and visualization. Properly labeled maps enables readers to effectively analyze and interpret spatial data.
+
+Here we are using `geom_sf_text` to add data, specifically the distrct name, to the centre of each District in a specific size.
+
+```{r plotdata2}
+ggplot() +
+  geom_sf(data = districts,
+          fill = "gray95") +
+  geom_sf_text(data = districts,
+               aes(label = DIST_NAME),
+               fun.geometry = sf::st_centroid, size=2) +
+  theme_void()
+
+```
+
+`geom_sf_text()` and `geom_sf_label()` can also be used to achieve similar effects.
+
+## Coordinate reference Systems
+
+### CRSs in R
+
+Coordindate reference systems (CRS) are the way geographers and cartographers represent a three-dimentional objects, such as the round earth, on a two-dimensional plane, such as a piece of paper or a computer screen. If the source data contain information on the CRS of the data, we can modify this.
+
+First we need to retrieve the CRS from the vector data.
+
+```{r retrieve crs}
+st_crs(districts) # retrieve coordinate reference system from object
+```
+
+The `st_crs` function also has one helpful feature - we can retrieve some additional information about the used CRS. For example, try to run:
+
+```{r}
+st_crs(districts)$IsGeographic # to check is the CRS is geographic or not
+st_crs(districts)$units_gdal # to find out the CRS units
+st_crs(districts)$srid # extracts its SRID (when available)
+st_crs(districts)$proj4string # extracts the proj4string representation
+```
+
+As we can see, there is information stored about the reference system: it is using the standard British projection (British National Grid), which is expressed in meters. There are also other less decipherable parameters but we do not need to worry about them right now.
+
+If we want to modify this and "reproject" the polygons into a different CRS, the quickest way is to find the EPSG code online (epsg.io is a good one, although there are others too). For example, if we wanted to transform the dataset into lat/lon coordinates, we would use its EPSG code, 4326 (CRS's name "WGS84"):
+
+In cases when a coordinate reference system (CRS) is missing or the wrong CRS is set, the st_set_crs() function can be used:
+
+```{r}
+districts_4326 = st_transform(districts, "EPSG:4326") # set CRS
+# districts_4326 <- st_transform(districts_4326, crs = 4326)
+
+```
+
+### From coordinates to spatial objects
+
+CRSs are also very useful if we obtain data that is in a csv, has coordinates but needs to be transformed to a spatial `dataframe`. For example we have some London housing transactions we want to import and use.
+
+We want to transform the .csv in a `sf` object with the `st_as_sf` function using the coordinates stored in columns 17 and 18, and then we set the `dataframe` CRS to the British National Grid (EPSG:27700) using the `st_set_crs` function.
+
+```{r}
+housesales <- read.csv("data/London/Tables/housesales.csv") # import housesales data from csv
+
+# 3 commands: 
+housesales_filtered = filter(housesales,price < 500000)
+housesales_sf <- st_as_sf(housesales_filtered, coords = c(17,18)) # denote columns which have the coordinates
+housesales_clean <- st_set_crs(housesales_sf, 27700)# set crs to British National Grid 
+```
+
+As we've seen in [open science](https://pietrostefani.github.io/gds/openscience.html), we can do consecutive operations using `dplyr` pipes `%>%`, they are used to simplify syntax. Pipes allow to perform successive operations on dataframes in one command! More info [here](https://seananderson.ca/2014/09/13/dplyr-intro/).
+
+```{r}
+# all one in go and one output
+housesales_clean = housesales %>% # select the main object
+  filter(price < 500000) %>% # remove values above 500,000
+  st_as_sf(coords = c(17,18)) %>% # # denote columns which have the coordinates
+  st_set_crs(27700) # set crs to British National Grid
+```
+
+### Zooming in or out
+
+It's important to know what CRS your data is in if you want to create zoomed versions of your maps. [BBox finder](http://bboxfinder.com/#0.000000,0.000000,0.000000,0.000000) is a useful tool to identify coordinates in `EPSG:4326`.
+
+Here for example we are zooming in to some of the point we created at the beginning of the lab.
+
+```{r}
+ggplot() + 
+ geom_sf(data = districts_4326$geometry) + 
+  geom_sf(data = poi_sf$geometry, fill = 'blue', size = 3) + 
+  coord_sf(xlim = c(-0.180723,-0.014212), ylim = c(51.476668,51.532337)) +
+   theme_void()
+
+```
+
+## Manipulating Spatial Tables
+
+Once we have an understanding of how to visually display spatial information contained, let us see how it can be combined with the operations related to manipulating non-spatial tabular data. Essentially, the key is to realize that a geographical `dataframes` contain most of its spatial information in a single column named geometry, but the rest of it looks and behaves exactly like a non-spatial `dataframes` (in fact, it is). This concedes them all the flexibility and convenience that we saw in manipulating, slicing, and transforming tabular data, with the bonus that spatial data is carried away in all those steps. In addition, geo `dataframes` also incorporate a set of explicitly spatial operations to combine and transform data. In this section, we will consider both.
+
+Geo `dataframes` come with a whole range of traditional GIS operations built-in. Here we will run through a small subset of them that contains some of the most commonly used ones.
+
+::: {.panel-tabset group="data"}
+## Area
+
+One of the spatial aspects we often need from polygons is their area. "How big is it?" is a question that always haunts us when we think of countries, regions, or cities. To obtain area measurements, first make sure the `dataframe` you are working with is projected. If that is the case, you can calculate areas as follows:
+
+We had already checked that district was projected to the British National Grid
+
+```{r}
+districts <- districts %>%
+  mutate(area = st_area(.)/1000000) # calculate area and make it km2
+```
+
+## Length
+
+Similarly, an equally common question with lines is their length. Also similarly, their computation is relatively straightforward, provided that our data are projected.
+
+```{r}
+a_roads <- a_roads %>%
+  mutate(street_length = st_length(geometry)) # calculate street length in metres
+```
+
+If you check the `dataframe` you will see the lengths.
+
+## Centroids
+
+Sometimes it is useful to summarize a polygon into a single point and, for that, a good candidate is its centroid (almost like a spatial analogue of the average).
+
+```{r warning=FALSE}
+# Create a dataframe with centroids
+centroids_df <- districts %>%
+  st_centroid()
+```
+
+Plot the centroids
+
+```{r}
+ggplot() +
+  geom_sf(data = districts) +  # Plot the districts segments
+  geom_sf(data = centroids_df, color = "red", size = 2) +  # Plot the centroids in red
+  theme_minimal()
+```
+
+## Buffers and selecting by location
+
+Here, we first select by expression the Hackney district and then we create a 1km buffer around it with the `st_buffer()` function from the `sf` package.
+
+```{r}
+# buffer
+centroid_buffers <- st_buffer(centroids_df, 1000)
+
+ggplot() +
+  geom_sf(data = districts) +  # Plot the districts segments
+  geom_sf(data = centroids_df, color = "red", size = 2) +  # Plot the centroids in red
+  geom_sf(data = centroid_buffers, color = "darkred", size = 2) +  # Plot the buffers of the centroids
+  theme_minimal()
+```
+:::
+
+## Joins
+
+## Join districts with educational level data
+
+```{r class.source = "fold-show"}
+
+# import qualifications data from csv
+qualifications2001_df <- read.csv("data/London/Tables/qualifications2001_2.csv")
+
+# take a quick look at the table by reading the first 5 lines
+head(qualifications2001_df)
+```
+
+-   Install the `dplyr` package, which is a must have package for data cleaning. More info can be found [here](https://dplyr.tidyverse.org/). `dplyr` is a part of the tidyverse!
+
+-   Join merge two datasets `join(x, y)`.
+
+    -   `left_join` returns all rows from x (`districts`), and all columns from x (`districts`) and y (`qualifications2001`)
+    -   `inner join` returns all rows from x where there are matching values in y, and all columns from x and y)
+    -   `right join` returns all rows from x, and all columns from x and y)
+    -   `full_join` returns all rows and all columns from both x and y)
+
+-   Merge the data from the `districts` shapefile and the qualifications from the csv file
+
+-   Join `districts` data to `qualifications2001` using district identifiers called `DIST_CODE` in districts and `Zone_Code` in `qualifications2001_df`
+
+```{r class.source = "fold-show"}
+
+#join
+districts <- left_join(districts, 
+                       qualifications2001_df, 
+                       by=c("DIST_CODE"="Zone_Code"))
+
+# tidyverse alternative with pipe operator %>%
+
+districts_tidy <- districts %>%
+  left_join(qualifications2001_df, by=c("DIST_CODE"="Zone_Code"))
+
+# check the first rows of the merged data table
+head(districts)
+```
+
+### Calculation
+
+Now, let's create the share of people with level 4 qualification, i.e. create the new variable `Level4p` equal to the number of people with level4 qualification divided by total population:
+
+```{r class.source = "fold-show"}
+
+districts <- districts %>%
+  mutate(Level4p = Level4/Population1674)
+
+```
+
+## Saving maps to figures
+
+Create a file to put your maps:
+
+```{r}
+dir.create("maps") 
+```
+
+If you were creating a map with teh `plot` function you could save it like this:
+
+```{r}
+pdf("maps/london_test.pdf") # Opening the graphical device
+plot(districts$geometry)
+plot(housesales_clean$geometry, add=TRUE) 
+dev.off() # Closing the graphical device
+```
+
+Let's create a simple map with the variable we just created:
+
+```{r}
+test_map <- ggplot() 
+  geom_sf(data = districts, aes(fill = Level4p)) +
+  theme_void() 
+```
+
+Let's save it, as you can see you can play around with the formatting. For more on `ggsave` have a look [here](https://ggplot2.tidyverse.org/reference/ggsave.html)
+
+```{r}
+ggsave("maps/map3.pdf")
+ggsave("maps/test_map_1.png", width = 4, height = 4)
+ggsave("maps/test_map_2.png", width = 20, height = 20, units = "cm")
+
+```
+
+## Adding baselayers
+
+Various `R` libraries allow us to add static basemaps to out maps. We will be using the `base_map()` function to(down)load a basemap in our maps. This is from the `library(basemapR)` which is easy to execute.
+
+The style of basemap currently supported are 'dark', 'hydda', 'positron', 'voyager', 'wikimedia', 'mapnik', google, google-nobg, google-hybrid, google-terrain, google-satellite, google-road. The package aims to ease the use of basemaps in different contexts by providing a function interface as minimalist as possible. There are other packages which support more choices like `library(basemaps)` which you can check out [here](https://jakob.schwalb-willmann.de/basemaps/index.html#map-examples)
+
+We simply add base_map () to our ggplot:
+
+```{r}
+ggplot() +
+  base_map(st_bbox(districts_4326), increase_zoom = 2) + 
+  geom_sf(data = districts_4326, fill = NA)
+```
+
+If we want to specify the map we use `basemap =`:
+
+```{r}
+ggplot() +
+  base_map(st_bbox(districts_4326), basemap = 'google-terrain', increase_zoom = 2) +
+  geom_sf(data = districts_4326, fill = NA) +
+  geom_sf(data = poi_sf) +
+  ggthemes::theme_map()
+```
+
+## Interactive maps
+
+Everything we have seen so far relates to static maps. These are useful for publication, to include in reports or to print. However, modern web technologies afford much more flexibility to explore spatial data interactively.
+
+In this example, ee will use the package `leaflet`. This integration connects us with the popular web mapping library Leaflet.js. The key part of the code below is `addProviderTiles`, We are using CartoDB.Positron but there are many more that you can explore [here](https://rstudio.github.io/leaflet/basemaps.html).
+
+```{r}
+library(leaflet)
+popup = c("The British Museum", "Big Ben", "King's Cross", "The Natural History Museum")
+leaflet() %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addMarkers(lng = c(-0.1459604, -0.1272057, -0.1319481, -0.173734),
+             lat = c(51.5045975, 51.5007325, 51.5301701, 51.4938451), 
+             popup = popup)
+```
+
