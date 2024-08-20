@@ -14,7 +14,7 @@
 
 **Week 6** - No Lecture & Clinic
 
-`Assignment I`: Programmed Map
+`Assignment I`: Programmed Map (40% of Final Grade)
 
 ## Part 2
 
@@ -28,13 +28,5 @@
 
 **Week 11** - No lecture & Clinic
 
-`Assignment II`: A computational essay
+`Assignment II`: A computational essay (60% of Final Grade)
 
-## Learning Outcomes
-
-- **LO1**	Demonstrate advanced GIS/GDS concepts and be able to use the tools programmatically to import, manipulate and analyse data in different formats.	
-- **LO2**	Understand the motivation and inner workings of the main methodological approaches of GDS, both analytical and visual.	
-- **LO3**	Evaluate the suitability of a specific technique, what it can offer and how it can help answer questions of interest.	
-- **LO4**	Apply a number of spatial analysis techniques and how to interpret the results, in the process of turning data into information.	
-- **LO5**	When faced with a new data-set, work independently using GIS/GDS tools programmatically.
--	**LO6**	Demonstrate a sound understanding of how real-world (geo)data are produced, their potential insights and biases, as well as opportunities and limitations.

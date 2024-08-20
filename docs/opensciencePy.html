@@ -399,7 +399,7 @@ Download a folder on github
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>First go to <a href="https://download-directory.github.io/">https://download-directory.github.io/</a></p></li>
+<li><p>First go to <a href="https://download-directory.github.io/" class="uri">https://download-directory.github.io/</a></p></li>
 <li><p>Then go to the folder you need to today. So for example copy: https://github.com/pietrostefani/gds/tree/main/data/London</p></li>
 <li><p>Paste it in the green box… give it a few minutes</p></li>
 <li><p>Check your downloads file and unzip</p></li>
@@ -414,7 +414,7 @@ Download a folder on github
 <p>Let’s start by exploring the structure of a <code>DataFrame</code>. We can print it by simply typing its name:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>census2021</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -540,7 +540,7 @@ Download a folder on github
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>census2021.head() <span class="co"># read first 5 rows</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>census2021.tail() <span class="co"># read last 5 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -614,7 +614,7 @@ Download a folder on github
 <p>We can get an overview of the values of the table:</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>census2021.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -704,7 +704,7 @@ Download a folder on github
 <p>In this case, the summary might be better presented if the table is “transposed”:</p>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>census2021.describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -794,7 +794,7 @@ Download a folder on github
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> census2021[<span class="st">'Europe'</span>] <span class="op">+</span> census2021[<span class="st">'Africa'</span>] <span class="op">+</span> census2021[<span class="st">'Middle East and Asia'</span>] <span class="op">+</span> census2021[<span class="st">'The Americas and the Caribbean'</span>] <span class="op">+</span> census2021[<span class="st">'Antarctica and Oceania'</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the top of the variable</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>total.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>GeographyCode
 E01006512    1880
 E01006513    2941
@@ -809,7 +809,7 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>census2021[<span class="st">'Total_Population'</span>] <span class="op">=</span> census2021.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the top of the variable</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>census2021.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -892,7 +892,7 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># New variable with all ones</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>census2021[<span class="st">'ones'</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>census2021.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -981,7 +981,7 @@ dtype: int64</code></pre>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> census2021[<span class="st">'ones'</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>census2021.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -1068,7 +1068,7 @@ dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>eu_tot_first4 <span class="op">=</span> census2021.loc[[<span class="st">'E01006512'</span>, <span class="st">'E01006513'</span>, <span class="st">'E01006514'</span>, <span class="st">'E01006515'</span>], [<span class="st">'Total_Population'</span>, <span class="st">'Europe'</span>]]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>eu_tot_first4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -1118,7 +1118,7 @@ dtype: int64</code></pre>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pop900 <span class="op">=</span> census2021.loc[census2021[<span class="st">'Total_Population'</span>] <span class="op">&gt;</span> <span class="dv">900</span>, :]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pop900</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -1254,7 +1254,7 @@ dtype: int64</code></pre>
 <div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>euro750 <span class="op">=</span> census2021.loc[census2021[<span class="st">'Europe'</span>] <span class="op">&lt;</span> <span class="dv">750</span>, :]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>euro750</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -1299,7 +1299,7 @@ dtype: int64</code></pre>
 <div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>oneOA <span class="op">=</span> census2021.loc[census2021[<span class="st">'Antarctica and Oceania'</span>] <span class="op">==</span> <span class="dv">10</span>, :]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>oneOA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -1346,7 +1346,7 @@ dtype: int64</code></pre>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ac25_l500 <span class="op">=</span> census2021.loc[(census2021[<span class="st">'The Americas and the Caribbean'</span>] <span class="op">&gt;</span> <span class="dv">25</span>) <span class="op">&amp;</span>                    (census2021[<span class="st">'Total_Population'</span>] <span class="op">&lt;</span> <span class="dv">1500</span>), :]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ac25_l500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -1439,7 +1439,7 @@ dtype: int64</code></pre>
 <div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>db_pop_sorted <span class="op">=</span> census2021.sort_values(<span class="st">'Total_Population'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>db_pop_sorted.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 

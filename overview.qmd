@@ -32,7 +32,7 @@ By the end of the module, students should be able to:
 
 ## Feedback
 
-*Formal assessment of one map, one MCQ test and one computational essays*. Written assignment-specific feedback will be provided within three working weeks of the submission deadline. Comments will offer an understanding of the mark awarded and identify areas which can be considered for improvement in future assignments.
+*Formal assessment of one map and one computational essays*. Written assignment-specific feedback will be provided within three working weeks of the submission deadline. Comments will offer an understanding of the mark awarded and identify areas which can be considered for improvement in future assignments.
 
 *Verbal face-to-face feedback*. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.
 
