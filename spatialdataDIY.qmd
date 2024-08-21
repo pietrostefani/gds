@@ -1,9 +1,15 @@
 # Do-It-Yourself {#sec-spatial-data-DIY .unnumbered}
 
-In this session, we will practice your skills in mapping with R. Create a new quarto document you can edit interactively, and let's do this!
+In this session, we will practice your skills in mapping with `R` and `Python`. Create a new quarto or jupyter notebook document you can edit interactively, and let's do this!
+
+::: {.panel-tabset group="language"}
+
+## R
 
 ```{r}
-#| include: false
+#| warning: false
+#| message: false
+
 library(dplyr)
 library(ggplot2)
 library(sf)
@@ -12,6 +18,23 @@ library(viridis)
 library(osmdata)
 
 ```
+
+## Python
+
+```{python}
+#| warning: true
+
+import geopandas as gpd
+import pandas as pd
+import osmnx as ox
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+from matplotlib import cm
+from matplotlib.ticker import FuncFormatter
+```
+
+:::
+
 
 ## Data preparation
 
@@ -31,18 +54,33 @@ Then [download](https://data.cdrc.ac.uk/system/files/Census_Residential_Data_Pac
 
 Once you have the `.zip` file on your computer, right-click and "Extract all". The resulting folder will contain all you need. Create a folder called `Liverpool` in `data` folder you created in the first Lab.
 
+::: {.panel-tabset group="language"}
+
+## R
+
 ```{r}
 #| message: false
 library(sf)
 lsoas <- read_sf("data/Liverpool/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp")
 ```
 
+## Python
+
+```{python}
+lsoas = gpd.read_file("data/Liverpool/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp")
+
+```
+
+:::
+
 ### Lines
 
 For a line layer, we are going to use a different bit of `osmdata` functionality that will allow us to extract all the highways. Note the code cell below requires internet connectivity.
 
-```{r roads query}
+::: {.panel-tabset group="language"}
 
+## R
+```{r roads query}
 highway <- opq("Liverpool, U.K.") %>%
    add_osm_feature(key = "highway", 
                    value = c("primary", "secondary", "tertiary")) %>%
@@ -52,12 +90,33 @@ ggplot() +
   geom_sf(data = highway$osm_lines, color = 'darkorange') + theme_minimal() 
 ```
 
+## Python
+
+```{python}
+tags = {"highway": True} #OSM tags
+roads = ox.features_from_address("Liverpool, United Kingdom", tags = tags, dist = 2000) 
+roads = roads.reset_index()
+ # sometimes building footprints are represented by Points, let's disregard them
+roads = roads[roads.geometry.geom_type == 'LineString']
+
+fig, ax = plt.subplots(1, 1, figsize=(15, 10))
+ax.set_title("Roads in Liverpool")
+ax.set_axis_off() # we don't need the ticks function
+# only roads within the extent of the buildings layer
+roads.plot(ax=ax, color = 'darkorange', lw = 0.5) #linewidth can be also passed as lw 
+# Display the plot
+plt.show()
+```
+
+:::
+
 ### Points
 
 For points, we will find some POI (Points of Interest) : pubs in Liverpool, as recorded by OpenStreetMap. Note the code cell below requires internet connectivity.
 
+::: {.panel-tabset group="language"}
+## R
 ```{r bar query}
-
 bars <- opq("Liverpool, U.K.") %>%
    add_osm_feature(key = "amenity", 
                    value = c("bar")) %>%
@@ -66,6 +125,18 @@ bars <- opq("Liverpool, U.K.") %>%
 ggplot() + 
   geom_sf(data = bars$osm_points) + theme_minimal() 
 ```
+
+## Python
+```{python}
+query = "Liverpool, United Kingdom"
+bars = ox.features_from_place(query, tags={"amenity": ["bar"]})
+
+bars.plot()
+plt.show()
+
+```
+
+:::
 
 ## Tasks
 
@@ -103,9 +174,11 @@ Focus on the LSOA liverpool layer and use it to do the following:
 
 ### Task III: Average price per district
 
-```{r}
-#| include: false
+::: {.panel-tabset group="language"}
 
+## R
+
+```{r}
 districts <- read_sf("data/London/Polygons/districts.shp")
 housesales <- read.csv("data/London/Tables/housesales.csv") # import housesales data from csv
 
@@ -114,6 +187,20 @@ housesales_clean = housesales %>%
   st_as_sf(coords = c(17,18)) %>% 
   st_set_crs(27700) 
 ```
+
+## Python
+
+```{python}
+districts = gpd.read_file("data/London/Polygons/districts.shp")
+housesales = pd.read_csv("data/London/Tables/housesales.csv")
+
+housesales_f = housesales[housesales['price'] < 500000]
+
+housesales_gdf = gpd.GeoDataFrame(
+    housesales_f, geometry=gpd.points_from_xy(housesales_f.greastings, housesales_f.grnorthing), crs="EPSG:27700"
+)
+```
+:::
 
 This one is a bit more advanced, so don't despair if you can't get it on your first try. It relies on the London data you used in the Lab. Here is the questions for you to answer:
 
@@ -130,7 +217,7 @@ Answering this questions involve 3 steps:
 **Really try** not to open the **answer** below right away.
 
 ::: {.callout-tip collapse="true"}
-## Answer
+## R Answer
 
 Spatial overlay between points and polygons
 
@@ -149,10 +236,34 @@ head(housesales_districts_agg)
 ```
 :::
 
-Once that's done, create a map using `ggplot` and if you're feeling adventurous the function `scale_fill_viridis()` to make your map look especially good.
+::: {.callout-tip collapse="true"}
+## Python Answer
+
+```{python}
+# Spatial join
+housesales_districts = housesales_gdf.sjoin(districts, how="inner", predicate='intersects')
+
+# Aggregate at district level
+housesales_districts_agg = housesales_districts.groupby(['DIST_CODE', 'DIST_NAME']).agg(
+    count_sales=('price', 'size'),  # count number of sales
+    mean_price=('price', 'mean')    # calculate average price
+).reset_index()
+
+# Merge the aggregated data back with the original GeoDataFrame to retain geometry
+housesales_districts_agg = districts[['DIST_CODE', 'geometry']].drop_duplicates().merge(
+    housesales_districts_agg, on='DIST_CODE'
+)
+```
+
+:::
+
+Once that's done, create a map of the data
 
 ::: {.callout-tip collapse="true"}
-## Answer
+
+## R Answer
+
+Use `ggplot` if you are working in `R` and if you're feeling adventurous the function `scale_fill_viridis()` to make your map look especially good.
 
 ```{r mapoutput2}
 # map housesales by wards
@@ -163,5 +274,41 @@ map3 <- ggplot()+
   ylab("") +
   theme_minimal() # choose a nicer theme https://ggplot2.tidyverse.org/reference/ggtheme.html
 map3
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Python Answer
+
+```{python}
+# Function to format currency with £
+def currency(x, pos):
+    return f'£{int(x):,}'
+
+# Create a colormap similar to Viridis magma
+cmap = plt.colormaps.get_cmap('magma_r')
+
+# Plotting the map
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Plot the district level housing price
+housesales_districts_agg.plot(column='mean_price', ax=ax, legend=True, 
+                              cmap=cmap, edgecolor='black')
+
+# Modify the legend scale to £
+formatter = FuncFormatter(currency)
+cbar = ax.get_figure().get_axes()[1]  # Get the color bar
+cbar.yaxis.set_major_formatter(formatter)
+
+# Remove x and y axis labels
+ax.set_xlabel('')
+ax.set_ylabel('')
+
+# Set theme to minimal
+ax.set_axis_off()
+
+# Show the plot
+plt.show()
+
 ```
 :::

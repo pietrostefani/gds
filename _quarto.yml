@@ -27,7 +27,8 @@ book:
         - spatialdataDIY.qmd
     - part: mapvector.qmd
       chapters:
-        - mapvector_code.qmd
+        - mapvectorR.qmd
+        - mapvectorPy.qmd
         - mapvectorDIY.qmd
     - datasets.qmd
     - references.qmd

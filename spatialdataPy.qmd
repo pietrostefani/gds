@@ -585,11 +585,11 @@ Many single datasets lack context when displayed on their own. A common approach
 We can begin by creating a map in the same way we would do normally, and then use the `add_basemap` command to add a basemap:
 
 ```{python}
-ax = restaurants.plot(color="black")
-cx.add_basemap(ax, crs=restaurants.crs);
+#ax = restaurants.plot(color="black")
+#cx.add_basemap(ax, crs=restaurants.crs);
 
 # Show the plot
-plt.show()
+#plt.show()
 ```
 Note that we need to be explicit when adding the basemap to state the coordinate reference system (crs) our data is expressed in, `contextily` will not be able to pick it up otherwise. Conversely, we could change our data’s CRS into `Pseudo-Mercator`, the native reference system for most web tiles:
 
