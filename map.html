@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bff185ec6fef51c4b9eb9fa9ea4c6c32 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_bff185ec6fef51c4b9eb9fa9ea4c6c32" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bff185ec6fef51c4b9eb9fa9ea4c6c32 = L.map(
+                "map_bff185ec6fef51c4b9eb9fa9ea4c6c32",
+                {
+                    center: [51.505, -0.127],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_59d7054a6fb59920461541f1a6d80db6 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_59d7054a6fb59920461541f1a6d80db6.addTo(map_bff185ec6fef51c4b9eb9fa9ea4c6c32);
+        
+    
+            var marker_72b7baef55c7539e099ff2688595f395 = L.marker(
+                [51.5045975, -0.1459604],
+                {}
+            ).addTo(map_bff185ec6fef51c4b9eb9fa9ea4c6c32);
+        
+    
+        var popup_bd6676ef753f1c0d08cb51ca7162b44a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d37a1068b73fd37f8c9146a8d0d041e3 = $(`<div id="html_d37a1068b73fd37f8c9146a8d0d041e3" style="width: 100.0%; height: 100.0%;">The British Museum</div>`)[0];
+                popup_bd6676ef753f1c0d08cb51ca7162b44a.setContent(html_d37a1068b73fd37f8c9146a8d0d041e3);
+            
+        
+
+        marker_72b7baef55c7539e099ff2688595f395.bindPopup(popup_bd6676ef753f1c0d08cb51ca7162b44a)
+        ;
+
+        
+    
+    
+            var marker_5100c353a5b56b5e6604588bac534c07 = L.marker(
+                [51.5007325, -0.1272057],
+                {}
+            ).addTo(map_bff185ec6fef51c4b9eb9fa9ea4c6c32);
+        
+    
+        var popup_7bdf5f76148e3eaa2eb2199e6513357c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_25bcef90c2056294c12ca0dda1210f6b = $(`<div id="html_25bcef90c2056294c12ca0dda1210f6b" style="width: 100.0%; height: 100.0%;">Big Ben</div>`)[0];
+                popup_7bdf5f76148e3eaa2eb2199e6513357c.setContent(html_25bcef90c2056294c12ca0dda1210f6b);
+            
+        
+
+        marker_5100c353a5b56b5e6604588bac534c07.bindPopup(popup_7bdf5f76148e3eaa2eb2199e6513357c)
+        ;
+
+        
+    
+    
+            var marker_545a4fbb0918e571ab4d4817aa125976 = L.marker(
+                [51.5301701, -0.1319481],
+                {}
+            ).addTo(map_bff185ec6fef51c4b9eb9fa9ea4c6c32);
+        
+    
+        var popup_72f76f1c92e32e0c7e6eba3f5e625d84 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_af24e205e49564e6adb379f746b87626 = $(`<div id="html_af24e205e49564e6adb379f746b87626" style="width: 100.0%; height: 100.0%;">King's Cross</div>`)[0];
+                popup_72f76f1c92e32e0c7e6eba3f5e625d84.setContent(html_af24e205e49564e6adb379f746b87626);
+            
+        
+
+        marker_545a4fbb0918e571ab4d4817aa125976.bindPopup(popup_72f76f1c92e32e0c7e6eba3f5e625d84)
+        ;
+
+        
+    
+    
+            var marker_bf7a4b63c32556d5b8d675fd4f16d72f = L.marker(
+                [51.4938451, -0.173734],
+                {}
+            ).addTo(map_bff185ec6fef51c4b9eb9fa9ea4c6c32);
+        
+    
+        var popup_b596c5475dbc954a79f8909268cb26e2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_10d84db61d7e624179b42d78f402ae4b = $(`<div id="html_10d84db61d7e624179b42d78f402ae4b" style="width: 100.0%; height: 100.0%;">The Natural History Museum</div>`)[0];
+                popup_b596c5475dbc954a79f8909268cb26e2.setContent(html_10d84db61d7e624179b42d78f402ae4b);
+            
+        
+
+        marker_bf7a4b63c32556d5b8d675fd4f16d72f.bindPopup(popup_b596c5475dbc954a79f8909268cb26e2)
+        ;
+
+        
+    
+</script>
+</html>

@@ -28,6 +28,13 @@ import contextily as cx
 import matplotlib.pyplot as plt
 # Import the CRS class from pyproj, which provides tools for defining and transforming coordinate reference systems.
 from pyproj import CRS
+# Operating systems
+import os
+# Interactive maps
+import folium
+# Import the display function
+from IPython.display import display
+
 ```
 
 ## Datasets
@@ -62,6 +69,7 @@ print(poi_gdf)
 Now let's look at the different types of geographical data starting with polygons. We will use a dataset that contains the boundaries of the districts of London. We can read it into an object named districts.
 
 ::: {.panel-tabset group="data"}
+
 ## Polygons
 
 We first import the district shapefile use `gpd.read_file`, we then plot it to make sure we are seeing it 'correctly'. 
@@ -414,7 +422,7 @@ plt.show()
 
 ## Manipulating Spatial Tables
 
-Once we have an understanding of how to visually display spatial information contained, let us see how it can be combined with the operations related to manipulating non-spatial tabular data. Essentially, the key is to realize that a `GeoDataFrame` contain most of its spatial information in a single column named geometry, but the rest of it looks and behaves exactly like a non-spatial `dataframe` (in fact, it is). This concedes them all the flexibility and convenience that we saw in manipulating, slicing, and transforming tabular data, with the bonus that spatial data is carried away in all those steps. In addition, `GeoDataFrame` also incorporate a set of explicitly spatial operations to combine and transform data. In this section, we will consider both.
+Once we have an understanding of how to visually display spatial information contained, let us see how it can be combined with the operations related to manipulating non-spatial tabular data. Essentially, the key is to realize that a `GeoDataFrame` contain most of its spatial information in a single column named geometry, but the rest of it looks and behaves exactly like a non-spatial `DataFrame` (in fact, it is). This concedes them all the flexibility and convenience that we saw in manipulating, slicing, and transforming tabular data, with the bonus that spatial data is carried away in all those steps. In addition, `GeoDataFrame` also incorporate a set of explicitly spatial operations to combine and transform data. In this section, we will consider both.
 
 `GeoDataFrames` come with a whole range of traditional GIS operations built-in. Here we will run through a small subset of them that contains some of the most commonly used ones.
 
@@ -453,6 +461,19 @@ Sometimes it is useful to summarize a polygon into a single point and, for that,
 cents = districts.centroid
 cents.head()
 ```
+```{python}
+# Create a plot
+fig, ax = plt.subplots(figsize=(10, 10))
+# Plot the districts
+districts.plot(ax=ax, color='lightgrey', edgecolor='black')
+# Plot the centroids
+cents.plot(ax=ax, color='red', markersize=10, edgecolor='none')
+# Set minimal theme by removing axes and grid
+ax.set_axis_off()
+# Show the plot
+plt.show()
+```
+
 ## Buffers and selecting by location
 
 To create a buffer using `geopandas`, simply call the buffer method, passing in the radious. For example, to draw a 1000m. buffer around every centroid of every district:
@@ -479,4 +500,148 @@ plt.show()
 ```
 :::
 
+## Joins
+
+## Join districts with educational level data
+
+```{python}
+# Import qualifications data from CSV
+qualifications2001_df = pd.read_csv("data/London/Tables/qualifications2001_2.csv")
+
+# Take a quick look at the table by reading the first 5 lines
+qualifications2001_df.head()
+```
+Check the data
+
+```{python}
+# Join check that the code you are joining the data on is the same.
+# First check the GeoDataFrame
+districts.head()
+
+# Then the DataFrame
+qualifications2001_df.head()
+
+## rename(columns={'Zone-Code': 'Dist_code'}) specifies that the column name Zone-Code should be renamed to Dist_code
+qualifications2001_df.rename(columns={'Zone_Code': 'DIST_CODE'}, inplace=True)
+```
+
+Merge the qualification dataset to the districts `GeoDataFrame`:
+
+- Merge the `qualifications2001_df` DataFrame with the `districts` `GeoDataFrame`.
+- The merge is done on the `DIST_CODE` column, which must be present in both DataFrames.
+- By default, this performs an inner join, but you can specify different types of joins (e.g., left, right) with the 'how' parameter.
+- `gpd.GeoDataFrame(...)` converts the resulting merged DataFrame into a GeoDataFrame using the 'geopandas' library.
+- `district_qual` is the new `GeoDataFrame` that contains the combined data from 'qualifications2001_df' and 'districts'.
+- `districts.plot()` plots the `GeoDataFrame` and `column='level 4'` specifies the column to plot.
+- `legend=True` adds a legend to the plot and `cmap='OrRd'` applies a color map.
+
+```{python}
+district_qual = districts.merge(qualifications2001_df, on='DIST_CODE')
+# Prove it worked
+district_qual.plot(column="Level4", cmap="OrRd")
+# Show the plot
+plt.show()
+
+```
+### Calculation
+
+Now, let's create the share of people with level 4 qualification, i.e. create the new variable `Level4p` equal to the number of people with level4 qualification divided by total population:
+
+```{python}
+# Assuming 'Level4' and 'Pop' columns exist in the merged GeoDataFrame district_qual
+district_qual['Level4p'] = district_qual['Level4'] / district_qual['Population1674']
+
+```
+
+## Saving maps to figures
+
+Create a file to put your maps:
+
+```{python}
+# Create directory "maps" if it doesn't exist
+os.makedirs("maps2", exist_ok=True)
+```
+
+Let's create a simple map with the variable we just created and save to external file:
+```{python}
+# Create a figure and axes for the plot
+fig, ax = plt.subplots()
+# Plot the districts' geometry with no fill color and black edges
+districts.plot(ax=ax, color='none', edgecolor='black')
+# Plot the district qualifications with a color map
+district_qual.plot(ax=ax, column="Level4", cmap="OrRd", legend=True)
+# Save the plot to a PDF file
+plt.savefig("maps/london_test2.pdf")
+# Save the plot as a JPG file
+plt.savefig("maps/london_test2.jpg", format='jpg', dpi=300)
+# Close the plot
+plt.close()
+```
+
+## Adding baselayers
+
+Many single datasets lack context when displayed on their own. A common approach to alleviate this is to use web tiles, which are a way of quickly obtaining geographical context to present spatial data. In Python, we can use `contextily` to pull down tiles and display them along with our own geographic data.
+
+We can begin by creating a map in the same way we would do normally, and then use the `add_basemap` command to add a basemap:
+
+```{python}
+ax = restaurants.plot(color="black")
+cx.add_basemap(ax, crs=restaurants.crs);
+
+# Show the plot
+plt.show()
+```
+Note that we need to be explicit when adding the basemap to state the coordinate reference system (crs) our data is expressed in, `contextily` will not be able to pick it up otherwise. Conversely, we could change our data’s CRS into `Pseudo-Mercator`, the native reference system for most web tiles:
+
+```{python}
+restaurants_wm = restaurants.to_crs(epsg=3857)
+ax = restaurants_wm.plot(color="black")
+cx.add_basemap(ax);
+
+# Show the plot
+plt.show()
+```
+Note how the coordinates are different but, if we set it right, either approach aligns tiles and data nicely.
+
+Now, contextily offers a lot of options in terms of the sources and providers you can use to create your basemaps. For example, we can use satellite imagery instead. A lot more about basemap options with `contextly` [here](https://contextily.readthedocs.io/en/latest/providers_deepdive.html).
+
+```{python}
+f, ax = plt.subplots(1, figsize=(9, 9))
+districts.plot(alpha=0.5, ax=ax)
+cx.add_basemap(
+    ax, 
+    crs=districts.crs,
+    source=cx.providers.Esri.WorldImagery
+)
+ax.set_axis_off()
+# Show the plot
+plt.show()
+```
+
+## Interactive maps
+
+Everything we have seen so far relates to static maps. These are useful for publication, to include in reports or to print. However, modern web technologies afford much more flexibility to explore spatial data interactively.
+
+We wil use the `folium` library, which is a Python wrapper for `Leaflet`. Here’s how you can do it:
+
+
+```{python}
+# Define the locations and popups
+locations = {
+    "The British Museum": (51.5045975, -0.1459604),
+    "Big Ben": (51.5007325, -0.1272057),
+    "King's Cross": (51.5301701, -0.1319481),
+    "The Natural History Museum": (51.4938451, -0.173734)
+}
+
+# Create a base map
+m = folium.Map(location=[51.505, -0.127], zoom_start=14, tiles='CartoDB positron')
+
+# Add markers
+for popup, (lat, lng) in locations.items():
+    folium.Marker(location=[lat, lng], popup=popup).add_to(m)
+
+# Display the map
+display(m)
+```
 

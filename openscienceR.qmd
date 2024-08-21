@@ -120,7 +120,7 @@ t(summary(census2021))
 
 We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:
 
-Using the package [`dplyr`](https://www.tidyverse.org/packages/)
+Using the package [`dplyr`](https://www.tidyverse.org/packages/). More info can be found [here](https://dplyr.tidyverse.org/). dplyr is a part of the tidyverse!
 
 ```{r}
 census2021 <- census2021 %>%

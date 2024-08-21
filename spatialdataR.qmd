@@ -413,7 +413,7 @@ qualifications2001_df <- read.csv("data/London/Tables/qualifications2001_2.csv")
 head(qualifications2001_df)
 ```
 
--   Install the `dplyr` package, which is a must have package for data cleaning. More info can be found [here](https://dplyr.tidyverse.org/). `dplyr` is a part of the tidyverse!
+-   Using the `dplyr` package which is a part of `tidyverse` you can:
 
 -   Join merge two datasets `join(x, y)`.
 

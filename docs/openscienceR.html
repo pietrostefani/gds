@@ -244,8 +244,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./spatialdataR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialdataPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -501,7 +507,7 @@ Antarctica.and.Oceania         3rd Qu.: 3.00    Max.   :11.00   </code></pre>
 <h2 class="anchored" data-anchor-id="columns">Columns</h2>
 <p><strong>Create new columns</strong></p>
 <p>We can generate new variables by applying operations on existing ones. For example, we can calculate the total population by area. Here is a couple of ways to do it:</p>
-<p>Using the package <a href="https://www.tidyverse.org/packages/"><code>dplyr</code></a></p>
+<p>Using the package <a href="https://www.tidyverse.org/packages/"><code>dplyr</code></a>. More info can be found <a href="https://dplyr.tidyverse.org/">here</a>. dplyr is a part of the tidyverse!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>census2021 <span class="ot">&lt;-</span> census2021 <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total_Pop =</span> <span class="fu">rowSums</span>(<span class="fu">select</span>(., Africa, Middle.East.and.Asia, Europe, The.Americas.and.the.Caribbean, Antarctica.and.Oceania)))</span>

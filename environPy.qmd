@@ -68,11 +68,11 @@ envs363/
 
 <img src="./img/environ_Py_3.png" width="80%"/>
 
-```{=html}
+
 <!--
 Needs new screenshot
 -->
-```
+
 2.  Save the file in the `labs` folder within your `envs363` folder on your machine.
 3.  Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`.
 4.  In the **Anaconda Terminal** write and run `conda activate envs363`.
@@ -80,11 +80,12 @@ Needs new screenshot
 
 <img src="./img/environ_Py_4.png" width="80%"/>
 
-```{=html}
+
 <!--
 Needs new screenshot
 -->
-```
+
+        
 6.  Navigate to your course folder in and double click on the notebook downloaded in step 1.
 7.  You can now work on your copy of the notebook.
 
@@ -107,20 +108,20 @@ To install Miniconda on your personal laptop, Follow the instructions [here](htt
 4.  Create another folder called `labs`
 
 The folder structure should look like:
+```
+
+envs363/ ├── data/ └── labs/
 
 ```         
-envs363/
-├── data/
-└── labs/
-```
 
 <img src="./img/environ_Py_5.png" width="80%"/>
 
-```{=html}
+
 <!--
 Needs new screenshot
 -->
-```
+
+
 ### Set up the Python Environment {.unnumbered}
 
 1.  Download the `envs363_563.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
@@ -130,11 +131,11 @@ Needs new screenshot
 
 <img src="./img/environ_Py_6.png" width="80%"/>
 
-```{=html}
+
 <!--
 Needs new screenshot
 -->
-```
+
 4.  If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 
 ### Start a Lab Session {.unnumbered}
@@ -158,11 +159,10 @@ Needs new screenshot
 
 ## Py Basics
 
-```{=html}
 <!--
 Carmen can you add something here for it to be similar to the R version
 -->
-```
+
 ## Resources
 
 Some help along the way with:
