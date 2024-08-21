@@ -30,6 +30,15 @@ book:
         - mapvectorR.qmd
         - mapvectorPy.qmd
         - mapvectorDIY.qmd
+    - part: mapraster.qmd
+      chapters:
+        - maprasterR.qmd
+        - maprasterPy.qmd
+        - maprasterDIY.qmd    
+    - part: points.qmd
+      chapters:
+        - pointsR.qmd
+        - pointsDIY.qmd   
     - datasets.qmd
     - references.qmd
 

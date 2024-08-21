@@ -81,20 +81,11 @@ A choropleth for categorical variables simply assigns a different color to every
 
 **Ordinal** : Ordinal variables represent categories or labels with a meaningful *order* or *ranking*. The relative order or hierarchy among the categories is significant, indicating a clear progression from lower to higher values, such as "low," "medium," and "high" for satisfaction levels.
 
-In `R`, creating categorical choropleths is possible with one line of code. To demonstrate this, we can plot the the income level of countries in the MENA region (coded in our table as the income_group variable). The code below uses base `R`, `ggplot` and `tmap` to plot.
+In `R`, creating categorical choropleths is possible with one line of code. To demonstrate this, we can plot the the income level of countries in the MENA region (coded in our table as the income_group variable). The code below uses `ggplot` and `tmap` to plot.
 
 ::: {.panel-tabset group="data"}
-# `plot`
 
-When using `plot` the code for a simple map of categorical values is one line. We call the data `world_dev_sf` and then the variable of interest `income_group`.
-
-```{r}
-plot(world_dev_sf[,"income_group"])
-```
-
-The same, perhaps better map, can be made with a little more effort using various `R` packages.
-
-# `tmap`
+## `tmap`
 
 `tmap` provides another option using the function `tm_fill` and `tm_shape`. A line has been added to to start editing the placement of the legend as well with `tm_layout`.
 
@@ -105,7 +96,7 @@ tm_shape(world_dev_sf) + # data
   tm_layout(legend.outside = TRUE, legend.outside.position = "bottom") # placing the legend
 ```
 
-# `ggplot`
+## `ggplot`
 
 This is similar in `ggplot`. `geom_sf` is calling the geometric object and `fill` is defining what values we want to fill the polygons with.
 
@@ -117,7 +108,7 @@ ggplot(data = world_dev_sf) +
 :::
 
 ::: callout-important
-These maps are all all a bit rough a need **quite a bit** more work. They are *just* a starting point.
+These maps are all a bit rough a need **quite a bit** more work. They are *just* a starting point.
 :::
 
 ## Equal Interval
@@ -164,7 +155,7 @@ for (col in columns_to_convert) {
 Now let's map using equal intervals.
 
 ::: {.panel-tabset group="data"}
-# `tmap`
+## `tmap`
 
 With a few easy functions `tmap` allows you to plot your data with different *styles*. Here we are using `equal` for equal intervals. Have a look at the code annotation for more detail.
 
@@ -188,7 +179,7 @@ tm_basemap() +
 
 Of course, this could do with some further work. You might want to check out [`tm_layout`](https://www.rdocumentation.org/packages/tmap/versions/3.3-4/topics/tm_layout)
 
-# `ggplot`
+## `ggplot`
 
 Mapping in `ggplot` can be a bit tricky at the beginning. You will want to take a look at the package `classInt` [here](https://www.rdocumentation.org/packages/classInt/versions/0.4-10/topics/classIntervals).
 

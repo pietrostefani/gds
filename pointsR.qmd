@@ -4,7 +4,7 @@ editor:
     wrap: 72
 ---
 
-# Lab {#sec-pointslab .unnumbered}
+# Lab in R {#sec-pointslabR .unnumbered}
 
 ## Points
 
