@@ -4,7 +4,7 @@ editor:
     wrap: 72
 ---
 
-# 8 Points {#sec-points .unnumbered}
+# 5 Points {#sec-points .unnumbered}
 
 ## Concepts
 
