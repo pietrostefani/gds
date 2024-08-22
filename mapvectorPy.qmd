@@ -140,7 +140,12 @@ An equal Interval classification scheme produces a map of 5 classes where each c
 
 
 ```
+
+https://geopandas.org/en/stable/gallery/choropleths.html
+
 ## Additional resources
 
+
+-   On Drawing beautiful maps with `sf` and `ggplot` see [here](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html)
 
 -   If you want to have a look at **Choropleths in Python** have a look at the chapter on choropleth mapping by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html)

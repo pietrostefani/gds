@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./mapraster.html" rel="next">
-<link href="./mapvector_code.html" rel="prev">
+<link href="./mapvectorPy.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -244,8 +244,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialdata_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./spatialdataR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialdataPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -267,8 +273,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./mapvectorR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mapvectorPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -290,8 +302,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapraster_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./maprasterR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maprasterPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./spatialw.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 Spatial Weights</span></a>
+            <a href="./points.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 Points</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -313,105 +331,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialw_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./pointsR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatialwDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./esda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 ESDA</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./esda_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./esdaDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7 Clustering</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clustering_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clusteringDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./points.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8 Points</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./points_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./pointsPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pointsDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 - Spatial Networks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialnetworks_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialnetworksDIY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Do-It-Yourself</span></a>
   </div>
 </li>
@@ -503,20 +435,46 @@ Important
 </div>
 </div>
 <p>Once you have the <code>.zip</code> file on your computer, right-click and “Extract all”. The resulting folder will contain all you need. For the sake of the example, let’s assume you place the resulting folder in the same location as the notebook you are using. If that is the case, you can load up the <code>dataframe</code> of Liverpool neighborhoods with:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>lsoas <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/Liverpool/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, this gets us the geometries of the LSOAs, but not the AHAH data. For that, we need to read in the data and join it to <code>ahah</code>. Assuming the same location of the data as above, we can do as follows:</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ahah_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/Liverpool/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E08000012/tables/E08000012.csv"</span>) <span class="co"># import</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lsoas <span class="op">=</span> gpd.read_file(<span class="st">"data/Liverpool/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Now, this gets us the geometries of the LSOAs, but not the AHAH data. For that, we need to read in the data and join it to <code>ahah</code>. Assuming the same location of the data as above, we can do as follows:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ahah_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/Liverpool/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E08000012/tables/E08000012.csv"</span>) <span class="co"># import</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ahah_data <span class="op">=</span> pandas.read_csv(<span class="st">"data/Liverpool/Access_to_Healthy_Assets_and_Hazards_AHAH/Local_Authority_Districts/E08000012/tables/E08000012.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="tasks" class="level2">
 <h2 class="anchored" data-anchor-id="tasks">Tasks</h2>
 <section id="task-i-join-by-attribute" class="level3">
 <h3 class="anchored" data-anchor-id="task-i-join-by-attribute">Task I: Join by attribute</h3>
-<p>Conduct a <code>left_join</code> to prepare your final <code>sf</code> object ready for mapping.</p>
+<p>Conduct a join to prepare your final <code>GeoDataFrame</code> for mapping.</p>
 </section>
 <section id="task-ii-ahah-choropleths" class="level3">
 <h3 class="anchored" data-anchor-id="task-ii-ahah-choropleths">Task II: AHAH choropleths</h3>
@@ -782,8 +740,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./mapvector_code.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab</span>
+      <a href="./mapvectorPy.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab in Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

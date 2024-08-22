@@ -38,6 +38,7 @@ book:
     - part: points.qmd
       chapters:
         - pointsR.qmd
+        - pointsPy.qmd
         - pointsDIY.qmd   
     - datasets.qmd
     - references.qmd
