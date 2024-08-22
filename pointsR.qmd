@@ -248,7 +248,7 @@ airbnb_neigh_agg <- airbnb_neigh_agg %>%
 ```
 
 With the density at hand, creating the new choropleth is similar as
-above (check the code in the expandable):
+above:
 
 ```{r, collapse=TRUE}
 map_BA_density <- ggplot()+
