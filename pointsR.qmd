@@ -41,7 +41,7 @@ others? These are all questions that point pattern analysis is concerned
 with.
 
 This notebook aims to be a gentle introduction to working with point
-patterns in R. As such, it covers how to read, process and transform
+patterns in `R`. As such, it covers how to read, process and transform
 point data, as well as several common ways to visualize point patterns.
 
 ## Installing Packages
@@ -279,6 +279,12 @@ shape) that, unlike circles, cleanly exhausts all the space without
 overlaps and has more edges than squares, which alleviates edge
 problems.
 
+::: {.callout-important}
+
+If you are still still not sure on the difference between geographic coordinate systems and projected coordinated system go back to Lecture 1.
+
+:::
+
 First we need to make sure we are in a projected coordinated system:
 
 ```{r}
@@ -371,7 +377,7 @@ inside a certain boundary and ignore it otherwise, KDEs use functions
 depending of how far of the location where we are counting the point is.
 
 The actual algorithm to estimate a kernel density is not trivial but its
-application in R is rather simplified by the use of the`spatstat` or
+application in `R` is rather simplified by the use of the`spatstat` or
 `eks` package.
 
 ### Spatstat package
