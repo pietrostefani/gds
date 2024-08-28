@@ -692,7 +692,7 @@ also called kriging, or Gaussian Process prediction.
 
 ### Ordinary Kriging
 
-We can Cceate geostatistical prediction using a ordinary Kriging and the
+We can create geostatistical prediction using a ordinary Kriging and the
 package `gstat`.
 
 ```{r krig}

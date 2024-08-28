@@ -112,6 +112,16 @@ url_popplaces = (
     "ne_50m_populated_places_simple.geojson"
 )
 url_popplaces
+
+# Read GeoJSON data directly from the URL
+populated_places = gpd.read_file("https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_populated_places_simple.geojson")
+
+# Plotting the data
+fig, ax = plt.subplots(figsize=(12, 8))
+populated_places.plot(ax=ax, marker='o', color='black', markersize=10, alpha=0.5)
+ax.set_title('Populated Places of the World')
+plt.show()
+
 ```
 
 :::
@@ -130,8 +140,7 @@ places <- data %>%
 ## Python
 
 ```{python}
-places = gpd.read_file("https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/"
-    "ne_50m_populated_places_simple.geojson").query("adm0name == 'India'")
+places = gpd.read_file("https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_populated_places_simple.geojson").query("adm0name == 'India'")
 ```
 :::
 
@@ -160,7 +169,7 @@ This is what we have to work with then:
 
 ## R
 
-```{r}
+```{r warning=FALSE}
 tmap_mode("view")
 
 tm_shape(places_m) + tm_bubbles(size = "pop_max", col = "yellow")+

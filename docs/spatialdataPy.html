@@ -279,13 +279,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapvector_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+  <a href="./mapvectorR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mapvectorPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mapvectorDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./mapraster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 Mapping Raster Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maprasterR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maprasterPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maprasterDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./points.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 Points</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pointsR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pointsPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pointsDIY.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Do-It-Yourself</span></a>
   </div>
 </li>
@@ -313,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installing-libraries" id="toc-installing-libraries" class="nav-link active" data-scroll-target="#installing-libraries">Installing libraries</a></li>
+  <li><a href="#importing-modules" id="toc-importing-modules" class="nav-link active" data-scroll-target="#importing-modules">Importing modules</a></li>
   <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a>
   <ul class="collapse">
   <li><a href="#creating-geographic-data" id="toc-creating-geographic-data" class="nav-link" data-scroll-target="#creating-geographic-data">Creating geographic data</a></li>
@@ -372,8 +436,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>In this lab, we will learn how to load, manipulate and visualize spatial data. In some senses, spatial data are usually included simply as “one more column” in a table. However, <em>spatial is special</em> sometimes and there are few aspects in which geographic data differ from standard numerical tables. In this session, we will extend the skills developed in the previous one about non-spatial data, and combine them. In the process, we will discover that, although with some particularities, dealing with spatial data in <code>Python</code> largely resembles dealing with non-spatial data.</p>
-<section id="installing-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="installing-libraries">Installing libraries</h2>
+<section id="importing-modules" class="level2">
+<h2 class="anchored" data-anchor-id="importing-modules">Importing modules</h2>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the pandas library, which is useful for data manipulation and analysis.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -390,7 +454,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the CRS class from pyproj, which provides tools for defining and transforming coordinate reference systems.</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyproj <span class="im">import</span> CRS</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Operating systems</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Interactive maps</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the display function</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="datasets" class="level2">
@@ -1183,7 +1251,7 @@ dtype: geometry</code></pre>
 <p>We can begin by creating a map in the same way we would do normally, and then use the <code>add_basemap</code> command to add a basemap:</p>
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> restaurants.plot(color<span class="op">=</span><span class="st">"black"</span>)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(ax, crs<span class="op">=</span>restaurants.crs)<span class="op">;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(ax, crs<span class="op">=</span>restaurants.crs, source<span class="op">=</span>cx.providers.CartoDB.Voyager)<span class="op">;</span></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1195,7 +1263,7 @@ dtype: geometry</code></pre>
 <div class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>restaurants_wm <span class="op">=</span> restaurants.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> restaurants_wm.plot(color<span class="op">=</span><span class="st">"black"</span>)</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(ax)<span class="op">;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(ax, source<span class="op">=</span>cx.providers.OpenStreetMap.Mapnik)<span class="op">;</span></span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
 <span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1223,6 +1291,185 @@ dtype: geometry</code></pre>
 </section>
 <section id="interactive-maps" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-maps">Interactive maps</h2>
+<p>Everything we have seen so far relates to static maps. These are useful for publication, to include in reports or to print. However, modern web technologies afford much more flexibility to explore spatial data interactively.</p>
+<p>We wil use the <code>folium</code> library, which is a Python wrapper for <code>Leaflet</code>. Here’s how you can do it:</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the locations and popups</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>locations <span class="op">=</span> {</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The British Museum"</span>: (<span class="fl">51.5045975</span>, <span class="op">-</span><span class="fl">0.1459604</span>),</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Big Ben"</span>: (<span class="fl">51.5007325</span>, <span class="op">-</span><span class="fl">0.1272057</span>),</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"King's Cross"</span>: (<span class="fl">51.5301701</span>, <span class="op">-</span><span class="fl">0.1319481</span>),</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The Natural History Museum"</span>: (<span class="fl">51.4938451</span>, <span class="op">-</span><span class="fl">0.173734</span>)</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a base map</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">51.505</span>, <span class="op">-</span><span class="fl">0.127</span>], zoom_start<span class="op">=</span><span class="dv">14</span>, tiles<span class="op">=</span><span class="st">'CartoDB positron'</span>)</span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add markers</span></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> popup, (lat, lng) <span class="kw">in</span> locations.items():</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>    folium.Marker(location<span class="op">=</span>[lat, lng], popup<span class="op">=</span>popup).add_to(m)</span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the map</span></span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>display(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;></script>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_c398d8ca3f0e8bc0c22a352c3017b6a0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_c398d8ca3f0e8bc0c22a352c3017b6a0&quot; ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c398d8ca3f0e8bc0c22a352c3017b6a0 = L.map(
+                &quot;map_c398d8ca3f0e8bc0c22a352c3017b6a0&quot;,
+                {
+                    center: [51.505, -0.127],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bfc62cb498465d93314725f6b116dde5 = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 20, &quot;maxZoom&quot;: 20, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abcd&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_bfc62cb498465d93314725f6b116dde5.addTo(map_c398d8ca3f0e8bc0c22a352c3017b6a0);
+        
+    
+            var marker_271cd036d8eb7cf05b14d7895e4ab025 = L.marker(
+                [51.5045975, -0.1459604],
+                {}
+            ).addTo(map_c398d8ca3f0e8bc0c22a352c3017b6a0);
+        
+    
+        var popup_a2ec6579ae626ed43c03b60de643e56c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_225f1deaf47da0e32db27f877acab4a9 = $(`<div id=&quot;html_225f1deaf47da0e32db27f877acab4a9&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>The British Museum</div>`)[0];
+                popup_a2ec6579ae626ed43c03b60de643e56c.setContent(html_225f1deaf47da0e32db27f877acab4a9);
+            
+        
+
+        marker_271cd036d8eb7cf05b14d7895e4ab025.bindPopup(popup_a2ec6579ae626ed43c03b60de643e56c)
+        ;
+
+        
+    
+    
+            var marker_474b131c81044a6c66698bbedbd8778b = L.marker(
+                [51.5007325, -0.1272057],
+                {}
+            ).addTo(map_c398d8ca3f0e8bc0c22a352c3017b6a0);
+        
+    
+        var popup_759c80e80647c6caff741aec2be08d6c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_c5c28a9d1a985707fad4e05259206815 = $(`<div id=&quot;html_c5c28a9d1a985707fad4e05259206815&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>Big Ben</div>`)[0];
+                popup_759c80e80647c6caff741aec2be08d6c.setContent(html_c5c28a9d1a985707fad4e05259206815);
+            
+        
+
+        marker_474b131c81044a6c66698bbedbd8778b.bindPopup(popup_759c80e80647c6caff741aec2be08d6c)
+        ;
+
+        
+    
+    
+            var marker_ca7db3045c7d35574bfb42d5b27abfb2 = L.marker(
+                [51.5301701, -0.1319481],
+                {}
+            ).addTo(map_c398d8ca3f0e8bc0c22a352c3017b6a0);
+        
+    
+        var popup_be17c118bff6472018d3e4fca567181e = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_995bbf49e4e906369433d4c3b1e2b183 = $(`<div id=&quot;html_995bbf49e4e906369433d4c3b1e2b183&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>King's Cross</div>`)[0];
+                popup_be17c118bff6472018d3e4fca567181e.setContent(html_995bbf49e4e906369433d4c3b1e2b183);
+            
+        
+
+        marker_ca7db3045c7d35574bfb42d5b27abfb2.bindPopup(popup_be17c118bff6472018d3e4fca567181e)
+        ;
+
+        
+    
+    
+            var marker_07a955ad37b64365af8b6862f45c11bc = L.marker(
+                [51.4938451, -0.173734],
+                {}
+            ).addTo(map_c398d8ca3f0e8bc0c22a352c3017b6a0);
+        
+    
+        var popup_2eccf58163a26c562f3d7547839976e3 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_33c194ee9c24df68c096982974063489 = $(`<div id=&quot;html_33c194ee9c24df68c096982974063489&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;>The Natural History Museum</div>`)[0];
+                popup_2eccf58163a26c562f3d7547839976e3.setContent(html_33c194ee9c24df68c096982974063489);
+            
+        
+
+        marker_07a955ad37b64365af8b6862f45c11bc.bindPopup(popup_2eccf58163a26c562f3d7547839976e3)
+        ;
+
+        
+    
+</script>
+</html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+</div>
 
 
 </section>

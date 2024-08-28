@@ -9,7 +9,7 @@ jupyter: python3
 
 In this lab, we will learn how to load, manipulate and visualize spatial data. In some senses, spatial data are usually included simply as "one more column" in a table. However, *spatial is special* sometimes and there are few aspects in which geographic data differ from standard numerical tables. In this session, we will extend the skills developed in the previous one about non-spatial data, and combine them. In the process, we will discover that, although with some particularities, dealing with spatial data in `Python` largely resembles dealing with non-spatial data.
 
-## Installing libraries
+## Importing modules
 
 ```{python}
 #| warning: false
@@ -586,7 +586,7 @@ We can begin by creating a map in the same way we would do normally, and then us
 
 ```{python}
 ax = restaurants.plot(color="black")
-cx.add_basemap(ax, crs=restaurants.crs);
+cx.add_basemap(ax, crs=restaurants.crs, source=cx.providers.CartoDB.Voyager);
 
 # Show the plot
 plt.show()
@@ -596,7 +596,7 @@ Note that we need to be explicit when adding the basemap to state the coordinate
 ```{python}
 restaurants_wm = restaurants.to_crs(epsg=3857)
 ax = restaurants_wm.plot(color="black")
-cx.add_basemap(ax);
+cx.add_basemap(ax, source=cx.providers.OpenStreetMap.Mapnik);
 
 # Show the plot
 plt.show()
