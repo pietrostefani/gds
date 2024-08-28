@@ -94,7 +94,7 @@ The first approach we review here is the one-to-one approach, where we place a d
 # Assuming 'neighbourhood' is a column in your listings_gdf GeoDataFrame
 # Plot the GeoDataFrame with neighborhoods colored differently
 
-fig, ax = plt.subplots(figsize=(35, 10))
+fig, ax = plt.subplots(figsize=(15, 5))
 
 listings_gdf.plot(column='neighbourhood', ax=ax, legend=True, cmap='Set1',
                   legend_kwds={'loc': 'center left', 'bbox_to_anchor': (1.2, 0.5), 'fontsize': 'x-small', 'ncol': 2, "fmt": "{:.0f}"})
@@ -132,6 +132,11 @@ We can visualise a bit better with a basemap
 # If it's not already, convert it using `to_crs(epsg=3857)`
 #listings_gdf = listings_gdf.to_crs(epsg=3857)
 #cx.add_basemap(ax, crs=listings_gdf.crs.to_string())
+#cx.add_basemap(
+#    ax, 
+#    crs="EPSG:4326",
+#    source=cx.providers.CartoDB.Positron
+#)
 
 # Set plot title and labels
 #ax.set_title('Airbnb Listings by Neighbourhood', fontsize=15)
@@ -155,7 +160,7 @@ To exemplify this approach, we will use the administrative areas we have loaded 
 
 ```{python}
 # Plot the administrative boundaries (BA) and listings with neighborhoods colored differently
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(5, 5))
 
 # Plot the BA GeoDataFrame with no fill and a specific line size
 BA.plot(ax=ax, edgecolor='black', linewidth=1.5, facecolor='none')
@@ -193,7 +198,7 @@ At this point, we are ready to map the counts. Technically speaking, this is a c
 
 ```{python}
 # Create a figure and axis for plotting
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(5, 5))
 
 # Reverse the 'viridis' colormap
 viridis = plt.get_cmap('viridis')
@@ -236,7 +241,7 @@ With the density at hand, creating the new choropleth is similar as above:
 
 ```{python}
 # Create a figure and axis for plotting
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(5, 5))
 # Reverse the 'viridis' colormap
 viridis = plt.get_cmap('viridis')
 viridis_reversed = viridis.reversed()
@@ -276,7 +281,7 @@ Python has a simplified way to create this hexagon layer and aggregate points in
 
 ```{python}
 # Setup figure and axis
-f, ax = plt.subplots(1, figsize=(9, 9))
+f, ax = plt.subplots(1, figsize=(5, 5))
 # Add hexagon layer that displays count of points in each polygon
 hb = ax.hexbin(
     listings_proj["longitude"], 
@@ -291,7 +296,7 @@ plt.show()
 
 Let's unpack the coded here:
 
--   Call `hexbin` directly using the set of coordinate columns (listings_proj\["longitude"\] and listings_proj\["latitude"\]).
+-   Call `hexbin` directly using the set of coordinate columns (listings_proj["longitude"] and listings_proj["latitude"]).
 -   Additional arguments we include is the number of hexagons by axis (gridsize, 50 for a 50 by 50 layer), and the transparency we want (80%).
 -   Additionally, we include a colorbar to get a sense of how counts are mapped to colors. Note that we need to pass the name of the object that includes the `hexbin` (hb in our case), but keep in mind this is optional, you do not need to always create one.
 
@@ -318,7 +323,7 @@ Same as above, let us first see how to create a quick KDE. For this we rely on `
 
 ```{python}
 # Setup figure and axis
-f, ax = plt.subplots(1, figsize=(9, 9))
+f, ax = plt.subplots(1, figsize=(5, 5))
 # using kdeplot
 sns.kdeplot(
     x="longitude", 
@@ -339,7 +344,7 @@ Once we know how the basic logic works, we can insert it into the usual mapping 
 
 ```{python}
 # Setup figure and axis
-f, ax = plt.subplots(1, figsize=(12, 12))
+f, ax = plt.subplots(1, figsize=(5, 5))
 # Add KDE layer that displays probability surface
 sns.kdeplot(
     x='longitude', 
@@ -377,17 +382,73 @@ In this section, we will learn a method to identify clusters of points, based on
 -   *Cores*, for those points inside a cluster whith at least `m` points in the cluster within distance `r`.
 -   *Borders* for points inside a cluster with less than `m` other points in the cluster within distance `r`.
 
-Both `m` and `r` need to be prespecified by the user before running `DBSCAN`. This is a critical point, as their value can influence significantly the final result. Before exploring this in greater depth, let us get a first run at computing `DBSCAN`.
+Both `m` and `r` need to be prespecified by the user before running `DBSCAN`. This is a critical point, as their value can influence significantly the final result. Before exploring this in greater depth, let us get a first run at computing `DBSCAN` in Python. For more on this, check [here](https://scikit-learn.org/stable/modules/clustering.html).
 
-In `Python` we use the following module to compute `DBSCAN` for real data. For more on this, check [here](https://scikit-learn.org/stable/modules/clustering.html).
+### Data preparation for DBSCAN
 
--   `sklearn.cluster` or popular unsupervised clustering algorithms.
+The heavy lifting is done by the method `DBSCAN`, part of the excellent machine learning library `scikit-learn`. We first set up the details:
 
 ```{python}
-
+# Set up algorithm
+algo = DBSCAN(eps=0.10, min_samples=10)
 ```
 
-### Data preparation for DBSCAN.
+We decide to consider a cluster of airbnb with more than 50 airbnbs within 100 metres from them, hence we set the two parameters accordingly. Once ready, we “fit” it to our data, but note that we first need to express the longitude and latitude of our points in metres (see code for that on the side cell). Wait, we already did that when we projected listings.
+
+```{python}
+algo.fit(listings_proj[["longitude", "latitude"]])
+```
+
+Once fit, we can recover the labels:
+
+```{python}
+algo.labels_
+```
+
+And the list of points classified as cores:
+
+```{python}
+# Print only the first five values
+algo.core_sample_indices_[:5]
+```
+
+The `labels_` object always has the same length as the number of points used to run `DBSCAN`. Each value represents the index of the cluster a point belongs to. If the point is classified as noise, it receives a -1. Above, we can see that the first five points are effectively not part of any cluster. To make thinks easier later on, let us turn the labels into a `Series` object that we can index in the same way as our collection of points:
+
+```{python}
+lbls = pd.Series(algo.labels_, index=listings_proj.index)
+```
+
+Now we already have the clusters, we can proceed to visualize them. There are many ways in which this can be done. We will start just by coloring points in a cluster in red and noise in grey:
+
+```{python}
+# Setup figure and axis
+f, ax = plt.subplots(1, figsize=(6, 6))
+# Assign labels to tokyo table dynamically and
+# subset points that are not part of any cluster (noise)
+noise = listings_proj.assign(
+    lbls=lbls
+).query("lbls == -1")
+# Plot noise in grey
+ax.scatter(
+    noise["longitude"], 
+    noise["latitude"], 
+    c='grey', 
+    s=5, 
+    linewidth=0
+)
+# Plot all points that are not noise in red
+# NOTE how this is done through some fancy indexing, where
+#      we take the index of all points (tw) and substract from
+#      it the index of those that are noise
+ax.scatter(
+    listings_proj.loc[listings_proj.index.difference(noise.index), "longitude"], 
+    listings_proj.loc[listings_proj.index.difference(noise.index), "latitude"],
+    c="red", 
+    linewidth=0
+)
+# Display the figure
+plt.show()
+```
 
 ### Clustering by location.
 

@@ -1,5 +1,9 @@
 # Do-It-Yourself {#sec-pointsdiy .unnumbered}
 
+::: {.panel-tabset group="language"}
+
+## R
+
 ```{r message=FALSE}
 library(sf)
 library(leaflet)
@@ -8,24 +12,67 @@ library(geojsonsf)
 library(dplyr)
 ```
 
+## Python
+
+```{python}
+import pandas as pd
+import geopandas as gpd
+import contextily as cx
+import matplotlib.pyplot as plt
+```
+
+:::
+
 ## Task I: Photographs in Tokyo
 
 In this task, you will explore patterns in the distribution of the location of photos. We are going to dip our toes in the lake of point data by looking at a sample of geo-referenced photographs in Tokyo. The dataset comes from the [GDS Python Book](https://geographicdata.science/) and contains photographs voluntarily uploaded to the Flickr service.
 
 ### Photos
 
+::: {.panel-tabset group="language"}
+
+## R
+
 ```{r}
 # Read the CSV file into a data frame
 tokyo <- read.csv("https://geographicdata.science/book/_downloads/7fb86b605af15b3c9cbd9bfcbead23e9/tokyo_clean.csv")
 ```
 
+## Python
+
+```{python}
+# Read the CSV file into a data frame
+tokyo = pd.read_csv("https://geographicdata.science/book/_downloads/7fb86b605af15b3c9cbd9bfcbead23e9/tokyo_clean.csv")
+
+tokyo.info()
+
+```
+
+:::
+
 ### Administrative areas
+
+::: {.panel-tabset group="language"}
+
+## R
 
 ```{r}
 url <- "https://darribas.org/gds_course/content/data/tokyo_admin_boundaries.geojson"
 
 tokyo_areas <- sf::st_read(url) # import
 ```
+
+## Python
+
+```{python}
+tokyo = gpd.read_file("https://darribas.org/gds_course/content/data/tokyo_admin_boundaries.geojson") # import
+
+# Display the first few rows of the GeoDataFrame
+print(tokyo.head())
+```
+
+:::
+
 
 With these at hand, get to work with the following challenges:
 
@@ -45,6 +92,9 @@ With these at hand, get to work with the following challenges:
 
 For this one, we are going to use a dataset on the location of populated places in India provided by http://geojson.xyz. The original table covers the entire world so, to get it ready for you to work on it, we need to prepare it:
 
+::: {.panel-tabset group="language"}
+
+## R
 ```{r warning=FALSE}
 url <- "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_populated_places_simple.geojson"
 
@@ -54,18 +104,61 @@ data <- st_make_valid(data)
 plot(data$geometry) # plot to check all is well
 ```
 
+## Python
+
+```{python}
+url_popplaces = (
+    "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/"
+    "ne_50m_populated_places_simple.geojson"
+)
+url_popplaces
+```
+
+:::
+
 Note the code cell above requires internet connectivity.
+
+::: {.panel-tabset group="language"}
+
+## R
 
 ```{r}
 places <- data %>%
   filter(adm0name == "India")
 ```
 
+## Python
+
+```{python}
+places = gpd.read_file("https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/"
+    "ne_50m_populated_places_simple.geojson").query("adm0name == 'India'")
+```
+:::
+
 By default, place locations come expressed in longitude and latitude. Because you will be working with distances, it makes sense to convert the table into a system expressed in metres. For India, this can be the "Kalianpur 1975 / India zone I" (EPSG:24378) projection.
+
+::: {.panel-tabset group="language"}
+
+## R
 
 ```{r}
 places_m <- st_transform(places, crs = 24378)
 ```
+
+## Python
+
+```{python}
+places_m = places.to_crs(epsg=24378)
+
+```
+
+:::
+
+This is what we have to work with then:
+
+::: {.panel-tabset group="language"}
+
+## R
 
 ```{r}
 tmap_mode("view")
@@ -74,6 +167,22 @@ tm_shape(places_m) + tm_bubbles(size = "pop_max", col = "yellow")+
 tm_tiles("Stamen.TonerLabels")
 
 ```
+
+## Python
+
+```{python}
+ax = places_m.plot(
+    color="xkcd:bright yellow", figsize=(9, 9)
+)
+cx.add_basemap(
+    ax, 
+    crs=places_m.crs,
+    source=cx.providers.CartoDB.DarkMatter
+)
+plt.show()
+```
+
+:::
 
 With this at hand, get to work:
 
