@@ -7,8 +7,15 @@ In this session, we will further explore the world of geographic data visualizat
 ```{python}
 # Raster modules for python
 import rasterio
+from rasterio.warp import reproject, Resampling, calculate_default_transform
+from rasterio.mask import mask
+from rasterio.plot import show
+
+from shapely.geometry import mapping
 
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import matplotlib.colorbar as colorbar
 import geopandas as gpd
 
 ```
@@ -26,7 +33,7 @@ We first import a raster file for elevation.
 elevation = rasterio.open("data/Lebanon/LBN_elevation_w_bathymetry.tif")
 
 # Read the first band
-elevation_data = elevation.read(1)
+#elevation_data = elevation.read(1)
 
 ```
 
@@ -45,7 +52,6 @@ This information is typically accessed and updated via the .profile.
 ```{python}
 print(elevation.profile)
 ```
-
 Have a look at the CRS.
 
 ```{python}
@@ -76,6 +82,46 @@ print(crs)
 
 ### **Reproject the Raster**
 
+```{python}
+# Define the desired destination CRS
+dst_crs = "EPSG:22770"  # For example, WGS84
+
+# Calculate the transform matrix, width, and height for the output raster
+dst_transform, width, height = calculate_default_transform(
+    elevation.crs,  # source CRS from the raster
+    dst_crs,        # destination CRS
+    elevation.width,  # column count
+    elevation.height, # row count
+    *elevation.bounds  # outer boundaries (left, bottom, right, top)
+)
+
+# Print the source and destination transforms
+print("Source Transform:\n", elevation.transform, '\n')
+print("Destination Transform:\n", dst_transform)
+
+# Define the metadata for the output raster
+dst_meta = elevation.meta.copy()
+dst_meta.update({
+    'crs': dst_crs,
+    'transform': dst_transform,
+    'width': width,
+    'height': height
+})
+
+# Reproject and write the output raster
+with rasterio.open("data/Lebanon/reprojected_elevation.tif", "w", **dst_meta) as dst:
+    for i in range(1, elevation.count + 1):
+        reproject(
+            source=rasterio.band(elevation, i),
+            destination=rasterio.band(dst, i),
+            src_transform=elevation.transform,
+            src_crs=elevation.crs,
+            dst_transform=dst_transform,
+            dst_crs=dst_crs,
+            resampling=Resampling.nearest
+        )
+```
+
 ### **Cropping and Masking**
 
 **Cropping**:
@@ -92,7 +138,35 @@ print(crs)
 
 In many cases, these cropping and masking are executed one after the other because it is computationally easier to crop when dealing with large datasets, and then masking.
 
+```{python}
+elevation_22770 = rasterio.open("data/Lebanon/reprojected_elevation.tif")
+
+# Use union_all() method to combine the geometries
+lebanon_union = Lebanon_adm1.geometry.union_all()
+
+# Crop the elevation data to the extent of Lebanon
+elevation_lebanon, elevation_lebanon_transform = mask(elevation_22770, [mapping(lebanon_union)], crop=True)
+```
+
 ### **Plot elevation**
+
+```{python}
+# Assuming elevation_lebanon contains the cropped elevation data and Lebanon_adm1 is the GeoDataFrame
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Plot the elevation data
+show(elevation_lebanon, transform=elevation_lebanon_transform, ax=ax, cmap='terrain')
+
+# Plot the Lebanon boundaries on top, with no fill color
+Lebanon_adm1.boundary.plot(ax=ax, edgecolor='black')
+
+plt.show()
+
+```
+
+Let's improve this a bit. Remember that there is a lot we can do with [Cmap](https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/#:~:text=Colormaps%20or%20Cmap%20in%20python%20colormaps%20is%20a%20very%20useful,custom%20ones%20using%20python%20colormaps).
+
+...
 
 Questions to ask yourself about how you can improve these maps, going back to [geo-visualisation and choropleths](https://pietrostefani.github.io/gds/mapvector.html).
 

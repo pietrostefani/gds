@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -345,6 +379,21 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#importing-modules" id="toc-importing-modules" class="nav-link active" data-scroll-target="#importing-modules">Importing Modules</a></li>
+  <li><a href="#terrain-data" id="toc-terrain-data" class="nav-link" data-scroll-target="#terrain-data">Terrain data</a>
+  <ul class="collapse">
+  <li><a href="#import-raster-data" id="toc-import-raster-data" class="nav-link" data-scroll-target="#import-raster-data"><strong>Import raster data</strong></a></li>
+  <li><a href="#import-the-lebanon-shapefile" id="toc-import-the-lebanon-shapefile" class="nav-link" data-scroll-target="#import-the-lebanon-shapefile"><strong>Import the Lebanon shapefile</strong></a></li>
+  <li><a href="#reproject-the-raster" id="toc-reproject-the-raster" class="nav-link" data-scroll-target="#reproject-the-raster"><strong>Reproject the Raster</strong></a></li>
+  <li><a href="#cropping-and-masking" id="toc-cropping-and-masking" class="nav-link" data-scroll-target="#cropping-and-masking"><strong>Cropping and Masking</strong></a></li>
+  <li><a href="#plot-elevation" id="toc-plot-elevation" class="nav-link" data-scroll-target="#plot-elevation"><strong>Plot elevation</strong></a></li>
+  <li><a href="#slope" id="toc-slope" class="nav-link" data-scroll-target="#slope"><strong>Slope</strong></a></li>
+  <li><a href="#flood-risk-area" id="toc-flood-risk-area" class="nav-link" data-scroll-target="#flood-risk-area"><strong>Flood risk area</strong></a></li>
+  <li><a href="#spatial-join-with-vector-data" id="toc-spatial-join-with-vector-data" class="nav-link" data-scroll-target="#spatial-join-with-vector-data"><strong>Spatial join with vector data</strong></a></li>
+  </ul></li>
+  <li><a href="#night-lights" id="toc-night-lights" class="nav-link" data-scroll-target="#night-lights">Night Lights</a>
+  <ul class="collapse">
+  <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data"><strong>Download data</strong></a></li>
+  </ul></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/maprasterPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -374,6 +423,260 @@ ul.task-list li input[type="checkbox"] {
 <p>In this session, we will further explore the world of geographic data visualization by building upon our understanding of both raster data and choropleths. Raster data, consisting of gridded cells, allows us to represent continuous geographic phenomena such as temperature, elevation, or satellite imagery. Choropleths, on the other hand, are an effective way to visualize spatial patterns through the use of color-coded regions, making them invaluable for displaying discrete data like population density or election results. By combining these techniques, we will gain a comprehensive toolkit for conveying complex geographical information in a visually compelling manner.</p>
 <section id="importing-modules" class="level2">
 <h2 class="anchored" data-anchor-id="importing-modules">Importing Modules</h2>
+<div id="ecc2f0ad" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Raster modules for python</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.warp <span class="im">import</span> reproject, Resampling, calculate_default_transform</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.mask <span class="im">import</span> mask</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.plot <span class="im">import</span> show</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> mapping</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colorbar <span class="im">as</span> colorbar</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="terrain-data" class="level2">
+<h2 class="anchored" data-anchor-id="terrain-data">Terrain data</h2>
+<section id="import-raster-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-raster-data"><strong>Import raster data</strong></h3>
+<p>Raster <strong>terrain</strong> data consists of gridded elevation values that represent the topography of a geographic area. You can download this from the <a href="https://github.com/pietrostefani/gds/tree/main/data/Lebanon">relevant github folder</a>. A good place to download elevation data is <a href="https://earthexplorer.usgs.gov/">Earth Explorer</a>. This <a href="https://www.youtube.com/watch?v=NQg0g9ObhXE">video</a> takes you through the download process if you want to try this out yourself.</p>
+<p>We first import a raster file for elevation.</p>
+<div id="953e1c37" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>elevation <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/LBN_elevation_w_bathymetry.tif"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the first band</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#elevation_data = elevation.read(1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plot it.</p>
+<div id="31e0c546" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(elevation.read(<span class="dv">1</span>), cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Elevation with Bathymetry'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="maprasterPy_files/figure-html/cell-4-output-1.png" width="788" height="611" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This information is typically accessed and updated via the .profile.</p>
+<div id="9a1740cf" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(elevation.profile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'driver': 'GTiff', 'dtype': 'float64', 'nodata': nan, 'width': 1150, 'height': 708, 'count': 1, 'crs': CRS.from_epsg(4326), 'transform': Affine(0.002500000000000124, 0.0, 33.74907268219525,
+       0.0, -0.002500000000000124, 34.833268747734884), 'blockxsize': 256, 'blockysize': 256, 'tiled': True, 'compress': 'deflate', 'interleave': 'band'}</code></pre>
+</div>
+</div>
+<p>Have a look at the CRS.</p>
+<div id="6a95b91a" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the raster</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> elevation.crs</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>EPSG:4326</code></pre>
+</div>
+</div>
+</section>
+<section id="import-the-lebanon-shapefile" class="level3">
+<h3 class="anchored" data-anchor-id="import-the-lebanon-shapefile"><strong>Import the Lebanon shapefile</strong></h3>
+<p>Import the Lebanon shapefile, plot it, and verify its Coordinate Reference System (CRS). Is it the same as the raster’s CRS?</p>
+<div id="416f3589" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the shapefile data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Lebanon_adm1 <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/LBN_adm1.shp"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the geometry</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Lebanon_adm1.plot()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Lebanon Administrative Boundaries'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="maprasterPy_files/figure-html/cell-7-output-1.png" width="375" height="431" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="556edb55" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the shapefile</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> Lebanon_adm1.crs</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>EPSG:22770</code></pre>
+</div>
+</div>
+</section>
+<section id="reproject-the-raster" class="level3">
+<h3 class="anchored" data-anchor-id="reproject-the-raster"><strong>Reproject the Raster</strong></h3>
+<div id="5cbbe58c" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the desired destination CRS</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dst_crs <span class="op">=</span> <span class="st">"EPSG:22770"</span>  <span class="co"># For example, WGS84</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the transform matrix, width, and height for the output raster</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>dst_transform, width, height <span class="op">=</span> calculate_default_transform(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    elevation.crs,  <span class="co"># source CRS from the raster</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    dst_crs,        <span class="co"># destination CRS</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    elevation.width,  <span class="co"># column count</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    elevation.height, <span class="co"># row count</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>elevation.bounds  <span class="co"># outer boundaries (left, bottom, right, top)</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the source and destination transforms</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Source Transform:</span><span class="ch">\n</span><span class="st">"</span>, elevation.transform, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Destination Transform:</span><span class="ch">\n</span><span class="st">"</span>, dst_transform)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the metadata for the output raster</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>dst_meta <span class="op">=</span> elevation.meta.copy()</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>dst_meta.update({</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'crs'</span>: dst_crs,</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'transform'</span>: dst_transform,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'width'</span>: width,</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'height'</span>: height</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproject and write the output raster</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/reprojected_elevation.tif"</span>, <span class="st">"w"</span>, <span class="op">**</span>dst_meta) <span class="im">as</span> dst:</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, elevation.count <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        reproject(</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>            source<span class="op">=</span>rasterio.band(elevation, i),</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>            destination<span class="op">=</span>rasterio.band(dst, i),</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>            src_transform<span class="op">=</span>elevation.transform,</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>            src_crs<span class="op">=</span>elevation.crs,</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>            dst_transform<span class="op">=</span>dst_transform,</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>            dst_crs<span class="op">=</span>dst_crs,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>            resampling<span class="op">=</span>Resampling.nearest</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Source Transform:
+ | 0.00, 0.00, 33.75|
+| 0.00,-0.00, 34.83|
+| 0.00, 0.00, 1.00| 
+
+Destination Transform:
+ | 244.50, 0.00,-36219.30|
+| 0.00,-244.50, 326205.11|
+| 0.00, 0.00, 1.00|</code></pre>
+</div>
+</div>
+</section>
+<section id="cropping-and-masking" class="level3">
+<h3 class="anchored" data-anchor-id="cropping-and-masking"><strong>Cropping and Masking</strong></h3>
+<p><strong>Cropping</strong>:</p>
+<ul>
+<li><p>Purpose: Cropping a raster involves changing the extent of the raster dataset by specifying a new bounding box or geographic area of interest. The result is a new raster that covers only the specified region.</p></li>
+<li><p>Typical Use: Cropping is commonly used when you want to reduce the size of a raster dataset to focus on a smaller geographic area of interest while retaining all the original data values within that area.</p></li>
+</ul>
+<p><strong>Masking</strong>:</p>
+<ul>
+<li><p>Purpose: Applying a binary mask to the dataset. The mask is typically a separate raster or polygon layer where certain areas are designated as “masked” (1) or “unmasked” (0).</p></li>
+<li><p>Typical Use: Masking is used when you want to extract or isolate specific areas or features within a raster dataset. For example, you might use a mask to extract land cover information within the boundaries of a protected national park.</p></li>
+</ul>
+<p>In many cases, these cropping and masking are executed one after the other because it is computationally easier to crop when dealing with large datasets, and then masking.</p>
+<div id="ff536f53" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>elevation_22770 <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/reprojected_elevation.tif"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use union_all() method to combine the geometries</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>lebanon_union <span class="op">=</span> Lebanon_adm1.geometry.union_all()</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Crop the elevation data to the extent of Lebanon</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>elevation_lebanon, elevation_lebanon_transform <span class="op">=</span> mask(elevation_22770, [mapping(lebanon_union)], crop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot-elevation" class="level3">
+<h3 class="anchored" data-anchor-id="plot-elevation"><strong>Plot elevation</strong></h3>
+<div id="b156074a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming elevation_lebanon contains the cropped elevation data and Lebanon_adm1 is the GeoDataFrame</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the elevation data</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>show(elevation_lebanon, transform<span class="op">=</span>elevation_lebanon_transform, ax<span class="op">=</span>ax, cmap<span class="op">=</span><span class="st">'terrain'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Lebanon boundaries on top, with no fill color</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>Lebanon_adm1.boundary.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="maprasterPy_files/figure-html/cell-11-output-1.png" width="719" height="781" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s improve this a bit. Remember that there is a lot we can do with <a href="https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/#:~:text=Colormaps%20or%20Cmap%20in%20python%20colormaps%20is%20a%20very%20useful,custom%20ones%20using%20python%20colormaps">Cmap</a>.</p>
+<p>…</p>
+<p>Questions to ask yourself about how you can improve these maps, going back to <a href="https://pietrostefani.github.io/gds/mapvector.html">geo-visualisation and choropleths</a>.</p>
+<ul>
+<li><p>What are the logical breaks for elevation data?</p></li>
+<li><p>Should the colours be changed to standard elevation pallettes?</p></li>
+</ul>
+</section>
+<section id="slope" class="level3">
+<h3 class="anchored" data-anchor-id="slope"><strong>Slope</strong></h3>
+<p>We are now going to calculate slopes</p>
+</section>
+<section id="flood-risk-area" class="level3">
+<h3 class="anchored" data-anchor-id="flood-risk-area"><strong>Flood risk area</strong></h3>
+<p>We can employ reclassification techniques to delineate flood risk areas. Specifically, we identify and classify areas where the elevation is under 10 meters above sea level as high-risk zones. This critical step in flood risk assessment helps communities and decision-makers pinpoint vulnerable areas, enabling them to implement effective mitigation strategies and disaster preparedness plans to safeguard against potential flooding events.</p>
+</section>
+<section id="spatial-join-with-vector-data" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-join-with-vector-data"><strong>Spatial join with vector data</strong></h3>
+<p>You might want to extract values from a raster data set, and then map them within a vector framework or extract them to analyse them statistically. If it therefore very useful to know how to extract:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure all your data is in the same CRS, otherwise the … function will not work properly.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="night-lights" class="level2">
+<h2 class="anchored" data-anchor-id="night-lights">Night Lights</h2>
+<p>This section is a bit more advanced, there are hints along the way to make it simpler.</p>
+<section id="download-data" class="level3">
+<h3 class="anchored" data-anchor-id="download-data"><strong>Download data</strong></h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Download the Data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Download the Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We need to download some raster data. NOAA has made nighttime lights data available for 1992 to 2013. It is called the Version 4 DMSP-OLS Nighttime Lights Time Series. The files are cloud-free composites made using all the available archived DMSP-OLS smooth resolution data for calendar years. In cases where two satellites were collecting data - two composites were produced. The products are 30 arc-second grids, spanning -180 to 180 degrees longitude and -65 to 75 degrees latitude. We can download the <a href="https://www.ngdc.noaa.gov/eog/data/web_data/v4composites/">Average, Visible, Stable Lights, &amp; Cloud Free Coverages for 1992 and 2013</a> and put them in the <code>data/Kenya_Tanzania</code> folder.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can also download the data <a href="https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EX85foAh7ZBBtSZ64pxbFmsBStf8UX2uaLXE5MBYJt6PeQ?e=LMYu7d">here</a>. You will need to be logged into your UoL account.</p>
+<p>The downloaded files are going to be in a <strong>“TAR” format</strong>. A TAR file is an archive created by tar, a Unix-based utility used to package files together for backup or distribution purposes. It contains multiple files stored in an uncompressed format along with metadata about the archive. Tars files are also used to reduce files’ size. TAR archives compressed with GNU Zip compression may become GZ, .TAR.GZ, or .TGZ files. We need to decompress them before using them.</p>
+</div>
+</div>
+<p>Before you move forward <strong>download the data for 1992 and 2013.</strong> It is also good practice to create a scratch folder where you do all your unzipping.</p>
+</section>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
