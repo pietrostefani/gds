@@ -279,10 +279,10 @@ shape) that, unlike circles, cleanly exhausts all the space without
 overlaps and has more edges than squares, which alleviates edge
 problems.
 
-::: {.callout-important}
-
-If you are still still not sure on the difference between geographic coordinate systems and projected coordinated system go back to Lecture 1.
-
+::: callout-important
+If you are still still not sure on the difference between geographic
+coordinate systems and projected coordinated system go back to Lecture
+1.
 :::
 
 First we need to make sure we are in a projected coordinated system:

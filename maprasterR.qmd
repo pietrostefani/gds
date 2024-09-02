@@ -200,7 +200,7 @@ plot(flood_risk)
 
 ### **Spatial join with vector data**
 
-You might want to extract values from a raster data set, and then map them eith in a vector `sf` framework or extract them to analyse them statistically. If it therefore very useful to know hoe to extract:
+You might want to extract values from a raster data set, and then map them within a vector `sf` framework or extract them to analyse them statistically. If it therefore very useful to know how to extract:
 
 ```{r extract}
 # Load some geo-localised survey data 
@@ -234,7 +234,7 @@ To start this exercise, let's see some useful functions to manipulate data in R.
 ```{r output=FALSE}
 
 # Before we get to clean the data, let's go over a few useful function
-# set the working directory to where you saved the GY476 data
+# set the working directory to where you saved the ENVS363_563 data
 
 # list files 
 list.files()
@@ -284,7 +284,11 @@ lapply(4:6, function(x) MathOperations(x))
 
 ### **Download data**
 
+::: {.callout-note title="Download the Data"}
+
 We need to download some raster data. NOAA has made nighttime lights data available for 1992 to 2013. It is called the Version 4 DMSP-OLS Nighttime Lights Time Series. The files are cloud-free composites made using all the available archived DMSP-OLS smooth resolution data for calendar years. In cases where two satellites were collecting data - two composites were produced. The products are 30 arc-second grids, spanning -180 to 180 degrees longitude and -65 to 75 degrees latitude. We can download the [Average, Visible, Stable Lights, & Cloud Free Coverages for 1992 and 2013](https://www.ngdc.noaa.gov/eog/data/web_data/v4composites/) and put them in the `data/Kenya_Tanzania` folder.
+
+::: 
 
 ::: callout-important
 You can also download the data [here](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EX85foAh7ZBBtSZ64pxbFmsBStf8UX2uaLXE5MBYJt6PeQ?e=LMYu7d). You will need to be logged into your UoL account.
@@ -349,7 +353,6 @@ plot(nl_rasters_stack,
 # change the names 
 names(nl_rasters_stack) <- c("NL1992", "NL2013")
 ```
-
 Why can't you see much? Discuss with the person next to you.
 
 ### **Country shapefiles**
