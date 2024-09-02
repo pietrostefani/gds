@@ -21,6 +21,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import geopandas as gpd
 import numpy as np
+from pysal.viz import mapclassify
+import seaborn as sns
 ```
 
 ## Data
@@ -121,31 +123,250 @@ filtered_data["v_2015"] = filtered_data["v_2015"].astype(int)
 
 # Step 4: Store the final result in world_dev_filtered
 world_dev_filtered = filtered_data
+
 ```
 
 
-An equal Interval classification scheme produces a map of 5 classes where each class size is equal, so that each class has an equal range in between the low and high possible value. This allows for the legend to be easily understood by the viewer, since the legend entries are all the same size. However, this scheme does not show data which are skewed towards one side all that well.
+An equal interval classification scheme produces a map of 5 classes where each class size is equal, so that each class has an equal range in between the low and high possible value. This allows for the legend to be easily understood by the viewer, since the legend entries are all the same size. However, this scheme does not show data which are skewed towards one side all that well.
 
 ```{python}
-#world_dev_filtered.plot(
-#    column="v_2015", 
-#    scheme="equal_interval", 
-#    k=4,
-#    cmap="YlGn",
-#    legend=True
-#)
+
+fig, ax = plt.subplots(figsize=(15, 5))  # Increase the map size
+
+# Plotting the GeoDataFrame `world_dev_filtered` on the `ax` axes
+world_dev_filtered.plot(
+    column="v_2015",  # Specify the column to be visualized; `v_2015` represents data for the year 2015
+    legend=True,  # Add a legend to the map
+    scheme="equal_interval",  # Use equal interval classification for the color scheme
+    k=7,  # Divide the data into 7 intervals
+    cmap="YlGn",  # Use the Yellow-Green colormap for coloring the map
+    legend_kwds={
+        'loc': 'center left',  # Position the legend in the center left of the map
+        'bbox_to_anchor': (1.00, 0.2),  # Anchor the legend at this position (right of the plot)
+        'fontsize': 10  # Set the font size of the legend text
+    },
+    edgecolor='grey',  # Add grey contours around each geographical feature
+    linewidth=0.5,  # Adjust the thickness of the contours (optional)
+    ax=ax  # Specify the axes object to plot on
+)
+
+# Adjust the subplot parameters to give more space for the legend
+plt.subplots_adjust(right=0.70)  # Increase right space to accommodate a larger map
 
 # Show the plot
-#plt.show()
+plt.show()
 
+```
+Pay attention to the key differences:
+
+- Instead of specifyig `categorical` as `True`, we replace it by the argument scheme, which we will use for all choropleths that require a continuous classification scheme. In this case, we set it to `equal_interval`.
+
+- As above, we set the number of colors to 7. Note that we need not pass the bins we calculated above, the plotting method does it itself under the hood for us.
+
+- As optional arguments, we can change the colourmap to a yellow to green gradient, which is one of the recommended ones by `ColorBrewer` for a sequential palette.
+
+::: callout-tip
+
+## Mapclassify
+
+The way colour maps are scaled can also be manipulated with the `scheme` option (if you have mapclassify installed).
+
+The `scheme` option can be set to any scheme provided by mapclassify (e.g. ‘box_plot’, ‘equal_interval’, ‘fisher_jenks’, ‘fisher_jenks_sampled’, ‘headtail_breaks’, ‘jenks_caspall’, ‘jenks_caspall_forced’, ‘jenks_caspall_sampled’, ‘max_p_classifier’, ‘maximum_breaks’, ‘natural_breaks’, ‘quantiles’, ‘percentiles’, ‘std_mean’ or ‘user_defined’).
+
+Arguments can be passed in classification_kwds dict.
+
+See the mapclassify documentation for further details about these [map classification](https://pysal.org/mapclassify/) schemes.
+
+:::
+
+It is important to understand that equal intervals can first and foremost be visualised on the data distribution. 
+
+```{python}
+classi = mapclassify.EqualInterval(world_dev_filtered["v_2015"], k=7)
+classi
+```
+
+Once we have classified the variable, we can check the actual break points where values stop being in one class and become part of the next one:
+```{python}
+classi.bins
+```
+
+```{python}
+# Set up the figure
+f, ax = plt.subplots(1)
+# Plot the kernel density estimation (KDE)
+sns.kdeplot(world_dev_filtered["v_2015"], fill=True)
+# Add a blue tick for every value at the bottom of the plot (rugs)
+sns.rugplot(world_dev_filtered["v_2015"], alpha=0.5)
+# Loop over each break point and plot a vertical red line
+for cut in classi.bins:
+    plt.axvline(cut, color='lightgreen', linewidth=1.25)
+# Display image
+plt.show()
 
 ```
 
-https://geopandas.org/en/stable/gallery/choropleths.html
+Technically speaking, the figure is created by overlaying a KDE plot with vertical bars for each of the break points. This makes much more explicit the issue highlighted by which the first two bin contain a large amount of observations while the one with top values only encompasses a handful of them.
+
+## Quantiles
+
+One solution to obtain a more balanced classification scheme is using quantiles. This, by definition, assigns the same amount of values to each bin: the entire series is laid out in order and break points are assigned in a way that leaves exactly the same amount of observations between each of them. This "observation-based" approach contrasts with the "value-based" method of equal intervals and, although it can obscure the magnitude of extreme values, it can be more informative in cases with skewed distributions.
+
+The code required to create the choropleth mirrors that needed above for equal intervals:
+
+```{python}
+
+fig, ax = plt.subplots(figsize=(15, 5))  # Increase the map size
+
+# Plotting the GeoDataFrame `world_dev_filtered` on the `ax` axes
+world_dev_filtered.plot(
+    column="v_2015",  # Specify the column to be visualized; `v_2015` represents data for the year 2015
+    legend=True,  # Add a legend to the map
+    scheme="quantiles",  # Use quantile interval classification for the color scheme
+    k=4,  # Divide the data into 4 intervals
+    cmap="YlGn",  # Use the Yellow-Green colormap for coloring the map
+    legend_kwds={
+        'loc': 'center left',  # Position the legend in the center left of the map
+        'bbox_to_anchor': (1.00, 0.2),  # Anchor the legend at this position (right of the plot)
+        'fontsize': 10  # Set the font size of the legend text
+    },
+    edgecolor='grey',  # Add grey contours around each geographical feature
+    linewidth=0.5,  # Adjust the thickness of the contours (optional)
+    ax=ax  # Specify the axes object to plot on
+)
+
+# Adjust the subplot parameters to give more space for the legend
+plt.subplots_adjust(right=0.70)  # Increase right space to accommodate a larger map
+
+# Show the plot
+plt.show()
+
+```
+
+Note how, in this case, the amount of polygons in each color is by definition much more balanced (almost equal in fact, except for rounding differences). This obscures outlier values, which get blurred by significantly smaller values in the same group, but allows to get more detail in the “most populated” part of the distribution, where instead of only white polygons, we can now discern more variability.
+
+To get further insight into the quantile classification, let’s calculate it with `mapclassify`:
+
+```{python}
+classi = mapclassify.Quantiles(world_dev_filtered["v_2015"], k=4)
+classi
+
+```
+
+And, similarly, the bins can also be inspected:
+```{python}
+classi.bins
+```
+
+The visualization of the distribution can be generated in a similar way as well:
+
+```{python}
+# Set up the figure
+f, ax = plt.subplots(1)
+# Plot the kernel density estimation (KDE)
+sns.kdeplot(world_dev_filtered["v_2015"], fill=True)
+# Add a blue tick for every value at the bottom of the plot (rugs)
+sns.rugplot(world_dev_filtered["v_2015"], alpha=0.5)
+# Loop over each break point and plot a vertical red line
+for cut in classi.bins:
+    plt.axvline(cut, color='lightgreen', linewidth=1.25)
+# Display image
+plt.show()
+```
+
+## Fisher-Jenks
+
+Equal interval and quantiles are only two examples of very many classification schemes to encode values into colors. As an example of a more sophisticated one, let us create a Fisher-Jenks choropleth.
+
+```{python}
+
+fig, ax = plt.subplots(figsize=(15, 5))  # Increase the map size
+
+# Plotting the GeoDataFrame `world_dev_filtered` on the `ax` axes
+world_dev_filtered.plot(
+    column="v_2015",  # Specify the column to be visualized; `v_2015` represents data for the year 2015
+    legend=True,  # Add a legend to the map
+    scheme="fisher_jenks",  # Use quantile interval classification for the color scheme
+    k=7,  # Divide the data into 7 intervals
+    cmap="YlGn",  # Use the Yellow-Green colormap for coloring the map
+    legend_kwds={
+        'loc': 'center left',  # Position the legend in the center left of the map
+        'bbox_to_anchor': (1.00, 0.2),  # Anchor the legend at this position (right of the plot)
+        'fontsize': 10  # Set the font size of the legend text
+    },
+    edgecolor='grey',  # Add grey contours around each geographical feature
+    linewidth=0.5,  # Adjust the thickness of the contours (optional)
+    ax=ax  # Specify the axes object to plot on
+)
+
+# Adjust the subplot parameters to give more space for the legend
+plt.subplots_adjust(right=0.70)  # Increase right space to accommodate a larger map
+
+# Show the plot
+plt.show()
+
+```
+The same classification can be obtained with a similar approach as before:
+
+```{python}
+classi = mapclassify.FisherJenks(world_dev_filtered["v_2015"], k=7)
+classi
+```
+
+Once we have classified the variable, we can check the actual break points where values stop being in one class and become part of the next one:
+```{python}
+classi.bins
+```
+
+Now let's look at the density plot
+```{python}
+# Set up the figure
+f, ax = plt.subplots(1)
+# Plot the kernel density estimation (KDE)
+sns.kdeplot(world_dev_filtered["v_2015"], fill=True)
+# Add a blue tick for every value at the bottom of the plot (rugs)
+sns.rugplot(world_dev_filtered["v_2015"], alpha=0.5)
+# Loop over each break point and plot a vertical red line
+for cut in classi.bins:
+    plt.axvline(cut, color='lightgreen', linewidth=1.25)
+# Display image
+plt.show()
+```
+
+For example, the bin with highest values covers a much wider span that the one with lowest, because there are fewer states in that value range.
+
+You will notice a lot cooler difference once you play around with a larger dataset.
+
+## Zooming into the map
+
+A general map of an entire region, or urban area, can sometimes obscure local patterns because they happen at a much smaller scale that cannot be perceived in the global view. One way to solve this is by providing a focus of a smaller part of the map in a separate figure. Although there are many ways to do this in `R`, the most straightforward one is to define the bounding box.
+
+As an example, let us consider the first `ggplot` map of this Lab:
+
+### Zoom into full map
+
+```{python}
+# Setup the figure
+f, ax = plt.subplots(1)
+# Draw the choropleth
+world_dev_gdf.plot(
+    column="income_group", 
+    cmap="YlGn",
+    legend=True,
+    ax=ax
+)
+# Redimensionate X and Y axes to desired bounds
+ax.set_ylim(30.520606, 36.285000)
+ax.set_xlim(30.763478, 40.332570)
+
+# Display image
+plt.show()
+```
 
 ## Additional resources
 
-
--   On Drawing beautiful maps with `sf` and `ggplot` see [here](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html)
+-   On Drawing beautiful choropleths.html with `Python` and `ggplot` see [here](https://geopandas.org/en/stable/gallery/choropleths.html)
 
 -   If you want to have a look at **Choropleths in Python** have a look at the chapter on choropleth mapping by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html)
+
+- Some more on mapping [here](https://geopandas.org/en/stable/docs/user_guide/mapping.html)

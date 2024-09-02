@@ -231,8 +231,12 @@ ggplot() +
 
 It is important to understand that **equal intervals** can first and foremost be visualised on the data distribution. We have already created these intervals with the function `classIntervals` in Step 3 of the `ggplot` tab above. Here we need a couple of extra steps to collect the break values and plot them in histogram form.
 
-::: callout-note
+::: callout-tip
+
+## Class Interval styles
+
 The function `classIntervals` has the following styles: "fixed", "sd", "equal", "pretty", "quantile", "kmeans", "hclust", "bclust", "fisher", "jenks", "dpih", "headtails", "maximum", or "box".
+
 :::
 
 ```{r}
@@ -360,7 +364,7 @@ As in our previous example, the coding is a bit simpler if we use `tmap`.
 ```{r}
 tm_basemap() +
   tm_shape(world_dev_filtered) +
-  tm_polygons("v_2015", palette = "YlGn", id = "WARD_NAME", n = 4, style= "fisher")   
+  tm_polygons("v_2015", palette = "YlGn", id = "WARD_NAME", n = 7, style= "fisher")   
 ```
 
 # `ggplot`
@@ -371,7 +375,7 @@ As before, first we create the intervals, in this case fisher jenks
 #| warning: false
 
 # Find fisher breaks for data segmentation into 5 groups.
-fish_breaks <- classIntervals(world_dev_filtered$v_2015bis, n = 4, style = "fisher")
+fish_breaks <- classIntervals(world_dev_filtered$v_2015bis, n = 7, style = "fisher")
 
 # Assign the class breaks to the data
 world_dev_filtered$fish_breaks <- cut(world_dev_filtered$v_2015bis, fish_breaks$brks)
@@ -380,7 +384,7 @@ world_dev_filtered$fish_breaks <- cut(world_dev_filtered$v_2015bis, fish_breaks$
 Then we map the data:
 
 ```{r}
-num_bins <-4
+num_bins <-7
 # Define a color palette for visualizing data.
 cmap <- brewer.pal(num_bins, "YlGn")
 
@@ -406,7 +410,7 @@ Now let's look at the density plot
 
 ```{r}
 #| warning: false
-fish_breaks <- classIntervals(world_dev_filtered$v_2015, n = 4, style = "fisher")
+fish_breaks <- classIntervals(world_dev_filtered$v_2015, n = 7, style = "fisher")
 world_dev_filtered$fish_breaks <- cut(world_dev_filtered$v_2015, fish_breaks$brks)
 
 # Collect the values of the breaks
