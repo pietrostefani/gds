@@ -10,98 +10,161 @@ align-items: center;
 
 # (Self-)Quiz
 
-- Have you ever used data to make decisions in your life?
-- Have you ever heard the term “Data Science ”?
-- Have you ever written a line of computer code?
+-   Have you ever used data to make decisions in your life?
+-   Have you ever heard the term “Data Science ”?
+-   Have you ever written a line of computer code?
 
 # Philosophy
 
 ::: fragment
-- (Lots of) **methods** and techniques
-  - General overview
-  - Intuition
-  - Very little math
-  - Lots of ways to continue on your own
-- Emphasis on the **application** and **use**
-- Close connection to **“real world”** applications
+-   (Lots of) **methods** and techniques
+    -   General overview
+    -   Intuition
+    -   Very little math
+    -   Lots of ways to continue on your own
+-   Emphasis on the **application** and **use**
+-   Close connection to **“real world”** applications
 :::
 
 ## Philosophy
-1. This course is like a gym subsciption
-2. Principles over technology
-3. Collaborate, do not copy 
+
+1.  This course is like a gym subsciption
+2.  Principles over technology
+3.  Collaborate, do not copy
 
 ## Format
+
 ::: fragment
-- **Concepts**: lectures (website + slides), readings, videos
+-   **Concepts**: lectures (website + slides), readings, videos
 
-- **Hands-on**: concepts in (interactive) action
+-   **Hands-on**: concepts in (interactive) action
 
-- **Do-It-Yourself**: practical material to do on your own
-
+-   **Do-It-Yourself**: practical material to do on your own
 :::
 
 # What is Geographic Data Science?
 
+## Geographic Data Science
+
+<center>
+
+![](./figs/gds.png){width="60%"}
+
+<center>
 
 ## Geographic Data Science
 
-<center>![](./figs/gds.png){width="60%"}<center>
+-   **Analyse** and **extract** insights from geospatial data
+-   Work with **real-world data** on a number of domains and problems
+-   Acquire key **data science skills** and important tools to answer spatial questions
 
-## Geographic Data Science
+<center>
 
-- **Analyse** and **extract** insights from geospatial data
-- Work with **real-world data** on a number of domains and problems
-- Acquire key **data science skills** and important tools to answer spatial questions 
+<mark>It is in very high demand in industry.</mark>
 
-<center><mark>It is in very high demand in industry.</mark><center>
+<center>
 
 ## *Philosophy* of Geographic Data Science
 
-<br>
-Statistician George Box :
+<br> Statistician George Box :
 
 *All models are wrong, but some are useful In a similar fashion*.
 
-<br>
-Geographer Keith Ord :
+<br> Geographer Keith Ord :
 
 *All maps are wrong, but some are useful.*
 
 ## In what fields is it useful?
 
-<p class="fragment fade-up">Housing </p>
-<p class="fragment fade-upt">Transportation</p>
-<p class="fragment fade-up">Insurance</p>
-<p class="fragment fade-up">Telecommunications</p>
-<p class="fragment fade-up">Energy</p>
-<p class="fragment fade-up">Retail</p>
-<p class="fragment fade-up">Agriculture</p>
-<p class="fragment fade-up">Healthcare</p>
-<p class="fragment fade-up">Urban planning</p>
-<p class="fragment fade-up">And more...</p>
+<p class="fragment fade-up">
+
+Housing
+
+</p>
+
+<p class="fragment fade-upt">
+
+Transportation
+
+</p>
+
+<p class="fragment fade-up">
+
+Insurance
+
+</p>
+
+<p class="fragment fade-up">
+
+Telecommunications
+
+</p>
+
+<p class="fragment fade-up">
+
+Energy
+
+</p>
+
+<p class="fragment fade-up">
+
+Retail
+
+</p>
+
+<p class="fragment fade-up">
+
+Agriculture
+
+</p>
+
+<p class="fragment fade-up">
+
+Healthcare
+
+</p>
+
+<p class="fragment fade-up">
+
+Urban planning
+
+</p>
+
+<p class="fragment fade-up">
+
+And more...
+
+</p>
 
 ## GIS
-<center><img data-src="./figs/layers.png" alt="centered image" width="50%" height="60%"><center>
+
+<center>
+
+<img alt="centered image" data-src="./figs/layers.png" width="50%" height="60%"/>
+
+<center>
 
 ## Layers - Image - Data
-<center><img data-src="./figs/geo_data.jpg" alt="centered image" width="100%" height="100%"><center>
+
+<center>
+
+<img alt="centered image" data-src="./figs/geo_data.jpg" width="100%" height="100%"/>
+
+<center>
 
 ## GIS world vs. Real World
-<center><img data-src="./figs/realworld.png" alt="centered image" width="40%" height="40%"><center>
+
+<center>
+
+<img alt="centered image" data-src="./figs/realworld.png" width="40%" height="40%"/>
+
+<center>
 
 ## Skills
 
-**Hard Skills**
-- Programming Language
-- Transparency and Reproducibility
-- Version control
+**Hard Skills** - Programming Language - Transparency and Reproducibility - Version control
 
-**Soft Skills**
-- Communication
-- Storytelling
-- Geospatial analytics acumen
-- Ethical skills
+**Soft Skills** - Communication - Storytelling - Geospatial analytics acumen - Ethical skills
 
 # Open Science
 
@@ -109,8 +172,7 @@ Geographer Keith Ord :
 
 **Graphical User Interfaces (GUIs)**
 
-Open source Geographic Information Systems (GIS), exemplified by software like QGIS, have revolutionized the accessibility of geographic analysis on a global scale.
-However, they inadvertently introduce a challenge to reproducibility.
+Open source Geographic Information Systems (GIS), exemplified by software like QGIS, have revolutionized the accessibility of geographic analysis on a global scale. However, they inadvertently introduce a challenge to reproducibility.
 
 **Command Line Interfaces (CLIs)**
 
@@ -122,84 +184,125 @@ Command Line Interfaces (CLIs) offer a solution to the reproducibility challenge
 
 **Scalable Software**: Scalable software solutions are essential for sifting through this data deluge, helping us extract valuable insights from the noise.
 
-**Spatial Databases**: The advent of spatial databases empowers us to store and manipulate manageable subsets within the vast sea of geographic data. 
+**Spatial Databases**: The advent of spatial databases empowers us to store and manipulate manageable subsets within the vast sea of geographic data.
 
 # Logistics
 
 ## Sessions
-    
-- Lectures *and* labs 
-- **Mondays 1-2pm** (Lecture 1h)
-- **Thursdays 1-3pm** (Lab 2h approx) except in week 7 **Tuesday 11:00-13:00**
-- Keep in touch on Teams!
+
+-   Lectures *and* labs
+-   **Mondays 3-4pm** (Lecture 1h)
+-   **Tuesday 3-5pm** (Lab 2h approx)
+-   Keep in touch on Teams!
 
 ## Website
 
-<center><img data-src="./figs/website.png" alt="centered image" width="80%" height="80%"><center>
+<center>
 
-<CENTER> [`https://pietrostefani.github.io/gds/`](https://pietrostefani.github.io/gds/) </CENTER>
+<img alt="centered image" data-src="./figs/website.png" width="80%" height="80%"/>
+
+<center>
+
+<CENTER>[`https://pietrostefani.github.io/gds/`](https://pietrostefani.github.io/gds/)</CENTER>
 
 ## Teams
 
-<center><img data-src="./figs/teams.png" alt="centered image" width="80%" height="70%"><center>
+<center>
+
+<img alt="centered image" data-src="./figs/teams.png" width="80%" height="70%"/>
+
+<center>
 
 ## Code
 
-<center><img data-src="./figs/r.png" alt="centered image" width="50%" height="60%"><center>
+<center>
+
+<img alt="centered image" data-src="./figs/carto_trends.png" width=43%" height="43%"/>
+
+<center>
 
 ## Code
 
-<center><img data-src="./figs/Rmarkdown.png" alt="centered image" width="50%" height="80%"><center>
+<center>
+
+<img alt="centered image" data-src="./figs/pyth_R.jpg" width="43%" height="43%"/>
+
+<center>
 
 ## Code
 
-<center><img data-src="./figs/carto_trends.png" alt="centered image" width="50%" height="50%"><center>
+<center>
 
+<img alt="centered image" data-src="./figs/r.png" width="50%" height="60%"/>
+
+<center>
+
+## Code
+
+<center>
+
+<img alt="centered image" data-src="./figs/Rmarkdown.png" width="70%" height="70%"/>
+
+<center>
+
+## Code
+
+<center>
+
+<img alt="centered image" data-src="./figs/Jupyter-Notebooks.jpg" width="70%" height="80%"/>
+
+<center>
 
 ## Website
 
+-   Syllabus
+-   Assessments
+-   Environment
 
-- Syllabus
-- Assessments
-- Environment
+<center>
 
+<mark> [Let's have a look](https://pietrostefani.github.io/gds/) </mark>
 
-<center><mark> [Let's have a look](https://pietrostefani.github.io/gds/) </mark><center>
+<center>
 
 ## More Help
+
 This course is much more about *learning to learn* and **problem solving** rather than acquiring specific programming tricks or stats wizardry.
 
-- Learn to ask questions (but don’t expect exact answers all the time!!!)
-- <mark>Help others</mark> as much as you can (the best way to learn is to teach)
-- Search heavily on <mark>Google + Stack Overflow</mark>
+-   Learn to ask questions (but don’t expect exact answers all the time!!!)
+-   <mark>Help others</mark> as much as you can (the best way to learn is to teach)
+-   Search heavily on <mark>Google + Stack Overflow</mark>
 
 ## Workflow
 
-come to the **Lectures**  
+come to the **Lectures**
 
-1. Go over the Concepts sections of each week after the lecture
-2. Have a look at the Readings and/or videos 
-3. Record questions and post them on Teams prior to the lab
+1.  Go over the Concepts sections of each week after the lecture
+2.  Have a look at the Readings and/or videos
+3.  Record questions and post them on Teams prior to the lab
 
 ## Workflow
 
-come to the **Labs** 
+come to the **Labs**
 
-1. Come work through the code and DIY sections
-2. Live answers to questions posted
-3. Support from your lecturers and demonstrators
+1.  Come work through the code and DIY sections
+2.  Live answers to questions posted
+3.  Support from your lecturers and demonstrators
 
-- Hands on!
-- Collaborate *and* participate
+-   Hands on!
+-   Collaborate *and* participate
 
-## Download R before Lab 
+## Download R before Lab
+
 If using your own laptop
 
-<center><img data-src="./figs/downloadr.png" alt="centered image" width="50%" height="100%"><center>
+<center>
 
+<img alt="centered image" data-src="./figs/environ.png" width="80%" height="80%"/>
+
+<center>
 
 # Questions
-
 
 # 
 
