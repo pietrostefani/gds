@@ -69,10 +69,9 @@ print(poi_gdf)
 Now let's look at the different types of geographical data starting with polygons. We will use a dataset that contains the boundaries of the districts of London. We can read it into an object named districts.
 
 ::: {.panel-tabset group="data"}
-
 ## Polygons
 
-We first import the district shapefile use `gpd.read_file`, we then plot it to make sure we are seeing it 'correctly'. 
+We first import the district shapefile use `gpd.read_file`, we then plot it to make sure we are seeing it 'correctly'.
 
 ```{python}
 # Read the shapefile for districts
@@ -173,7 +172,6 @@ filtered_districts = districts[districts['DIST_NAME'] == 'City of London']
 print(filtered_districts)
 ```
 
-
 ### Quick visualisation
 
 Let's start by plotting London in a colour and adding Hackney (a district) in a different colour.
@@ -191,7 +189,6 @@ plt.show()
 ```
 
 Some guidance on colours in `Python` can be found [here](https://matplotlib.org/stable/gallery/color/named_colors.html).
-
 
 ## Styling plots
 
@@ -279,6 +276,7 @@ fig.suptitle("Main roads in London")
 # Display
 plt.show()
 ```
+
 ### Changing what border lines look like
 
 Border lines sometimes can distort or impede proper interpretation of a map. In those cases, it is useful to know how they can be modified. Let us first see the code to make the lines thicker and black, and then we will work our way through the different steps:
@@ -308,10 +306,9 @@ plt.show()
 
 Labeling maps is of paramount importance as it is often key when presenting data analysis and visualization. Properly labeled maps enables readers to effectively analyze and interpret spatial data.
 
-- `iterrows()` is a pandas function that iterates over DataFrame rows as (index, Series) pairs. Here, `idx` is the index of the row, and row is a `pandas` series containing the data for that particular district.
-- `centroid = row['geometry'].centroid` gets the centroid of each district's geometry. 
-`row['geometry']` refers to the geometry of the district, which could be a polygon or a multipolygon. `.centroid` computes the geometric center (centroid) of this polygon. 
-- `ax.text()` is a method from `Matplotlib`, used to place text at specific coordinates on the plot. `centroid.x` and `centroid.y` provide the x and y coordinates of the centroid, which determine where the text will be placed. `row['DIST_NAME']` is the name of the district that will be displayed as the label. `fontsize=6` sets the size of the text to 8 points. `ha='center'` ensures that the text is horizontally aligned to the center of the specified coordinates.
+-   `iterrows()` is a pandas function that iterates over DataFrame rows as (index, Series) pairs. Here, `idx` is the index of the row, and row is a `pandas` series containing the data for that particular district.
+-   `centroid = row['geometry'].centroid` gets the centroid of each district's geometry. `row['geometry']` refers to the geometry of the district, which could be a polygon or a multipolygon. `.centroid` computes the geometric center (centroid) of this polygon.
+-   `ax.text()` is a method from `Matplotlib`, used to place text at specific coordinates on the plot. `centroid.x` and `centroid.y` provide the x and y coordinates of the centroid, which determine where the text will be placed. `row['DIST_NAME']` is the name of the district that will be displayed as the label. `fontsize=6` sets the size of the text to 8 points. `ha='center'` ensures that the text is horizontally aligned to the center of the specified coordinates.
 
 ```{python}
 # Plot the districts with a gray fill
@@ -363,6 +360,7 @@ print(f"Units (GDAL): {units_gdal}")
 print(f"SRID: {srid}")
 print(f"Proj4 String: {proj4string}")
 ```
+
 As we can see, there is information stored about the reference system: it is using the standard British projection (British National Grid EPSG:27700), which is expressed in meters. There are also other less decipherable parameters but we do not need to worry about them right now.
 
 If we want to modify this and "reproject" the polygons into a different CRS, the quickest way is to find the EPSG code online (epsg.io is a good one, although there are others too). For example, if we wanted to transform the dataset into lat/lon coordinates, we would use its EPSG code, 4326 (CRS's name "WGS84"):
@@ -397,6 +395,7 @@ housesales_gdf = gpd.GeoDataFrame(
 
 print(housesales_gdf.head())
 ```
+
 ### Zooming in or out
 
 It's important to know what CRS your data is in if you want to create zoomed versions of your maps. [BBox finder](http://bboxfinder.com/#0.000000,0.000000,0.000000,0.000000) is a useful tool to identify coordinates in `EPSG:4326`.
@@ -427,7 +426,6 @@ Once we have an understanding of how to visually display spatial information con
 `GeoDataFrames` come with a whole range of traditional GIS operations built-in. Here we will run through a small subset of them that contains some of the most commonly used ones.
 
 ::: {.panel-tabset group="data"}
-
 ## Area
 
 One of the spatial aspects we often need from polygons is their area. "How big is it?" is a question that always haunts us when we think of countries, regions, or cities. To obtain area measurements, first make sure the `GeoDataFrame` you are working with is projected. If that is the case, you can calculate areas as follows:
@@ -450,6 +448,7 @@ Similarly, an equally common question with lines is their length. Also similarly
 street_length = a_roads.length
 street_length.head()
 ```
+
 If you check the `dataframe` you will see the lengths.
 
 ## Centroids
@@ -461,6 +460,7 @@ Sometimes it is useful to summarize a polygon into a single point and, for that,
 cents = districts.centroid
 cents.head()
 ```
+
 ```{python}
 # Create a plot
 fig, ax = plt.subplots(figsize=(10, 10))
@@ -511,6 +511,7 @@ qualifications2001_df = pd.read_csv("data/London/Tables/qualifications2001_2.csv
 # Take a quick look at the table by reading the first 5 lines
 qualifications2001_df.head()
 ```
+
 Check the data
 
 ```{python}
@@ -527,13 +528,13 @@ qualifications2001_df.rename(columns={'Zone_Code': 'DIST_CODE'}, inplace=True)
 
 Merge the qualification dataset to the districts `GeoDataFrame`:
 
-- Merge the `qualifications2001_df` DataFrame with the `districts` `GeoDataFrame`.
-- The merge is done on the `DIST_CODE` column, which must be present in both DataFrames.
-- By default, this performs an inner join, but you can specify different types of joins (e.g., left, right) with the 'how' parameter.
-- `gpd.GeoDataFrame(...)` converts the resulting merged DataFrame into a GeoDataFrame using the 'geopandas' library.
-- `district_qual` is the new `GeoDataFrame` that contains the combined data from 'qualifications2001_df' and 'districts'.
-- `districts.plot()` plots the `GeoDataFrame` and `column='level 4'` specifies the column to plot.
-- `legend=True` adds a legend to the plot and `cmap='OrRd'` applies a color map.
+-   Merge the `qualifications2001_df` DataFrame with the `districts` `GeoDataFrame`.
+-   The merge is done on the `DIST_CODE` column, which must be present in both DataFrames.
+-   By default, this performs an inner join, but you can specify different types of joins (e.g., left, right) with the 'how' parameter.
+-   `gpd.GeoDataFrame(...)` converts the resulting merged DataFrame into a GeoDataFrame using the 'geopandas' library.
+-   `district_qual` is the new `GeoDataFrame` that contains the combined data from 'qualifications2001_df' and 'districts'.
+-   `districts.plot()` plots the `GeoDataFrame` and `column='level 4'` specifies the column to plot.
+-   `legend=True` adds a legend to the plot and `cmap='OrRd'` applies a color map.
 
 ```{python}
 district_qual = districts.merge(qualifications2001_df, on='DIST_CODE')
@@ -543,6 +544,7 @@ district_qual.plot(column="Level4", cmap="OrRd")
 plt.show()
 
 ```
+
 ### Calculation
 
 Now, let's create the share of people with level 4 qualification, i.e. create the new variable `Level4p` equal to the number of people with level4 qualification divided by total population:
@@ -563,6 +565,7 @@ os.makedirs("maps2", exist_ok=True)
 ```
 
 Let's create a simple map with the variable we just created and save to external file:
+
 ```{python}
 # Create a figure and axes for the plot
 fig, ax = plt.subplots()
@@ -591,6 +594,7 @@ cx.add_basemap(ax, crs=restaurants.crs, source=cx.providers.CartoDB.Voyager);
 # Show the plot
 plt.show()
 ```
+
 Note that we need to be explicit when adding the basemap to state the coordinate reference system (crs) our data is expressed in, `contextily` will not be able to pick it up otherwise. Conversely, we could change our data’s CRS into `Pseudo-Mercator`, the native reference system for most web tiles:
 
 ```{python}
@@ -601,6 +605,7 @@ cx.add_basemap(ax, source=cx.providers.OpenStreetMap.Mapnik);
 # Show the plot
 plt.show()
 ```
+
 Note how the coordinates are different but, if we set it right, either approach aligns tiles and data nicely.
 
 Now, contextily offers a lot of options in terms of the sources and providers you can use to create your basemaps. For example, we can use satellite imagery instead. A lot more about basemap options with `contextly` [here](https://contextily.readthedocs.io/en/latest/providers_deepdive.html).
@@ -624,7 +629,6 @@ Everything we have seen so far relates to static maps. These are useful for publ
 
 We wil use the `folium` library, which is a Python wrapper for `Leaflet`. Here’s how you can do it:
 
-
 ```{python}
 # Define the locations and popups
 locations = {
@@ -644,4 +648,3 @@ for popup, (lat, lng) in locations.items():
 # Display the map
 display(m)
 ```
-

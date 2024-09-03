@@ -48,29 +48,25 @@ Let us stop for a minute to learn how we have read the file. Here are the main a
 -   To ensure we can access the data we have read, we store it in an object that we call `census2021`. We will see more on what we can do with it below but, for now, just keep in mind that allows us to save the result of `read.csv`.
 
 ::: callout-important
-
 You need to store the data file on your computer, and read it locally. To do that, you can follow these steps:
 
-1. Download the `census2021_ethn` file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file 
+1.  Download the `census2021_ethn` file by right-clicking [on this link](https://github.com/pietrostefani/gds/tree/main/data) and saving the file
 
-2. Place the file in a data folder you have created where you intend to read it. 
+2.  Place the file in a data folder you have created where you intend to read it.
 
-3. Your folder should have the following structure a. a gds folder (where you will save your quarto .qmd documents) b. a data folder c. the `census2021_ethn` folder inside your data folder.
-
+3.  Your folder should have the following structure a. a gds folder (where you will save your quarto .qmd documents) b. a data folder c. the `census2021_ethn` folder inside your data folder.
 :::
 
 ::: callout-tip
-
 ## Download a folder on github
 
-1. First go to [https://download-directory.github.io/](https://download-directory.github.io/)
+1.  First go to <https://download-directory.github.io/>
 
-2. Then go to the folder you need to today. So for example copy: https://github.com/pietrostefani/gds/tree/main/data/London
+2.  Then go to the folder you need to today. So for example copy: https://github.com/pietrostefani/gds/tree/main/data/London
 
-3. Paste it in the green box... give it a few minutes
+3.  Paste it in the green box... give it a few minutes
 
-4. Check your downloads file and unzip
-
+4.  Check your downloads file and unzip
 :::
 
 ## Data, sliced and diced
@@ -195,8 +191,9 @@ oneOA <- census2021 %>%
   filter(`Antarctica.and.Oceania` == 10)
 ```
 
-::: {.callout-tip}
+::: callout-tip
 ## Tip with Title
+
 These queries can grow in sophistication with almost no limits.
 :::
 

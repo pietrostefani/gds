@@ -3,7 +3,6 @@
 In this session, we will practice your skills in mapping with `R` and `Python`. Create a new quarto or jupyter notebook document you can edit interactively, and let's do this!
 
 ::: {.panel-tabset group="language"}
-
 ## R
 
 ```{r}
@@ -32,9 +31,7 @@ import matplotlib.colors as mcolors
 from matplotlib import cm
 from matplotlib.ticker import FuncFormatter
 ```
-
 :::
-
 
 ## Data preparation
 
@@ -55,7 +52,6 @@ Then [download](https://data.cdrc.ac.uk/system/files/Census_Residential_Data_Pac
 Once you have the `.zip` file on your computer, right-click and "Extract all". The resulting folder will contain all you need. Create a folder called `Liverpool` in `data` folder you created in the first Lab.
 
 ::: {.panel-tabset group="language"}
-
 ## R
 
 ```{r}
@@ -70,7 +66,6 @@ lsoas <- read_sf("data/Liverpool/Census_Residential_Data_Pack_2011/Local_Authori
 lsoas = gpd.read_file("data/Liverpool/Census_Residential_Data_Pack_2011/Local_Authority_Districts/E08000012/shapefiles/E08000012.shp")
 
 ```
-
 :::
 
 ### Lines
@@ -78,8 +73,8 @@ lsoas = gpd.read_file("data/Liverpool/Census_Residential_Data_Pack_2011/Local_Au
 For a line layer, we are going to use a different bit of `osmdata` functionality that will allow us to extract all the highways. Note the code cell below requires internet connectivity.
 
 ::: {.panel-tabset group="language"}
-
 ## R
+
 ```{r roads query}
 highway <- opq("Liverpool, U.K.") %>%
    add_osm_feature(key = "highway", 
@@ -107,7 +102,6 @@ roads.plot(ax=ax, color = 'darkorange', lw = 0.5) #linewidth can be also passed 
 # Display the plot
 plt.show()
 ```
-
 :::
 
 ### Points
@@ -116,6 +110,7 @@ For points, we will find some POI (Points of Interest) : pubs in Liverpool, as r
 
 ::: {.panel-tabset group="language"}
 ## R
+
 ```{r bar query}
 bars <- opq("Liverpool, U.K.") %>%
    add_osm_feature(key = "amenity", 
@@ -127,6 +122,7 @@ ggplot() +
 ```
 
 ## Python
+
 ```{python}
 query = "Liverpool, United Kingdom"
 bars = ox.features_from_place(query, tags={"amenity": ["bar"]})
@@ -135,7 +131,6 @@ bars.plot()
 plt.show()
 
 ```
-
 :::
 
 ## Tasks
@@ -175,7 +170,6 @@ Focus on the LSOA liverpool layer and use it to do the following:
 ### Task III: Average price per district
 
 ::: {.panel-tabset group="language"}
-
 ## R
 
 ```{r}
@@ -254,13 +248,11 @@ housesales_districts_agg = districts[['DIST_CODE', 'geometry']].drop_duplicates(
     housesales_districts_agg, on='DIST_CODE'
 )
 ```
-
 :::
 
 Once that's done, create a map of the data
 
 ::: {.callout-tip collapse="true"}
-
 ## R Answer
 
 Use `ggplot` if you are working in `R` and if you're feeling adventurous the function `scale_fill_viridis()` to make your map look especially good.

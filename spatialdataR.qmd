@@ -95,8 +95,7 @@ osm_q_sf
 
 You do not need to know at this point what happens behind the scenes when we run these lines but, if you are curious, we are making a query to OpenStreetMap (almost as if you typed "museums in London, UK" within Google Maps) and getting the response as a table of data, instead of as a website with an interactive map. Pretty cool, huh?
 
-*Note*: the code cell above requires internet connectivity.
-**Important**: Be careful, if you query too much data, your environment is likely to get stuck.
+*Note*: the code cell above requires internet connectivity. **Important**: Be careful, if you query too much data, your environment is likely to get stuck.
 
 ```{r}
 restaurants_points <- osm_q_sf$osm_points
@@ -136,7 +135,7 @@ We can read or create subsets:
 districts[districts$DIST_NAME== "City of London",] 
 ```
 
-::: {.callout-note}
+::: callout-note
 Go back to [open science](https://pietrostefani.github.io/gds/openscience.html) for subsetting with `dplyr`.
 :::
 
@@ -526,4 +525,3 @@ leaflet() %>%
              lat = c(51.5045975, 51.5007325, 51.5301701, 51.4938451), 
              popup = popup)
 ```
-
