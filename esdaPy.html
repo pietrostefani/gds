@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A course in Geographic Data Science - 9 - Spatial Networks</title>
+<title>A course in Geographic Data Science - Lab in Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./spatialnetworksR.html" rel="next">
-<link href="./clusteringDIY.html" rel="prev">
+<link href="./esdaDIY.html" rel="next">
+<link href="./esdaR.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,8 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="A course in Geographic Data Science - 9 - Spatial Networks">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="A course in Geographic Data Science - Lab in Python">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -85,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./esda.html">7 ESDA</a></li><li class="breadcrumb-item"><a href="./esdaPy.html">Lab in Python</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -368,7 +367,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./esdaPy.html" class="sidebar-item-text sidebar-link">
+  <a href="./esdaPy.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
@@ -405,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link active">
+            <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9 - Spatial Networks</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -449,9 +448,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./esda.html">7 ESDA</a></li><li class="breadcrumb-item"><a href="./esdaPy.html">Lab in Python</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-spatialnet" class="quarto-section-identifier">9 - Spatial Networks</span></h1>
+<h1 class="title"><span id="sec-esdalabPy" class="quarto-section-identifier">Lab in Python</span></h1>
 </div>
 
 
@@ -468,8 +467,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this section we look into spatial networks. Networks are designed to characterise connections between elements. Specifically, spatial networks look at how observations are laid out in space and connected via infrastructure, flows, trade or other relationships.</p>
-<p>Slides can be downloaded <a href="./html/networks.pdf">“here”</a></p>
 
 
 
@@ -885,13 +882,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./clusteringDIY.html" class="pagination-link" aria-label="Do-It-Yourself">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Do-It-Yourself</span>
+      <a href="./esdaR.html" class="pagination-link" aria-label="Lab in R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab in R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./spatialnetworksR.html" class="pagination-link" aria-label="Lab">
-        <span class="nav-page-text">Lab</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./esdaDIY.html" class="pagination-link" aria-label="Do-It-Yourself">
+        <span class="nav-page-text">Do-It-Yourself</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -903,7 +900,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/spatialnetworks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/esdaPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

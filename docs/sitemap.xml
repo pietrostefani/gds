@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/maprasterPy.html</loc>
-    <lastmod>2024-09-04T17:43:21.029Z</lastmod>
+    <lastmod>2024-09-05T21:44:31.093Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/environR.html</loc>
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/maprasterDIY.html</loc>
-    <lastmod>2023-10-25T22:00:08.485Z</lastmod>
+    <lastmod>2024-09-05T15:32:20.589Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/spatialw.html</loc>
@@ -190,7 +190,7 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/spatialnetworksDIY.html</loc>
-    <lastmod>2024-01-03T15:09:56.985Z</lastmod>
+    <lastmod>2024-08-19T11:01:41.311Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/references.html</loc>
@@ -207,5 +207,9 @@
   <url>
     <loc>https://pietrostefani.github.io/wma/pointsPy.html</loc>
     <lastmod>2024-08-28T16:38:39.985Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/spatialnetworksR.html</loc>
+    <lastmod>2024-08-19T11:01:41.311Z</lastmod>
   </url>
 </urlset>

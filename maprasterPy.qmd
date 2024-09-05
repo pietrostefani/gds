@@ -5,22 +5,38 @@ In this session, we will further explore the world of geographic data visualizat
 ## Importing Modules
 
 ```{python}
-# Raster modules for python
+# # Importing rasterio for handling raster data
 import rasterio
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.mask import mask
 from rasterio.plot import show
 from rasterio import features
 
+# `gdal` for additional raster data processing 
+from osgeo import gdal 
+
+# `mapping` for converting Shapely geometries to GeoJSON format
 from shapely.geometry import mapping
 
+# For plotting and visualizing data using Matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.patches import Patch
 import matplotlib.colorbar as colorbar
 from matplotlib.colors import ListedColormap, BoundaryNorm
 
+# For working with geospatial data
 import geopandas as gpd
+# For numerical operations and handling arrays
+import numpy as np
+
+# These imports are for file and directory operations
+import os
+import zipfile
+import shutil
+
+#import rioxarray as rxr
+#from rasterstats import zonal_stats
 ```
 
 ## Terrain data
@@ -204,19 +220,84 @@ Questions to ask yourself about how you can improve these maps, going back to [g
 
 ### **Slope**
 
-We are now going to calculate slopes
+It may sometimes prove useful to visualize these elevation models with mechanisms such as contour lines. Fortunately, this is fairly easy to accomplish in Python using packages such as GDAL and Matplotlib.
+
+```{python}
+# Specify the filename of the raster file
+filename = "data/Lebanon/reprojected_elevation.tif"
+# Open the raster file using GDAL (Geospatial Data Abstraction Library)
+gdal_data = gdal.Open(filename)
+# Retrieve the first band (layer) of the raster data
+gdal_band = gdal_data.GetRasterBand(1)
+# Get the value that represents 'no data' or missing data within the raster
+nodataval = gdal_band.GetNoDataValue()
+# Read the raster data into a numpy array and convert it to a float64 data type
+data_array = gdal_data.ReadAsArray().astype(np.float64)
+# Check if the array contains any 'no data' values
+if np.any(data_array == nodataval):
+    # Replace 'no data' values with NaN (Not a Number) to handle them as missing data
+    data_array[data_array == nodataval] = np.nan
+```
+
+Raster data, such as a GeoTIFF, is typically stored with the origin (0,0) at the top-left corner. This means the first row in the data array corresponds to the top of the raster, and the last row corresponds to the bottom. However, when you visualize data using Matplotlib, the default behavior assumes that the origin (0,0) is at the bottom-left corner. This discrepancy can cause the image to appear flipped vertically.
+
+```{python}
+data_array_flipped = np.flipud(data_array)
+```
+Now that we’ve read our data in, we’re ready to visualize the elevation using contour lines within Matplotlib (Note: We will be re-reading in the data again here due to NaN values).
+
+```{python}
+#Plot out data with Matplotlib's 'contour'
+fig = plt.figure(figsize = (8, 8))
+ax = fig.add_subplot(111)
+plt.contour(data_array_flipped, cmap = "viridis", 
+            levels = list(range(0, 4000, 200)))
+            
+# Set limits for the x-axis
+ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
+ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
+             
+plt.title("Elevation Lebanon")
+cbar = plt.colorbar()
+plt.gca().set_aspect('equal', adjustable='box')
+plt.show()
+```
+
+#Plot our data with Matplotlib's 'contourf'
+```{python}
+fig = plt.figure(figsize = (8, 8))
+ax = fig.add_subplot(111)
+plt.contourf(data_array_flipped, cmap = "gist_earth", 
+            levels = list(range(0, 4000, 200)))
+
+# Set limits for the x-axis
+ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
+ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
+             
+plt.title("Elevation Lebanon")
+cbar = plt.colorbar()
+plt.gca().set_aspect('equal', adjustable='box')
+plt.show()
+```
 
 ### **Flood risk area**
 
 We can employ reclassification techniques to delineate flood risk areas. Specifically, we identify and classify areas where the elevation is under 10 meters above sea level as high-risk zones. This critical step in flood risk assessment helps communities and decision-makers pinpoint vulnerable areas, enabling them to implement effective mitigation strategies and disaster preparedness plans to safeguard against potential flooding events.
 
-<!--
-problem installing osgeo and richdem in 3.11 python
+```{python}
+# Apply the function to create the flood_risk array
+flood_risk = np.where(data_array < 10, 1, 0) # assigning 1 if the element is less than 10, and 0 otherwise. We cleaned data_array earlier.
+```
 
-https://www.earthdatascience.org/tutorials/visualize-digital-elevation-model-contours-matplotlib/
+```{python}
+# Create a new figure for the plot
+plt.figure()
 
-https://www.earthdatascience.org/tutorials/get-slope-aspect-from-digital-elevation-model/
--->
+# Plot the flood_risk array
+plt.imshow(flood_risk, cmap='Greys')
+plt.title('Flood Risk Map')
+plt.show()
+```
 
 ### **Spatial join with vector data**
 
@@ -244,6 +325,7 @@ households['elevation'] = housesales_elevation
 print(households.head())
 
 ```
+
 - *Handling CRS (Coordinate Reference System)*: The household data CRS is transformed to match the raster’s CRS before extracting elevation values.
 - *Extracting Elevation*: Elevation values are extracted at each household location using rasterio’s sample method.
 - *Attaching Elevation Data*: The elevation data is added as a new column to the households `GeoDataFrame`.
@@ -273,62 +355,115 @@ The downloaded files are going to be in a **"TAR" format**. A TAR file is an arc
 Before you move forward **download the data for 1992 and 2013.** It is also good practice to create a scratch folder where you do all your unzipping.
 
 ```{python}
-def load_raster(filename):
-    """Load a raster file and return the data as a numpy array."""
-    with rasterio.open(filename) as src:
-        data = src.read(1)  # Read the first band
-        profile = src.profile  # Save the profile for later use
-    return data, profile
+# Load the raster files
+raster1_path = 'data/Kenya_Tanzania/F101992.v4b_web.stable_lights.avg_vis.tif'
+raster2_path = 'data/Kenya_Tanzania/F182013.v4c_web.stable_lights.avg_vis.tif'
 
-def stack_rasters(*rasters):
-    """Stack multiple raster arrays into a single 3D numpy array."""
-    return np.stack(rasters, axis=-1)
+# Open the raster files
+with rasterio.open(raster1_path) as src1:
+    raster1 = src1.read(1)  # Read the first (and only) band
 
-def plot_raster(data, title='Raster Data'):
-    """Plot a single raster array."""
-    plt.figure(figsize=(10, 6))
-    plt.imshow(data, cmap='viridis', interpolation='none')
-    plt.colorbar()
-    plt.title(title)
-    plt.show()
+with rasterio.open(raster2_path) as src2:
+    raster2 = src2.read(1)  # Read the first (and only) band
+    
+    # Stack the rasters along a new axis (depth axis)
+stacked_rasters = np.stack([raster1, raster2], axis=0)
 
-# File paths to your raster TIFF files
-file1 = 'nighttime_lights_1.tif'
-file2 = 'nighttime_lights_2.tif'
-
-# Load the rasters
-data1, profile1 = load_raster(file1)
-data2, profile2 = load_raster(file2)
-
-# Stack the rasters
-stacked_data = stack_rasters(data1, data2)
 ```
-
-We can load and plot the nighttime lights data. When working with many rasters of the same origin, it is usually faster to stack them together for faster processing.
 
 ```{python}
+# Create a plot
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6, 6))
+
 # Plot the first raster
-plot_raster(data1, title='Nighttime Lights - File 1')
+ax1.imshow(stacked_rasters[0], cmap='cividis')
+ax1.set_title('1992')
+ax1.axis('off')
 
 # Plot the second raster
-plot_raster(data2, title='Nighttime Lights - File 2')
+ax2.imshow(stacked_rasters[1], cmap='cividis')
+ax2.set_title('2013')
+ax2.axis('off')
 
-# Plot the stacked rasters (showing all bands together)
-plt.figure(figsize=(10, 6))
-plt.imshow(np.mean(stacked_data, axis=-1), cmap='viridis', interpolation='none')
-plt.colorbar()
-plt.title('Stacked Nighttime Lights Data (Mean of All Bands)')
+# Show the plot
+plt.tight_layout()
 plt.show()
+
 ```
+Why can’t you see much? Discuss with the person next to you.
 
 ### **Country shapefiles**
 
+The second step is to download the shapefiles for Kenya and Tanzania. GADM has made available national and subnational shapefiles for the world. The zips you download, such as *gadm36_KEN_shp.zip* from GADM should be placed in the **Kenya_Tanzania** folder. This is the link [gadm](https://gadm.org/formats.html).
+
+```{python}
+# Set the data folder path
+datafolder = 'data'
+
+# List the country shapefiles downloaded from the GADM website
+files = [os.path.join(root, file)
+         for root, dirs, files in os.walk(os.path.join(datafolder, "Kenya_Tanzania"))
+         for file in files if file.endswith("_shp.zip")]
+
+print(files)
+
+# Create a scratch folder
+scratch_folder = os.path.join(datafolder, "Kenya_Tanzania", "scratch")
+os.makedirs(scratch_folder, exist_ok=True)
+
+# Unzip the files
+for file in files:
+    with zipfile.ZipFile(file, 'r') as zip_ref:
+        zip_ref.extractall(scratch_folder)
+
+# List GADM shapefiles
+gadm_files = [os.path.join(root, file)
+              for root, dirs, files in os.walk(os.path.join(datafolder, "Kenya_Tanzania"))
+              for file in files if file.startswith("gadm")]
+
+print(gadm_files)
+
+# Select regional level 2 files
+gadm_files_level2 = [file for file in gadm_files if "2.shp" in file]
+print(gadm_files_level2)
+
+# Load the shapefiles
+shps = [gpd.read_file(shp) for shp in gadm_files_level2]
+print(shps)
+
+# Delete the scratch folder with the data we don't need
+#shutil.rmtree(scratch_folder)
+```
+
 ### **Zonal statistics**
+
+We use the package ... to calculate the sum and average nighttime for each region. The nighttime lights rasters are quite large, but as we do not need to do any operations on them (e.g. calculations using the overlay function, cropping or masking to the shapefiles extent), the process should be relatively fast.
+
+```{python}
+
+```
 
 ### **Merge Shapefiles**
 
+```{python}
+
+```
+
 ### **Visualize**
 
+Let's have a first look at our result.
+
+```{python}
+
+```
+
+Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks.
+
+```{python}
+
+```
+
+Have a think about what the data is telling you. What's the story?
 
 ## Resources
 
@@ -337,3 +472,9 @@ plt.show()
 - [Remote Sensing with Python](https://worldbank.github.io/OpenNightLights/welcome.html)
 
 - [Black Marble in Python](https://blogs.worldbank.org/en/opendata/illuminating-insights-harnessing-nasas-black-marble-r-and-python-packages)
+
+<!--
+problem installing richdem
+
+https://www.earthdatascience.org/tutorials/get-slope-aspect-from-digital-elevation-model/
+-->
