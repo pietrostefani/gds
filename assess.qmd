@@ -68,7 +68,7 @@ A computational essay is an essay whose narrative is supported by code and compu
 
 2.  Computer input (R or Python)
 
-3.  Computer output 
+3.  Computer output
 
 These three elements all work together to express what's being communicated.
 

@@ -54,10 +54,6 @@ book:
       chapters:
         - clusteringR.qmd
         - clusteringDIY.qmd
-    - part: points.qmd
-      chapters:
-        - pointsR.qmd
-        - pointsDIY.qmd
     - part: spatialnetworks.qmd
       chapters:
         - spatialnetworksR.qmd
