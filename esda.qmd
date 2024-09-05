@@ -1,4 +1,4 @@
-# 6 ESDA {#sec-spatial-esda .unnumbered}
+# 7 ESDA {#sec-spatial-esda .unnumbered}
 
 In this section we delve into a few statistical methods designed to characterise spatial patterns of data. How phenomena are distributed over space is at the centre of many important questions. From economic inequality, to the management of disease outbreaks, being able to statistically characterise the spatial pattern is the first step into understanding causes and thinking about solutions in the form of policy.
 

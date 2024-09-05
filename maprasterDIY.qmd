@@ -8,14 +8,14 @@ We are going to work with some data of Corsica, a region of France. If you want 
 
 If not you can download it [here](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EYaxWikecFxPqLTzUNp7Ch0Bxxiv9hyv1bg5lzh6fUcTrg?e=bTdi70). You will need to be signed into your UoL account.
 
-You will then need to download the shapefiles for France. You can use [GADM](https://gadm.org/formats.html) which has made available national and subnational shapefiles for the world.
+You will then need to download the shapefiles for France. You can use [GADM](https://gadm.org/formats.html) which has made available national and subnational shapefiles for the world.[Geoboundaries](https://www.geoboundaries.org/) also provide a database of political administrative boundaries.
 
 ### Task I: Join by attribute
 
 1.  Plot your data and the CRS. Make sure your files are in the same CRS. Usually France uses the projected coordinate system [Lambert 93](https://epsg.io/2154) or EPSG = 2154
 2.  Crop and Mask the data
-3.  Visualise the elevation using `tmap` in `R` and ... in `Python`
-4.  use `geom_spatraster_contour_filled` to create a contour map with specific breaks
+3.  Visualise the elevation in `R` or `Python`.
+4.  If working in `R`: use `geom_spatraster_contour_filled` to create a contour map with specific breaks. If working in `Python` use 
 
 ## Advanced
 
@@ -29,4 +29,6 @@ Working on a time-series representation of the evolution of Nights Lights in a *
 
     -   What choices have you made in terms of bins, colours, zoom level to tell your story?
 
-<iframe src="https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+<iframe src="https://ourworldindata.org/grapher/share-of-the-population-with-access-to-electricity" loading="lazy" style="width: 100%; height: 600px; border: 0px none;">
+
+</iframe>

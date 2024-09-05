@@ -1,5 +1,4 @@
-# 7 Clustering {#sec-clustering .unnumbered}
-
+# 8 Clustering {#sec-clustering .unnumbered}
 
 This session covers statistical clustering of spatial observations. Many questions and topics are complex phenomena that involve several dimensions and are hard to summarise into a single variable. In statistical terms, we call this family of problems multivariate, as oposed to univariate cases where only a single variable is considered in the analysis. Clustering tackles this kind of questions by reducing their dimensionality -the number of relevant variables the analyst needs to look at- and converting it into a more intuitive set of classes that even non-technical audiences can look at and make sense of. For this reason, it is widely used in applied contexts such as policy-making or marketing. In addition, since these methods do not require many preliminary assumptions about the structure of the data, it is a commonly used exploratory tool, as it can quickly give clues about the shape, form and content of a dataset.
 

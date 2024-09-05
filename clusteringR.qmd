@@ -1,4 +1,4 @@
-# Lab {#sec-clusteringlab .unnumbered}
+# Lab in R {#sec-clusteringlabR .unnumbered}
 
 We will start by loading the necessary libraries:
 
@@ -138,6 +138,7 @@ The k5cls object we have just created contains several components that can be us
 ```{r}
 head(k5cls$cluster)
 ```
+
 Each number represents a different category, so two observations with the same number belong to same group. The labels are returned in the same order as the input attributes were passed in, which means we can append them to the original table of data as an additional column:
 
 ```{r}
@@ -157,6 +158,7 @@ map_cluster = tm_shape(abb) +
   tm_scale_bar(breaks = c(0,1,2,3), text.size = 0.5, position =  c("left", "bottom")) # add scale bar
 map_cluster
 ```
+
 The map above represents the geographical distribution of the five categories created by the K-means algorithm. A quick glance shows a strong spatial structure in the distribution of the colors.
 
 ### Exploring the nature of the categories
@@ -187,6 +189,7 @@ In order to describe the nature of each category, we can look at the values of e
 ```{r}
 k5cls$centers
 ```
+
 This concludes the section on geodemographics. As we have seen, the essence of this approach is to group areas based on a purely statistical basis: where each area is located is irrelevant for the label it receives from the clustering algorithm. In many contexts, this is not only permissible but even desirable, as the interest is to see if particular combinations of values are distributed over space in any discernible way. However, in other contexts, we may be interested in groups of observations that have been created following certain spatial constraints. For that, we now turn into regionalisation techniques.
 
 ## Regionalisation algorithms
@@ -211,7 +214,7 @@ w_queen <- nb2listw(nb_q, style = "W") # Create a spatial weights matrix using q
 
 ### Creating regions from areas
 
-At this point, we have almost all the pieces needed to run a regionalisation algorithm. For this example, we will use a spatially-constrained version of the agglomerative algorithm. This is a similar approach to that used above, although the inner-workings of the algorithm are quite different. In this case, observations can only be labelled in the same group if they are spatial neighbors, as defined by our spatial weights matrix. Before running the algorithm, we need to convert the spatial weights matrix into a format that the algorithm can understand. In our case, this format is the "minimal spanning tree". You don't need to understand what this is, but you need to know how to obtain it in R. Using the `mstree` function from the `spdep` package, this is straightforward: 
+At this point, we have almost all the pieces needed to run a regionalisation algorithm. For this example, we will use a spatially-constrained version of the agglomerative algorithm. This is a similar approach to that used above, although the inner-workings of the algorithm are quite different. In this case, observations can only be labelled in the same group if they are spatial neighbors, as defined by our spatial weights matrix. Before running the algorithm, we need to convert the spatial weights matrix into a format that the algorithm can understand. In our case, this format is the "minimal spanning tree". You don't need to understand what this is, but you need to know how to obtain it in R. Using the `mstree` function from the `spdep` package, this is straightforward:
 
 ```{r}
 tree_queen <- mstree(w_queen)
@@ -230,7 +233,7 @@ df_std[, colnames_df_std[i]] <- scale(df_std[, colnames_df_std[i]])
 }
 ```
 
-We can now run the regionalisation algorithm with the standardised data, stored in `df_std`. The number of clusters is controled by the `ncuts` argument. So, if we want $k$ clusters or regions, then we need to set `ncuts = k-1`. For example, the code below will give a regionalisation with 13 regions: 
+We can now run the regionalisation algorithm with the standardised data, stored in `df_std`. The number of clusters is controled by the `ncuts` argument. So, if we want $k$ clusters or regions, then we need to set `ncuts = k-1`. For example, the code below will give a regionalisation with 13 regions:
 
 ```{r}
 skater_results <- spdep::skater(ncuts=12, edges= tree_queen[,1:2], data = df_std)
@@ -255,6 +258,7 @@ map_cluster = tm_shape(abb) +
   tm_scale_bar(breaks = c(0,1,2,3), text.size = 0.5, position =  c("left", "bottom")) # add scale bar
 map_cluster
 ```
+
 ### Comparing organic and administrative delineations
 
 The map above gives a very clear impression of the boundary delineation of the algorithm. However, it is still based on the small area polygons. To create the new Airbnb boroughs “properly”, we need to dissolve all the polygons in each category into a single one. This is a standard GIS operation that is supported by `dplyr` and that can be easily actioned with the `group_by()` function:
@@ -276,6 +280,7 @@ map_regions = tm_shape(abb_regions) +
   tm_scale_bar(breaks = c(0,1,2,3), text.size = 0.5, position =  c("left", "bottom")) # add scale bar
 map_regions
 ```
+
 To compare with the original divisions, we can overlay the map above with the one corresponding to the administrative boundaries:
 
 ```{r}

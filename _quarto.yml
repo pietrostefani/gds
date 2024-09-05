@@ -40,6 +40,28 @@ book:
         - pointsR.qmd
         - pointsPy.qmd
         - pointsDIY.qmd   
+    - part: spatialw.qmd
+      chapters:
+        - spatialwR.qmd
+        - spatialwPy.qmd
+        - spatialwDIY.qmd
+    - part: esda.qmd
+      chapters:
+        - esdaR.qmd
+        - esdaPy.qmd
+        - esdaDIY.qmd
+    - part: clustering.qmd
+      chapters:
+        - clusteringR.qmd
+        - clusteringDIY.qmd
+    - part: points.qmd
+      chapters:
+        - pointsR.qmd
+        - pointsDIY.qmd
+    - part: spatialnetworks.qmd
+      chapters:
+        - spatialnetworksR.qmd
+        - spatialnetworksDIY.qmd
     - datasets.qmd
     - references.qmd
 

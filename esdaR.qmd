@@ -1,4 +1,4 @@
-# Lab {#sec-esdalab .unnumbered}
+# Lab in R {#sec-esdalab .unnumbered}
 
 Spatial autocorrelation and Exploratory Spatial Data Analysis Spatial autocorrelation has to do with the degree to which the similarity in values between observations in a dataset is related to the similarity in locations of such observations. Not completely unlike the traditional correlation between two variables -which informs us about how the values in one variable change as a function of those in the other- and analogous to its time-series counterpart -which relates the value of a variable at a given point in time with those in previous periods-, spatial autocorrelation relates the value of the variable of interest in a given location, with values of the same variable in surrounding locations.
 

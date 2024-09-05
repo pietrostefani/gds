@@ -1,4 +1,4 @@
-# Lab {#sec-spatial-w-lab .unnumbered}
+# Lab in R {#sec-spatial-w-R .unnumbered}
 
 There are several ways to create spatial weigths matrices so they contain an accurate representation that aligns with the way we understand spatial interactions between observations associated with different locations. In this session, we will introduce the most commonly used ones and will show how to compute them with the following libraries
 
@@ -457,13 +457,11 @@ One of the most direct applications of spatial weight matrices is the so-called 
 
 $$
 Y_{sl} = WY
-$$
-where $Y$ is a $Nx1$ vector with the $N$ observations of the variable. Recall that the product of a matrix and a vector equals the sum of a row by column element multiplication for the resulting value of a given row. In terms of the spatial lag:
+$$ where $Y$ is a $Nx1$ vector with the $N$ observations of the variable. Recall that the product of a matrix and a vector equals the sum of a row by column element multiplication for the resulting value of a given row. In terms of the spatial lag:
 
 $$
 y_{sl-i}= \sum_{j=1}^Nw_{ij}y_j
-$$
-If we use row-standardized weights, $w_{ij}$ becomes a proportion between zero and one, and $y_{sl-i}$ can be seen as a weighted average of the variable $Y$ in the neighborhood of $i$.
+$$ If we use row-standardized weights, $w_{ij}$ becomes a proportion between zero and one, and $y_{sl-i}$ can be seen as a weighted average of the variable $Y$ in the neighborhood of $i$.
 
 To illustrate this here, we will use the area of each polygon as the variable $Y$ of interest. And to make things a bit nicer later on, we will keep the log of the area instead of the raw measurement. Hence, let’s create a column for it:
 
@@ -496,7 +494,7 @@ We add the spatial lag of the log of the area as a new column in `df` called `w_
 df$w_area <- area.lag
 ```
 
-We can create two choropleth maps, side to side, showing the values of the variable area in each polygon and of the lagged area: 
+We can create two choropleth maps, side to side, showing the values of the variable area in each polygon and of the lagged area:
 
 ```{r}
 # Create a map displaying the 'area' variable
@@ -540,8 +538,7 @@ In order to easily compare different scatter plots and spot outlier observations
 
 $$
 z_i = \dfrac{y_i - \bar{y}}{\sigma_y}
-$$
-where $z_i$ is the standardised version of $y_i$, also knwon as $z$-score, $\bar{y}$ is the average of the variable, and $\sigma_y$ its standard deviation.
+$$ where $z_i$ is the standardised version of $y_i$, also knwon as $z$-score, $\bar{y}$ is the average of the variable, and $\sigma_y$ its standard deviation.
 
 We compute the $z$-score by running the code below. We store it as a new column in `df` called `area_z`:
 
@@ -552,10 +549,10 @@ df$area_z <- (df$area - mean(df$area)) / sd(df$area)
 
 Creating a standardized Moran Plot implies that average values are centered in the plot (as they are zero when standardized) and dispersion is expressed in standard deviations, with the rule of thumb of values greater or smaller than two standard deviations being outliers. A standardized Moran Plot also partitions the space into four quadrants that represent different situations:
 
-- High-High (HH): values above average surrounded by values above average.
-- Low-Low (LL): values below average surrounded by values below average.
-- High-Low (HL): values above average surrounded by values below average.
-- Low-High (LH): values below average surrounded by values above average.
+-   High-High (HH): values above average surrounded by values above average.
+-   Low-Low (LL): values below average surrounded by values below average.
+-   High-Low (HL): values above average surrounded by values below average.
+-   Low-High (LH): values below average surrounded by values above average.
 
 These will be further explored once spatial autocorrelation has been properly introduced in subsequent blocks.
 
