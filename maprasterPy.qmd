@@ -5,17 +5,17 @@ In this session, we will further explore the world of geographic data visualizat
 ## Importing Modules
 
 ```{python}
-# # Importing rasterio for handling raster data
+# Importing rasterio for handling raster data
 import rasterio
 from rasterio.warp import reproject, Resampling, calculate_default_transform
 from rasterio.mask import mask
 from rasterio.plot import show
 from rasterio import features
 
-# `gdal` for additional raster data processing 
+# For additional raster data processing 
 from osgeo import gdal 
 
-# `mapping` for converting Shapely geometries to GeoJSON format
+# For converting Shapely geometries to GeoJSON format
 from shapely.geometry import mapping
 
 # For plotting and visualizing data using Matplotlib
@@ -55,7 +55,7 @@ elevation = rasterio.open("data/Lebanon/LBN_elevation_w_bathymetry.tif")
 Plot it.
 
 ```{python}
-plt.figure(figsize=(10, 8))
+plt.figure(figsize=(8, 6))
 plt.imshow(elevation.read(1), cmap='viridis')
 plt.colorbar(label='Elevation')
 plt.title('Elevation with Bathymetry')
@@ -167,7 +167,7 @@ elevation_lebanon, elevation_lebanon_transform = mask(elevation_22770, [mapping(
 
 ```{python}
 # Assuming elevation_lebanon contains the cropped elevation data and Lebanon_adm1 is the GeoDataFrame
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(5, 5))
 # Plot the elevation data
 show(elevation_lebanon, transform=elevation_lebanon_transform, ax=ax, cmap='terrain')
 # Plot the Lebanon boundaries on top, with no fill color
@@ -189,7 +189,7 @@ boundaries = [-100, 0, 700, 1200, 1800, 3300]
 cmap = ListedColormap(orange_shades_reversed)
 norm = BoundaryNorm(boundaries=boundaries, ncolors=len(orange_shades_reversed))
 
-fig, ax = plt.subplots(figsize=(10, 10))
+fig, ax = plt.subplots(figsize=(5, 5))
 
 # Plot the elevation data with the custom color map
 im = show(elevation_lebanon, transform=elevation_lebanon_transform, ax=ax, cmap=cmap, norm=norm)
@@ -373,7 +373,7 @@ stacked_rasters = np.stack([raster1, raster2], axis=0)
 
 ```{python}
 # Create a plot
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6, 6))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 9))
 
 # Plot the first raster
 ax1.imshow(stacked_rasters[0], cmap='cividis')
