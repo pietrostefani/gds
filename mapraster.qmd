@@ -1,6 +1,6 @@
 # 4 Mapping Raster Data {#sec-map-raster .unnumbered}
 
-This section is all about Raster data, it's different types and some uses for social science. 
+This section is all about Raster data, it's different types and some uses for social science.
 
 Slides can be downloaded ["here"](/html/raster_data_gds.pdf)
 
@@ -40,7 +40,7 @@ Colour rasters are a digital image representation that utilizes the combination 
 
 Example: **Digital Photographs**
 
-Coluor rasters, as seen in digital photographs can be used for social sciences by analysing pixel differences. 
+Coluor rasters, as seen in digital photographs can be used for social sciences by analysing pixel differences.
 
 ### Elevation Rasters
 

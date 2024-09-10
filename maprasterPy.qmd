@@ -23,12 +23,15 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.patches import Patch
 import matplotlib.colorbar as colorbar
+import matplotlib.colors as mcolors
 from matplotlib.colors import ListedColormap, BoundaryNorm
 
 # For working with geospatial data
 import geopandas as gpd
+
 # For numerical operations and handling arrays
 import numpy as np
+import pandas as pd
 
 # These imports are for file and directory operations
 import os
@@ -36,7 +39,7 @@ import zipfile
 import shutil
 
 #import rioxarray as rxr
-#from rasterstats import zonal_stats
+from rasterstats import zonal_stats
 ```
 
 ## Terrain data
@@ -434,36 +437,136 @@ print(shps)
 # Delete the scratch folder with the data we don't need
 #shutil.rmtree(scratch_folder)
 ```
+### **Merge Shapefiles**
+
+Even though it is not necessary here, we can merge the shapefile to visualize all the regions at once.
+
+When doing zonal statistics, it is faster and easier to process one country at a time and then combine the resulting tables. If you have access to a computer with multiple cores, it is also possible to do "parallel processing" to process each chunk at the same time in parallel.
+
+```{python}
+# Merge all shapefiles into one GeoDataFrame
+merged_countries = gpd.GeoDataFrame(pd.concat(shps, ignore_index=True))
+
+# Optionally, reset index if needed
+merged_countries = merged_countries.reset_index(drop=True)
+```
+
+We can then plot Kenya and Tanzania at Regional Level 2:
+
+```{python}
+# Plot all shapefiles
+fig, ax = plt.subplots(figsize=(10, 10))
+
+merged_countries.plot(ax=ax, edgecolor='k', facecolor='none', linewidth=1)  # No fill color
+
+#for gdf in shps:
+#    gdf.plot(ax=ax, edgecolor='k', facecolor='none', alpha=0.5)  # Adjust alpha and edgecolor as needed
+
+# Set plot title and labels
+ax.set_title('Regional Level 2 Shapefiles')
+ax.set_xlabel('Longitude')
+ax.set_ylabel('Latitude')
+
+# Show plot
+plt.show()
+```
 
 ### **Zonal statistics**
 
-We use the package ... to calculate the sum and average nighttime for each region. The nighttime lights rasters are quite large, but as we do not need to do any operations on them (e.g. calculations using the overlay function, cropping or masking to the shapefiles extent), the process should be relatively fast.
+We use the module `rasterstats` to calculate the sum and average nighttime for each region. The nighttime lights rasters are quite large, but as we do not need to do any operations on them (e.g. calculations using the overlay function, cropping or masking to the shapefiles extent), the process should be relatively fast.
 
 ```{python}
+# Calculate zonal statistics for the first raster (1992)
+stats_1992 = zonal_stats(merged_countries, raster1_path, stats=['sum', 'mean'], nodata=-9999, geojson_out=True)
 
+# Calculate zonal statistics for the second raster (2013)
+stats_2013 = zonal_stats(merged_countries, raster2_path, stats=['sum', 'mean'], nodata=-9999, geojson_out=True)
+
+# Convert the zonal stats results to GeoDataFrames, retaining geometry and attributes
+stats_1992_gdf = gpd.GeoDataFrame.from_features(stats_1992)
+stats_2013_gdf = gpd.GeoDataFrame.from_features(stats_2013)
+
+# Optionally, add a year column to distinguish between them
+stats_1992_gdf['year'] = 1992
+stats_1992_gdf['year'] = 2013
+
+# Combine the results into a single DataFrame
+combined_stats_gdf = pd.concat([stats_1992_gdf, stats_2013_gdf], ignore_index=True)
+
+# Display the results
+print(combined_stats_gdf.head())
 ```
 
-### **Merge Shapefiles**
-
-```{python}
-
-```
+More on zonal stats in python [here](https://pythonhosted.org/rasterstats/manual.html#zonal-statistics).
 
 ### **Visualize**
 
 Let's have a first look at our result.
 
 ```{python}
+# Create a figure with two subplots side by side
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 6))
 
+# Plot for 1992 with inverted colormap
+stats_1992_gdf.plot(column='mean', cmap='YlGnBu_r', legend=True, ax=ax1)
+ax1.set_title("Mean 1992")
+ax1.axis('off')
+
+# Plot for 2013 with inverted colormap
+stats_2013_gdf.plot(column='mean', cmap='YlGnBu_r', legend=True, ax=ax2)
+ax2.set_title("Mean 2013")
+ax2.axis('off')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
 ```
 
-Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks.
+Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks. 
 
 ```{python}
+# Define breaks and labels
+breaks = [0, 0.05, 0.1, 2, 63]
+labels = ['0-0.05', '0.05-0.1', '0.1-2', '2-63']
+
+# Create a custom colormap and normalization
+cmap = plt.get_cmap('YlGnBu_r')
+norm = mcolors.BoundaryNorm(breaks, cmap.N)
+
+# Create a figure with two subplots side by side
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 6))
+
+# Plot for 1992 with custom colormap and breaks
+stats_1992_gdf.plot(column='mean', cmap=cmap, norm=norm, legend=False, ax=ax1)
+ax1.set_title("Mean 1992")
+ax1.axis('off')
+
+# Plot for 2013 with custom colormap and breaks
+stats_2013_gdf.plot(column='mean', cmap=cmap, norm=norm, legend=False, ax=ax2)
+ax2.set_title("Mean 2013")
+ax2.axis('off')
+
+# Add a colorbar to the figure
+cbar = fig.colorbar(plt.cm.ScalarMappable(norm=norm, cmap=cmap), ax=[ax1, ax2], orientation='horizontal', fraction=0.05, pad=0.18, aspect=12)
+
+# Set ticks and labels to match the breaks
+#cbar.set_ticks(breaks)
+#cbar.set_ticklabels(labels)
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plots
+plt.show()
 
 ```
 
 Have a think about what the data is telling you. What's the story?
+
+We can also make it interactive with `folium` and `folium.plugins` `DualMap` but this is a bit more complicated in `python` and will be covered in [Web Mapping and Visualiation](https://gdsl-ul.github.io/wma/labs/w04_interactive.html).
+
 
 ## Resources
 
