@@ -10,12 +10,12 @@ Point pattern analysis is thus concerned with the description, statistical chara
 
 This notebook aims to be a gentle introduction to working with point patterns in `Python`. As such, it covers how to read, process and transform point data, as well as several common ways to visualize point patterns.
 
-## Importing  Modules
+## Importing Modules
 
 ```{python}
 import pandas as pd # data manipulation and analysis.
 import geopandas as gpd # spatial data operations 
-from shapely.geometry import Point # handling geometric points
+from shapely.geometry import Point, Polygon # handling geometric points
 import numpy as np # multi-dimensional arrays and matrices
 
 
@@ -34,29 +34,9 @@ from sklearn import metrics
 from sklearn.cluster import DBSCAN
 from sklearn.neighbors import NearestNeighbors
 
-# Kriging
-from pykrige.ok import OrdinaryKriging
-
+#ESDA: Exploratory Spatial Data Analysis
+from esda.adbscan import ADBSCAN, get_cluster_boundary, remap_lbls
 ```
-<!--
-from scipy.spatial import Voronoi, voronoi_plot_2d
-from shapely.geometry import box
-from shapely.geometry import Polygon, Point
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.metrics import r2_score
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsRegressor
-
-# raster 
-import rasterio
-import rasterio.mask
-from rasterio.plot import show
-from rasterio.transform import Affine
-
-# Import the interact function from ipywidgets to create interactive widgets for Jupyter notebooks.
-#from ipywidgets import interact, fixed
--->
-
 
 ## Data
 
@@ -343,7 +323,7 @@ The actual algorithm to estimate a kernel density is not trivial but its applica
 listings_proj_sub = listings_proj.sample(1000, random_state=12345)
 ```
 
-- Note we need to specify the size of the resulting subset (1,000), and we also add a value for `random_state`; this ensures that the sample is always the same and results are thus reproducible.
+-   Note we need to specify the size of the resulting subset (1,000), and we also add a value for `random_state`; this ensures that the sample is always the same and results are thus reproducible.
 
 Same as above, let us first see how to create a quick KDE. For this we rely on `seaborn`’s `kdeplot`:
 
@@ -362,9 +342,10 @@ sns.kdeplot(
 # Show the plot
 plt.show()
 ```
-- `Seaborn` greatly streamlines the process and boils it down to a single line. 
-- The method `sns.kdeplot` (which we can also use to create a KDE of a single variable) takes the X and Y coordinate of the points as the only compulsory attributes. 
-- In addition, we specify the number of levels we want the color gradient to have (`n_levels`), whether we want to color the space in between each level (share, yes), and the `colormap` of choice.
+
+-   `Seaborn` greatly streamlines the process and boils it down to a single line.
+-   The method `sns.kdeplot` (which we can also use to create a KDE of a single variable) takes the X and Y coordinate of the points as the only compulsory attributes.
+-   In addition, we specify the number of levels we want the color gradient to have (`n_levels`), whether we want to color the space in between each level (share, yes), and the `colormap` of choice.
 
 Once we know how the basic logic works, we can insert it into the usual mapping machinery to create a more complete plot. The main difference here is that we now have to tell `sns.kdeplot` where we want the surface to be added (ax in this case). Toggle the expandable to find out the code that produces the figure below:
 
@@ -410,9 +391,12 @@ In this section, we will learn a method to identify clusters of points, based on
 
 Both `m` and `r` need to be prespecified by the user before running `DBSCAN`. This is a critical point, as their value can influence significantly the final result. Before exploring this in greater depth, let us get a first run at computing `DBSCAN` in Python. For more on this, check [here](https://scikit-learn.org/stable/modules/clustering.html).
 
-### Data preparation for DBSCAN
+### The DBSCAN approach
 
 The heavy lifting is done by the method `DBSCAN`, part of the excellent machine learning library `scikit-learn`. We first set up the details:
+
+1. `eps`: maximum distance to look for neighbors from each location
+2. `min_samples`: minimum number of neighboring points required for a point to be considered part of a cluster
 
 ```{python}
 # Set up algorithm
@@ -536,21 +520,57 @@ ax.scatter(
 plt.show()
 
 ```
+### The A-DBSCAN algorithm
+
+Once we know the parameters we’ll use, we can go ahead and run A-DBSCAN:
+```{python}
+ax = listings_gdf_3857.plot(markersize=0.1, color='orange')
+cx.add_basemap(ax, crs=listings_gdf_3857.crs.to_string(), source=cx.providers.CartoDB.Voyager);
+
+plt.show()
+```
+
+Before we get going, we will also pull out the projected coordinates into separate columns:
+```{python}
+listings_gdf_3857["X"] = listings_gdf_3857.geometry.x
+listings_gdf_3857["Y"] = listings_gdf_3857.geometry.y
+```
+
+```{python}
+# Get clusters
+adbs = ADBSCAN(150, 20, pct_exact=0.5, reps=10, keep_solus=True)
+np.random.seed(1234)
+adbs.fit(listings_gdf_3857)
+```
+
+```{python}
+ax = listings_gdf_3857.assign(lbls=adbs.votes["lbls"])\
+       .plot(column="lbls",
+             categorical=True,
+             markersize=2.5,
+             figsize=(8, 8)
+            )
+cx.add_basemap(ax, crs= listings_gdf_3857.crs.to_string(), source=cx.providers.CartoDB.Voyager);
+
+plt.show()
+```
+```{python}
+polys = get_cluster_boundary(adbs.votes["lbls"], listings_gdf_3857, crs=listings_gdf_3857.crs)
+
+```
+
+```{python}
+
+ax = polys.plot(alpha=0.5, color="red")
+cx.add_basemap(ax, crs=polys.crs.to_string(), source=cx.providers.CartoDB.Voyager);
+
+plt.show()
+```
 
 The output is now very different, isn’t it? This exemplifies how different parameters can give rise to substantially different outcomes, even if the same data and algorithm are applied.
 
-For more complex visualisations of DBSCAN in `Python` have a look:
 
-- [Towards Data Science](https://towardsdatascience.com/lets-do-spatial-clustering-with-dbscan-c3dbfd9fc4d2)
-
-- [Point Pattern Analysis](https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html)
-
-<!-- https://www.meccanismocomplesso.org/en/clustering-with-dbscan-in-machine-learning-with-python/
-- [here](https://medium.com/@satpatishrimanta/clustering-by-dbscan-density-based-spatial-clustering-of-applications-with-noise-clearly-f93c5c72f706)  
-- [here](https://www.reneshbedre.com/blog/dbscan-python.html#google_vignette).
-### Determining the optimal eps value.
--->
-
+<!--
 ## Interpolation
 
 ::: callout-warning
@@ -565,8 +585,16 @@ The typical problem is a missing value problem: we observe a property of a pheno
 
 Two Python packages that can be used for kriging include `scikit-learn` and `pykrige`. The former package works best when the input data has a WGS 84 projection.
 
+-   [Python Open Source Spatial Programming & Remote Sensing](https://pygis.io/docs/e_interpolation.html)
+
+-->
 
 ## Resources
 
-- [Python Open Source Spatial Programming & Remote Sensing](https://pygis.io/docs/e_interpolation.html)
- 
+- [DBSCAN (Density-Based Spatial Clustering of Applications with Noise) Clearly Explained with Coding in Python](https://medium.com/@satpatishrimanta/clustering-by-dbscan-density-based-spatial-clustering-of-applications-with-noise-clearly-f93c5c72f706)
+
+- [Arribas-Bel et al., 2019](https://www.sciencedirect.com/science/article/pii/S0094119019300944)
+
+- [DBSCAN computes nearest neighbor graphs](https://www.reneshbedre.com/blog/dbscan-python.html#google_vignette?utm_content=cmp-true)
+
+-   [Point Pattern Analysis](https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html)
