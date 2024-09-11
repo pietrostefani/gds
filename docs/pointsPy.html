@@ -543,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="importing-modules" class="level2">
 <h2 class="anchored" data-anchor-id="importing-modules">Importing Modules</h2>
-<div id="2e16c4e6" class="cell" data-execution_count="1">
+<div id="c50f6bc7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># data manipulation and analysis.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd <span class="co"># spatial data operations </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point, Polygon <span class="co"># handling geometric points</span></span>
@@ -575,7 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="airbnb-buenos-aires" class="level3">
 <h3 class="anchored" data-anchor-id="airbnb-buenos-aires">Airbnb Buenos Aires</h3>
 <p>Let’s read in the point dataset:</p>
-<div id="3b1ad9fe" class="cell" data-execution_count="2">
+<div id="f8fdc9ad" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read the Airbnb listing</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>listings <span class="op">=</span> pd.read_csv(<span class="st">"data/BuenosAires/listings_nooutliers.csv"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -604,7 +604,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 </div>
 </div>
 <p>Let’s finish preparing it, note the CRS.</p>
-<div id="7a8266d3" class="cell" data-execution_count="3">
+<div id="d577e515" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Locate the longitude and latitude</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(listings.columns)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -623,14 +623,14 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 <section id="adminstrative-areas" class="level3">
 <h3 class="anchored" data-anchor-id="adminstrative-areas">Adminstrative Areas</h3>
 <p>We will later use administrative areas for aggregation. Let’s load them.</p>
-<div id="fe0a47c6" class="cell" data-execution_count="4">
+<div id="6bcdf6f4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will later use administrative areas for aggregation. Let's load them.</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>BA <span class="op">=</span> gpd.read_file(<span class="st">"data/BuenosAires/neighbourhoods_BA.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="spatial-join" class="level3">
 <h3 class="anchored" data-anchor-id="spatial-join">Spatial Join</h3>
-<div id="1b1bc983" class="cell" data-execution_count="5">
+<div id="a5161a07" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform spatial overlay between points and polygons</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>listings_BA <span class="op">=</span> listings_gdf.sjoin(BA, how<span class="op">=</span><span class="st">"inner"</span>, predicate<span class="op">=</span><span class="st">'intersects'</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -678,7 +678,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 <section id="one-to-one" class="level2">
 <h2 class="anchored" data-anchor-id="one-to-one">One-to-one</h2>
 <p>The first approach we review here is the one-to-one approach, where we place a dot on the screen for every point to visualise. In order to actually see all the neighbourhood names we need to do a bit of formatting work.</p>
-<div id="f370508b" class="cell" data-execution_count="6">
+<div id="f761af1d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming 'neighbourhood' is a column in your listings_gdf GeoDataFrame</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the GeoDataFrame with neighborhoods colored differently</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -716,7 +716,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 </ul></li>
 </ul>
 <p>We can visualise a bit better with a basemap</p>
-<div id="0b6de65d" class="cell" data-execution_count="7">
+<div id="5540aceb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If it's not already, convert it using `to_crs(epsg=3857)`</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>listings_gdf_3857 <span class="op">=</span> listings_gdf.to_crs(epsg<span class="op">=</span><span class="dv">3857</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -760,7 +760,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 <section id="irregular-lattices" class="level3">
 <h3 class="anchored" data-anchor-id="irregular-lattices">Irregular lattices</h3>
 <p>To exemplify this approach, we will use the administrative areas we have loaded above. Let’s add them to the figure above to get better context (unfold the code if you are interested in seeing exactly how we do this):</p>
-<div id="2b4fba2d" class="cell" data-execution_count="8">
+<div id="53ceb7bb" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the administrative boundaries (BA) and listings with neighborhoods colored differently</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -786,7 +786,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 </div>
 </div>
 <p>Now we need to know how many airbnb each area contains.</p>
-<div id="f01a2ed1" class="cell" data-execution_count="9">
+<div id="3c246125" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate at district level</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>listings_BA_agg <span class="op">=</span> listings_BA.groupby([<span class="st">'neighbourh'</span>]).agg(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    count_airbnb<span class="op">=</span>(<span class="st">'price'</span>, <span class="st">'size'</span>),  <span class="co"># count number of sales</span></span>
@@ -800,7 +800,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 </div>
 <p>The lines above have created a new column in our table called <code>count_airbnb</code> that contains the number of airbnb that have been taken within each of the polygons in the table. <code>mean_price</code> shows the mean price per neighbourhood.</p>
 <p>At this point, we are ready to map the counts. Technically speaking, this is a choropleth just as we have seen many times before:</p>
-<div id="c716f2d0" class="cell" data-execution_count="10">
+<div id="7979bc94" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis for plotting</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -834,7 +834,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 </div>
 <p>The map above clearly shows a concentration of airbnb in the neighbourhoods of Palermo and Recoleta. However, it is important to remember that the map is showing raw counts. In the case of airbnbs, as with many other phenomena, it is crucial to keep in mind the “container geography” (MAUP). In this case, different administrative areas have different sizes. Everything else equal, a larger polygon may contain more photos, simply because it covers a larger space. To obtain a more accurate picture of the intensity of photos by area, what we would like to see is a map of the density of photos, not of raw counts. To do this, we can divide the count per polygon by the area of the polygon.</p>
 <p>Let’s first calculate the area in Sq. metres of each administrative delineation:</p>
-<div id="8fa90994" class="cell" data-execution_count="11">
+<div id="7625a650" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert CRS to EPSG:22176 for Argentina</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>airbnb_neigh_agg_proj <span class="op">=</span> airbnb_neigh_agg.to_crs(epsg<span class="op">=</span><span class="dv">22176</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -845,7 +845,7 @@ max      -58.355412  962109.000000      730.000000         500.000000  </code></
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>airbnb_neigh_agg_proj[<span class="st">'density'</span>] <span class="op">=</span> airbnb_neigh_agg_proj[<span class="st">'count_airbnb'</span>] <span class="op">/</span> airbnb_neigh_agg_proj[<span class="st">'area_km2'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>With the density at hand, creating the new choropleth is similar as above:</p>
-<div id="237cf697" class="cell" data-execution_count="12">
+<div id="67ccc2ee" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis for plotting</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse the 'viridis' colormap</span></span>
@@ -886,7 +886,7 @@ Important
 </div>
 </div>
 <p>First we need to make sure we are in a projected coordinated system:</p>
-<div id="0915d6f9" class="cell" data-execution_count="13">
+<div id="01dc5b47" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproject the administrative areas to the CRS for Argentina (EPSG:22176)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>BA_proj <span class="op">=</span>  BA.to_crs(epsg<span class="op">=</span><span class="dv">22176</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -895,7 +895,7 @@ Important
 </div>
 <p>Then we create a grid that’s 500 metre by 500 metres. We need to be in a projected coordinate system for this to work.</p>
 <p>Python has a simplified way to create this hexagon layer and aggregate points into it in one shot thanks to the method <code>hexbin</code>, which is available in every axis object (e.g.&nbsp;<code>ax</code>). Let us first see how you could create a map of the hexagon layer alone:</p>
-<div id="e816cf4b" class="cell" data-execution_count="14">
+<div id="90fe2cc1" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure and axis</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add hexagon layer that displays count of points in each polygon</span></span>
@@ -932,7 +932,7 @@ Important
 <section id="kernel-densities" class="level3">
 <h3 class="anchored" data-anchor-id="kernel-densities">Kernel densities</h3>
 <p>The actual algorithm to estimate a kernel density is not trivial but its application in Python is rather simplified by the use of <code>seaborn</code>. KDE’s however are fairly computationally intensive. When you have a large point pattern like we do in the Buenos Aires example (18,572 points), its computation can take a bit long. To get around this issue, you can create a random subset, which retains the overall structure of the pattern, but with much fewer points. Let’s take a subset of 1,000 random points from our original table:</p>
-<div id="f05bda08" class="cell" data-execution_count="15">
+<div id="2bd1ddde" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a random subset of 1,000 rows from `buenos aires listings`</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>listings_proj_sub <span class="op">=</span> listings_proj.sample(<span class="dv">1000</span>, random_state<span class="op">=</span><span class="dv">12345</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -940,7 +940,7 @@ Important
 <li>Note we need to specify the size of the resulting subset (1,000), and we also add a value for <code>random_state</code>; this ensures that the sample is always the same and results are thus reproducible.</li>
 </ul>
 <p>Same as above, let us first see how to create a quick KDE. For this we rely on <code>seaborn</code>’s <code>kdeplot</code>:</p>
-<div id="6c59dfdb" class="cell" data-execution_count="16">
+<div id="799eadcb" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure and axis</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># using kdeplot</span></span>
@@ -968,7 +968,7 @@ Important
 <li>In addition, we specify the number of levels we want the color gradient to have (<code>n_levels</code>), whether we want to color the space in between each level (share, yes), and the <code>colormap</code> of choice.</li>
 </ul>
 <p>Once we know how the basic logic works, we can insert it into the usual mapping machinery to create a more complete plot. The main difference here is that we now have to tell <code>sns.kdeplot</code> where we want the surface to be added (ax in this case). Toggle the expandable to find out the code that produces the figure below:</p>
-<div id="81a600c1" class="cell" data-execution_count="17">
+<div id="179fc1f9" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure and axis</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add KDE layer that displays probability surface</span></span>
@@ -1021,12 +1021,12 @@ Important
 <li><code>eps</code>: maximum distance to look for neighbors from each location</li>
 <li><code>min_samples</code>: minimum number of neighboring points required for a point to be considered part of a cluster</li>
 </ol>
-<div id="c3b74679" class="cell" data-execution_count="18">
+<div id="432bc9ca" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up algorithm</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>algo <span class="op">=</span> DBSCAN(eps<span class="op">=</span><span class="dv">100</span>, min_samples<span class="op">=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We decide to consider a cluster of airbnb with more than 50 airbnbs within 100 metres from them, hence we set the two parameters accordingly. Once ready, we “fit” it to our data, but note that we first need to express the longitude and latitude of our points in metres. We have already projected to the Argentinian CRS but let’s revise this.</p>
-<div id="4979f3b2" class="cell" data-execution_count="19">
+<div id="cec5f629" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Express points in metres</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert lon/lat into Point objects + set CRS</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>pts <span class="op">=</span> gpd.points_from_xy(</span>
@@ -1040,9 +1040,9 @@ Important
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>listings[<span class="st">"X_metres"</span>] <span class="op">=</span> pts.geometry.x</span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>listings[<span class="st">"Y_metres"</span>] <span class="op">=</span> pts.geometry.y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cf299f46" class="cell" data-execution_count="20">
+<div id="44a13dee" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>algo.fit(listings[[<span class="st">"X_metres"</span>, <span class="st">"Y_metres"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: black;
@@ -1451,26 +1451,26 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>Once fit, we can recover the labels:</p>
-<div id="ab24ab44" class="cell" data-execution_count="21">
+<div id="6cf43e52" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>algo.labels_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>array([-1,  0, -1, ..., -1, -1, -1])</code></pre>
 </div>
 </div>
 <p>And the list of points classified as cores:</p>
-<div id="58450b3f" class="cell" data-execution_count="22">
+<div id="be780508" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print only the first five values</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>algo.core_sample_indices_[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>array([ 1, 14, 24, 27, 52])</code></pre>
 </div>
 </div>
 <p>The <code>labels_</code> object always has the same length as the number of points used to run <code>DBSCAN</code>. Each value represents the index of the cluster a point belongs to. If the point is classified as noise, it receives a -1. Above, we can see that the first five points are effectively not part of any cluster. To make thinks easier later on, let us turn the labels into a <code>Series</code> object that we can index in the same way as our collection of points:</p>
-<div id="f02bd292" class="cell" data-execution_count="23">
+<div id="0c76ee01" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>lbls <span class="op">=</span> pd.Series(algo.labels_, index<span class="op">=</span>listings.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we already have the clusters, we can proceed to visualize them. There are many ways in which this can be done. We will start just by coloring points in a cluster in red and noise in grey:</p>
-<div id="21b84bc5" class="cell" data-execution_count="24">
+<div id="f1da7022" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure and axis</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign labels to tokyo table dynamically and</span></span>
@@ -1508,7 +1508,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <p>This is a first good pass. The algorithm is able to identify a few clusters with high density of airbnbs. However, as we mentioned when discussing DBSCAN, this is all contingent on the parameters we arbitrarily set. Depending on the maximum radious (eps) we set, we will pick one type of cluster or another: a higher (lower) radious will translate in less (more) local clusters. Equally, the minimum number of points required for a cluster (min_samples) will affect the implicit size of the cluster. Both parameters need to be set before running the algorithm, so our decision will affect the final outcome quite significantly.</p>
 <p>For an illustration of this, let’s run through a case with very different parameter values. For example, let’s pick a larger radious (e.g.&nbsp;250m) and a smaller number of points (e.g.&nbsp;10):</p>
-<div id="ee47651a" class="cell" data-execution_count="25">
+<div id="3b2f9633" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up algorithm</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>algo <span class="op">=</span> DBSCAN(eps<span class="op">=</span><span class="dv">200</span>, min_samples<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit to Tokyo projected points</span></span>
@@ -1517,7 +1517,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>lbls <span class="op">=</span> pd.Series(algo.labels_, index<span class="op">=</span>listings.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And let’s now visualise the result (toggle the expandable to see the code):</p>
-<div id="b939b58d" class="cell" data-execution_count="26">
+<div id="dbd1049b" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure and axis</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign labels to tokyo table dynamically and</span></span>
@@ -1557,7 +1557,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="the-a-dbscan-algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="the-a-dbscan-algorithm">The A-DBSCAN algorithm</h3>
 <p>Once we know the parameters we’ll use, we can go ahead and run A-DBSCAN:</p>
-<div id="2ecb8db0" class="cell" data-execution_count="27">
+<div id="d794082c" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> listings_gdf_3857.plot(markersize<span class="op">=</span><span class="fl">0.1</span>, color<span class="op">=</span><span class="st">'orange'</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(ax, crs<span class="op">=</span>listings_gdf_3857.crs.to_string(), source<span class="op">=</span>cx.providers.CartoDB.Voyager)<span class="op">;</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1571,16 +1571,16 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>Before we get going, we will also pull out the projected coordinates into separate columns:</p>
-<div id="51e6e499" class="cell" data-execution_count="28">
+<div id="e14f7543" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>listings_gdf_3857[<span class="st">"X"</span>] <span class="op">=</span> listings_gdf_3857.geometry.x</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>listings_gdf_3857[<span class="st">"Y"</span>] <span class="op">=</span> listings_gdf_3857.geometry.y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="afa5ecd5" class="cell" data-execution_count="29">
+<div id="be860f69" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get clusters</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>adbs <span class="op">=</span> ADBSCAN(<span class="dv">150</span>, <span class="dv">20</span>, pct_exact<span class="op">=</span><span class="fl">0.5</span>, reps<span class="op">=</span><span class="dv">10</span>, keep_solus<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1234</span>)</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>adbs.fit(listings_gdf_3857)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <style>#sk-container-id-2 {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: black;
@@ -1988,7 +1988,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </a></style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>ADBSCAN(eps=150, keep_solus=True, min_samples=20, pct_exact=0.5, reps=10)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;ADBSCAN<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>ADBSCAN(eps=150, keep_solus=True, min_samples=20, pct_exact=0.5, reps=10)</pre></div> </div></div></div></div>
 </div>
 </div>
-<div id="c3683bc8" class="cell" data-execution_count="30">
+<div id="d9705e0c" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> listings_gdf_3857.assign(lbls<span class="op">=</span>adbs.votes[<span class="st">"lbls"</span>])<span class="op">\</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       .plot(column<span class="op">=</span><span class="st">"lbls"</span>,</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>             categorical<span class="op">=</span><span class="va">True</span>,</span>
@@ -2006,44 +2006,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
-<div id="8e6218f0" class="cell" data-execution_count="31">
+<div id="66dfe054" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>polys <span class="op">=</span> get_cluster_boundary(adbs.votes[<span class="st">"lbls"</span>], listings_gdf_3857, crs<span class="op">=</span>listings_gdf_3857.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/esda/adbscan.py:535: UserWarning: Numba not imported, so alpha shape construction may be slower than expected.
-  return alpha_shape_auto(pts_s[0], step=pts_s[1])</code></pre>
 </div>
-</div>
-<div id="0e359a99" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> polys.plot(alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">"red"</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(ax, crs<span class="op">=</span>polys.crs.to_string(), source<span class="op">=</span>cx.providers.CartoDB.Voyager)<span class="op">;</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9a4ce834" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> polys.plot(alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(ax, crs<span class="op">=</span>polys.crs.to_string(), source<span class="op">=</span>cx.providers.CartoDB.Voyager)<span class="op">;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
