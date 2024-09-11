@@ -1,166 +1,236 @@
-name: gis
+name: /Users/pietrost/miniconda3
 channels:
   - defaults
 dependencies:
-  - bzip2=1.0.8
-  - ca-certificates=2023.12.12
-  - expat=2.5.0
-  - libffi=3.4.4
-  - openssl=3.0.12
-  - pip=23.3.1
-  - python=3.11.5
-  - setuptools=68.2.2
-  - sqlite=3.41.2
-  - tk=8.6.12
-  - xz=5.4.5
-  - zlib=1.2.13
+  - archspec=0.2.3=pyhd3eb1b0_0
+  - boltons=23.0.0=py311hca03da5_0
+  - brotli-python=1.0.9=py311h313beb8_7
+  - bzip2=1.0.8=h620ffc9_4
+  - c-ares=1.19.1=h80987f9_0
+  - ca-certificates=2024.7.2=hca03da5_0
+  - certifi=2024.8.30=py311hca03da5_0
+  - cffi=1.16.0=py311h80987f9_0
+  - charset-normalizer=2.0.4=pyhd3eb1b0_0
+  - conda=24.7.1=py311hca03da5_0
+  - conda-content-trust=0.2.0=py311hca03da5_0
+  - conda-libmamba-solver=23.12.0=pyhd3eb1b0_1
+  - conda-package-handling=2.2.0=py311hca03da5_0
+  - conda-package-streaming=0.9.0=py311hca03da5_0
+  - cryptography=41.0.7=py311hd4332d6_0
+  - distro=1.8.0=py311hca03da5_0
+  - fmt=9.1.0=h48ca7d4_0
+  - frozendict=2.4.2=py311hca03da5_0
+  - icu=73.1=h313beb8_0
+  - idna=3.4=py311hca03da5_0
+  - jsonpatch=1.32=pyhd3eb1b0_0
+  - jsonpointer=2.1=pyhd3eb1b0_0
+  - krb5=1.20.1=hf3e1bf2_1
+  - libarchive=3.6.2=h62fee54_2
+  - libcurl=8.4.0=h3e2b118_1
+  - libcxx=14.0.6=h848a8c0_0
+  - libedit=3.1.20230828=h80987f9_0
+  - libev=4.33=h1a28f6b_1
+  - libffi=3.4.4=hca03da5_0
+  - libiconv=1.16=h1a28f6b_2
+  - libmamba=1.5.3=h15e39b3_0
+  - libmambapy=1.5.3=py311h1c5506f_0
+  - libnghttp2=1.57.0=h62f6fdd_0
+  - libsolv=0.7.24=h514c7bf_0
+  - libssh2=1.10.0=h02f6b3c_2
+  - libxml2=2.10.4=h0dcf63f_1
+  - lz4-c=1.9.4=h313beb8_0
+  - menuinst=2.0.1=py311hca03da5_1
+  - ncurses=6.4=h313beb8_0
+  - openssl=3.0.15=h80987f9_0
+  - packaging=23.1=py311hca03da5_0
+  - pcre2=10.42=hb066dcc_0
+  - pip=23.3.1=py311hca03da5_0
+  - platformdirs=3.10.0=py311hca03da5_0
+  - pluggy=1.0.0=py311hca03da5_1
+  - pybind11-abi=4=hd3eb1b0_1
+  - pycosat=0.6.6=py311h80987f9_0
+  - pycparser=2.21=pyhd3eb1b0_0
+  - pyopenssl=23.2.0=py311hca03da5_0
+  - pysocks=1.7.1=py311hca03da5_0
+  - python=3.11.5=hb885b13_0
+  - python.app=3=py311h80987f9_0
+  - readline=8.2=h1a28f6b_0
+  - reproc=14.2.4=hc377ac9_1
+  - reproc-cpp=14.2.4=hc377ac9_1
+  - requests=2.31.0=py311hca03da5_0
+  - ruamel.yaml=0.17.21=py311h80987f9_0
+  - setuptools=68.2.2=py311hca03da5_0
+  - sqlite=3.41.2=h80987f9_0
+  - tk=8.6.12=hb8d0fd4_0
+  - tqdm=4.65.0=py311hb6e6a13_0
+  - truststore=0.8.0=py311hca03da5_0
+  - urllib3=1.26.18=py311hca03da5_0
+  - wheel=0.41.2=py311hca03da5_0
+  - xz=5.4.5=h80987f9_0
+  - yaml-cpp=0.8.0=h313beb8_0
+  - zlib=1.2.13=h5a0b063_0
+  - zstandard=0.19.0=py311h80987f9_0
+  - zstd=1.5.5=hd90d995_0
   - pip:
+      - access==1.1.9
       - affine==2.4.0
-      - anyio==4.2.0
+      - anyio==4.4.0
+      - appdirs==1.4.4
+      - appnope==0.1.4
       - argon2-cffi==23.1.0
       - argon2-cffi-bindings==21.2.0
+      - arrow==1.3.0
       - asttokens==2.4.1
       - async-lru==2.0.4
-      - attrs==23.2.0
-      - babel==2.14.0
-      - beautifulsoup4==4.12.2
+      - attrs==24.2.0
+      - babel==2.16.0
+      - beautifulsoup4==4.12.3
       - bleach==6.1.0
-      - bokeh==3.3.4
-      - branca==0.7.0
-      - cartopy==0.22.0
-      - census==0.8.21
-      - certifi==2023.11.17
-      - cffi==1.16.0
-      - charset-normalizer==3.3.2
+      - branca==0.7.2
       - click==8.1.7
       - click-plugins==1.1.1
       - cligj==0.7.2
-      - colorama==0.4.6
-      - colorcet==3.0.1
-      - comm==0.2.1
-      - contextily==1.5.0
-      - contourpy==1.2.0
+      - comm==0.2.2
+      - contextily==1.6.2
+      - contourpy==1.3.0
       - cycler==0.12.1
-      - debugpy==1.8.0
+      - debugpy==1.8.5
       - decorator==5.1.1
       - defusedxml==0.7.1
+      - deprecation==2.1.0
+      - elevation==1.1.3
+      - esda==2.6.0
       - executing==2.0.1
-      - fastjsonschema==2.19.1
-      - fiona==1.9.5
-      - folium==0.15.1
-      - fonttools==4.47.0
+      - fasteners==0.19
+      - fastjsonschema==2.20.0
+      - fiona==1.9.6
+      - folium==0.17.0
+      - fonttools==4.53.1
+      - fqdn==1.5.1
+      - gdal==3.9.2
       - geographiclib==2.0
-      - geopandas==0.14.1
-      - geoplot==0.5.1
+      - geopandas==0.14.4
       - geopy==2.4.1
-      - holoviews==1.18.1
-      - hvplot==0.9.1
-      - idna==3.6
-      - install==1.3.5
-      - ipykernel==6.28.0
-      - ipython==8.19.0
-      - ipython-genutils==0.2.0
-      - ipywidgets==7.8.1
+      - giddy==2.3.5
+      - h11==0.14.0
+      - httpcore==1.0.5
+      - httpx==0.27.0
+      - inequality==1.0.1
+      - ipykernel==6.29.5
+      - ipython==8.26.0
+      - ipywidgets==8.1.3
+      - isoduration==20.11.0
       - jedi==0.19.1
-      - jellyfish==0.11.2
-      - jenkspy==0.4.0
-      - jinja2==3.1.2
-      - joblib==1.3.2
-      - json5==0.9.14
-      - jsonschema==4.20.0
+      - jinja2==3.1.4
+      - joblib==1.4.2
+      - json5==0.9.25
+      - jsonschema==4.23.0
       - jsonschema-specifications==2023.12.1
-      - jupyter-client==8.6.0
-      - jupyter-core==5.7.0
-      - jupyter-events==0.9.0
-      - jupyter-lsp==2.2.1
-      - jupyter-server==2.12.2
-      - jupyter-server-terminals==0.5.1
-      - jupyterlab==4.0.11
+      - jupyter==1.0.0
+      - jupyter-client==8.6.2
+      - jupyter-console==6.6.3
+      - jupyter-core==5.7.2
+      - jupyter-events==0.10.0
+      - jupyter-lsp==2.2.5
+      - jupyter-server==2.14.2
+      - jupyter-server-terminals==0.5.3
+      - jupyterlab==4.2.4
       - jupyterlab-pygments==0.3.0
-      - jupyterlab-server==2.25.2
-      - jupyterlab-widgets==1.1.7
+      - jupyterlab-server==2.27.3
+      - jupyterlab-widgets==3.0.11
       - kiwisolver==1.4.5
-      - linkify-it-py==2.0.2
-      - llvmlite==0.41.1
-      - mapclassify==2.6.1
-      - markdown==3.5.2
-      - markdown-it-py==3.0.0
-      - markupsafe==2.1.3
-      - matplotlib==3.8.2
-      - matplotlib-inline==0.1.6
-      - mdit-py-plugins==0.4.0
-      - mdurl==0.1.2
+      - libpysal==4.12.1
+      - llvmlite==0.43.0
+      - mapclassify==2.8.0
+      - markupsafe==2.1.5
+      - matplotlib==3.9.2
+      - matplotlib-inline==0.1.7
       - mercantile==1.2.1
+      - mgwr==2.2.1
       - mistune==3.0.2
-      - movingpandas==0.17.2
-      - nbclient==0.9.0
-      - nbconvert==7.14.0
-      - nbformat==5.9.2
-      - nest-asyncio==1.5.8
-      - networkx==3.2.1
-      - notebook==7.0.6
-      - notebook-shim==0.2.3
-      - numba==0.58.1
-      - numpy==1.26.3
-      - osmnx==1.8.1
-      - overrides==7.4.0
-      - packaging==23.2
-      - pandas==2.1.4
-      - pandocfilters==1.5.0
-      - panel==1.3.8
-      - param==2.0.2
-      - parso==0.8.3
-      - pillow==10.2.0
-      - platformdirs==4.1.0
-      - plotly==5.18.0
-      - prometheus-client==0.19.0
-      - prompt-toolkit==3.0.43
-      - psutil==5.9.7
-      - pure-eval==0.2.2
-      - pycparser==2.21
-      - pyct==0.5.0
-      - pygments==2.17.2
-      - pyparsing==3.1.1
+      - momepy==0.8.0
+      - mpmath==1.3.0
+      - nbclient==0.10.0
+      - nbconvert==7.16.4
+      - nbformat==5.10.4
+      - nest-asyncio==1.6.0
+      - networkx==3.3
+      - notebook==7.2.1
+      - notebook-shim==0.2.4
+      - numba==0.60.0
+      - numpy==1.24.3
+      - osmnx==1.9.4
+      - overrides==7.7.0
+      - pandas==2.2.2
+      - pandocfilters==1.5.1
+      - parso==0.8.4
+      - patsy==0.5.6
+      - pexpect==4.9.0
+      - pillow==10.4.0
+      - pointpats==2.5.0
+      - prometheus-client==0.20.0
+      - prompt-toolkit==3.0.47
+      - psutil==6.0.0
+      - ptyprocess==0.7.0
+      - pulp==2.9.0
+      - pure-eval==0.2.3
+      - pygments==2.18.0
+      - pyogrio==0.9.0
+      - pyparsing==3.1.4
       - pyproj==3.6.1
-      - pyshp==2.3.1
-      - python-dateutil==2.8.2
+      - pysal==24.7
+      - python-dateutil==2.9.0.post0
       - python-json-logger==2.0.7
-      - pytz==2023.3.post1
-      - pyviz-comms==3.0.1
-      - pyyaml==6.0.1
-      - pyzmq==25.1.2
-      - rasterio==1.3.9
-      - referencing==0.32.0
-      - requests==2.31.0
+      - pytz==2024.1
+      - pyyaml==6.0.2
+      - pyzmq==26.1.1
+      - qtconsole==5.5.2
+      - qtpy==2.4.1
+      - quantecon==0.7.2
+      - rasterio==1.3.10
+      - rasterstats==0.19.0
+      - referencing==0.35.1
       - rfc3339-validator==0.1.4
       - rfc3986-validator==0.1.1
-      - rpds-py==0.16.2
-      - rtree==1.1.0
-      - scikit-learn==1.3.2
-      - scipy==1.11.4
-      - seaborn==0.13.1
-      - send2trash==1.8.2
-      - shapely==2.0.2
+      - rioxarray==0.17.0
+      - rpds-py==0.20.0
+      - rtree==1.3.0
+      - scikit-learn==1.5.1
+      - scipy==1.14.1
+      - seaborn==0.13.2
+      - segregation==2.5
+      - send2trash==1.8.3
+      - shapely==2.0.6
+      - simplejson==3.19.3
       - six==1.16.0
-      - sniffio==1.3.0
+      - sniffio==1.3.1
       - snuggs==1.4.7
-      - soupsieve==2.5
+      - soupsieve==2.6
+      - spaghetti==1.7.6
+      - spglm==1.1.0
+      - spint==1.0.7
+      - splot==1.1.6
+      - spopt==0.6.1
+      - spreg==1.6.1
+      - spvcm==0.3.0
       - stack-data==0.6.3
-      - tenacity==8.2.3
-      - terminado==0.18.0
-      - threadpoolctl==3.2.0
-      - tinycss2==1.2.1
-      - tornado==6.4
-      - tqdm==4.66.1
-      - traitlets==5.14.1
-      - typing-extensions==4.9.0
-      - tzdata==2023.4
-      - uc-micro-py==1.0.2
-      - urllib3==2.1.0
-      - us==3.1.1
-      - wcwidth==0.2.12
+      - statsmodels==0.14.2
+      - sympy==1.13.2
+      - terminado==0.18.1
+      - threadpoolctl==3.5.0
+      - tinycss2==1.3.0
+      - tobler==0.11.3
+      - tornado==6.4.1
+      - traitlets==5.14.3
+      - types-python-dateutil==2.9.0.20240316
+      - typing-extensions==4.12.2
+      - tzdata==2024.1
+      - uri-template==1.3.0
+      - wcwidth==0.2.13
+      - webcolors==24.8.0
       - webencodings==0.5.1
-      - websocket-client==1.7.0
-      - wheel==0.42.0
-      - widgetsnbextension==3.6.6
-      - xyzservices==2023.10.1
+      - websocket-client==1.8.0
+      - widgetsnbextension==4.0.11
+      - xarray==2024.7.0
+      - xyzservices==2024.9.0
+prefix: /Users/pietrost/miniconda3

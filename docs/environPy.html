@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -65,11 +72,8 @@ ul.task-list li input[type="checkbox"] {
 
 <meta name="twitter:title" content="A course in Geographic Data Science - Python">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://pietrostefani.github.io/wma/img/environ_Py_1.png">
 <meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:image-height" content="949">
-<meta name="twitter:image-width" content="1889">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -78,12 +82,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./environ.html">Environment</a></li><li class="breadcrumb-item"><a href="./environPy.html">Python</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./environ.html">Environment</a></li><li class="breadcrumb-item"><a href="./environPy.html">Python</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -93,12 +97,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/pietrostefani/gds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -318,6 +322,110 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./spatialw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 Spatial Weights</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialwR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialwPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialwDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./esda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7 ESDA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./esdaR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./esdaPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./esdaDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8 Clustering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clusteringR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clusteringDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9 - Spatial Networks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialnetworksR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialnetworksDIY.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do-It-Yourself</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datasets.html" class="sidebar-item-text sidebar-link">
@@ -333,7 +441,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -357,12 +465,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#py-basics" id="toc-py-basics" class="nav-link" data-scroll-target="#py-basics">Py Basics</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/environPy.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/environPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./environ.html">Environment</a></li><li class="breadcrumb-item"><a href="./environPy.html">Python</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Python</h1>
 </div>
@@ -377,7 +485,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>To run the analysis and reproduce the code in Python, you will need to set up the Python environment to:</p>
 <ul>
@@ -403,13 +513,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="set-up-the-directories" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="set-up-the-directories">Set up the Directories</h3>
 <ol type="1">
-<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs363</code> or <code>envs563</code>. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in <code>M:/</code>, which should your “virtual” hard-disk.</li>
+<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs363_563</code>. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in <code>M:/</code>, which should your “virtual” hard-disk.</li>
 <li>Download the <a href="https://github.com/pietrostefani/gds/tree/main/data">data</a> to run and render the jupyter notebooks.</li>
-<li>Unzip the folders and move the nested folders into the folder <code>envs363</code> or <code>envs563</code>.</li>
+<li>Unzip the folders and move the nested folders into the folder <code>envs363_563</code>.</li>
 <li>Create another folder called <code>labs</code></li>
 </ol>
 <p>The folder structure should look like:</p>
-<pre><code>envs363/
+<pre><code>envs363_563/
 ├── data/
 └── labs/</code></pre>
 </section>
@@ -417,18 +527,18 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="set-up-the-python-environment">Set up the Python Environment</h3>
 <ol type="1">
 <li>Download the <code>envs363_563.yml</code> from GitHub by cliciking <code>Download raw file</code>, top right <a href="https://github.com/pietrostefani/gds/tree/main/envs363_563.yml">at this page</a></li>
-<li>Save it in the folder <code>envs363</code> or <code>envs563</code> created before.</li>
+<li>Save it in the folder <code>envs363_563</code> created before.</li>
 <li>Type in the search bar and find the <code>Anaconda Prompt (miniconda 3)</code>. Launch it. The terminal should appear.</li>
 </ol>
 <p><img src="./img/environ_Py_1.png" width="80%"></p>
 <ol start="3" type="1">
-<li>In the <strong>Anaconda Terminal</strong> write: <code>conda env create -n envs363 --file C:\envs363\envs363_563.yml</code> and press <code>Enter</code>; if the file is located elsewhere you’ll need to use the corresponding file path.</li>
+<li>In the <strong>Anaconda Terminal</strong> write: <code>conda env create -n envs363_563 --file C:\envs363\envs363_563.yml</code> and press <code>Enter</code>; if the file is located elsewhere you’ll need to use the corresponding file path.</li>
 <li>If you are prompted any questions, press <code>y</code>. This process will install all the packages necessary to carry out the lab sessions.</li>
-<li>In the <strong>Anaconda Terminal</strong> write <code>conda activate envs363</code> and press <code>Enter</code>. This activates your working environment.</li>
+<li>In the <strong>Anaconda Terminal</strong> write <code>conda activate envs363_563</code> and press <code>Enter</code>. This activates your working environment.</li>
 <li><em>Necessary</em> on University machines, otherwise <em>Optional</em>: Configuration of Jupyter Notebooks
 <ul>
 <li>In the <strong>Anaconda Terminal</strong>, write <code>jupyter server --generate-config</code> and press enter. This, at least in Windows, should create a file to: <code>C:\Users\username\.jupyter\jupyter_server_config.py</code>.</li>
-<li>Open the file with a text editor (e.g.&nbsp;<a href="https://notepad-plus-plus.org">Notepad++</a>), do a <code>ctrl-f</code> search for: <code>c.ServerApp.root_dir</code>, uncomment it by removing the and change it to <code>c.ServerApp.notebook_dir = 'C:\\your\\new\\path</code>, for example the directory where you created the <code>envs363</code> folder. In the University Machines, it is advised to work on the directory <code>M:\</code>.</li>
+<li>Open the file with a text editor (e.g.&nbsp;<a href="https://notepad-plus-plus.org">Notepad++</a>), do a <code>ctrl-f</code> search for: <code>c.ServerApp.root_dir</code>, uncomment it by removing the and change it to <code>c.ServerApp.notebook_dir = 'C:\\your\\new\\path</code>, for example the directory where you created the <code>envs363_563</code> folder. In the University Machines, it is advised to work on the directory <code>M:\</code>.</li>
 <li>Save the file and close it.</li>
 </ul></li>
 </ol>
@@ -444,9 +554,9 @@ ul.task-list li input[type="checkbox"] {
 Needs new screenshot
 -->
 <ol start="2" type="1">
-<li>Save the file in the <code>labs</code> folder within your <code>envs363</code> folder on your machine.</li>
+<li>Save the file in the <code>labs</code> folder within your <code>envs363_563</code> folder on your machine.</li>
 <li>Type in the search bar, find and open the <code>Anaconda Prompt (miniconda 3)</code>.</li>
-<li>In the <strong>Anaconda Terminal</strong> write and run <code>conda activate envs363</code>.</li>
+<li>In the <strong>Anaconda Terminal</strong> write and run <code>conda activate envs363_563</code>.</li>
 <li>In the <strong>Anaconda Terminal</strong> write and run <code>jupyter notebook</code>. This should open Jupyter Notebook in your default browser.</li>
 </ol>
 <p><img src="./img/environ_Py_4.png" width="80%"></p>
@@ -473,56 +583,51 @@ Needs new screenshot
 <section id="set-up-the-directories-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="set-up-the-directories-1">Set up the Directories</h3>
 <ol type="1">
-<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs363</code> or <code>envs563</code>. You can save it wherever you want. For example, Elisabetta has named her folder <code>envs563</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/envs563</code></li>
+<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs363_563</code>. You can save it wherever you want. For example, Elisabetta has named her folder <code>envs363_563</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/envs363_563</code></li>
 <li>Download the <a href="https://github.com/pietrostefani/gds/tree/main/data">data</a> to run and render the jupyter notebooks.</li>
-<li>Unzip the folders and move the nested folders into the folder <code>envs363</code> or <code>envs563</code>.</li>
+<li>Unzip the folders and move the nested folders into the folder <code>envs363_563</code>.</li>
 <li>Create another folder called <code>labs</code></li>
 </ol>
 <p>The folder structure should look like:</p>
-<pre><code>
-envs363/ ├── data/ └── labs/
-</code></pre>
+<pre><code>envs363_563/ ├── data/ └── labs/</code></pre>
 <p><img src="./img/environ_Py_5.png" width="80%"></p>
-<!--
-Needs new screenshot
--->
 </section>
 <section id="set-up-the-python-environment-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="set-up-the-python-environment-1">Set up the Python Environment</h3>
 <ol type="1">
-<li>Download the <code>envs363_563.yml</code> from GitHub by cliciking <code>Download raw file</code>, top right <a href="https://github.com/pietrostefani/gds/tree/main/envs363_563.yml">at this page</a></li>
-<li>Save it in the folder <code>envs363</code> or <code>envs563</code> created before.</li>
+<li>Download the <code>envs363_563.yml</code> from GitHub by clicking <code>Download raw file</code>, top right <a href="https://github.com/pietrostefani/gds/tree/main/envs363_563.yml">at this page</a></li>
+<li>Save it in the folder <code>envs363_563</code> created before.</li>
 <li>Type in the search bar and open the <strong>Terminal</strong>.</li>
-<li>In the <strong>Terminal</strong> write <code>conda env create -n envs363 --file envs363_563.yml</code> and press <code>Enter</code>. This will need to be modified according to where you placed the <code>envs363</code> or <code>envs563</code> folder. For example, Elisabetta has named her folder <code>envs563</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/envs563/envs363_563.yml</code>. If you created the <code>envs563</code> folder on your desktop, the path would be <code>Desktop/envs563</code>.</li>
+<li>In the <strong>Terminal</strong> write <code>conda env create -n envs363 --file envs363_563.yml</code> and press <code>Enter</code>. This will need to be modified according to where you placed the <code>envs363_563</code> folder. For example, Elisabetta has named her folder <code>envs363_563</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/envs363_563/envs363_563.yml</code>. If you created the <code>envs363_563</code> folder on your desktop, the path would be <code>Desktop/envs363_563</code>.</li>
 </ol>
-<p><img src="./img/environ_Py_6.png" width="80%"></p>
-<!--
-Needs new screenshot
--->
+<p><img src="./img/environ_Py_6.png" width="100%"></p>
 <ol start="4" type="1">
 <li>If you are prompted any questions, press <code>y</code>. This process will install all the packages necessary to carry out the lab sessions.</li>
+<li>You should then see this</li>
 </ol>
+<p><img src="./img/environ_Py_8.png" width="50%"></p>
 </section>
 <section id="start-a-lab-session-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="start-a-lab-session-1">Start a Lab Session</h3>
 <ol type="1">
 <li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click <code>Dowload raw file</code> as shown below</li>
 </ol>
-<p><img src="./img/environ_Py_3.png" width="80%"></p>
+<p><img src="./img/environ_Py_11.png" width="80%"></p>
 <ol start="2" type="1">
 <li>Save the file in the <code>labs</code> folder within your <code>envs363</code> folder on your machine.</li>
 <li>Type in the search bar, find and open the <strong>Terminal</strong>.</li>
 <li>In the <strong>Terminal</strong> write and run <code>conda activate envs456</code>.</li>
 <li>In the <strong>Terminal</strong> write and run <code>jupyter notebook</code>.</li>
 </ol>
-<p><img src="./img/environ_Py_7.png" width="80%"></p>
+<p><img src="./img/environ_Py_7.png" width="90%"></p>
 <ol start="6" type="1">
 <li>This should open Jupyter Notebook in your default browser. You should see something like this:</li>
 </ol>
-<p><img src="./img/environ_Py_8.png" width="80%"></p>
+<p><img src="./img/environ_Py_9.png" width="80%"></p>
 <ol start="7" type="1">
 <li>Navigate to your folder. You can now work on your copy of the notebook.</li>
 </ol>
+<p><img src="./img/environ_Py_10.png" width="80%"></p>
 </section>
 </section>
 <section id="py-basics" class="level2">
@@ -622,10 +727,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/pietrostefani\.github\.io\/wma");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -635,8 +757,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -648,7 +779,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -692,6 +946,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -717,6 +972,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -778,12 +1059,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./environR.html" class="pagination-link">
+      <a href="./environR.html" class="pagination-link" aria-label="R">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
+      <a href="./intro.html" class="pagination-link" aria-label="1 Introduction">
         <span class="nav-page-text">1 Introduction</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -791,13 +1072,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">
+<p>Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/environPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 

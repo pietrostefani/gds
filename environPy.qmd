@@ -31,15 +31,15 @@ We will use `Minconda` to handle our working environment. *Miniconda is a free m
 
 ### Set up the Directories {.unnumbered}
 
-1.  Create a folder where you want to keep your work conducted throughout this course. For example, call it `envs363` or `envs563`. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in `M:/`, which should your "virtual" hard-disk.
+1.  Create a folder where you want to keep your work conducted throughout this course. For example, call it `envs363_563`. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in `M:/`, which should your "virtual" hard-disk.
 2.  Download the [data](https://github.com/pietrostefani/gds/tree/main/data) to run and render the jupyter notebooks.
-3.  Unzip the folders and move the nested folders into the folder `envs363` or `envs563`.
+3.  Unzip the folders and move the nested folders into the folder `envs363_563`.
 4.  Create another folder called `labs`
 
 The folder structure should look like:
 
 ```         
-envs363/
+envs363_563/
 ├── data/
 └── labs/
 ```
@@ -47,17 +47,17 @@ envs363/
 ### Set up the Python Environment {.unnumbered}
 
 1.  Download the `envs363_563.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
-2.  Save it in the folder `envs363` or `envs563` created before.
+2.  Save it in the folder `envs363_563` created before.
 3.  Type in the search bar and find the `Anaconda Prompt (miniconda 3)`. Launch it. The terminal should appear.
 
 <img src="./img/environ_Py_1.png" width="80%"/>
 
-3.  In the **Anaconda Terminal** write: `conda env create -n envs363 --file C:\envs363\envs363_563.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
+3.  In the **Anaconda Terminal** write: `conda env create -n envs363_563 --file C:\envs363\envs363_563.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
 4.  If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
-5.  In the **Anaconda Terminal** write `conda activate envs363` and press `Enter`. This activates your working environment.
+5.  In the **Anaconda Terminal** write `conda activate envs363_563` and press `Enter`. This activates your working environment.
 6.  *Necessary* on University machines, otherwise *Optional*: Configuration of Jupyter Notebooks
     -   In the **Anaconda Terminal**, write `jupyter server --generate-config` and press enter. This, at least in Windows, should create a file to: `C:\Users\username\.jupyter\jupyter_server_config.py`.
-    -   Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a `ctrl-f` search for: `c.ServerApp.root_dir`, uncomment it by removing the and change it to `c.ServerApp.notebook_dir = 'C:\\your\\new\\path`, for example the directory where you created the `envs363` folder. In the University Machines, it is advised to work on the directory `M:\`.
+    -   Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a `ctrl-f` search for: `c.ServerApp.root_dir`, uncomment it by removing the and change it to `c.ServerApp.notebook_dir = 'C:\\your\\new\\path`, for example the directory where you created the `envs363_563` folder. In the University Machines, it is advised to work on the directory `M:\`.
     -   Save the file and close it.
 
 <img src="./img/environ_Py_2.png" width="80%"/>
@@ -68,24 +68,21 @@ envs363/
 
 <img src="./img/environ_Py_3.png" width="80%"/>
 
-
 <!--
 Needs new screenshot
 -->
 
-2.  Save the file in the `labs` folder within your `envs363` folder on your machine.
+2.  Save the file in the `labs` folder within your `envs363_563` folder on your machine.
 3.  Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`.
-4.  In the **Anaconda Terminal** write and run `conda activate envs363`.
+4.  In the **Anaconda Terminal** write and run `conda activate envs363_563`.
 5.  In the **Anaconda Terminal** write and run `jupyter notebook`. This should open Jupyter Notebook in your default browser.
 
 <img src="./img/environ_Py_4.png" width="80%"/>
 
-
 <!--
 Needs new screenshot
 -->
 
-        
 6.  Navigate to your course folder in and double click on the notebook downloaded in step 1.
 7.  You can now work on your copy of the notebook.
 
@@ -102,60 +99,55 @@ To install Miniconda on your personal laptop, Follow the instructions [here](htt
 
 ### Set up the Directories {.unnumbered}
 
-1.  Create a folder where you want to keep your work conducted throughout this course. For example, call it `envs363` or `envs563`. You can save it wherever you want. For example, Elisabetta has named her folder `envs563` and it's in her Dropbox in `Users/PIETROST/Library/CloudStorage/Dropbox/envs563`
+1.  Create a folder where you want to keep your work conducted throughout this course. For example, call it `envs363_563`. You can save it wherever you want. For example, Elisabetta has named her folder `envs363_563` and it's in her Dropbox in `Users/PIETROST/Library/CloudStorage/Dropbox/envs363_563`
 2.  Download the [data](https://github.com/pietrostefani/gds/tree/main/data) to run and render the jupyter notebooks.
-3.  Unzip the folders and move the nested folders into the folder `envs363` or `envs563`.
+3.  Unzip the folders and move the nested folders into the folder `envs363_563`.
 4.  Create another folder called `labs`
 
 The folder structure should look like:
-```
-
-envs363/ ├── data/ └── labs/
 
 ```         
+envs363_563/ ├── data/ └── labs/
+```
 
 <img src="./img/environ_Py_5.png" width="80%"/>
 
 
-<!--
-Needs new screenshot
--->
-
-
 ### Set up the Python Environment {.unnumbered}
 
-1.  Download the `envs363_563.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
-2.  Save it in the folder `envs363` or `envs563` created before.
+1.  Download the `envs363_563.yml` from GitHub by clicking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
+2.  Save it in the folder `envs363_563` created before.
 3.  Type in the search bar and open the **Terminal**.
-4.  In the **Terminal** write `conda env create -n envs363 --file envs363_563.yml` and press `Enter`. This will need to be modified according to where you placed the `envs363` or `envs563` folder. For example, Elisabetta has named her folder `envs563` and it's in her Dropbox in `Users/PIETROST/Library/CloudStorage/Dropbox/envs563/envs363_563.yml`. If you created the `envs563` folder on your desktop, the path would be `Desktop/envs563`.
+4.  In the **Terminal** write `conda env create -n envs363 --file envs363_563.yml` and press `Enter`. This will need to be modified according to where you placed the `envs363_563` folder. For example, Elisabetta has named her folder `envs363_563` and it's in her Dropbox in `Users/PIETROST/Library/CloudStorage/Dropbox/envs363_563/envs363_563.yml`. If you created the `envs363_563` folder on your desktop, the path would be `Desktop/envs363_563`.
 
-<img src="./img/environ_Py_6.png" width="80%"/>
-
-
-<!--
-Needs new screenshot
--->
+<img src="./img/environ_Py_6.png" width="100%"/>
 
 4.  If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
+5.  You should then see this
+
+<img src="./img/environ_Py_8.png" width="50%"/>
+
 
 ### Start a Lab Session {.unnumbered}
 
 1.  Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click `Dowload raw file` as shown below
 
-<img src="./img/environ_Py_3.png" width="80%"/>
+<img src="./img/environ_Py_11.png" width="80%"/>
 
 2.  Save the file in the `labs` folder within your `envs363` folder on your machine.
 3.  Type in the search bar, find and open the **Terminal**.
 4.  In the **Terminal** write and run `conda activate envs456`.
 5.  In the **Terminal** write and run `jupyter notebook`.
 
-<img src="./img/environ_Py_7.png" width="80%"/>
+<img src="./img/environ_Py_7.png" width="90%"/>
 
 6.  This should open Jupyter Notebook in your default browser. You should see something like this:
 
-<img src="./img/environ_Py_8.png" width="80%"/>
+<img src="./img/environ_Py_9.png" width="80%"/>
 
 7.  Navigate to your folder. You can now work on your copy of the notebook.
+
+<img src="./img/environ_Py_10.png" width="80%"/>
 
 ## Py Basics
 
