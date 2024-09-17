@@ -1,4 +1,4 @@
-name: /Users/pietrost/miniconda3
+name: gis
 channels:
   - defaults
 dependencies:
@@ -233,4 +233,3 @@ dependencies:
       - widgetsnbextension==4.0.11
       - xarray==2024.7.0
       - xyzservices==2024.9.0
-prefix: /Users/pietrost/miniconda3
