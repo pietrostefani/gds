@@ -136,7 +136,7 @@ envs363_563/ ├── data/ └── labs/
 
 2.  Save the file in the `labs` folder within your `envs363` folder on your machine.
 3.  Type in the search bar, find and open the **Terminal**.
-4.  In the **Terminal** write and run `conda activate envs456`.
+4.  In the **Terminal** write and run `conda activate envs363`.
 5.  In the **Terminal** write and run `jupyter notebook`.
 
 <img src="./img/environ_Py_7.png" width="90%"/>
