@@ -209,6 +209,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Python</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download data from github</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -531,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this session, we will further explore the world of geographic data visualization by building upon our understanding of both raster data and choropleths. Raster data, consisting of gridded cells, allows us to represent continuous geographic phenomena such as temperature, elevation, or satellite imagery. Choropleths, on the other hand, are an effective way to visualize spatial patterns through the use of color-coded regions, making them invaluable for displaying discrete data like population density or election results. By combining these techniques, we will gain a comprehensive toolkit for conveying complex geographical information in a visually compelling manner.</p>
 <section id="importing-modules" class="level2">
 <h2 class="anchored" data-anchor-id="importing-modules">Importing Modules</h2>
-<div id="54770207" class="cell" data-execution_count="1">
+<div id="e07d79c6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing rasterio for handling raster data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.warp <span class="im">import</span> reproject, Resampling, calculate_default_transform</span>
@@ -575,12 +581,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="import-raster-data"><strong>Import raster data</strong></h3>
 <p>Raster <strong>terrain</strong> data consists of gridded elevation values that represent the topography of a geographic area. You can download this from the <a href="https://github.com/pietrostefani/gds/tree/main/data/Lebanon">relevant github folder</a>. A good place to download elevation data is <a href="https://earthexplorer.usgs.gov/">Earth Explorer</a>. This <a href="https://www.youtube.com/watch?v=NQg0g9ObhXE">video</a> takes you through the download process if you want to try this out yourself.</p>
 <p>We first import a raster file for elevation.</p>
-<div id="455973a8" class="cell" data-execution_count="2">
+<div id="25f4e78a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>elevation <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/LBN_elevation_w_bathymetry.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Plot it.</p>
-<div id="08e425ba" class="cell" data-execution_count="3">
+<div id="2bff3edd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(elevation.read(<span class="dv">1</span>), cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation'</span>)</span>
@@ -595,7 +601,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>This information is typically accessed and updated via the .profile.</p>
-<div id="c95541b8" class="cell" data-execution_count="4">
+<div id="abe65056" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(elevation.profile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'driver': 'GTiff', 'dtype': 'float64', 'nodata': nan, 'width': 1150, 'height': 708, 'count': 1, 'crs': CRS.from_epsg(4326), 'transform': Affine(0.002500000000000124, 0.0, 33.74907268219525,
@@ -603,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Have a look at the CRS.</p>
-<div id="f203f584" class="cell" data-execution_count="5">
+<div id="9947c4cc" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the raster</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> elevation.crs</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -615,7 +621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-the-lebanon-shapefile" class="level3">
 <h3 class="anchored" data-anchor-id="import-the-lebanon-shapefile"><strong>Import the Lebanon shapefile</strong></h3>
 <p>Import the Lebanon shapefile, plot it, and verify its Coordinate Reference System (CRS). Is it the same as the raster’s CRS?</p>
-<div id="96ddb55d" class="cell" data-execution_count="6">
+<div id="0c7cc80d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the shapefile data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Lebanon_adm1 <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/LBN_adm1.shp"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -631,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="ae382e86" class="cell" data-execution_count="7">
+<div id="2f11397c" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the shapefile</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> Lebanon_adm1.crs</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -642,7 +648,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reproject-the-raster" class="level3">
 <h3 class="anchored" data-anchor-id="reproject-the-raster"><strong>Reproject the Raster</strong></h3>
-<div id="2c5d43e4" class="cell" data-execution_count="8">
+<div id="14dbd8b5" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the desired destination CRS</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dst_crs <span class="op">=</span> <span class="st">"EPSG:22770"</span>  <span class="co"># For example, WGS84</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -706,7 +712,7 @@ Destination Transform:
 <li><p>Typical Use: Masking is used when you want to extract or isolate specific areas or features within a raster dataset. For example, you might use a mask to extract land cover information within the boundaries of a protected national park.</p></li>
 </ul>
 <p>In many cases, these cropping and masking are executed one after the other because it is computationally easier to crop when dealing with large datasets, and then masking.</p>
-<div id="c63f605c" class="cell" data-execution_count="9">
+<div id="a26c4fd7" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>elevation_22770 <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/reprojected_elevation.tif"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use unary_union method to combine the geometries</span></span>
@@ -718,7 +724,7 @@ Destination Transform:
 </section>
 <section id="plot-elevation" class="level3">
 <h3 class="anchored" data-anchor-id="plot-elevation"><strong>Plot elevation</strong></h3>
-<div id="37abfa10" class="cell" data-execution_count="10">
+<div id="0ea901d3" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming elevation_lebanon contains the cropped elevation data and Lebanon_adm1 is the GeoDataFrame</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the elevation data</span></span>
@@ -736,7 +742,7 @@ Destination Transform:
 </div>
 </div>
 <p>Let’s improve this a bit. Remember that there is a lot we can do with <a href="https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/#:~:text=Colormaps%20or%20Cmap%20in%20python%20colormaps%20is%20a%20very%20useful,custom%20ones%20using%20python%20colormaps">Cmap</a>.</p>
-<div id="1ad49407" class="cell" data-execution_count="11">
+<div id="0bbf5eee" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the reversed 6 shades of orange</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>orange_shades_reversed <span class="op">=</span> [<span class="st">'#ef3b2c'</span>, <span class="st">'#fb6a4a'</span>, <span class="st">'#fc9272'</span>, <span class="st">'#fcbba1'</span>, <span class="st">'#fee0d2'</span>, <span class="st">'#fff5eb'</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -784,7 +790,7 @@ Destination Transform:
 <section id="slope" class="level3">
 <h3 class="anchored" data-anchor-id="slope"><strong>Slope</strong></h3>
 <p>It may sometimes prove useful to visualize these elevation models with mechanisms such as contour lines. Fortunately, this is fairly easy to accomplish in Python using packages such as GDAL and Matplotlib.</p>
-<div id="d788b06e" class="cell" data-execution_count="12">
+<div id="afbca088" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the filename of the raster file</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">"data/Lebanon/reprojected_elevation.tif"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the raster file using GDAL (Geospatial Data Abstraction Library)</span></span>
@@ -805,11 +811,11 @@ Destination Transform:
 </div>
 </div>
 <p>Raster data, such as a GeoTIFF, is typically stored with the origin (0,0) at the top-left corner. This means the first row in the data array corresponds to the top of the raster, and the last row corresponds to the bottom. However, when you visualize data using Matplotlib, the default behavior assumes that the origin (0,0) is at the bottom-left corner. This discrepancy can cause the image to appear flipped vertically.</p>
-<div id="780cb6dc" class="cell" data-execution_count="13">
+<div id="e2154e71" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data_array_flipped <span class="op">=</span> np.flipud(data_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we’ve read our data in, we’re ready to visualize the elevation using contour lines within Matplotlib (Note: We will be re-reading in the data again here due to NaN values).</p>
-<div id="b8e73997" class="cell" data-execution_count="14">
+<div id="27239335" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot out data with Matplotlib's 'contour'</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>)</span>
@@ -833,7 +839,7 @@ Destination Transform:
 </div>
 </div>
 <p>#Plot our data with Matplotlib’s ‘contourf’</p>
-<div id="4518232e" class="cell" data-execution_count="15">
+<div id="8c2b5c00" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.contourf(data_array_flipped, cmap <span class="op">=</span> <span class="st">"gist_earth"</span>, </span>
@@ -859,11 +865,11 @@ Destination Transform:
 <section id="flood-risk-area" class="level3">
 <h3 class="anchored" data-anchor-id="flood-risk-area"><strong>Flood risk area</strong></h3>
 <p>We can employ reclassification techniques to delineate flood risk areas. Specifically, we identify and classify areas where the elevation is under 10 meters above sea level as high-risk zones. This critical step in flood risk assessment helps communities and decision-makers pinpoint vulnerable areas, enabling them to implement effective mitigation strategies and disaster preparedness plans to safeguard against potential flooding events.</p>
-<div id="e7a33c06" class="cell" data-execution_count="16">
+<div id="b1ad7f11" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the function to create the flood_risk array</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>flood_risk <span class="op">=</span> np.where(data_array <span class="op">&lt;</span> <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">0</span>) <span class="co"># assigning 1 if the element is less than 10, and 0 otherwise. We cleaned data_array earlier.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ea36b022" class="cell" data-execution_count="17">
+<div id="691c37fe" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new figure for the plot</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -883,7 +889,7 @@ Destination Transform:
 <section id="spatial-join-with-vector-data" class="level3">
 <h3 class="anchored" data-anchor-id="spatial-join-with-vector-data"><strong>Spatial join with vector data</strong></h3>
 <p>You might want to extract values from a raster data set, and then map them within a vector framework or extract them to analyse them statistically. If it therefore very useful to know how to extract:</p>
-<div id="e97650e8" class="cell" data-execution_count="18">
+<div id="620dd3f4" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load some geo-localized survey data</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>households <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/random_survey_LBN.shp"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -965,7 +971,7 @@ Important
 </div>
 </div>
 <p>Before you move forward <strong>download the data for 1992 and 2013.</strong> It is also good practice to create a scratch folder where you do all your unzipping.</p>
-<div id="7aa7e9cc" class="cell" data-execution_count="19">
+<div id="eb789d40" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster files</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>raster1_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F101992.v4b_web.stable_lights.avg_vis.tif'</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>raster2_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F182013.v4c_web.stable_lights.avg_vis.tif'</span></span>
@@ -980,7 +986,7 @@ Important
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stack the rasters along a new axis (depth axis)</span></span>
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>stacked_rasters <span class="op">=</span> np.stack([raster1, raster2], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e3a0c8ad" class="cell" data-execution_count="20">
+<div id="f55dca3d" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1010,7 +1016,7 @@ Important
 <section id="country-shapefiles" class="level3">
 <h3 class="anchored" data-anchor-id="country-shapefiles"><strong>Country shapefiles</strong></h3>
 <p>The second step is to download the shapefiles for Kenya and Tanzania. GADM has made available national and subnational shapefiles for the world. The zips you download, such as <em>gadm36_KEN_shp.zip</em> from GADM should be placed in the <strong>Kenya_Tanzania</strong> folder. This is the link <a href="https://gadm.org/formats.html">gadm</a>.</p>
-<div id="62910c06" class="cell" data-execution_count="21">
+<div id="af39b03c" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the data folder path</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>datafolder <span class="op">=</span> <span class="st">'data'</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1163,7 +1169,7 @@ Important
 <h3 class="anchored" data-anchor-id="merge-shapefiles"><strong>Merge Shapefiles</strong></h3>
 <p>Even though it is not necessary here, we can merge the shapefile to visualize all the regions at once.</p>
 <p>When doing zonal statistics, it is faster and easier to process one country at a time and then combine the resulting tables. If you have access to a computer with multiple cores, it is also possible to do “parallel processing” to process each chunk at the same time in parallel.</p>
-<div id="0131bbdd" class="cell" data-execution_count="22">
+<div id="31764829" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge all shapefiles into one GeoDataFrame</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> gpd.GeoDataFrame(pd.concat(shps, ignore_index<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1171,7 +1177,7 @@ Important
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> merged_countries.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then plot Kenya and Tanzania at Regional Level 2:</p>
-<div id="4b363740" class="cell" data-execution_count="23">
+<div id="ce8164b0" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot all shapefiles</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1199,7 +1205,7 @@ Important
 <section id="zonal-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="zonal-statistics"><strong>Zonal statistics</strong></h3>
 <p>We use the module <code>rasterstats</code> to calculate the sum and average nighttime for each region. The nighttime lights rasters are quite large, but as we do not need to do any operations on them (e.g.&nbsp;calculations using the overlay function, cropping or masking to the shapefiles extent), the process should be relatively fast.</p>
-<div id="fab0778e" class="cell" data-execution_count="24">
+<div id="45efd2a6" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate zonal statistics for the first raster (1992)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>stats_1992 <span class="op">=</span> zonal_stats(merged_countries, raster1_path, stats<span class="op">=</span>[<span class="st">'sum'</span>, <span class="st">'mean'</span>], nodata<span class="op">=-</span><span class="dv">9999</span>, geojson_out<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1247,7 +1253,7 @@ Important
 <section id="visualize" class="level3">
 <h3 class="anchored" data-anchor-id="visualize"><strong>Visualize</strong></h3>
 <p>Let’s have a first look at our result.</p>
-<div id="e9799449" class="cell" data-execution_count="25">
+<div id="4e71914f" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure with two subplots side by side</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1275,7 +1281,7 @@ Important
 </div>
 </div>
 <p>Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks.</p>
-<div id="31730e79" class="cell" data-execution_count="26">
+<div id="abb8aed5" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define breaks and labels</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>breaks <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dv">63</span>]</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'0-0.05'</span>, <span class="st">'0.05-0.1'</span>, <span class="st">'0.1-2'</span>, <span class="st">'2-63'</span>]</span>
@@ -1310,7 +1316,7 @@ Important
 <span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plots</span></span>
 <span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/hy/6sv_zjnd3xb09mr88dlvbtjw0000gn/T/ipykernel_31853/423459503.py:30: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+<pre><code>/var/folders/hy/6sv_zjnd3xb09mr88dlvbtjw0000gn/T/ipykernel_56119/423459503.py:30: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
   plt.tight_layout()</code></pre>
 </div>
 <div class="cell-output cell-output-display">

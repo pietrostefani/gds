@@ -521,8 +521,8 @@ Important
 <ol type="1">
 <li><p>Install Miniconda:</p>
 <ul>
-<li><p><em>Option 1</em>: On a UoL Machine: Anaconda is installed on many university machines. Please check whether it is installed. If not, download and install Anaconda through from <code>Install University Applications</code>, type and choose <code>Anaconda</code>.</p></li>
-<li><p><em>Option 2</em>: <strong>Recommended</strong>: Install Miniconda on your personal Laptop: Follow the instructions <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a>.</p></li>
+<li><p><strong>Option 1</strong>: On a UoL Machine: Anaconda is installed on many university machines. Please check whether it is installed. If not, download and install Anaconda through from <code>Install University Applications</code>, type and choose <code>Anaconda</code>.</p></li>
+<li><p><strong>Option 2</strong>: <em>Recommended</em> - Install Miniconda on your personal Laptop: Follow the instructions <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a>.</p></li>
 </ul></li>
 <li><p>During the installation, leave the default settings. In particular, when asked whom to “Install Miniconda for”, choose “Just for me”.</p></li>
 </ol>
@@ -536,7 +536,11 @@ University Machines
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you do choose to work on University Machines 1. Chose a machine where Anaconda has been pre-installed. 2. Always use the same machine. For example if on the first day you are using CT60 Station 17 - Orange Zone, continue using this machine for the rest of the course. If you change machine you will need to re-install the environment every time.</p>
+<p>If you do choose to work on University Machines</p>
+<ol type="1">
+<li>Chose a machine where Anaconda has been pre-installed.</li>
+<li>Always use the same machine. For example if on the first day you are using CT60 Station 17 - Orange Zone, continue using this machine for the rest of the course. If you change machine you will need to re-install the environment every time.</li>
+</ol>
 </div>
 </div>
 </section>
@@ -545,7 +549,7 @@ University Machines
 <ol type="1">
 <li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs363_563</code>. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in <code>M:/</code>, which is your “virtual” hard-disk.</li>
 </ol>
-<p><img src="./img/Step1_py.jpeg" width="60%"></p>
+<p><img src="./img/Step1_py.PNG" width="90%"></p>
 <ol start="2" type="1">
 <li>Download the <a href="https://github.com/pietrostefani/gds/tree/main/data">data</a> to run and render the jupyter notebooks. To learn how to download folders from github see <a href="https://pietrostefani.github.io/gds/download.html">here</a>.</li>
 <li>Unzip the folders and move the nested folders into the folder <code>envs363_563</code>.</li>
@@ -569,7 +573,8 @@ University Machines
 <li>If you are prompted any questions, press <code>y</code>. This process will install all the packages necessary to carry out the lab sessions.</li>
 <li>In the <strong>Anaconda Terminal</strong> write <code>conda activate envs363_563</code> and press <code>Enter</code>. This activates your working environment.</li>
 </ol>
-<p><img src="./img/Step4_py.jpeg" width="60%"></p>
+<p><img src="./img/environ_Py_8.png" width="50%"></p>
+<p><img src="./img/Step3_py.PNG" width="80%"></p>
 <ol start="6" type="1">
 <li><em>Necessary</em> on University machines, otherwise <em>Optional</em>: Configuration of Jupyter Notebooks
 <ul>
@@ -578,27 +583,21 @@ University Machines
 <li>Save the file and close it.</li>
 </ul></li>
 </ol>
-<p><img src="./img/Step5_py.jpeg" width="80%"></p>
+<p><img src="./img/Step4_py.PNG" width="80%"></p>
 </section>
 <section id="start-a-lab-session" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="start-a-lab-session">Start a Lab Session</h3>
 <ol type="1">
-<li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click <code>Dowload raw file</code> as shown below</li>
+<li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click <code>Dowload raw file</code> as shown below.</li>
 </ol>
-<p><img src="./img/environ_Py_3.png" width="80%"></p>
-<!--
-Needs new screenshot
--->
+<p><img src="./img/Step5_py.PNG" width="80%"></p>
 <ol start="2" type="1">
 <li>Save the file in the <code>labs</code> folder within your <code>envs363_563</code> folder on your machine.</li>
 <li>Type in the search bar, find and open the <code>Anaconda Prompt (miniconda 3)</code>.</li>
 <li>In the <strong>Anaconda Terminal</strong> write and run <code>conda activate envs363_563</code>.</li>
 <li>In the <strong>Anaconda Terminal</strong> write and run <code>jupyter notebook</code>. This should open Jupyter Notebook in your default browser.</li>
 </ol>
-<p><img src="./img/environ_Py_4.png" width="80%"></p>
-<!--
-Needs new screenshot
--->
+<p><img src="./img/Step6_py.PNG" width="80%"></p>
 <ol start="6" type="1">
 <li>Navigate to your course folder in and double click on the notebook downloaded in step 1.</li>
 <li>You can now work on your copy of the notebook.</li>
@@ -620,7 +619,7 @@ Needs new screenshot
 <h3 class="unnumbered anchored" data-anchor-id="set-up-the-directories-1">Set up the Directories</h3>
 <ol type="1">
 <li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs363_563</code>. You can save it wherever you want. For example, Elisabetta has named her folder <code>envs363_563</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/envs363_563</code></li>
-<li>Download the <a href="https://github.com/pietrostefani/gds/tree/main/data">data</a> to run and render the jupyter notebooks.</li>
+<li>Download the <a href="https://github.com/pietrostefani/gds/tree/main/data">data</a> to run and render the jupyter notebooks. To learn how to download folders from github see <a href="https://pietrostefani.github.io/gds/download.html">here</a>.</li>
 <li>Unzip the folders and move the nested folders into the folder <code>envs363_563</code>.</li>
 <li>Create another folder called <code>labs</code></li>
 </ol>

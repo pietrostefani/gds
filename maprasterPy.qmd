@@ -70,6 +70,7 @@ This information is typically accessed and updated via the .profile.
 ```{python}
 print(elevation.profile)
 ```
+
 Have a look at the CRS.
 
 ```{python}
@@ -247,6 +248,7 @@ Raster data, such as a GeoTIFF, is typically stored with the origin (0,0) at the
 ```{python}
 data_array_flipped = np.flipud(data_array)
 ```
+
 Now that we’ve read our data in, we’re ready to visualize the elevation using contour lines within Matplotlib (Note: We will be re-reading in the data again here due to NaN values).
 
 ```{python}
@@ -267,6 +269,7 @@ plt.show()
 ```
 
 #Plot our data with Matplotlib's 'contourf'
+
 ```{python}
 fig = plt.figure(figsize = (8, 8))
 ax = fig.add_subplot(111)
@@ -329,10 +332,10 @@ print(households.head())
 
 ```
 
-- *Handling CRS (Coordinate Reference System)*: The household data CRS is transformed to match the raster’s CRS before extracting elevation values.
-- *Extracting Elevation*: Elevation values are extracted at each household location using rasterio’s sample method.
-- *Attaching Elevation Data*: The elevation data is added as a new column to the households `GeoDataFrame`.
-	
+-   *Handling CRS (Coordinate Reference System)*: The household data CRS is transformed to match the raster’s CRS before extracting elevation values.
+-   *Extracting Elevation*: Elevation values are extracted at each household location using rasterio’s sample method.
+-   *Attaching Elevation Data*: The elevation data is added as a new column to the households `GeoDataFrame`.
+
 ::: callout-important
 Make sure all your data is in the same CRS, otherwise the `rasterio`’s sample will not work properly.
 :::
@@ -344,10 +347,8 @@ This section is a bit more advanced, there are hints along the way to make it si
 ### **Download data**
 
 ::: {.callout-note title="Download the Data"}
-
 We need to download some raster data. NOAA has made nighttime lights data available for 1992 to 2013. It is called the Version 4 DMSP-OLS Nighttime Lights Time Series. The files are cloud-free composites made using all the available archived DMSP-OLS smooth resolution data for calendar years. In cases where two satellites were collecting data - two composites were produced. The products are 30 arc-second grids, spanning -180 to 180 degrees longitude and -65 to 75 degrees latitude. We can download the [Average, Visible, Stable Lights, & Cloud Free Coverages for 1992 and 2013](https://www.ngdc.noaa.gov/eog/data/web_data/v4composites/) and put them in the `data/Kenya_Tanzania` folder.
-
-::: 
+:::
 
 ::: callout-important
 You can also download the data [here](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EX85foAh7ZBBtSZ64pxbFmsBStf8UX2uaLXE5MBYJt6PeQ?e=LMYu7d). You will need to be logged into your UoL account.
@@ -393,6 +394,7 @@ plt.tight_layout()
 plt.show()
 
 ```
+
 Why can’t you see much? Discuss with the person next to you.
 
 ### **Country shapefiles**
@@ -437,6 +439,7 @@ print(shps)
 # Delete the scratch folder with the data we don't need
 #shutil.rmtree(scratch_folder)
 ```
+
 ### **Merge Shapefiles**
 
 Even though it is not necessary here, we can merge the shapefile to visualize all the regions at once.
@@ -524,7 +527,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks. 
+Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks.
 
 ```{python}
 # Define breaks and labels
@@ -567,17 +570,18 @@ Have a think about what the data is telling you. What's the story?
 
 We can also make it interactive with `folium` and `folium.plugins` `DualMap` but this is a bit more complicated in `python` and will be covered in [Web Mapping and Visualiation](https://gdsl-ul.github.io/wma/labs/w04_interactive.html).
 
-
 ## Resources
 
 -   [Python Open Source Spatial Programming & Remote Sensing](https://pygis.io/docs/e_interpolation.html)
 
-- [Remote Sensing with Python](https://worldbank.github.io/OpenNightLights/welcome.html)
+-   [Remote Sensing with Python](https://worldbank.github.io/OpenNightLights/welcome.html)
 
-- [Black Marble in Python](https://blogs.worldbank.org/en/opendata/illuminating-insights-harnessing-nasas-black-marble-r-and-python-packages)
+-   [Black Marble in Python](https://blogs.worldbank.org/en/opendata/illuminating-insights-harnessing-nasas-black-marble-r-and-python-packages)
 
+```{=html}
 <!--
 problem installing richdem
 
 https://www.earthdatascience.org/tutorials/get-slope-aspect-from-digital-elevation-model/
 -->
+```
