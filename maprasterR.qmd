@@ -146,6 +146,7 @@ Questions to ask yourself about how you can improve these maps, going back to [g
 
 -   Have a look at some of the [`tmap` documentation](https://r-tmap.github.io/tmap/reference/tm_layout.html) to improve your map further .
 
+<!--
 ### **Slope**
 
 We are now going to calculate slopes of the `terra` package.
@@ -197,6 +198,7 @@ flood_risk <- app(elevation_proj, fun= function(x) ifelse(x<10, 1, 0))
 # If the pixel value is less than 10 meters, it assigns 1 to 'flood_risk'; otherwise, it assigns 0. This effectively creates a binary flood risk map, where 1 represents areas with a flood risk (elevation < 10m), and 0 represents areas with no flood risk (elevation >= 10m).
 plot(flood_risk)
 ```
+-->
 
 ### **Spatial join with vector data**
 
@@ -285,10 +287,8 @@ lapply(4:6, function(x) MathOperations(x))
 ### **Download data**
 
 ::: {.callout-note title="Download the Data"}
-
 We need to download some raster data. NOAA has made nighttime lights data available for 1992 to 2013. It is called the Version 4 DMSP-OLS Nighttime Lights Time Series. The files are cloud-free composites made using all the available archived DMSP-OLS smooth resolution data for calendar years. In cases where two satellites were collecting data - two composites were produced. The products are 30 arc-second grids, spanning -180 to 180 degrees longitude and -65 to 75 degrees latitude. We can download the [Average, Visible, Stable Lights, & Cloud Free Coverages for 1992 and 2013](https://www.ngdc.noaa.gov/eog/data/web_data/v4composites/) and put them in the `data/Kenya_Tanzania` folder.
-
-::: 
+:::
 
 ::: callout-important
 You can also download the data [here](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EX85foAh7ZBBtSZ64pxbFmsBStf8UX2uaLXE5MBYJt6PeQ?e=LMYu7d). You will need to be logged into your UoL account.
@@ -353,6 +353,7 @@ plot(nl_rasters_stack,
 # change the names 
 names(nl_rasters_stack) <- c("NL1992", "NL2013")
 ```
+
 Why can't you see much? Discuss with the person next to you.
 
 ### **Country shapefiles**

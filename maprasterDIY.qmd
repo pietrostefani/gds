@@ -15,7 +15,6 @@ You will then need to download the shapefiles for France. You can use [GADM](htt
 1.  Plot your data and the CRS. Make sure your files are in the same CRS. Usually France uses the projected coordinate system [Lambert 93](https://epsg.io/2154) or EPSG = 2154
 2.  Crop and Mask the data
 3.  Visualise the elevation in `R` or `Python`.
-4.  If working in `R`: use `geom_spatraster_contour_filled` to create a contour map with specific breaks. If working in `Python` use Matplotlib's `contourf` or `contour`.
 
 ## Advanced
 

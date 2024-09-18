@@ -12,9 +12,6 @@ from rasterio.mask import mask
 from rasterio.plot import show
 from rasterio import features
 
-# For additional raster data processing 
-from osgeo import gdal 
-
 # For converting Shapely geometries to GeoJSON format
 from shapely.geometry import mapping
 
@@ -222,11 +219,15 @@ Questions to ask yourself about how you can improve these maps, going back to [g
 
 -   Should the colours be changed to standard elevation pallettes?
 
+<!--
 ### **Slope**
 
 It may sometimes prove useful to visualize these elevation models with mechanisms such as contour lines. Fortunately, this is fairly easy to accomplish in Python using packages such as GDAL and Matplotlib.
 
 ```{python}
+# For additional raster data processing 
+from osgeo import gdal 
+
 # Specify the filename of the raster file
 filename = "data/Lebanon/reprojected_elevation.tif"
 # Open the raster file using GDAL (Geospatial Data Abstraction Library)
@@ -304,6 +305,7 @@ plt.imshow(flood_risk, cmap='Greys')
 plt.title('Flood Risk Map')
 plt.show()
 ```
+-->
 
 ### **Spatial join with vector data**
 

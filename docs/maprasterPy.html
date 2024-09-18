@@ -496,8 +496,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reproject-the-raster" id="toc-reproject-the-raster" class="nav-link" data-scroll-target="#reproject-the-raster"><strong>Reproject the Raster</strong></a></li>
   <li><a href="#cropping-and-masking" id="toc-cropping-and-masking" class="nav-link" data-scroll-target="#cropping-and-masking"><strong>Cropping and Masking</strong></a></li>
   <li><a href="#plot-elevation" id="toc-plot-elevation" class="nav-link" data-scroll-target="#plot-elevation"><strong>Plot elevation</strong></a></li>
-  <li><a href="#slope" id="toc-slope" class="nav-link" data-scroll-target="#slope"><strong>Slope</strong></a></li>
-  <li><a href="#flood-risk-area" id="toc-flood-risk-area" class="nav-link" data-scroll-target="#flood-risk-area"><strong>Flood risk area</strong></a></li>
   <li><a href="#spatial-join-with-vector-data" id="toc-spatial-join-with-vector-data" class="nav-link" data-scroll-target="#spatial-join-with-vector-data"><strong>Spatial join with vector data</strong></a></li>
   </ul></li>
   <li><a href="#night-lights" id="toc-night-lights" class="nav-link" data-scroll-target="#night-lights">Night Lights</a>
@@ -537,7 +535,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this session, we will further explore the world of geographic data visualization by building upon our understanding of both raster data and choropleths. Raster data, consisting of gridded cells, allows us to represent continuous geographic phenomena such as temperature, elevation, or satellite imagery. Choropleths, on the other hand, are an effective way to visualize spatial patterns through the use of color-coded regions, making them invaluable for displaying discrete data like population density or election results. By combining these techniques, we will gain a comprehensive toolkit for conveying complex geographical information in a visually compelling manner.</p>
 <section id="importing-modules" class="level2">
 <h2 class="anchored" data-anchor-id="importing-modules">Importing Modules</h2>
-<div id="e07d79c6" class="cell" data-execution_count="1">
+<div id="a9f6b79b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing rasterio for handling raster data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.warp <span class="im">import</span> reproject, Resampling, calculate_default_transform</span>
@@ -545,34 +543,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.plot <span class="im">import</span> show</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio <span class="im">import</span> features</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For additional raster data processing </span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> osgeo <span class="im">import</span> gdal </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For converting Shapely geometries to GeoJSON format</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> mapping</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># For converting Shapely geometries to GeoJSON format</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> mapping</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># For plotting and visualizing data using Matplotlib</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Patch</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colorbar <span class="im">as</span> colorbar</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colors <span class="im">as</span> mcolors</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> ListedColormap, BoundaryNorm</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># For plotting and visualizing data using Matplotlib</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Patch</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colorbar <span class="im">as</span> colorbar</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colors <span class="im">as</span> mcolors</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> ListedColormap, BoundaryNorm</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># For working with geospatial data</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># For working with geospatial data</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># For numerical operations and handling arrays</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># These imports are for file and directory operations</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#import rioxarray as rxr</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterstats <span class="im">import</span> zonal_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># For numerical operations and handling arrays</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># These imports are for file and directory operations</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shutil</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#import rioxarray as rxr</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterstats <span class="im">import</span> zonal_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="terrain-data" class="level2">
@@ -581,12 +576,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="import-raster-data"><strong>Import raster data</strong></h3>
 <p>Raster <strong>terrain</strong> data consists of gridded elevation values that represent the topography of a geographic area. You can download this from the <a href="https://github.com/pietrostefani/gds/tree/main/data/Lebanon">relevant github folder</a>. A good place to download elevation data is <a href="https://earthexplorer.usgs.gov/">Earth Explorer</a>. This <a href="https://www.youtube.com/watch?v=NQg0g9ObhXE">video</a> takes you through the download process if you want to try this out yourself.</p>
 <p>We first import a raster file for elevation.</p>
-<div id="25f4e78a" class="cell" data-execution_count="2">
+<div id="d03e62ba" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>elevation <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/LBN_elevation_w_bathymetry.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Plot it.</p>
-<div id="2bff3edd" class="cell" data-execution_count="3">
+<div id="06f25c40" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(elevation.read(<span class="dv">1</span>), cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation'</span>)</span>
@@ -601,7 +596,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>This information is typically accessed and updated via the .profile.</p>
-<div id="abe65056" class="cell" data-execution_count="4">
+<div id="664b0149" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(elevation.profile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'driver': 'GTiff', 'dtype': 'float64', 'nodata': nan, 'width': 1150, 'height': 708, 'count': 1, 'crs': CRS.from_epsg(4326), 'transform': Affine(0.002500000000000124, 0.0, 33.74907268219525,
@@ -609,7 +604,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Have a look at the CRS.</p>
-<div id="9947c4cc" class="cell" data-execution_count="5">
+<div id="eb96e44a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the raster</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> elevation.crs</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -621,7 +616,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-the-lebanon-shapefile" class="level3">
 <h3 class="anchored" data-anchor-id="import-the-lebanon-shapefile"><strong>Import the Lebanon shapefile</strong></h3>
 <p>Import the Lebanon shapefile, plot it, and verify its Coordinate Reference System (CRS). Is it the same as the raster’s CRS?</p>
-<div id="0c7cc80d" class="cell" data-execution_count="6">
+<div id="c3bf0446" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the shapefile data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Lebanon_adm1 <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/LBN_adm1.shp"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -637,7 +632,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="2f11397c" class="cell" data-execution_count="7">
+<div id="1828724f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the shapefile</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> Lebanon_adm1.crs</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -648,7 +643,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reproject-the-raster" class="level3">
 <h3 class="anchored" data-anchor-id="reproject-the-raster"><strong>Reproject the Raster</strong></h3>
-<div id="14dbd8b5" class="cell" data-execution_count="8">
+<div id="71403a29" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the desired destination CRS</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dst_crs <span class="op">=</span> <span class="st">"EPSG:22770"</span>  <span class="co"># For example, WGS84</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -712,7 +707,7 @@ Destination Transform:
 <li><p>Typical Use: Masking is used when you want to extract or isolate specific areas or features within a raster dataset. For example, you might use a mask to extract land cover information within the boundaries of a protected national park.</p></li>
 </ul>
 <p>In many cases, these cropping and masking are executed one after the other because it is computationally easier to crop when dealing with large datasets, and then masking.</p>
-<div id="a26c4fd7" class="cell" data-execution_count="9">
+<div id="535de2fb" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>elevation_22770 <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/reprojected_elevation.tif"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use unary_union method to combine the geometries</span></span>
@@ -724,7 +719,7 @@ Destination Transform:
 </section>
 <section id="plot-elevation" class="level3">
 <h3 class="anchored" data-anchor-id="plot-elevation"><strong>Plot elevation</strong></h3>
-<div id="0ea901d3" class="cell" data-execution_count="10">
+<div id="f5d01d55" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming elevation_lebanon contains the cropped elevation data and Lebanon_adm1 is the GeoDataFrame</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the elevation data</span></span>
@@ -742,7 +737,7 @@ Destination Transform:
 </div>
 </div>
 <p>Let’s improve this a bit. Remember that there is a lot we can do with <a href="https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/#:~:text=Colormaps%20or%20Cmap%20in%20python%20colormaps%20is%20a%20very%20useful,custom%20ones%20using%20python%20colormaps">Cmap</a>.</p>
-<div id="0bbf5eee" class="cell" data-execution_count="11">
+<div id="af3c814d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the reversed 6 shades of orange</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>orange_shades_reversed <span class="op">=</span> [<span class="st">'#ef3b2c'</span>, <span class="st">'#fb6a4a'</span>, <span class="st">'#fc9272'</span>, <span class="st">'#fcbba1'</span>, <span class="st">'#fee0d2'</span>, <span class="st">'#fff5eb'</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -786,129 +781,155 @@ Destination Transform:
 <li><p>What are the logical breaks for elevation data?</p></li>
 <li><p>Should the colours be changed to standard elevation pallettes?</p></li>
 </ul>
-</section>
-<section id="slope" class="level3">
-<h3 class="anchored" data-anchor-id="slope"><strong>Slope</strong></h3>
-<p>It may sometimes prove useful to visualize these elevation models with mechanisms such as contour lines. Fortunately, this is fairly easy to accomplish in Python using packages such as GDAL and Matplotlib.</p>
-<div id="afbca088" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the filename of the raster file</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">"data/Lebanon/reprojected_elevation.tif"</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the raster file using GDAL (Geospatial Data Abstraction Library)</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>gdal_data <span class="op">=</span> gdal.Open(filename)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the first band (layer) of the raster data</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>gdal_band <span class="op">=</span> gdal_data.GetRasterBand(<span class="dv">1</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the value that represents 'no data' or missing data within the raster</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>nodataval <span class="op">=</span> gdal_band.GetNoDataValue()</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the raster data into a numpy array and convert it to a float64 data type</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>data_array <span class="op">=</span> gdal_data.ReadAsArray().astype(np.float64)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the array contains any 'no data' values</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> np.<span class="bu">any</span>(data_array <span class="op">==</span> nodataval):</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Replace 'no data' values with NaN (Not a Number) to handle them as missing data</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    data_array[data_array <span class="op">==</span> nodataval] <span class="op">=</span> np.nan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/Users/pietrost/miniconda3/lib/python3.11/site-packages/osgeo/gdal.py:312: FutureWarning: Neither gdal.UseExceptions() nor gdal.DontUseExceptions() has been explicitly called. In GDAL 4.0, exceptions will be enabled by default.
-  warnings.warn(</code></pre>
-</div>
-</div>
-<p>Raster data, such as a GeoTIFF, is typically stored with the origin (0,0) at the top-left corner. This means the first row in the data array corresponds to the top of the raster, and the last row corresponds to the bottom. However, when you visualize data using Matplotlib, the default behavior assumes that the origin (0,0) is at the bottom-left corner. This discrepancy can cause the image to appear flipped vertically.</p>
-<div id="e2154e71" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data_array_flipped <span class="op">=</span> np.flipud(data_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now that we’ve read our data in, we’re ready to visualize the elevation using contour lines within Matplotlib (Note: We will be re-reading in the data again here due to NaN values).</p>
-<div id="27239335" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot out data with Matplotlib's 'contour'</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">8</span>))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.contour(data_array_flipped, cmap <span class="op">=</span> <span class="st">"viridis"</span>, </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>            levels <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">4000</span>, <span class="dv">200</span>)))</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set limits for the x-axis</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="dv">450</span>, <span class="dv">1100</span>])  <span class="co"># Replace xmin and xmax with your desired values</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">750</span>])  <span class="co"># Replace xmin and xmax with your desired values</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>             </span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Elevation Lebanon"</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> plt.colorbar()</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, adjustable<span class="op">=</span><span class="st">'box'</span>)</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="maprasterPy_files/figure-html/cell-15-output-1.png" width="633" height="621" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>#Plot our data with Matplotlib’s ‘contourf’</p>
-<div id="8c2b5c00" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">8</span>))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.contourf(data_array_flipped, cmap <span class="op">=</span> <span class="st">"gist_earth"</span>, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            levels <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">4000</span>, <span class="dv">200</span>)))</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set limits for the x-axis</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="dv">450</span>, <span class="dv">1100</span>])  <span class="co"># Replace xmin and xmax with your desired values</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="dv">0</span>, <span class="dv">750</span>])  <span class="co"># Replace xmin and xmax with your desired values</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>             </span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Elevation Lebanon"</span>)</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> plt.colorbar()</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>, adjustable<span class="op">=</span><span class="st">'box'</span>)</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="maprasterPy_files/figure-html/cell-16-output-1.png" width="633" height="619" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="flood-risk-area" class="level3">
-<h3 class="anchored" data-anchor-id="flood-risk-area"><strong>Flood risk area</strong></h3>
-<p>We can employ reclassification techniques to delineate flood risk areas. Specifically, we identify and classify areas where the elevation is under 10 meters above sea level as high-risk zones. This critical step in flood risk assessment helps communities and decision-makers pinpoint vulnerable areas, enabling them to implement effective mitigation strategies and disaster preparedness plans to safeguard against potential flooding events.</p>
-<div id="b1ad7f11" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the function to create the flood_risk array</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>flood_risk <span class="op">=</span> np.where(data_array <span class="op">&lt;</span> <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">0</span>) <span class="co"># assigning 1 if the element is less than 10, and 0 otherwise. We cleaned data_array earlier.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="691c37fe" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new figure for the plot</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the flood_risk array</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.imshow(flood_risk, cmap<span class="op">=</span><span class="st">'Greys'</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Flood Risk Map'</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="maprasterPy_files/figure-html/cell-18-output-1.png" width="547" height="431" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<!--
+### **Slope**
+
+It may sometimes prove useful to visualize these elevation models with mechanisms such as contour lines. Fortunately, this is fairly easy to accomplish in Python using packages such as GDAL and Matplotlib.
+
+::: {#2645589e .cell execution_count=12}
+``` {.python .cell-code}
+# For additional raster data processing 
+from osgeo import gdal 
+
+# Specify the filename of the raster file
+filename = "data/Lebanon/reprojected_elevation.tif"
+# Open the raster file using GDAL (Geospatial Data Abstraction Library)
+gdal_data = gdal.Open(filename)
+# Retrieve the first band (layer) of the raster data
+gdal_band = gdal_data.GetRasterBand(1)
+# Get the value that represents 'no data' or missing data within the raster
+nodataval = gdal_band.GetNoDataValue()
+# Read the raster data into a numpy array and convert it to a float64 data type
+data_array = gdal_data.ReadAsArray().astype(np.float64)
+# Check if the array contains any 'no data' values
+if np.any(data_array == nodataval):
+    # Replace 'no data' values with NaN (Not a Number) to handle them as missing data
+    data_array[data_array == nodataval] = np.nan
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+/Users/pietrost/miniconda3/lib/python3.11/site-packages/osgeo/gdal.py:312: FutureWarning: Neither gdal.UseExceptions() nor gdal.DontUseExceptions() has been explicitly called. In GDAL 4.0, exceptions will be enabled by default.
+  warnings.warn(
+```
+:::
+:::
+
+
+Raster data, such as a GeoTIFF, is typically stored with the origin (0,0) at the top-left corner. This means the first row in the data array corresponds to the top of the raster, and the last row corresponds to the bottom. However, when you visualize data using Matplotlib, the default behavior assumes that the origin (0,0) is at the bottom-left corner. This discrepancy can cause the image to appear flipped vertically.
+
+::: {#a08dee45 .cell execution_count=13}
+``` {.python .cell-code}
+data_array_flipped = np.flipud(data_array)
+```
+:::
+
+
+Now that we’ve read our data in, we’re ready to visualize the elevation using contour lines within Matplotlib (Note: We will be re-reading in the data again here due to NaN values).
+
+::: {#fa4d5b53 .cell execution_count=14}
+``` {.python .cell-code}
+#Plot out data with Matplotlib's 'contour'
+fig = plt.figure(figsize = (8, 8))
+ax = fig.add_subplot(111)
+plt.contour(data_array_flipped, cmap = "viridis", 
+            levels = list(range(0, 4000, 200)))
+            
+# Set limits for the x-axis
+ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
+ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
+             
+plt.title("Elevation Lebanon")
+cbar = plt.colorbar()
+plt.gca().set_aspect('equal', adjustable='box')
+plt.show()
+```
+
+::: {.cell-output .cell-output-display}
+![](maprasterPy_files/figure-html/cell-15-output-1.png){width=633 height=621}
+:::
+:::
+
+
+#Plot our data with Matplotlib's 'contourf'
+
+::: {#79a087da .cell execution_count=15}
+``` {.python .cell-code}
+fig = plt.figure(figsize = (8, 8))
+ax = fig.add_subplot(111)
+plt.contourf(data_array_flipped, cmap = "gist_earth", 
+            levels = list(range(0, 4000, 200)))
+
+# Set limits for the x-axis
+ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
+ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
+             
+plt.title("Elevation Lebanon")
+cbar = plt.colorbar()
+plt.gca().set_aspect('equal', adjustable='box')
+plt.show()
+```
+
+::: {.cell-output .cell-output-display}
+![](maprasterPy_files/figure-html/cell-16-output-1.png){width=633 height=619}
+:::
+:::
+
+
+### **Flood risk area**
+
+We can employ reclassification techniques to delineate flood risk areas. Specifically, we identify and classify areas where the elevation is under 10 meters above sea level as high-risk zones. This critical step in flood risk assessment helps communities and decision-makers pinpoint vulnerable areas, enabling them to implement effective mitigation strategies and disaster preparedness plans to safeguard against potential flooding events.
+
+::: {#b9111555 .cell execution_count=16}
+``` {.python .cell-code}
+# Apply the function to create the flood_risk array
+flood_risk = np.where(data_array < 10, 1, 0) # assigning 1 if the element is less than 10, and 0 otherwise. We cleaned data_array earlier.
+```
+:::
+
+
+::: {#6dde17ed .cell execution_count=17}
+``` {.python .cell-code}
+# Create a new figure for the plot
+plt.figure()
+
+# Plot the flood_risk array
+plt.imshow(flood_risk, cmap='Greys')
+plt.title('Flood Risk Map')
+plt.show()
+```
+
+::: {.cell-output .cell-output-display}
+![](maprasterPy_files/figure-html/cell-18-output-1.png){width=547 height=431}
+:::
+:::
+
+
+-->
 </section>
 <section id="spatial-join-with-vector-data" class="level3">
 <h3 class="anchored" data-anchor-id="spatial-join-with-vector-data"><strong>Spatial join with vector data</strong></h3>
 <p>You might want to extract values from a raster data set, and then map them within a vector framework or extract them to analyse them statistically. If it therefore very useful to know how to extract:</p>
-<div id="620dd3f4" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load some geo-localized survey data</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>households <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/random_survey_LBN.shp"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the elevation raster file</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/LBN_elevation_w_bathymetry.tif"</span>) <span class="im">as</span> src:</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Reproject households coordinates to the CRS of the raster</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    households <span class="op">=</span> households.to_crs(src.crs)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract elevation values at the coordinates of the points</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    housesales_elevation <span class="op">=</span> [</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        val[<span class="dv">0</span>] <span class="cf">if</span> val <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> <span class="va">None</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> val <span class="kw">in</span> src.sample([(geom.x, geom.y) <span class="cf">for</span> geom <span class="kw">in</span> households.geometry])</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach elevation at each point to the original households GeoDataFrame</span></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>households[<span class="st">'elevation'</span>] <span class="op">=</span> housesales_elevation</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Check out the data</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(households.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1f6bcc8a" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load some geo-localized survey data</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>households <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/random_survey_LBN.shp"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the elevation raster file</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/LBN_elevation_w_bathymetry.tif"</span>) <span class="im">as</span> src:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Reproject households coordinates to the CRS of the raster</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    households <span class="op">=</span> households.to_crs(src.crs)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract elevation values at the coordinates of the points</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    housesales_elevation <span class="op">=</span> [</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        val[<span class="dv">0</span>] <span class="cf">if</span> val <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> val <span class="kw">in</span> src.sample([(geom.x, geom.y) <span class="cf">for</span> geom <span class="kw">in</span> households.geometry])</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Attach elevation at each point to the original households GeoDataFrame</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>households[<span class="st">'elevation'</span>] <span class="op">=</span> housesales_elevation</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Check out the data</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(households.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id                   geometry  elevation
 0   0  POINT (35.90386 33.72841)      876.0
@@ -971,38 +992,38 @@ Important
 </div>
 </div>
 <p>Before you move forward <strong>download the data for 1992 and 2013.</strong> It is also good practice to create a scratch folder where you do all your unzipping.</p>
-<div id="eb789d40" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster files</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>raster1_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F101992.v4b_web.stable_lights.avg_vis.tif'</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>raster2_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F182013.v4c_web.stable_lights.avg_vis.tif'</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the raster files</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(raster1_path) <span class="im">as</span> src1:</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    raster1 <span class="op">=</span> src1.read(<span class="dv">1</span>)  <span class="co"># Read the first (and only) band</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(raster2_path) <span class="im">as</span> src2:</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    raster2 <span class="op">=</span> src2.read(<span class="dv">1</span>)  <span class="co"># Read the first (and only) band</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stack the rasters along a new axis (depth axis)</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>stacked_rasters <span class="op">=</span> np.stack([raster1, raster2], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="da212570" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster files</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>raster1_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F101992.v4b_web.stable_lights.avg_vis.tif'</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>raster2_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F182013.v4c_web.stable_lights.avg_vis.tif'</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the raster files</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(raster1_path) <span class="im">as</span> src1:</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    raster1 <span class="op">=</span> src1.read(<span class="dv">1</span>)  <span class="co"># Read the first (and only) band</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(raster2_path) <span class="im">as</span> src2:</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    raster2 <span class="op">=</span> src2.read(<span class="dv">1</span>)  <span class="co"># Read the first (and only) band</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stack the rasters along a new axis (depth axis)</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>stacked_rasters <span class="op">=</span> np.stack([raster1, raster2], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f55dca3d" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the first raster</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>ax1.imshow(stacked_rasters[<span class="dv">0</span>], cmap<span class="op">=</span><span class="st">'cividis'</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'1992'</span>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ax1.axis(<span class="st">'off'</span>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the second raster</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>ax2.imshow(stacked_rasters[<span class="dv">1</span>], cmap<span class="op">=</span><span class="st">'cividis'</span>)</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'2013'</span>)</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>ax2.axis(<span class="st">'off'</span>)</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0b37a8f8" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the first raster</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ax1.imshow(stacked_rasters[<span class="dv">0</span>], cmap<span class="op">=</span><span class="st">'cividis'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'1992'</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>ax1.axis(<span class="st">'off'</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the second raster</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax2.imshow(stacked_rasters[<span class="dv">1</span>], cmap<span class="op">=</span><span class="st">'cividis'</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'2013'</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>ax2.axis(<span class="st">'off'</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1016,43 +1037,43 @@ Important
 <section id="country-shapefiles" class="level3">
 <h3 class="anchored" data-anchor-id="country-shapefiles"><strong>Country shapefiles</strong></h3>
 <p>The second step is to download the shapefiles for Kenya and Tanzania. GADM has made available national and subnational shapefiles for the world. The zips you download, such as <em>gadm36_KEN_shp.zip</em> from GADM should be placed in the <strong>Kenya_Tanzania</strong> folder. This is the link <a href="https://gadm.org/formats.html">gadm</a>.</p>
-<div id="af39b03c" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the data folder path</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>datafolder <span class="op">=</span> <span class="st">'data'</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List the country shapefiles downloaded from the GADM website</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> [os.path.join(root, <span class="bu">file</span>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(os.path.join(datafolder, <span class="st">"Kenya_Tanzania"</span>))</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files <span class="cf">if</span> <span class="bu">file</span>.endswith(<span class="st">"_shp.zip"</span>)]</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(files)</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scratch folder</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>scratch_folder <span class="op">=</span> os.path.join(datafolder, <span class="st">"Kenya_Tanzania"</span>, <span class="st">"scratch"</span>)</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>os.makedirs(scratch_folder, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Unzip the files</span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> zipfile.ZipFile(<span class="bu">file</span>, <span class="st">'r'</span>) <span class="im">as</span> zip_ref:</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        zip_ref.extractall(scratch_folder)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="co"># List GADM shapefiles</span></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>gadm_files <span class="op">=</span> [os.path.join(root, <span class="bu">file</span>)</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>              <span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(os.path.join(datafolder, <span class="st">"Kenya_Tanzania"</span>))</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>              <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files <span class="cf">if</span> <span class="bu">file</span>.startswith(<span class="st">"gadm"</span>)]</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gadm_files)</span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Select regional level 2 files</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>gadm_files_level2 <span class="op">=</span> [<span class="bu">file</span> <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> gadm_files <span class="cf">if</span> <span class="st">"2.shp"</span> <span class="kw">in</span> <span class="bu">file</span>]</span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gadm_files_level2)</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the shapefiles</span></span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>shps <span class="op">=</span> [gpd.read_file(shp) <span class="cf">for</span> shp <span class="kw">in</span> gadm_files_level2]</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shps)</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete the scratch folder with the data we don't need</span></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a><span class="co">#shutil.rmtree(scratch_folder)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a3439139" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the data folder path</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>datafolder <span class="op">=</span> <span class="st">'data'</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List the country shapefiles downloaded from the GADM website</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> [os.path.join(root, <span class="bu">file</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(os.path.join(datafolder, <span class="st">"Kenya_Tanzania"</span>))</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files <span class="cf">if</span> <span class="bu">file</span>.endswith(<span class="st">"_shp.zip"</span>)]</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(files)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scratch folder</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>scratch_folder <span class="op">=</span> os.path.join(datafolder, <span class="st">"Kenya_Tanzania"</span>, <span class="st">"scratch"</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>os.makedirs(scratch_folder, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Unzip the files</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> zipfile.ZipFile(<span class="bu">file</span>, <span class="st">'r'</span>) <span class="im">as</span> zip_ref:</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        zip_ref.extractall(scratch_folder)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co"># List GADM shapefiles</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>gadm_files <span class="op">=</span> [os.path.join(root, <span class="bu">file</span>)</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>              <span class="cf">for</span> root, dirs, files <span class="kw">in</span> os.walk(os.path.join(datafolder, <span class="st">"Kenya_Tanzania"</span>))</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>              <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files <span class="cf">if</span> <span class="bu">file</span>.startswith(<span class="st">"gadm"</span>)]</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gadm_files)</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Select regional level 2 files</span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>gadm_files_level2 <span class="op">=</span> [<span class="bu">file</span> <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> gadm_files <span class="cf">if</span> <span class="st">"2.shp"</span> <span class="kw">in</span> <span class="bu">file</span>]</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gadm_files_level2)</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the shapefiles</span></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>shps <span class="op">=</span> [gpd.read_file(shp) <span class="cf">for</span> shp <span class="kw">in</span> gadm_files_level2]</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shps)</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete the scratch folder with the data we don't need</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="co">#shutil.rmtree(scratch_folder)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['data/Kenya_Tanzania/gadm36_TZA_shp.zip', 'data/Kenya_Tanzania/gadm36_KEN_shp.zip']
 ['data/Kenya_Tanzania/gadm36_TZA_shp.zip', 'data/Kenya_Tanzania/gadm36_KEN_shp.zip', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.dbf', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.dbf', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.dbf', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.shp', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.shp', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.shp', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.cpg', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.cpg', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.cpg', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.prj', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.prj', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.prj', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.prj']
@@ -1169,30 +1190,30 @@ Important
 <h3 class="anchored" data-anchor-id="merge-shapefiles"><strong>Merge Shapefiles</strong></h3>
 <p>Even though it is not necessary here, we can merge the shapefile to visualize all the regions at once.</p>
 <p>When doing zonal statistics, it is faster and easier to process one country at a time and then combine the resulting tables. If you have access to a computer with multiple cores, it is also possible to do “parallel processing” to process each chunk at the same time in parallel.</p>
-<div id="31764829" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge all shapefiles into one GeoDataFrame</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> gpd.GeoDataFrame(pd.concat(shps, ignore_index<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, reset index if needed</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> merged_countries.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2d217aa4" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge all shapefiles into one GeoDataFrame</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> gpd.GeoDataFrame(pd.concat(shps, ignore_index<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, reset index if needed</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> merged_countries.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then plot Kenya and Tanzania at Regional Level 2:</p>
-<div id="ce8164b0" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot all shapefiles</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>merged_countries.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'k'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)  <span class="co"># No fill color</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#for gdf in shps:</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    gdf.plot(ax=ax, edgecolor='k', facecolor='none', alpha=0.5)  # Adjust alpha and edgecolor as needed</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set plot title and labels</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Regional Level 2 Shapefiles'</span>)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Longitude'</span>)</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Latitude'</span>)</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aaad72e2" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot all shapefiles</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>merged_countries.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">'k'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)  <span class="co"># No fill color</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#for gdf in shps:</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    gdf.plot(ax=ax, edgecolor='k', facecolor='none', alpha=0.5)  # Adjust alpha and edgecolor as needed</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set plot title and labels</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Regional Level 2 Shapefiles'</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Longitude'</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Latitude'</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1205,26 +1226,26 @@ Important
 <section id="zonal-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="zonal-statistics"><strong>Zonal statistics</strong></h3>
 <p>We use the module <code>rasterstats</code> to calculate the sum and average nighttime for each region. The nighttime lights rasters are quite large, but as we do not need to do any operations on them (e.g.&nbsp;calculations using the overlay function, cropping or masking to the shapefiles extent), the process should be relatively fast.</p>
-<div id="45efd2a6" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate zonal statistics for the first raster (1992)</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>stats_1992 <span class="op">=</span> zonal_stats(merged_countries, raster1_path, stats<span class="op">=</span>[<span class="st">'sum'</span>, <span class="st">'mean'</span>], nodata<span class="op">=-</span><span class="dv">9999</span>, geojson_out<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate zonal statistics for the second raster (2013)</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>stats_2013 <span class="op">=</span> zonal_stats(merged_countries, raster2_path, stats<span class="op">=</span>[<span class="st">'sum'</span>, <span class="st">'mean'</span>], nodata<span class="op">=-</span><span class="dv">9999</span>, geojson_out<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the zonal stats results to GeoDataFrames, retaining geometry and attributes</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf <span class="op">=</span> gpd.GeoDataFrame.from_features(stats_1992)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>stats_2013_gdf <span class="op">=</span> gpd.GeoDataFrame.from_features(stats_2013)</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, add a year column to distinguish between them</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">1992</span></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">2013</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the results into a single DataFrame</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>combined_stats_gdf <span class="op">=</span> pd.concat([stats_1992_gdf, stats_2013_gdf], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined_stats_gdf.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5b104eb5" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate zonal statistics for the first raster (1992)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>stats_1992 <span class="op">=</span> zonal_stats(merged_countries, raster1_path, stats<span class="op">=</span>[<span class="st">'sum'</span>, <span class="st">'mean'</span>], nodata<span class="op">=-</span><span class="dv">9999</span>, geojson_out<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate zonal statistics for the second raster (2013)</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>stats_2013 <span class="op">=</span> zonal_stats(merged_countries, raster2_path, stats<span class="op">=</span>[<span class="st">'sum'</span>, <span class="st">'mean'</span>], nodata<span class="op">=-</span><span class="dv">9999</span>, geojson_out<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the zonal stats results to GeoDataFrames, retaining geometry and attributes</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf <span class="op">=</span> gpd.GeoDataFrame.from_features(stats_1992)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>stats_2013_gdf <span class="op">=</span> gpd.GeoDataFrame.from_features(stats_2013)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally, add a year column to distinguish between them</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">1992</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">2013</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the results into a single DataFrame</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>combined_stats_gdf <span class="op">=</span> pd.concat([stats_1992_gdf, stats_2013_gdf], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(combined_stats_gdf.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                            geometry GID_0    NAME_0    GID_1  \
 0  MULTIPOLYGON (((36.86976 -3.52607, 36.86972 -3...   TZA  Tanzania  TZA.1_1   
@@ -1253,25 +1274,25 @@ Important
 <section id="visualize" class="level3">
 <h3 class="anchored" data-anchor-id="visualize"><strong>Visualize</strong></h3>
 <p>Let’s have a first look at our result.</p>
-<div id="4e71914f" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure with two subplots side by side</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 1992 with inverted colormap</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span><span class="st">'YlGnBu_r'</span>, legend<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax1)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Mean 1992"</span>)</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ax1.axis(<span class="st">'off'</span>)</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 2013 with inverted colormap</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>stats_2013_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span><span class="st">'YlGnBu_r'</span>, legend<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax2)</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Mean 2013"</span>)</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>ax2.axis(<span class="st">'off'</span>)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust layout</span></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plots</span></span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c717c49d" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure with two subplots side by side</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 1992 with inverted colormap</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span><span class="st">'YlGnBu_r'</span>, legend<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax1)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Mean 1992"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ax1.axis(<span class="st">'off'</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 2013 with inverted colormap</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>stats_2013_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span><span class="st">'YlGnBu_r'</span>, legend<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax2)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Mean 2013"</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>ax2.axis(<span class="st">'off'</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust layout</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plots</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1281,42 +1302,42 @@ Important
 </div>
 </div>
 <p>Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks.</p>
-<div id="abb8aed5" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define breaks and labels</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>breaks <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dv">63</span>]</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'0-0.05'</span>, <span class="st">'0.05-0.1'</span>, <span class="st">'0.1-2'</span>, <span class="st">'2-63'</span>]</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a custom colormap and normalization</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> plt.get_cmap(<span class="st">'YlGnBu_r'</span>)</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>norm <span class="op">=</span> mcolors.BoundaryNorm(breaks, cmap.N)</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure with two subplots side by side</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 1992 with custom colormap and breaks</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span>cmap, norm<span class="op">=</span>norm, legend<span class="op">=</span><span class="va">False</span>, ax<span class="op">=</span>ax1)</span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Mean 1992"</span>)</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>ax1.axis(<span class="st">'off'</span>)</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 2013 with custom colormap and breaks</span></span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>stats_2013_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span>cmap, norm<span class="op">=</span>norm, legend<span class="op">=</span><span class="va">False</span>, ax<span class="op">=</span>ax2)</span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Mean 2013"</span>)</span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>ax2.axis(<span class="st">'off'</span>)</span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a colorbar to the figure</span></span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> fig.colorbar(plt.cm.ScalarMappable(norm<span class="op">=</span>norm, cmap<span class="op">=</span>cmap), ax<span class="op">=</span>[ax1, ax2], orientation<span class="op">=</span><span class="st">'horizontal'</span>, fraction<span class="op">=</span><span class="fl">0.05</span>, pad<span class="op">=</span><span class="fl">0.18</span>, aspect<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Set ticks and labels to match the breaks</span></span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a><span class="co">#cbar.set_ticks(breaks)</span></span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a><span class="co">#cbar.set_ticklabels(labels)</span></span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust layout</span></span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plots</span></span>
-<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="21011c39" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define breaks and labels</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>breaks <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dv">63</span>]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'0-0.05'</span>, <span class="st">'0.05-0.1'</span>, <span class="st">'0.1-2'</span>, <span class="st">'2-63'</span>]</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a custom colormap and normalization</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> plt.get_cmap(<span class="st">'YlGnBu_r'</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>norm <span class="op">=</span> mcolors.BoundaryNorm(breaks, cmap.N)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure with two subplots side by side</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 1992 with custom colormap and breaks</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>stats_1992_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span>cmap, norm<span class="op">=</span>norm, legend<span class="op">=</span><span class="va">False</span>, ax<span class="op">=</span>ax1)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Mean 1992"</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>ax1.axis(<span class="st">'off'</span>)</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot for 2013 with custom colormap and breaks</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>stats_2013_gdf.plot(column<span class="op">=</span><span class="st">'mean'</span>, cmap<span class="op">=</span>cmap, norm<span class="op">=</span>norm, legend<span class="op">=</span><span class="va">False</span>, ax<span class="op">=</span>ax2)</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Mean 2013"</span>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>ax2.axis(<span class="st">'off'</span>)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a colorbar to the figure</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> fig.colorbar(plt.cm.ScalarMappable(norm<span class="op">=</span>norm, cmap<span class="op">=</span>cmap), ax<span class="op">=</span>[ax1, ax2], orientation<span class="op">=</span><span class="st">'horizontal'</span>, fraction<span class="op">=</span><span class="fl">0.05</span>, pad<span class="op">=</span><span class="fl">0.18</span>, aspect<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Set ticks and labels to match the breaks</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="co">#cbar.set_ticks(breaks)</span></span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="co">#cbar.set_ticklabels(labels)</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust layout</span></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plots</span></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/hy/6sv_zjnd3xb09mr88dlvbtjw0000gn/T/ipykernel_56119/423459503.py:30: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+<pre><code>/var/folders/hy/6sv_zjnd3xb09mr88dlvbtjw0000gn/T/ipykernel_39454/423459503.py:30: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
   plt.tight_layout()</code></pre>
 </div>
 <div class="cell-output cell-output-display">
