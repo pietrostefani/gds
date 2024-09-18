@@ -1,0 +1,22 @@
+---
+output: 
+  html:
+    code_fold: true
+---
+
+# Download data from github {.unnumbered}
+
+1.  Go to [https://download-directory.github.io](https://download-directory.github.io)
+
+<img src="./img/download1.png" width="70%"/>
+
+2. Go to the folder you need for your Lab. For example copy: [https://github.com/pietrostefani/gds/tree/main/data/London](https://github.com/pietrostefani/gds/tree/main/data/London)
+
+<img src="./img/download2.png" width="60%"/>
+
+3. Paste it in the green box... give it a few minutes
+
+4. Check your downloads file and unzip
+
+<img src="./img/download3.png" width="60%"/>
+

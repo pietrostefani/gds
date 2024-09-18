@@ -53,6 +53,7 @@ print(mena_sf.head())
 :::
 
 We then load the `csv` with some World Development Indicators data.
+
 ```{python}
 world_dev = pd.read_csv("data/MENA/mena_worlddevelop.csv")
 ```
@@ -72,6 +73,7 @@ mena_sf.rename(columns={'code_a3': 'Country Code'}, inplace=True)
 ```
 
 Merge `GeoDataFrame` and `DataFrame`
+
 ```{python}
 world_dev_gdf = mena_sf.merge(world_dev, on='Country Code')
 ```
@@ -86,7 +88,8 @@ A choropleth for categorical variables simply assigns a different color to every
 
 **Ordinal** : Ordinal variables represent categories or labels with a meaningful *order* or *ranking*. The relative order or hierarchy among the categories is significant, indicating a clear progression from lower to higher values, such as "low," "medium," and "high" for satisfaction levels.
 
-In Python, creating categorical choropleths is possible with one line of code. 
+In Python, creating categorical choropleths is possible with one line of code.
+
 ```{python}
 world_dev_gdf.plot(
     column="income_group",  # Specifies the column "income_group" to color the plot based on categories
@@ -126,7 +129,6 @@ world_dev_filtered = filtered_data
 
 ```
 
-
 An equal interval classification scheme produces a map of 5 classes where each class size is equal, so that each class has an equal range in between the low and high possible value. This allows for the legend to be easily understood by the viewer, since the legend entries are all the same size. However, this scheme does not show data which are skewed towards one side all that well.
 
 ```{python}
@@ -157,16 +159,16 @@ plt.subplots_adjust(right=0.70)  # Increase right space to accommodate a larger 
 plt.show()
 
 ```
+
 Pay attention to the key differences:
 
-- Instead of specifyig `categorical` as `True`, we replace it by the argument scheme, which we will use for all choropleths that require a continuous classification scheme. In this case, we set it to `equal_interval`.
+-   Instead of specifyig `categorical` as `True`, we replace it by the argument scheme, which we will use for all choropleths that require a continuous classification scheme. In this case, we set it to `equal_interval`.
 
-- As above, we set the number of colors to 7. Note that we need not pass the bins we calculated above, the plotting method does it itself under the hood for us.
+-   As above, we set the number of colors to 7. Note that we need not pass the bins we calculated above, the plotting method does it itself under the hood for us.
 
-- As optional arguments, we can change the colourmap to a yellow to green gradient, which is one of the recommended ones by `ColorBrewer` for a sequential palette.
+-   As optional arguments, we can change the colourmap to a yellow to green gradient, which is one of the recommended ones by `ColorBrewer` for a sequential palette.
 
 ::: callout-tip
-
 ## Mapclassify
 
 The way colour maps are scaled can also be manipulated with the `scheme` option (if you have mapclassify installed).
@@ -176,10 +178,9 @@ The `scheme` option can be set to any scheme provided by mapclassify (e.g. ‘bo
 Arguments can be passed in classification_kwds dict.
 
 See the mapclassify documentation for further details about these [map classification](https://pysal.org/mapclassify/) schemes.
-
 :::
 
-It is important to understand that equal intervals can first and foremost be visualised on the data distribution. 
+It is important to understand that equal intervals can first and foremost be visualised on the data distribution.
 
 ```{python}
 classi = mapclassify.EqualInterval(world_dev_filtered["v_2015"], k=7)
@@ -187,6 +188,7 @@ classi
 ```
 
 Once we have classified the variable, we can check the actual break points where values stop being in one class and become part of the next one:
+
 ```{python}
 classi.bins
 ```
@@ -254,6 +256,7 @@ classi
 ```
 
 And, similarly, the bins can also be inspected:
+
 ```{python}
 classi.bins
 ```
@@ -306,6 +309,7 @@ plt.subplots_adjust(right=0.70)  # Increase right space to accommodate a larger 
 plt.show()
 
 ```
+
 The same classification can be obtained with a similar approach as before:
 
 ```{python}
@@ -314,11 +318,13 @@ classi
 ```
 
 Once we have classified the variable, we can check the actual break points where values stop being in one class and become part of the next one:
+
 ```{python}
 classi.bins
 ```
 
 Now let's look at the density plot
+
 ```{python}
 # Set up the figure
 f, ax = plt.subplots(1)
@@ -369,4 +375,4 @@ plt.show()
 
 -   If you want to have a look at **Choropleths in Python** have a look at the chapter on choropleth mapping by [Rey, Arribas-Bel and Wolf](https://geographicdata.science/book/notebooks/05_choropleth.html)
 
-- Some more on mapping [here](https://geopandas.org/en/stable/docs/user_guide/mapping.html)
+-   Some more on mapping [here](https://geopandas.org/en/stable/docs/user_guide/mapping.html)

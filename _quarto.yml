@@ -15,6 +15,7 @@ book:
       chapters:
         - environR.qmd
         - environPy.qmd
+        - download.qmd
     - part: intro.qmd
       chapters:
         - openscienceR.qmd

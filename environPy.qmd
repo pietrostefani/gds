@@ -11,7 +11,13 @@ To run the analysis and reproduce the code in Python, you will need to set up th
 -   Execute the [Jupyter Notebooks](https://docs.jupyter.org/en/latest/) of the Lab sessions of the course.
 -   Prepare your own Jupyter Notebooks for the assignments.
 
-We will use `Minconda` to handle our working environment. *Miniconda is a free minimal installer for conda. It is a small bootstrap version of Anaconda that includes only conda, Python, the packages they both depend on, and a small number of other useful packages (like pip, zlib, and a few others)*
+::: {.callout-important}
+
+**Do not** try to run Python code in RStudio. Only run in Jupyter Notebooks (.ipynb) with the Python environment provided.
+
+:::
+
+We will use `Miniconda` to handle our working environment. 
 
 ## Set up Miniconda (and Python) on Ms Windows {.unnumbered}
 
@@ -19,20 +25,28 @@ We will use `Minconda` to handle our working environment. *Miniconda is a free m
 
 1.  Install Miniconda:
 
-    -   *Option 1*: On a UoL Machine: Download and install Miniconda from [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). This will install Miniconda and Python in `C:\`. If this process is aborted because it requires administrator rights, press `Start`, select `Install University Applications`, type and choose `Miniconda`.
+    -   *Option 1*: On a UoL Machine: Anaconda is installed on many university machines. Please check whether it is installed. If not, download and install Anaconda through from `Install University Applications`, type and choose `Anaconda`.
 
-    -   *Option 2*, **Recommended**: Install Miniconda on your personal Laptop: Follow the instructions [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html).
+    -   *Option 2*: **Recommended**: Install Miniconda on your personal Laptop: Follow the instructions [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html).
 
 2.  During the installation, leave the default settings. In particular, when asked whom to "Install Miniconda for", choose "Just for me".
 
-**Important:** If you do choose to work on University Machines you will have to reinstall `Miniconda` every lab session unless you use a PC where Miniconda has been installed already.
+::: {.callout-caution}
 
-**Alternatively**, you can work on the lab notebooks directly on the web. This does not require to install `Miniconda`. However, it represents a much slower option, especially when setting up the environment. To do so, you can access the data and the lab notebooks in the `\labs` directory from a virtual copy of the course repository [here](https://mybinder.org/v2/gh/GDSL-UL/wma/HEAD). If you opt for this option, you do not need to follow the rest of the instructions below.
+## University Machines
+If you do choose to work on University Machines
+1. Chose a machine where Anaconda has been pre-installed.
+2. Always use the same machine. For example if on the first day you are using CT60 Station 17 - Orange Zone, continue using this machine for the rest of the course. If you change machine you will need to re-install the environment every time.
+
+:::
 
 ### Set up the Directories {.unnumbered}
 
-1.  Create a folder where you want to keep your work conducted throughout this course. For example, call it `envs363_563`. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in `M:/`, which should your "virtual" hard-disk.
-2.  Download the [data](https://github.com/pietrostefani/gds/tree/main/data) to run and render the jupyter notebooks.
+1.  Create a folder where you want to keep your work conducted throughout this course. For example, call it `envs363_563`. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in `M:/`, which is your "virtual" hard-disk.
+
+<img src="./img/Step1_py.jpeg" width="60%"/>
+
+2.  Download the [data](https://github.com/pietrostefani/gds/tree/main/data) to run and render the jupyter notebooks. To learn how to download folders from github see [here](https://pietrostefani.github.io/gds/download.html).
 3.  Unzip the folders and move the nested folders into the folder `envs363_563`.
 4.  Create another folder called `labs`
 
@@ -48,19 +62,22 @@ envs363_563/
 
 1.  Download the `envs363_563.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
 2.  Save it in the folder `envs363_563` created before.
-3.  Type in the search bar and find the `Anaconda Prompt (miniconda 3)`. Launch it. The terminal should appear.
+3.  Type in the search bar and find the `Anaconda Powershell Prompt` if working on University Machine or `Anaconda Prompt (miniconda 3)` if on your personal. Launch it. The terminal should appear.
 
-<img src="./img/environ_Py_1.png" width="80%"/>
+<img src="./img/Step2_py.jpeg" width="60%"/>
 
-3.  In the **Anaconda Terminal** write: `conda env create -n envs363_563 --file C:\envs363\envs363_563.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
+3.  In the **Anaconda Terminal** write: `conda env create -n envs363_563 --file M:\envs363\envs363_563.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
 4.  If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 5.  In the **Anaconda Terminal** write `conda activate envs363_563` and press `Enter`. This activates your working environment.
+
+<img src="./img/Step4_py.jpeg" width="60%"/>
+
 6.  *Necessary* on University machines, otherwise *Optional*: Configuration of Jupyter Notebooks
     -   In the **Anaconda Terminal**, write `jupyter server --generate-config` and press enter. This, at least in Windows, should create a file to: `C:\Users\username\.jupyter\jupyter_server_config.py`.
-    -   Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a `ctrl-f` search for: `c.ServerApp.root_dir`, uncomment it by removing the and change it to `c.ServerApp.notebook_dir = 'C:\\your\\new\\path`, for example the directory where you created the `envs363_563` folder. In the University Machines, it is advised to work on the directory `M:\`.
+    -   Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a `ctrl-f` search for: `c.ServerApp.root_dir`, uncomment it by removing the # and change it to `c.ServerApp.notebook_dir = 'M:\\your\\new\\path`, for example the directory where you created the `envs363_563` folder. In the University Machines, it is advised to work on the directory `M:\`.
     -   Save the file and close it.
 
-<img src="./img/environ_Py_2.png" width="80%"/>
+<img src="./img/Step5_py.jpeg" width="80%"/>
 
 ### Start a Lab Session {.unnumbered}
 
@@ -68,10 +85,11 @@ envs363_563/
 
 <img src="./img/environ_Py_3.png" width="80%"/>
 
+```{=html}
 <!--
 Needs new screenshot
 -->
-
+```
 2.  Save the file in the `labs` folder within your `envs363_563` folder on your machine.
 3.  Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`.
 4.  In the **Anaconda Terminal** write and run `conda activate envs363_563`.
@@ -79,10 +97,11 @@ Needs new screenshot
 
 <img src="./img/environ_Py_4.png" width="80%"/>
 
+```{=html}
 <!--
 Needs new screenshot
 -->
-
+```
 6.  Navigate to your course folder in and double click on the notebook downloaded in step 1.
 7.  You can now work on your copy of the notebook.
 
@@ -112,7 +131,6 @@ envs363_563/ ├── data/ └── labs/
 
 <img src="./img/environ_Py_5.png" width="80%"/>
 
-
 ### Set up the Python Environment {.unnumbered}
 
 1.  Download the `envs363_563.yml` from GitHub by clicking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
@@ -126,7 +144,6 @@ envs363_563/ ├── data/ └── labs/
 5.  You should then see this
 
 <img src="./img/environ_Py_8.png" width="50%"/>
-
 
 ### Start a Lab Session {.unnumbered}
 
@@ -151,10 +168,11 @@ envs363_563/ ├── data/ └── labs/
 
 ## Py Basics
 
+```{=html}
 <!--
 Carmen can you add something here for it to be similar to the R version
 -->
-
+```
 ## Resources
 
 Some help along the way with:

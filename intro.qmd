@@ -4,7 +4,7 @@ In this section we introduce what Geographic Data Science is. We top it up with 
 
 Slides can be downloaded ["here"](/html/introduction_gds.pdf)
 
-## From Geographic Data Science to Geographic Data Science
+## From Geographic Information Systems to Geographic Data Science
 
 Geographic Information holds a pivotal position within our modern societies, permeating various aspects of our daily lives. It underpins essential sectors such as housing, transportation, insurance, banking, telecommunications, logistics, energy, retail, agriculture, healthcare, and urban planning. Its significance lies in the capacity to analyze and derive invaluable insights from geo-spatial data, enabling us to make informed decisions and address complex challenges. Proficiency in this field equips individuals with the ability to work with real-world data across multiple domains and tackle diverse problems. Furthermore, it provides the opportunity to acquire essential data science skills and utilize important tools for answering spatial questions. Given its wide-ranging applications and the increasing reliance on location-based information, there is a substantial demand for experts in the geographic information industry, making it a highly sought-after skill set in today's workforce.
 
