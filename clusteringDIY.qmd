@@ -1,11 +1,23 @@
 # Do-It-Yourself {#sec-clusteringlab .unnumbered}
 
+::: {.panel-tabset group="language"}
+## R
+
 ```{r}
 #| message: false
 library(sf)
 library(tmap)
 library(rosm)
 ```
+
+## Python
+
+```{python}
+import geopandas
+import contextily
+import matplotlib.pyplot as plt
+```
+:::
 
 ## Task I: NYC Geodemographics
 
@@ -43,12 +55,27 @@ Once this is ready, get to work with the following tasks:
 
 For this task we will travel to Tanzania's Dar Es Salaam. We are using a dataset assembled to describe the built environment of the city centre. Let's load up the dataset before anything:
 
+::: {.panel-tabset group="language"}
+## R
+
 ```{r}
 df <- st_read('./data/Kenya_Tanzania/dar_es_salaam.geojson')
 ```
 
+## Python
+
+```{python}
+df = geopandas.read_file(
+    "./data/Kenya_Tanzania/dar_es_salaam.geojson"
+)
+```
+:::
+
 Geographically, this is what we are looking at:
 
+::: {.panel-tabset group="language"}
+
+## R
 ```{r}
 #| message: false
 map <- tm_shape(df) +
@@ -60,11 +87,41 @@ base_map <- osm.raster(df) #add a basemap
 tm_shape(base_map) + tm_rgb() + map
 ```
 
+## Python
+
+```{python}
+ax = df.plot(
+    facecolor="none", 
+    edgecolor="red",
+    linewidth=0.5,
+    figsize=(9, 9)
+)
+
+contextily.add_basemap(
+    ax, 
+    crs=df.crs, 
+    source=contextily.providers.Esri.WorldImagery
+    )
+    
+plt.show()
+```
+:::
+
 We can inspect the data:
 
+::: {.panel-tabset group="language"}
+
+## R
 ```{r}
 head(df)
 ```
+
+## Python
+
+```{python}
+df.info()
+```
+:::
 
 Two main aspects of the built environment are considered: the street network and buildings. To capture those, the following variables are calculated at for the H3 hexagonal grid system, zoom level 8:
 

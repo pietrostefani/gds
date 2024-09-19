@@ -204,7 +204,7 @@ To illustrate these concepts, we will run a regionalisation algorithm on the Air
 
 Very much in the same way as with ESDA techniques, regionalisation methods require a formal representation of space that is statistics-friendly. In practice, this means that we will need to create a spatial weights matrix for the areas to be aggregated.
 
-Technically speaking, this is the same process as we have seen before, thanks to PySAL. The difference in this case is that we did not begin with a shapefile, but with a GeoJSON. Fortunately, PySAL supports the construction of spatial weights matrices “on-the-fly”, that is from a table. This is a one-liner:
+Technically speaking, this is the same process as we have seen before to create weight matrices. The difference in this case is that we did not begin with a shapefile, but with a GeoJSON. This is a one-liner:
 
 ```{r}
 # list all adjacent polygons for each polygon
