@@ -47,4 +47,3 @@ The last action is a bit more sophisticated, put all your brain power into it an
 :::
 
 -   Create cluster maps for significance levels 1% and 10%; compare them with the one we obtained. What are the main changes? Why?
-
