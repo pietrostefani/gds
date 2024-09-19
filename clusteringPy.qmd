@@ -204,7 +204,7 @@ k5sizes
 The `groupby` operator groups a dataframe using the values in the column provided (`k5cls`) and passes them onto the function provided aftwerards, which in this case is `size`. Effectively, what this does is to groupby the observations by the categories created and count how many of them each contains. For a more visual representation of the output, a bar plot is a good alternative:
 
 ```{python}
-fig, ax = plt.subplots(figsize=(7, 7))
+fig, ax = plt.subplots(figsize=(7, 5))
 k5sizes.plot(kind='bar', color='skyblue')
 plt.title('Count of Categories in k5cls')
 plt.xlabel('k5cls Categories')
