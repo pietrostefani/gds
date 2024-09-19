@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -47,13 +81,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -62,17 +90,25 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="A course in Geographic Data Science - Lab in Python">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://pietrostefani.github.io/wma/spatialwPy_files/figure-html/cell-12-output-2.png">
 <meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="938">
+<meta name="twitter:image-width" content="938">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -81,12 +117,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialw.html">6 Spatial Weights</a></li><li class="breadcrumb-item"><a href="./spatialwPy.html">Lab in Python</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialw.html">6 Spatial Weights</a></li><li class="breadcrumb-item"><a href="./spatialwPy.html">Lab in Python</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -96,12 +132,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/pietrostefani/gds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -172,6 +208,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./environPy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download data from github</span></a>
   </div>
 </li>
       </ul>
@@ -440,15 +482,31 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#importing-modules" id="toc-importing-modules" class="nav-link active" data-scroll-target="#importing-modules">Importing modules:</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#building-spatial-weights" id="toc-building-spatial-weights" class="nav-link" data-scroll-target="#building-spatial-weights">Building spatial weights</a>
+  <ul class="collapse">
+  <li><a href="#contiguity" id="toc-contiguity" class="nav-link" data-scroll-target="#contiguity">Contiguity</a></li>
+  <li><a href="#distance" id="toc-distance" class="nav-link" data-scroll-target="#distance">Distance</a></li>
+  <li><a href="#block-weights" id="toc-block-weights" class="nav-link" data-scroll-target="#block-weights">Block weights</a></li>
+  </ul></li>
+  <li><a href="#standardising-spatial-weights-matrices" id="toc-standardising-spatial-weights-matrices" class="nav-link" data-scroll-target="#standardising-spatial-weights-matrices">Standardising spatial weights matrices</a></li>
+  <li><a href="#spatial-lag" id="toc-spatial-lag" class="nav-link" data-scroll-target="#spatial-lag">Spatial lag</a></li>
+  <li><a href="#moran-plot" id="toc-moran-plot" class="nav-link" data-scroll-target="#moran-plot">Moran plot</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/spatialwPy.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialw.html">6 Spatial Weights</a></li><li class="breadcrumb-item"><a href="./spatialwPy.html">Lab in Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span id="sec-spatial-w-Py" class="quarto-section-identifier">Lab in Python</span></h1>
 </div>
@@ -463,12 +521,685 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-
 </header>
 
+<p>There are several ways to create spatial weigths matrices so they contain an accurate representation that aligns with the way we understand spatial interactions between observations associated with different locations. In this session, we will introduce the most commonly used ones and will show how to compute them.</p>
+<section id="importing-modules" class="level2">
+<h2 class="anchored" data-anchor-id="importing-modules">Importing modules:</h2>
+<p>We start by importing the following modules:</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pysal.lib <span class="im">import</span> weights</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>For this session, we will use a dataset of small areas (or Lower layer Super Output Areas, LSOAs) for Liverpool, UK. The dataset is accessed remotely through the web or downloaded from GitHub and then loaded into the <code>df</code> variable:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the file in</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> gpd.read_file(<span class="st">"./data/Liverpool/liv_lsoas.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="building-spatial-weights" class="level2">
+<h2 class="anchored" data-anchor-id="building-spatial-weights">Building spatial weights</h2>
+<section id="contiguity" class="level3">
+<h3 class="anchored" data-anchor-id="contiguity">Contiguity</h3>
+<p>Contiguity weights matrices define spatial connections through the existence of common boundaries. This makes it directly suitable to use with polygons: if two polygons share boundaries to some degree, they will be labeled as neighbors under these kinds of weights. We will learn two approaches, namely queen and rook, characterised by how much they need to share.</p>
+<ul>
+<li><strong>Queen</strong></li>
+</ul>
+<p>Under the queen criterion, two observations only need to share a vertex (a single point) of their boundaries to be considered neighbors. Constructing a weights matrix under these principles can be done by running:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>w_queen <span class="op">=</span> weights.Queen.from_dataframe(df, ids<span class="op">=</span><span class="st">"LSOA11CD"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>w_queen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>&lt;libpysal.weights.contiguity.Queen at 0x176bec1d0&gt;</code></pre>
+</div>
+</div>
+<p>The command above creates an object w_queen of the class <code>W</code>. This is the format in which spatial weights matrices are stored in <code>PySAL</code>. In reality, <code>w_queen</code> is not stored as a matrix containing values for each pair of observations, including zeros for those that are not neighbours. Instead, to save memory, for each observation it stores a list of those other observations that are neighbours according to the queen criterion, and it does not store any values for those observations that are not neighbours.</p>
+<p>A <code>W</code> object can be queried to find out about the contiguity relations it contains. For example, if we would like to know who is a neighbor of observation E01006690:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>w_queen[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>{'E01006695': 1.0,
+ 'E01006692': 1.0,
+ 'E01006697': 1.0,
+ 'E01006759': 1.0,
+ 'E01006691': 1.0,
+ 'E01006720': 1.0,
+ 'E01033763': 1.0}</code></pre>
+</div>
+</div>
+<p>This returns a Python dictionary that contains the ID codes of each neighbor as keys, and the weights they are assigned as values. Since we are looking at a raw queen contiguity matrix, every neighbor gets a weight of one. If we want to access the weight of a specific neighbor, E01006691 for example, we can do recursive querying:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>w_queen[<span class="st">'E01006690'</span>][<span class="st">'E01006691'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>1.0</code></pre>
+</div>
+</div>
+<p>To check whether, for example, E01006519 is a neighbour of E01006690, we can run the following code:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">'E01006519'</span> <span class="kw">in</span> w_queen[<span class="st">'E01006690'</span>].keys()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>Of course we obtain <code>False</code> since E01006519 does not appear in the list of neighbours of E01006690.</p>
+<p><code>W</code> objects also have a direct way to provide a list of all the neighbors or their weights for a given observation. This is thanks to the <code>neighbors</code> and <code>weights</code> attributes:</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>w_queen.neighbors[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>['E01006695',
+ 'E01006692',
+ 'E01006697',
+ 'E01006759',
+ 'E01006691',
+ 'E01006720',
+ 'E01033763']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>w_queen.weights[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]</code></pre>
+</div>
+</div>
+<p>Once created, <code>W</code> objects can provide much information about the matrix, beyond the basic attributes one would expect. We have direct access to the number of neighbors each observation has via the attribute cardinalities. For example, to find out how many neighbors observation E01006524 has:</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>w_queen.cardinalities[<span class="st">'E01006524'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>6</code></pre>
+</div>
+</div>
+<p>Since <code>cardinalities</code> is a dictionary, it is direct to convert it into a <code>Series</code> object:</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>queen_card <span class="op">=</span> pd.Series(w_queen.cardinalities)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>queen_card.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>E01006512    6
+E01006513    9
+E01006514    5
+E01006515    8
+E01006518    5
+dtype: int64</code></pre>
+</div>
+</div>
+<p>This allows, for example, to access quick plotting, which comes in very handy to get an overview of the size of neighborhoods in general:</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sns.displot(queen_card, bins<span class="op">=</span><span class="dv">10</span>,  kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/carmen/anaconda3/envs/gds-python/lib/python3.11/site-packages/seaborn/axisgrid.py:118: UserWarning:
+
+The figure layout has changed to tight
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialwPy_files/figure-html/cell-12-output-2.png" width="469" height="469"></p>
+</div>
+</div>
+<p>The figure above shows how most observations have around five neighbors, but there is some variation around it. The distribution also seems to follow a symmetric form, where deviations from the average occur both in higher and lower values almost evenly.</p>
+<p>Some additional information about the spatial relationships contained in the matrix are also easily available from a W object. Let us tour over some of them:</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of observations</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>w_queen.n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>298</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average number of neighbors</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>w_queen.mean_neighbors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>5.617449664429531</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Min number of neighbors</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>w_queen.min_neighbors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>1</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Max number of neighbors</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>w_queen.max_neighbors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>11</code></pre>
+</div>
+</div>
+<p>Are there any isolated nodes, or in other words, are there any polygons that have zero queen neighbours?</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Islands (observations disconnected)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>w_queen.islands</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>[]</code></pre>
+</div>
+</div>
+<p>The answer is no!</p>
+<p>Let’s visualise the queen neighbourhood of observation E01006690. To do this, we first create sub data frames including this polygon and its queen neighbourhood:</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot base layer of polygons</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>df.plot(ax<span class="op">=</span>ax, facecolor<span class="op">=</span><span class="st">'k'</span>, linewidth<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Select focal polygon</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>focus <span class="op">=</span> df[df[<span class="st">'LSOA11CD'</span>] <span class="op">==</span> <span class="st">'E01006690'</span>]</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot focal polygon</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>focus.plot(facecolor<span class="op">=</span><span class="st">'red'</span>, alpha<span class="op">=</span><span class="dv">1</span>, linewidth<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot neighbors</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>neis <span class="op">=</span> df[df[<span class="st">'LSOA11CD'</span>].isin(w_queen[<span class="st">'E01006690'</span>].keys())]</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>neis.plot(ax<span class="op">=</span>ax, facecolor<span class="op">=</span><span class="st">'lime'</span>, linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Title</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">"Queen neighbors of `E01006690`"</span>)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Style and display on screen</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">388000</span>, <span class="dv">393500</span>)</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">336000</span>, <span class="dv">339500</span>)</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialwPy_files/figure-html/cell-18-output-1.png" width="387" height="543"></p>
+</div>
+</div>
+<p>Note how the figure is built gradually, from the base map, to the focal point, to its neighborhood. Once the entire figure is plotted, we zoom into the area of interest.</p>
+<ul>
+<li><strong>Rook</strong></li>
+</ul>
+<p>Rook contiguity is similar to and, in many ways, superseded by queen contiguity. However, since it sometimes comes up in the literature, it is useful to know about it. The main idea is the same: two observations are neighbors if they share some of their boundary lines. However, in the rook case, it is not enough with sharing only one point, it needs to be at least a segment of their boundary. In most applied cases, these differences usually boil down to how the geocoding was done, but in some cases, such as when we use raster data or grids, this approach can differ more substantively and it thus makes more sense.</p>
+<p>From a technical point of view, constructing a rook matrix is very similar:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>w_rook <span class="op">=</span> weights.Rook.from_dataframe(df, ids<span class="op">=</span><span class="st">"LSOA11CD"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>w_rook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>&lt;libpysal.weights.contiguity.Rook at 0x176bec990&gt;</code></pre>
+</div>
+</div>
+<p>The output is of the same type as before, a W object that can be queried and used in very much the same way as any other one.</p>
+</section>
+<section id="distance" class="level3">
+<h3 class="anchored" data-anchor-id="distance">Distance</h3>
+<p>Distance-based matrices assign the weight to each pair of observations as a function of how far from each other they are. How this is translated into an actual weight varies across types and variants, but they all share that the ultimate reason why two observations are assigned some weight is due to the distance between them.</p>
+<ul>
+<li><span class="math inline">\(K\)</span><strong>-nearest neighbours</strong></li>
+</ul>
+<p>One approach to define weights is to take the distances between a given observation and the rest of the set, rank them, and consider as neighbors the <span class="math inline">\(k\)</span> closest ones. That is exactly what the <span class="math inline">\(k\)</span>-nearest neighbors (KNN) criterion does.</p>
+<p>To calculate KNN weights, we can use a similar function as before and derive them from a shapefile:</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>knn5 <span class="op">=</span> weights.KNN.from_dataframe(df, k<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>knn5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>&lt;libpysal.weights.distance.KNN at 0x137d68550&gt;</code></pre>
+</div>
+</div>
+<p>Note how we need to specify the number of nearest neighbors we want to consider with the argument k. Since it is a polygon shapefile that we are passing, the function will automatically compute the centroids to derive distances between observations. Alternatively, we can provide the points in the form of an array, skipping this way the dependency of a file on disk:</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract centroids</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>cents <span class="op">=</span> df.centroid</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract coordinates into an array</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>pts <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"X"</span>: cents.x, <span class="st">"Y"</span>: cents.y}</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>).values</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute KNN weights</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>knn5_from_pts <span class="op">=</span> weights.KNN.from_array(pts, k<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>knn5_from_pts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>&lt;libpysal.weights.distance.KNN at 0x30ac8be90&gt;</code></pre>
+</div>
+</div>
+<p>Like before, we can make a map to visualise the neighbourhood of observation E01006690:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot base layer of polygons</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>df.plot(ax<span class="op">=</span>ax, facecolor<span class="op">=</span><span class="st">'k'</span>, linewidth<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Select focal polygon</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>focus <span class="op">=</span> df[df[<span class="st">'LSOA11CD'</span>] <span class="op">==</span> <span class="st">'E01006690'</span>]</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot focal polygon</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>focus.plot(facecolor<span class="op">=</span><span class="st">'red'</span>, alpha<span class="op">=</span><span class="dv">1</span>, linewidth<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot neighbors</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>neis <span class="op">=</span> df[df[<span class="st">'LSOA11CD'</span>].isin(w_rook[<span class="st">'E01006690'</span>].keys())]</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>neis.plot(ax<span class="op">=</span>ax, facecolor<span class="op">=</span><span class="st">'lime'</span>, linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Title</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">"Rook neighbors of `E01006690`"</span>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Style and display on screen</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">388000</span>, <span class="dv">393500</span>)</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">336000</span>, <span class="dv">339500</span>)</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialwPy_files/figure-html/cell-22-output-1.png" width="387" height="543"></p>
+</div>
+</div>
+<p>For the selected central polygon, both the rook and queen neighbourhoods look the same!</p>
+<ul>
+<li><strong>Distance band</strong></li>
+</ul>
+<p>Another approach to build distance-based spatial weights matrices is to “draw a circle” of certain radius (in case your observation is a polygon, as is our case, the circle should be centered at the centroid of each polygon) and consider as neighbours every observation (whose centroid) falls within the circle. The technique has two main variations: binary and continuous. In the former one, every neighbor is given a weight of one, while in the second one, the weights can be further tweaked by the distance to the observation of interest. We start looking at the binary variation.</p>
+<p>First, we create a list of neighbours at a distance less than 2000 meters away from each polygon:</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>w_dist2kmB <span class="op">=</span> weights.DistanceBand.from_dataframe(df, <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This creates a binary matrix that considers neighbors of an observation every polygon whose centroid is closer than 2,000 metres (2Km) of the centroid of such observation. To check, for example, the neighborhood of polygon E01006690, we need to know access it by its index in <code>df</code>:</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>w_dist2kmB[df[df[<span class="st">'LSOA11CD'</span>] <span class="op">==</span> <span class="st">'E01006690'</span>].index[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>{0: 1.0,
+ 26: 1.0,
+ 35: 1.0,
+ 38: 1.0,
+ 40: 1.0,
+ 41: 1.0,
+ 42: 1.0,
+ 56: 1.0,
+ 68: 1.0,
+ 69: 1.0,
+ 70: 1.0,
+ 71: 1.0,
+ 124: 1.0,
+ 149: 1.0,
+ 154: 1.0,
+ 166: 1.0,
+ 167: 1.0,
+ 168: 1.0,
+ 169: 1.0,
+ 170: 1.0,
+ 171: 1.0,
+ 172: 1.0,
+ 185: 1.0,
+ 188: 1.0,
+ 190: 1.0,
+ 192: 1.0,
+ 193: 1.0,
+ 194: 1.0,
+ 195: 1.0,
+ 196: 1.0,
+ 197: 1.0,
+ 198: 1.0,
+ 199: 1.0,
+ 200: 1.0,
+ 217: 1.0,
+ 218: 1.0,
+ 219: 1.0,
+ 220: 1.0,
+ 221: 1.0,
+ 228: 1.0,
+ 229: 1.0,
+ 230: 1.0,
+ 233: 1.0,
+ 272: 1.0,
+ 273: 1.0,
+ 286: 1.0,
+ 292: 1.0}</code></pre>
+</div>
+</div>
+<p>Note that the units in which you specify the distance directly depend on the CRS in which the spatial data are projected, and this has nothing to do with the weights building but it can affect it significantly. Recall how you can check the CRS of a GeoDataFrame:</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>&lt;Projected CRS: PROJCS["Transverse_Mercator",GEOGCS["GCS_OSGB 1936 ...&gt;
+Name: Transverse_Mercator
+Axis Info [cartesian]:
+- [east]: Easting (metre)
+- [north]: Northing (metre)
+Area of Use:
+- undefined
+Coordinate Operation:
+- name: unnamed
+- method: Transverse Mercator
+Datum: OSGB_1936
+- Ellipsoid: Airy 1830
+- Prime Meridian: Greenwich</code></pre>
+</div>
+</div>
+<p>In this case, you can see the unit is expressed in metres (and not degrees), hence we set the threshold to 2,000 for a circle of 2km of radius.</p>
+<p>Once again, we create a map to visualise this neighbourhood:</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup figure</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot base layer of polygons</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>df.plot(ax<span class="op">=</span>ax, facecolor<span class="op">=</span><span class="st">'k'</span>, linewidth<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Select focal polygon</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>focus <span class="op">=</span> df[df[<span class="st">'LSOA11CD'</span>] <span class="op">==</span> <span class="st">'E01006690'</span>]</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot focal polygon</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>focus.plot(facecolor<span class="op">=</span><span class="st">'red'</span>, alpha<span class="op">=</span><span class="dv">1</span>, linewidth<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot neighbors</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>neis <span class="op">=</span> df.loc[w_dist2kmB[df[df[<span class="st">'LSOA11CD'</span>] <span class="op">==</span> <span class="st">'E01006690'</span>].index[<span class="dv">0</span>]].keys()]</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>neis.plot(ax<span class="op">=</span>ax, facecolor<span class="op">=</span><span class="st">'lime'</span>, linewidth<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Title</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>f.suptitle(<span class="st">"Distance neighbors of `E01006690`"</span>)</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Style and display on screen</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">388000</span>, <span class="dv">393500</span>)</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">336000</span>, <span class="dv">339500</span>)</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialwPy_files/figure-html/cell-26-output-1.png" width="387" height="543"></p>
+</div>
+</div>
+<ul>
+<li><strong>Inverse distance weights</strong></li>
+</ul>
+<p>An extension of the weights above is to introduce further detail by assigning different weights to different neighbours within the radius based on how far they are from the observation of interest. For example, we could think of assigning the inverse of the distance between the centroid of a polygon <span class="math inline">\(i\)</span> and the centroid of a neighouburing polygon <span class="math inline">\(j\)</span> as <span class="math inline">\(w_{ij} = \dfrac{1}{d_{ij}}\)</span>, where <span class="math inline">\(d_{ij}\)</span> is the distance in meters between the centroids. This way, polygons that are closer to <span class="math inline">\(i\)</span> “weight” more.</p>
+<p>This can be computed by running the following command:</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>w_dist2kmC <span class="op">=</span> weights.DistanceBand.from_dataframe(df, <span class="dv">2000</span>, binary<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/carmen/anaconda3/envs/gds-python/lib/python3.11/site-packages/scipy/sparse/_data.py:119: RuntimeWarning:
+
+divide by zero encountered in reciprocal
+</code></pre>
+</div>
+</div>
+<p>Let’s inspect the weights given to the neighbours of E01006690 in <code>df</code>:</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>w_dist2kmC[df[df[<span class="st">'LSOA11CD'</span>] <span class="op">==</span> <span class="st">'E01006690'</span>].index[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>{0: 0.0005792682298423491,
+ 26: 0.0005652380463316371,
+ 35: 0.0005081427736683873,
+ 38: 0.0005519032395429389,
+ 40: 0.0005210462443199065,
+ 41: 0.0006977875200598444,
+ 42: 0.0005829152923947856,
+ 56: 0.0005128690004944388,
+ 68: 0.0005295145979051724,
+ 69: 0.0005138330262660343,
+ 70: 0.0006473018461660037,
+ 71: 0.000503348501410663,
+ 124: 0.0005771986613124313,
+ 149: 0.0005332922191931754,
+ 154: 0.0005579852194045766,
+ 166: 0.001320115452290246,
+ 167: 0.0016898106255168294,
+ 168: 0.000666068859627656,
+ 169: 0.0008817312588051628,
+ 170: 0.001120923796462639,
+ 171: 0.0009790712779402275,
+ 172: 0.001403469553911711,
+ 185: 0.0007681438141510114,
+ 188: 0.0007269958252949354,
+ 190: 0.0005499230621665081,
+ 192: 0.0013390451319917913,
+ 193: 0.0007313842296388731,
+ 194: 0.0007990860888084788,
+ 195: 0.0006961625640513184,
+ 196: 0.000573301567399397,
+ 197: 0.001009044334260805,
+ 198: 0.0010528395831202145,
+ 199: 0.0007892682323588023,
+ 200: 0.0009519836566654489,
+ 217: 0.0007227059907193832,
+ 218: 0.0005553263494632503,
+ 219: 0.0007750370482269954,
+ 220: 0.0007947173682723572,
+ 221: 0.0008753844011150573,
+ 228: 0.0009038137981028257,
+ 229: 0.0006318118777821946,
+ 230: 0.0005615219850568129,
+ 233: 0.0005158942183784882,
+ 272: 0.0006497360068949201,
+ 273: 0.0009599583054384432,
+ 286: 0.0005081897121977008,
+ 292: 0.0012983249272553688}</code></pre>
+</div>
+</div>
+<p>Note that none of them should be smaller than 1/2,000 = 0.0005 since all the neighbours are within a 2,000 meter radius from the centroid of the first polygon.</p>
+<p>Following this logic of more detailed weights through distance, there is a temptation to take it further and consider everyone else in the dataset as a neighbor whose weight will then get modulated by the distance effect shown above. However, although conceptually correct, this approach is not always the most computationally or practical one. Because of the nature of spatial weights matrices, particularly because of the fact their size is <span class="math inline">\(N\)</span> by <span class="math inline">\(N\)</span> if all the neighbours are present, they can grow substantially large. A way to cope with this problem is by making sure they remain fairly sparse (with many zeros). Sparsity is typically ensured in the case of contiguity or KNN by construction but, with inverse distance, it needs to be imposed as, otherwise, the matrix could be potentially entirely dense (no zero values other than the diagonal). In practical terms, what is usually done is to impose a distance threshold beyond which no weight is assigned and interaction is assumed to be non-existent, as we did here by setting this threshold to 2,000 meters. Beyond being computationally feasible and scalable, results from this approach usually do not differ much from a fully “dense” one as the additional information that is included from further observations is almost ignored due to the small weight they receive.</p>
+</section>
+<section id="block-weights" class="level3">
+<h3 class="anchored" data-anchor-id="block-weights">Block weights</h3>
+<p>Block weights connect every observation in a dataset that belongs to the same category in a list provided ex-ante. Usually, this list will have some relation to geography an the location of the observations but, technically speaking, all one needs to create block weights is a list of memberships. In this class of weights, neighboring observations, those in the same group, are assigned a weight of one, and the rest receive a weight of zero.</p>
+<p>In this example, we will build a spatial weights matrix that connects every LSOA with all the other ones in the same MSOA. See how the MSOA code is expressed for every LSOA:</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
 
 
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">LSOA11CD</th>
+<th data-quarto-table-cell-role="th">MSOA11CD</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>E01006512</td>
+<td>E02001377</td>
+<td>POLYGON ((336103.358 389628.580, 336103.416 38...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>E01006513</td>
+<td>E02006932</td>
+<td>POLYGON ((335173.781 389691.538, 335169.798 38...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>E01006514</td>
+<td>E02001383</td>
+<td>POLYGON ((335495.676 389697.267, 335495.444 38...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>E01006515</td>
+<td>E02001383</td>
+<td>POLYGON ((334953.001 389029.000, 334951.000 38...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>E01006518</td>
+<td>E02001390</td>
+<td>POLYGON ((335354.015 388601.947, 335354.000 38...</td>
+</tr>
+</tbody>
+</table>
 
+</div>
+</div>
+</div>
+<p>To build a block spatial weights matrix that connects as neighbors all the LSOAs in the same MSOA, we only require the mapping of codes. Using <code>PySAL</code>, this is a one-line task:</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>w_block <span class="op">=</span> weights.block_weights(df[<span class="st">'MSOA11CD'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/carmen/anaconda3/envs/gds-python/lib/python3.11/site-packages/libpysal/weights/util.py:296: UserWarning:
+
+The weights matrix is not fully connected: 
+ There are 61 disconnected components.
+</code></pre>
+</div>
+</div>
+<p>Observations are named after the order the occupy in the list. For example, for the first observation:</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>w_block[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>{218: 1.0, 219: 1.0, 220: 1.0, 292: 1.0}</code></pre>
+</div>
+</div>
+<p>If we want to search the neighbours of a specific LSOA, for example, E01006690, then we need to run:</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>w_block[df[df[<span class="st">'LSOA11CD'</span>] <span class="op">==</span> <span class="st">'E01006690'</span>].index[<span class="dv">0</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>{167: 1.0, 170: 1.0, 228: 1.0, 229: 1.0}</code></pre>
+</div>
+</div>
+<p>Another option is to remap the IDs of the observations so that they are indexed according to the name of the LSOAs:</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>w_block.remap_ids(df.LSOA11CD)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now if you can access E01006690 more easily:</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>w_block[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>{'E01006692': 1.0, 'E01006695': 1.0, 'E01006759': 1.0, 'E01006760': 1.0}</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="standardising-spatial-weights-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="standardising-spatial-weights-matrices">Standardising spatial weights matrices</h2>
+<p>In the context of many spatial analysis techniques, a spatial weights matrix with raw values (e.g.&nbsp;ones and zeros for the binary case) is not always the best suiting one for analysis and some sort of transformation is required. This implies modifying each weight so they conform to certain rules. A common one is being row-normalised. This simply means, that for each observation, the weights corresponding to the neighbours must add to 1. We will look into how we can do this in the case of the queen neighbourhood.</p>
+<p>Consider the original queen weights, for observation E01006690:</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>w_queen[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>{'E01006695': 1.0,
+ 'E01006692': 1.0,
+ 'E01006697': 1.0,
+ 'E01006759': 1.0,
+ 'E01006691': 1.0,
+ 'E01006720': 1.0,
+ 'E01033763': 1.0}</code></pre>
+</div>
+</div>
+<p>Since it is contiguity, every neighbor gets one, the rest zero weight. We can check if the object w_queen has been transformed or not by calling the argument transform:</p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>w_queen.transform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>'O'</code></pre>
+</div>
+</div>
+<p>where <code>O</code> stands for “original”, so no transformations have been applied yet. If we want to apply a row-based transformation, so every row of the matrix sums up to one, we modify the <code>transform</code> attribute as follows:</p>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>w_queen.transform <span class="op">=</span> <span class="st">'R'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can check the weights of the same observation as above and find they have been modified:</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>w_queen[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>{'E01006695': 0.14285714285714285,
+ 'E01006692': 0.14285714285714285,
+ 'E01006697': 0.14285714285714285,
+ 'E01006759': 0.14285714285714285,
+ 'E01006691': 0.14285714285714285,
+ 'E01006720': 0.14285714285714285,
+ 'E01033763': 0.14285714285714285}</code></pre>
+</div>
+</div>
+<p>Save for precission issues, the sum of weights for all the neighbors is one:</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>pd.Series(w_queen[<span class="st">'E01006690'</span>]).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>0.9999999999999998</code></pre>
+</div>
+</div>
+<p>PySAL supports the following transformations:</p>
+<ul>
+<li><p><code>O</code>: original, returning the object to the initial state.</p></li>
+<li><p><code>B</code>: binary, with every neighbor having assigned a weight of one.</p></li>
+<li><p><code>R</code>: row, with all the neighbors of a given observation adding up to one.</p></li>
+<li><p><code>V</code>: variance stabilizing, with the sum of all the weights being constrained to the number of observations.</p></li>
+</ul>
+</section>
+<section id="spatial-lag" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-lag">Spatial lag</h2>
+<p>One of the most direct applications of spatial weight matrices is the so-called <em>spatial lag</em>. The spatial lag of a given variable observed at several locations is the product of a spatial weight matrix and the variable itself:</p>
+<p><span class="math display">\[
+Y_{sl} = WY
+\]</span> where <span class="math inline">\(Y\)</span> is a <span class="math inline">\(Nx1\)</span> vector with the <span class="math inline">\(N\)</span> observations of the variable. Recall that the product of a matrix and a vector equals the sum of a row by column element multiplication for the resulting value of a given row. In terms of the spatial lag:</p>
+<p><span class="math display">\[
+y_{sl-i}= \sum_{j=1}^Nw_{ij}y_j
+\]</span> If we use row-standardized weights, <span class="math inline">\(w_{ij}\)</span> becomes a proportion between zero and one, and <span class="math inline">\(y_{sl-i}\)</span> can be seen as a weighted average of the variable <span class="math inline">\(Y\)</span> in the neighborhood of <span class="math inline">\(i\)</span>.</p>
+<p>To illustrate this here, we will use the area of each polygon as the variable <span class="math inline">\(Y\)</span> of interest. And to make things a bit nicer later on, we will keep the log of the area instead of the raw measurement. Hence, let’s create a column for it:</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the logarithm of the area of each polygon and add it as a new column named 'area'</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"area"</span>] <span class="op">=</span> np.log(df.area)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The spatial lag is a key element of many spatial analysis techniques, as we will see later on and, as such, it is fully supported in PySAL. To compute the spatial lag of a given variable, area for example:</p>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Row-standardize the queen matrix</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>w_queen.transform <span class="op">=</span> <span class="st">'R'</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute spatial lag of `area`</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>w_queen_score <span class="op">=</span> weights.lag_spatial(w_queen, df[<span class="st">"area"</span>])</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first five elements</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>w_queen_score[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>array([12.40660189, 12.54225296, 12.28284814, 12.61675295, 12.55042815])</code></pre>
+</div>
+</div>
+<p>The second line of uncommented code above contains the actual computation, which is highly optimised in PySAL. Note that, despite passing in a <code>pd.Series</code> object, the output is a numpy array. This however, can be added directly to the table <code>df</code>:</p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'w_area'</span>] <span class="op">=</span> w_queen_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the figure with two subplots (side by side)</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the 'area' variable</span></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>df.plot(column<span class="op">=</span><span class="st">'area'</span>, cmap<span class="op">=</span><span class="st">'YlGn'</span>, scheme<span class="op">=</span><span class="st">'quantiles'</span>, k<span class="op">=</span><span class="dv">5</span>, legend<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax1, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Area'</span>)</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>ax1.set_xticks([<span class="dv">334000</span>, <span class="dv">338000</span>, <span class="dv">342000</span>, <span class="dv">346000</span>], [<span class="dv">334000</span>, <span class="dv">338000</span>, <span class="dv">342000</span>, <span class="dv">346000</span>])</span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the spatially lagged 'w_area' variable</span></span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a>df.plot(column<span class="op">=</span><span class="st">'w_area'</span>, cmap<span class="op">=</span><span class="st">'YlGn'</span>, scheme<span class="op">=</span><span class="st">'quantiles'</span>, k<span class="op">=</span><span class="dv">5</span>, legend<span class="op">=</span><span class="va">True</span>, ax<span class="op">=</span>ax2, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Lagged Area'</span>)</span>
+<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a>ax2.set_xticks([<span class="dv">334000</span>, <span class="dv">338000</span>, <span class="dv">342000</span>, <span class="dv">346000</span>], [<span class="dv">334000</span>, <span class="dv">338000</span>, <span class="dv">342000</span>, <span class="dv">346000</span>])</span>
+<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-16"><a href="#cb72-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialwPy_files/figure-html/cell-43-output-1.png" width="990" height="597"></p>
+</div>
+</div>
+</section>
+<section id="moran-plot" class="level2">
+<h2 class="anchored" data-anchor-id="moran-plot">Moran plot</h2>
+<p>The Moran Plot is a graphical way to start exploring the concept of spatial autocorrelation, and it is a good application of spatial weight matrices and the spatial lag. In essence, it is a standard scatter plot in which a given variable (<code>area</code>, for example) is plotted against its own spatial lag. Usually, a fitted line is added to include more information.</p>
+<p>We create a Moran plot as follows:</p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup the figure and axis</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>))</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot values</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>sns.regplot(x<span class="op">=</span><span class="st">"area"</span>, y<span class="op">=</span><span class="st">"w_area"</span>, data<span class="op">=</span>df, ci<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialwPy_files/figure-html/cell-44-output-1.png" width="746" height="725"></p>
+</div>
+</div>
+<p>In order to easily compare different scatter plots and spot outlier observations, it is common practice to standardize the values of the variable before computing its spatial lag and plotting it. This can be accomplished by substracting the average value and dividing the result by the standard deviation:</p>
+<p><span class="math display">\[
+z_i = \dfrac{y_i - \bar{y}}{\sigma_y}
+\]</span> where <span class="math inline">\(z_i\)</span> is the standardised version of <span class="math inline">\(y_i\)</span>, also knwon as <span class="math inline">\(z\)</span>-score, <span class="math inline">\(\bar{y}\)</span> is the average of the variable, and <span class="math inline">\(\sigma_y\)</span> its standard deviation.</p>
+<p>We compute the <span class="math inline">\(z\)</span>-score by running the code below. We store it as a new column in <code>df</code> called <code>area_z</code>:</p>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardize the 'area' variable and add it as a new column named 'area_z'</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"area_z"</span>] <span class="op">=</span> (df[<span class="st">"area"</span>] <span class="op">-</span> np.mean(df[<span class="st">"area"</span>])) <span class="op">/</span> np.std(df[<span class="st">"area"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Creating a standardized Moran Plot implies that average values are centered in the plot (as they are zero when standardized) and dispersion is expressed in standard deviations, with the rule of thumb of values greater or smaller than two standard deviations being outliers. A standardized Moran Plot also partitions the space into four quadrants that represent different situations:</p>
+<ul>
+<li>High-High (HH): values above average surrounded by values above average.</li>
+<li>Low-Low (LL): values below average surrounded by values below average.</li>
+<li>High-Low (HL): values above average surrounded by values below average.</li>
+<li>Low-High (LH): values below average surrounded by values above average.</li>
+</ul>
+<p>These will be further explored once spatial autocorrelation has been properly introduced in subsequent blocks.</p>
+<p>Below we create a Moran plot with the <span class="math inline">\(z\)</span>-scores, but first we need to computer the lag of the <span class="math inline">\(z\)</span>-scores:</p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>w_queen_score_z <span class="op">=</span> weights.lag_spatial(w_queen, df[<span class="st">"area_z"</span>])</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"w_area_z"</span>] <span class="op">=</span> w_queen_score_z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And the plot follows as before, but replacing the to the new standardised variables:</p>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup the figure and axis</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>))</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot values</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>sns.regplot(x<span class="op">=</span><span class="st">"area"</span>, y<span class="op">=</span><span class="st">"w_area_z"</span>, data<span class="op">=</span>df, ci<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Display</span></span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="spatialwPy_files/figure-html/cell-47-output-1.png" width="736" height="725"></p>
+</div>
+</div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -550,27 +1281,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/pietrostefani\.github\.io\/wma");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -580,17 +1294,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -602,130 +1307,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -769,7 +1351,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -795,32 +1376,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -882,12 +1437,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./spatialwR.html" class="pagination-link" aria-label="Lab in R">
+      <a href="./spatialwR.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab in R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./spatialwDIY.html" class="pagination-link" aria-label="Do-It-Yourself">
+      <a href="./spatialwDIY.html" class="pagination-link">
         <span class="nav-page-text">Do-It-Yourself</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -895,18 +1450,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</p>
-</div>   
+    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/spatialwPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
-    <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 

@@ -1,5 +1,8 @@
 # Do-It-Yourself {#sec-spatial-w-diy .unnumbered}
 
+::: {.panel-tabset group="language"}
+## R
+
 ```{r}
 #| message: false
 library(sf)
@@ -9,30 +12,60 @@ library(tmaptools)
 library(rosm)
 ```
 
+## Python
+
+```{python}
+import seaborn as sns
+import pandas as pd
+from pysal.lib import weights
+from libpysal.io import open as psopen
+import geopandas as gpd
+import numpy as np
+import matplotlib.pyplot as plt
+```
+:::
+
 ## Task I: NYC tracts
 
 In this task we will explore contiguity weights.To do it, we will load Census tracts for New York City. Census tracts are the geography the US Census Burearu uses for areas around 4,000 people. We will use a dataset prepared as part of the [PySAL examples](https://pysal.org/notebooks/lib/libpysal/Example_Datasets.html). Geographically, this is a set of polygons that cover all the area of the city of New York.
 
 Let's read the shapefile:
 
+::: {.panel-tabset group="language"}
+## R
+
 ```{r}
 #| message: false
 nyc <- st_read('./data/NYC/NYC_tract_ACS2008_12.shp')
 ```
 
-Running the code below reveals that the dataset does not have a crs assigned:
+## Python
 
-```{r}
-st_crs(nyc)
+```{python}
+nyc = gpd.read_file('./data/NYC/NYC_tract_ACS2008_12.shp')
 ```
+:::
 
-But we can set it to `EPSG:4325`:
+Make sure the crs is set to `EPSG:4325`:
+
+::: {.panel-tabset group="language"}
+## R
 
 ```{r}
 nyc <- st_set_crs(nyc, "EPSG:4326")
 ```
 
-And we can visualise the data using `tmap`:
+## Python
+
+```{python}
+nyc = nyc.set_crs('EPSG:4326')
+```
+:::
+
+And we can visualise the data:
+
+::: {.panel-tabset group="language"}
+## R
 
 ```{r}
 tm_shape(nyc) +  
@@ -42,9 +75,18 @@ tm_shape(nyc) +
   tm_scale_bar(position = c("right", "bottom")) 
 ```
 
+## Python
+
+```{python}
+f, ax = plt.subplots(1, figsize=(6, 6))
+nyc.plot(ax=ax, facecolor='b', edgecolor='w', linewidth=0.2)
+plt.show()
+```
+:::
+
 Now with the `nyc` object ready to go, here are a few tasks for you to complete:
 
--   Create a contiguity matrix using the queen criterion. Use the `nb2listw()` function, but adding the additional `zero.policy = TRUE` argument to ensure that lists of neighbours with zero length are allowed:
+-   Create a contiguity matrix using the queen criterion. If using R, use the `nb2listw()` function, but adding the additional `zero.policy = TRUE` argument to ensure that lists of neighbours with zero length are allowed:
 
 `nb2listw(nb_q, style = "B", zero.policy = TRUE)`
 
@@ -60,12 +102,24 @@ In this task, you will be generating spatial weights matrices based on distance.
 
 We can read it directly from the `JPN` folder within the `data` folder:
 
+::: {.panel-tabset group="language"}
+## R
+
 ```{r}
 #| message: false
 jp_cities <- st_read("./data/JPN/JPN_core_commuting.shp")
 ```
 
+## Python
+
+```{python}
+jp_cities = gpd.read_file("./data/JPN/JPN_core_commuting.shp")
+```
+:::
+
 If we make a quick plot, we can see these are polygons covering the part of the Japanese geography that is considered urban by the OECD:
+
+::: {.panel-tabset group="language"} \## R
 
 ```{r}
 #| message: false
@@ -80,35 +134,53 @@ tm_shape(base) + tm_rgb() +
   
 ```
 
-For this example, we need two transformations: lon/lat coordinates to a geographical projection, and polygons to points. To calculate distances effectively, we need to ensure the coordinates of our geographic data are expressed in metres (or a similar measurement unit). The original dataset is expressed in lon/lat degrees:
+## Python
 
-```{r}
-st_crs(jp_cities)
+```{python}
+f, ax = plt.subplots(1, figsize=(6, 6))
+jp_cities.plot(ax=ax, facecolor='red', edgecolor='k', linewidth=0.2)
+plt.show()
 ```
 
-We can use the Japan Plane Rectangular CS XVII system (EPSG:2459), which is expressed in metres:
+For this example, we need two transformations: lon/lat coordinates to a geographical projection, and polygons to points. To calculate distances effectively, we need to ensure the coordinates of our geographic data are expressed in metres (or a similar measurement unit). The original dataset is expressed in lon/lat degrees, but we can use the Japan Plane Rectangular CS XVII system (EPSG:2459), which is expressed in metres:
+
+::: {.panel-tabset group="language"} \## R
 
 ```{r}
 jp_cities <- st_transform(jp_cities, "EPSG:2459")
-```
-
-So the resulting table is in metres:
-
-```{r}
 st_crs(jp_cities)
 ```
 
+## Python
+
+```{python}
+jp_cities = jp_cities.to_crs("EPSG:2459")
+jp_cities.crs
+```
+
 Now, distances are easier to calculate between points than between polygons. Hence, instead of working with polygon geometries, we will work with point geometries corresponding to the centroids of each polygon:
+
+::: {.panel-tabset group="language"}
+## R
 
 ```{r}
 #| message: false
 jp_centroids = st_centroid(jp_cities)
 ```
 
+## Python
+
+```{python}
+jp_centroids = jp_cities.copy()
+jp_centroids.geometry = jp_cities.geometry.centroid
+```
+:::
+
 So the result is a set of points expressed in metres, which we can visualise:
 
-```{r}
+::: {.panel-tabset group="language"} \## R
 
+```{r}
 tm_shape(jp_cities) +  
   tm_borders(col = "black", lwd = 0.5) +  
   tm_fill(col = "coral1") +
@@ -117,6 +189,15 @@ tm_shape(jp_cities) +
   tm_compass(position = c("left", "top")) + 
   tm_scale_bar(position = c("right", "bottom")) 
 
+```
+
+## Python
+
+```{python}
+f, ax = plt.subplots(1, figsize=(6, 6))
+jp_cities.plot(ax=ax, facecolor='red', edgecolor='k', linewidth=0.2)
+jp_centroids.plot(ax=ax, markersize=2, color='k')
+plt.show()
 ```
 
 With these at hand, tackle the following challenges:
