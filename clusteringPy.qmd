@@ -76,7 +76,7 @@ Since we have many variables to plot, we will create a loop that generates each 
 
 ```{python}
 # Create figure and axes (this time it's 9, arranged 3 by 3)
-f, axs = plt.subplots(nrows=3, ncols=3, figsize=(12, 12))
+f, axs = plt.subplots(nrows=3, ncols=3, figsize=(7, 7))
 # Make the axes accessible with single indexing
 axs = axs.flatten()
 # Start the loop over all the variables of interest
@@ -100,7 +100,8 @@ for i, col in enumerate(ratings):
 # Turn off axes for any remaining empty subplots (in this case, the last two)
 for j in range(i+1, len(axs)):
     axs[j].set_visible(False)
-    
+
+
 # Display the figure
 plt.show()
 ```
@@ -119,7 +120,7 @@ As we can see, there is substantial variation in how the ratings for different a
 Even though we only have seven variables, it is very hard to “mentally overlay” all of them to come up with an overall assessment of the nature of each part of London. For bivariate correlations, a useful tool is the correlation matrix plot, available in `seaborn`:
 
 ```{python}
-pairplot = sns.pairplot(abb[ratings], kind='reg', diag_kind='hist', height=0.8)
+pairplot = sns.pairplot(abb[ratings], kind='reg', diag_kind='hist', height=1)
 
 # Iterate over each subplot in the pairplot to customize axis labels and ticks
 for i in range(len(ratings_names)):  # Loop over each row of subplots
@@ -236,7 +237,7 @@ As in the non-spatial case, there are many different algorithms to perform regio
 To illustrate these concepts, we will run a regionalisation algorithm on the AirBnb data we have been using. In this case, the goal will be to re-delineate the boundary lines of the Inner London boroughs following a rationale based on the different average ratings on AirBnb properties, instead of the administrative reasons behind the existing boundary lines. In this way, the resulting regions will represent a consistent set of areas that are similar with each other in terms of the ratings received.
 
 
-###Defining space formally
+### Defining space formally
 
 Very much in the same way as with ESDA techniques, regionalization methods require a formal representation of space that is statistics-friendly. In practice, this means that we will need to create a spatial weights matrix for the areas to be aggregated.
 
@@ -246,7 +247,7 @@ Technically speaking, this is the same process as we have seen before, thanks to
 w = weights.Queen.from_dataframe(abb)
 ```
 
-###Creating regions from areas
+### Creating regions from areas
 
 At this point, we have all the pieces needed to run a regionalization algorithm. For this example, we will use a spatially-constrained version of the agglomerative algorithm. This is a similar approach to that used above (the inner-workings of the algorithm are different however) with the difference that, in this case, observations can only be labelled in the same group if they are spatial neighbors, as defined by our spatial weights matrix `w`. The way to interact with the algorithm is very similar to that above. We first set the parameters:
 
@@ -268,7 +269,7 @@ And then we append the labels to the table:
 abb['saggcls'] = saggcls.labels_
 ```
 
-###Mapping the resulting regions
+### Mapping the resulting regions
 
 At this point, the column `sagg13cls` is no different than `k5cls`: a categorical variable that can be mapped into a unique values choropleth. In fact the following code snippett is exactly the same as before, only replacing the name of the variable to be mapped and the title:
 
