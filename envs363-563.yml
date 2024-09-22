@@ -1,5 +1,6 @@
-name: gis
+name: envs363-563
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - bzip2=1.0.8
@@ -12,6 +13,7 @@ dependencies:
   - setuptools=68.2.2
   - sqlite=3.41.2
   - tk=8.6.12
+  - wheel=0.44.0
   - xz=5.4.5
   - zlib=1.2.13
   - pip:
@@ -30,6 +32,9 @@ dependencies:
       - beautifulsoup4==4.12.3
       - bleach==6.1.0
       - branca==0.7.2
+      - certifi==2024.8.30
+      - cffi==1.17.1
+      - charset-normalizer==3.3.2
       - click==8.1.7
       - click-plugins==1.1.1
       - cligj==0.7.2
@@ -50,7 +55,6 @@ dependencies:
       - folium==0.17.0
       - fonttools==4.53.1
       - fqdn==1.5.1
-      - gdal==3.9.2
       - geographiclib==2.0
       - geopandas==0.14.4
       - geopy==2.4.1
@@ -58,6 +62,7 @@ dependencies:
       - h11==0.14.0
       - httpcore==1.0.5
       - httpx==0.27.0
+      - idna==3.10
       - inequality==1.0.1
       - ipykernel==6.29.5
       - ipython==8.26.0
@@ -67,6 +72,7 @@ dependencies:
       - jinja2==3.1.4
       - joblib==1.4.2
       - json5==0.9.25
+      - jsonpointer==3.0.0
       - jsonschema==4.23.0
       - jsonschema-specifications==2023.12.1
       - jupyter==1.0.0
@@ -104,12 +110,14 @@ dependencies:
       - numpy==1.24.3
       - osmnx==1.9.4
       - overrides==7.7.0
+      - packaging==24.1
       - pandas==2.2.2
       - pandocfilters==1.5.1
       - parso==0.8.4
       - patsy==0.5.6
       - pexpect==4.9.0
       - pillow==10.4.0
+      - platformdirs==4.3.3
       - pointpats==2.5.0
       - prometheus-client==0.20.0
       - prompt-toolkit==3.0.47
@@ -117,6 +125,7 @@ dependencies:
       - ptyprocess==0.7.0
       - pulp==2.9.0
       - pure-eval==0.2.3
+      - pycparser==2.22
       - pygments==2.18.0
       - pyogrio==0.9.0
       - pyparsing==3.1.4
@@ -133,6 +142,7 @@ dependencies:
       - rasterio==1.3.10
       - rasterstats==0.19.0
       - referencing==0.35.1
+      - requests==2.32.3
       - rfc3339-validator==0.1.4
       - rfc3986-validator==0.1.1
       - rioxarray==0.17.0
@@ -164,11 +174,13 @@ dependencies:
       - tinycss2==1.3.0
       - tobler==0.11.3
       - tornado==6.4.1
+      - tqdm==4.66.5
       - traitlets==5.14.3
       - types-python-dateutil==2.9.0.20240316
       - typing-extensions==4.12.2
       - tzdata==2024.1
       - uri-template==1.3.0
+      - urllib3==2.2.3
       - wcwidth==0.2.13
       - webcolors==24.8.0
       - webencodings==0.5.1
