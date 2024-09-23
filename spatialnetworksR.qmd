@@ -1,4 +1,4 @@
-# Lab in R {#sec-spatiallab .unnumbered}
+# Lab in R {#sec-spatialnetworksR .unnumbered}
 
 We start by loading all the libraries required for this section.
 

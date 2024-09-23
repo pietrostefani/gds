@@ -1,4 +1,4 @@
-# Lab in Python {#sec-spatiallabPy .unnumbered}
+# Lab in Python {#sec-spatialnetworksPy .unnumbered}
 
 We start by loading all the libraries required for this section.
 

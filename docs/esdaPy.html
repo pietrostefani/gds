@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,7 +58,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -77,7 +76,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,13 +100,7 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -116,50 +109,25 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
 <meta name="twitter:title" content="A course in Geographic Data Science - Lab in Python">
 <meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://pietrostefani.github.io/wma/esdaPy_files/figure-html/cell-5-output-1.png">
 <meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="822">
+<meta name="twitter:image-width" content="791">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -168,12 +136,12 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./esda.html">7 ESDA</a></li><li class="breadcrumb-item"><a href="./esdaPy.html">Lab in Python</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./esda.html">7 ESDA</a></li><li class="breadcrumb-item"><a href="./esdaPy.html">Lab in Python</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -183,12 +151,12 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/pietrostefani/gds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -513,7 +481,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatialnetworksR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab</span></a>
+ <span class="menu-text">Lab in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatialnetworksPy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab in Python</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -539,7 +513,7 @@ window.Quarto = {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -559,12 +533,12 @@ window.Quarto = {
   </ul></li>
   <li><a href="#local-spatial-autocorrelation" id="toc-local-spatial-autocorrelation" class="nav-link" data-scroll-target="#local-spatial-autocorrelation">Local spatial autocorrelation</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/esdaPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/esdaPy.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./esda.html">7 ESDA</a></li><li class="breadcrumb-item"><a href="./esdaPy.html">Lab in Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span id="sec-esdalab-Python" class="quarto-section-identifier">Lab in Python</span></h1>
 </div>
@@ -579,16 +553,14 @@ window.Quarto = {
   </div>
   
 
-
 </header>
-
 
 <p>Spatial autocorrelation and Exploratory Spatial Data Analysis Spatial autocorrelation has to do with the degree to which the similarity in values between observations in a dataset is related to the similarity in locations of such observations. Not completely unlike the traditional correlation between two variables -which informs us about how the values in one variable change as a function of those in the other- and analogous to its time-series counterpart -which relates the value of a variable at a given point in time with those in previous periods-, spatial autocorrelation relates the value of the variable of interest in a given location, with values of the same variable in surrounding locations.</p>
 <p>A key idea in this context is that of spatial randomness: a situation in which the location of an observation gives no information whatsoever about its value. In other words, a variable is spatially random if it is distributed following no discernible pattern over space. Spatial autocorrelation can thus be formally defined as the “absence of spatial randomness”, which gives room for two main classes of autocorrelation, similar to the traditional case: positive spatial autocorrelation, when similar values tend to group together in similar locations; and negative spatial autocorrelation, in cases where similar values tend to be dispersed and further apart from each other.</p>
 <p>In this session we will learn how to explore spatial autocorrelation in a given dataset, interrogating the data about its presence, nature, and strength. To do this, we will use a set of tools collectively known as Exploratory Spatial Data Analysis (ESDA), specifically designed for this purpose. The range of ESDA methods is very wide and spans from less sophisticated approaches like choropleths and general table querying, to more advanced and robust methodologies that include statistical inference and an explicit recognition of the geographical dimension of the data. The purpose of this session is to dip our toes into the latter group.</p>
 <p>ESDA techniques are usually divided into two main groups: tools to analyze global, and local spatial autocorrelation. The former consider the overall trend that the location of values follows, and makes possible statements about the degree of clustering in the dataset. Do values generally follow a particular pattern in their geographical distribution? Are similar values closer to other similar values than we would expect from pure chance? These are some of the questions that tools for global spatial autocorrelation allow to answer. We will practice with global spatial autocorrelation by using Moran’s I statistic.</p>
 <p>Tools for local spatial autocorrelation instead focus on spatial instability: the departure of parts of a map from the general trend. The idea here is that, even though there is a given trend for the data in terms of the nature and strength of spatial association, some particular areas can diverege quite substantially from the general pattern. Regardless of the overall degree of concentration in the values, we can observe pockets of unusually high (low) values close to other high (low) values, in what we will call hot(cold)spots. Additionally, it is also possible to observe some high (low) values surrounded by low (high) values, and we will name these “spatial outliers”. The main technique we will review in this session to explore local spatial autocorrelation is the Local Indicators of Spatial Association (LISA).</p>
-<div id="a4a2b3fe" class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> esda</span>
@@ -605,12 +577,12 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>For this session, we will use the results of the 2016 referendum vote to leave the EU, at the local authority level. In particular, we will focus on the spatial distribution of the vote to Leave, which ended up winning. From a technical point of view, you will be working with polygons which have a value (the percentage of the electorate that voted to Leave the EU) attached to them.</p>
 <p>All the necessary data have been assembled for convenience in a single file that contains geographic information about each local authority in England, Wales and Scotland, as well as the vote attributes. The file is in the geospatial format GeoPackage, which presents several advantages over the more traditional shapefile (chief among them, the need of a single file instead of several). The file is available as a download from the course website.</p>
-<div id="3bb22803" class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the file in</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>br <span class="op">=</span> gpd.read_file(<span class="st">"./data/UK-brexit/brexit.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s index it on the local authority IDs, while keeping those as a column too:</p>
-<div id="250bf72a" class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Index table on the LAD ID</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>br <span class="op">=</span> br.set_index(<span class="st">"lad16cd"</span>, drop<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display summary</span></span>
@@ -627,14 +599,14 @@ Data columns (total 5 columns):
  3   Pct_Leave  380 non-null    float64 
  4   geometry   380 non-null    geometry
 dtypes: float64(1), geometry(1), int64(1), object(2)
-memory usage: 17.8+ KB</code></pre>
+memory usage: 25.9+ KB</code></pre>
 </div>
 </div>
 </section>
 <section id="preparing-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="preparing-the-data">Preparing the data</h2>
 <p>Let’s get a first view of the data:</p>
-<div id="749f996c" class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define figure and axis objects</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot polygons on axis object ax</span></span>
@@ -644,11 +616,7 @@ memory usage: 17.8+ KB</code></pre>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, crs<span class="op">=</span>br.crs)</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="esdaPy_files/figure-html/cell-5-output-1.png" width="244" height="411" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="esdaPy_files/figure-html/cell-5-output-1.png" width="396" height="411"></p>
 </div>
 </div>
 <section id="spatial-weights-matrix" class="level3">
@@ -656,36 +624,34 @@ memory usage: 17.8+ KB</code></pre>
 <p>As discused before, a spatial weights matrix is the way geographical space is formally encoded into a numerical form so it is easy for a computer (or a statistical method) to understand. We have seen already many of the conceptual ways in which we can define a spatial weights matrix, such as contiguity, distance-based, or block.</p>
 <p>For this example, we will show how to build a queen contiguity matrix, which considers two observations as neighbors if they share at least one point of their boundary. In other words, for a pair of local authorities in the dataset to be considered neighbours under this <span class="math inline">\(W\)</span>, they will need to be sharing border or, in other words, “touching” each other to some degree.</p>
 <p>Technically speaking, we will approach building the contiguity matrix in the same way we did in the previous lab. We will begin with a dataframe and pass it on to the queen contiguity weights builder in <code>PySAL</code> (<code>weights.Queen.from_dataframe</code>).</p>
-<div id="e2fd4fea" class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the spatial weights matrix</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>w_queen <span class="op">=</span> weights.Queen.from_dataframe(br, ids<span class="op">=</span><span class="st">"lad16cd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/Users/pietrost/miniconda3/lib/python3.11/site-packages/libpysal/weights/contiguity.py:347: UserWarning: The weights matrix is not fully connected: 
+<pre><code>/Users/carmen/anaconda3/envs/gds-python/lib/python3.11/site-packages/libpysal/weights/contiguity.py:347: UserWarning:
+
+The weights matrix is not fully connected: 
  There are 7 disconnected components.
  There are 6 islands with ids: E06000046, E06000053, S12000013, S12000023, S12000027, W06000001.
-  W.__init__(self, neighbors, ids=ids, **kw)</code></pre>
+</code></pre>
 </div>
 </div>
 <p>You will likely obtain an warning message when running the cell above since some polygons don’t have neighbours. These neighbourless polygons are called islands and they literally are islands. We can explicitly ask the function to still compute the spatial weights matrix even when some observations might not have neighbours. We can inspect and map them to get a better sense of what we are dealing with:</p>
-<div id="fd3799f5" class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>br.plot(color<span class="op">=</span><span class="st">'k'</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>), ax<span class="op">=</span>ax)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>br.loc[w_queen.islands, :].plot(color<span class="op">=</span><span class="st">'red'</span>, ax<span class="op">=</span>ax)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="esdaPy_files/figure-html/cell-7-output-1.png" width="244" height="411" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="esdaPy_files/figure-html/cell-7-output-1.png" width="244" height="411"></p>
 </div>
 </div>
 <p>However, observations with zero neighbours can sometimes create issues in the analysis and distort the results. There are several solutions to this situation such as connecting the islands to other observations through a different criterion (e.g.&nbsp;nearest neighbor), and then combining both spatial weights matrices. For convenience, this time we will just remove them from the dataset because they are a small sample and their removal is likely not going to have a large impact in the calculations.</p>
-<div id="bc944bcc" class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>br <span class="op">=</span> br.drop(w_queen.islands)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once we have the set of local authorities that are not an island, we need to re-calculate the weights matrix. We will create it so that it is row-standardised (so setting style to <code>W</code>:</p>
-<div id="7f21dc4f" class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>w_queen_std <span class="op">=</span> weights.Queen.from_dataframe(br, ids<span class="op">=</span><span class="st">"lad16cd"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>w_queen_std.transform <span class="op">=</span> <span class="st">'R'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -694,17 +660,17 @@ memory usage: 17.8+ KB</code></pre>
 <h3 class="anchored" data-anchor-id="spatial-lag">Spatial lag</h3>
 <p>Once we have the data and the spatial weights matrix ready, we can start by computing the spatial lag of the percentage of votes that went to leave the EU. Remember the spatial lag is the product of the spatial weights matrix and a given variable and that, if <span class="math inline">\(W\)</span> is row-standardized, the result amounts to the average value of the variable in the neighborhood of each observation.</p>
 <p>We can calculate the spatial lag for the variable <code>Pct_Leave</code> (percentage that voted leave) and store it directly in the main table with the following line of code:</p>
-<div id="188ac69f" class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>br[<span class="st">'w_Pct_Leave'</span>] <span class="op">=</span> weights.lag_spatial(w_queen_std, br[<span class="st">'Pct_Leave'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let us have a quick look at the resulting variable, as compared to the original one:</p>
-<div id="42c48a64" class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>br[[<span class="st">'lad16cd'</span>, <span class="st">'Pct_Leave'</span>, <span class="st">'w_Pct_Leave'</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -757,14 +723,14 @@ memory usage: 17.8+ KB</code></pre>
 </div>
 </div>
 <p>The way to interpret the spatial lag (w_Pct_Leave) for the first observation is as follows: LAD with code <code>E06000001</code> (Hartlepool), where 69,6% of the electorate voted to leave is surrounded by neighbouring local authorities where, on average, almost 60% of the electorate also voted to leave the EU. For the purpose of illustration, we can in fact check this is correct by querying the spatial weights matrix to find out Hartepool’s neighbors:</p>
-<div id="8c575aa6" class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>w_queen_std.neighbors[<span class="st">'E06000001'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>['E06000004', 'E06000047']</code></pre>
 </div>
 </div>
 <p>And then checking their values:</p>
-<div id="a87d7469" class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>neis <span class="op">=</span> br.loc[w_queen_std.neighbors[<span class="st">'E06000001'</span>], <span class="st">'Pct_Leave'</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>neis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -775,20 +741,20 @@ Name: Pct_Leave, dtype: float64</code></pre>
 </div>
 </div>
 <p>The average value, which we saw in the spatial lag is 59.64, can be verified as follows:</p>
-<div id="0b593f3a" class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>neis.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>59.64</code></pre>
 </div>
 </div>
 <p>For some of the techniques we will be seeing below, it makes more sense to operate with the standardised version of a variable, rather than with the raw one. Standardising means to subtract the average value to each observation of a variable and divide this by the standard deviation of the variable. This can be done easily with a bit of basic algebra:</p>
-<div id="f04d4608" class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>br[<span class="st">'Pct_Leave_std'</span>] <span class="op">=</span> (</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    br[<span class="st">'Pct_Leave'</span>] <span class="op">-</span> br[<span class="st">'Pct_Leave'</span>].mean()</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>) <span class="op">/</span> br[<span class="st">'Pct_Leave'</span>].std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, to be able to explore the spatial patterns of the standardised values, also called sometimes <span class="math inline">\(z\)</span> values, we need to create its spatial lag:</p>
-<div id="5c09549b" class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>br[<span class="st">'w_Pct_Leave_std'</span>] <span class="op">=</span> weights.lag_spatial(w_queen_std, br[<span class="st">'Pct_Leave_std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -800,7 +766,7 @@ Name: Pct_Leave, dtype: float64</code></pre>
 <h3 class="anchored" data-anchor-id="moran-plot">Moran Plot</h3>
 <p>The moran plot is a way of visualising a spatial dataset to explore the nature and strength of spatial autocorrelation. It is essentially a traditional scatter plot in which the variable of interest is displayed against its spatial lag. In order to be able to interpret values as above or below the mean, and their quantities in terms of standard deviations, the variable of interest is usually standardised by substracting its mean and dividing it by its standard deviation.</p>
 <p>As we saw in the previous lab, creating a Moran Plot is very similar to creating any other scatter plot in Python, provided we have standardised the variable and calculated its spatial lag beforehand:</p>
-<div id="c9468273" class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup the figure and axis</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot values</span></span>
@@ -811,11 +777,7 @@ Name: Pct_Leave, dtype: float64</code></pre>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Display</span></span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="esdaPy_files/figure-html/cell-17-output-1.png" width="736" height="725" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="esdaPy_files/figure-html/cell-17-output-1.png" width="736" height="725"></p>
 </div>
 </div>
 <p>The figure above displays the relationship between the standardised percentage which voted to Leave the EU (<code>Pct_Leave_std</code>) and its spatial lag. Since the <span class="math inline">\(W\)</span> that was used is row-standardised, it can be interpreted as the average percentage which voted to Leave in the surrounding areas of a given Local Authority. In order to guide the interpretation of the plot, a linear fit is also included. This line represents the best linear fit to the scatter plot or, in other words, the best way to represent the relationship between the two variables as a straight line.</p>
@@ -827,12 +789,12 @@ Name: Pct_Leave, dtype: float64</code></pre>
 <p>The Moran Plot is an excellent tool to explore the data and get a good sense of how much values are clustered over space. However, because it is a graphical device, it is sometimes hard to condense its insights into a more concise way. For these cases, a good approach is to come up with a statistical measure that summarises the figure. This is exactly what Moran’s I is meant to do.</p>
 <p>Very much in the same way the mean summarises a distribution of values in a non-spatial setting, so does Moran’s I for a spatial dataset. Continuing the comparison, we can think of the mean as a single numerical value summarising a histogram or a kernel density plot. Similarly, Moran’s I captures much of the essence of the Moran Plot. In fact, there is a close connection between the two: the value of Moran’s I corresponds with the slope of the linear fit overlayed on top of the Moran Plot for the standardised variable and its lagged counterpart. Hence Morans’I takes values between -1 and 1, where a value of 0 would correspond to a random allocation of values of a variable across the possible locations. A value of 1 would correspond to a situation where the values of the variable of interest are optimally allocated in the map so that two neighbouring spatial units have as similar values as possible. Conversely, if Moran’s I is -1, this would correspond to a situation where neighbouring spatial units have as different values as possible.</p>
 <p>In order to calculate Moran’s I in our dataset, we can call a specific function in <code>PySAL</code> directly:</p>
-<div id="5d604614" class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mi <span class="op">=</span> esda.Moran(br[<span class="st">'Pct_Leave'</span>], w_queen_std, permutations <span class="op">=</span> <span class="dv">1000</span>, two_tailed<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note how we do not need to use the standardised version in this context as, we will not represent it visually.</p>
 <p>The method <code>esda.Moran</code> creates an object that contains much more information than the actual statistic. But we are interested in the statistic, which is the value of Moran’s I, in this case 0.62286; and the p-value.</p>
-<div id="c3c1829b" class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>mi.p_sim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>0.000999000999000999</code></pre>
@@ -847,7 +809,7 @@ Name: Pct_Leave, dtype: float64</code></pre>
 <h2 class="anchored" data-anchor-id="local-spatial-autocorrelation">Local spatial autocorrelation</h2>
 <p>Moran’s I is a good tool to summarise a dataset into a single value that informs about its degree of clustering. However, it is not an appropriate measure to identify areas within the map where specific values are located. In other words, Moran’s I can tell us if values are clustered overall, but it will not inform us about where the clusters are. For that purpose, we need to use a local measure of spatial autocorrelation. Instead of operating on the overall dataset as global measures do, local measures consider each single observation in a dataset and operate on them. Because of that, they are not good a summarising a map, but they allow us to obtain further insights.</p>
 <p>We will consider Local Indicators of Spatial Association (LISAs), a local counter-part of global measures like Moran’s I. Essentially, this method consists in classifying the observations in a dataset into four groups derived from the Moran Plot: high values surrounded by high values (HH), low values nearby other low values (LL), high values among low values (HL), and low values among high values (LH). Each of these groups are typically called “quadrants”. An illustration of where each of these groups fall into the Moran Plot can be seen below:</p>
-<div id="03d70fad" class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup the figure and axis</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">9</span>))</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot values</span></span>
@@ -862,51 +824,47 @@ Name: Pct_Leave, dtype: float64</code></pre>
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display</span></span>
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="esdaPy_files/figure-html/cell-20-output-1.png" width="736" height="725" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="esdaPy_files/figure-html/cell-20-output-1.png" width="736" height="725"></p>
 </div>
 </div>
 <p>So far we have classified each observation in the dataset depending on its value and that of its neighbors. This is only half way into identifying areas of unusual concentration of values. To know whether each of the locations is a statistically significant cluster of a given kind, we again need to compare it with what we would expect if the data were allocated in a completely random way. After all, by definition, every observation will be of one kind or another based on the comparison above. However, what we are interested in is whether the strength with which the values are concentrated is unusually high.</p>
 <p>This is exactly what LISAs are designed to do. As before, a more detailed description of their statistical underpinnings is beyond the scope in this context, but we will try to shed some light into the intuition of how they go about it. The core idea is to identify cases in which the comparison between the value of an observation and the average of its neighbors is either more similar (HH, LL) or dissimilar (HL, LH) than we would expect from pure chance. The mechanism to do this is similar to the one in the global Moran’s I, but applied to each observation, resulting then in as many statistics as original observations.</p>
 <p>LISAs are widely used in many fields to identify clusters of values in space. They are a very useful tool that can quickly return areas in which values are concentrated and provide suggestive evidence about the processes that might be at work. For that, they have a prime place in the exploratory toolbox. Examples of contexts where LISAs can be useful include: identification of spatial clusters of poverty in regions, detection of ethnic enclaves, delineation of areas of particularly high/low activity of any phenomenon, etc.</p>
 <p>In PYthon we can calculate LISAs in a very streamlined way thanks to the <code>esda</code>’s <code>Moran_Local</code> function. We just need to input the variable of interest, the spatial weights and the number of simulations so that the function knows how many times to shuffle the data in order to compute the p-values. Once again, understanding this bit is beyond the scope of this lecture. If you want to learn more about it, we recommend this reading <span class="citation" data-cites="Sauer22NullMoran">(<a href="references.html#ref-Sauer22NullMoran" role="doc-biblioref">Sauer et al. 2022</a>)</span> by Sauer et al., although it is quite advanced! Below is the outcome of the <code>local_perm</code> function:</p>
-<div id="b60b8a0a" class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>lisa <span class="op">=</span> esda.Moran_Local(br[<span class="st">'Pct_Leave'</span>], w_queen_std, permutations<span class="op">=</span><span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Because of their very nature, looking at the numerical result of LISAs is not always the most useful way to exploit all the information they can provide. Remember that we are calculating a statistic for every single observation in the data so, if we have many of them, it will be difficult to extract any meaningful pattern. Instead, typically a cluster map is created to reflect the significant observations (those that are highly unlikely to have happened by pure chance), which are plotted with a specific color depending on their quadrant category.</p>
 <p>All of the needed pieces are contained inside the LISA object called <code>lisa_perm</code> that we have created above. But to make the creation of the cluster map more straightforward, it is convenient to pull them out and insert them in the main data table, <code>br</code>:</p>
-<div id="d5d76b94" class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Break observations into significant or not</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>br[<span class="st">'significant'</span>] <span class="op">=</span> lisa.p_sim <span class="op">&lt;</span> <span class="fl">0.1</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the quadrant they belong to</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>br[<span class="st">'quadrant'</span>] <span class="op">=</span> lisa.q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let us stop for second on these two steps. First, the <code>significant</code> column. Similarly as with global Moran’s I, <code>PySAL</code> is automatically computing a p-value for each LISA. Because not every observation represents a statistically significant one, we want to identify those with a p-value small enough that rules out the possibility of obtaining a similar situation from pure chance. Following a similar reasoning as with global Moran’s I, we select 10% as the threshold for statistical significance. To identify these values, we create a variable, significant, that contains <code>True</code> if the p-value of the observation is satisfies the condition, and <code>False</code> otherwise. We can check this is the case:</p>
-<div id="a75765db" class="cell" data-execution_count="22">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>br[<span class="st">'significant'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>lad16cd
 E06000001    False
 E06000002     True
-E06000003     True
+E06000003    False
 E06000004     True
 E06000005    False
 Name: significant, dtype: bool</code></pre>
 </div>
 </div>
 <p>And the first five p-values can be checked by:</p>
-<div id="d1dfb880" class="cell" data-execution_count="23">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>lisa.p_sim[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>array([0.1978022 , 0.09090909, 0.0959041 , 0.04295704, 0.1958042 ])</code></pre>
+<pre><code>array([0.19180819, 0.0989011 , 0.1048951 , 0.04595405, 0.2027972 ])</code></pre>
 </div>
 </div>
 <p>Note which of these values are smaller than 0.1, as the variable significant correctly identified.</p>
 <p>Second, the quadrant each observation belongs to. This one is easier as it comes built into the lisa object directly:</p>
-<div id="b7660117" class="cell" data-execution_count="24">
+<div class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>br[<span class="st">'quadrant'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>lad16cd
@@ -927,15 +885,11 @@ Name: quadrant, dtype: int64</code></pre>
 </ul>
 <p>With these two elements, significant and quadrant, we can build a typical LISA cluster map combining the mapping skills with what we have learned about subsetting and querying tables:</p>
 <p>We can create a quick LISA cluster map with <code>splot</code>:</p>
-<div id="6269fcb7" class="cell" data-execution_count="25">
+<div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lisa_cluster(lisa, br)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="esdaPy_files/figure-html/cell-26-output-1.png" width="391" height="389" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="esdaPy_files/figure-html/cell-26-output-1.png" width="391" height="389"></p>
 </div>
 </div>
 <p>The map above on the right displays the LISA results of the Brexit vote. In blue, we find those local authorities with an unusual high concentration of Leave voters surrounded also by other local authorities with high levels of Leave vote. This corresponds to areas in the East of England, East London and some parts of the Midlands. In red, we find areas with low support for leaving the EU, surrounded by other areas that think alike. The first type of spatial outliers are areas with high support for the Leave vote but which are surrounded by areas with low support. The second type of spatial outliers are areas with low support for the Leave vote but which are surrounded by areas with high support.</p>
@@ -954,22 +908,18 @@ Note
 </div>
 </div>
 <p>Finally, the results from the LISA statistics can be connected to the Moran plot to visualise where in the scatter plot polygon from different clusters fall. With a quick plot using <code>splot.esda</code>’s <code>moran_scatterplot</code> function:</p>
-<div id="14b8e9f0" class="cell" data-execution_count="26">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> moran_scatterplot(lisa, p<span class="op">=</span><span class="fl">0.05</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Donatns'</span>)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Spatial Lag of Donatns'</span>)</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="esdaPy_files/figure-html/cell-27-output-1.png" width="613" height="565" class="figure-img"></p>
-</figure>
-</div>
+<p><img src="esdaPy_files/figure-html/cell-27-output-1.png" width="613" height="565"></p>
 </div>
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-Sauer22NullMoran" class="csl-entry" role="listitem">
 Sauer, Jeffery, Taylor Oshan, Sergio Rey, and Levi John Wolf. 2022. <span>“The Importance of Null Hypotheses: Understanding Differences in Local Moran’s Under Heteroskedasticity.”</span> <em>Geographical Analysis</em> 54 (4): 752–68. https://doi.org/<a href="https://doi.org/10.1111/gean.12304">https://doi.org/10.1111/gean.12304</a>.
 </div>
@@ -1056,27 +1006,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/pietrostefani\.github\.io\/wma");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1086,17 +1019,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1108,130 +1032,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1275,7 +1076,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1301,32 +1101,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1388,12 +1162,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./esdaR.html" class="pagination-link" aria-label="Lab in R">
+      <a href="./esdaR.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab in R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./esdaDIY.html" class="pagination-link" aria-label="Do-It-Yourself">
+      <a href="./esdaDIY.html" class="pagination-link">
         <span class="nav-page-text">Do-It-Yourself</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1401,18 +1175,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</p>
-</div>   
+    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/esdaPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
-    <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 
