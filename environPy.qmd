@@ -58,7 +58,7 @@ envs363_563/
 
 ### Set up the Python Environment {.unnumbered}
 
-1.  Download the `envs363_563.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
+1.  Download the `envs363_563.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/blob/main/envs363-563.yml)
 2.  Save it in the folder `envs363_563` created before.
 3.  Type in the search bar and find the `Anaconda Powershell Prompt` if working on University Machine or `Anaconda Prompt (miniconda 3)` if on your personal. Launch it. The terminal should appear.
 
@@ -123,7 +123,7 @@ envs363_563/ ├── data/ └── labs/
 
 ### Set up the Python Environment {.unnumbered}
 
-1.  Download the `envs363_563.yml` from GitHub by clicking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/tree/main/envs363_563.yml)
+1.  Download the `envs363_563.yml` from GitHub by clicking `Download raw file`, top right [at this page](https://github.com/pietrostefani/gds/blob/main/envs363-563.yml)
 2.  Save it in the folder `envs363_563` created before.
 3.  Type in the search bar and open the **Terminal**.
 4.  In the **Terminal** write `conda env create -n envs363 --file envs363_563.yml` and press `Enter`. This will need to be modified according to where you placed the `envs363_563` folder. For example, Elisabetta has named her folder `envs363_563` and it's in her Dropbox in `Users/PIETROST/Library/CloudStorage/Dropbox/envs363_563/envs363_563.yml`. If you created the `envs363_563` folder on your desktop, the path would be `Desktop/envs363_563`.
