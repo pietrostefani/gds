@@ -1,4 +1,4 @@
-# Lab {#sec-spatiallab .unnumbered}
+# Lab in R {#sec-spatiallab .unnumbered}
 
 We start by loading all the libraries required for this section.
 
@@ -61,6 +61,7 @@ plot(network,
      layout = layout.circle(network),  # set layout of the plot as circular
      vertex.label = 1:5)              # assign labels to the vertices (nodes)
 ```
+
 The network can also be defined as a list containing pairs of nodes with labels. In that case we do not need to specify the number of nodes. We only specify the isolated nodes to be included.
 
 ::: callout-note
@@ -133,7 +134,6 @@ We can examine the adjacency matrix of the network. The adjacency represents the
 network_isolated[]
 ```
 
-
 We can also look at the existing node and edge attributes.
 
 ```{r}
@@ -202,6 +202,7 @@ We can have a look at the names of the vertex attributes, which are automaticall
 # Retrieve the attribute names associated with vertices in the 'g_africa' graph
 vertex_attr_names(g_africa)
 ```
+
 where "name" is the ID of each node in the network, "agglosName" is the name of the city represented by the node, it is set to "road" if the node is a transport node. "x" and "y" represent the coordinates of each node, "Pop2015" is the population of the city nodes, "ISO3" is the code for the country that each node is situated in, "Region" represents the region within the African continent that each node is situated in, and "Between" and "degree" represent the betweenness centrality and the degree of each node in the network, which we will also compute below.
 
 In particular, we can look at the first few values of any node attribute, for examples "Pop2015":
@@ -212,6 +213,7 @@ head(V(g_africa)$Pop2015)
 ```
 
 We can also obtain the names of the edge attributes, which are taken from the columns in the `df_edges` data frame:
+
 ```{r}
 # Retrieve the attribute names associated with edges in the 'g_africa' graph
 edge_attr_names(g_africa)
@@ -237,13 +239,13 @@ We will include the outline of the African countries in the background. To do th
 df_borders <- st_read("./data/Africa/Africa_Boundaries.geojson")  # Read GeoJSON file containing Africa boundaries into a data frame
 
 ```
+
 We set the layout (lo) of the nodes in the network according to the `x` and `y` columns in `df_nodes`:
 
 ```{r}
 lo <- as.matrix(df_nodes[,3:4])  # Convert columns 3 and 4 of the data frame df_nodes into a matrix named lo
 
 ```
-
 
 We can now plot the background map with the country outlines as well as the network. Running the cell below might take some time depending on the processign power of your computer.
 
@@ -411,7 +413,7 @@ communities <- cluster_walktrap(
 )
 ```
 
-We can now replot the network colouring the nodes according to the community where they belong. Note that nodes that are nearby each other, tend to belong to the same community. 
+We can now replot the network colouring the nodes according to the community where they belong. Note that nodes that are nearby each other, tend to belong to the same community.
 
 ```{r}
 plot(st_geometry(df_borders), border=adjustcolor("gray50"))
