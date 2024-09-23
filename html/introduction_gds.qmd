@@ -195,6 +195,14 @@ Command Line Interfaces (CLIs) offer a solution to the reproducibility challenge
 -   **Tuesday 3-5pm** (Lab 2h approx)
 -   Keep in touch on Teams!
 
+## Canvas
+
+<center>
+
+<img alt="centered image" data-src="./figs/canvas.png" width="70%" height="60%"/>
+
+<center>
+
 ## Website
 
 <center>
@@ -217,7 +225,7 @@ Command Line Interfaces (CLIs) offer a solution to the reproducibility challenge
 
 <center>
 
-<img alt="centered image" data-src="./figs/carto_trends.png" width=43%" height="43%"/>
+<img alt="centered image" data-src="./figs/carto_trends.png" width="43%&quot;" height="43%"/>
 
 <center>
 
@@ -262,6 +270,34 @@ Command Line Interfaces (CLIs) offer a solution to the reproducibility challenge
 <center>
 
 <mark> [Let's have a look](https://pietrostefani.github.io/gds/) </mark>
+
+<center>
+
+## Assignments
+
+**Assignment I**
+
+Title: Programmed Map
+
+Due date: 4th November 2024 (week 7)
+
+40% of the final mark
+
+<br>
+
+**Assignment II**
+
+Title: Computational Essay
+
+Due date: 5th December 2024 (week 11)
+
+60% of the final mark
+
+## AI
+
+<center>
+
+<img alt="centered image" data-src="./figs/GAI.png" width="80%" height="90%"/>
 
 <center>
 
