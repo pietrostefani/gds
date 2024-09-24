@@ -569,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>w_queen <span class="op">=</span> weights.Queen.from_dataframe(df, ids<span class="op">=</span><span class="st">"LSOA11CD"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>w_queen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>&lt;libpysal.weights.contiguity.Queen at 0x157f13b50&gt;</code></pre>
+<pre><code>&lt;libpysal.weights.contiguity.Queen at 0x17bfeb790&gt;</code></pre>
 </div>
 </div>
 <p>The command above creates an object w_queen of the class <code>W</code>. This is the format in which spatial weights matrices are stored in <code>PySAL</code>. In reality, <code>w_queen</code> is not stored as a matrix containing values for each pair of observations, including zeros for those that are not neighbours. Instead, to save memory, for each observation it stores a list of those other observations that are neighbours according to the queen criterion, and it does not store any values for those observations that are not neighbours.</p>
@@ -577,13 +577,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>w_queen[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>{'E01033763': 1.0,
- 'E01006692': 1.0,
+<pre><code>{'E01006697': 1.0,
+ 'E01033763': 1.0,
  'E01006720': 1.0,
- 'E01006691': 1.0,
- 'E01006759': 1.0,
  'E01006695': 1.0,
- 'E01006697': 1.0}</code></pre>
+ 'E01006691': 1.0,
+ 'E01006692': 1.0,
+ 'E01006759': 1.0}</code></pre>
 </div>
 </div>
 <p>This returns a Python dictionary that contains the ID codes of each neighbor as keys, and the weights they are assigned as values. Since we are looking at a raw queen contiguity matrix, every neighbor gets a weight of one. If we want to access the weight of a specific neighbor, E01006691 for example, we can do recursive querying:</p>
@@ -605,13 +605,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>w_queen.neighbors[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>['E01033763',
- 'E01006692',
+<pre><code>['E01006697',
+ 'E01033763',
  'E01006720',
- 'E01006691',
- 'E01006759',
  'E01006695',
- 'E01006697']</code></pre>
+ 'E01006691',
+ 'E01006692',
+ 'E01006759']</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="8">
@@ -726,7 +726,7 @@ The figure layout has changed to tight
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>w_rook <span class="op">=</span> weights.Rook.from_dataframe(df, ids<span class="op">=</span><span class="st">"LSOA11CD"</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>w_rook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>&lt;libpysal.weights.contiguity.Rook at 0x157f6f550&gt;</code></pre>
+<pre><code>&lt;libpysal.weights.contiguity.Rook at 0x17c09ca50&gt;</code></pre>
 </div>
 </div>
 <p>The output is of the same type as before, a W object that can be queried and used in very much the same way as any other one.</p>
@@ -743,7 +743,7 @@ The figure layout has changed to tight
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>knn5 <span class="op">=</span> weights.KNN.from_dataframe(df, k<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>knn5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>&lt;libpysal.weights.distance.KNN at 0x306efa510&gt;</code></pre>
+<pre><code>&lt;libpysal.weights.distance.KNN at 0x176b8ea50&gt;</code></pre>
 </div>
 </div>
 <p>Note how we need to specify the number of nearest neighbors we want to consider with the argument k. Since it is a polygon shapefile that we are passing, the function will automatically compute the centroids to derive distances between observations. Alternatively, we can provide the points in the form of an array, skipping this way the dependency of a file on disk:</p>
@@ -758,7 +758,7 @@ The figure layout has changed to tight
 <span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>knn5_from_pts <span class="op">=</span> weights.KNN.from_array(pts, k<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>knn5_from_pts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>&lt;libpysal.weights.distance.KNN at 0x306eb5dd0&gt;</code></pre>
+<pre><code>&lt;libpysal.weights.distance.KNN at 0x30911b3d0&gt;</code></pre>
 </div>
 </div>
 <p>Like before, we can make a map to visualise the neighbourhood of observation E01006690:</p>
@@ -1060,13 +1060,13 @@ The weights matrix is not fully connected:
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>w_queen[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
-<pre><code>{'E01033763': 1.0,
- 'E01006692': 1.0,
+<pre><code>{'E01006697': 1.0,
+ 'E01033763': 1.0,
  'E01006720': 1.0,
- 'E01006691': 1.0,
- 'E01006759': 1.0,
  'E01006695': 1.0,
- 'E01006697': 1.0}</code></pre>
+ 'E01006691': 1.0,
+ 'E01006692': 1.0,
+ 'E01006759': 1.0}</code></pre>
 </div>
 </div>
 <p>Since it is contiguity, every neighbor gets one, the rest zero weight. We can check if the object w_queen has been transformed or not by calling the argument transform:</p>
@@ -1084,13 +1084,13 @@ The weights matrix is not fully connected:
 <div class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>w_queen[<span class="st">'E01006690'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
-<pre><code>{'E01033763': 0.14285714285714285,
- 'E01006692': 0.14285714285714285,
+<pre><code>{'E01006697': 0.14285714285714285,
+ 'E01033763': 0.14285714285714285,
  'E01006720': 0.14285714285714285,
- 'E01006691': 0.14285714285714285,
- 'E01006759': 0.14285714285714285,
  'E01006695': 0.14285714285714285,
- 'E01006697': 0.14285714285714285}</code></pre>
+ 'E01006691': 0.14285714285714285,
+ 'E01006692': 0.14285714285714285,
+ 'E01006759': 0.14285714285714285}</code></pre>
 </div>
 </div>
 <p>Save for precission issues, the sum of weights for all the neighbors is one:</p>

@@ -788,19 +788,19 @@ alternative hypothesis: two.sided</code></pre>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lisa_perm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Ii         E.Ii     Var.Ii       Z.Ii Pr(z != E(Ii))
-1  0.96481855  0.028342550 1.16930759  0.8660287      0.3864744
-2  0.82335963 -0.017077605 0.42437648  1.2901186      0.1970095
-3  0.85318791  0.006328388 0.50770700  1.1885154      0.2346304
-4  0.56806645 -0.008783094 0.13126852  1.5921437      0.1113524
-5  0.11370566  0.003289364 0.01916969  0.7974907      0.4251661
-6 -0.07610997  0.002786889 0.03299281 -0.4343602      0.6640269
-  Pr(z != E(Ii)) Sim Pr(folded) Sim   Skewness    Kurtosis
-1         0.38761239     0.19380619 -0.5620000  0.50037038
-2         0.19180819     0.09590410 -0.2351363  0.01134186
-3         0.21178821     0.10589411 -0.4075089  0.01938756
-4         0.08591409     0.04295704 -0.2333057 -0.17257697
-5         0.44155844     0.22077922 -0.2733783  0.06773701
-6         0.63136863     0.31568432 -0.3278986 -0.06782892</code></pre>
+1  0.96481855 -0.002514605 1.18472377  0.8887253      0.3741508
+2  0.82335963  0.006661683 0.42601402  1.2512656      0.2108376
+3  0.85318791 -0.025039569 0.47378652  1.2758972      0.2019919
+4  0.56806645  0.014218515 0.12273828  1.5808859      0.1139041
+5  0.11370566  0.001471471 0.01961358  0.8013952      0.4229029
+6 -0.07610997  0.011452596 0.03122462 -0.4955300      0.6202261
+  Pr(z != E(Ii)) Sim Pr(folded) Sim   Skewness   Kurtosis
+1         0.33966034     0.16983017 -0.5830894 0.57557938
+2         0.16583417     0.08291708 -0.4500798 0.24044246
+3         0.16583417     0.08291708 -0.3717003 0.32179898
+4         0.08591409     0.04295704 -0.3207635 0.09422875
+5         0.41958042     0.20979021 -0.3994937 0.39624285
+6         0.57342657     0.28671329 -0.3527042 0.01139255</code></pre>
 </div>
 </div>
 <p>Because of their very nature, looking at the numerical result of LISAs is not always the most useful way to exploit all the information they can provide. Remember that we are calculating a statistic for every single observation in the data so, if we have many of them, it will be difficult to extract any meaningful pattern. Instead, typically a cluster map is created to reflect the significant observations (those that are highly unlikely to have happened by pure chance), which are plotted with a specific color depending on their quadrant category.</p>
@@ -813,7 +813,7 @@ alternative hypothesis: two.sided</code></pre>
   [8] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      High-High High-High &lt;NA&gt;     
  [15] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
  [22] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
- [29] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;      &lt;NA&gt;     
+ [29] &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;      High-High High-High &lt;NA&gt;     
  [36] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
  [43] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
  [50] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
@@ -836,7 +836,7 @@ alternative hypothesis: two.sided</code></pre>
 [169] High-High &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;      &lt;NA&gt;     
 [176] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 [183] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
-[190] &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;      &lt;NA&gt;      High-High High-High
+[190] &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;      &lt;NA&gt;      High-High &lt;NA&gt;     
 [197] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 [204] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      High-High
 [211] &lt;NA&gt;      High-High High-High &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
@@ -855,10 +855,10 @@ alternative hypothesis: two.sided</code></pre>
 [302] &lt;NA&gt;      Low-Low   &lt;NA&gt;      Low-Low   &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 [309] &lt;NA&gt;      Low-Low   Low-Low   Low-Low   Low-Low   &lt;NA&gt;      Low-Low  
 [316] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      Low-Low   &lt;NA&gt;      Low-Low   Low-Low  
-[323] Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;      Low-Low   &lt;NA&gt;      Low-Low  
+[323] Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;      Low-Low   Low-Low   Low-Low  
 [330] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      Low-Low   &lt;NA&gt;      Low-Low  
 [337] Low-Low   Low-Low   &lt;NA&gt;      Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;     
-[344] &lt;NA&gt;      Low-Low   Low-Low   Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;     
+[344] Low-Low   &lt;NA&gt;      Low-Low   Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;     
 [351] Low-Low   Low-Low   Low-Low   &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 [358] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 [365] &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     

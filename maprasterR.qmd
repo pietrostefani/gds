@@ -146,6 +146,7 @@ Questions to ask yourself about how you can improve these maps, going back to [g
 
 -   Have a look at some of the [`tmap` documentation](https://r-tmap.github.io/tmap/reference/tm_layout.html) to improve your map further .
 
+````{=html}
 <!--
 ### **Slope**
 
@@ -199,6 +200,7 @@ flood_risk <- app(elevation_proj, fun= function(x) ifelse(x<10, 1, 0))
 plot(flood_risk)
 ```
 -->
+````
 
 ### **Spatial join with vector data**
 

@@ -158,11 +158,8 @@ envs363_563/ ├── data/ └── labs/
 
 ## Py Basics
 
-```{=html}
-<!--
-Carmen can you add something here for it to be similar to the R version
--->
-```
+Please refer to the tutorials from [learnpython.org](https://www.learnpython.org/en/Welcome) for an introduction to coding in Python. We particularly recommend the tutorials listed under the "Learn the Basics" section.
+
 ## Resources
 
 Some help along the way with:
