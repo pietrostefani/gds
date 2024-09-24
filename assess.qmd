@@ -85,3 +85,12 @@ This course follows the standard marking criteria (the general ones and those re
 -   60-69: the code runs and produces the expected output. There is extensive documentation, properly formatted, explaining its logic.
 -   70-79: all as above, plus the code design includes clear evidence of skills presented in advanced sections of the course (e.g. custom methods, list comprehensions, etc.).
 -   80-100: all as above, plus the code contains novel contributions that extend/improve the functionality the student was provided with (e.g. algorithm optimizations, novel methods to perform the task, etc.).
+
+## Generative Artificial Intelligence 
+
+•	You are reminded that the inappropriate use of Generative Artificial Intelligence Tools in the preparation of assignments is strictly prohibited.
+
+•	Assignments should be prepared using your own words.  All use of AI translation tools should be properly acknowledged.   Extensive use of AI proof-reading tools is prohibited.  Whilst you may use spelling/grammar checks typically found in word-processing packages, using AI tools to change words/sentence structure may incur an Academic Integrity penalty.
+
+•	If your assessment is referred for an Academic Integrity Investigation, you may be asked to demonstrate that the work you have submitted is your own.  Therefore, it is advised that you keep hold of earlier files, drafts, notes and other relevant preparatory materials that you have used.
+
