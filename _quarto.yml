@@ -59,6 +59,7 @@ book:
     - part: spatialnetworks.qmd
       chapters:
         - spatialnetworksR.qmd
+        - spatialnetworksPy.qmd
         - spatialnetworksDIY.qmd
     - datasets.qmd
     - references.qmd
