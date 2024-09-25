@@ -82,11 +82,19 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/maprasterR.html</loc>
+<<<<<<< Updated upstream
     <lastmod>2024-09-24T13:20:10.104Z</lastmod>
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/maprasterPy.html</loc>
     <lastmod>2024-09-24T13:20:10.092Z</lastmod>
+=======
+    <lastmod>2024-09-25T07:45:36.405Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/maprasterPy.html</loc>
+    <lastmod>2024-09-25T07:45:44.021Z</lastmod>
+>>>>>>> Stashed changes
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/environR.html</loc>
@@ -210,7 +218,11 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/spatialnetworksR.html</loc>
+<<<<<<< Updated upstream
     <lastmod>2024-09-24T13:20:10.207Z</lastmod>
+=======
+    <lastmod>2024-09-24T09:34:48.879Z</lastmod>
+>>>>>>> Stashed changes
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/download.html</loc>
@@ -238,6 +250,14 @@
   </url>
   <url>
     <loc>https://pietrostefani.github.io/wma/spatialnetworksPy.html</loc>
+<<<<<<< Updated upstream
     <lastmod>2024-09-24T13:20:10.223Z</lastmod>
+=======
+    <lastmod>2024-09-24T09:34:48.873Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pietrostefani.github.io/wma/spatialwR.html</loc>
+    <lastmod>2024-09-05T10:17:04.452Z</lastmod>
+>>>>>>> Stashed changes
   </url>
 </urlset>

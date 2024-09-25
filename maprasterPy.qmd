@@ -219,6 +219,7 @@ Questions to ask yourself about how you can improve these maps, going back to [g
 
 -   Should the colours be changed to standard elevation pallettes?
 
+````{=html}
 <!--
 ### **Slope**
 
@@ -306,6 +307,7 @@ plt.title('Flood Risk Map')
 plt.show()
 ```
 -->
+````
 
 ### **Spatial join with vector data**
 
@@ -353,12 +355,14 @@ We need to download some raster data. NOAA has made nighttime lights data availa
 :::
 
 ::: callout-important
-You can also download the data [here](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EX85foAh7ZBBtSZ64pxbFmsBStf8UX2uaLXE5MBYJt6PeQ?e=LMYu7d). You will need to be logged into your UoL account.
+You can also download the data [here](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EX85foAh7ZBBtSZ64pxbFmsBStf8UX2uaLXE5MBYJt6PeQ?e=LMYu7d) in *tar* format.
 
 The downloaded files are going to be in a **"TAR" format**. A TAR file is an archive created by tar, a Unix-based utility used to package files together for backup or distribution purposes. It contains multiple files stored in an uncompressed format along with metadata about the archive. Tars files are also used to reduce files' size. TAR archives compressed with GNU Zip compression may become GZ, .TAR.GZ, or .TGZ files. We need to decompress them before using them.
+
+If you want to simplify further, you can download the data directly as **TIFs**: Here for [1992](https://theuniversityofliverpool-my.sharepoint.com/my?login_hint=pietrost%40liverpool%2Eac%2Euk&id=%2Fpersonal%2Fpietrost%5Fliverpool%5Fac%5Fuk%2FDocuments%2Fgds%5FENVS363%5F563%2FF101992%2Ev4b%5Fweb%2Estable%5Flights%2Eavg%5Fvis%2Etif&parent=%2Fpersonal%2Fpietrost%5Fliverpool%5Fac%5Fuk%2FDocuments%2Fgds%5FENVS363%5F563) and here for [2013](https://theuniversityofliverpool-my.sharepoint.com/my?login_hint=pietrost%40liverpool%2Eac%2Euk&id=%2Fpersonal%2Fpietrost%5Fliverpool%5Fac%5Fuk%2FDocuments%2Fgds%5FENVS363%5F563%2FF182013%2Ev4c%5Fweb%2Estable%5Flights%2Eavg%5Fvis%2Etif&parent=%2Fpersonal%2Fpietrost%5Fliverpool%5Fac%5Fuk%2FDocuments%2Fgds%5FENVS363%5F563). You will need to be logged into your UoL account.
 :::
 
-Before you move forward **download the data for 1992 and 2013.** It is also good practice to create a scratch folder where you do all your unzipping.
+It is also good practice to create a scratch folder where you do all your unzipping.
 
 ```{python}
 # Load the raster files

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,6 +116,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -118,13 +126,37 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <meta name="twitter:title" content="A course in Geographic Data Science - Lab in Python">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://pietrostefani.github.io/wma/spatialnetworksPy_files/figure-html/cell-3-output-1.png">
 <meta name="twitter:creator" content="@EPietrostefani">
-<meta name="twitter:image-height" content="998">
-<meta name="twitter:image-width" content="1382">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating">
@@ -133,12 +165,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksPy.html">Lab in Python</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksPy.html">Lab in Python</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -148,12 +180,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A course in Geographic Data Science</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/pietrostefani/gds" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -510,7 +542,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -537,12 +569,12 @@ div.csl-indent {
   </ul></li>
   <li><a href="#centrality" id="toc-centrality" class="nav-link" data-scroll-target="#centrality">Centrality</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/pietrostefani/gds/edit/main/spatialnetworksPy.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/spatialnetworksPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksPy.html">Lab in Python</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-spatialnetworksPy" class="quarto-section-identifier">Lab in Python</span></h1>
 </div>
@@ -557,10 +589,12 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
+
 <p>We start by loading all the libraries required for this section.</p>
-<div class="cell" data-execution_count="1">
+<div id="0d48a3ed" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># working with spatial data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data manipulation and visualisation</span></span>
@@ -575,7 +609,7 @@ div.csl-indent {
 <section id="starting-from-the-basics" class="level3">
 <h3 class="anchored" data-anchor-id="starting-from-the-basics">Starting from the basics</h3>
 <p>To understand the basic concepts and components of a network, we create a small example network using the <code>networkx</code> package. We create an undirected network of 5 nodes and 6 edges.</p>
-<div class="cell" data-execution_count="2">
+<div id="ec5329b7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an undirected graph with 5 nodes and specified edges</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>network <span class="op">=</span> nx.Graph()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>network.add_edges_from([(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">3</span>), (<span class="dv">2</span>, <span class="dv">5</span>), (<span class="dv">3</span>, <span class="dv">1</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">4</span>, <span class="dv">5</span>), (<span class="dv">5</span>, <span class="dv">1</span>)])</span>
@@ -587,11 +621,15 @@ div.csl-indent {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-3-output-1.png" width="691" height="499"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-3-output-1.png" width="691" height="499" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>If the connections between the nodes of a network are non-reciprocal, the network is called directed.</p>
-<div class="cell" data-execution_count="3">
+<div id="77aa13d4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a directed graph with 5 nodes and specified edges</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>network <span class="op">=</span> nx.DiGraph()  <span class="co"># DiGraph is used for directed graphs</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>network.add_edges_from([(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">3</span>), (<span class="dv">2</span>, <span class="dv">5</span>), (<span class="dv">3</span>, <span class="dv">1</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">4</span>, <span class="dv">5</span>), (<span class="dv">5</span>, <span class="dv">1</span>)])</span>
@@ -604,7 +642,11 @@ div.csl-indent {
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-4-output-1.png" width="691" height="499"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-4-output-1.png" width="691" height="499" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The network can also be defined as a list containing pairs of nodes with labels. In that case we do not need to specify the number of nodes. We only specify the isolated nodes to be included.</p>
@@ -621,7 +663,7 @@ Note
 <p>We will describe the various arguments within plot which can be used to style your data visualisation</p>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
+<div id="9171b752" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a directed graph and add edges between cities</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>network_isolated <span class="op">=</span> nx.DiGraph()  <span class="co"># Directed graph</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [(<span class="st">"City 1"</span>, <span class="st">"City 2"</span>),</span>
@@ -662,26 +704,30 @@ Note
 <span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
 <span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-5-output-1.png" width="691" height="499"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-5-output-1.png" width="691" height="499" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="adding-attributes" class="level3">
 <h3 class="anchored" data-anchor-id="adding-attributes">Adding attributes</h3>
 <p>We can add attributes to individual components of the network. To add attributes to nodes, we need to access them:</p>
-<div class="cell" data-execution_count="5">
+<div id="e8176e91" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(network_isolated.nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>['City 1', 'City 2', 'City 3', 'City 5', 'City 4', 'City 6']</code></pre>
 </div>
 </div>
 <p>Additional node attributes can be added through the function <code>set_node_attributes()</code>, which requires a network object, a dictionary keyed by node to an attribute value such as population size, and the name of the attribute:</p>
-<div class="cell" data-execution_count="6">
+<div id="ea5acd6d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> {<span class="st">'City 1'</span>: <span class="dv">92000</span>, <span class="st">'City 2'</span>: <span class="dv">549000</span>, <span class="st">'City 3'</span>: <span class="dv">1786000</span>, <span class="st">'City 4'</span>: <span class="dv">74000</span>, <span class="st">'City 5'</span>: <span class="dv">8000</span>, <span class="st">'City 6'</span>: <span class="dv">21000</span>}</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(network_isolated, populations, <span class="st">"population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and accessed:</p>
-<div class="cell" data-execution_count="7">
+<div id="b1e30e20" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>nx.get_node_attributes(network_isolated, <span class="st">"population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>{'City 1': 92000,
@@ -693,7 +739,7 @@ Note
 </div>
 </div>
 <p>or via</p>
-<div class="cell" data-execution_count="8">
+<div id="4e265631" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(network_isolated.nodes(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">1</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>['population']</code></pre>
@@ -701,7 +747,7 @@ Note
 </div>
 <p>for the names of these attributes.</p>
 <p>Dictionaries are data structures commonly used in python which allow to map a set of keys with values, like cities with their respective populations. Dictionaries can be defined as we did for the variable <code>populations</code> or in a faster way via what is known as a dictionary comprehension, which comes handy if we have the keys and the values stored as a list:</p>
-<div class="cell" data-execution_count="9">
+<div id="0612f185" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> <span class="bu">list</span>(network_isolated.nodes)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>city_populations <span class="op">=</span> [<span class="dv">92000</span>, <span class="dv">549000</span>, <span class="dv">1786000</span>, <span class="dv">74000</span>, <span class="dv">8000</span>, <span class="dv">21000</span>]</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> {cities[i]: city_populations[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities))}</span>
@@ -717,17 +763,17 @@ Note
 </div>
 <p>For more information on dictionaries, please check the python documentation, for example at <a href="https://docs.python.org/" class="uri">https://docs.python.org/</a>.</p>
 <p>We can also access the edges:</p>
-<div class="cell" data-execution_count="10">
+<div id="3fecbffe" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> <span class="bu">list</span>(network_isolated.edges())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can add edge attributes, such as the number of people moving from an origin to a destination city. We call this attribute edge weight. The size of the connection between two places often represent their importance or <code>weight</code> in the network.</p>
-<div class="cell" data-execution_count="11">
+<div id="5dda747e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>weight_edges <span class="op">=</span> [<span class="dv">2000</span>, <span class="dv">5000</span>, <span class="dv">1000</span>, <span class="dv">1000</span>, <span class="dv">4000</span>, <span class="dv">3500</span>, <span class="dv">7000</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>weight <span class="op">=</span> {edges[i]: weight_edges[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(edges))}</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>nx.set_edge_attributes(network_isolated, weight, <span class="st">"weight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The edges attributes can be accessed via:</p>
-<div class="cell" data-execution_count="12">
+<div id="c8095aca" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>nx.get_edge_attributes(network_isolated, <span class="st">"weight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>{('City 1', 'City 2'): 2000,
@@ -740,14 +786,14 @@ Note
 </div>
 </div>
 <p>or for the names of these attributes:</p>
-<div class="cell" data-execution_count="13">
+<div id="07702414" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(network_isolated.edges(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">2</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>['weight']</code></pre>
 </div>
 </div>
 <p>We can examine the adjacency matrix of the network. The adjacency represents the presence of edges between different pairs of nodes. In our example, each row corresponds to an origin city and each column to a destination:</p>
-<div class="cell" data-execution_count="14">
+<div id="181f3ccc" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the adjacency matrix as a sparse matrix</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>adj_matrix_sparse <span class="op">=</span> nx.adjacency_matrix(network_isolated)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -764,13 +810,13 @@ Note
 </div>
 </div>
 <p>We can also look at the existing node and edge attributes.</p>
-<div class="cell" data-execution_count="15">
+<div id="fce74451" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>network_isolated.nodes(data<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>NodeDataView({'City 1': {'population': 92000}, 'City 2': {'population': 549000}, 'City 3': {'population': 1786000}, 'City 5': {'population': 8000}, 'City 4': {'population': 74000}, 'City 6': {'population': 21000}})</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="16">
+<div id="89f19ae6" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>network_isolated.edges(data<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>OutEdgeDataView([('City 1', 'City 2', {'weight': 2000}), ('City 2', 'City 3', {'weight': 5000}), ('City 2', 'City 5', {'weight': 1000}), ('City 3', 'City 1', {'weight': 1000}), ('City 3', 'City 4', {'weight': 4000}), ('City 5', 'City 1', {'weight': 3500}), ('City 4', 'City 5', {'weight': 7000})])</code></pre>
@@ -780,7 +826,7 @@ Note
 <section id="basic-visualisation" class="level3">
 <h3 class="anchored" data-anchor-id="basic-visualisation">Basic visualisation</h3>
 <p>You have already seen how we can visualise networks using the base R function <code>plot()</code>. We will now elaborate on how individual components of the network can be visually adjusted using specific parameters in the plot function. More sophisticated data visualisations can be produced integrating geographic information, see Chapter 5 in <span class="citation" data-cites="roweetal2023-rps">Rowe, Cabrera-Arnau, and Piestrostefani (<a href="references.html#ref-roweetal2023-rps" role="doc-biblioref">2023</a>)</span>, or using other packages such as <code>ggraph</code> in conjunction with <code>ggplot2</code>.</p>
-<div class="cell" data-execution_count="17">
+<div id="c9f8502f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming `network_isolated` is a NetworkX graph object</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a circular layout similar to layout.circle in R</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.circular_layout(network_isolated)</span>
@@ -833,7 +879,11 @@ Note
 <span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-18-output-1.png" width="950" height="950"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-18-output-1.png" width="950" height="950" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -846,14 +896,14 @@ Note
 <section id="creating-a-network-from-a-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-network-from-a-data-frame">Creating a network from a data frame</h2>
 <p>The data that specifies the nodes and edges of the African road network is stored in two csv files, one for nodes and one for edges. This data can be loaded in two data frames:</p>
-<div class="cell" data-execution_count="18">
+<div id="57e94687" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file containing network nodes data</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="op">=</span> pd.read_csv(<span class="st">"./data/Africa/AfricaNetworkNodes.csv"</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df_edges <span class="op">=</span> pd.read_csv(<span class="st">"./data/Africa/AfricaNetworkEdges.csv"</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then create an undirected graph as an igraph object from the data frames corresponding to the nodes and edges:</p>
-<div class="cell" data-execution_count="19">
+<div id="fd337c82" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an undirected graph from the edge DataFrame</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>g_africa <span class="op">=</span> nx.from_pandas_edgelist(df_edges, source<span class="op">=</span><span class="st">'from'</span>, target<span class="op">=</span><span class="st">'to'</span>, edge_attr<span class="op">=</span><span class="va">True</span>, create_using<span class="op">=</span>nx.Graph())</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -862,7 +912,7 @@ Note
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_africa, node_attr_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can have a look at the names of the vertex attributes, which are automatically taken from the columns in the <code>df_nodes</code> data frame:</p>
-<div class="cell" data-execution_count="20">
+<div id="1e35c0bf" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the attribute names associated with vertices in the 'g_africa' graph</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(g_africa.nodes(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">1</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -871,7 +921,7 @@ Note
 </div>
 <p>where “name” is the ID of each node in the network, “agglosName” is the name of the city represented by the node, it is set to “road” if the node is a transport node. “x” and “y” represent the coordinates of each node, “Pop2015” is the population of the city nodes, “ISO3” is the code for the country that each node is situated in, “Region” represents the region within the African continent that each node is situated in, and “Between” and “degree” represent the betweenness centrality and the degree of each node in the network, which we will also compute below.</p>
 <p>We can also obtain the names of the edge attributes, which are taken from the columns in the <code>df_edges</code> data frame:</p>
-<div class="cell" data-execution_count="21">
+<div id="c02920db" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the attribute names associated with edges in the 'g_africa' graph</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(g_africa.edges(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">2</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -882,7 +932,7 @@ Note
 <section id="visualising-the-african-road-network-as-a-spatial-network" class="level3">
 <h3 class="anchored" data-anchor-id="visualising-the-african-road-network-as-a-spatial-network">Visualising the African road network as a spatial network</h3>
 <p>What does the African road network that we just built look like? We can find out very easily using the <code>plot</code> function. But in order to achieve a nice-looking graph, we need to play a bit with the values of the arguments of this function. For example, we will plot the size of the nodes according to the population of the cities that they represent. But some cities are orders of magnitude larger than others, which would result in some gigantic nodes for a few cities and tiny ones for the majority. In order to weaken this effect, we first apply a scaling function that redefines the size of the nodes:</p>
-<div class="cell" data-execution_count="22">
+<div id="9c7d3c83" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and assign a 'size' attribute to vertices in the 'g_africa' graph</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The size is determined based on the population data ('Pop2015') of each vertex</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -895,15 +945,15 @@ Note
 </div>
 <p>Now we are ready to plot the network, with a few extra modifications to the default plot in order to improve the appearance. As an exercise, you may want to try to plot the default visualisation. If you do this, you will understand better why it is worth it spending some time playing with the values of the parameters in the plot function.</p>
 <p>We will include the outline of the African countries in the background. To do this, we upload the necessary data:</p>
-<div class="cell" data-execution_count="23">
+<div id="033a9758" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_borders <span class="op">=</span> gpd.read_file(<span class="st">"./data/Africa/Africa_Boundaries.geojson"</span>)  <span class="co"># Read GeoJSON file containing Africa boundaries into a data frame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We set the layout (lo) of the nodes in the network according to the <code>x</code> and <code>y</code> columns in <code>df_nodes</code>:</p>
-<div class="cell" data-execution_count="24">
+<div id="b7b9bb05" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> np.column_stack((df_nodes[<span class="st">'x'</span>], df_nodes[<span class="st">'y'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can now plot the background map with the country outlines as well as the network. Running the cell below might take some time depending on the processign power of your computer.</p>
-<div class="cell" data-execution_count="25">
+<div id="7c9cd1e4" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot for the geographic boundaries</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>df_borders.boundary.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Plotting the boundaries</span></span>
@@ -929,7 +979,11 @@ Note
 <span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)  <span class="co"># Turn off the axis</span></span>
 <span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>plt.show()  <span class="co"># Show the plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-26-output-1.png" width="763" height="680"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-26-output-1.png" width="763" height="680" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -940,7 +994,7 @@ Note
 <section id="density" class="level3">
 <h3 class="anchored" data-anchor-id="density">Density</h3>
 <p>The density of a network refers to the proportion of existing edges over all possible edges. In a network with <span class="math inline">\(n\)</span> nodes, the total number of possible edges is <span class="math inline">\(n \times (n-1)\)</span>. A density equal to <span class="math inline">\(1\)</span> corresponds to a situation where <span class="math inline">\(n \times (n-1)\)</span> edges are present. A network with no edges at all would have density equal to 0. We can obtain the density of the African network by running the following code:</p>
-<div class="cell" data-execution_count="26">
+<div id="88bf7636" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the edge density of the 'g_africa' graph</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Edge density is the ratio of the number of edges to the number of possible edges</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loops (self-edges) are excluded from the calculation</span></span>
@@ -954,7 +1008,7 @@ Note
 <section id="reciprocity" class="level3">
 <h3 class="anchored" data-anchor-id="reciprocity">Reciprocity</h3>
 <p>The reciprocity in a directed network is the proportion of reciprocated connections between nodes (i.e.&nbsp;number of pairs of nodes with edges in both directions) from all the existing edges.</p>
-<div class="cell" data-execution_count="27">
+<div id="dd296177" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the reciprocity of the edges in the 'g_africa' graph</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>nx.reciprocity(g_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -966,7 +1020,7 @@ Note
 <section id="degree" class="level3">
 <h3 class="anchored" data-anchor-id="degree">Degree</h3>
 <p>The degree of a node is the number of edges connected to it. The in-degree of a node in a directed network is the number of edges ending in a given node. The out-degree is the number of edges starting from a given node. The <code>degree_histogram()</code> function from <code>networkx</code> allows computing the number of nodes with a certain degree (frequency of degree) in the network. In order to visualise the results, we produce a histogram</p>
-<div class="cell" data-execution_count="28">
+<div id="60fd892c" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute frequency of each degree</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>degree_hist <span class="op">=</span> nx.degree_histogram(g_africa)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -984,11 +1038,15 @@ Note
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-29-output-1.png" width="681" height="523"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-29-output-1.png" width="681" height="523" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We observe that most nodes have degree 3. Nodes of degree 1 are terminal nodes. Nodes of degree 2 are relatively less common than those of degree 1 and 3. This is likely due to the method used to build the network, where all the transport nodes of degree 2 are eliminated in order to simplify the network. Beyond degree 4, it is relatively rare to find any nodes. From the histogram, we see the maximum degree observed in the network is 13. Below, we obtain the ID of the node with the maximum degree as well as the value of the degree (13).</p>
-<div class="cell" data-execution_count="29">
+<div id="8f70007e" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the node with the maximum degree</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>max_degree_node <span class="op">=</span> <span class="bu">max</span>(g_africa.degree, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>])  <span class="co"># x[0] is the node, x[1] is the degree</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -998,7 +1056,7 @@ Note
 </div>
 </div>
 <p>and the name of the node:</p>
-<div class="cell" data-execution_count="30">
+<div id="0f64eab2" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the "name" attribute of the node with the maximum degree</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>max_degree_node_name <span class="op">=</span> g_africa.nodes[max_degree_node[<span class="dv">0</span>]][<span class="st">'agglosName'</span>]</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1014,7 +1072,7 @@ Note
 <p>The path length of a path between nodes <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is generally defined as the number of edges forming this path. The shortest path is the minimum count of edges present to travel from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</p>
 <p>The path length can be defined in alternative ways. For example, the path length can be defined as the sum of the weights of the edges forming a path if the edges are weighted.</p>
 <p>We can use the function <code>shortest_path()</code> to find the shortest path between a given pair of nodes. For example, between Cairo and Lagos. We store the output of the shortest path function in a list called <code>path</code> which contains the sequence of nodes in the shortest path.</p>
-<div class="cell" data-execution_count="31">
+<div id="23c9895f" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the corresponding nodes by their name attributes</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>node_names <span class="op">=</span> {data[<span class="st">'agglosName'</span>]: node <span class="cf">for</span> node, data <span class="kw">in</span> g_africa.nodes(data<span class="op">=</span><span class="va">True</span>)}</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>start_node <span class="op">=</span> node_names.get(<span class="st">"Cairo"</span>)</span>
@@ -1023,7 +1081,7 @@ Note
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> nx.shortest_path(g_africa, source<span class="op">=</span>start_node, target<span class="op">=</span>end_node)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can extract the values of this to obtain the edges, which we then use to compute the total length of the shortest path between the two cities.</p>
-<div class="cell" data-execution_count="32">
+<div id="b022db78" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>path_length <span class="op">=</span> nx.shortest_path_length(g_africa, source<span class="op">=</span>start_node, target<span class="op">=</span>end_node, weight<span class="op">=</span><span class="st">'l'</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(path_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1032,14 +1090,14 @@ Note
 </div>
 <p>We obtain that the shortest path is 6,084.359 km long. You can check for example on Google Maps what the distance by road is between the two cities. What do you obtain? What is the relative error between our estimation and the value from Google Maps?</p>
 <p>Of all shortest paths in a network, the longest path length is the network diameter. The diameter of the African road network is the length of the longest shortest path between any pair of nodes:</p>
-<div class="cell" data-execution_count="33">
+<div id="9941cbd1" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>nx.diameter(g_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>138</code></pre>
 </div>
 </div>
 <p>The mean distance is the average length of all shortest paths in the network. The mean distance will always be smaller or equal than the diameter. It is given by:</p>
-<div class="cell" data-execution_count="34">
+<div id="23f23155" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>nx.average_shortest_path_length(g_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>55.86020422703673</code></pre>
@@ -1050,7 +1108,7 @@ Note
 <section id="centrality" class="level2">
 <h2 class="anchored" data-anchor-id="centrality">Centrality</h2>
 <p>Centrality metrics assign scores to nodes (and sometimes also edges) according to their position within a network. These metrics can be used to identify the most influential nodes. Two important centrality metrics are (1) closeness centrality, and (2) betweenness centrality. Closeness centrality is a measure of the shortest path length between a node and all the other nodes. For a given node, it is computed as the inverse of the average shortest paths between that node and every other node in the network. A node with closeness centrality close to 1 indicates that on average the node is very close to the other nodes in the network. A closeness centrality of 0 represents an isolated node. Below we compute the closeness centrality using unweighted edges and represent the results in a histogram. The distribution looks bimodal (this means that the histogram has two frequency peaks).</p>
-<div class="cell" data-execution_count="35">
+<div id="07b52658" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the closeness centrality for each vertex in the 'g_africa' graph, using unweighted edges </span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>closeness_centrality <span class="op">=</span> nx.closeness_centrality(g_africa)</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1064,11 +1122,15 @@ Note
 <span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Frequency'</span>)</span>
 <span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-36-output-1.png" width="593" height="429"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-36-output-1.png" width="593" height="429" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Betweenness centrality is a measure of the number of shortest paths going through a node. Nodes with high values of betweenness centrality indicates that they play a very important role in the overall connectivity of the network. Betweenness can also be computed for edges. We also compute the betweenness centrality for all nodes and represent it as a histogram.</p>
-<div class="cell" data-execution_count="36">
+<div id="f606cdf2" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the betweenness centrality for each vertex in the 'g_africa' graph, using unweighted edges </span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>betweenness_centrality <span class="op">=</span> nx.betweenness_centrality(g_africa)</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1082,7 +1144,11 @@ Note
 <span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Frequency'</span>)</span>
 <span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="spatialnetworksPy_files/figure-html/cell-37-output-1.png" width="602" height="429"></p>
+<div>
+<figure class="figure">
+<p><img src="spatialnetworksPy_files/figure-html/cell-37-output-1.png" width="601" height="429" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1120,7 +1186,7 @@ Note
 <!-- ``` -->
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Moriconi16" class="csl-entry" role="listitem">
 Moriconi-Ebrard, François, Dominique Harre, and Philipp Heinrigs. 2016. <em>Urbanisation Dynamics in West Africa 1950–2010</em>. https://doi.org/<a href="https://doi.org/https://doi.org/10.1787/9789264252233-en">https://doi.org/https://doi.org/10.1787/9789264252233-en</a>.
 </div>
@@ -1219,10 +1285,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/pietrostefani\.github\.io\/wma");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1232,8 +1315,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1245,7 +1337,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1289,6 +1504,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1314,6 +1530,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1375,12 +1617,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./spatialnetworksR.html" class="pagination-link">
+      <a href="./spatialnetworksR.html" class="pagination-link" aria-label="Lab in R">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab in R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./spatialnetworksDIY.html" class="pagination-link">
+      <a href="./spatialnetworksDIY.html" class="pagination-link" aria-label="Do-It-Yourself">
         <span class="nav-page-text">Do-It-Yourself</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1388,13 +1630,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</div>   
+    <div class="nav-footer-left">
+<p>Geographic Data Science by Elisabetta Pietrostefani and Carmen Cabrera-Arnau.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pietrostefani/gds/edit/main/spatialnetworksPy.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 
