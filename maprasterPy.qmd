@@ -210,7 +210,6 @@ ax.legend(handles=legend_patches, loc='center left', bbox_to_anchor=(1, 0.5), ti
 
 
 plt.show()
-
 ```
 
 Questions to ask yourself about how you can improve these maps, going back to [geo-visualisation and choropleths](https://pietrostefani.github.io/gds/mapvector.html).
@@ -218,96 +217,6 @@ Questions to ask yourself about how you can improve these maps, going back to [g
 -   What are the logical breaks for elevation data?
 
 -   Should the colours be changed to standard elevation pallettes?
-
-````{=html}
-<!--
-### **Slope**
-
-It may sometimes prove useful to visualize these elevation models with mechanisms such as contour lines. Fortunately, this is fairly easy to accomplish in Python using packages such as GDAL and Matplotlib.
-
-```{python}
-# For additional raster data processing 
-from osgeo import gdal 
-
-# Specify the filename of the raster file
-filename = "data/Lebanon/reprojected_elevation.tif"
-# Open the raster file using GDAL (Geospatial Data Abstraction Library)
-gdal_data = gdal.Open(filename)
-# Retrieve the first band (layer) of the raster data
-gdal_band = gdal_data.GetRasterBand(1)
-# Get the value that represents 'no data' or missing data within the raster
-nodataval = gdal_band.GetNoDataValue()
-# Read the raster data into a numpy array and convert it to a float64 data type
-data_array = gdal_data.ReadAsArray().astype(np.float64)
-# Check if the array contains any 'no data' values
-if np.any(data_array == nodataval):
-    # Replace 'no data' values with NaN (Not a Number) to handle them as missing data
-    data_array[data_array == nodataval] = np.nan
-```
-
-Raster data, such as a GeoTIFF, is typically stored with the origin (0,0) at the top-left corner. This means the first row in the data array corresponds to the top of the raster, and the last row corresponds to the bottom. However, when you visualize data using Matplotlib, the default behavior assumes that the origin (0,0) is at the bottom-left corner. This discrepancy can cause the image to appear flipped vertically.
-
-```{python}
-data_array_flipped = np.flipud(data_array)
-```
-
-Now that we’ve read our data in, we’re ready to visualize the elevation using contour lines within Matplotlib (Note: We will be re-reading in the data again here due to NaN values).
-
-```{python}
-#Plot out data with Matplotlib's 'contour'
-fig = plt.figure(figsize = (8, 8))
-ax = fig.add_subplot(111)
-plt.contour(data_array_flipped, cmap = "viridis", 
-            levels = list(range(0, 4000, 200)))
-            
-# Set limits for the x-axis
-ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
-ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
-             
-plt.title("Elevation Lebanon")
-cbar = plt.colorbar()
-plt.gca().set_aspect('equal', adjustable='box')
-plt.show()
-```
-
-#Plot our data with Matplotlib's 'contourf'
-
-```{python}
-fig = plt.figure(figsize = (8, 8))
-ax = fig.add_subplot(111)
-plt.contourf(data_array_flipped, cmap = "gist_earth", 
-            levels = list(range(0, 4000, 200)))
-
-# Set limits for the x-axis
-ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
-ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
-             
-plt.title("Elevation Lebanon")
-cbar = plt.colorbar()
-plt.gca().set_aspect('equal', adjustable='box')
-plt.show()
-```
-
-### **Flood risk area**
-
-We can employ reclassification techniques to delineate flood risk areas. Specifically, we identify and classify areas where the elevation is under 10 meters above sea level as high-risk zones. This critical step in flood risk assessment helps communities and decision-makers pinpoint vulnerable areas, enabling them to implement effective mitigation strategies and disaster preparedness plans to safeguard against potential flooding events.
-
-```{python}
-# Apply the function to create the flood_risk array
-flood_risk = np.where(data_array < 10, 1, 0) # assigning 1 if the element is less than 10, and 0 otherwise. We cleaned data_array earlier.
-```
-
-```{python}
-# Create a new figure for the plot
-plt.figure()
-
-# Plot the flood_risk array
-plt.imshow(flood_risk, cmap='Greys')
-plt.title('Flood Risk Map')
-plt.show()
-```
--->
-````
 
 ### **Spatial join with vector data**
 
