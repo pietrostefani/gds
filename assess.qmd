@@ -48,7 +48,7 @@ A 4,000 word computational essay on a geographic data set which they have explor
 
 -   [**Full Assignment details**](https://theuniversityofliverpool-my.sharepoint.com/:w:/g/personal/carmenca_liverpool_ac_uk/EXsp83AVjG1HqogSyZpYvRcBnwTWamCC10QEl01iwTi0mQ?e=BlgsfY)
 
--   [**Some data about race in csv format if you are not using API**](https://theuniversityofliverpool-my.sharepoint.com/:x:/g/personal/carmenca_liverpool_ac_uk/ERaIMwe-FLdNnGpe3ZgOTGABkOy7i6JxY6gqQ3L8mZv2DQ?e=pgNkbq)
+-   [**Some data about race in csv format if you are not using API**](https://github.com/pietrostefani/gds/blob/main/data/ACS_2018_2022_vars.csv)
 
 Important information about data access through the US Census API:
 
