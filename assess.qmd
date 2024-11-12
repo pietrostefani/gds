@@ -13,13 +13,13 @@ This assignment will be evaluated on technical data processing, map design abili
 
 Once you have created your map, you will need to present it. Write up to 500 about the choices you made to create the map.
 
--  **[Full Assignment details](https://theuniversityofliverpool-my.sharepoint.com/:b:/g/personal/pietrost_liverpool_ac_uk/EVtY1PO8LRJCncXtmiq4lAMBC6in9db94tZ0Cepzheoepg?e=UtyoVC)**
+-   [**Full Assignment details**](https://theuniversityofliverpool-my.sharepoint.com/:b:/g/personal/pietrost_liverpool_ac_uk/EVtY1PO8LRJCncXtmiq4lAMBC6in9db94tZ0Cepzheoepg?e=UtyoVC)
 
 You will submit an `.html` file obtained by rendering your `.qmd` in `R` or `.ipynb` Jupyter Notebook in `Python`.
 
-- If you are doing the assignment in `R`: You can start from this **[.qmd file](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EfRYCY5AuLNEsmEtT5lBbKgBF2Q5gTcYvRia13gLdzlNLA?e=fNzdf3)** to render the `html`. Other file formats will not be accepted.
+-   If you are doing the assignment in `R`: You can start from this [**.qmd file**](https://theuniversityofliverpool-my.sharepoint.com/:u:/g/personal/pietrost_liverpool_ac_uk/EfRYCY5AuLNEsmEtT5lBbKgBF2Q5gTcYvRia13gLdzlNLA?e=fNzdf3) to render the `html`. Other file formats will not be accepted.
 
-- If you are doing the assignment in `Python`: To do so, in your `.ipynb` file, follow these steps: `File –> Save and Export as.. –> HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed).  Other file formats will not be accepted.
+-   If you are doing the assignment in `Python`: To do so, in your `.ipynb` file, follow these steps: `File –> Save and Export as.. –> HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed). Other file formats will not be accepted.
 
 ### Submit
 
@@ -46,9 +46,9 @@ The assignment will be evaluated based on three main pillars, on which you will 
 
 A 4,000 word computational essay on a geographic data set which they have explored and analysed using the skills and techniques developed during the course. Students will complete an essay which combines both code, data visualisation and prose supported by references in order to demonstrate sound understanding of all learning outcomes.
 
-- **[Full Assignment details]()**
+-   [**Full Assignment details**](https://theuniversityofliverpool-my.sharepoint.com/:b:/g/personal/carmenca_liverpool_ac_uk/EcISuNyfQFJAlpjy7b9N004Bu3EfB1qU-Ocxd8mrPSmVPg?e=elQrKy)
 
-- **[Data in csv format if you are not using API]()**
+-   [**Some data about race in csv format if you are not using API**](https://theuniversityofliverpool-my.sharepoint.com/:x:/g/personal/carmenca_liverpool_ac_uk/ERaIMwe-FLdNnGpe3ZgOTGABkOy7i6JxY6gqQ3L8mZv2DQ?e=pgNkbq)
 
 **Overview**
 
@@ -58,7 +58,7 @@ Here’s the premise. You will take the role of a real-world geographic data sci
 
 A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. This piece of assessment is equivalent to 4,000 word. However, this is the overall weight. Since you will need to create not only narrative but also code and figures, here are the requirements:
 
--   Maximum of 1,000 words (ordinary text) (references do not contribute to the word count). You should answer the specified questions within the narrative. The questions should be included within a wider analysis.
+-   Maximum of 1,000 words of ordinary text (references do not contribute to the word count). You should answer the specified questions within the narrative. The questions should be included within a wider analysis.
 
 -   Up to four maps or figures (a figure may include more than one map and will only count as one but needs to be integrated in the same overall output)
 
@@ -86,11 +86,10 @@ This course follows the standard marking criteria (the general ones and those re
 -   70-79: all as above, plus the code design includes clear evidence of skills presented in advanced sections of the course (e.g. custom methods, list comprehensions, etc.).
 -   80-100: all as above, plus the code contains novel contributions that extend/improve the functionality the student was provided with (e.g. algorithm optimizations, novel methods to perform the task, etc.).
 
-## Generative Artificial Intelligence 
+## Generative Artificial Intelligence
 
-•	You are reminded that the inappropriate use of Generative Artificial Intelligence Tools in the preparation of assignments is strictly prohibited.
+• You are reminded that the inappropriate use of Generative Artificial Intelligence Tools in the preparation of assignments is strictly prohibited.
 
-•	Assignments should be prepared using your own words.  All use of AI translation tools should be properly acknowledged.   Extensive use of AI proof-reading tools is prohibited.  Whilst you may use spelling/grammar checks typically found in word-processing packages, using AI tools to change words/sentence structure may incur an Academic Integrity penalty.
+• Assignments should be prepared using your own words. All use of AI translation tools should be properly acknowledged. Extensive use of AI proof-reading tools is prohibited. Whilst you may use spelling/grammar checks typically found in word-processing packages, using AI tools to change words/sentence structure may incur an Academic Integrity penalty.
 
-•	If your assessment is referred for an Academic Integrity Investigation, you may be asked to demonstrate that the work you have submitted is your own.  Therefore, it is advised that you keep hold of earlier files, drafts, notes and other relevant preparatory materials that you have used.
-
+• If your assessment is referred for an Academic Integrity Investigation, you may be asked to demonstrate that the work you have submitted is your own. Therefore, it is advised that you keep hold of earlier files, drafts, notes and other relevant preparatory materials that you have used.

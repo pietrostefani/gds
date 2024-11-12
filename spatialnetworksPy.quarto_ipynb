@@ -1,0 +1,984 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Lab in Python {#sec-spatialnetworksPy .unnumbered}\n",
+        "\n",
+        "We start by loading all the libraries required for this section.\n"
+      ],
+      "id": "39479c3c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# working with spatial data\n",
+        "import geopandas as gpd\n",
+        "# data manipulation and visualisation\n",
+        "import pandas as pd\n",
+        "import networkx as nx # network manipulation and analysis\n",
+        "import matplotlib.pyplot as plt   # Offers enhanced data visualization capabilities\n",
+        "import numpy as np"
+      ],
+      "id": "a9f42068",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Creating networks\n",
+        "\n",
+        "Networks are used as a tool to conceptualise many real-life situations where a group of items display connections among themselves, such as the friendships among members of a school year group, airline flights between cities or hyperlinks between websites. Generally, a network (or a graph) consists of nodes (a.k.a. vertices) and edges (a.k.a. links) which represent the connections between the nodes of the network.\n",
+        "\n",
+        "### Starting from the basics\n",
+        "\n",
+        "To understand the basic concepts and components of a network, we create a small example network using the `networkx` package. We create an undirected network of 5 nodes and 6 edges.\n"
+      ],
+      "id": "bd054b64"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create an undirected graph with 5 nodes and specified edges\n",
+        "network = nx.Graph()\n",
+        "network.add_edges_from([(1, 2), (2, 3), (2, 5), (3, 1), (3, 4), (4, 5), (5, 1)])\n",
+        "\n",
+        "# Draw the graph using a circular layout\n",
+        "pos = nx.circular_layout(network)  # Set layout to circular\n",
+        "nx.draw(network, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=12)\n",
+        "\n",
+        "# Display the plot\n",
+        "plt.show()"
+      ],
+      "id": "cbbf749c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "If the connections between the nodes of a network are non-reciprocal, the network is called directed.\n"
+      ],
+      "id": "94196ba6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a directed graph with 5 nodes and specified edges\n",
+        "network = nx.DiGraph()  # DiGraph is used for directed graphs\n",
+        "network.add_edges_from([(1, 2), (2, 3), (2, 5), (3, 1), (3, 4), (4, 5), (5, 1)])\n",
+        "\n",
+        "# Draw the graph using a circular layout\n",
+        "pos = nx.circular_layout(network)  # Set layout to circular\n",
+        "nx.draw(network, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=12, \n",
+        "        arrows=True, arrowsize=20)  # Add arrows to indicate direction\n",
+        "\n",
+        "# Display the plot\n",
+        "plt.show()"
+      ],
+      "id": "1ba6735e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The network can also be defined as a list containing pairs of nodes with labels. In that case we do not need to specify the number of nodes. We only specify the isolated nodes to be included.\n",
+        "\n",
+        "::: callout-note\n",
+        "We will describe the various arguments within plot which can be used to style your data visualisation\n",
+        ":::\n"
+      ],
+      "id": "fef1709f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a directed graph and add edges between cities\n",
+        "network_isolated = nx.DiGraph()  # Directed graph\n",
+        "edges = [(\"City 1\", \"City 2\"),\n",
+        "         (\"City 2\", \"City 3\"),\n",
+        "         (\"City 2\", \"City 5\"),\n",
+        "         (\"City 3\", \"City 1\"),\n",
+        "         (\"City 3\", \"City 4\"),\n",
+        "         (\"City 4\", \"City 5\"),\n",
+        "         (\"City 5\", \"City 1\")]\n",
+        "network_isolated.add_edges_from(edges)\n",
+        "\n",
+        "# Add the isolated node (without any connections)\n",
+        "network_isolated.add_node(\"City 6\")\n",
+        "\n",
+        "# Clear the previous plot (important to avoid overlap)\n",
+        "plt.clf()\n",
+        "\n",
+        "# Draw the graph using a circular layout\n",
+        "pos = nx.circular_layout(network_isolated)  # Set layout to circular\n",
+        "\n",
+        "# Plot settings\n",
+        "nx.draw(network_isolated, pos,\n",
+        "        node_color=\"yellow\",             # Node color\n",
+        "        node_size=800,                   # Node size\n",
+        "        edge_color=\"blue\",               # Edge color\n",
+        "        font_size=10,                    # Font size for labels\n",
+        "        font_color=\"black\",              # Label color\n",
+        "        linewidths=2,                    # Border thickness\n",
+        "        edgecolors=\"red\",                # Border color of nodes\n",
+        "        arrows=True,                     # Add arrows for directed edges\n",
+        "        arrowsize=15,                    # Arrow size\n",
+        "        connectionstyle='arc3,rad=0.3')  # Curve edges\n",
+        "\n",
+        "# Adjust label distance (using annotations for more control)\n",
+        "for node, (x, y) in pos.items():\n",
+        "    plt.text(x, y + 0.15, node, fontsize=12, color=\"black\", ha='center')\n",
+        "\n",
+        "# Display the plot\n",
+        "plt.show()"
+      ],
+      "id": "05a044e7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Adding attributes\n",
+        "\n",
+        "We can add attributes to individual components of the network. To add attributes to nodes, we need to access them:\n"
+      ],
+      "id": "80281161"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "list(network_isolated.nodes)"
+      ],
+      "id": "2f855c6f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Additional node attributes can be added through the function `set_node_attributes()`, which requires a network object, a dictionary keyed by node to an attribute value such as population size, and the name of the attribute:\n"
+      ],
+      "id": "baa97b4d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "populations = {'City 1': 92000, 'City 2': 549000, 'City 3': 1786000, 'City 4': 74000, 'City 5': 8000, 'City 6': 21000}\n",
+        "nx.set_node_attributes(network_isolated, populations, \"population\")"
+      ],
+      "id": "c8cd559c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "and accessed:\n"
+      ],
+      "id": "1b280389"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "nx.get_node_attributes(network_isolated, \"population\")"
+      ],
+      "id": "8bfeea4c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "or via\n"
+      ],
+      "id": "77fdee5e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "list(next(iter(network_isolated.nodes(data=True)))[1].keys())"
+      ],
+      "id": "7a9cb77c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "for the names of these attributes.\n",
+        "\n",
+        "Dictionaries are data structures commonly used in python which allow to map a set of keys with values, like cities with their respective populations. Dictionaries can be defined as we did for the variable `populations` or in a faster way via what is known as a dictionary comprehension, which comes handy if we have the keys and the values stored as a list:\n"
+      ],
+      "id": "4526202a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "cities = list(network_isolated.nodes)\n",
+        "city_populations = [92000, 549000, 1786000, 74000, 8000, 21000]\n",
+        "populations = {cities[i]: city_populations[i] for i in range(len(cities))}\n",
+        "populations"
+      ],
+      "id": "54642946",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "For more information on dictionaries, please check the python documentation, for example at <https://docs.python.org/>.\n",
+        "\n",
+        "We can also access the edges:\n"
+      ],
+      "id": "e18c09cb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "edges = list(network_isolated.edges())"
+      ],
+      "id": "ab819793",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can add edge attributes, such as the number of people moving from an origin to a destination city. We call this attribute edge weight. The size of the connection between two places often represent their importance or `weight` in the network.\n"
+      ],
+      "id": "8cf2ef96"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "weight_edges = [2000, 5000, 1000, 1000, 4000, 3500, 7000]\n",
+        "weight = {edges[i]: weight_edges[i] for i in range(len(edges))}\n",
+        "nx.set_edge_attributes(network_isolated, weight, \"weight\")"
+      ],
+      "id": "b49631e2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The edges attributes can be accessed via:\n"
+      ],
+      "id": "70b47873"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "nx.get_edge_attributes(network_isolated, \"weight\")"
+      ],
+      "id": "2ad9b5f6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "or for the names of these attributes:\n"
+      ],
+      "id": "b0737031"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "list(next(iter(network_isolated.edges(data=True)))[2].keys())"
+      ],
+      "id": "576e56e4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can examine the adjacency matrix of the network. The adjacency represents the presence of edges between different pairs of nodes. In our example, each row corresponds to an origin city and each column to a destination:\n"
+      ],
+      "id": "711d5aba"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Get the adjacency matrix as a sparse matrix\n",
+        "adj_matrix_sparse = nx.adjacency_matrix(network_isolated)\n",
+        "\n",
+        "# Convert to a dense format (NumPy array)\n",
+        "adj_matrix = adj_matrix_sparse.todense()\n",
+        "adj_matrix"
+      ],
+      "id": "2594a30b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can also look at the existing node and edge attributes.\n"
+      ],
+      "id": "2735ff50"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "network_isolated.nodes(data=True)"
+      ],
+      "id": "dabaa9ba",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "network_isolated.edges(data=True)"
+      ],
+      "id": "e7f7253a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Basic visualisation\n",
+        "\n",
+        "You have already seen how we can visualise networks using the base R function `plot()`. We will now elaborate on how individual components of the network can be visually adjusted using specific parameters in the plot function. More sophisticated data visualisations can be produced integrating geographic information, see Chapter 5 in @roweetal2023-rps, or using other packages such as `ggraph` in conjunction with `ggplot2`.\n"
+      ],
+      "id": "3bcd14f9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Assuming `network_isolated` is a NetworkX graph object\n",
+        "# Create a circular layout similar to layout.circle in R\n",
+        "pos = nx.circular_layout(network_isolated)\n",
+        "\n",
+        "# Plot the graph\n",
+        "plt.figure(figsize=(10,10))\n",
+        "\n",
+        "\n",
+        "# Draw the network nodes\n",
+        "nx.draw_networkx_nodes(\n",
+        "    network_isolated, pos,\n",
+        "    node_color='yellow',\n",
+        "    node_size=100,\n",
+        "    edgecolors='gray'\n",
+        ")\n",
+        "\n",
+        "edge_width = [d['weight'] / 1000 for u, v, d in network_isolated.edges(data=True)]\n",
+        "\n",
+        "# Draw the network edges with arrows\n",
+        "nx.draw_networkx_edges(\n",
+        "    network_isolated, pos,\n",
+        "    edge_color='lightgray',\n",
+        "    width=edge_width,\n",
+        "    arrows=True,\n",
+        "    arrowstyle='-|>',\n",
+        "    arrowsize=5\n",
+        ")\n",
+        "\n",
+        "# Function to offset labels (moves labels further from the nodes)\n",
+        "def offset_label_pos(pos, dist):\n",
+        "    pos_labels = {}\n",
+        "    for node, (x, y) in pos.items():\n",
+        "        angle = np.arctan2(y, x)  # Get angle of node from center\n",
+        "        # Offset by moving label along this angle\n",
+        "        pos_labels[node] = (x + dist * np.cos(angle), y + dist * np.sin(angle))\n",
+        "    return pos_labels\n",
+        "\n",
+        "# Apply the offset function to shift labels away from nodes\n",
+        "pos_labels = offset_label_pos(pos, 0.12)\n",
+        "\n",
+        "# Draw node labels\n",
+        "nx.draw_networkx_labels(\n",
+        "    network_isolated, pos_labels,\n",
+        "    font_size=10,\n",
+        "    font_color='black'\n",
+        ")\n",
+        "\n",
+        "# Set limits and display the plot\n",
+        "plt.axis('off')\n",
+        "plt.tight_layout()\n",
+        "plt.show()"
+      ],
+      "id": "cadc8c94",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Spatial networks from data\n",
+        "\n",
+        "So far in this computational notebook we have seen how to create networks with the `networkx` package with no input data. However, one of the most powerful features of the package is that it allows to easily create networks based on dataframes with information about the nodes and edges. Here, we work with a network of African roads constructed by considering all continental cities with more than 100,000 inhabitants as the nodes, obtained from [@Moriconi16]. The edges of the network were created based on the road infrastructure from OpenStreetMap [@openstreetmapOpenStreetMap], using all primary roads, highways and trunk roads. Each edge was constructed by measuring the physical distance of consecutive points that describe the intricate patterns of the roads. Thus, a reasonably good estimate of its road length is available for each edge. Additional nodes besides cities are needed to describe the road infrastructure, such as some road intersections. These nodes are labelled as \"transport nodes\" and help define possible routes between cities. Some transport nodes correspond to towns with less than 100,000 inhabitants, so they are labelled as attached to nearby cities. The urban network enables us to consider the existing roads in the continent and measure the travelling distance rather than the physical distance between cities. The constructed network is formed by 7,361 nodes (2,162 cities and 5,199 transport nodes) and 9,159 edges. For more details on how the network was built, see [@PRIETOCURIELmethodsX].\n",
+        "\n",
+        "The network is connected, meaning that it is possible to find a sequence of nodes and existing roads linking any pair of cities, and therefore, it is also possible to find the shortest road distance between any two cities and define it as the network distance. The network consists of 361,000 km of road infrastructure and connects 461 million people living in African cities, representing roughly 39% of the continent's population [@PrietoCurielBeyond].\n",
+        "\n",
+        "## Creating a network from a data frame\n",
+        "\n",
+        "The data that specifies the nodes and edges of the African road network is stored in two csv files, one for nodes and one for edges. This data can be loaded in two data frames:\n"
+      ],
+      "id": "a7ab8f60"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Read the CSV file containing network nodes data\n",
+        "df_nodes = pd.read_csv(\"./data/Africa/AfricaNetworkNodes.csv\", encoding='ISO-8859-1')\n",
+        "\n",
+        "df_edges = pd.read_csv(\"./data/Africa/AfricaNetworkEdges.csv\", encoding='ISO-8859-1')"
+      ],
+      "id": "d64e719b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can then create an undirected graph as an igraph object from the data frames corresponding to the nodes and edges:\n"
+      ],
+      "id": "5edeffbb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create an undirected graph from the edge DataFrame\n",
+        "g_africa = nx.from_pandas_edgelist(df_edges, source='from', target='to', edge_attr=True, create_using=nx.Graph())\n",
+        "\n",
+        "# Add node attributes from df_nodes DataFrame\n",
+        "node_attr_dict = df_nodes.set_index('Agglomeration_ID').to_dict('index')\n",
+        "nx.set_node_attributes(g_africa, node_attr_dict)"
+      ],
+      "id": "5c0c57e1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can have a look at the names of the vertex attributes, which are automatically taken from the columns in the `df_nodes` data frame:\n"
+      ],
+      "id": "3f9e353e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Retrieve the attribute names associated with vertices in the 'g_africa' graph\n",
+        "list(next(iter(g_africa.nodes(data=True)))[1].keys())"
+      ],
+      "id": "ac820449",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "where \"name\" is the ID of each node in the network, \"agglosName\" is the name of the city represented by the node, it is set to \"road\" if the node is a transport node. \"x\" and \"y\" represent the coordinates of each node, \"Pop2015\" is the population of the city nodes, \"ISO3\" is the code for the country that each node is situated in, \"Region\" represents the region within the African continent that each node is situated in, and \"Between\" and \"degree\" represent the betweenness centrality and the degree of each node in the network, which we will also compute below.\n",
+        "\n",
+        "We can also obtain the names of the edge attributes, which are taken from the columns in the `df_edges` data frame:\n"
+      ],
+      "id": "0658f55a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Retrieve the attribute names associated with edges in the 'g_africa' graph\n",
+        "list(next(iter(g_africa.edges(data=True)))[2].keys())"
+      ],
+      "id": "972b8ae4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "where \"l\" represents the length in kilometres by road segment and it considers curves, \"h\" is the type of edge (primary, highway, etc.), \"time\" is the estimated minutes to travel through the edge, considering different speeds for distinc types of road, \"timeU\" is also the estimated minutes to travel through the edge, but allowing extra time if the extrema of the edge are urban nodes, \"timeUCB\" allows extra time for edges that cross a border, \"border\" is a binary variable taking value 1 is it crosses a border and 0 otherwise and \"added\" is also a binary variable taking value 1 if an edge was artificially added to ensure the connectedness of the network and 0 otherwise.\n",
+        "\n",
+        "### Visualising the African road network as a spatial network\n",
+        "\n",
+        "What does the African road network that we just built look like? We can find out very easily using the `plot` function. But in order to achieve a nice-looking graph, we need to play a bit with the values of the arguments of this function. For example, we will plot the size of the nodes according to the population of the cities that they represent. But some cities are orders of magnitude larger than others, which would result in some gigantic nodes for a few cities and tiny ones for the majority. In order to weaken this effect, we first apply a scaling function that redefines the size of the nodes:\n"
+      ],
+      "id": "6dc416b7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Calculate and assign a 'size' attribute to vertices in the 'g_africa' graph\n",
+        "# The size is determined based on the population data ('Pop2015') of each vertex\n",
+        "\n",
+        "node_size = 0.5*(df_nodes['Pop2015']/10000)**0.6\n",
+        "\n",
+        "# Create a dictionary mapping node IDs to their calculated sizes\n",
+        "size_dict = dict(zip(df_nodes['Agglomeration_ID'], node_size)) \n",
+        "\n",
+        "nx.set_node_attributes(g_africa, size_dict, \"size\")"
+      ],
+      "id": "faa6903a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Now we are ready to plot the network, with a few extra modifications to the default plot in order to improve the appearance. As an exercise, you may want to try to plot the default visualisation. If you do this, you will understand better why it is worth it spending some time playing with the values of the parameters in the plot function.\n",
+        "\n",
+        "We will include the outline of the African countries in the background. To do this, we upload the necessary data:\n"
+      ],
+      "id": "e2d8eecf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df_borders = gpd.read_file(\"./data/Africa/Africa_Boundaries.geojson\")  # Read GeoJSON file containing Africa boundaries into a data frame"
+      ],
+      "id": "4ff07b3a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We set the layout (lo) of the nodes in the network according to the `x` and `y` columns in `df_nodes`:\n"
+      ],
+      "id": "d63d0941"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "coordinates = np.column_stack((df_nodes['x'], df_nodes['y']))"
+      ],
+      "id": "e1468983",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can now plot the background map with the country outlines as well as the network. Running the cell below might take some time depending on the processign power of your computer.\n"
+      ],
+      "id": "e481e269"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a plot for the geographic boundaries\n",
+        "fig, ax = plt.subplots(figsize=(10, 10))\n",
+        "df_borders.boundary.plot(ax=ax, color='gray', linewidth=0.5)  # Plotting the boundaries\n",
+        "\n",
+        "# # Plotting the graph overlay\n",
+        "positions = dict(zip(g_africa.nodes, coordinates))  # pos must be given to nx.draw() as a dictionary where keys are nodes and values are coordinates\n",
+        "nx.draw_networkx_nodes(g_africa,\n",
+        "    pos = positions,\n",
+        "    ax=ax,\n",
+        "    node_size = [g_africa.nodes[node]['size'] for node in g_africa.nodes],  # Use 'size' attribute\n",
+        "    edgecolors='black',\n",
+        "    linewidths=0.3,\n",
+        "    node_color='red')\n",
+        "    \n",
+        "g_africa.remove_edges_from(nx.selfloop_edges(g_africa))    \n",
+        "nx.draw_networkx_edges(g_africa,\n",
+        "    pos = positions,\n",
+        "    width=0.5,\n",
+        "    edge_color = 'lightgray',\n",
+        "    alpha = 0.05)\n",
+        "\n",
+        "# Adjust the plot's appearance\n",
+        "plt.axis('off')  # Turn off the axis\n",
+        "plt.show()  # Show the plot"
+      ],
+      "id": "f22899d0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Network metrics\n",
+        "\n",
+        "The following metrics can help us obtain further insights into the network structure. They are also valuable as a way to characterise the network so it can later be compared to other networks or to itself through time.\n",
+        "\n",
+        "### Density\n",
+        "\n",
+        "The density of a network refers to the proportion of existing edges over all possible edges. In a network with $n$ nodes, the total number of possible edges is $n \\times (n-1)$. A density equal to $1$ corresponds to a situation where $n \\times (n-1)$ edges are present. A network with no edges at all would have density equal to 0. We can obtain the density of the African network by running the following code:\n"
+      ],
+      "id": "13c0dd9c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Calculate the edge density of the 'g_africa' graph\n",
+        "# Edge density is the ratio of the number of edges to the number of possible edges\n",
+        "# Loops (self-edges) are excluded from the calculation\n",
+        "nx.density(g_africa)"
+      ],
+      "id": "de3ad909",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The edge density is approximately 0.00034, giving as an indication that the network is quite sparse, since out of all possible edges, only 0.034% are present.\n",
+        "\n",
+        "### Reciprocity\n",
+        "\n",
+        "The reciprocity in a directed network is the proportion of reciprocated connections between nodes (i.e. number of pairs of nodes with edges in both directions) from all the existing edges.\n"
+      ],
+      "id": "7919690a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Calculate the reciprocity of the edges in the 'g_africa' graph\n",
+        "nx.reciprocity(g_africa)"
+      ],
+      "id": "3e3ff121",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The reciprocity of this UNdirected network is naturally 0 by definition.\n",
+        "\n",
+        "### Degree\n",
+        "\n",
+        "The degree of a node is the number of edges connected to it. The in-degree of a node in a directed network is the number of edges ending in a given node. The out-degree is the number of edges starting from a given node. The `degree_histogram()` function from `networkx` allows computing the number of nodes with a certain degree (frequency of degree) in the network. In order to visualise the results, we produce a histogram\n"
+      ],
+      "id": "d31742e4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Compute frequency of each degree\n",
+        "degree_hist = nx.degree_histogram(g_africa)\n",
+        "\n",
+        "# Create the x (degree) and y (frequency) values\n",
+        "degrees = range(len(degree_hist))  # Degree values\n",
+        "frequency = degree_hist  # Number of nodes with each degree\n",
+        "\n",
+        "# Plot the degree distribution as a histogram\n",
+        "plt.figure(figsize=(8, 6))\n",
+        "plt.bar(degrees, frequency, width=0.80, color='skyblue', edgecolor='black')\n",
+        "\n",
+        "plt.title(\"Degree Histogram\")\n",
+        "plt.xlabel(\"Degree\")\n",
+        "plt.ylabel(\"Number of Nodes\")\n",
+        "\n",
+        "plt.show()"
+      ],
+      "id": "24f1a3c5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We observe that most nodes have degree 3. Nodes of degree 1 are terminal nodes. Nodes of degree 2 are relatively less common than those of degree 1 and 3. This is likely due to the method used to build the network, where all the transport nodes of degree 2 are eliminated in order to simplify the network. Beyond degree 4, it is relatively rare to find any nodes. From the histogram, we see the maximum degree observed in the network is 13. Below, we obtain the ID of the node with the maximum degree as well as the value of the degree (13).\n"
+      ],
+      "id": "59daaa3d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Find the node with the maximum degree\n",
+        "max_degree_node = max(g_africa.degree, key=lambda x: x[1])  # x[0] is the node, x[1] is the degree\n",
+        "\n",
+        "print(max_degree_node)"
+      ],
+      "id": "be2aa887",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "and the name of the node:\n"
+      ],
+      "id": "7e68f218"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Get the \"name\" attribute of the node with the maximum degree\n",
+        "max_degree_node_name = g_africa.nodes[max_degree_node[0]]['agglosName']\n",
+        "\n",
+        "print(max_degree_node_name)"
+      ],
+      "id": "c87bdbe7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Distances\n",
+        "\n",
+        "A path in a network between node $A$ and node $B$ is a sequence of edges joining distinct nodes, starting at node $A$ and ending at node $B$. In a **directed path** all edges follow the same direction.\n",
+        "\n",
+        "The path length of a path between nodes $A$ and $B$ is generally defined as the number of edges forming this path. The shortest path is the minimum count of edges present to travel from $A$ to $B$.\n",
+        "\n",
+        "The path length can be defined in alternative ways. For example, the path length can be defined as the sum of the weights of the edges forming a path if the edges are weighted.\n",
+        "\n",
+        "We can use the function `shortest_path()` to find the shortest path between a given pair of nodes. For example, between Cairo and Lagos. We store the output of the shortest path function in a list called `path` which contains the sequence of nodes in the shortest path.\n"
+      ],
+      "id": "b635517f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Find the corresponding nodes by their name attributes\n",
+        "node_names = {data['agglosName']: node for node, data in g_africa.nodes(data=True)}\n",
+        "start_node = node_names.get(\"Cairo\")\n",
+        "end_node = node_names.get(\"Lagos\")\n",
+        "\n",
+        "path = nx.shortest_path(g_africa, source=start_node, target=end_node)"
+      ],
+      "id": "43d8bc6e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can extract the values of this to obtain the edges, which we then use to compute the total length of the shortest path between the two cities.\n"
+      ],
+      "id": "0f50c38b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "path_length = nx.shortest_path_length(g_africa, source=start_node, target=end_node, weight='l')\n",
+        "print(path_length)"
+      ],
+      "id": "ce2d99d6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We obtain that the shortest path is 6,084.359 km long. You can check for example on Google Maps what the distance by road is between the two cities. What do you obtain? What is the relative error between our estimation and the value from Google Maps?\n",
+        "\n",
+        "Of all shortest paths in a network, the longest path length is the network diameter. The diameter of the African road network is the length of the longest shortest path between any pair of nodes:\n"
+      ],
+      "id": "2c465fc5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "nx.diameter(g_africa)"
+      ],
+      "id": "6c2758c5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The mean distance is the average length of all shortest paths in the network. The mean distance will always be smaller or equal than the diameter. It is given by:\n"
+      ],
+      "id": "58da6fbc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "nx.average_shortest_path_length(g_africa)"
+      ],
+      "id": "d397282f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Centrality\n",
+        "\n",
+        "Centrality metrics assign scores to nodes (and sometimes also edges) according to their position within a network. These metrics can be used to identify the most influential nodes. Two important centrality metrics are (1) closeness centrality, and (2) betweenness centrality. Closeness centrality is a measure of the shortest path length between a node and all the other nodes. For a given node, it is computed as the inverse of the average shortest paths between that node and every other node in the network. A node with closeness centrality close to 1 indicates that on average the node is very close to the other nodes in the network. A closeness centrality of 0 represents an isolated node. Below we compute the closeness centrality using unweighted edges and represent the results in a histogram. The distribution looks bimodal (this means that the histogram has two frequency peaks).\n"
+      ],
+      "id": "369ac756"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Calculate the closeness centrality for each vertex in the 'g_africa' graph, using unweighted edges \n",
+        "closeness_centrality = nx.closeness_centrality(g_africa)\n",
+        "\n",
+        "# Extract the centrality values (we only need the values for the histogram)\n",
+        "centrality_values = list(closeness_centrality.values())\n",
+        "\n",
+        "# Plot the histogram of closeness centrality\n",
+        "fig, ax = plt.subplots()\n",
+        "ax.hist(centrality_values, bins=50, edgecolor='black')\n",
+        "ax.set_xlabel('Closeness Centrality')\n",
+        "ax.set_ylabel('Frequency')\n",
+        "plt.show()"
+      ],
+      "id": "b8a0f27b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Betweenness centrality is a measure of the number of shortest paths going through a node. Nodes with high values of betweenness centrality indicates that they play a very important role in the overall connectivity of the network. Betweenness can also be computed for edges. We also compute the betweenness centrality for all nodes and represent it as a histogram.\n"
+      ],
+      "id": "674aaef7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Calculate the betweenness centrality for each vertex in the 'g_africa' graph, using unweighted edges \n",
+        "betweenness_centrality = nx.betweenness_centrality(g_africa)\n",
+        "\n",
+        "# Extract the betweenness centrality values (we only need the values for the histogram)\n",
+        "betweenness_values = list(betweenness_centrality.values())\n",
+        "\n",
+        "# Plot the histogram of betweenness centrality\n",
+        "fig, ax = plt.subplots()\n",
+        "ax.hist(betweenness_values, bins=50, edgecolor='black')\n",
+        "ax.set_xlabel('Betweennesss centrality')\n",
+        "ax.set_ylabel('Frequency')\n",
+        "plt.show()"
+      ],
+      "id": "11ae21a1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "::: callout-note\n",
+        "How would you interpret the patterns observed in the histograms for closeness centrality and betweenness centrality?\n",
+        ":::\n",
+        "\n",
+        "<!-- ## Community detection -->\n",
+        "\n",
+        "<!-- Community detection in network theory refers to the process of identifying groups or communities of nodes within a network that exhibit a higher density of connections internally compared to the connections between different groups. The goal is to uncover the underlying structure or organisation within a network by clustering nodes into distinct communities based on the patterns of connections or interactions between them. -->\n",
+        "\n",
+        "<!-- There are various algorithms and methods used for community detection, each with its own approach. Here, we use `cluster_walktrap` a function used for community detection in networks based on the Walktrap algorithm. The Walktrap algorithm is an approach for identifying communities in a network by leveraging random walks. It works by simulating short random walks within the graph and measuring the similarity between nodes based on how likely they are to be visited in the same random walk. Nodes that are frequently visited together are considered to belong to the same community. Understanding random walks is beyond the scope of this module. However, you should know that the weights argument in the `cluster_walktrap` function controls the weights of the edges. If it is NULL and the input graph has a ‘weight’ edge attribute, then that attribute will be used. If NULL and no such attribute is present, then the edges will have equal weights. Set this to NA if the graph was a ‘weight’ edge attribute, but you don't want to use it for community detection. Larger edge weights increase the probability that an edge is selected by the random walker. In other words, larger edge weights correspond to stronger connections. Here, we set weights to be the inverse of the time to traverse an edge taking into account the effect of urban areas and borders. -->\n",
+        "\n",
+        "<!-- ```{python} -->\n",
+        "\n",
+        "<!-- communities <- cluster_walktrap( -->\n",
+        "\n",
+        "<!--   g_africa, -->\n",
+        "\n",
+        "<!--   weights = 1/df_edges$timeUCB, -->\n",
+        "\n",
+        "<!--   steps = 1000, -->\n",
+        "\n",
+        "<!--   merges = TRUE, -->\n",
+        "\n",
+        "<!--   modularity = TRUE, -->\n",
+        "\n",
+        "<!--   membership = TRUE -->\n",
+        "\n",
+        "<!-- ) -->\n",
+        "\n",
+        "<!-- ``` -->\n",
+        "\n",
+        "<!-- We can now replot the network colouring the nodes according to the community where they belong. Note that nodes that are nearby each other, tend to belong to the same community. -->\n",
+        "\n",
+        "<!-- ```{python} -->\n",
+        "\n",
+        "<!-- plot(st_geometry(df_borders), border=adjustcolor(\"gray50\")) -->\n",
+        "\n",
+        "<!-- plot(g_africa, layout=lo, rescale = FALSE, vertex.size=V(g_africa)$size, edge.curved=0.1, edge.width=1, edge.color =\"gray90\", vertex.color=membership(communities), vertex.frame.color=\"black\", vertex.frame.width=0.2, -->\n",
+        "\n",
+        "<!-- vertex.label=\" \", vertex.label.color=\"black\", -->\n",
+        "\n",
+        "<!-- vertex.label.cex=.45, add = TRUE) -->\n",
+        "\n",
+        "<!-- ``` -->"
+      ],
+      "id": "0bdfb679"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/carmen/anaconda3/envs/geo-env-new/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

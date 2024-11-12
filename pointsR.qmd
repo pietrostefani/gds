@@ -664,7 +664,7 @@ abline(h=0.15,lty = 2,col=rainbow(1),main="eps optimal value")
 
 The optimal value of eps is around 0.10 from the chart above.
 
-
+````{=html}
 <!--
 ## Interpolation
 
@@ -741,7 +741,8 @@ and decide how to best interpolate your data.
 :::
 
 -->
+````
+
 ## Resources
 
-- [DBSCAN](https://www.kaggle.com/code/pmcgovern/dbscan-example-in-r)
- 
+-   [DBSCAN](https://www.kaggle.com/code/pmcgovern/dbscan-example-in-r)

@@ -55,7 +55,7 @@ fig, ax = plt.subplots()
 br.plot(alpha=0.5, color='red', ax=ax);
 # Add background map, expressing target CRS so the basemap can be
 # reprojected (warped)
-ctx.add_basemap(ax, crs=br.crs)
+#ctx.add_basemap(ax, crs=br.crs)
 plt.show()
 ```
 

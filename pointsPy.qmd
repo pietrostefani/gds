@@ -137,7 +137,7 @@ listings_gdf_3857.plot(column='neighbourhood', ax=ax, legend=False, cmap='Set1')
 # Note: The GeoDataFrame needs to be in Web Mercator projection for contextily basemaps
 
 #listings_gdf = listings_gdf.to_crs(epsg=3857)
-cx.add_basemap(ax, crs=listings_gdf_3857.crs.to_string())
+#cx.add_basemap(ax, crs=listings_gdf_3857.crs.to_string())
 cx.add_basemap(
     ax, 
     crs="EPSG:3857",
@@ -395,8 +395,8 @@ Both `m` and `r` need to be prespecified by the user before running `DBSCAN`. Th
 
 The heavy lifting is done by the method `DBSCAN`, part of the excellent machine learning library `scikit-learn`. We first set up the details:
 
-1. `eps`: maximum distance to look for neighbors from each location
-2. `min_samples`: minimum number of neighboring points required for a point to be considered part of a cluster
+1.  `eps`: maximum distance to look for neighbors from each location
+2.  `min_samples`: minimum number of neighboring points required for a point to be considered part of a cluster
 
 ```{python}
 # Set up algorithm
@@ -520,9 +520,11 @@ ax.scatter(
 plt.show()
 
 ```
+
 ### The A-DBSCAN algorithm
 
 Once we know the parameters we’ll use, we can go ahead and run A-DBSCAN:
+
 ```{python}
 ax = listings_gdf_3857.plot(markersize=0.1, color='orange')
 cx.add_basemap(ax, crs=listings_gdf_3857.crs.to_string(), source=cx.providers.CartoDB.Voyager);
@@ -531,6 +533,7 @@ plt.show()
 ```
 
 Before we get going, we will also pull out the projected coordinates into separate columns:
+
 ```{python}
 listings_gdf_3857["X"] = listings_gdf_3857.geometry.x
 listings_gdf_3857["Y"] = listings_gdf_3857.geometry.y
@@ -554,6 +557,7 @@ cx.add_basemap(ax, crs= listings_gdf_3857.crs.to_string(), source=cx.providers.C
 
 plt.show()
 ```
+
 ```{python}
 polys = get_cluster_boundary(adbs.votes["lbls"], listings_gdf_3857, crs=listings_gdf_3857.crs)
 
@@ -569,7 +573,7 @@ plt.show()
 
 The output is now very different, isn’t it? This exemplifies how different parameters can give rise to substantially different outcomes, even if the same data and algorithm are applied.
 
-
+```{=html}
 <!--
 ## Interpolation
 
@@ -588,13 +592,13 @@ Two Python packages that can be used for kriging include `scikit-learn` and `pyk
 -   [Python Open Source Spatial Programming & Remote Sensing](https://pygis.io/docs/e_interpolation.html)
 
 -->
-
+```
 ## Resources
 
-- [DBSCAN (Density-Based Spatial Clustering of Applications with Noise) Clearly Explained with Coding in Python](https://medium.com/@satpatishrimanta/clustering-by-dbscan-density-based-spatial-clustering-of-applications-with-noise-clearly-f93c5c72f706)
+-   [DBSCAN (Density-Based Spatial Clustering of Applications with Noise) Clearly Explained with Coding in Python](https://medium.com/@satpatishrimanta/clustering-by-dbscan-density-based-spatial-clustering-of-applications-with-noise-clearly-f93c5c72f706)
 
-- [Arribas-Bel et al., 2019](https://www.sciencedirect.com/science/article/pii/S0094119019300944)
+-   [Arribas-Bel et al., 2019](https://www.sciencedirect.com/science/article/pii/S0094119019300944)
 
-- [DBSCAN computes nearest neighbor graphs](https://www.reneshbedre.com/blog/dbscan-python.html#google_vignette?utm_content=cmp-true)
+-   [DBSCAN computes nearest neighbor graphs](https://www.reneshbedre.com/blog/dbscan-python.html#google_vignette?utm_content=cmp-true)
 
 -   [Point Pattern Analysis](https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html)

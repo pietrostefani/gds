@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A course in Geographic Data Science - Lab in Python</title>
+<title>Lab in Python – A course in Geographic Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta name="twitter:title" content="A course in Geographic Data Science - Lab in Python">
+<meta name="twitter:title" content="Lab in Python – A course in Geographic Data Science">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
@@ -116,13 +116,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mapraster.html">4 Mapping Raster Data</a></li><li class="breadcrumb-item"><a href="./maprasterPy.html">Lab in Python</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -138,17 +138,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <div class="sidebar-tools-main">
     <a href="https://github.com/pietrostefani/gds" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./environ.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Environment</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -221,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1 Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./spatialdata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 Spatial Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -279,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./mapvector.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3 Mapping Vector Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./mapraster.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4 Mapping Raster Data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./points.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5 Points</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -366,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./spatialw.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6 Spatial Weights</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -395,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./esda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7 ESDA</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -424,7 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./clustering.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">8 Clustering</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -453,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">9 - Spatial Networks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -547,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this session, we will further explore the world of geographic data visualization by building upon our understanding of both raster data and choropleths. Raster data, consisting of gridded cells, allows us to represent continuous geographic phenomena such as temperature, elevation, or satellite imagery. Choropleths, on the other hand, are an effective way to visualize spatial patterns through the use of color-coded regions, making them invaluable for displaying discrete data like population density or election results. By combining these techniques, we will gain a comprehensive toolkit for conveying complex geographical information in a visually compelling manner.</p>
 <section id="importing-modules" class="level2">
 <h2 class="anchored" data-anchor-id="importing-modules">Importing Modules</h2>
-<div id="d9835929" class="cell" data-execution_count="1">
+<div id="dd2a6d37" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importing rasterio for handling raster data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.warp <span class="im">import</span> reproject, Resampling, calculate_default_transform</span>
@@ -588,12 +588,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="import-raster-data"><strong>Import raster data</strong></h3>
 <p>Raster <strong>terrain</strong> data consists of gridded elevation values that represent the topography of a geographic area. You can download this from the <a href="https://github.com/pietrostefani/gds/tree/main/data/Lebanon">relevant github folder</a>. A good place to download elevation data is <a href="https://earthexplorer.usgs.gov/">Earth Explorer</a>. This <a href="https://www.youtube.com/watch?v=NQg0g9ObhXE">video</a> takes you through the download process if you want to try this out yourself.</p>
 <p>We first import a raster file for elevation.</p>
-<div id="afe25e4a" class="cell" data-execution_count="2">
+<div id="9424444f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>elevation <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/LBN_elevation_w_bathymetry.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Plot it.</p>
-<div id="53b829d2" class="cell" data-execution_count="3">
+<div id="8cd42e53" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(elevation.read(<span class="dv">1</span>), cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">'Elevation'</span>)</span>
@@ -608,7 +608,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>This information is typically accessed and updated via the .profile.</p>
-<div id="86f79ce2" class="cell" data-execution_count="4">
+<div id="bc660910" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(elevation.profile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{'driver': 'GTiff', 'dtype': 'float64', 'nodata': nan, 'width': 1150, 'height': 708, 'count': 1, 'crs': CRS.from_epsg(4326), 'transform': Affine(0.002500000000000124, 0.0, 33.74907268219525,
@@ -616,7 +616,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Have a look at the CRS.</p>
-<div id="7afbd3cc" class="cell" data-execution_count="5">
+<div id="5333ef0f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the raster</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> elevation.crs</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -628,7 +628,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-the-lebanon-shapefile" class="level3">
 <h3 class="anchored" data-anchor-id="import-the-lebanon-shapefile"><strong>Import the Lebanon shapefile</strong></h3>
 <p>Import the Lebanon shapefile, plot it, and verify its Coordinate Reference System (CRS). Is it the same as the raster’s CRS?</p>
-<div id="580e89c9" class="cell" data-execution_count="6">
+<div id="faa5a9ec" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the shapefile data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Lebanon_adm1 <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/LBN_adm1.shp"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -644,7 +644,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="5f4b74cd" class="cell" data-execution_count="7">
+<div id="e8983fb4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the CRS of the shapefile</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>crs <span class="op">=</span> Lebanon_adm1.crs</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -655,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reproject-the-raster" class="level3">
 <h3 class="anchored" data-anchor-id="reproject-the-raster"><strong>Reproject the Raster</strong></h3>
-<div id="f40115c9" class="cell" data-execution_count="8">
+<div id="e797e108" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the desired destination CRS</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dst_crs <span class="op">=</span> <span class="st">"EPSG:22770"</span>  <span class="co"># For example, WGS84</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -700,8 +700,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 | 0.00, 0.00, 1.00| 
 
 Destination Transform:
- | 244.50, 0.00,-36219.30|
-| 0.00,-244.50, 326205.11|
+ | 244.59, 0.00,-36330.85|
+| 0.00,-244.59, 326252.80|
 | 0.00, 0.00, 1.00|</code></pre>
 </div>
 </div>
@@ -719,7 +719,7 @@ Destination Transform:
 <li><p>Typical Use: Masking is used when you want to extract or isolate specific areas or features within a raster dataset. For example, you might use a mask to extract land cover information within the boundaries of a protected national park.</p></li>
 </ul>
 <p>In many cases, these cropping and masking are executed one after the other because it is computationally easier to crop when dealing with large datasets, and then masking.</p>
-<div id="c195944f" class="cell" data-execution_count="9">
+<div id="86bd0512" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>elevation_22770 <span class="op">=</span> rasterio.<span class="bu">open</span>(<span class="st">"data/Lebanon/reprojected_elevation.tif"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use unary_union method to combine the geometries</span></span>
@@ -731,7 +731,7 @@ Destination Transform:
 </section>
 <section id="plot-elevation" class="level3">
 <h3 class="anchored" data-anchor-id="plot-elevation"><strong>Plot elevation</strong></h3>
-<div id="67008875" class="cell" data-execution_count="10">
+<div id="2660c0bc" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming elevation_lebanon contains the cropped elevation data and Lebanon_adm1 is the GeoDataFrame</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the elevation data</span></span>
@@ -749,7 +749,7 @@ Destination Transform:
 </div>
 </div>
 <p>Let’s improve this a bit. Remember that there is a lot we can do with <a href="https://www.analyticsvidhya.com/blog/2020/09/colormaps-matplotlib/#:~:text=Colormaps%20or%20Cmap%20in%20python%20colormaps%20is%20a%20very%20useful,custom%20ones%20using%20python%20colormaps">Cmap</a>.</p>
-<div id="228861c3" class="cell" data-execution_count="11">
+<div id="3da6c412" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the reversed 6 shades of orange</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>orange_shades_reversed <span class="op">=</span> [<span class="st">'#ef3b2c'</span>, <span class="st">'#fb6a4a'</span>, <span class="st">'#fc9272'</span>, <span class="st">'#fcbba1'</span>, <span class="st">'#fee0d2'</span>, <span class="st">'#fff5eb'</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -793,136 +793,11 @@ Destination Transform:
 <li><p>What are the logical breaks for elevation data?</p></li>
 <li><p>Should the colours be changed to standard elevation pallettes?</p></li>
 </ul>
-<!--
-### **Slope**
-
-It may sometimes prove useful to visualize these elevation models with mechanisms such as contour lines. Fortunately, this is fairly easy to accomplish in Python using packages such as GDAL and Matplotlib.
-
-::: {#8743196e .cell execution_count=12}
-``` {.python .cell-code}
-# For additional raster data processing 
-from osgeo import gdal 
-
-# Specify the filename of the raster file
-filename = "data/Lebanon/reprojected_elevation.tif"
-# Open the raster file using GDAL (Geospatial Data Abstraction Library)
-gdal_data = gdal.Open(filename)
-# Retrieve the first band (layer) of the raster data
-gdal_band = gdal_data.GetRasterBand(1)
-# Get the value that represents 'no data' or missing data within the raster
-nodataval = gdal_band.GetNoDataValue()
-# Read the raster data into a numpy array and convert it to a float64 data type
-data_array = gdal_data.ReadAsArray().astype(np.float64)
-# Check if the array contains any 'no data' values
-if np.any(data_array == nodataval):
-    # Replace 'no data' values with NaN (Not a Number) to handle them as missing data
-    data_array[data_array == nodataval] = np.nan
-```
-
-::: {.cell-output .cell-output-stderr}
-```
-/Users/pietrost/miniconda3/lib/python3.11/site-packages/osgeo/gdal.py:312: FutureWarning: Neither gdal.UseExceptions() nor gdal.DontUseExceptions() has been explicitly called. In GDAL 4.0, exceptions will be enabled by default.
-  warnings.warn(
-```
-:::
-:::
-
-
-Raster data, such as a GeoTIFF, is typically stored with the origin (0,0) at the top-left corner. This means the first row in the data array corresponds to the top of the raster, and the last row corresponds to the bottom. However, when you visualize data using Matplotlib, the default behavior assumes that the origin (0,0) is at the bottom-left corner. This discrepancy can cause the image to appear flipped vertically.
-
-::: {#dc106254 .cell execution_count=13}
-``` {.python .cell-code}
-data_array_flipped = np.flipud(data_array)
-```
-:::
-
-
-Now that we’ve read our data in, we’re ready to visualize the elevation using contour lines within Matplotlib (Note: We will be re-reading in the data again here due to NaN values).
-
-::: {#8d8c7a73 .cell execution_count=14}
-``` {.python .cell-code}
-#Plot out data with Matplotlib's 'contour'
-fig = plt.figure(figsize = (8, 8))
-ax = fig.add_subplot(111)
-plt.contour(data_array_flipped, cmap = "viridis", 
-            levels = list(range(0, 4000, 200)))
-            
-# Set limits for the x-axis
-ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
-ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
-             
-plt.title("Elevation Lebanon")
-cbar = plt.colorbar()
-plt.gca().set_aspect('equal', adjustable='box')
-plt.show()
-```
-
-::: {.cell-output .cell-output-display}
-![](maprasterPy_files/figure-html/cell-15-output-1.png){width=633 height=621}
-:::
-:::
-
-
-#Plot our data with Matplotlib's 'contourf'
-
-::: {#12f8494c .cell execution_count=15}
-``` {.python .cell-code}
-fig = plt.figure(figsize = (8, 8))
-ax = fig.add_subplot(111)
-plt.contourf(data_array_flipped, cmap = "gist_earth", 
-            levels = list(range(0, 4000, 200)))
-
-# Set limits for the x-axis
-ax.set_xlim([450, 1100])  # Replace xmin and xmax with your desired values
-ax.set_ylim([0, 750])  # Replace xmin and xmax with your desired values
-             
-plt.title("Elevation Lebanon")
-cbar = plt.colorbar()
-plt.gca().set_aspect('equal', adjustable='box')
-plt.show()
-```
-
-::: {.cell-output .cell-output-display}
-![](maprasterPy_files/figure-html/cell-16-output-1.png){width=633 height=619}
-:::
-:::
-
-
-### **Flood risk area**
-
-We can employ reclassification techniques to delineate flood risk areas. Specifically, we identify and classify areas where the elevation is under 10 meters above sea level as high-risk zones. This critical step in flood risk assessment helps communities and decision-makers pinpoint vulnerable areas, enabling them to implement effective mitigation strategies and disaster preparedness plans to safeguard against potential flooding events.
-
-::: {#dea3e249 .cell execution_count=16}
-``` {.python .cell-code}
-# Apply the function to create the flood_risk array
-flood_risk = np.where(data_array < 10, 1, 0) # assigning 1 if the element is less than 10, and 0 otherwise. We cleaned data_array earlier.
-```
-:::
-
-
-::: {#803aeea6 .cell execution_count=17}
-``` {.python .cell-code}
-# Create a new figure for the plot
-plt.figure()
-
-# Plot the flood_risk array
-plt.imshow(flood_risk, cmap='Greys')
-plt.title('Flood Risk Map')
-plt.show()
-```
-
-::: {.cell-output .cell-output-display}
-![](maprasterPy_files/figure-html/cell-18-output-1.png){width=547 height=431}
-:::
-:::
-
-
--->
 </section>
 <section id="spatial-join-with-vector-data" class="level3">
 <h3 class="anchored" data-anchor-id="spatial-join-with-vector-data"><strong>Spatial join with vector data</strong></h3>
 <p>You might want to extract values from a raster data set, and then map them within a vector framework or extract them to analyse them statistically. If it therefore very useful to know how to extract:</p>
-<div id="4ef9556b" class="cell" data-execution_count="18">
+<div id="d09c8dec" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load some geo-localized survey data</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>households <span class="op">=</span> gpd.read_file(<span class="st">"data/Lebanon/random_survey_LBN.shp"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1005,7 +880,7 @@ Important
 </div>
 </div>
 <p>It is also good practice to create a scratch folder where you do all your unzipping.</p>
-<div id="2d87db26" class="cell" data-execution_count="19">
+<div id="737873c0" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the raster files</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>raster1_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F101992.v4b_web.stable_lights.avg_vis.tif'</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>raster2_path <span class="op">=</span> <span class="st">'data/Kenya_Tanzania/F182013.v4c_web.stable_lights.avg_vis.tif'</span></span>
@@ -1020,7 +895,7 @@ Important
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stack the rasters along a new axis (depth axis)</span></span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>stacked_rasters <span class="op">=</span> np.stack([raster1, raster2], axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5bc73d62" class="cell" data-execution_count="20">
+<div id="fc78fa23" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">8</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1040,7 +915,7 @@ Important
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="maprasterPy_files/figure-html/cell-21-output-1.png" width="758" height="180" class="figure-img"></p>
+<p><img src="maprasterPy_files/figure-html/cell-15-output-1.png" width="758" height="180" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1050,7 +925,7 @@ Important
 <section id="country-shapefiles" class="level3">
 <h3 class="anchored" data-anchor-id="country-shapefiles"><strong>Country shapefiles</strong></h3>
 <p>The second step is to download the shapefiles for Kenya and Tanzania. GADM has made available national and subnational shapefiles for the world. The zips you download, such as <em>gadm36_KEN_shp.zip</em> from GADM should be placed in the <strong>Kenya_Tanzania</strong> folder. This is the link <a href="https://gadm.org/formats.html">gadm</a>.</p>
-<div id="c586ec40" class="cell" data-execution_count="21">
+<div id="f4de949d" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the data folder path</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>datafolder <span class="op">=</span> <span class="st">'data'</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1091,18 +966,18 @@ Important
 <pre><code>['data/Kenya_Tanzania/gadm36_TZA_shp.zip', 'data/Kenya_Tanzania/gadm36_KEN_shp.zip']
 ['data/Kenya_Tanzania/gadm36_TZA_shp.zip', 'data/Kenya_Tanzania/gadm36_KEN_shp.zip', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.dbf', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.dbf', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.dbf', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.dbf', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.shp', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.shp', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.shp', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.shx', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.cpg', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.cpg', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.cpg', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.shx', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.cpg', 'data/Kenya_Tanzania/scratch/gadm36_TZA_2.prj', 'data/Kenya_Tanzania/scratch/gadm36_TZA_3.prj', 'data/Kenya_Tanzania/scratch/gadm36_TZA_1.prj', 'data/Kenya_Tanzania/scratch/gadm36_TZA_0.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_0.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_1.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_3.prj', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.prj']
 ['data/Kenya_Tanzania/scratch/gadm36_TZA_2.shp', 'data/Kenya_Tanzania/scratch/gadm36_KEN_2.shp']
-[    GID_0    NAME_0     GID_1                      NAME_1 NL_NAME_1  \
-0     TZA  Tanzania   TZA.1_1                      Arusha      None   
-1     TZA  Tanzania   TZA.1_1                      Arusha      None   
-2     TZA  Tanzania   TZA.1_1                      Arusha      None   
-3     TZA  Tanzania   TZA.1_1                      Arusha      None   
-4     TZA  Tanzania   TZA.1_1                      Arusha      None   
-..    ...       ...       ...                         ...       ...   
-178   TZA  Tanzania  TZA.28_1              Zanzibar North      None   
-179   TZA  Tanzania  TZA.29_1  Zanzibar South and Central      None   
-180   TZA  Tanzania  TZA.29_1  Zanzibar South and Central      None   
-181   TZA  Tanzania  TZA.30_1               Zanzibar West      None   
-182   TZA  Tanzania  TZA.30_1               Zanzibar West      None   
+[    GID_0    NAME_0     GID_1                      NAME_1  NL_NAME_1  \
+0     TZA  Tanzania   TZA.1_1                      Arusha        NaN   
+1     TZA  Tanzania   TZA.1_1                      Arusha        NaN   
+2     TZA  Tanzania   TZA.1_1                      Arusha        NaN   
+3     TZA  Tanzania   TZA.1_1                      Arusha        NaN   
+4     TZA  Tanzania   TZA.1_1                      Arusha        NaN   
+..    ...       ...       ...                         ...        ...   
+178   TZA  Tanzania  TZA.28_1              Zanzibar North        NaN   
+179   TZA  Tanzania  TZA.29_1  Zanzibar South and Central        NaN   
+180   TZA  Tanzania  TZA.29_1  Zanzibar South and Central        NaN   
+181   TZA  Tanzania  TZA.30_1               Zanzibar West        NaN   
+182   TZA  Tanzania  TZA.30_1               Zanzibar West        NaN   
 
           GID_2         NAME_2  \
 0     TZA.1.2_1         Arusha   
@@ -1117,31 +992,31 @@ Important
 181  TZA.30.1_1      Magharibi   
 182  TZA.30.2_1          Mjini   
 
-                                             VARNAME_2 NL_NAME_2      TYPE_2  \
-0                                                 None      None      Wilaya   
-1                                                 None      None      Wilaya   
-2                                                 None      None      Wilaya   
-3                                                 None      None  Water body   
-4                                                 None      None  Water body   
-..                                                 ...       ...         ...   
-178  Kaskazini B|North B|Zansibar North|Zanzibar No...      None      Wilaya   
-179                                   Zanzibar Central      None      Wilaya   
-180                                     Zanzibar South      None      Wilaya   
-181                                      Zanzibar West      None      Wilaya   
-182                                      Zanzibar Town      None      Wilaya   
+                                             VARNAME_2  NL_NAME_2      TYPE_2  \
+0                                                  NaN        NaN      Wilaya   
+1                                                  NaN        NaN      Wilaya   
+2                                                  NaN        NaN      Wilaya   
+3                                                  NaN        NaN  Water body   
+4                                                  NaN        NaN  Water body   
+..                                                 ...        ...         ...   
+178  Kaskazini B|North B|Zansibar North|Zanzibar No...        NaN      Wilaya   
+179                                   Zanzibar Central        NaN      Wilaya   
+180                                     Zanzibar South        NaN      Wilaya   
+181                                      Zanzibar West        NaN      Wilaya   
+182                                      Zanzibar Town        NaN      Wilaya   
 
-      ENGTYPE_2  CC_2    HASC_2  \
-0      District    06  TZ.AS.AS   
-1      District    03      None   
-2      District    04  TZ.AS.KA   
-3    Water body  None      None   
-4    Water body  None      None   
-..          ...   ...       ...   
-178    District    02  TZ.ZN.NB   
-179    District    01  TZ.ZS.CE   
-180    District    02  TZ.ZS.SO   
-181    District    01  TZ.ZW.WE   
-182    District    02  TZ.ZW.TO   
+      ENGTYPE_2 CC_2    HASC_2  \
+0      District   06  TZ.AS.AS   
+1      District   03       NaN   
+2      District   04  TZ.AS.KA   
+3    Water body  NaN       NaN   
+4    Water body  NaN       NaN   
+..          ...  ...       ...   
+178    District   02  TZ.ZN.NB   
+179    District   01  TZ.ZS.CE   
+180    District   02  TZ.ZS.SO   
+181    District   01  TZ.ZW.WE   
+182    District   02  TZ.ZW.TO   
 
                                               geometry  
 0    MULTIPOLYGON (((36.86976 -3.52607, 36.86972 -3...  
@@ -1156,44 +1031,44 @@ Important
 181  MULTIPOLYGON (((39.33430 -6.41708, 39.33430 -6...  
 182  POLYGON ((39.22165 -6.18391, 39.22163 -6.18395...  
 
-[183 rows x 14 columns],     GID_0 NAME_0     GID_1      NAME_1 NL_NAME_1       GID_2           NAME_2  \
-0     KEN  Kenya   KEN.1_1     Baringo      None   KEN.1.1_1              805   
-1     KEN  Kenya   KEN.1_1     Baringo      None   KEN.1.2_1  Baringo Central   
-2     KEN  Kenya   KEN.1_1     Baringo      None   KEN.1.3_1    Baringo North   
-3     KEN  Kenya   KEN.1_1     Baringo      None   KEN.1.4_1    Baringo South   
-4     KEN  Kenya   KEN.1_1     Baringo      None   KEN.1.5_1    Eldama Ravine   
-..    ...    ...       ...         ...       ...         ...              ...   
-296   KEN  Kenya  KEN.47_1  West Pokot      None  KEN.47.2_1       Kapenguria   
-297   KEN  Kenya  KEN.47_1  West Pokot      None  KEN.47.3_1      Pokot South   
-298   KEN  Kenya  KEN.47_1  West Pokot      None  KEN.47.4_1            Sigor   
-299   KEN  Kenya  KEN.47_1  West Pokot      None  KEN.47.5_1        unknown 3   
-300   KEN  Kenya  KEN.47_1  West Pokot      None  KEN.47.6_1        unknown 8   
+[183 rows x 14 columns],     GID_0 NAME_0     GID_1      NAME_1  NL_NAME_1       GID_2  \
+0     KEN  Kenya   KEN.1_1     Baringo        NaN   KEN.1.1_1   
+1     KEN  Kenya   KEN.1_1     Baringo        NaN   KEN.1.2_1   
+2     KEN  Kenya   KEN.1_1     Baringo        NaN   KEN.1.3_1   
+3     KEN  Kenya   KEN.1_1     Baringo        NaN   KEN.1.4_1   
+4     KEN  Kenya   KEN.1_1     Baringo        NaN   KEN.1.5_1   
+..    ...    ...       ...         ...        ...         ...   
+296   KEN  Kenya  KEN.47_1  West Pokot        NaN  KEN.47.2_1   
+297   KEN  Kenya  KEN.47_1  West Pokot        NaN  KEN.47.3_1   
+298   KEN  Kenya  KEN.47_1  West Pokot        NaN  KEN.47.4_1   
+299   KEN  Kenya  KEN.47_1  West Pokot        NaN  KEN.47.5_1   
+300   KEN  Kenya  KEN.47_1  West Pokot        NaN  KEN.47.6_1   
 
-    VARNAME_2 NL_NAME_2        TYPE_2     ENGTYPE_2 CC_2 HASC_2  \
-0        None      None  Constituency  Constituency  162   None   
-1        None      None  Constituency  Constituency  159   None   
-2        None      None  Constituency  Constituency  158   None   
-3        None      None  Constituency  Constituency  160   None   
-4        None      None  Constituency  Constituency  162   None   
-..        ...       ...           ...           ...  ...    ...   
-296      None      None  Constituency  Constituency  129   None   
-297      None      None  Constituency  Constituency  132   None   
-298      None      None  Constituency  Constituency  130   None   
-299      None      None  Constituency  Constituency    0   None   
-300      None      None  Constituency  Constituency    0   None   
+              NAME_2  VARNAME_2  NL_NAME_2        TYPE_2     ENGTYPE_2 CC_2  \
+0                805        NaN        NaN  Constituency  Constituency  162   
+1    Baringo Central        NaN        NaN  Constituency  Constituency  159   
+2      Baringo North        NaN        NaN  Constituency  Constituency  158   
+3      Baringo South        NaN        NaN  Constituency  Constituency  160   
+4      Eldama Ravine        NaN        NaN  Constituency  Constituency  162   
+..               ...        ...        ...           ...           ...  ...   
+296       Kapenguria        NaN        NaN  Constituency  Constituency  129   
+297      Pokot South        NaN        NaN  Constituency  Constituency  132   
+298            Sigor        NaN        NaN  Constituency  Constituency  130   
+299        unknown 3        NaN        NaN  Constituency  Constituency    0   
+300        unknown 8        NaN        NaN  Constituency  Constituency    0   
 
-                                              geometry  
-0    POLYGON ((35.87727 -0.02973, 35.87699 -0.02947...  
-1    POLYGON ((35.80651 0.31642, 35.80780 0.31627, ...  
-2    POLYGON ((35.81394 0.60442, 35.81377 0.60363, ...  
-3    POLYGON ((36.25757 0.38328, 36.25766 0.38242, ...  
-4    POLYGON ((35.84734 -0.07654, 35.84637 -0.07804...  
-..                                                 ...  
-296  MULTIPOLYGON (((35.35352 1.65473, 35.35364 1.6...  
-297  POLYGON ((35.47385 1.00621, 35.47345 1.00622, ...  
-298  POLYGON ((35.59382 1.28579, 35.59303 1.28596, ...  
-299  POLYGON ((35.15631 1.49415, 35.15616 1.49424, ...  
-300  POLYGON ((35.06057 1.50514, 35.06191 1.50485, ...  
+     HASC_2                                           geometry  
+0       NaN  POLYGON ((35.87727 -0.02973, 35.87699 -0.02947...  
+1       NaN  POLYGON ((35.80651 0.31642, 35.80780 0.31627, ...  
+2       NaN  POLYGON ((35.81394 0.60442, 35.81377 0.60363, ...  
+3       NaN  POLYGON ((36.25757 0.38328, 36.25766 0.38242, ...  
+4       NaN  POLYGON ((35.84734 -0.07654, 35.84637 -0.07804...  
+..      ...                                                ...  
+296     NaN  MULTIPOLYGON (((35.35352 1.65473, 35.35364 1.6...  
+297     NaN  POLYGON ((35.47385 1.00621, 35.47345 1.00622, ...  
+298     NaN  POLYGON ((35.59382 1.28579, 35.59303 1.28596, ...  
+299     NaN  POLYGON ((35.15631 1.49415, 35.15616 1.49424, ...  
+300     NaN  POLYGON ((35.06057 1.50514, 35.06191 1.50485, ...  
 
 [301 rows x 14 columns]]</code></pre>
 </div>
@@ -1203,7 +1078,7 @@ Important
 <h3 class="anchored" data-anchor-id="merge-shapefiles"><strong>Merge Shapefiles</strong></h3>
 <p>Even though it is not necessary here, we can merge the shapefile to visualize all the regions at once.</p>
 <p>When doing zonal statistics, it is faster and easier to process one country at a time and then combine the resulting tables. If you have access to a computer with multiple cores, it is also possible to do “parallel processing” to process each chunk at the same time in parallel.</p>
-<div id="a4997b44" class="cell" data-execution_count="22">
+<div id="620182d1" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge all shapefiles into one GeoDataFrame</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> gpd.GeoDataFrame(pd.concat(shps, ignore_index<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1211,7 +1086,7 @@ Important
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>merged_countries <span class="op">=</span> merged_countries.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then plot Kenya and Tanzania at Regional Level 2:</p>
-<div id="116d16dd" class="cell" data-execution_count="23">
+<div id="fa3f0b18" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot all shapefiles</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1230,7 +1105,7 @@ Important
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="maprasterPy_files/figure-html/cell-24-output-1.png" width="641" height="819" class="figure-img"></p>
+<p><img src="maprasterPy_files/figure-html/cell-18-output-1.png" width="641" height="819" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1239,7 +1114,7 @@ Important
 <section id="zonal-statistics" class="level3">
 <h3 class="anchored" data-anchor-id="zonal-statistics"><strong>Zonal statistics</strong></h3>
 <p>We use the module <code>rasterstats</code> to calculate the sum and average nighttime for each region. The nighttime lights rasters are quite large, but as we do not need to do any operations on them (e.g.&nbsp;calculations using the overlay function, cropping or masking to the shapefiles extent), the process should be relatively fast.</p>
-<div id="30b61236" class="cell" data-execution_count="24">
+<div id="655ad148" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate zonal statistics for the first raster (1992)</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>stats_1992 <span class="op">=</span> zonal_stats(merged_countries, raster1_path, stats<span class="op">=</span>[<span class="st">'sum'</span>, <span class="st">'mean'</span>], nodata<span class="op">=-</span><span class="dv">9999</span>, geojson_out<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1287,7 +1162,7 @@ Important
 <section id="visualize" class="level3">
 <h3 class="anchored" data-anchor-id="visualize"><strong>Visualize</strong></h3>
 <p>Let’s have a first look at our result.</p>
-<div id="87b77014" class="cell" data-execution_count="25">
+<div id="3f2e7cfc" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure with two subplots side by side</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1309,13 +1184,13 @@ Important
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="maprasterPy_files/figure-html/cell-26-output-1.png" width="750" height="566" class="figure-img"></p>
+<p><img src="maprasterPy_files/figure-html/cell-20-output-1.png" width="751" height="566" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Most of the Kenya and Tanzania have really low values. To make the maps tell a story, we can use fixed breaks.</p>
-<div id="b5c388e1" class="cell" data-execution_count="26">
+<div id="99f11f93" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define breaks and labels</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>breaks <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dv">63</span>]</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'0-0.05'</span>, <span class="st">'0.05-0.1'</span>, <span class="st">'0.1-2'</span>, <span class="st">'2-63'</span>]</span>
@@ -1350,20 +1225,15 @@ Important
 <span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plots</span></span>
 <span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<<<<<<< Updated upstream
-<pre><code>/var/folders/_n/krcxvsq92k7bdd1nfpk3_9c00000gn/T/ipykernel_2522/423459503.py:30: UserWarning:
+<pre><code>/var/folders/79/65l52xsj7vq_4_t_l6k5bl2c0000gn/T/ipykernel_28308/423459503.py:30: UserWarning:
 
 This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
 </code></pre>
-=======
-<pre><code>/var/folders/hy/6sv_zjnd3xb09mr88dlvbtjw0000gn/T/ipykernel_58271/423459503.py:30: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
-  plt.tight_layout()</code></pre>
->>>>>>> Stashed changes
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="maprasterPy_files/figure-html/cell-27-output-2.png" width="758" height="532" class="figure-img"></p>
+<p><img src="maprasterPy_files/figure-html/cell-21-output-2.png" width="758" height="532" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1424,18 +1294,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1467,7 +1326,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/pietrostefani\.github\.io\/wma");
@@ -1475,7 +1356,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

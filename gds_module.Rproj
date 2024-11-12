@@ -13,5 +13,5 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 PythonType: conda
-PythonVersion: 3.11.5
-PythonPath: ~/anaconda3/envs/gds-python/bin/python3.11
+PythonVersion: 3.10.9
+PythonPath: ~/anaconda3/envs/geo-env-new/bin/python3.10

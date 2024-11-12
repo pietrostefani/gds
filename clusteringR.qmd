@@ -12,7 +12,7 @@ library(GGally)   # Loads 'GGally' for extending 'ggplot2' with tools for explor
 library(cluster)  # Imports 'cluster', a package for clustering methods used in data analysis.
 library(tidyverse) # Loads the 'tidyverse' collection of packages (including 'dplyr', 'ggplot2', 'tidyr', etc.) for data manipulation and visualization.
 library(spdep)    # Imports 'spdep' for spatial econometrics and spatial statistics.
-library(rgeoda)   # Loads 'rgeoda' for spatial analysis using Geoda functions in R.
+# library(rgeoda)   # Loads 'rgeoda' for spatial analysis using Geoda functions in R.
 ```
 
 ## Data
