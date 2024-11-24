@@ -56,11 +56,10 @@ book:
         - clusteringR.qmd
         - clusteringPy.qmd
         - clusteringDIY.qmd
-    # - part: spatialnetworks.qmd
-    #   chapters:
-    #     - spatialnetworksR.qmd
-    #     - spatialnetworksPy.qmd
-    #     - spatialnetworksDIY.qmd
+    - part: spatialnetworks.qmd
+      chapters:
+        - spatialnetworksR.qmd
+        - spatialnetworksPy.qmd
     - datasets.qmd
     - references.qmd
 

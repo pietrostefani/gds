@@ -168,7 +168,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksR.html">Lab in R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksR.html">Lab in R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -501,7 +501,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 - Spatial Networks</span></a>
+ <span class="menu-text">9 Spatial Networks</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -517,12 +517,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./spatialnetworksPy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab in Python</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./spatialnetworksDIY.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Do-It-Yourself</span></a>
   </div>
 </li>
       </ul>
@@ -575,7 +569,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksR.html">Lab in R</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksR.html">Lab in R</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-spatialnetworksR" class="quarto-section-identifier">Lab in R</span></h1>
 </div>
@@ -715,7 +709,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(network_isolated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 6/6 vertices, named, from 8c37aa6:
+<pre><code>+ 6/6 vertices, named, from cdf6e7e:
 [1] City 1 City 2 City 3 City 5 City 4 City 6</code></pre>
 </div>
 </div>
@@ -734,7 +728,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(network_isolated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 7/7 edges from 8c37aa6 (vertex names):
+<pre><code>+ 7/7 edges from cdf6e7e (vertex names):
 [1] City 1-&gt;City 2 City 2-&gt;City 3 City 2-&gt;City 5 City 3-&gt;City 1 City 3-&gt;City 4
 [6] City 4-&gt;City 5 City 5-&gt;City 1</code></pre>
 </div>
@@ -775,7 +769,7 @@ $population
 </section>
 <section id="basic-visualisation" class="level3">
 <h3 class="anchored" data-anchor-id="basic-visualisation">Basic visualisation</h3>
-<p>You have already seen how we can visualise networks using the base R function <code>plot()</code>. We will now elaborate on how individual components of the network can be visually adjusted using specific parameters in the plot function. More sophisticated data visualisations can be produced integrating geographic information, see Chapter 5 in <span class="citation" data-cites="roweetal2023-rps">Rowe, Cabrera-Arnau, and Piestrostefani (<a href="#ref-roweetal2023-rps" role="doc-biblioref">2023</a>)</span>, or using other packages such as <code>ggraph</code> in conjunction with <code>ggplot2</code> as we will see in the section on Percolation.</p>
+<p>You have already seen how we can visualise networks using the base R function <code>plot()</code>. We will now elaborate on how individual components of the network can be visually adjusted using specific parameters in the plot function. More sophisticated data visualisations can be produced integrating geographic information, see Chapter 5 in <span class="citation" data-cites="roweetal2023-rps">Rowe, Cabrera-Arnau, and Piestrostefani (<a href="references.html#ref-roweetal2023-rps" role="doc-biblioref">2023</a>)</span>, or using other packages such as <code>ggraph</code> in conjunction with <code>ggplot2</code> as we will see in the section on Percolation.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(network_isolated,</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">layout =</span> <span class="fu">layout.circle</span>(network_isolated),</span>
@@ -804,8 +798,8 @@ $population
 </section>
 <section id="spatial-networks-from-data" class="level2">
 <h2 class="anchored" data-anchor-id="spatial-networks-from-data">Spatial networks from data</h2>
-<p>So far in this computational notebook we have seen how to create networks with the <code>igraph</code> package with no input data. However, one of the most powerful features of the package is that it allows to easily create networks based on dataframes with information about the nodes and edges. Here, we work with a network of African roads constructed by considering all continental cities with more than 100,000 inhabitants as the nodes, obtained from <span class="citation" data-cites="Moriconi16">(<a href="#ref-Moriconi16" role="doc-biblioref">Moriconi-Ebrard, Harre, and Heinrigs 2016</a>)</span>. The edges of the network were created based on the road infrastructure from OpenStreetMap <span class="citation" data-cites="openstreetmapOpenStreetMap">(<a href="#ref-openstreetmapOpenStreetMap" role="doc-biblioref"><span>“Openstreetmap.org”</span></a>)</span>, using all primary roads, highways and trunk roads. Each edge was constructed by measuring the physical distance of consecutive points that describe the intricate patterns of the roads. Thus, a reasonably good estimate of its road length is available for each edge. Additional nodes besides cities are needed to describe the road infrastructure, such as some road intersections. These nodes are labelled as “transport nodes” and help define possible routes between cities. Some transport nodes correspond to towns with less than 100,000 inhabitants, so they are labelled as attached to nearby cities. The urban network enables us to consider the existing roads in the continent and measure the travelling distance rather than the physical distance between cities. The constructed network is formed by 7,361 nodes (2,162 cities and 5,199 transport nodes) and 9,159 edges. For more details on how the network was built, see <span class="citation" data-cites="PRIETOCURIELmethodsX">(<a href="#ref-PRIETOCURIELmethodsX" role="doc-biblioref">Prieto-Curiel et al. 2022</a>)</span>.</p>
-<p>The network is connected, meaning that it is possible to find a sequence of nodes and existing roads linking any pair of cities, and therefore, it is also possible to find the shortest road distance between any two cities and define it as the network distance. The network consists of 361,000 km of road infrastructure and connects 461 million people living in African cities, representing roughly 39% of the continent’s population <span class="citation" data-cites="PrietoCurielBeyond">(<a href="#ref-PrietoCurielBeyond" role="doc-biblioref">Prieto Curiel, Cabrera-Arnau, and Bishop 2022</a>)</span>.</p>
+<p>So far in this computational notebook we have seen how to create networks with the <code>igraph</code> package with no input data. However, one of the most powerful features of the package is that it allows to easily create networks based on dataframes with information about the nodes and edges. Here, we work with a network of African roads constructed by considering all continental cities with more than 100,000 inhabitants as the nodes, obtained from <span class="citation" data-cites="Moriconi16">(<a href="references.html#ref-Moriconi16" role="doc-biblioref">Moriconi-Ebrard, Harre, and Heinrigs 2016</a>)</span>. The edges of the network were created based on the road infrastructure from OpenStreetMap <span class="citation" data-cites="openstreetmapOpenStreetMap">(<a href="references.html#ref-openstreetmapOpenStreetMap" role="doc-biblioref"><span>“Openstreetmap.org”</span></a>)</span>, using all primary roads, highways and trunk roads. Each edge was constructed by measuring the physical distance of consecutive points that describe the intricate patterns of the roads. Thus, a reasonably good estimate of its road length is available for each edge. Additional nodes besides cities are needed to describe the road infrastructure, such as some road intersections. These nodes are labelled as “transport nodes” and help define possible routes between cities. Some transport nodes correspond to towns with less than 100,000 inhabitants, so they are labelled as attached to nearby cities. The urban network enables us to consider the existing roads in the continent and measure the travelling distance rather than the physical distance between cities. The constructed network is formed by 7,361 nodes (2,162 cities and 5,199 transport nodes) and 9,159 edges. For more details on how the network was built, see <span class="citation" data-cites="PRIETOCURIELmethodsX">(<a href="references.html#ref-PRIETOCURIELmethodsX" role="doc-biblioref">Prieto-Curiel et al. 2022</a>)</span>.</p>
+<p>The network is connected, meaning that it is possible to find a sequence of nodes and existing roads linking any pair of cities, and therefore, it is also possible to find the shortest road distance between any two cities and define it as the network distance. The network consists of 361,000 km of road infrastructure and connects 461 million people living in African cities, representing roughly 39% of the continent’s population <span class="citation" data-cites="PrietoCurielBeyond">(<a href="references.html#ref-PrietoCurielBeyond" role="doc-biblioref">Prieto Curiel, Cabrera-Arnau, and Bishop 2022</a>)</span>.</p>
 </section>
 <section id="creating-a-network-from-a-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-network-from-a-data-frame">Creating a network from a data frame</h2>
@@ -1068,16 +1062,18 @@ Note
 <section id="community-detection" class="level2">
 <h2 class="anchored" data-anchor-id="community-detection">Community detection</h2>
 <p>Community detection in network theory refers to the process of identifying groups or communities of nodes within a network that exhibit a higher density of connections internally compared to the connections between different groups. The goal is to uncover the underlying structure or organisation within a network by clustering nodes into distinct communities based on the patterns of connections or interactions between them.</p>
-<p>There are various algorithms and methods used for community detection, each with its own approach. Here, we use <code>cluster_walktrap</code> a function used for community detection in networks based on the Walktrap algorithm. The Walktrap algorithm is an approach for identifying communities in a network by leveraging random walks. It works by simulating short random walks within the graph and measuring the similarity between nodes based on how likely they are to be visited in the same random walk. Nodes that are frequently visited together are considered to belong to the same community. Understanding random walks is beyond the scope of this module. However, you should know that the weights argument in the <code>cluster_walktrap</code> function controls the weights of the edges. If it is NULL and the input graph has a ‘weight’ edge attribute, then that attribute will be used. If NULL and no such attribute is present, then the edges will have equal weights. Set this to NA if the graph was a ‘weight’ edge attribute, but you don’t want to use it for community detection. Larger edge weights increase the probability that an edge is selected by the random walker. In other words, larger edge weights correspond to stronger connections. Here, we set weights to be the inverse of the time to traverse an edge taking into account the effect of urban areas and borders.</p>
+<p>There are various algorithms and methods used for community detection, each with its own approach. Here, we use the Louvain method. The Louvain method is a widely used algorithm for detecting communities in large networks by optimising modularity, a measure of how well the network can be divided into groups. It works in two phases: first, it assigns each node to its own community and iteratively moves nodes to neighboring communities to maximise modularity. In the second phase, communities are merged into supernodes, and the process is repeated until no further improvement in modularity can be made. This method is efficient and scalable, making it suitable for large graphs.</p>
+<p>We first find the communities and assign each node to the community it belongs to.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>communities <span class="ot">&lt;-</span> <span class="fu">cluster_walktrap</span>(</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  g_africa,</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">weights =</span> <span class="dv">1</span><span class="sc">/</span>df_edges<span class="sc">$</span>timeUCB,</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">steps =</span> <span class="dv">1000</span>,</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">merges =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">modularity =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">membership =</span> <span class="cn">TRUE</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the Louvain method for community detection</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>communities <span class="ot">&lt;-</span> <span class="fu">cluster_louvain</span>(</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  g_africa,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">weights =</span> <span class="dv">1</span> <span class="sc">/</span> df_edges<span class="sc">$</span>timeUCB  <span class="co"># Use inverse of travel time as edge weights</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the detected community membership to the nodes</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(g_africa)<span class="sc">$</span>community <span class="ot">&lt;-</span> <span class="fu">membership</span>(communities)</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set node size based on population (example scaling)</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(g_africa)<span class="sc">$</span>size <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> (<span class="fu">V</span>(g_africa)<span class="sc">$</span>Pop2015 <span class="sc">/</span> <span class="dv">10000</span>)<span class="sc">^</span><span class="fl">0.4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can now replot the network colouring the nodes according to the community where they belong. Note that nodes that are nearby each other, tend to belong to the same community.</p>
 <div class="cell">
@@ -1094,9 +1090,13 @@ Note
 </div>
 </div>
 </div>
+<p>While other community detection algorithms are available, the Louvain method is particularly suitable for large graphs. Other options are walktrap, Girvan-Newman, spectral clusterint, etc. For an overview, you can check <span class="citation" data-cites="fortunato2010">(<a href="references.html#ref-fortunato2010" role="doc-biblioref">Fortunato 2010</a>)</span>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-fortunato2010" class="csl-entry" role="listitem">
+Fortunato, Santo. 2010. <span>“Community Detection in Graphs.”</span> <em>Physics Reports</em> 486 (3-5): 75–174. <a href="https://doi.org/10.1016/j.physrep.2009.11.002">https://doi.org/10.1016/j.physrep.2009.11.002</a>.
+</div>
 <div id="ref-Moriconi16" class="csl-entry" role="listitem">
 Moriconi-Ebrard, François, Dominique Harre, and Philipp Heinrigs. 2016. <em>Urbanisation Dynamics in West Africa 1950–2010</em>. https://doi.org/<a href="https://doi.org/https://doi.org/10.1787/9789264252233-en">https://doi.org/https://doi.org/10.1787/9789264252233-en</a>.
 </div>
@@ -1538,8 +1538,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./spatialnetworks.html" class="pagination-link" aria-label="9 - Spatial Networks">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">9 - Spatial Networks</span>
+      <a href="./spatialnetworks.html" class="pagination-link" aria-label="9 Spatial Networks">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">9 Spatial Networks</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -11,6 +11,7 @@ import pandas as pd
 import networkx as nx # network manipulation and analysis
 import matplotlib.pyplot as plt   # Offers enhanced data visualization capabilities
 import numpy as np
+import igraph
 ```
 
 ## Creating networks
@@ -22,13 +23,17 @@ Networks are used as a tool to conceptualise many real-life situations where a g
 To understand the basic concepts and components of a network, we create a small example network using the `networkx` package. We create an undirected network of 5 nodes and 6 edges.
 
 ```{python}
+
 # Create an undirected graph with 5 nodes and specified edges
 network = nx.Graph()
 network.add_edges_from([(1, 2), (2, 3), (2, 5), (3, 1), (3, 4), (4, 5), (5, 1)])
 
+# Create a figure and axes explicitly
+fig, ax = plt.subplots()
+
 # Draw the graph using a circular layout
 pos = nx.circular_layout(network)  # Set layout to circular
-nx.draw(network, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=12)
+nx.draw(network, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=12, ax=ax)
 
 # Display the plot
 plt.show()
@@ -41,10 +46,12 @@ If the connections between the nodes of a network are non-reciprocal, the networ
 network = nx.DiGraph()  # DiGraph is used for directed graphs
 network.add_edges_from([(1, 2), (2, 3), (2, 5), (3, 1), (3, 4), (4, 5), (5, 1)])
 
+# Create a figure and axes explicitly
+fig, ax = plt.subplots()
+
 # Draw the graph using a circular layout
 pos = nx.circular_layout(network)  # Set layout to circular
-nx.draw(network, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=12, 
-        arrows=True, arrowsize=20)  # Add arrows to indicate direction
+nx.draw(network,pos, with_labels=True, node_color='lightblue', node_size=500, font_size=12, arrows=True, arrowsize=20, ax=ax)  # Add arrows to indicate direction
 
 # Display the plot
 plt.show()
@@ -74,6 +81,9 @@ network_isolated.add_node("City 6")
 # Clear the previous plot (important to avoid overlap)
 plt.clf()
 
+# Create a figure and axes explicitly
+fig, ax = plt.subplots()
+
 # Draw the graph using a circular layout
 pos = nx.circular_layout(network_isolated)  # Set layout to circular
 
@@ -88,7 +98,8 @@ nx.draw(network_isolated, pos,
         edgecolors="red",                # Border color of nodes
         arrows=True,                     # Add arrows for directed edges
         arrowsize=15,                    # Arrow size
-        connectionstyle='arc3,rad=0.3')  # Curve edges
+        connectionstyle='arc3,rad=0.3',  # Curve edges
+        ax=ax)
 
 # Adjust label distance (using annotations for more control)
 for node, (x, y) in pos.items():
@@ -168,10 +179,8 @@ We can examine the adjacency matrix of the network. The adjacency represents the
 
 ```{python}
 # Get the adjacency matrix as a sparse matrix
-adj_matrix_sparse = nx.adjacency_matrix(network_isolated)
+adj_matrix = nx.adjacency_matrix(network_isolated).toarray()
 
-# Convert to a dense format (NumPy array)
-adj_matrix = adj_matrix_sparse.todense()
 adj_matrix
 ```
 
@@ -194,8 +203,8 @@ You have already seen how we can visualise networks using the base R function `p
 # Create a circular layout similar to layout.circle in R
 pos = nx.circular_layout(network_isolated)
 
-# Plot the graph
-plt.figure(figsize=(10,10))
+# Create a figure and axes explicitly
+fig, ax = plt.subplots()
 
 
 # Draw the network nodes
@@ -203,7 +212,8 @@ nx.draw_networkx_nodes(
     network_isolated, pos,
     node_color='yellow',
     node_size=100,
-    edgecolors='gray'
+    edgecolors='gray',
+    ax=ax
 )
 
 edge_width = [d['weight'] / 1000 for u, v, d in network_isolated.edges(data=True)]
@@ -215,7 +225,8 @@ nx.draw_networkx_edges(
     width=edge_width,
     arrows=True,
     arrowstyle='-|>',
-    arrowsize=5
+    arrowsize=5,
+    ax=ax
 )
 
 # Function to offset labels (moves labels further from the nodes)
@@ -234,7 +245,8 @@ pos_labels = offset_label_pos(pos, 0.12)
 nx.draw_networkx_labels(
     network_isolated, pos_labels,
     font_size=10,
-    font_color='black'
+    font_color='black',
+    ax=ax
 )
 
 # Set limits and display the plot
@@ -329,25 +341,32 @@ df_borders.boundary.plot(ax=ax, color='gray', linewidth=0.5)  # Plotting the bou
 
 # # Plotting the graph overlay
 positions = dict(zip(g_africa.nodes, coordinates))  # pos must be given to nx.draw() as a dictionary where keys are nodes and values are coordinates
+
 nx.draw_networkx_nodes(g_africa,
     pos = positions,
     ax=ax,
-    node_size = [g_africa.nodes[node]['size'] for node in g_africa.nodes],  # Use 'size' attribute
+    node_size = node_size,
     edgecolors='black',
     linewidths=0.3,
     node_color='red')
-    
-g_africa.remove_edges_from(nx.selfloop_edges(g_africa))    
+
+g_africa.remove_edges_from(nx.selfloop_edges(g_africa))
+
 nx.draw_networkx_edges(g_africa,
     pos = positions,
     width=0.5,
     edge_color = 'lightgray',
-    alpha = 0.05)
+    alpha = 0.05,
+    ax=ax)
 
 # Adjust the plot's appearance
 plt.axis('off')  # Turn off the axis
 plt.show()  # Show the plot
+
+
 ```
+
+Note that you might be able to achieve better visualisations using the package `igraph` for Python. While we demonstrate the use of `networkx` here due to its ease of use, `igraph` is known for handling large graphs more efficiently.
 
 ## Network metrics
 
@@ -382,6 +401,10 @@ The reciprocity of this UNdirected network is naturally 0 by definition.
 The degree of a node is the number of edges connected to it. The in-degree of a node in a directed network is the number of edges ending in a given node. The out-degree is the number of edges starting from a given node. The `degree_histogram()` function from `networkx` allows computing the number of nodes with a certain degree (frequency of degree) in the network. In order to visualise the results, we produce a histogram
 
 ```{python}
+
+# Create a plot 
+fig, ax = plt.subplots()
+
 # Compute frequency of each degree
 degree_hist = nx.degree_histogram(g_africa)
 
@@ -389,13 +412,11 @@ degree_hist = nx.degree_histogram(g_africa)
 degrees = range(len(degree_hist))  # Degree values
 frequency = degree_hist  # Number of nodes with each degree
 
-# Plot the degree distribution as a histogram
-plt.figure(figsize=(8, 6))
-plt.bar(degrees, frequency, width=0.80, color='skyblue', edgecolor='black')
+ax.bar(degrees, frequency, width=0.80, color='skyblue', edgecolor='black')
 
-plt.title("Degree Histogram")
-plt.xlabel("Degree")
-plt.ylabel("Number of Nodes")
+ax.set_title("Degree Histogram")
+ax.set_xlabel("Degree")
+ax.set_ylabel("Number of Nodes")
 
 plt.show()
 ```
@@ -469,8 +490,11 @@ closeness_centrality = nx.closeness_centrality(g_africa)
 # Extract the centrality values (we only need the values for the histogram)
 centrality_values = list(closeness_centrality.values())
 
-# Plot the histogram of closeness centrality
+
+# Create plot
 fig, ax = plt.subplots()
+
+# Plot the histogram of closeness centrality
 ax.hist(centrality_values, bins=50, edgecolor='black')
 ax.set_xlabel('Closeness Centrality')
 ax.set_ylabel('Frequency')
@@ -498,42 +522,60 @@ plt.show()
 How would you interpret the patterns observed in the histograms for closeness centrality and betweenness centrality?
 :::
 
-<!-- ## Community detection -->
+## Community detection
 
-<!-- Community detection in network theory refers to the process of identifying groups or communities of nodes within a network that exhibit a higher density of connections internally compared to the connections between different groups. The goal is to uncover the underlying structure or organisation within a network by clustering nodes into distinct communities based on the patterns of connections or interactions between them. -->
+Community detection in network theory refers to the process of identifying groups or communities of nodes within a network that exhibit a higher density of connections internally compared to the connections between different groups. The goal is to uncover the underlying structure or organisation within a network by clustering nodes into distinct communities based on the patterns of connections or interactions between them.
 
-<!-- There are various algorithms and methods used for community detection, each with its own approach. Here, we use `cluster_walktrap` a function used for community detection in networks based on the Walktrap algorithm. The Walktrap algorithm is an approach for identifying communities in a network by leveraging random walks. It works by simulating short random walks within the graph and measuring the similarity between nodes based on how likely they are to be visited in the same random walk. Nodes that are frequently visited together are considered to belong to the same community. Understanding random walks is beyond the scope of this module. However, you should know that the weights argument in the `cluster_walktrap` function controls the weights of the edges. If it is NULL and the input graph has a ‘weight’ edge attribute, then that attribute will be used. If NULL and no such attribute is present, then the edges will have equal weights. Set this to NA if the graph was a ‘weight’ edge attribute, but you don't want to use it for community detection. Larger edge weights increase the probability that an edge is selected by the random walker. In other words, larger edge weights correspond to stronger connections. Here, we set weights to be the inverse of the time to traverse an edge taking into account the effect of urban areas and borders. -->
+There are various algorithms and methods used for community detection, each with its own approach. Here, we use the Louvain method. The Louvain method is a widely used algorithm for detecting communities in large networks by optimising modularity, a measure of how well the network can be divided into groups. It works in two phases: first, it assigns each node to its own community and iteratively moves nodes to neighboring communities to maximise modularity. In the second phase, communities are merged into supernodes, and the process is repeated until no further improvement in modularity can be made. This method is efficient and scalable, making it suitable for large graphs.
 
-<!-- ```{python} -->
+We first find the communities and assign each node to the community it belongs to.
 
-<!-- communities <- cluster_walktrap( -->
+```{python}
+# Add weights to the edges (inverse of 'timeUCB')
+weights = { (row['from'], row['to']): 1/row['timeUCB'] for idx, row in df_edges.iterrows() }
+nx.set_edge_attributes(g_africa, weights, name='weight')
+# Perform Louvain community detection using louvain_communities
+communities = list(nx.community.louvain_communities(g_africa, weight='weight'))
+# Map each node to its community
+node_to_community = {}
+for community_id, community in enumerate(communities):
+    for node in community:
+        node_to_community[node] = community_id
+```
 
-<!--   g_africa, -->
+Then, we visualise the result by colouring nodes according to the community they belong to.
 
-<!--   weights = 1/df_edges$timeUCB, -->
+```{python}
+# Assign node sizes based on population data
+node_size = [1.3 * (g_africa.nodes[node].get('Pop2015', 0) / 10000) ** 0.55 for node in g_africa.nodes]
+# Assign colors based on community membership
+node_color = [node_to_community[node] for node in g_africa.nodes]
+# Plotthe geographic boundaries (replace df_borders with your actual geographic data)
+fig, ax = plt.subplots(figsize=(10, 10))
+df_borders.boundary.plot(ax=ax, color='gray', linewidth=0.5)
 
-<!--   steps = 1000, -->
+draw_nodes=nx.draw_networkx_nodes(g_africa,
+    pos = positions,
+    ax=ax,
+    node_size = node_size,
+    edgecolors='black',
+    linewidths=0.1,
+    node_color=node_color)
 
-<!--   merges = TRUE, -->
+g_africa.remove_edges_from(nx.selfloop_edges(g_africa))
 
-<!--   modularity = TRUE, -->
+draw_edges=nx.draw_networkx_edges(g_africa,
+    edgelist = g_africa.edges,
+    pos = positions,
+    width=0.3,
+    edge_color = 'gray',
+    alpha = 0.01,
+    ax=ax)
 
-<!--   membership = TRUE -->
 
-<!-- ) -->
+# Adjust the plot's appearance
+plt.axis('off')  # Turn off axis
+plt.show()
+```
 
-<!-- ``` -->
-
-<!-- We can now replot the network colouring the nodes according to the community where they belong. Note that nodes that are nearby each other, tend to belong to the same community. -->
-
-<!-- ```{python} -->
-
-<!-- plot(st_geometry(df_borders), border=adjustcolor("gray50")) -->
-
-<!-- plot(g_africa, layout=lo, rescale = FALSE, vertex.size=V(g_africa)$size, edge.curved=0.1, edge.width=1, edge.color ="gray90", vertex.color=membership(communities), vertex.frame.color="black", vertex.frame.width=0.2, -->
-
-<!-- vertex.label=" ", vertex.label.color="black", -->
-
-<!-- vertex.label.cex=.45, add = TRUE) -->
-
-<!-- ``` -->
+While other community detection algorithms are available, the Louvain method is particularly suitable for large graphs. Other options are walktrap, Girvan-Newman, spectral clusterint, etc. For an overview, you can check [@fortunato2010].

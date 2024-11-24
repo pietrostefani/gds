@@ -1,4 +1,4 @@
-# 9 - Spatial Networks {#sec-spatialnet .unnumbered}
+# 9 Spatial Networks {#sec-spatialnet .unnumbered}
 
 In this section we look into spatial networks. Networks are designed to characterise connections between elements. Specifically, spatial networks look at how observations are laid out in space and connected via infrastructure, flows, trade or other relationships.
 
