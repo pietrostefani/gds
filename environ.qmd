@@ -4,13 +4,13 @@ This course can be followed by anyone with access to a bit of technical infrastr
 
 ## Coding Languages
 
-In this course, you have the option to follow along using either `R` or `Python`, depending on your past experience with these programming languages and preference. Please choose **one** language to focus on and stick to it throughout. 
+In this course, you have the option to follow along using either `R` or `Python`, depending on your past experience with these programming languages and preference. Please choose **one** language to focus on and stick to it throughout.
 
-- If you want to follow the course in `R`, you can find instructions to set up your environment [here](https://pietrostefani.github.io/gds/environR.html).
+-   If you want to follow the course in `R`, you can find instructions to set up your environment [here](https://pietrostefani.github.io/gds/environR.html).
 
-- If you want to follow the course in `Python`, you can find instructions to set up your environment [here](https://pietrostefani.github.io/gds/environPy.html).
+-   If you want to follow the course in `Python`, you can find instructions to set up your environment [here](https://pietrostefani.github.io/gds/environPy.html).
 
-This course has two assignments and you will be required to submit both assignments in the same  programming languages. The next two sections will guide you through the process of setting up your development environment in `R` or `Python`, so you can get started with the course smoothly.
+This course has two assignments and you will be required to submit both assignments in the same programming languages. The next two sections will guide you through the process of setting up your development environment in `R` or `Python`, so you can get started with the course smoothly.
 
 ## Reproducing code in this book
 

@@ -168,7 +168,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksPy.html">Lab in Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksPy.html">Lab in Python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -501,7 +501,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./spatialnetworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9 - Spatial Networks</span></a>
+ <span class="menu-text">9 Spatial Networks</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -569,7 +569,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 - Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksPy.html">Lab in Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./spatialnetworks.html">9 Spatial Networks</a></li><li class="breadcrumb-item"><a href="./spatialnetworksPy.html">Lab in Python</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-spatialnetworksPy" class="quarto-section-identifier">Lab in Python</span></h1>
 </div>
@@ -589,7 +589,7 @@ window.Quarto = {
 
 
 <p>We start by loading all the libraries required for this section.</p>
-<div id="a140a13d" class="cell" data-execution_count="1">
+<div id="789b1d7e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># working with spatial data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data manipulation and visualisation</span></span>
@@ -605,7 +605,7 @@ window.Quarto = {
 <section id="starting-from-the-basics" class="level3">
 <h3 class="anchored" data-anchor-id="starting-from-the-basics">Starting from the basics</h3>
 <p>To understand the basic concepts and components of a network, we create a small example network using the <code>networkx</code> package. We create an undirected network of 5 nodes and 6 edges.</p>
-<div id="85fbdc3c" class="cell" data-execution_count="2">
+<div id="77cc6d6e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an undirected graph with 5 nodes and specified edges</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>network <span class="op">=</span> nx.Graph()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>network.add_edges_from([(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">3</span>), (<span class="dv">2</span>, <span class="dv">5</span>), (<span class="dv">3</span>, <span class="dv">1</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">4</span>, <span class="dv">5</span>), (<span class="dv">5</span>, <span class="dv">1</span>)])</span>
@@ -628,7 +628,7 @@ window.Quarto = {
 </div>
 </div>
 <p>If the connections between the nodes of a network are non-reciprocal, the network is called directed.</p>
-<div id="6ff4b6fe" class="cell" data-execution_count="3">
+<div id="16935543" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a directed graph with 5 nodes and specified edges</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>network <span class="op">=</span> nx.DiGraph()  <span class="co"># DiGraph is used for directed graphs</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>network.add_edges_from([(<span class="dv">1</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">3</span>), (<span class="dv">2</span>, <span class="dv">5</span>), (<span class="dv">3</span>, <span class="dv">1</span>), (<span class="dv">3</span>, <span class="dv">4</span>), (<span class="dv">4</span>, <span class="dv">5</span>), (<span class="dv">5</span>, <span class="dv">1</span>)])</span>
@@ -664,7 +664,7 @@ Note
 <p>We will describe the various arguments within plot which can be used to style your data visualisation</p>
 </div>
 </div>
-<div id="9362d1c8" class="cell" data-execution_count="4">
+<div id="9f61ba5b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a directed graph and add edges between cities</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>network_isolated <span class="op">=</span> nx.DiGraph()  <span class="co"># Directed graph</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [(<span class="st">"City 1"</span>, <span class="st">"City 2"</span>),</span>
@@ -723,19 +723,19 @@ Note
 <section id="adding-attributes" class="level3">
 <h3 class="anchored" data-anchor-id="adding-attributes">Adding attributes</h3>
 <p>We can add attributes to individual components of the network. To add attributes to nodes, we need to access them:</p>
-<div id="439e42e0" class="cell" data-execution_count="5">
+<div id="e46d7bb7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(network_isolated.nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>['City 1', 'City 2', 'City 3', 'City 5', 'City 4', 'City 6']</code></pre>
 </div>
 </div>
 <p>Additional node attributes can be added through the function <code>set_node_attributes()</code>, which requires a network object, a dictionary keyed by node to an attribute value such as population size, and the name of the attribute:</p>
-<div id="9c348fdd" class="cell" data-execution_count="6">
+<div id="46d8ed31" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> {<span class="st">'City 1'</span>: <span class="dv">92000</span>, <span class="st">'City 2'</span>: <span class="dv">549000</span>, <span class="st">'City 3'</span>: <span class="dv">1786000</span>, <span class="st">'City 4'</span>: <span class="dv">74000</span>, <span class="st">'City 5'</span>: <span class="dv">8000</span>, <span class="st">'City 6'</span>: <span class="dv">21000</span>}</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(network_isolated, populations, <span class="st">"population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and accessed:</p>
-<div id="00a1bb48" class="cell" data-execution_count="7">
+<div id="ab8a26d5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>nx.get_node_attributes(network_isolated, <span class="st">"population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>{'City 1': 92000,
@@ -747,7 +747,7 @@ Note
 </div>
 </div>
 <p>or via</p>
-<div id="6170b365" class="cell" data-execution_count="8">
+<div id="d209df97" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(network_isolated.nodes(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">1</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>['population']</code></pre>
@@ -755,7 +755,7 @@ Note
 </div>
 <p>for the names of these attributes.</p>
 <p>Dictionaries are data structures commonly used in python which allow to map a set of keys with values, like cities with their respective populations. Dictionaries can be defined as we did for the variable <code>populations</code> or in a faster way via what is known as a dictionary comprehension, which comes handy if we have the keys and the values stored as a list:</p>
-<div id="cac5d1f3" class="cell" data-execution_count="9">
+<div id="ec9bfce9" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> <span class="bu">list</span>(network_isolated.nodes)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>city_populations <span class="op">=</span> [<span class="dv">92000</span>, <span class="dv">549000</span>, <span class="dv">1786000</span>, <span class="dv">74000</span>, <span class="dv">8000</span>, <span class="dv">21000</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> {cities[i]: city_populations[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cities))}</span>
@@ -771,17 +771,17 @@ Note
 </div>
 <p>For more information on dictionaries, please check the python documentation, for example at <a href="https://docs.python.org/" class="uri">https://docs.python.org/</a>.</p>
 <p>We can also access the edges:</p>
-<div id="f3facc03" class="cell" data-execution_count="10">
+<div id="3ccef51f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> <span class="bu">list</span>(network_isolated.edges())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can add edge attributes, such as the number of people moving from an origin to a destination city. We call this attribute edge weight. The size of the connection between two places often represent their importance or <code>weight</code> in the network.</p>
-<div id="6b46b7cd" class="cell" data-execution_count="11">
+<div id="53485a9f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>weight_edges <span class="op">=</span> [<span class="dv">2000</span>, <span class="dv">5000</span>, <span class="dv">1000</span>, <span class="dv">1000</span>, <span class="dv">4000</span>, <span class="dv">3500</span>, <span class="dv">7000</span>]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>weight <span class="op">=</span> {edges[i]: weight_edges[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(edges))}</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>nx.set_edge_attributes(network_isolated, weight, <span class="st">"weight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The edges attributes can be accessed via:</p>
-<div id="3ea3cbf4" class="cell" data-execution_count="12">
+<div id="c1076d7e" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>nx.get_edge_attributes(network_isolated, <span class="st">"weight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>{('City 1', 'City 2'): 2000,
@@ -794,20 +794,20 @@ Note
 </div>
 </div>
 <p>or for the names of these attributes:</p>
-<div id="d1de5a6f" class="cell" data-execution_count="13">
+<div id="59949ce7" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(network_isolated.edges(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">2</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>['weight']</code></pre>
 </div>
 </div>
 <p>We can examine the adjacency matrix of the network. The adjacency represents the presence of edges between different pairs of nodes. In our example, each row corresponds to an origin city and each column to a destination:</p>
-<div id="5c85cad0" class="cell" data-execution_count="14">
+<div id="75023dc0" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the adjacency matrix as a sparse matrix</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>adj_matrix <span class="op">=</span> nx.adjacency_matrix(network_isolated).toarray()</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>adj_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/79/65l52xsj7vq_4_t_l6k5bl2c0000gn/T/ipykernel_12704/2990130939.py:2: FutureWarning:
+<pre><code>/var/folders/79/65l52xsj7vq_4_t_l6k5bl2c0000gn/T/ipykernel_14085/2990130939.py:2: FutureWarning:
 
 adjacency_matrix will return a scipy.sparse array instead of a matrix in Networkx 3.0.
 </code></pre>
@@ -822,13 +822,13 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 </div>
 </div>
 <p>We can also look at the existing node and edge attributes.</p>
-<div id="c5b6419a" class="cell" data-execution_count="15">
+<div id="add7a6ac" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>network_isolated.nodes(data<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>NodeDataView({'City 1': {'population': 92000}, 'City 2': {'population': 549000}, 'City 3': {'population': 1786000}, 'City 5': {'population': 8000}, 'City 4': {'population': 74000}, 'City 6': {'population': 21000}})</code></pre>
 </div>
 </div>
-<div id="a6cfe596" class="cell" data-execution_count="16">
+<div id="713e94c4" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>network_isolated.edges(data<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>OutEdgeDataView([('City 1', 'City 2', {'weight': 2000}), ('City 2', 'City 3', {'weight': 5000}), ('City 2', 'City 5', {'weight': 1000}), ('City 3', 'City 1', {'weight': 1000}), ('City 3', 'City 4', {'weight': 4000}), ('City 5', 'City 1', {'weight': 3500}), ('City 4', 'City 5', {'weight': 7000})])</code></pre>
@@ -838,7 +838,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <section id="basic-visualisation" class="level3">
 <h3 class="anchored" data-anchor-id="basic-visualisation">Basic visualisation</h3>
 <p>You have already seen how we can visualise networks using the base R function <code>plot()</code>. We will now elaborate on how individual components of the network can be visually adjusted using specific parameters in the plot function. More sophisticated data visualisations can be produced integrating geographic information, see Chapter 5 in <span class="citation" data-cites="roweetal2023-rps">Rowe, Cabrera-Arnau, and Piestrostefani (<a href="references.html#ref-roweetal2023-rps" role="doc-biblioref">2023</a>)</span>, or using other packages such as <code>ggraph</code> in conjunction with <code>ggplot2</code>.</p>
-<div id="1c2b545e" class="cell" data-execution_count="17">
+<div id="80f1b6c1" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming `network_isolated` is a NetworkX graph object</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a circular layout similar to layout.circle in R</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.circular_layout(network_isolated)</span>
@@ -911,14 +911,14 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <section id="creating-a-network-from-a-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-network-from-a-data-frame">Creating a network from a data frame</h2>
 <p>The data that specifies the nodes and edges of the African road network is stored in two csv files, one for nodes and one for edges. This data can be loaded in two data frames:</p>
-<div id="a47fe1c9" class="cell" data-execution_count="18">
+<div id="2121ac9d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV file containing network nodes data</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_nodes <span class="op">=</span> pd.read_csv(<span class="st">"./data/Africa/AfricaNetworkNodes.csv"</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>df_edges <span class="op">=</span> pd.read_csv(<span class="st">"./data/Africa/AfricaNetworkEdges.csv"</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then create an undirected graph as an igraph object from the data frames corresponding to the nodes and edges:</p>
-<div id="2605a8c9" class="cell" data-execution_count="19">
+<div id="be197064" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an undirected graph from the edge DataFrame</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>g_africa <span class="op">=</span> nx.from_pandas_edgelist(df_edges, source<span class="op">=</span><span class="st">'from'</span>, target<span class="op">=</span><span class="st">'to'</span>, edge_attr<span class="op">=</span><span class="va">True</span>, create_using<span class="op">=</span>nx.Graph())</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -927,7 +927,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>nx.set_node_attributes(g_africa, node_attr_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can have a look at the names of the vertex attributes, which are automatically taken from the columns in the <code>df_nodes</code> data frame:</p>
-<div id="6a1e84c0" class="cell" data-execution_count="20">
+<div id="2320b114" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the attribute names associated with vertices in the 'g_africa' graph</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(g_africa.nodes(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">1</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
@@ -936,7 +936,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 </div>
 <p>where “name” is the ID of each node in the network, “agglosName” is the name of the city represented by the node, it is set to “road” if the node is a transport node. “x” and “y” represent the coordinates of each node, “Pop2015” is the population of the city nodes, “ISO3” is the code for the country that each node is situated in, “Region” represents the region within the African continent that each node is situated in, and “Between” and “degree” represent the betweenness centrality and the degree of each node in the network, which we will also compute below.</p>
 <p>We can also obtain the names of the edge attributes, which are taken from the columns in the <code>df_edges</code> data frame:</p>
-<div id="856ab94a" class="cell" data-execution_count="21">
+<div id="8abe6777" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the attribute names associated with edges in the 'g_africa' graph</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">next</span>(<span class="bu">iter</span>(g_africa.edges(data<span class="op">=</span><span class="va">True</span>)))[<span class="dv">2</span>].keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -947,7 +947,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <section id="visualising-the-african-road-network-as-a-spatial-network" class="level3">
 <h3 class="anchored" data-anchor-id="visualising-the-african-road-network-as-a-spatial-network">Visualising the African road network as a spatial network</h3>
 <p>What does the African road network that we just built look like? We can find out very easily using the <code>plot</code> function. But in order to achieve a nice-looking graph, we need to play a bit with the values of the arguments of this function. For example, we will plot the size of the nodes according to the population of the cities that they represent. But some cities are orders of magnitude larger than others, which would result in some gigantic nodes for a few cities and tiny ones for the majority. In order to weaken this effect, we first apply a scaling function that redefines the size of the nodes:</p>
-<div id="2b730f40" class="cell" data-execution_count="22">
+<div id="31d8f4ea" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and assign a 'size' attribute to vertices in the 'g_africa' graph</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The size is determined based on the population data ('Pop2015') of each vertex</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -960,15 +960,15 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 </div>
 <p>Now we are ready to plot the network, with a few extra modifications to the default plot in order to improve the appearance. As an exercise, you may want to try to plot the default visualisation. If you do this, you will understand better why it is worth it spending some time playing with the values of the parameters in the plot function.</p>
 <p>We will include the outline of the African countries in the background. To do this, we upload the necessary data:</p>
-<div id="d1769225" class="cell" data-execution_count="23">
+<div id="2dfb72b9" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_borders <span class="op">=</span> gpd.read_file(<span class="st">"./data/Africa/Africa_Boundaries.geojson"</span>)  <span class="co"># Read GeoJSON file containing Africa boundaries into a data frame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We set the layout (lo) of the nodes in the network according to the <code>x</code> and <code>y</code> columns in <code>df_nodes</code>:</p>
-<div id="818ad881" class="cell" data-execution_count="24">
+<div id="abafb854" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> np.column_stack((df_nodes[<span class="st">'x'</span>], df_nodes[<span class="st">'y'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can now plot the background map with the country outlines as well as the network. Running the cell below might take some time depending on the processign power of your computer.</p>
-<div id="5614db2e" class="cell" data-execution_count="25">
+<div id="82c9cd29" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot for the geographic boundaries</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>df_borders.boundary.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'gray'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># Plotting the boundaries</span></span>
@@ -1013,7 +1013,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <section id="density" class="level3">
 <h3 class="anchored" data-anchor-id="density">Density</h3>
 <p>The density of a network refers to the proportion of existing edges over all possible edges. In a network with <span class="math inline">\(n\)</span> nodes, the total number of possible edges is <span class="math inline">\(n \times (n-1)\)</span>. A density equal to <span class="math inline">\(1\)</span> corresponds to a situation where <span class="math inline">\(n \times (n-1)\)</span> edges are present. A network with no edges at all would have density equal to 0. We can obtain the density of the African network by running the following code:</p>
-<div id="49f8ae9e" class="cell" data-execution_count="26">
+<div id="27ba4f57" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the edge density of the 'g_africa' graph</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Edge density is the ratio of the number of edges to the number of possible edges</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loops (self-edges) are excluded from the calculation</span></span>
@@ -1027,7 +1027,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <section id="reciprocity" class="level3">
 <h3 class="anchored" data-anchor-id="reciprocity">Reciprocity</h3>
 <p>The reciprocity in a directed network is the proportion of reciprocated connections between nodes (i.e.&nbsp;number of pairs of nodes with edges in both directions) from all the existing edges.</p>
-<div id="4706c0eb" class="cell" data-execution_count="27">
+<div id="48d4de3e" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the reciprocity of the edges in the 'g_africa' graph</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>nx.reciprocity(g_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -1039,7 +1039,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <section id="degree" class="level3">
 <h3 class="anchored" data-anchor-id="degree">Degree</h3>
 <p>The degree of a node is the number of edges connected to it. The in-degree of a node in a directed network is the number of edges ending in a given node. The out-degree is the number of edges starting from a given node. The <code>degree_histogram()</code> function from <code>networkx</code> allows computing the number of nodes with a certain degree (frequency of degree) in the network. In order to visualise the results, we produce a histogram</p>
-<div id="8ab42f0b" class="cell" data-execution_count="28">
+<div id="6dd632e4" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot </span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1066,7 +1066,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 </div>
 </div>
 <p>We observe that most nodes have degree 3. Nodes of degree 1 are terminal nodes. Nodes of degree 2 are relatively less common than those of degree 1 and 3. This is likely due to the method used to build the network, where all the transport nodes of degree 2 are eliminated in order to simplify the network. Beyond degree 4, it is relatively rare to find any nodes. From the histogram, we see the maximum degree observed in the network is 13. Below, we obtain the ID of the node with the maximum degree as well as the value of the degree (13).</p>
-<div id="e3bbc389" class="cell" data-execution_count="29">
+<div id="9d4f8bd5" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the node with the maximum degree</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>max_degree_node <span class="op">=</span> <span class="bu">max</span>(g_africa.degree, key<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="dv">1</span>])  <span class="co"># x[0] is the node, x[1] is the degree</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1076,7 +1076,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 </div>
 </div>
 <p>and the name of the node:</p>
-<div id="0b7ce530" class="cell" data-execution_count="30">
+<div id="2316a791" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the "name" attribute of the node with the maximum degree</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>max_degree_node_name <span class="op">=</span> g_africa.nodes[max_degree_node[<span class="dv">0</span>]][<span class="st">'agglosName'</span>]</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1092,7 +1092,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <p>The path length of a path between nodes <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is generally defined as the number of edges forming this path. The shortest path is the minimum count of edges present to travel from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</p>
 <p>The path length can be defined in alternative ways. For example, the path length can be defined as the sum of the weights of the edges forming a path if the edges are weighted.</p>
 <p>We can use the function <code>shortest_path()</code> to find the shortest path between a given pair of nodes. For example, between Cairo and Lagos. We store the output of the shortest path function in a list called <code>path</code> which contains the sequence of nodes in the shortest path.</p>
-<div id="62ede4a9" class="cell" data-execution_count="31">
+<div id="62c858c8" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the corresponding nodes by their name attributes</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>node_names <span class="op">=</span> {data[<span class="st">'agglosName'</span>]: node <span class="cf">for</span> node, data <span class="kw">in</span> g_africa.nodes(data<span class="op">=</span><span class="va">True</span>)}</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>start_node <span class="op">=</span> node_names.get(<span class="st">"Cairo"</span>)</span>
@@ -1101,7 +1101,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> nx.shortest_path(g_africa, source<span class="op">=</span>start_node, target<span class="op">=</span>end_node)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can extract the values of this to obtain the edges, which we then use to compute the total length of the shortest path between the two cities.</p>
-<div id="383032c7" class="cell" data-execution_count="32">
+<div id="2a937936" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>path_length <span class="op">=</span> nx.shortest_path_length(g_africa, source<span class="op">=</span>start_node, target<span class="op">=</span>end_node, weight<span class="op">=</span><span class="st">'l'</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(path_length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1110,14 +1110,14 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 </div>
 <p>We obtain that the shortest path is 6,084.359 km long. You can check for example on Google Maps what the distance by road is between the two cities. What do you obtain? What is the relative error between our estimation and the value from Google Maps?</p>
 <p>Of all shortest paths in a network, the longest path length is the network diameter. The diameter of the African road network is the length of the longest shortest path between any pair of nodes:</p>
-<div id="44683fc1" class="cell" data-execution_count="33">
+<div id="2152ab74" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>nx.diameter(g_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>138</code></pre>
 </div>
 </div>
 <p>The mean distance is the average length of all shortest paths in the network. The mean distance will always be smaller or equal than the diameter. It is given by:</p>
-<div id="469d8de6" class="cell" data-execution_count="34">
+<div id="c49a8658" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>nx.average_shortest_path_length(g_africa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>55.86020422703673</code></pre>
@@ -1128,7 +1128,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 <section id="centrality" class="level2">
 <h2 class="anchored" data-anchor-id="centrality">Centrality</h2>
 <p>Centrality metrics assign scores to nodes (and sometimes also edges) according to their position within a network. These metrics can be used to identify the most influential nodes. Two important centrality metrics are (1) closeness centrality, and (2) betweenness centrality. Closeness centrality is a measure of the shortest path length between a node and all the other nodes. For a given node, it is computed as the inverse of the average shortest paths between that node and every other node in the network. A node with closeness centrality close to 1 indicates that on average the node is very close to the other nodes in the network. A closeness centrality of 0 represents an isolated node. Below we compute the closeness centrality using unweighted edges and represent the results in a histogram. The distribution looks bimodal (this means that the histogram has two frequency peaks).</p>
-<div id="d9e96749" class="cell" data-execution_count="35">
+<div id="e47a3a1e" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the closeness centrality for each vertex in the 'g_africa' graph, using unweighted edges </span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>closeness_centrality <span class="op">=</span> nx.closeness_centrality(g_africa)</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1153,7 +1153,7 @@ adjacency_matrix will return a scipy.sparse array instead of a matrix in Network
 </div>
 </div>
 <p>Betweenness centrality is a measure of the number of shortest paths going through a node. Nodes with high values of betweenness centrality indicates that they play a very important role in the overall connectivity of the network. Betweenness can also be computed for edges. We also compute the betweenness centrality for all nodes and represent it as a histogram.</p>
-<div id="5f4011ac" class="cell" data-execution_count="36">
+<div id="1bd11fc7" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the betweenness centrality for each vertex in the 'g_africa' graph, using unweighted edges </span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>betweenness_centrality <span class="op">=</span> nx.betweenness_centrality(g_africa)</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1193,7 +1193,7 @@ Note
 <p>Community detection in network theory refers to the process of identifying groups or communities of nodes within a network that exhibit a higher density of connections internally compared to the connections between different groups. The goal is to uncover the underlying structure or organisation within a network by clustering nodes into distinct communities based on the patterns of connections or interactions between them.</p>
 <p>There are various algorithms and methods used for community detection, each with its own approach. Here, we use the Louvain method. The Louvain method is a widely used algorithm for detecting communities in large networks by optimising modularity, a measure of how well the network can be divided into groups. It works in two phases: first, it assigns each node to its own community and iteratively moves nodes to neighboring communities to maximise modularity. In the second phase, communities are merged into supernodes, and the process is repeated until no further improvement in modularity can be made. This method is efficient and scalable, making it suitable for large graphs.</p>
 <p>We first find the communities and assign each node to the community it belongs to.</p>
-<div id="ec532fb7" class="cell" data-execution_count="37">
+<div id="ad521f0d" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add weights to the edges (inverse of 'timeUCB')</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> { (row[<span class="st">'from'</span>], row[<span class="st">'to'</span>]): <span class="dv">1</span><span class="op">/</span>row[<span class="st">'timeUCB'</span>] <span class="cf">for</span> idx, row <span class="kw">in</span> df_edges.iterrows() }</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>nx.set_edge_attributes(g_africa, weights, name<span class="op">=</span><span class="st">'weight'</span>)</span>
@@ -1206,7 +1206,7 @@ Note
 <span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>        node_to_community[node] <span class="op">=</span> community_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then, we visualise the result by colouring nodes according to the community they belong to.</p>
-<div id="09182e9b" class="cell" data-execution_count="38">
+<div id="bc13abd0" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign node sizes based on population data</span></span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>node_size <span class="op">=</span> [<span class="fl">1.3</span> <span class="op">*</span> (g_africa.nodes[node].get(<span class="st">'Pop2015'</span>, <span class="dv">0</span>) <span class="op">/</span> <span class="dv">10000</span>) <span class="op">**</span> <span class="fl">0.55</span> <span class="cf">for</span> node <span class="kw">in</span> g_africa.nodes]</span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign colors based on community membership</span></span>
